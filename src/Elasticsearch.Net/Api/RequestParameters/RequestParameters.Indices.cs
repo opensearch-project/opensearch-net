@@ -290,7 +290,7 @@ namespace Elasticsearch.Net.Specification.IndicesApi
 			set => Q("allow_no_indices", value);
 		}
 
-		///<summary>Whether wildcard expressions should get expanded to open or closed indices (default: open)</summary>
+		///<summary>Whether wildcard expressions should get expanded to open, closed, or hidden indices</summary>
 		public ExpandWildcards? ExpandWildcards
 		{
 			get => Q<ExpandWildcards? >("expand_wildcards");
@@ -1170,6 +1170,13 @@ namespace Elasticsearch.Net.Specification.IndicesApi
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
+	}
+
+	///<summary>Request options for ModifyDataStream <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/data-streams.html</para></summary>
+	public class ModifyDataStreamRequestParameters : RequestParameters<ModifyDataStreamRequestParameters>
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+		public override bool SupportsBody => true;
 	}
 
 	///<summary>Request options for Open <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html</para></summary>

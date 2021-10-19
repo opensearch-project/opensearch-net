@@ -51,28 +51,28 @@ namespace Elasticsearch.Net.Specification.NodesApi
 		///<param name = "maxArchiveVersion">Specifies the maximum archive_version to be cleared from the archive.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
-		public TResponse ClearMeteringArchive<TResponse>(string nodeId, long maxArchiveVersion, ClearMeteringArchiveRequestParameters requestParameters = null)
+		public TResponse ClearRepositoriesMeteringArchive<TResponse>(string nodeId, long maxArchiveVersion, ClearRepositoriesMeteringArchiveRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequest<TResponse>(DELETE, Url($"_nodes/{nodeId:nodeId}/_repositories_metering/{maxArchiveVersion:maxArchiveVersion}"), null, RequestParams(requestParameters));
 		///<summary>DELETE on /_nodes/{node_id}/_repositories_metering/{max_archive_version} <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/clear-repositories-metering-archive-api.html</para></summary>
 		///<param name = "nodeId">Comma-separated list of node IDs or names used to limit returned information.</param>
 		///<param name = "maxArchiveVersion">Specifies the maximum archive_version to be cleared from the archive.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
-		[MapsApi("nodes.clear_metering_archive", "node_id, max_archive_version")]
-		public Task<TResponse> ClearMeteringArchiveAsync<TResponse>(string nodeId, long maxArchiveVersion, ClearMeteringArchiveRequestParameters requestParameters = null, CancellationToken ctx = default)
+		[MapsApi("nodes.clear_repositories_metering_archive", "node_id, max_archive_version")]
+		public Task<TResponse> ClearRepositoriesMeteringArchiveAsync<TResponse>(string nodeId, long maxArchiveVersion, ClearRepositoriesMeteringArchiveRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"_nodes/{nodeId:nodeId}/_repositories_metering/{maxArchiveVersion:maxArchiveVersion}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{node_id}/_repositories_metering <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/get-repositories-metering-api.html</para></summary>
 		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
-		public TResponse GetMeteringInfo<TResponse>(string nodeId, GetMeteringInfoRequestParameters requestParameters = null)
+		public TResponse GetRepositoriesMeteringInfo<TResponse>(string nodeId, GetRepositoriesMeteringInfoRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/_repositories_metering"), null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{node_id}/_repositories_metering <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/get-repositories-metering-api.html</para></summary>
 		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
-		[MapsApi("nodes.get_metering_info", "node_id")]
-		public Task<TResponse> GetMeteringInfoAsync<TResponse>(string nodeId, GetMeteringInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
+		[MapsApi("nodes.get_repositories_metering_info", "node_id")]
+		public Task<TResponse> GetRepositoriesMeteringInfoAsync<TResponse>(string nodeId, GetRepositoriesMeteringInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/_repositories_metering"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/hot_threads <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -115,25 +115,25 @@ namespace Elasticsearch.Net.Specification.NodesApi
 		public Task<TResponse> InfoAsync<TResponse>(string nodeId, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{metric} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html</para></summary>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+		///<param name = "metric">A comma-separated list of metrics you wish returned. Use `_all` to retrieve all metrics and `_none` to retrieve the node identity without any additional metrics.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse InfoForAll<TResponse>(string metric, NodesInfoRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{metric:metric}"), null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{metric} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html</para></summary>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+		///<param name = "metric">A comma-separated list of metrics you wish returned. Use `_all` to retrieve all metrics and `_none` to retrieve the node identity without any additional metrics.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		[MapsApi("nodes.info", "metric")]
 		public Task<TResponse> InfoForAllAsync<TResponse>(string metric, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{node_id}/{metric} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html</para></summary>
 		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+		///<param name = "metric">A comma-separated list of metrics you wish returned. Use `_all` to retrieve all metrics and `_none` to retrieve the node identity without any additional metrics.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Info<TResponse>(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/{metric:metric}"), null, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/{node_id}/{metric} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html</para></summary>
 		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+		///<param name = "metric">A comma-separated list of metrics you wish returned. Use `_all` to retrieve all metrics and `_none` to retrieve the node identity without any additional metrics.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		[MapsApi("nodes.info", "node_id, metric")]
 		public Task<TResponse> InfoAsync<TResponse>(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)

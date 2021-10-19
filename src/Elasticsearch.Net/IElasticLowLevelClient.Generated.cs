@@ -547,22 +547,18 @@ namespace Elasticsearch.Net
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>GET on /_script_context <para>https://www.elastic.co/guide/en/elasticsearch/painless/master/painless-contexts.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		TResponse GetScriptContext<TResponse>(GetScriptContextRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>GET on /_script_context <para>https://www.elastic.co/guide/en/elasticsearch/painless/master/painless-contexts.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		Task<TResponse> GetScriptContextAsync<TResponse>(GetScriptContextRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>GET on /_script_language <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		TResponse GetScriptLanguages<TResponse>(GetScriptLanguagesRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>GET on /_script_language <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		Task<TResponse> GetScriptLanguagesAsync<TResponse>(GetScriptLanguagesRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>GET on /{index}/_source/{id} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html</para></summary>
@@ -813,14 +809,6 @@ namespace Elasticsearch.Net
 		[Obsolete("Deprecated in version 7.0.0: Specifying types in urls has been deprecated")]
 		Task<TResponse> MultiTermVectorsUsingTypeAsync<TResponse>(string index, string type, PostData body, MultiTermVectorsRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
-		///<summary>POST on /_pit <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/point-in-time-api.html</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		TResponse OpenPointInTime<TResponse>(OpenPointInTimeRequestParameters requestParameters = null)
-			where TResponse : class, IElasticsearchResponse, new();
-		///<summary>POST on /_pit <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/point-in-time-api.html</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		Task<TResponse> OpenPointInTimeAsync<TResponse>(OpenPointInTimeRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /{index}/_pit <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/point-in-time-api.html</para></summary>
 		///<param name = "index">A comma-separated list of index names to open point in time; use the special string `_all` or Indices.All to perform the operation on all indices</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -868,27 +856,23 @@ namespace Elasticsearch.Net
 		///<summary>POST on /_rank_eval <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-rank-eval.html</para></summary>
 		///<param name = "body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		TResponse RankEval<TResponse>(PostData body, RankEvalRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /_rank_eval <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-rank-eval.html</para></summary>
 		///<param name = "body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		Task<TResponse> RankEvalAsync<TResponse>(PostData body, RankEvalRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /{index}/_rank_eval <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-rank-eval.html</para></summary>
 		///<param name = "index">A comma-separated list of index names to search; use the special string `_all` or Indices.All to perform the operation on all indices</param>
 		///<param name = "body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		TResponse RankEval<TResponse>(string index, PostData body, RankEvalRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /{index}/_rank_eval <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-rank-eval.html</para></summary>
 		///<param name = "index">A comma-separated list of index names to search; use the special string `_all` or Indices.All to perform the operation on all indices</param>
 		///<param name = "body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		Task<TResponse> RankEvalAsync<TResponse>(string index, PostData body, RankEvalRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /_reindex <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html</para></summary>
@@ -1007,6 +991,28 @@ namespace Elasticsearch.Net
 		[Obsolete("Deprecated in version 7.0.0: Specifying types in urls has been deprecated")]
 		Task<TResponse> SearchUsingTypeAsync<TResponse>(string index, string type, PostData body, SearchRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
+		///<summary>POST on /{index}/_mvt/{field}/{zoom}/{x}/{y} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-vector-tile-api.html</para></summary>
+		///<param name = "index">Comma-separated list of data streams, indices, or aliases to search</param>
+		///<param name = "field">Field containing geospatial data to return</param>
+		///<param name = "zoom">Zoom level for the vector tile to search</param>
+		///<param name = "X">X coordinate for the vector tile to search</param>
+		///<param name = "Y">Y coordinate for the vector tile to search</param>
+		///<param name = "body">Search request body.</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
+		TResponse SearchMvt<TResponse>(string index, string field, int zoom, int X, int Y, PostData body, SearchMvtRequestParameters requestParameters = null)
+			where TResponse : class, IElasticsearchResponse, new();
+		///<summary>POST on /{index}/_mvt/{field}/{zoom}/{x}/{y} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-vector-tile-api.html</para></summary>
+		///<param name = "index">Comma-separated list of data streams, indices, or aliases to search</param>
+		///<param name = "field">Field containing geospatial data to return</param>
+		///<param name = "zoom">Zoom level for the vector tile to search</param>
+		///<param name = "X">X coordinate for the vector tile to search</param>
+		///<param name = "Y">Y coordinate for the vector tile to search</param>
+		///<param name = "body">Search request body.</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<remarks>Note: Experimental within the Elasticsearch server, this functionality is Experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
+		Task<TResponse> SearchMvtAsync<TResponse>(string index, string field, int zoom, int X, int Y, PostData body, SearchMvtRequestParameters requestParameters = null, CancellationToken ctx = default)
+			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /_search_shards <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		TResponse SearchShards<TResponse>(SearchShardsRequestParameters requestParameters = null)
@@ -1067,14 +1073,12 @@ namespace Elasticsearch.Net
 		///<param name = "index">A comma-separated list of index names to search; use the special string `_all` or Indices.All to perform the operation on all indices</param>
 		///<param name = "body">field name, string which is the prefix expected in matching terms, timeout and size for max number of results</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Beta within the Elasticsearch server, this functionality is in Beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		TResponse TermsEnum<TResponse>(string index, PostData body, TermsEnumRequestParameters requestParameters = null)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /{index}/_terms_enum <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/search-terms-enum.html</para></summary>
 		///<param name = "index">A comma-separated list of index names to search; use the special string `_all` or Indices.All to perform the operation on all indices</param>
 		///<param name = "body">field name, string which is the prefix expected in matching terms, timeout and size for max number of results</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		///<remarks>Note: Beta within the Elasticsearch server, this functionality is in Beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>
 		Task<TResponse> TermsEnumAsync<TResponse>(string index, PostData body, TermsEnumRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IElasticsearchResponse, new();
 		///<summary>POST on /{index}/_termvectors/{id} <para>https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html</para></summary>

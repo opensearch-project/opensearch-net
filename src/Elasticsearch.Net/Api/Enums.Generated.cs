@@ -108,7 +108,15 @@ namespace Elasticsearch.Net
 		[EnumMember(Value = "plugins")]
 		Plugins = 1 << 7,
 		[EnumMember(Value = "ingest")]
-		Ingest = 1 << 8
+		Ingest = 1 << 8,
+		[EnumMember(Value = "indices")]
+		Indices = 1 << 9,
+		[EnumMember(Value = "aggregations")]
+		Aggregations = 1 << 10,
+		[EnumMember(Value = "_none")]
+		None = 1 << 11,
+		[EnumMember(Value = "_all")]
+		All = 1 << 12
 	}
 
 	[Flags, StringEnum]
@@ -426,6 +434,17 @@ namespace Elasticsearch.Net
 	}
 
 	[StringEnum]
+	public enum GridType
+	{
+		[EnumMember(Value = "grid")]
+		Grid,
+		[EnumMember(Value = "point")]
+		Point,
+		[EnumMember(Value = "centroid")]
+		Centroid
+	}
+
+	[StringEnum]
 	public enum GroupBy
 	{
 		[EnumMember(Value = "nodes")]
@@ -478,6 +497,7 @@ namespace Elasticsearch.Net
 			EnumStringResolvers.TryAdd(typeof(OpType), (e) => GetStringValue((OpType)e));
 			EnumStringResolvers.TryAdd(typeof(IndicesShardStoresStatus), (e) => GetStringValue((IndicesShardStoresStatus)e));
 			EnumStringResolvers.TryAdd(typeof(ThreadType), (e) => GetStringValue((ThreadType)e));
+			EnumStringResolvers.TryAdd(typeof(GridType), (e) => GetStringValue((GridType)e));
 			EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
 			EnumStringResolvers.TryAdd(typeof(TextStructureFindStructureFormat), (e) => GetStringValue((TextStructureFindStructureFormat)e));
 		}
@@ -559,6 +579,8 @@ namespace Elasticsearch.Net
 
 		public static string GetStringValue(this NodesInfoMetric enumValue)
 		{
+			if ((enumValue & NodesInfoMetric.All) != 0)
+				return "_all";
 			var list = new List<string>();
 			if ((enumValue & NodesInfoMetric.Settings) != 0)
 				list.Add("settings");
@@ -578,6 +600,12 @@ namespace Elasticsearch.Net
 				list.Add("plugins");
 			if ((enumValue & NodesInfoMetric.Ingest) != 0)
 				list.Add("ingest");
+			if ((enumValue & NodesInfoMetric.Indices) != 0)
+				list.Add("indices");
+			if ((enumValue & NodesInfoMetric.Aggregations) != 0)
+				list.Add("aggregations");
+			if ((enumValue & NodesInfoMetric.None) != 0)
+				list.Add("_none");
 			return string.Join(",", list);
 		}
 
@@ -963,6 +991,21 @@ namespace Elasticsearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'");
+		}
+
+		public static string GetStringValue(this GridType enumValue)
+		{
+			switch (enumValue)
+			{
+				case GridType.Grid:
+					return "grid";
+				case GridType.Point:
+					return "point";
+				case GridType.Centroid:
+					return "centroid";
+			}
+
+			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'GridType'");
 		}
 
 		public static string GetStringValue(this GroupBy enumValue)

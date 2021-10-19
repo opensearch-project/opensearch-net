@@ -27,7 +27,7 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace Elasticsearch.Net.Specification.FleetApi
 {
-	///<summary>Request options for GlobalCheckpoints</summary>
+	///<summary>Request options for GlobalCheckpoints <para>https://www.elastic.co/guide/en/elasticsearch/reference/current/get-global-checkpoints.html</para></summary>
 	public class GlobalCheckpointsRequestParameters : RequestParameters<GlobalCheckpointsRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -58,6 +58,40 @@ namespace Elasticsearch.Net.Specification.FleetApi
 		{
 			get => Q<bool? >("wait_for_index");
 			set => Q("wait_for_index", value);
+		}
+	}
+
+	///<summary>Request options for Msearch</summary>
+	public class MsearchRequestParameters : RequestParameters<MsearchRequestParameters>
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+		public override bool SupportsBody => true;
+	}
+
+	///<summary>Request options for Search</summary>
+	public class SearchRequestParameters : RequestParameters<SearchRequestParameters>
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+		public override bool SupportsBody => true;
+		///<summary>Indicate if an error should be returned if there is a partial search failure or timeout</summary>
+		public bool? AllowPartialSearchResults
+		{
+			get => Q<bool? >("allow_partial_search_results");
+			set => Q("allow_partial_search_results", value);
+		}
+
+		///<summary>Comma separated list of checkpoints, one per shard</summary>
+		public string[] WaitForCheckpoints
+		{
+			get => Q<string[]>("wait_for_checkpoints");
+			set => Q("wait_for_checkpoints", value);
+		}
+
+		///<summary>Explicit wait_for_checkpoints timeout</summary>
+		public TimeSpan WaitForCheckpointsTimeout
+		{
+			get => Q<TimeSpan>("wait_for_checkpoints_timeout");
+			set => Q("wait_for_checkpoints_timeout", value);
 		}
 	}
 }
