@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,9 +31,9 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Framework;
 
 namespace Tests.CodeStandards
@@ -35,7 +58,7 @@ namespace Tests.CodeStandards
 			var abstractClassesNotEndingInBase = typeof(IRequest).Assembly.GetTypes()
 				.Where(t => t.IsClass && t.IsAbstract && !t.IsSealed && !exceptions.Contains(t))
 				//when testing nuget package against merged internalize json.net skip its types.
-				.Where(t => !t.Namespace.StartsWith("Nest.Json"))
+				.Where(t => !t.Namespace.StartsWith("Osc.Json"))
 				.Where(t => !t.Namespace.StartsWith("Elastic.Internal"))
 				.Where(t => !t.Name.Split('`')[0].EndsWith("Base"))
 				.Select(t => t.Name.Split('`')[0])
@@ -106,8 +129,6 @@ namespace Tests.CodeStandards
 		{
 			var exceptions = new[] // <1> _Exceptions to the rule_
 			{
-				//TODO These are new API's should be removed, also add test that no request or response starts with Xpack
-				//only XPack
 				//TODO MAP THIS
 				//typeof(RankEvalRequest),
 				//TODO add unit tests that we have no requests starting with Exists
@@ -157,7 +178,7 @@ namespace Tests.CodeStandards
 		[U]
 		public void AllNestTypesAreInNestNamespace()
 		{
-			var nestAssembly = typeof(IElasticClient).Assembly;
+			var nestAssembly = typeof(IOpenSearchClient).Assembly;
 
 			var exceptions = new List<Type>
 			{
@@ -172,11 +193,11 @@ namespace Tests.CodeStandards
 			var typesNotInNestNamespace = types
 				.Where(t => t != null)
 				.Where(t => !exceptions.Contains(t))
-				.Where(t => t.Namespace != "Nest")
+				.Where(t => t.Namespace != "Osc")
 				//when testing nuget package against merged internalize json.net skip its types.
-				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Nest.Json"))
+				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Json"))
 				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Elastic.Internal"))
-				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Nest.Specification"))
+				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Specification"))
 				.Where(t => !t.Name.StartsWith("<"))
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();
@@ -187,7 +208,7 @@ namespace Tests.CodeStandards
 		[U]
 		public void AllElasticsearchNetTypesAreInElasticsearchNetNamespace()
 		{
-			var elasticsearchNetAssembly = typeof(IElasticLowLevelClient).Assembly;
+			var elasticsearchNetAssembly = typeof(IOpenSearchLowLevelClient).Assembly;
 
 			var exceptions = new List<Type>
 			{
@@ -209,10 +230,10 @@ namespace Tests.CodeStandards
 			var typesNotIElasticsearchNetNamespace = types
 				.Where(t => !exceptions.Contains(t))
 				.Where(t => t.Namespace != null)
-				.Where(t => t.Namespace != "Elasticsearch.Net" && !t.Namespace.StartsWith("Elasticsearch.Net.Specification"))
-				.Where(t => !t.Namespace.StartsWith("Elasticsearch.Net.Utf8Json"))
-				.Where(t => !t.Namespace.StartsWith("Elasticsearch.Net.Extensions"))
-				.Where(t => !t.Namespace.StartsWith("Elasticsearch.Net.Diagnostics"))
+				.Where(t => t.Namespace != "OpenSearch.Net" && !t.Namespace.StartsWith("OpenSearch.Net.Specification"))
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Utf8Json"))
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Extensions"))
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Diagnostics"))
 				.Where(t => !t.Name.StartsWith("<"))
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();

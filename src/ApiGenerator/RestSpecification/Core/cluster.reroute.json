@@ -1,7 +1,7 @@
 {
   "cluster.reroute":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html",
+      "url":"",
       "description":"Allows to manually change the allocation of individual shards in the cluster."
     },
     "stability":"stable",

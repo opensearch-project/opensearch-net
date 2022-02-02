@@ -797,7 +797,7 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
-      "elasticsearch.net": {
+      "opensearch.net": {
         "type": "Project",
         "dependencies": {
           "Microsoft.CSharp": "4.6.0",
@@ -807,10 +807,10 @@
           "System.Reflection.Emit.Lightweight": "4.3.0"
         }
       },
-      "NEST": {
+      "OSC": {
         "type": "Project",
         "dependencies": {
-          "Elasticsearch.Net": "7.0.0"
+          "OpenSearch.Net": "7.0.0"
         }
       },
       "tests.configuration": {

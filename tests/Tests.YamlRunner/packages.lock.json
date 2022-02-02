@@ -266,7 +266,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "elasticsearch.net": {
+      "opensearch.net": {
         "type": "Project",
         "dependencies": {
           "Microsoft.CSharp": "4.6.0",

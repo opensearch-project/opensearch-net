@@ -1,12 +1,35 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using FluentAssertions;
-using Nest;
+using Osc;
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
 using Tests.Domain;
@@ -14,7 +37,7 @@ using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
@@ -29,7 +52,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 	public class IndexNameInference : DocumentationTestBase
 	{
 		//hide
-		private class ConnectionSettings : Nest.ConnectionSettings
+		private class ConnectionSettings : Osc.ConnectionSettings
 		{
 			public ConnectionSettings() : base(new InMemoryConnection())
 			{
@@ -46,7 +69,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			var settings = new ConnectionSettings()
 				.DefaultIndex("defaultindex"); // <1> set the default index
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 			var searchResponse = client.Search<Project>();
 
 			/**
@@ -77,7 +100,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 					.IndexName("projects")
 				);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 			var searchResponse = client.Search<Project>();
 
 			/**
@@ -111,7 +134,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 					.IndexName("projects") // <2> a index to use when `Project` is the target POCO type
 				);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var projectSearchResponse = client.Search<Project>();
 
@@ -152,7 +175,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		[U] public void ExplicitIndexOnRequest()
 		{
 			var settings = new ConnectionSettings();
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var response = client.Search<Project>(s => s
 				.Index("some-other-index") //<1> Provide the index name on the request
@@ -181,7 +204,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 					.IndexName("projects")
 				);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var response = client.Search<Project>(s => s
 				.Index("some-other-index")
@@ -219,7 +242,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		//hide
 		[U] public void ArgumentExceptionBubblesOut()
 		{
-			var client = new ElasticClient(new ConnectionSettings());
+			var client = new OpenSearchClient(new ConnectionSettings());
 			var e = Assert.Throws<ArgumentException>(() => client.Search<Project>());
 		}
 
@@ -265,8 +288,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Index<Project>().Should().NotBe(Index<Developer>());
 			Index<Project>("cluster_one").Should().NotBe(Index<Developer>("cluster_one"));
 
-			Nest.Indices indices1 = "foo,bar";
-			Nest.Indices indices2 = "bar,foo";
+			Osc.Indices indices1 = "foo,bar";
+			Osc.Indices indices2 = "bar,foo";
 			indices1.Should().Be(indices2);
 			(indices1 == indices2).Should().BeTrue();
 		}

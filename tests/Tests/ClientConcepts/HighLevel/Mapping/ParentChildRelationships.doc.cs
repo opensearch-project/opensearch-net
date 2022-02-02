@@ -1,33 +1,52 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Mapping
 {
 	/**[[parent-child-relationships]]
 	* === Parent/Child relationships
 	*
-	* Prior to Elasticsearch 6.x you could have multiple types in a single index. Through the special `_parent` field mapping of a given type,
-	* one could create 1 to N relationships of parent => children documents. This worked because when indexing children, you passed a
-	* `_parent` id which acted as the routing key, ensuring a parent, its children and any ancestors all lived on the same shard.
-	*
-	* Starting with 6.x indices, multiple types are no longer suppported in a single index. One reason for this is that if for instance
+	* Multiple types are no longer suppported in a single index. One reason for this is that if for instance
 	* two types have the same `name` property, this property needed to be mapped exactly the same for both types, but all the APIs act as if you can map
 	* them individually, often causing confusion. Essentially, `_type` always acted as a discriminating field within an index but was often explained
 	* as being more special than this.
@@ -69,7 +88,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		/**
 		* ==== Parent And Child mapping
 		*
-		* In the following example we setup our client and give our types prefered index and type names.  Starting with NEST 6.x we can
+		* In the following example we setup our client and give our types prefered index and type names. In NEST we can
 		* also give a type a preferred `RelationName` as can be seen on the `DefaultMappingFor<MyParent>`.
 		*
 		* Also note that we give `MyChild` and `MyParent` the same default `doc` type name to make sure they end up in the same index
@@ -85,7 +104,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 				.DefaultMappingFor<MyChild>(m => m.IndexName("index"))
 				.DefaultMappingFor<MyParent>(m => m.IndexName("index").RelationName("parent"));
 
-			var client = new ElasticClient(connectionSettings);
+			var client = new OpenSearchClient(connectionSettings);
 
 			// hide
 			connectionSettings.DisableDirectStreaming();
@@ -254,7 +273,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * A parent and all of it's (grand)children still need to live on the same shard so you still need to take care of specifying routing.
 		 *
 		 * In the past you would have to provide the parent id on the request using `parent=<parentid>` this was always an alias for routing
-		 * and thus in Elasticsearch 6.x you need to provide `routing=<parentid>` instead.
+		 * and thus in Elasticsearch you need to provide `routing=<parentid>` instead.
 		 *
 		 * NEST has a handy helper to infer the correct routing value given a document that is smart enough to find the join field and infer
 		 * correct parent.

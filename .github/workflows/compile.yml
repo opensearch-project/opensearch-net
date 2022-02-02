@@ -1,0 +1,22 @@
+name: Compile
+
+on: [pull_request, push]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.100'
+    - uses: actions/cache@v2
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    - name: Compile
+      run: |
+        dotnet build

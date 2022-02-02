@@ -1,10 +1,33 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
-using Elasticsearch.Net;
-using Nest;
+using OpenSearch.Net;
+using Osc;
 using Tests.Domain;
 
 namespace Tests.ClientConcepts.Connection
@@ -14,7 +37,7 @@ namespace Tests.ClientConcepts.Connection
 		/**[[configuration-options]]
 		 * === Configuration options
 		 *
-		 * Connecting to Elasticsearch with <<elasticsearch-net-getting-started,Elasticsearch.Net>> and <<nest-getting-started,NEST>> is easy, but
+		 * Connecting to Elasticsearch with <<elasticsearch-net-getting-started,OpenSearch.Net>> and <<nest-getting-started,NEST>> is easy, but
 		 * it's entirely possible that you'd like to change the default connection behaviour. There are a number of configuration options available
 		 * on `ConnectionConfiguration` for the low level client and `ConnectionSettings` for the high level client that can be used to control
 		 * how the clients interact with Elasticsearch.
@@ -25,9 +48,9 @@ namespace Tests.ClientConcepts.Connection
 		 * `ConnectionSettings` derives from `ConnectionConfiguration`, these options are available for both
 		 * the low level and high level client:
 		 *
-		 * :xml-docs: Elasticsearch.Net:ConnectionConfiguration`1
+		 * :xml-docs: OpenSearch.Net:ConnectionConfiguration`1
 		 *
-		 * ==== ConnectionConfiguration with ElasticLowLevelClient
+		 * ==== ConnectionConfiguration with OpenSearchLowLevelClient
 		 *
 		 * Here's an example to demonstrate setting several configuration options using the low level client
 		 */
@@ -40,7 +63,7 @@ namespace Tests.ClientConcepts.Connection
 				.PrettyJson()
 				.RequestTimeout(TimeSpan.FromMinutes(2));
 
-			var lowLevelClient = new ElasticLowLevelClient(connectionConfiguration);
+			var lowLevelClient = new OpenSearchLowLevelClient(connectionConfiguration);
 
 			/**
 			 * ==== Options on ConnectionSettings
@@ -49,7 +72,7 @@ namespace Tests.ClientConcepts.Connection
 			 *
 			 * :xml-docs: Nest:ConnectionSettingsBase`1
 			 *
-			 * ==== ConnectionSettings with ElasticClient
+			 * ==== ConnectionSettings with OpenSearchClient
 			 *
 			 * Here's an example to demonstrate setting several configuration options using the high level client
 			 */
@@ -62,7 +85,7 @@ namespace Tests.ClientConcepts.Connection
 				.PrettyJson()
 				.RequestTimeout(TimeSpan.FromMinutes(2));
 
-			var client = new ElasticClient(connectionSettings);
+			var client = new OpenSearchClient(connectionSettings);
 
 			/**[NOTE]
 			* ====

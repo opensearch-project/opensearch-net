@@ -1,12 +1,35 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System.Collections.Generic;
 using System.Linq;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
@@ -14,7 +37,7 @@ using Tests.Core.ManagedElasticsearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Cluster.NodesStats
 {
@@ -36,7 +59,7 @@ namespace Tests.Cluster.NodesStats
 			(client, r) => client.Nodes.StatsAsync(r)
 		);
 
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
+		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
 			// performing a bunch of search actions to make sure some stats have been gathered
 			// even if this api is tested in isolation
@@ -73,24 +96,14 @@ namespace Tests.Cluster.NodesStats
 			Assert(node.Jvm);
 			Assert(node.AdaptiveSelection);
 			Assert(node.Ingest);
-
-			if (TestClient.Configuration.InRange(">=7.8.0"))
-			{
-				Assert(node.ScriptCache);
-			}
-
-			if (TestClient.Configuration.InRange(">=7.9.0"))
-			{
-				Assert(node.IndexingPressure);
-			}
+			Assert(node.ScriptCache);
+			Assert(node.IndexingPressure);
 		}
 
 		protected void Assert(NodeIngestStats nodeIngestStats)
 		{
 			nodeIngestStats.Should().NotBeNull();
 			nodeIngestStats.Total.Should().NotBeNull();
-
-			if (TestClient.Configuration.InRange("<6.5.0")) return;
 
 			nodeIngestStats.Pipelines.Should().NotBeNull();
 			nodeIngestStats.Pipelines.Should().ContainKey(DefaultSeeder.PipelineName);
@@ -128,9 +141,7 @@ namespace Tests.Cluster.NodesStats
 
 			index.Store.Should().NotBeNull();
 			index.Store.SizeInBytes.Should().BeGreaterOrEqualTo(0);
-
-			if (TestClient.Configuration.InRange(">=7.9.0"))
-				index.Store.ReservedInBytes.Should().BeGreaterOrEqualTo(0);
+			index.Store.ReservedInBytes.Should().BeGreaterOrEqualTo(0);
 
 			index.Completion.Should().NotBeNull();
 			index.Fielddata.Should().NotBeNull();
@@ -286,11 +297,8 @@ namespace Tests.Cluster.NodesStats
 
 		protected void Assert(IndexingPressureStats indexingPressureStats)
 		{
-			if (TestClient.Configuration.InRange(">=7.10.0"))
-			{
-				indexingPressureStats.Memory.LimitInBytes.Should().BeGreaterOrEqualTo(0);
-				//indexingPressureStats.Memory.Limit.Should().NotBeNull();
-			}
+			indexingPressureStats.Memory.LimitInBytes.Should().BeGreaterOrEqualTo(0);
+			//indexingPressureStats.Memory.Limit.Should().NotBeNull();
 
 			indexingPressureStats.Memory.Current.CombinedCoordinatingAndPrimaryInBytes.Should().BeGreaterOrEqualTo(0);
 			//indexingPressureStats.Memory.Current.CombinedCoordinatingAndPrimary.Should().NotBeNull();

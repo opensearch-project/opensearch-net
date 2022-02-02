@@ -1,18 +1,41 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Nest;
+using OpenSearch.Net;
+using Osc;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Search.Request
 {
@@ -229,10 +252,9 @@ namespace Tests.Search.Request
 	 * [float]
 	 * === Nested sort usage
 	 *
-	 * In Elasticsearch 6.1.0+, using `nested_path` and `nested_filter` for sorting on fields mapped as
+	 * In Elasticsearch, using `nested_path` and `nested_filter` for sorting on fields mapped as
 	 * `nested` types is deprecated. Instead, you should use the `nested` sort instead.
 	 */
-	[SkipVersion("<6.1.0", "Only available in Elasticsearch 6.1.0+")]
 	public class NestedSortUsageTests : SearchUsageTestBase
 	{
 		public NestedSortUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
@@ -308,7 +330,6 @@ namespace Tests.Search.Request
 	}
 
 	//hide
-	[SkipVersion("<6.4.0", "IgnoreUnmapped introduced in 6.4.0 on geo distance sort")]
 	public class GeoDistanceIgnoreUnmappedUsageTests : SearchUsageTestBase
 	{
 		public GeoDistanceIgnoreUnmappedUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
@@ -370,7 +391,6 @@ namespace Tests.Search.Request
 	}
 
 	//hide
-	[SkipVersion("<7.2.0", "numeric_type added in 7.2.0")]
 	public class NumericTypeUsageTests : SearchUsageTestBase
 	{
 		public NumericTypeUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
@@ -401,57 +421,5 @@ namespace Tests.Search.Request
 					new FieldSort { Field = "startedOn", NumericType = NumericType.Date, Order = SortOrder.Ascending },
 				}
 			};
-	}
-
-	//hide
-	[SkipVersion("<7.12.0", "_shard_doc added in 7.12.0")]
-	public class ShardDocUsageTests : ApiIntegrationTestBase<ReadOnlyCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
-	{
-		public ShardDocUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-		private string _pit = string.Empty;
-		
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
-		{
-			var response = client.OpenPointInTime(Nest.Indices.Index<Project>(), f => f.KeepAlive("1m"));
-			_pit = response.Id;
-		}
-
-		protected override object ExpectJson =>
-			new
-			{
-				pit = new
-				{
-					id = ""
-				},
-				sort = new object[]
-				{
-					new { _shard_doc = new { order = "asc" } }
-				}
-			};
-
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
-		protected override string UrlPath => "/project/_search";
-		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.PointInTime(_pit)
-			.Sort(ss => ss.Ascending(SortSpecialField.ShardDocumentOrder));
-
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-
-		protected override SearchRequest<Project> Initializer => new()
-			{
-				PointInTime = new Nest.PointInTime(_pit),
-				Sort = new List<ISort>
-				{
-					FieldSort.ShardDocumentOrderAscending
-				}
-		};
-
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Search(f),
-			(client, f) => client.SearchAsync(f),
-			(client, r) => client.Search<Project>(r),
-			(client, r) => client.SearchAsync<Project>(r));
 	}
 }

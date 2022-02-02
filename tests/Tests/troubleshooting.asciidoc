@@ -26,7 +26,7 @@ More detailed diagnostic information can be captured with
 
 - <<diagnostic-source, Diagnostic Source>>
 
-In addition to logging requests and responses, Elasticsearch 5.0+ also 
+In addition to logging requests and responses, Elasticsearch also 
 <<deprecation-logging, sends back warning headers>> in the response,
 to notify you if you are using a feature that is marked as deprecated.
 
@@ -41,7 +41,7 @@ include::client-concepts/troubleshooting/deprecation-logging.asciidoc[]
 When things are going awry, you want to be provided with as much information as possible, to resolve
 the issue!
 
-Elasticsearch.Net and NEST provide an <<audit-trail, audit trail>> and <<debug-information, debug information>> to 
+OpenSearch.Net and NEST provide an <<audit-trail, audit trail>> and <<debug-information, debug information>> to 
 help get you back on the happy path.
 
 include::client-concepts/troubleshooting/audit-trail.asciidoc[]

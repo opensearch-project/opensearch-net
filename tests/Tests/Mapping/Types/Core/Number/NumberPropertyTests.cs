@@ -1,10 +1,33 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -115,53 +138,6 @@ namespace Tests.Mapping.Types.Core.Number
 					NullValue = 0.0,
 					IgnoreMalformed = true,
 					Coerce = true
-				}
-			}
-		};
-	}
-
-	[SkipVersion("<7.10.0", "Introduced in 7.10.0")]
-	public class UnsignedLongNumberPropertyTests : PropertyTestsBase
-	{
-		public UnsignedLongNumberPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				numberOfCommits = new
-				{
-					type = "unsigned_long",
-					doc_values = true,
-					similarity = "BM25",
-					store = true,
-					index = false,
-					ignore_malformed = true
-				}
-			}
-		};
-
-		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-			.Number(n => n
-				.Name(p => p.NumberOfCommits)
-				.Type(NumberType.UnsignedLong)
-				.DocValues()
-				.Similarity("BM25")
-				.Store()
-				.Index(false)
-				.IgnoreMalformed()
-			);
-		
-		protected override IProperties InitializerProperties => new Properties
-		{
-			{
-				"numberOfCommits", new NumberProperty(NumberType.UnsignedLong)
-				{
-					DocValues = true,
-					Similarity = "BM25",
-					Store = true,
-					Index = false,
-					IgnoreMalformed = true
 				}
 			}
 		};

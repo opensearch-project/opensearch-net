@@ -1,17 +1,40 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Linq;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Framework;
 using System.Collections.Generic;
 using System.Reflection;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net.Utf8Json;
+using OpenSearch.Net.Utf8Json;
 
 namespace Tests.CodeStandards.Serialization
 {
@@ -20,8 +43,8 @@ namespace Tests.CodeStandards.Serialization
 		[U]
 		public void CustomFormattersShouldBeInternal()
 		{
-			var formatters = typeof(IElasticClient).Assembly.GetTypes()
-				.Concat(typeof(IElasticLowLevelClient).Assembly.GetTypes())
+			var formatters = typeof(IOpenSearchClient).Assembly.GetTypes()
+				.Concat(typeof(IOpenSearchLowLevelClient).Assembly.GetTypes())
 				.Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IJsonFormatter<>)))
 				.ToList();
 			var visible = new List<string>();
@@ -55,7 +78,7 @@ namespace Tests.CodeStandards.Serialization
 			}
 
 			var typesAndProperties =
-				from t in typeof(IElasticClient).Assembly.GetTypes().Concat(typeof(IElasticLowLevelClient).Assembly.GetTypes())
+				from t in typeof(IOpenSearchClient).Assembly.GetTypes().Concat(typeof(IOpenSearchLowLevelClient).Assembly.GetTypes())
 				let p = t.GetProperties()
 				let typeHasFormatter = t.GetCustomAttribute<JsonFormatterAttribute>(false) != null
 				let propertiesHaveFormatter = p.Any(pp => pp.GetCustomAttribute<JsonFormatterAttribute>(false) != null)

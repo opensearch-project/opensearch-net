@@ -1,7 +1,7 @@
 {
   "indices.refresh":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/",
       "description":"Performs the refresh operation in one or more indices."
     },
     "stability":"stable",

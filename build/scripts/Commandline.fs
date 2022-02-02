@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 namespace Scripts
 
@@ -39,20 +62,14 @@ Targets:
 * benchmark [non-interactive] [url] [username] [password] 
   - Runs a benchmark from Tests.Benchmarking and indexes the results to [url] when provided.
     If non-interactive runs all benchmarks without prompting
-* codegen <branch> [arguments]
-  - runs the code generator, the first argument is required and dictates the branch to sync from.
-  - Any other arguments are passed down to the tool directly
-* documentation
-  - runs the doc generation, without running any tests
+* codegen
+  - runs the code generator interactively
   
 NOTE: both the `test` and `integrate` targets can be suffixed with `-all` to force the tests against all suported TFM's
 
 Execution hints can be provided anywhere on the command line
 - skiptests : skip running tests as part of the target chain
-- gendocs : generate documentation
 - non-interactive : make targets that run in interactive mode by default to run unassisted.
-- docs:<B> : the branch name B to use when generating documentation
-- ref:<B> : the reference version B to use when generating documentation
 - seed:<N> : provide a seed to run the tests with.
 - random:<K><:B> : sets random K to bool B if if B is omitted will default to true
   K can be: sourceserializer, typedkeys or oldconnection (only valid on windows)
@@ -72,7 +89,7 @@ Execution hints can be provided anywhere on the command line
     let private (|IsProject|_|) (candidate:string) =
         let c = candidate.ToLowerInvariant()
         match c with
-        | "nest" | "elasticsearch.net" | "nest.jsonnetserializer" -> Some c
+        | "osc" | "opensearch.net" | "osc.jsonnetserializer" -> Some c
         | _ -> None     
         
     let private (|IsFormat|_|) (candidate:string) =
@@ -89,7 +106,6 @@ Execution hints can be provided anywhere on the command line
 
     type BenchmarkArguments = { Endpoint: string; Username: string option; Password: string option; }
     type ClusterArguments = { Name: string; Version: string option; }
-    type CodeGenArguments = { Branch: string; }
     type CommandArguments =
         | Unknown
         | SetVersion of VersionArguments
@@ -97,17 +113,12 @@ Execution hints can be provided anywhere on the command line
         | Integration of IntegrationArguments
         | Benchmark of BenchmarkArguments
         | Cluster of ClusterArguments
-        | CodeGen of CodeGenArguments
 
     type PassedArguments = {
         NonInteractive: bool;
         SkipTests: bool;
-        SkipReleaseNotes: bool;
-        GenDocs: bool;
         Seed: int;
         RandomArguments: string list;
-        DocsBranch: string;
-        ReferenceBranch: string;
         RemainingArguments: string list;
         MultiTarget: MultiTarget
         ReleaseBuild: bool;
@@ -126,14 +137,9 @@ Execution hints can be provided anywhere on the command line
             |> List.filter(fun x -> 
                x <> "--report" && 
                x <> "skiptests" && 
-               x <> "gendocs" && 
-               x <> "skipdocs" && 
-               x <> "skip-release-notes" && 
                x <> "non-interactive" && 
                not (x.StartsWith("seed:")) && 
-               not (x.StartsWith("random:")) && 
-               not (x.StartsWith("docs:")) &&
-               not (x.StartsWith("ref:")))
+               not (x.StartsWith("random:")))
             |> List.map(fun (s:string) ->
                 let containsSpace = s.Contains(" ")
                 match s with | x when containsSpace -> sprintf "\"%s\"" x | s -> s
@@ -143,8 +149,7 @@ Execution hints can be provided anywhere on the command line
             match (filteredArgs |> List.tryHead) with
             | Some t -> t.Replace("-one", "")
             | _ -> "build"
-        let skipTests = args |> List.exists (fun x -> x = "skiptests") || target = "documentation"
-        let skipDocs = args |> List.exists (fun x -> x = "skipdocs")
+        let skipTests = args |> List.exists (fun x -> x = "skiptests")
         let report = args |> List.exists (fun x -> x = "--report")
         
         printf "%b exist" report
@@ -152,8 +157,6 @@ Execution hints can be provided anywhere on the command line
         let parsed = {
             NonInteractive = args |> List.exists (fun x -> x = "non-interactive")
             SkipTests = skipTests
-            SkipReleaseNotes = skipTests
-            GenDocs = not skipDocs && (args |> List.exists (fun x -> x = "gendocs") || target = "build" || target = "documentation") 
             Seed = 
                 match args |> List.tryFind (fun x -> x.StartsWith("seed:")) with
                 | Some t -> Int32.Parse (t.Replace("seed:", ""))
@@ -162,14 +165,6 @@ Execution hints can be provided anywhere on the command line
                 args 
                 |> List.filter (fun x -> (x.StartsWith("random:")))
                 |> List.map (fun x -> (x.Replace("random:", "")))
-            DocsBranch = 
-                match args |> List.tryFind (fun x -> x.StartsWith("docs:")) with
-                | Some t -> t.Replace("docs:", "")
-                | _ -> ""
-            ReferenceBranch = 
-                match args |> List.tryFind (fun x -> x.StartsWith("ref:")) with
-                | Some t -> t.Replace("ref:", "")
-                | _ -> ""
             RemainingArguments = filteredArgs
             MultiTarget = 
                 match (filteredArgs |> List.tryHead) with
@@ -199,14 +194,10 @@ Execution hints can be provided anywhere on the command line
         | ["build"]
         | ["clean"]
         | ["benchmark"]
-        | ["documentation"; ] 
+        | ["codegen"; ] 
         | ["profile"] -> parsed
         | "rest-spec-tests" :: tail -> { parsed with RemainingArguments = tail }
         
-        | "codegen" :: branch :: tail  ->
-            { parsed with CommandArguments = CodeGen { Branch = branch }; RemainingArguments = tail }
-        
-        | ["set-version"; version] -> { parsed with CommandArguments = SetVersion { Version = version; OutputLocation = None }; }
         | ["release"; version] -> { parsed with CommandArguments = SetVersion { Version = version; OutputLocation = None }; }
         | ["release"; version; path] ->
             if (not <| System.IO.Directory.Exists path) then failwithf "'%s' is not an existing directory" (Path.getFullName path)

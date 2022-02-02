@@ -1,7 +1,7 @@
 {
   "indices.exists_type":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-types-exists.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/",
       "description":"Returns information about whether a particular document type exists. (DEPRECATED)"
     },
     "stability":"stable",

@@ -1,9 +1,32 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using FluentAssertions;
-using Nest;
+using Osc;
 using System;
 using System.Runtime.Serialization;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
@@ -12,7 +35,7 @@ using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
@@ -27,15 +50,12 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* [float]
 		* === Relation names
 		*
-		* Prior to Elasticsearch 6.x you could have multiple types per index. They acted as a discrimatory column but were often
-		* confused with tables. The fact that the mapping API's treated them as seperate entities did not help.
-		*
-		* The general guideline has always been to use a single type per index. Starting from 6.x this is also enforced.
+		* The general guideline has always been to use a single type per index. This is also enforced.
 		* Some features still need to store multiple types in a single index such as Parent/Child join relations.
 		*
 		* Both `Parent` and `Child` will need to have resolve to the same typename to be indexed into the same index.
 		*
-		* Therefore in 6.x we need a different type that translates a CLR type to a join relation. This can be configured seperately
+		* Therefore we need a different type that translates a CLR type to a join relation. This can be configured seperately
 		* using `.RelationName()`
 		*/
 		[U] public void RelationNameConfiguration()

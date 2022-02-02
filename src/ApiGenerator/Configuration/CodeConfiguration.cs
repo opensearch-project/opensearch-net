@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -15,37 +38,13 @@ namespace ApiGenerator.Configuration
 		/// <summary> These APIs are not implemented yet in the low and high level client</summary>
 		public static string[] IgnoredApis { get; } =
 		{
-			// Internal only,
-			"monitoring.bulk.json",
-
-			// Never exposed and now deprecated
-			"data_frame_transform_deprecated.delete_transform.json",
-			"data_frame_transform_deprecated.get_transform.json",
-			"data_frame_transform_deprecated.get_transform_stats.json",
-			"data_frame_transform_deprecated.preview_transform.json",
-			"data_frame_transform_deprecated.put_transform.json",
-			"data_frame_transform_deprecated.start_transform.json",
-			"data_frame_transform_deprecated.stop_transform.json",
-			"data_frame_transform_deprecated.update_transform.json",
-
 			// To be removed
 			"indices.upgrade.json",
 			"indices.get_upgrade.json",
-
-			// This was added in 7.12.0 BC1 but the spec was removed before GA, but the API still existed.
-			// This isn't the preferred API so skipping code gen for it.
-			"ml.find_file_structure.json"
 		};
 
 		private static string[] IgnoredApisHighLevel { get; } =
 		{
-			"autoscaling.get_autoscaling_decision.json", // 7.7 experimental
-			"autoscaling.delete_autoscaling_decision.json", // experimental
-			"autoscaling.get_autoscaling_policy.json", // experimental
-			"autoscaling.put_autoscaling_policy.json", // experimental
-			"autoscaling.delete_autoscaling_policy.json", // experimental
-
-
 			"indices.delete_index_template.json",
 			"indices.exists_index_template.json",
 			"indices.get_index_template.json",
@@ -53,30 +52,10 @@ namespace ApiGenerator.Configuration
 			"indices.simulate_index_template.json",
 			"indices.simulate_template.json",
 
-			"searchable_snapshots.stats.json",
-			"searchable_snapshots.clear_cache.json",
-			"searchable_snapshots.mount.json",
-			"searchable_snapshots.repository_stats.json",
-
 			"get_script_context.json", // 7.7 experimental
 			"get_script_languages.json", // 7.7 experimental
 
 			"indices.exist_type.json", // already removed on client
-
-			"ml.delete_trained_model.json", // 7.7 experimental
-			"ml.evaluate_data_frame.json", // 7.7 experimental
-			"ml.explain_data_frame_analytics.json", // 7.7 experimental
-			"ml.find_file_structure.json", // 7.7 experimental
-			"ml.get_data_frame_analytics.json", // 7.7 experimental
-			"ml.get_data_frame_analytics_stats.json", // 7.7 experimental
-			"ml.delete_data_frame_analytics.json", // 7.7 experimental
-			"ml.get_trained_models.json", // 7.7 experimental
-			"ml.get_trained_models_stats.json", // 7.7 experimental
-			"ml.put_data_frame_analytics.json", // 7.7 experimental
-			"ml.put_trained_model.json", // 7.7 experimental
-			"ml.start_data_frame_analytics.json", // 7.7 experimental
-			"ml.stop_data_frame_analytics.json", // 7.7 experimental
-			"ml.update_data_frame_analytics.json", // 7.7 experimental
 
 			"rank_eval.json", // 7.7 experimental
 			"scripts_painless_context.json", // 7.7 experimental
@@ -84,10 +63,6 @@ namespace ApiGenerator.Configuration
 			"cluster.get_component_template.json", // 7.8 experimental
 			"cluster.put_component_template.json", // 7.8 experimental
 			"cluster.exists_component_template.json", // 7.8 experimental
-
-			"eql.search.json", // 7.9 beta
-			"eql.get.json", // 7.9 beta
-			"eql.delete.json", // 7.9 beta
 		};
 
 		/// <summary>

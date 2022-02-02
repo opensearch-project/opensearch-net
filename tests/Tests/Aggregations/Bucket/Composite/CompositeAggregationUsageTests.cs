@@ -1,19 +1,42 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Aggregations.Bucket.Composite
 {
@@ -28,11 +51,8 @@ namespace Tests.Aggregations.Bucket.Composite
      * The composite buckets are built from the combinations of the values extracted/created
 	 * for each document and each combination is considered as a composite bucket.
 	 *
-	 * NOTE: Only available in Elasticsearch 6.1.0+
-	 *
 	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-composite-aggregation.html[Composite Aggregation].
 	*/
-	[SkipVersion("<7.5.0", "Geo tile grid composite agg added in 7.5.0, rest available in 6.1.0+")]
 	public class CompositeAggregationUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{
 		public CompositeAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -186,10 +206,9 @@ namespace Tests.Aggregations.Bucket.Composite
 			composite.Should().NotBeNull();
 			composite.Buckets.Should().NotBeNullOrEmpty();
 			composite.AfterKey.Should().NotBeNull();
-			if (TestConfiguration.Instance.InRange(">=6.3.0"))
-				composite.AfterKey.Should()
-					.HaveCount(4)
-					.And.ContainKeys("branches", "started", "branch_count", "geo");
+			composite.AfterKey.Should()
+				.HaveCount(4)
+				.And.ContainKeys("branches", "started", "branch_count", "geo");
 			foreach (var item in composite.Buckets)
 			{
 				var key = item.Key;
@@ -222,10 +241,7 @@ namespace Tests.Aggregations.Bucket.Composite
 	* === Missing buckets
 	* By default documents without a value for a given source are ignored.
 	* It is possible to include them in the response by setting missing_bucket to `true` (defaults to `false`):
-	*
-	* NOTE: Only available in Elasticsearch 6.4.0+
 	*/
-	[SkipVersion("<6.4.0", "Missing buckets added to Composite Aggregation Elasticsearch 6.4.0+")]
 	public class CompositeAggregationMissingBucketUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{
 		public CompositeAggregationMissingBucketUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -319,9 +335,7 @@ namespace Tests.Aggregations.Bucket.Composite
 			composite.Should().NotBeNull();
 			composite.Buckets.Should().NotBeNullOrEmpty();
 			composite.AfterKey.Should().NotBeNull();
-
-			if (TestConfiguration.Instance.InRange(">=6.3.0"))
-				composite.AfterKey.Should().HaveCount(1).And.ContainKeys("branches");
+			composite.AfterKey.Should().HaveCount(1).And.ContainKeys("branches");
 
 			var i = 0;
 			foreach (var item in composite.Buckets)
@@ -343,8 +357,6 @@ namespace Tests.Aggregations.Bucket.Composite
 		}
 	}
 
-	//hide
-	[SkipVersion("<7.2.0", "Date histogram source only supports fixed_interval starting from Elasticsearch 7.2.0+")]
 	public class DateFormatCompositeAggregationUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{
 		public DateFormatCompositeAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }

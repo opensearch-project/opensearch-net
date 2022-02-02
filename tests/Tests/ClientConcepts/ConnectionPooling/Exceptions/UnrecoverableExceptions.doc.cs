@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Linq;
@@ -8,11 +31,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Elasticsearch.Net.VirtualizedCluster;
-using Elasticsearch.Net.VirtualizedCluster.Audit;
+using OpenSearch.Net;
+using OpenSearch.Net.VirtualizedCluster;
+using OpenSearch.Net.VirtualizedCluster.Audit;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.SerializationTests;
@@ -38,7 +61,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 		* but by exiting the pipeline.
 		* --
 		*
-		* By default, the client won't throw on any `ElasticsearchClientException` but instead return an invalid response
+		* By default, the client won't throw on any `OpenSearchClientException` but instead return an invalid response
 		* that can be detected by checking the `.IsValid` property on the response. You can change this behaviour with
 		* by using `ThrowExceptions()` on <<configuration-options, `ConnectionSettings`>>.
 		*
@@ -93,7 +116,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 			 * Now, let's make a client call. We'll see that the first audit event is a successful ping
 			* followed by a bad response as a result of the 401 bad authentication response
 			*/
-			audit = await audit.TraceElasticsearchException(
+			audit = await audit.TraceOpenSearchException(
 				new ClientCall {
 					{ AuditEvent.PingSuccess, 9200 }, // <1> First call results in a successful ping
 					{ AuditEvent.BadResponse, 9200 }, // <2> Second call results in a bad response
@@ -126,7 +149,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 				.Settings(s => s.SkipDeserializationForStatusCodes(401))
 			);
 
-			audit = await audit.TraceElasticsearchException(
+			audit = await audit.TraceOpenSearchException(
 				new ClientCall {
 					{ AuditEvent.PingSuccess, 9200 },
 					{ AuditEvent.BadResponse, 9201 },
@@ -156,7 +179,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 				.Settings(s => s.DisableDirectStreaming())
 			);
 
-			audit = await audit.TraceElasticsearchException(
+			audit = await audit.TraceOpenSearchException(
 				new ClientCall {
 					{ AuditEvent.PingSuccess, 9200 },
 					{ AuditEvent.BadResponse, 9200 },
@@ -188,7 +211,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 				)
 			);
 
-			audit = await audit.TraceElasticsearchException(
+			audit = await audit.TraceOpenSearchException(
 				new ClientCall {
 					{ AuditEvent.PingSuccess, 9200 },
 					{ AuditEvent.BadResponse, 9200 },

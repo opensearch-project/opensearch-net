@@ -1,14 +1,37 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
@@ -246,7 +269,6 @@ namespace Tests.Search.Search
 		}
 	}
 
-	[SkipVersion("<6.4.0", "Doc Value Fields format only in Elasticsearch 6.4.0+")]
 	public class SearchApiDocValueFieldsTests : SearchApiTests
 	{
 		public SearchApiDocValueFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
@@ -495,7 +517,6 @@ namespace Tests.Search.Search
 	}
 
 
-	[SkipVersion("<6.2.0", "OpaqueId introduced in 6.2.0")]
 	public class OpaqueIdApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, ListTasksResponse, IListTasksRequest, ListTasksDescriptor, ListTasksRequest>
 	{
@@ -526,7 +547,7 @@ namespace Tests.Search.Search
 			(c, r) => c.Tasks.ListAsync(r)
 		);
 
-		protected override void OnBeforeCall(IElasticClient client)
+		protected override void OnBeforeCall(IOpenSearchClient client)
 		{
 			var searchResponse = client.Search<Project>(s => s
 					.RequestConfiguration(r => r.OpaqueId(CallIsolatedValue))
@@ -557,7 +578,6 @@ namespace Tests.Search.Search
 		}
 	}
 
-	[SkipVersion("<6.5.0", "_clusters on response only available in 6.1.0+, but ability to skip_unavailable only works in 6.5.0+")]
 	public class CrossClusterSearchApiTests
 		: ApiIntegrationTestBase<CrossCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
 	{
@@ -576,14 +596,14 @@ namespace Tests.Search.Search
 		protected override int ExpectStatusCode => 200;
 
 		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.Index(Nest.Indices.Index<Project>().And("cluster_two:project"))
+			.Index(Osc.Indices.Index<Project>().And("cluster_two:project"))
 			.Query(q => q
 				.MatchAll()
 			);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override SearchRequest<Project> Initializer => new SearchRequest<Project>(Nest.Indices.Index<Project>().And("cluster_two:project"))
+		protected override SearchRequest<Project> Initializer => new SearchRequest<Project>(Osc.Indices.Index<Project>().And("cluster_two:project"))
 		{
 			Query = new MatchAllQuery()
 		};
@@ -603,141 +623,6 @@ namespace Tests.Search.Search
 			response.Clusters.Total.Should().Be(2);
 			response.Clusters.Skipped.Should().Be(1);
 			response.Clusters.Successful.Should().Be(1);
-		}
-	}
-
-	public class SearchWithPointInTimeApiTests
-		: ApiTestBase<ReadOnlyCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
-	{
-		public SearchWithPointInTimeApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-		
-		protected override object ExpectJson => new
-		{
-			size = 1,
-			query = new
-			{
-				match_all = new { }
-			},
-			pit = new
-			{
-				id = "a-long-id",
-				keep_alive = "1m"
-			}
-		};
-		
-		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.Size(1)
-			.Query(q => q.MatchAll())
-			.AllIndices()
-			.PointInTime("a-long-id", pit => pit.KeepAlive(new Time(TimeSpan.FromMinutes(1))));
-
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
-
-		protected override SearchRequest<Project> Initializer => new SearchRequest<Project>(Nest.Indices.All)
-		{
-			Size = 1,
-			Query = new QueryContainer(new MatchAllQuery()),
-			PointInTime = new Nest.PointInTime("a-long-id", "1m")
-		};
-
-		protected override string UrlPath => "/_search";
-
-		protected override LazyResponses ClientUsage() => Calls(
-			(c, f) => c.Search(f),
-			(c, f) => c.SearchAsync(f),
-			(c, r) => c.Search<Project>(r),
-			(c, r) => c.SearchAsync<Project>(r)
-		);
-	}
-
-	[SkipVersion("<7.11.0", "Runtime fields added in Elasticsearch 7.11.0")]
-	public class SearchApiRuntimeFieldsTests : SearchApiTests
-	{
-		private const string RuntimeFieldName = "search_runtime_field";
-		private const string RuntimeFieldScript = "if (doc['type'].size() != 0) {emit(doc['type'].value.toUpperCase())}";
-
-		public SearchApiRuntimeFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-		protected override object ExpectJson => new
-		{
-			size = 5,
-			query = new
-			{
-				match_all = new { }
-			},
-			fields = new object[]
-			{
-				"runtime_started_on_day_of_week",
-				new
-				{
-					field = "runtime_thirty_days_after_started",
-					format = DateFormat.basic_date
-				},
-				"search_runtime_field"
-			},
-			runtime_mappings = new 
-			{
-				search_runtime_field = new
-				{
-					script = new
-					{
-						lang = "painless",
-						source = RuntimeFieldScript
-					},
-					type = "keyword"
-				}
-			}
-		};
-
-		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.Size(5)
-			.Query(q => q
-				.MatchAll()
-			)
-			.Fields<ProjectRuntimeFields>(fs => fs
-				.Field(f => f.StartedOnDayOfWeek)
-				.Field(f => f.ThirtyDaysFromStarted, format: DateFormat.basic_date)
-				.Field(RuntimeFieldName)
-			)
-			.RuntimeFields(rtf => rtf.RuntimeField(RuntimeFieldName, FieldType.Keyword, r => r.Script(RuntimeFieldScript)));
-
-		protected override SearchRequest<Project> Initializer => new()
-		{
-			Size = 5,
-			Query = new QueryContainer(new MatchAllQuery()),
-			Fields = Infer.Field<ProjectRuntimeFields>(p => p.StartedOnDayOfWeek)
-				.And<ProjectRuntimeFields>(p => p.ThirtyDaysFromStarted, format: DateFormat.basic_date)
-				.And(RuntimeFieldName),
-			RuntimeFields = new RuntimeFields
-			{
-				{ RuntimeFieldName, new RuntimeField
-					{
-						Type = FieldType.Keyword,
-						Script = new PainlessScript(RuntimeFieldScript)
-					}
-				}
-			}
-		};
-
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.Hits.Count.Should().BeGreaterThan(0);
-
-			foreach (var hit in response.Hits)
-			{
-				hit.Should().NotBeNull();
-
-				if (hit.Source.StartedOn != default)
-				{
-					hit.Fields.ValueOf<ProjectRuntimeFields, string>(p => p.StartedOnDayOfWeek).Should().NotBeNullOrEmpty();
-					hit.Fields.ValueOf<ProjectRuntimeFields, string>(p => p.ThirtyDaysFromStarted).Should().NotBeNullOrEmpty();
-				}
-
-				if (!string.IsNullOrEmpty(hit.Source.Type))
-				{
-					hit.Fields[RuntimeFieldName].As<string[]>().FirstOrDefault().Should().NotBeNullOrEmpty();
-				}
-			}
 		}
 	}
 }

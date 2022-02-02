@@ -1,7 +1,7 @@
 {
   "mget":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/",
       "description":"Allows to get multiple documents in one request."
     },
     "stability":"stable",

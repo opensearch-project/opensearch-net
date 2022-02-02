@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -10,17 +33,17 @@ using System.Threading.Tasks;
 using System.Threading;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Elasticsearch.Net.VirtualizedCluster;
-using Elasticsearch.Net.VirtualizedCluster.Audit;
+using OpenSearch.Net;
+using OpenSearch.Net.VirtualizedCluster;
+using OpenSearch.Net.VirtualizedCluster.Audit;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client.Settings;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Framework;
-using static Elasticsearch.Net.VirtualizedCluster.Rules.TimesHelper;
-using static Elasticsearch.Net.AuditEvent;
+using static OpenSearch.Net.VirtualizedCluster.Rules.TimesHelper;
+using static OpenSearch.Net.AuditEvent;
 
 namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 {
@@ -297,7 +320,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 			 * Now when making the client calls, the audit trail indicates that a sniff on startup succeeds, but the subsequent
 			 * API call fails because the node predicate filters out all nodes as targets on which to execute API calls
 			 */
-			await audit.TraceUnexpectedElasticsearchException(new ClientCall
+			await audit.TraceUnexpectedOpenSearchException(new ClientCall
 			{
 				{ SniffOnStartup }, // <1> The audit trail indicates a sniff for the very first time on startup
 				{ SniffSuccess }, // <2> The sniff succeeds because the node predicate is ignored when sniffing
@@ -385,7 +408,6 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 		}
 
 		[I]
-		[SkipVersion("5.0.0-alpha3", "Broken in this version. See https://github.com/elastic/elasticsearch/issues/18794")]
 		public async Task SniffPicksUpRoles()
 		{
 			var node = SniffAndReturnNode();

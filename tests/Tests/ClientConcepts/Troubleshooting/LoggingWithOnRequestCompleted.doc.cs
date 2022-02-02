@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,9 +31,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
@@ -37,7 +60,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		public async Task OnRequestCompletedIsCalled()
 		{
 			var counter = 0;
-			var client = new ElasticClient(new AlwaysInMemoryConnectionSettings().OnRequestCompleted(r => counter++)); // <1> Construct a client
+			var client = new OpenSearchClient(new AlwaysInMemoryConnectionSettings().OnRequestCompleted(r => counter++)); // <1> Construct a client
 
 			client.RootNodeInfo(); // <2> Make a synchronous call and assert the counter is incremented
 			counter.Should().Be(1);
@@ -62,10 +85,10 @@ namespace Tests.ClientConcepts.Troubleshooting
 					.OnRequestCompleted(r => counter++)
 			);
 
-			Assert.Throws<ElasticsearchClientException>(() => client.RootNodeInfo()); // <3> Assert an exception is thrown and the counter is incremented
+			Assert.Throws<OpenSearchClientException>(() => client.RootNodeInfo()); // <3> Assert an exception is thrown and the counter is incremented
 			counter.Should().Be(1);
 
-			await Assert.ThrowsAsync<ElasticsearchClientException>(async () => await client.RootNodeInfoAsync());
+			await Assert.ThrowsAsync<OpenSearchClientException>(async () => await client.RootNodeInfoAsync());
 			counter.Should().Be(2);
 		}
 
@@ -116,7 +139,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 					}
 				});
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var syncResponse = client.Search<object>(s => s // <4> Make a synchronous call
 				.AllIndices()
@@ -190,7 +213,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 					}
 				});
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var syncResponse = client.Search<object>(s => s // <1> Make a synchronous call where the request and response bytes will not be buffered
 				.AllIndices()

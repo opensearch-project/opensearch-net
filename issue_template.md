@@ -1,7 +1,7 @@
 <!--
 GitHub is reserved for bug reports and feature requests. The best place
 to ask a general question is at the Elastic Discourse forums at
-https://discuss.elastic.co. If you are in fact posting a bug report or
+https://discuss.opendistrocommunity.dev/. If you are in fact posting a bug report or
 a feature request, please include one and only one of the below blocks
 in your new issue.
 -->
@@ -11,7 +11,7 @@ If you are filing a bug report, please remove the below feature
 request block and provide responses for all of the below items.
 -->
 
-**NEST/Elasticsearch.Net version**:
+**NEST/OpenSearch.Net version**:
 
 **Elasticsearch version**:
 

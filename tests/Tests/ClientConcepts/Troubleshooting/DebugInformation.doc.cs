@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -11,10 +34,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Elasticsearch.Net.Diagnostics;
+using OpenSearch.Net;
+using OpenSearch.Net.Diagnostics;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
 using Tests.Core.ManagedElasticsearch.Clusters;
@@ -28,7 +51,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Debug information
 	 *
-	 * Every response from Elasticsearch.Net and NEST contains a `DebugInformation` property
+	 * Every response from OpenSearch.Net and NEST contains a `DebugInformation` property
 	 * that provides a human readable description of what happened during the request for both successful and
 	 * failed requests
 	 */
@@ -53,7 +76,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		[U] public void PasswordIsNotExposedInDebugInformation()
 		{
 			// hide
-			var client = new ElasticClient(new AlwaysInMemoryConnectionSettings()
+			var client = new OpenSearchClient(new AlwaysInMemoryConnectionSettings()
 				.DefaultIndex("index")
 				.BasicAuthentication("user1", "pass2")
 			);
@@ -70,7 +93,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		[U] public void ApiKeyIsNotExposedInDebugInformation()
 		{
 			// hide
-			var client = new ElasticClient(new AlwaysInMemoryConnectionSettings()
+			var client = new OpenSearchClient(new AlwaysInMemoryConnectionSettings()
 				.DefaultIndex("index")
 				.ApiKeyAuthentication("id1", "api_key1")
 			);
@@ -89,7 +112,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		{
 			// hide
 			var pool = new SingleNodeConnectionPool(new Uri("http://user1:pass2@localhost:9200"));
-			var client = new ElasticClient(new ConnectionSettings(pool, new InMemoryConnection())
+			var client = new OpenSearchClient(new ConnectionSettings(pool, new InMemoryConnection())
 				.DefaultIndex("index")
 			);
 
@@ -121,7 +144,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 			var settings = new ConnectionSettings(connectionPool)
 				.DisableDirectStreaming(); // <1> disable direct streaming for *all* requests
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 		}
 
 		/**
@@ -170,7 +193,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 			var settings = new ConnectionSettings(connectionPool)
 				.EnableTcpStats(); // <1> collect TCP statistics for *all* requests
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 		}
 
 		/**
@@ -244,7 +267,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 			 var settings = new ConnectionSettings(connectionPool)
 				 .EnableThreadPoolStats(); // <1> collect thread pool statistics for *all* requests
 
-			 var client = new ElasticClient(settings);
+			 var client = new OpenSearchClient(settings);
 		 }
 
 		 /**

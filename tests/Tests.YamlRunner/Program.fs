@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 module Tests.YamlRunner.Main
 
@@ -10,10 +33,10 @@ open System.Diagnostics
 open Argu
 open Tests.YamlRunner
 open Tests.YamlRunner.Models
-open Elasticsearch.Net
+open OpenSearch.Net
 
 type Arguments =
-    | [<First; MainCommand; CliPrefix(CliPrefix.None)>] NamedSuite of TestSuite
+    | [<First; MainCommand; CliPrefix(CliPrefix.None)>] NamedSuite of string
     | [<AltCommandLine("-f")>]Folder of string
     | [<AltCommandLine("-t")>]TestFile of string
     | [<AltCommandLine("-s")>]TestSection of string
@@ -41,7 +64,7 @@ let private defaultEndpoint namedSuite =
         match (runningProxy, namedSuite) with
         | (true, _) -> "ipv4.fiddler"
         | _ -> "localhost"
-    let https = match namedSuite with | Platinum -> "s" | _ -> ""
+    let https = "s" // ""
     sprintf "http%s://%s:9200" https host;
 
 let private createClient endpoint namedSuite = 
@@ -54,7 +77,6 @@ let private createClient endpoint namedSuite =
         let tokens = e.UserInfo.Split(':') |> Seq.toList
         match (tokens, namedSuite) with 
         | ([username; password], _) -> uri, Some (username, password)
-        | (_, Platinum) -> uri, Some ("elastic", "changeme")
         | _ -> uri, None
     let settings = new ConnectionConfiguration(uri)
     // proxy 
@@ -70,10 +92,9 @@ let private createClient endpoint namedSuite =
     // certs
     let certSettings =
         match namedSuite with
-        | Platinum -> 
-            authSettings.ServerCertificateValidationCallback(fun _ _ _ _ -> true)
+//            authSettings.ServerCertificateValidationCallback(fun _ _ _ _ -> true)
         | _ -> authSettings
-    ElasticLowLevelClient(certSettings)
+    OpenSearchLowLevelClient(certSettings)
     
 let validateRevisionParams endpoint _passedRevision namedSuite =    
     let client = createClient endpoint namedSuite
@@ -99,15 +120,14 @@ let validateRevisionParams endpoint _passedRevision namedSuite =
     let runningRevision = r.Get<string>("version.build_hash")
     
     // TODO validate the endpoint running confirms to expected `passedRevision`
-    // needs to handle tags (7.4.0) and branches (7.x, 7.4, master)
+    // needs to handle tags (1.2.0) and branches (1.x, 1.2, main)
     // not quite sure whats the rules are
     let revision = runningRevision
         
     (client, revision, version)
     
 let runMain (parsed:ParseResults<Arguments>) = async {
-    
-    let namedSuite = parsed.TryGetResult NamedSuite |> Option.defaultValue Free
+    let namedSuite = parsed.TryGetResult NamedSuite |> Option.defaultValue "_"
     let directory = parsed.TryGetResult Folder //|> Option.defaultValue "indices.create" |> Some
     let file = parsed.TryGetResult TestFile //|> Option.defaultValue "10_basic.yml" |> Some
     let section = parsed.TryGetResult TestSection //|> Option.defaultValue "10_basic.yml" |> Some

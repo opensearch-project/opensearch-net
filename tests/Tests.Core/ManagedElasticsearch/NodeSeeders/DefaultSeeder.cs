@@ -1,11 +1,34 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nest;
+using Osc;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
@@ -31,15 +54,15 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 			NumberOfReplicas = 0,
 		};
 
-		public DefaultSeeder(IElasticClient client, IIndexSettings indexSettings)
+		public DefaultSeeder(IOpenSearchClient client, IIndexSettings indexSettings)
 		{
 			Client = client;
 			IndexSettings = indexSettings ?? _defaultIndexSettings;
 		}
 
-		public DefaultSeeder(IElasticClient client) : this(client, null) { }
+		public DefaultSeeder(IOpenSearchClient client) : this(client, null) { }
 
-		private IElasticClient Client { get; }
+		private IOpenSearchClient Client { get; }
 
 		private IIndexSettings IndexSettings { get; }
 
@@ -89,18 +112,15 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 
 		public async Task ClusterSettingsAsync()
 		{
-			if (TestConfiguration.Instance.InRange("<6.1.0")) return;
-
 			var clusterConfiguration = new Dictionary<string, object>()
 			{
 				{ "cluster.routing.use_adaptive_replica_selection", true }
 			};
 
-			if (TestConfiguration.Instance.InRange(">=6.5.0"))
-				clusterConfiguration += new RemoteClusterConfiguration
-				{
-					{ RemoteClusterName, "127.0.0.1:9300" }
-				};
+			clusterConfiguration += new RemoteClusterConfiguration
+			{
+				{ RemoteClusterName, "127.0.0.1:9300" }
+			};
 
 			var putSettingsResponse = await Client.Cluster.PutSettingsAsync(new ClusterPutSettingsRequest
 			{
@@ -112,8 +132,6 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 
 		public async Task PutPipeline()
 		{
-			if (TestConfiguration.Instance.InRange("<6.1.0")) return;
-
 			var putProcessors = await Client.Ingest.PutPipelineAsync(PipelineName, pi => pi
 				.Description("A pipeline registered by the NEST test framework")
 				.Processors(pp => pp
@@ -202,8 +220,6 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 #pragma warning disable 618
 		private Task<CreateIndexResponse> CreateProjectIndexAsync() => Client.Indices.CreateAsync(typeof(Project), c => c
 			.Settings(settings => settings.Analysis(ProjectAnalysisSettings))
-			// this uses obsolete overload somewhat on purpose to make sure it works just as the rest
-			// TODO 8.0 remove with once the overloads are gone too
 			.Mappings(ProjectMappings)
 			.Aliases(aliases => aliases
 				.Alias(ProjectsAliasName)
@@ -241,16 +257,6 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 					)
 				);
 
-			// runtime fields are a new feature added in 7.11.0
-			if (TestConfiguration.Instance.InRange(">=7.11.0"))
-			{
-				mapping.RuntimeFields<ProjectRuntimeFields>(rf => rf
-					.RuntimeField(r => r.StartedOnDayOfWeek, FieldType.Keyword, rtf => rtf
-						.Script("if (doc['startedOn'].size() != 0) {emit(doc['startedOn'].value.dayOfWeekEnum.getDisplayName(TextStyle.FULL, Locale.ROOT))}"))
-					.RuntimeField(r => r.ThirtyDaysFromStarted, FieldType.Date, rtf => rtf
-						.Script("if (doc['startedOn'].size() != 0) {emit(doc['startedOn'].value.plusDays(30).toEpochMilli())}")));
-			}
-
 			return mapping;
 		}
 
@@ -268,10 +274,8 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 						.Filters("shingle")
 						.Tokenizer("standard")
 					)
-				);
-			//normalizers are a new feature since 5.2.0
-			if (TestConfiguration.Instance.InRange(">=5.2.0"))
-				analysis.Normalizers(analyzers => analyzers
+				)
+				.Normalizers(analyzers => analyzers
 					.Custom("my_normalizer", n => n
 						.Filters("lowercase", "asciifolding")
 					)
@@ -381,32 +385,22 @@ namespace Tests.Core.ManagedElasticsearch.NodeSeeders
 				.RankFeature(rf => rf
 					.Name(p => p.Rank)
 					.PositiveScoreImpact()
-				);
-
-			if (TestConfiguration.Instance.InRange(">=7.3.0"))
-				props.Flattened(f => f
-					.Name(p => p.Labels)
-				);
-			else
-				props.Object<Labels>(f => f
-					.Name(p => p.Labels)
-					.Enabled(false)
-				);
-
-			if (TestConfiguration.Instance.InRange(">=7.4.0"))
-				props.Shape(g => g
+				)
+				.Shape(g => g
 					.Name(p => p.ArbitraryShape)
 				);
 
-			if (TestConfiguration.Instance.InRange(">=7.7.0"))
-				props.ConstantKeyword(f => f
-					.Name(p => p.VersionControl)
-				);
-			else
-				props.Keyword(f => f
-					.Name(p => p.VersionControl)
-				);
-
+			// These two settings are targeted for older clusever versions, but could be relevant even now
+			// Keeping this in for future reference. Perhaps some tests might fail without this.
+			/*
+			props.Object<Labels>(f => f
+				.Name(p => p.Labels)
+				.Enabled(false)
+			);
+			props.Keyword(f => f
+				.Name(p => p.VersionControl)
+			);
+			*/
 			return props;
 		}
 

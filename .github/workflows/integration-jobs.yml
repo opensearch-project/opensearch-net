@@ -15,6 +15,7 @@ on:
       - master
       - '[0-9]+.[0-9]+'
       - '[0-9]+.x'
+      - 'dev-*'
 
 jobs:
   integration-tests:
@@ -24,20 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         stack_version: [
-           '7.0.0',
-           '7.1.0',
-           '7.2.0',
-           '7.3.0',
-           '7.4.0',
-           '7.5.0',
-           '7.6.0',
-           '7.7.0',
-           '7.8.0',
-           '7.9.0',
-           '7.10.0',
-           '7.11.0',
-           '7.12.0',
-           'latest-7'
+           '7.10.2'
         ]
         
     steps:
@@ -71,4 +59,10 @@ jobs:
           fail_on_failure: true
           require_tests: true
           check_name: ${{ matrix.stack_version }}
-          
+        # This is the only way to get test reports out from GitHub Actions
+        # TODO remove this before release
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: test-report
+          path: build/output/*

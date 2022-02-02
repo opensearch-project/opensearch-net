@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +31,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
@@ -29,7 +52,7 @@ namespace Tests.CommonOptions.TimeUnit
 		[U] public void Constructor()
 		{
 			var unitString = new Time("2d");
-			var unitComposed = new Time(2, Nest.TimeUnit.Day);
+			var unitComposed = new Time(2, Osc.TimeUnit.Day);
 			var unitTimeSpan = new Time(TimeSpan.FromDays(2));
 			var unitMilliseconds = new Time(1000 * 60 * 60 * 24 * 2);
 
@@ -108,7 +131,7 @@ namespace Tests.CommonOptions.TimeUnit
 			/**
 			 * Equality has down to 1/10 nanosecond precision
 			 */
-			Time oneNanosecond = new Time(1, Nest.TimeUnit.Nanoseconds);
+			Time oneNanosecond = new Time(1, Osc.TimeUnit.Nanoseconds);
 			Time onePointNoughtNineNanoseconds = "1.09nanos";
 			Time onePointOneNanoseconds = "1.1nanos";
 
@@ -148,7 +171,7 @@ namespace Tests.CommonOptions.TimeUnit
 			/** Special Time values `0` and `-1` can be compared against other Time values
 			 * although admittedly, this is a tad nonsensical.
 			 */
-			var twoDays = new Time(2, Nest.TimeUnit.Day);
+			var twoDays = new Time(2, Osc.TimeUnit.Day);
 			Time.MinusOne.Should().BeLessThan(Time.Zero);
 			Time.Zero.Should().BeGreaterThan(Time.MinusOne);
 			Time.Zero.Should().BeLessThan(twoDays);
@@ -158,8 +181,8 @@ namespace Tests.CommonOptions.TimeUnit
 			 * If there is a need to construct a time of -1ms or 0ms, use the constructor
 			 * that accepts a factor and time unit, or specify a string with ms time units
 			 */
-			(new Time(-1, Nest.TimeUnit.Millisecond) == new Time("-1ms")).Should().BeTrue();
-			(new Time(0, Nest.TimeUnit.Millisecond) == new Time("0ms")).Should().BeTrue();
+			(new Time(-1, Osc.TimeUnit.Millisecond) == new Time("-1ms")).Should().BeTrue();
+			(new Time(0, Osc.TimeUnit.Millisecond) == new Time("0ms")).Should().BeTrue();
 		}
 
 		// hide
@@ -312,36 +335,36 @@ namespace Tests.CommonOptions.TimeUnit
 			Expect(-1).WhenSerializing(Time.MinusOne);
 
 			Assert(
-				1, Nest.TimeUnit.Day, TimeSpan.FromDays(1).TotalMilliseconds, "1d",
-				new Time(1, Nest.TimeUnit.Day),
+				1, Osc.TimeUnit.Day, TimeSpan.FromDays(1).TotalMilliseconds, "1d",
+				new Time(1, Osc.TimeUnit.Day),
 				new Time("1d"),
 				new Time(TimeSpan.FromDays(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, Nest.TimeUnit.Hour, TimeSpan.FromHours(1).TotalMilliseconds, "1h",
-				new Time(1, Nest.TimeUnit.Hour),
+				1, Osc.TimeUnit.Hour, TimeSpan.FromHours(1).TotalMilliseconds, "1h",
+				new Time(1, Osc.TimeUnit.Hour),
 				new Time("1h"),
 				new Time(TimeSpan.FromHours(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, Nest.TimeUnit.Minute, TimeSpan.FromMinutes(1).TotalMilliseconds, "1m",
-				new Time(1, Nest.TimeUnit.Minute),
+				1, Osc.TimeUnit.Minute, TimeSpan.FromMinutes(1).TotalMilliseconds, "1m",
+				new Time(1, Osc.TimeUnit.Minute),
 				new Time("1m"),
 				new Time(TimeSpan.FromMinutes(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, Nest.TimeUnit.Second, TimeSpan.FromSeconds(1).TotalMilliseconds, "1s",
-				new Time(1, Nest.TimeUnit.Second),
+				1, Osc.TimeUnit.Second, TimeSpan.FromSeconds(1).TotalMilliseconds, "1s",
+				new Time(1, Osc.TimeUnit.Second),
 				new Time("1s"),
 				new Time(TimeSpan.FromSeconds(1).TotalMilliseconds)
 			);
 		}
 
 		//hide
-		private void Assert(double expectedFactor, Nest.TimeUnit expectedInterval, double expectedMilliseconds, string expectedSerialized, params Time[] times)
+		private void Assert(double expectedFactor, Osc.TimeUnit expectedInterval, double expectedMilliseconds, string expectedSerialized, params Time[] times)
 		{
 			foreach (var time in times)
 			{

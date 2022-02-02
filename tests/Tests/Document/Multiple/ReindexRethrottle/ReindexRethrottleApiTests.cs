@@ -1,18 +1,41 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Linq;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Extensions;
 using Tests.Document.Multiple.Reindex;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Document.Multiple.ReindexRethrottle
 {
@@ -20,7 +43,7 @@ namespace Tests.Document.Multiple.ReindexRethrottle
 	{
 		public ReindexRethrottleReindexApiTests(ReindexCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override void OnBeforeCall(IElasticClient client)
+		protected override void OnBeforeCall(IOpenSearchClient client)
 		{
 			var reindex = client.ReindexOnServer(r => r
 				.Source(s => s
@@ -44,7 +67,7 @@ namespace Tests.Document.Multiple.ReindexRethrottle
 	{
 		public ReindexRethrottleUpdateByQueryTests(ReindexCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override void OnBeforeCall(IElasticClient client)
+		protected override void OnBeforeCall(IOpenSearchClient client)
 		{
 			var reindex = client.UpdateByQuery<Project>(u => u
 				.Conflicts(Conflicts.Proceed)
@@ -88,7 +111,7 @@ namespace Tests.Document.Multiple.ReindexRethrottle
 
 		protected override string UrlPath => $"/_reindex/{TaskId.NodeId}%3A{TaskId.TaskNumber}/_rethrottle?requests_per_second=-1";
 
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
+		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
 			client.IndexMany(Project.Projects);
 			client.Indices.Refresh(Index<Project>());

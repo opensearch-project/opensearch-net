@@ -1,10 +1,33 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 module Tests.YamlRunner.Models
 
-open Elasticsearch.Net
+open OpenSearch.Net
 open System
 open System.Collections.Generic
 open System.Collections.Specialized
@@ -12,8 +35,6 @@ open System.Text.RegularExpressions
 open Microsoft.FSharp.Reflection
 
 let private getName a = match FSharpValue.GetUnionFields(a, a.GetType()) with | (case, _) -> case.Name   
-
-type TestSuite = Free | Platinum
 
 type YamlMap = Dictionary<Object,Object>
 type YamlValue = YamlDictionary of YamlMap | YamlString of string
@@ -142,11 +163,10 @@ type Feature =
     | Contains // "contains", //NOT seen in master
     | TransformAndSet // "transform_and_set", 
     | ArbitraryKey // "arbitrary_key"
-    | NoXPack // "no_xpack"
     | Unsupported of string
 
 let SupportedFeatures = [EmbeddedStashKey; StashInPath; ArbitraryKey; Warnings; Headers
-                         Contains; DefaultShards; CatchUnauthorized; NoXPack; TransformAndSet ]
+                         Contains; DefaultShards; CatchUnauthorized; TransformAndSet ]
     
 let (|ToFeature|) (s:string) =
     match s with
@@ -163,7 +183,6 @@ let (|ToFeature|) (s:string) =
     | "contains" -> Contains
     | "transform_and_set" -> TransformAndSet
     | "arbitrary_key" -> ArbitraryKey
-    | "no_xpack" -> NoXPack
     | s -> Unsupported s
 
 type Skip = { Version:SemVer.Range list option; Reason:string option; Features: Feature list option }
@@ -211,7 +230,7 @@ type Assert =
 
 type Operation =
     | Unknown of string
-    | Actions of string * (IElasticLowLevelClient * TestSuite -> DynamicResponse option)
+    | Actions of string * (IOpenSearchLowLevelClient * string -> DynamicResponse option)
     | Skip of Skip
     | Do of Do
     | Set of Set
