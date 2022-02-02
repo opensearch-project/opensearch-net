@@ -1,15 +1,38 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Text;
 using System.Runtime.Serialization;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Elasticsearch.Net.Extensions;
+using OpenSearch.Net;
+using OpenSearch.Net.Extensions;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Newtonsoft.Json;
 using Tests.Core.Client;
 using Tests.Framework.DocumentationTests;
@@ -20,7 +43,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	 * === Modelling documents with types
 	 *
 	 * Elasticsearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
-	 * JSON objects within the request body of a HTTP request. It is natural to model documents within NEST and Elasticsearch.Net using
+	 * JSON objects within the request body of a HTTP request. It is natural to model documents within NEST and OpenSearch.Net using
 	 * https://en.wikipedia.org/wiki/Plain_Old_CLR_Object[POCOs (__Plain Old CLR Objects__)].
 	 *
 	 * This section provides an overview of how types and type hierarchies can be used to model documents.
@@ -102,7 +125,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 
 			settings.DefaultFieldNameInferrer(p => ToSnakeCase(p)); // <2> apply snake casing to **all** POCO properties
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var indexResponse = client.Index(
 				new MyDocument { StringProperty = "value" },
@@ -235,7 +258,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 				.PropertyName(p => p.StringProperty, nameof(MyDocument.StringProperty)) // <1> serialize the `StringProperty` type as `"StringProperty"`
 			);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var indexResponse = client.Index(
 				new MyDocument { StringProperty = "value" },
@@ -302,7 +325,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 				.Ignore(p => p.StringProperty) // <2> ignore `StringProperty`
 			);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var indexResponse = client.Index(
 				new MyDerivedDocument { StringProperty = "value", IntProperty = 2 },
@@ -379,7 +402,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 				.Ignore(p => p.StringProperty)
 			);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var indexResponse = client.Index(
 				new MyDerivedDocumentOverrideProperty { StringProperty = "value", IntProperty = 2 },
@@ -482,7 +505,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 				.Ignore(p => p.StringProperty)
 			);
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var indexResponse = client.Index(
 				new MyDerivedDocumentShadowProperty { StringProperty = "value" },

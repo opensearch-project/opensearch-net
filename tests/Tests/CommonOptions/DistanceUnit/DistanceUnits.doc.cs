@@ -1,9 +1,32 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
@@ -26,7 +49,7 @@ namespace Tests.CommonOptions.DistanceUnit
 		public void Constructor()
 		{
 			var unitComposed = new Distance(25);
-			var unitComposedWithUnits = new Distance(25, Nest.DistanceUnit.Meters);
+			var unitComposedWithUnits = new Distance(25, Osc.DistanceUnit.Meters);
 
 			/**
 			* `Distance` serializes to a string composed of a factor and distance unit.
@@ -63,47 +86,47 @@ namespace Tests.CommonOptions.DistanceUnit
 			/** ===== Metric
 			*`mm` (Millimeters)
 			*/
-			Expect("2mm").WhenSerializing(new Distance(2, Nest.DistanceUnit.Millimeters));
+			Expect("2mm").WhenSerializing(new Distance(2, Osc.DistanceUnit.Millimeters));
 
 			/**
 			*`cm` (Centimeters)
 			*/
-			Expect("123.456cm").WhenSerializing(new Distance(123.456, Nest.DistanceUnit.Centimeters));
+			Expect("123.456cm").WhenSerializing(new Distance(123.456, Osc.DistanceUnit.Centimeters));
 
 			/**
 			*`m` (Meters)
 			*/
-			Expect("400m").WhenSerializing(new Distance(400, Nest.DistanceUnit.Meters));
+			Expect("400m").WhenSerializing(new Distance(400, Osc.DistanceUnit.Meters));
 
 			/**
 			*`km` (Kilometers)
 			*/
-			Expect("0.1km").WhenSerializing(new Distance(0.1, Nest.DistanceUnit.Kilometers));
+			Expect("0.1km").WhenSerializing(new Distance(0.1, Osc.DistanceUnit.Kilometers));
 
 			/** ===== Imperial
 			*`in` (Inches)
 			*/
-			Expect("43.23in").WhenSerializing(new Distance(43.23, Nest.DistanceUnit.Inch));
+			Expect("43.23in").WhenSerializing(new Distance(43.23, Osc.DistanceUnit.Inch));
 
 			/**
 			*`ft` (Feet)
 			*/
-			Expect("3.33ft").WhenSerializing(new Distance(3.33, Nest.DistanceUnit.Feet));
+			Expect("3.33ft").WhenSerializing(new Distance(3.33, Osc.DistanceUnit.Feet));
 
 			/**
 			*`yd` (Yards)
 			*/
-			Expect("9yd").WhenSerializing(new Distance(9, Nest.DistanceUnit.Yards));
+			Expect("9yd").WhenSerializing(new Distance(9, Osc.DistanceUnit.Yards));
 
 			/**
 			*`mi` (Miles)
 			*/
-			Expect("0.62mi").WhenSerializing(new Distance(0.62, Nest.DistanceUnit.Miles));
+			Expect("0.62mi").WhenSerializing(new Distance(0.62, Osc.DistanceUnit.Miles));
 
 			/**
 			*`nmi` or `NM` (Nautical Miles)
 			*/
-			Expect("45.5nmi").WhenSerializing(new Distance(45.5, Nest.DistanceUnit.NauticalMiles));
+			Expect("45.5nmi").WhenSerializing(new Distance(45.5, Osc.DistanceUnit.NauticalMiles));
 		}
 	}
 }

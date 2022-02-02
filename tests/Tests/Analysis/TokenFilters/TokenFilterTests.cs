@@ -1,11 +1,34 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Runtime.Serialization;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Core.Serialization;
 
 namespace Tests.Analysis.TokenFilters
@@ -98,7 +121,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "etf";
 		}
 
-		[SkipVersion("<7.8.0", "PreserveOriginal introduced in 7.8.0")]
 		public class EdgeNgramPreserveOriginalTests : TokenFilterAssertionBase<EdgeNgramPreserveOriginalTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf
@@ -200,7 +222,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "keeptypes";
 		}
 
-		[SkipVersion("<6.4.0", "The mode option was introduced in https://github.com/elastic/elasticsearch/pull/32012")]
 		public class KeepTypesModeTests : TokenFilterAssertionBase<KeepTypesTests>
 		{
 			private readonly string[] _types = { "<NUM>", "<SOMETHINGELSE>" };
@@ -489,7 +510,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "ngram";
 		}
 
-		[SkipVersion("<7.8.0", "PreserveOriginal introduced in 7.8.0")]
 		public class NGramPreserveOriginalTests : TokenFilterAssertionBase<NGramPreserveOriginalTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf
@@ -624,7 +644,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "stem";
 		}
 
-		[SkipVersion("<6.5.0", "predicate token filter not available in earlier versions")]
 		public class PredicateTests : TokenFilterAssertionBase<PredicateTests>
 		{
 			private readonly string _predicate = "token.getTerm().length() > 5";
@@ -718,7 +737,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "syn";
 		}
 
-		[SkipVersion("<6.4.0", "Lenient is an option introduced in 6.4.0")]
 		public class SynonymLenientTests : TokenFilterAssertionBase<SynonymLenientTests>
 		{
 			private readonly string[] _synonyms = { "foo", "bar => baz" };
@@ -746,7 +764,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "syn_lenient";
 		}
 
-		[SkipVersion("<7.3.0", "updateable introduced in 7.3.0")]
 		public class SynonymUpdateableTests : TokenFilterAssertionBase<SynonymTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf
@@ -806,7 +823,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "syn_graph";
 		}
 
-		[SkipVersion("<7.3.0", "updateable introduced in 7.3.0")]
 		public class SynonymGraphUpdateableTests : TokenFilterAssertionBase<SynonymGraphUpdateableTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf
@@ -1003,7 +1019,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "phonetic";
 		}
 
-		[SkipVersion("<6.4.0", "analysis-nori plugin introduced in 6.4.0")]
 		public class NoriPartOfSpeechTests : TokenFilterAssertionBase<NoriPartOfSpeechTests>
 		{
 			private readonly string[] _stopTags = { "NR", "SP" };
@@ -1016,7 +1031,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "nori_pos";
 		}
 
-		[SkipVersion("<6.5.0", "Introduced in 6.5.0")]
 		public class ConditionTests : TokenFilterAssertionBase<ConditionTests>
 		{
 			private readonly string _predicate = "token.getTerm().length() < 5";
@@ -1043,7 +1057,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "condition";
 		}
 
-		[SkipVersion("<6.4.0", "Introduced in 6.4.0")]
 		public class MultiplexerTests : TokenFilterAssertionBase<MultiplexerTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf
@@ -1068,7 +1081,6 @@ namespace Tests.Analysis.TokenFilters
 			public override string Name => "multiplexer";
 		}
 
-		[SkipVersion("<6.4.0", "Introduced in 6.4.0")]
 		public class RemoveDuplicatesTests : TokenFilterAssertionBase<RemoveDuplicatesTests>
 		{
 			public override FuncTokenFilters Fluent => (n, tf) => tf.RemoveDuplicates(n);
@@ -1115,9 +1127,9 @@ namespace Tests.Analysis.TokenFilters
 						{
 							Settings = new IndexSettings
 							{
-								Analysis = new Nest.Analysis
+								Analysis = new Osc.Analysis
 								{
-									TokenFilters = new Nest.TokenFilters
+									TokenFilters = new Osc.TokenFilters
 									{
 										{ FilterName, UserDefinedFilter }
 									}

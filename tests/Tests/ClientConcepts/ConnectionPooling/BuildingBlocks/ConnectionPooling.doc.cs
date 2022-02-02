@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,12 +31,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Configuration;
 using Tests.Framework;
-using Tests.XPack.Security.Privileges;
 
 namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 {
@@ -62,7 +84,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		{
 			var uri = new Uri("http://localhost:9201");
 			var pool = new SingleNodeConnectionPool(uri);
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>) as well as <<pinging-behaviour, pinging>> */
 			// hide
@@ -77,10 +99,10 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 					.BeOfType<SingleNodeConnectionPool>();
 			}
 
-			/** When you use the low ceremony `ElasticClient` constructor that takes a single `Uri`,
+			/** When you use the low ceremony `OpenSearchClient` constructor that takes a single `Uri`,
 			* internally a `SingleNodeConnectionPool` is used
 			*/
-			client = new ElasticClient(uri);
+			client = new OpenSearchClient(uri);
 
 			/** However we encourage you to pass connection settings explicitly.
 			*/
@@ -123,7 +145,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			 */
 			var credentials = new BasicAuthenticationCredentials("username", "password"); // <1> a username and password that can access Elasticsearch service on Elastic Cloud
 			var pool = new CloudConnectionPool(cloudId, credentials); // <2> `cloudId` is a value that can be retrieved from the Elastic Cloud web console
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			// hide
 			{
@@ -145,9 +167,9 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			}
 
 			/**
-			 * You can also directly create a cloud enabled connection using the `ElasticClient`'s constructor
+			 * You can also directly create a cloud enabled connection using the `OpenSearchClient`'s constructor
 			*/
-			client = new ElasticClient(cloudId, credentials);
+			client = new OpenSearchClient(cloudId, credentials);
 
 			// hide
 			{
@@ -158,7 +180,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 			// hide
 			{
-				client = new ElasticClient(new ConnectionSettings(pool));
+				client = new OpenSearchClient(new ConnectionSettings(pool));
 				client.ConnectionSettings.ConnectionPool.Should().BeOfType<CloudConnectionPool>();
 				client.ConnectionSettings.EnableHttpCompression.Should().BeTrue();
 				client.ConnectionSettings.BasicAuthenticationCredentials.Should().NotBeNull();
@@ -171,8 +193,8 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 				//make sure we can deal with trailing dollar sign separators.
 				foreach (var dollars in Enumerable.Range(0, 5).Select(i => new string('$', i)))
 				{
-					Func<IElasticClient> doesNotThrowWhenEndsWithDollar = () =>
-						new ElasticClient($"my_cluster:{ToBase64($"hostname$guid{dollars}")}", credentials);
+					Func<IOpenSearchClient> doesNotThrowWhenEndsWithDollar = () =>
+						new OpenSearchClient($"my_cluster:{ToBase64($"hostname$guid{dollars}")}", credentials);
 
 					var validClient = doesNotThrowWhenEndsWithDollar.Should().NotThrow().Subject;
 					validClient.ConnectionSettings.ConnectionPool.Nodes.First().Uri.Should().Be("https://guid.hostname");
@@ -189,7 +211,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 				foreach (var id in badCloudIds)
 				{
-					Action create = () => new ElasticClient(id, credentials);
+					Action create = () => new OpenSearchClient(id, credentials);
 
 					create.Should()
 						.Throw<ArgumentException>()
@@ -213,12 +235,12 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 			/** a connection pool can be seeded with this collection */
 			var pool = new StaticConnectionPool(uris);
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** Or using an enumerable of `Node` */
 			var nodes = uris.Select(u => new Node(u));
 			pool = new StaticConnectionPool(nodes);
-			client = new ElasticClient(new ConnectionSettings(pool));
+			client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** This type of pool is hardwired to opt out of reseeding
 			 * (<<sniffing-behaviour, sniffing>>) but supports <<pinging-behaviour, pinging>> when enabled.
@@ -276,7 +298,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 			/** a connection pool can be seeded using an enumerable of `Uri` */
 			var pool = new SniffingConnectionPool(uris);
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** Or using an enumerable of `Node`. A major benefit in using nodes is that you can include
 			* known node roles when seeding, which NEST can then use to favour particular API requests. For example,
@@ -284,7 +306,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			*/
 			var nodes = uris.Select(u=>new Node(u));
 			pool = new SniffingConnectionPool(nodes);
-			client = new ElasticClient(new ConnectionSettings(pool));
+			client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** This type of pool is hardwired to opt in to reseeding (<<sniffing-behaviour, sniffing>>), and <<pinging-behaviour, pinging>> */
 			//hide
@@ -312,13 +334,13 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 			/** a connection pool can be seeded using an enumerable of `Uri` */
 			var pool = new StickyConnectionPool(uris);
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** Or using an enumerable of `Node`, similar to `SniffingConnectionPool`
 			*/
 			var nodes = uris.Select(u=>new Node(u));
 			pool = new StickyConnectionPool(nodes);
-			client = new ElasticClient(new ConnectionSettings(pool));
+			client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>), but does support <<pinging-behaviour, pinging>>. */
 			// hide
@@ -361,7 +383,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 				return weight;
 			});
 
-			var client = new ElasticClient(new ConnectionSettings(pool));
+			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			// hide
 			{

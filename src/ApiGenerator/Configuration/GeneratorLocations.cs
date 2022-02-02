@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System.IO;
 using System.Reflection;
@@ -10,11 +33,10 @@ namespace ApiGenerator.Configuration
 	public static class GeneratorLocations
 	{
 		// @formatter:off — disable formatter after this line
-		public static string EsNetFolder { get; } = $@"{Root}../../src/Elasticsearch.Net/";
+		public static string EsNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
+		public static string LastDownloadedRef { get; } = Path.Combine(Root, "last_downloaded_version.txt");
 
-		public static string LastDownloadedRef { get; } = Path.Combine(Path.GetTempPath(), "last_downloaded_version.txt");
-
-		public static string NestFolder { get; } = $@"{Root}../../src/Nest/";
+		public static string NestFolder { get; } = $@"{Root}../../src/Osc/";
 		public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
 		// @formatter:on — enable formatter after this line
 
@@ -31,14 +53,6 @@ namespace ApiGenerator.Configuration
 				if (_root != null) return _root;
 
 				var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
-
-				//If we run this tool using dotnet run --project src/ApiGenerator
-				var pathFromSolutionRoot = Path.Combine(directoryInfo.FullName, "src", "ApiGenerator");
-				if (Directory.Exists(pathFromSolutionRoot))
-				{
-					_root = pathFromSolutionRoot + "/";
-					return _root;
-				}
 
 				var dotnetRun =
 					directoryInfo.Name == "ApiGenerator" &&

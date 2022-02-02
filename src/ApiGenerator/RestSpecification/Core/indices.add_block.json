@@ -1,7 +1,7 @@
 {
   "indices.add_block":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/index-modules-blocks.html",
+      "url":"",
       "description":"Adds a block to an index."
     },
     "stability":"stable",

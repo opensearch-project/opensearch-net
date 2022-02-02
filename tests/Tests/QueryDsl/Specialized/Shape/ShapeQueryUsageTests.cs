@@ -1,10 +1,33 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System.Collections.Generic;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -18,7 +41,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 *
 	 * See the Elasticsearch documentation on {ref_current}/query-dsl-shape-query.html[shape queries] for more detail.
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public abstract class ShapeQueryUsageTestsBase : QueryDslUsageTestsBase
 	{
 		protected static readonly GeoCoordinate CircleCoordinates = new GeoCoordinate(-45.0, 45.0);
@@ -107,7 +129,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with Point
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapePointQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapePointQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -163,9 +184,8 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * [[shape-query-multipoint]]
 	 * == Querying with MultiPoint
 	 *
-	 * NOTE: Elasticsearch 7.7.0+ required when MultiPoint is indexed using BKD trees (the default).
+	 * NOTE: Elasticsearch required when MultiPoint is indexed using BKD trees (the default).
 	 */
-	[SkipVersion("<7.7.0", "Multipoint shape queries supported in 7.7.0+")]
 	public class ShapeMultiPointQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeMultiPointQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -222,7 +242,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with LineString
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeLineStringQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeLineStringQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -279,7 +298,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with MultiLineString
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeMultiLineStringQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeMultiLineStringQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -336,7 +354,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with Polygon
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapePolygonQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapePolygonQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -396,7 +413,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with MultiPolygon
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeMultiPolygonQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeMultiPolygonQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -453,7 +469,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with GeometryCollection
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeGeometryCollectionQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeGeometryCollectionQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -557,7 +572,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * == Querying with Envelope
 	 *
 	 */
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeEnvelopeQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeEnvelopeQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -612,10 +626,7 @@ namespace Tests.QueryDsl.Specialized.Shape
      * [float]
      * [[shape-query-circle]]
      * == Querying with Circle
-     *
-	 * NOTE: Available in Elasticsearch 7.7.0+
      */
-	[SkipVersion("<7.7.0", "Circle shape queries are supported in 7.7.0+")]
 	public class ShapeCircleQueryUsageTests : ShapeQueryUsageTestsBase
 	{
 		public ShapeCircleQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
@@ -678,7 +689,6 @@ namespace Tests.QueryDsl.Specialized.Shape
 	*
 	* See the Elasticsearch documentation on {ref_current}/query-dsl-shape-query.html for more detail.
 	*/
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class ShapeIndexedShapeQueryUsageTests : QueryDslUsageTestsBase
 	{
 		public ShapeIndexedShapeQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }

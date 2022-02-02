@@ -1,7 +1,7 @@
 {
   "bulk":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/",
       "description":"Allows to perform multiple index/update/delete operations in a single request."
     },
     "stability":"stable",

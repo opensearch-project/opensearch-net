@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,9 +31,9 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using System.Runtime.Serialization;
 using Tests.Framework;
 
@@ -23,16 +46,16 @@ namespace Tests.ClientConcepts.LowLevel
 		* If you are using an IOC/Dependency Injection container, it's always useful to know the best practices around
 		* the lifetime of your objects.
 		*
-		* In general, we advise folks to register an `ElasticClient` instance as a singleton; the client is thread safe,
+		* In general, we advise folks to register an `OpenSearchClient` instance as a singleton; the client is thread safe,
 		* so sharing an instance across threads is fine.
 		*
 		* The actual moving part that benefits from being a singleton is `ConnectionSettings` because
 		* **caches are __per__ `ConnectionSettings`**.
 		*
-		* In some applications ,it could make perfect sense to have multiple `ElasticClient` instances registered with different
+		* In some applications ,it could make perfect sense to have multiple `OpenSearchClient` instances registered with different
 		* connection settings such as when your application connects to two different Elasticsearch clusters.
 		*
-		* IMPORTANT: Due to the semantic versioning of Elasticsearch.Net and NEST and their alignment to versions of Elasticsearch, all instances of `ElasticClient` and
+		* IMPORTANT: Due to the semantic versioning of OpenSearch.Net and NEST and their alignment to versions of Elasticsearch, all instances of `OpenSearchClient` and
 		* Elasticsearch clusters that are connected to must be on the **same major version**
 		*
 		* Let's demonstrate which components are disposed by creating our own derived `ConnectionSettings`, `IConnectionPool` and `IConnection` types

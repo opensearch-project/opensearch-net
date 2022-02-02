@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +31,7 @@ using System.Linq;
 using System.Reflection;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Analysis.Analyzers;
 using Tests.Analysis.CharFilters;
 using Tests.Analysis.Normalizers;
@@ -40,41 +63,41 @@ namespace Tests.Analysis
 			Fluent<AnalyzersDescriptor, IAnalyzerAssertion, IAnalyzers>(i => i.Fluent, (a, v) => a.Analyzers = v.Value);
 
 		public static IndexSettings AnalyzersInitializer =>
-			Init<Nest.Analyzers, IAnalyzerAssertion, IAnalyzer>(i => i.Initializer, (a, v) => a.Analyzers = v);
+			Init<Osc.Analyzers, IAnalyzerAssertion, IAnalyzer>(i => i.Initializer, (a, v) => a.Analyzers = v);
 
 		public static IndexSettings CharFiltersFluent =>
 			Fluent<CharFiltersDescriptor, ICharFilterAssertion, ICharFilters>(i => i.Fluent, (a, v) => a.CharFilters = v.Value);
 
 		public static IndexSettings CharFiltersInitializer =>
-			Init<Nest.CharFilters, ICharFilterAssertion, ICharFilter>(i => i.Initializer, (a, v) => a.CharFilters = v);
+			Init<Osc.CharFilters, ICharFilterAssertion, ICharFilter>(i => i.Initializer, (a, v) => a.CharFilters = v);
 
 		public static IndexSettings NormalizersFluent =>
 			Fluent<NormalizersDescriptor, INormalizerAssertion, INormalizers>(i => i.Fluent, (a, v) => a.Normalizers = v.Value);
 
 		public static IndexSettings NormalizersInitializer =>
-			Init<Nest.Normalizers, INormalizerAssertion, INormalizer>(i => i.Initializer, (a, v) => a.Normalizers = v);
+			Init<Osc.Normalizers, INormalizerAssertion, INormalizer>(i => i.Initializer, (a, v) => a.Normalizers = v);
 
 		public static IndexSettings TokenFiltersFluent =>
 			Fluent<TokenFiltersDescriptor, ITokenFilterAssertion, ITokenFilters>(i => i.Fluent, (a, v) => a.TokenFilters = v.Value);
 
 		public static IndexSettings TokenFiltersInitializer =>
-			Init<Nest.TokenFilters, ITokenFilterAssertion, ITokenFilter>(i => i.Initializer, (a, v) => a.TokenFilters = v);
+			Init<Osc.TokenFilters, ITokenFilterAssertion, ITokenFilter>(i => i.Initializer, (a, v) => a.TokenFilters = v);
 
 		public static IndexSettings TokenizersFluent =>
 			Fluent<TokenizersDescriptor, ITokenizerAssertion, ITokenizers>(i => i.Fluent, (a, v) => a.Tokenizers = v.Value);
 
 		public static IndexSettings TokenizersInitializer =>
-			Init<Nest.Tokenizers, ITokenizerAssertion, ITokenizer>(i => i.Initializer, (a, v) => a.Tokenizers = v);
+			Init<Osc.Tokenizers, ITokenizerAssertion, ITokenizer>(i => i.Initializer, (a, v) => a.Tokenizers = v);
 
 		private static IndexSettings Fluent<TContainer, TAssertion, TValue>(Func<TAssertion, Func<string, TContainer, IPromise<TValue>>> fluent,
-			Action<Nest.Analysis, IPromise<TValue>> set
+			Action<Osc.Analysis, IPromise<TValue>> set
 		)
 			where TAssertion : IAnalysisAssertion
 			where TContainer : IPromise<TValue>, new()
 			where TValue : class => Wrap(an => set(an, Apply<TContainer, TAssertion>((t, a) => fluent(a)(a.Name, t))));
 
 		private static IndexSettings Init<TContainer, TAssertion, TInitializer>(Func<TAssertion, TInitializer> value,
-			Action<Nest.Analysis, TContainer> set
+			Action<Osc.Analysis, TContainer> set
 		)
 			where TAssertion : IAnalysisAssertion
 			where TContainer : IDictionary<string, TInitializer>, new() =>
@@ -89,9 +112,9 @@ namespace Tests.Analysis
 				return t;
 			}, t => t);
 
-		private static IndexSettings Wrap(Action<Nest.Analysis> set)
+		private static IndexSettings Wrap(Action<Osc.Analysis> set)
 		{
-			var a = new Nest.Analysis();
+			var a = new Osc.Analysis();
 			var s = new IndexSettings { Analysis = a };
 			set(a);
 			return s;

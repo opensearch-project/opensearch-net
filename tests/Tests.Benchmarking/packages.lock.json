@@ -28,7 +28,7 @@
         "dependencies": {
           "BenchmarkDotNet": "0.12.0",
           "Elastic.CommonSchema": "1.5.0",
-          "Elasticsearch.Net": "7.5.0"
+          "OpenSearch.Net": "7.5.0"
         }
       },
       "LibGit2Sharp": {
@@ -52,7 +52,7 @@
         "resolved": "7.13.0-ci20210301T140449",
         "contentHash": "DK441NHq8VJIF2rR1osbkco9EdfO8IGA8M8oHGjWohsrHCRzBanoxg4LO6vDY4yGZfsRgW/x/fA+zvHFfGi/Fw==",
         "dependencies": {
-          "Elasticsearch.Net.v7": "7.13.0-ci20210301T140449"
+          "OpenSearch.Net.v7": "7.13.0-ci20210301T140449"
         }
       },
       "BenchmarkDotNet.Annotations": {
@@ -123,7 +123,7 @@
           "System.Text.Json": "4.6.0"
         }
       },
-      "Elasticsearch.Net.v7": {
+      "OpenSearch.Net.v7": {
         "type": "Transitive",
         "resolved": "7.13.0-ci20210301T140449",
         "contentHash": "/bijZdruoRaQLMy/7niRp8RiJpO95uP7Q8Vxwxxb4jjKSIXcRzgrLaMtWlkhCEQQ3nGZIkdxVEWpapv5pWfrXA==",
@@ -1402,7 +1402,7 @@
           "xunit.extensibility.core": "[2.3.1]"
         }
       },
-      "elasticsearch.net": {
+      "opensearch.net": {
         "type": "Project",
         "dependencies": {
           "Microsoft.CSharp": "4.6.0",
@@ -1413,7 +1413,7 @@
       "NEST": {
         "type": "Project",
         "dependencies": {
-          "Elasticsearch.Net": "7.0.0"
+          "OpenSearch.Net": "7.0.0"
         }
       },
       "NEST.JsonNetSerializer": {

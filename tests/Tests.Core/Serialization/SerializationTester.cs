@@ -1,14 +1,37 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -71,14 +94,14 @@ namespace Tests.Core.Serialization
 
 	public class SerializationTester
 	{
-		public SerializationTester(IElasticClient client) => Client = client;
+		public SerializationTester(IOpenSearchClient client) => Client = client;
 
-		public IElasticClient Client { get; }
+		public IOpenSearchClient Client { get; }
 		public static SerializationTester Default { get; } = new SerializationTester(TestClient.DefaultInMemoryClient);
 
 		public static SerializationTester DefaultWithJsonNetSerializer { get; } = new SerializationTester(TestClient.InMemoryWithJsonNetSerializer);
 
-		protected IElasticsearchSerializer Serializer => Client.ConnectionSettings.RequestResponseSerializer;
+		protected IOpenSearchSerializer Serializer => Client.ConnectionSettings.RequestResponseSerializer;
 
 		public RoundTripResult<T> RoundTrips<T>(T @object, bool preserveNullInExpected = false)
 		{

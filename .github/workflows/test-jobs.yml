@@ -15,6 +15,7 @@ on:
       - master
       - '[0-9]+.[0-9]+'
       - '[0-9]+.x'
+      - 'dev-*'
 
 jobs:
   unit-tests:
@@ -44,6 +45,14 @@ jobs:
           fail_on_failure: true
           require_tests: true
           check_name: Unit Test Results
+        # This is the only way to get test reports out from GitHub Actions
+        # TODO remove this before release
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: unit-test-report
+          path: build/output/*
+
           
   # Packages nuget packages first and then uses the nuget packages to test
   # Also builds versioned nuget packages
@@ -74,10 +83,11 @@ jobs:
           fail_on_failure: true
           require_tests: true
           check_name: Canary Test Results
-          
-      # Github packages requires authentication, this is likely going away in the future so for now we publish to feedz.io
-      # Only runs on builds on heads
-      - run: dotnet nuget push 'build/output/*.nupkg' -k ${{secrets.FEEDZ_IO_API_KEY}} -s https://f.feedz.io/elastic/all/nuget/index.json --skip-duplicate --no-symbols true
-        name: publish canary packages to feedz.io
-        if: github.event_name == 'push' && startswith(github.ref, 'refs/heads')
+        # This is the only way to get test reports out from GitHub Actions
+        # TODO remove this before release
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: canary-test-report
+          path: build/output/*
 

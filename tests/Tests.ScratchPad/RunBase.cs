@@ -1,13 +1,36 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Diagnostics;
 using System.Threading;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using Nest;
+using Osc;
 using Tests.Core.Client;
 
 namespace Tests.ScratchPad
@@ -16,11 +39,11 @@ namespace Tests.ScratchPad
 	[MemoryDiagnoser]
 	public abstract class RunBase
 	{
-		private Action<IElasticClient> _run;
-		private Action<IElasticClient> _runOnce;
+		private Action<IOpenSearchClient> _run;
+		private Action<IOpenSearchClient> _runOnce;
 		public bool IsNotBenchmark { get; set; }
 
-		protected virtual IElasticClient Client { get; } = TestClient.DefaultInMemoryClient;
+		protected virtual IOpenSearchClient Client { get; } = TestClient.DefaultInMemoryClient;
 		protected virtual int LoopCount => 100_000;
 
 		[GlobalSetup]
@@ -39,20 +62,20 @@ namespace Tests.ScratchPad
 		[Benchmark]
 		public void RunCreateOnce() => _runOnce(Client);
 
-		protected LoopRoutine<T> Loop<T>(Func<T> create, Action<IElasticClient, T> act) => new LoopRoutine<T>(create, act, LoopCount, IsNotBenchmark);
+		protected LoopRoutine<T> Loop<T>(Func<T> create, Action<IOpenSearchClient, T> act) => new LoopRoutine<T>(create, act, LoopCount, IsNotBenchmark);
 
 		protected class LoopRoutine<T> : RunRoutine<T>
 		{
 			private readonly bool _isNotBenchmark;
 			private readonly int _loopCount;
 
-			public LoopRoutine(Func<T> create, Action<IElasticClient, T> act, int loopCount, bool isNotBenchmark) : base(create, act)
+			public LoopRoutine(Func<T> create, Action<IOpenSearchClient, T> act, int loopCount, bool isNotBenchmark) : base(create, act)
 			{
 				_loopCount = loopCount;
 				_isNotBenchmark = isNotBenchmark;
 			}
 
-			public override Action<IElasticClient> Bind(bool cacheCreate)
+			public override Action<IOpenSearchClient> Bind(bool cacheCreate)
 			{
 				var instantiator = !cacheCreate ? Create : CreateCached;
 				var limit = _loopCount * (_isNotBenchmark ? 10 : 1);
@@ -83,7 +106,7 @@ namespace Tests.ScratchPad
 
 		protected abstract class RunRoutine<T> : RoutineBase
 		{
-			protected RunRoutine(Func<T> create, Action<IElasticClient, T> act)
+			protected RunRoutine(Func<T> create, Action<IOpenSearchClient, T> act)
 			{
 				Create = create;
 				Act = act;
@@ -91,14 +114,14 @@ namespace Tests.ScratchPad
 				CreateCached = () => lazy.Value;
 			}
 
-			protected Action<IElasticClient, T> Act { get; }
+			protected Action<IOpenSearchClient, T> Act { get; }
 			protected Func<T> Create { get; }
 			protected Func<T> CreateCached { get; }
 		}
 
 		protected abstract class RoutineBase
 		{
-			public abstract Action<IElasticClient> Bind(bool cacheCreate);
+			public abstract Action<IOpenSearchClient> Bind(bool cacheCreate);
 		}
 	}
 }

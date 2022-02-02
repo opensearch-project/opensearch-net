@@ -1,7 +1,7 @@
 {
   "cat.master":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/cat-master.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-master/",
       "description":"Returns information about the master node."
     },
     "stability":"stable",

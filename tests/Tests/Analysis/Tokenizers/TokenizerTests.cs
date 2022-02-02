@@ -1,10 +1,33 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 
 namespace Tests.Analysis.Tokenizers
 {
@@ -38,7 +61,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "endgen";
 		}
 
-		[SkipVersion("<7.6.0", "CustomTokenChars introduced in 7.6.0")]
 		public class EdgeNGramCustomTokenCharsTests : TokenizerAssertionBase<EdgeNGramCustomTokenCharsTests>
 		{
 			public override FuncTokenizer Fluent => (n, t) => t.EdgeNGram(n, e => e
@@ -94,7 +116,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "ng";
 		}
 
-		[SkipVersion("<7.6.0", "CustomTokenChars introduced in 7.6.0")]
 		public class NGramCustomTokenCharsTests : TokenizerAssertionBase<NGramCustomTokenCharsTests>
 		{
 			public override FuncTokenizer Fluent => (n, t) => t.NGram(n, e => e
@@ -178,7 +199,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "icu";
 		}
 
-		[SkipVersion("<7.4.0", "not all options available before this version")]
 		public class KuromojiTests : TokenizerAssertionBase<KuromojiTests>
 		{
 			private const string Example = "/箱根山-箱根/成田空港-成田/";
@@ -214,7 +234,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "kuro";
 		}
 
-		[SkipVersion("<7.9.0", "discard_compound_token introduced in 7.9.0")]
 		public class KuromojiDiscardCompoundTokenTests : TokenizerAssertionBase<KuromojiDiscardCompoundTokenTests>
 		{
 			private const string Example = "/箱根山-箱根/成田空港-成田/";
@@ -303,7 +322,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "stan";
 		}
 
-		[SkipVersion("<6.4.0", "analysis-nori plugin introduced in 6.4.0")]
 		public class NoriTests : TokenizerAssertionBase<NoriTests>
 		{
 			public override FuncTokenizer Fluent => (n, t) => t.Nori(n, e => e
@@ -319,7 +337,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "nori";
 		}
 
-		[SkipVersion("<6.6.0", "inline user dictionary rules introduced in 6.6.0")]
 		public class NoriWithUserDictionaryTests : TokenizerAssertionBase<NoriWithUserDictionaryTests>
 		{
 			public override FuncTokenizer Fluent => (n, t) => t.Nori(n, e => e
@@ -342,7 +359,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "nori_userdictionary";
 		}
 
-		[SkipVersion("<6.4.0", "char_group introduced in 6.4.0")]
 		public class CharGroupTests : TokenizerAssertionBase<CharGroupTests>
 		{
 			private readonly string[] _chars = { "whitespace", "-", "\n" };
@@ -365,7 +381,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "char_group";
 		}
 
-		[SkipVersion("<7.9.0", "max_token_length introduced in 7.9.0")]
 		public class CharGroupMaxTokenLengthTests : TokenizerAssertionBase<CharGroupMaxTokenLengthTests>
 		{
 			private readonly string[] _chars = { "whitespace", "-", "\n" };
@@ -391,7 +406,6 @@ namespace Tests.Analysis.Tokenizers
 			public override string Name => "char_group_max_token_length";
 		}
 
-		[SkipVersion("<7.7.0", "discard_punctuation introduced in 7.7.0")]
 		public class DiscardPunctuationTests : TokenizerAssertionBase<DiscardPunctuationTests>
 		{
 			public override FuncTokenizer Fluent => (n, t) => t.Nori(n, e => e

@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
  using System;
 using System.Collections.Generic;
@@ -8,7 +31,7 @@ using System.Linq;
 using System.Threading.Tasks;
  using Elastic.Elasticsearch.Ephemeral;
  using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.ManagedElasticsearch.Clusters;
@@ -40,7 +63,7 @@ namespace Tests.Framework.EndpointTests
 			UniqueValues = usage.CallUniqueValues;
 		}
 
-		public virtual IElasticClient Client =>
+		public virtual IOpenSearchClient Client =>
 			TestConfiguration.Instance.RunIntegrationTests ? Cluster.Client : TestClient.DefaultInMemoryClient;
 
 		public TCluster Cluster { get; }
@@ -68,26 +91,26 @@ namespace Tests.Framework.EndpointTests
 
 		protected virtual TDescriptor NewDescriptor() => Activator.CreateInstance<TDescriptor>();
 
-		protected virtual void IntegrationSetup(IElasticClient client, CallUniqueValues values) { }
+		protected virtual void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values) { }
 
-		protected virtual void IntegrationTeardown(IElasticClient client, CallUniqueValues values) { }
+		protected virtual void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values) { }
 
-		protected virtual void OnBeforeCall(IElasticClient client) { }
+		protected virtual void OnBeforeCall(IOpenSearchClient client) { }
 
-		protected virtual void OnAfterCall(IElasticClient client) { }
+		protected virtual void OnAfterCall(IOpenSearchClient client) { }
 
 		protected abstract LazyResponses ClientUsage();
 
 		protected LazyResponses Calls(
-			Func<IElasticClient, Func<TDescriptor, TInterface>, TResponse> fluent,
-			Func<IElasticClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
-			Func<IElasticClient, TInitializer, TResponse> request,
-			Func<IElasticClient, TInitializer, Task<TResponse>> requestAsync
+			Func<IOpenSearchClient, Func<TDescriptor, TInterface>, TResponse> fluent,
+			Func<IOpenSearchClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
+			Func<IOpenSearchClient, TInitializer, TResponse> request,
+			Func<IOpenSearchClient, TInitializer, Task<TResponse>> requestAsync
 		) => new LazyResponses(async () =>
 		{
 			var client = Client;
 
-			void IntegrateOnly(Action<IElasticClient> act)
+			void IntegrateOnly(Action<IOpenSearchClient> act)
 			{
 				if (!TestClient.Configuration.RunIntegrationTests) return;
 

@@ -1,7 +1,7 @@
 {
   "ingest.processor_grok":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/grok-processor.html#grok-processor-rest-get",
+      "url":"",
       "description":"Returns a list of the built-in patterns."
     },
     "stability":"stable",

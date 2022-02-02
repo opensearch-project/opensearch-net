@@ -1,12 +1,35 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Nest;
+using Osc;
 using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
@@ -36,7 +59,7 @@ namespace Tests.Framework.EndpointTests.TestState
 			};
 		}
 
-		protected IElasticClient Client => _cluster.Client;
+		protected IOpenSearchClient Client => _cluster.Client;
 		private string Prefix { get; }
 		private static string RandomFluent { get; } = $"f-{RandomString()}";
 		private static string RandomFluentAsync { get; } = $"fa-{RandomString()}";
@@ -75,10 +98,10 @@ namespace Tests.Framework.EndpointTests.TestState
 		public Func<string, LazyResponses> Calls<TDescriptor, TInitializer, TInterface, TResponse>(
 			Func<string, TInitializer> initializerBody,
 			Func<string, TDescriptor, TInterface> fluentBody,
-			Func<string, IElasticClient, Func<TDescriptor, TInterface>, TResponse> fluent,
-			Func<string, IElasticClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
-			Func<string, IElasticClient, TInitializer, TResponse> request,
-			Func<string, IElasticClient, TInitializer, Task<TResponse>> requestAsync,
+			Func<string, IOpenSearchClient, Func<TDescriptor, TInterface>, TResponse> fluent,
+			Func<string, IOpenSearchClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
+			Func<string, IOpenSearchClient, TInitializer, TResponse> request,
+			Func<string, IOpenSearchClient, TInitializer, Task<TResponse>> requestAsync,
 			Action<TResponse, CallUniqueValues> onResponse = null,
 			Func<CallUniqueValues, string> uniqueValueSelector = null
 		)
@@ -100,7 +123,7 @@ namespace Tests.Framework.EndpointTests.TestState
 			, k);
 		}
 
-		public Func<string, LazyResponses> Call(Func<string, IElasticClient, Task> call) =>
+		public Func<string, LazyResponses> Call(Func<string, IOpenSearchClient, Task> call) =>
 			Call(async (s, c) =>
 			{
 				await call(s, c);
@@ -108,7 +131,7 @@ namespace Tests.Framework.EndpointTests.TestState
 				return VoidResponse;
 			});
 
-		public Func<string, LazyResponses> Call<TResponse>(Func<string, IElasticClient, Task<TResponse>> call) where TResponse : IResponse
+		public Func<string, LazyResponses> Call<TResponse>(Func<string, IOpenSearchClient, Task<TResponse>> call) where TResponse : IResponse
 		{
 			var client = Client;
 			return k => Usage.CallOnce(
@@ -132,13 +155,13 @@ namespace Tests.Framework.EndpointTests.TestState
 			EndpointUsage usage,
 			Func<string, TInitializer> initializerBody,
 			Func<string, TDescriptor, TInterface> fluentBody,
-			Func<string, IElasticClient, Func<TDescriptor, TInterface>, TResponse> fluent,
-			Func<string, IElasticClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
-			Func<string, IElasticClient, TInitializer, TResponse> request,
-			Func<string, IElasticClient, TInitializer, Task<TResponse>> requestAsync,
+			Func<string, IOpenSearchClient, Func<TDescriptor, TInterface>, TResponse> fluent,
+			Func<string, IOpenSearchClient, Func<TDescriptor, TInterface>, Task<TResponse>> fluentAsync,
+			Func<string, IOpenSearchClient, TInitializer, TResponse> request,
+			Func<string, IOpenSearchClient, TInitializer, Task<TResponse>> requestAsync,
 			Action<TResponse, CallUniqueValues> onResponse,
 			Func<CallUniqueValues, string> uniqueValueSelector,
-			IElasticClient client
+			IOpenSearchClient client
 		)
 			where TResponse : class, IResponse
 			where TDescriptor : class, TInterface
@@ -148,7 +171,7 @@ namespace Tests.Framework.EndpointTests.TestState
 			var dict = new Dictionary<ClientMethod, IResponse>();
 			async Task InvokeApiCall(
 				ClientMethod method,
-				Func<string, IElasticClient, ValueTask<TResponse>> invoke
+				Func<string, IOpenSearchClient, ValueTask<TResponse>> invoke
 				)
 			{
 				usage.CallUniqueValues.CurrentView = method;

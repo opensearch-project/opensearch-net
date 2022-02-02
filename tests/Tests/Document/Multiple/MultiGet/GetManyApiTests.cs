@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -8,9 +31,9 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client.Settings;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
@@ -19,7 +42,7 @@ namespace Tests.Document.Multiple.MultiGet
 {
 	public class GetManyApiTests : IClusterFixture<WritableCluster>
 	{
-		private readonly IElasticClient _client;
+		private readonly IOpenSearchClient _client;
 		private readonly IEnumerable<long> _ids = Developer.Developers.Select(d => d.Id).Take(10);
 
 		public GetManyApiTests(WritableCluster cluster) => _client = cluster.Client;
@@ -66,7 +89,7 @@ namespace Tests.Document.Multiple.MultiGet
 
 		[I] public void ReturnsDocsMatchingDistinctIdsFromDifferentIndices()
 		{
-			var developerIndex = Nest.Indices.Index<Developer>();
+			var developerIndex = Osc.Indices.Index<Developer>();
 			var indexName = developerIndex.GetString(_client.ConnectionSettings);
 			var reindexName = $"{indexName}-getmany-distinctids";
 
@@ -112,7 +135,7 @@ namespace Tests.Document.Multiple.MultiGet
 
 		[I] public void ReturnsDocsMatchingDistinctIdsFromDifferentIndicesWithRequestLevelIndex()
 		{
-			var developerIndex = Nest.Indices.Index<Developer>();
+			var developerIndex = Osc.Indices.Index<Developer>();
 			var indexName = developerIndex.GetString(_client.ConnectionSettings);
 			var reindexName = $"{indexName}-getmany-distinctidsindex";
 
@@ -190,9 +213,9 @@ namespace Tests.Document.Multiple.MultiGet
 		{
 			if (TestConnectionSettings.RunningFiddler) return; //fiddler meddles here
 
-			var client = new ElasticClient(new TestConnectionSettings(port: 9500));
+			var client = new OpenSearchClient(new TestConnectionSettings(port: 9500));
 			Action response = () => client.GetMany<Developer>(_ids.Select(i => i * 100));
-			response.Should().Throw<ElasticsearchClientException>();
+			response.Should().Throw<OpenSearchClientException>();
 		}
 	}
 }

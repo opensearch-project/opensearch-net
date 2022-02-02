@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RelatedFiles", "RelatedFiles", "{432D5575-2347-4D3C-BF8C-3E38410C46CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nest", "src\Nest\Nest.csproj", "{072BA7DA-7B60-407D-8B6E-95E3186BE70C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Osc", "src\Osc\Osc.csproj", "{072BA7DA-7B60-407D-8B6E-95E3186BE70C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elasticsearch.Net", "src\Elasticsearch.Net\Elasticsearch.Net.csproj", "{E97CCF40-0BA6-43FE-9F2D-58D454134088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSearch.Net", "src\OpenSearch.Net\OpenSearch.Net.csproj", "{E97CCF40-0BA6-43FE-9F2D-58D454134088}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "scripts", "build\scripts\scripts.fsproj", "{D6997ADC-E933-418E-831C-DE1A78897493}"
 EndProject
@@ -19,8 +19,6 @@ ProjectSection(SolutionItems) = preProject
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "tests\Tests\Tests.csproj", "{5B393962-7586-49BA-BD99-3B1E35F48E94}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Benchmarking", "tests\Tests.Benchmarking\Tests.Benchmarking.csproj", "{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.ClusterLauncher", "tests\Tests.ClusterLauncher\Tests.ClusterLauncher.csproj", "{AC554BF8-8ED9-4C45-BB65-8833219CAC93}"
 EndProject
@@ -61,9 +59,7 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGenerator", "src\ApiGenerator\ApiGenerator.csproj", "{CA508E92-50AE-4858-BD94-8637E88A8FAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocGenerator", "src\DocGenerator\DocGenerator.csproj", "{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elasticsearch.Net.VirtualizedCluster", "src\Elasticsearch.Net.VirtualizedCluster\Elasticsearch.Net.VirtualizedCluster.csproj", "{CFE97627-8DD3-470B-B7CF-78B62E1D305D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Net.VirtualizedCluster", "src\OpenSearch.Net.VirtualizedCluster\OpenSearch.Net.VirtualizedCluster.csproj", "{CFE97627-8DD3-470B-B7CF-78B62E1D305D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{29E53C13-34F7-4F0D-8D28-41EF768793E7}"
 ProjectSection(SolutionItems) = preProject
@@ -71,7 +67,7 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.targets = Directory.Build.targets
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nest.JsonNetSerializer", "src\Nest.JsonNetSerializer\Nest.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osc.JsonNetSerializer", "src\Osc.JsonNetSerializer\Osc.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,7 +82,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B393962-7586-49BA-BD99-3B1E35F48E94} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
-		{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
 		{AC554BF8-8ED9-4C45-BB65-8833219CAC93} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
 		{0944B296-9B37-4BFD-89C8-1C9CEAAF1132} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
 		{C1B09F39-9492-47AA-98D8-D82EF325079B} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
@@ -99,7 +94,6 @@ Global
 		{E97CCF40-0BA6-43FE-9F2D-58D454134088} = {3EA11364-0513-44B7-AD6D-A675485E7448}
 		{072BA7DA-7B60-407D-8B6E-95E3186BE70C} = {3EA11364-0513-44B7-AD6D-A675485E7448}
 		{CA508E92-50AE-4858-BD94-8637E88A8FAC} = {3EA11364-0513-44B7-AD6D-A675485E7448}
-		{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6} = {3EA11364-0513-44B7-AD6D-A675485E7448}
 		{CFE97627-8DD3-470B-B7CF-78B62E1D305D} = {3EA11364-0513-44B7-AD6D-A675485E7448}
 		{D6997ADC-E933-418E-831C-DE1A78897493} = {29E53C13-34F7-4F0D-8D28-41EF768793E7}
 		{5A9C1B95-9280-433E-8D1B-1F5396126166} = {29E53C13-34F7-4F0D-8D28-41EF768793E7}
@@ -111,10 +105,6 @@ Global
 		{5B393962-7586-49BA-BD99-3B1E35F48E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B393962-7586-49BA-BD99-3B1E35F48E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B393962-7586-49BA-BD99-3B1E35F48E94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAA9802A-A664-4DB7-9A34-5FA84BEBDF81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC554BF8-8ED9-4C45-BB65-8833219CAC93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC554BF8-8ED9-4C45-BB65-8833219CAC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC554BF8-8ED9-4C45-BB65-8833219CAC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -167,10 +157,6 @@ Global
 		{CA508E92-50AE-4858-BD94-8637E88A8FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA508E92-50AE-4858-BD94-8637E88A8FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA508E92-50AE-4858-BD94-8637E88A8FAC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB8A08CC-FCA5-49AF-901A-9120DAAA11D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CFE97627-8DD3-470B-B7CF-78B62E1D305D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFE97627-8DD3-470B-B7CF-78B62E1D305D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFE97627-8DD3-470B-B7CF-78B62E1D305D}.Release|Any CPU.ActiveCfg = Release|Any CPU

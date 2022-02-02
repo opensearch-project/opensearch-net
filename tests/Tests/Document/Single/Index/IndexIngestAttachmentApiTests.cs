@@ -1,14 +1,37 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -41,7 +64,6 @@ namespace Tests.Document.Single.Index
 		public int Id { get; set; }
 	}
 
-	[SkipVersion(">=8.0.0-SNAPSHOT", "TODO investigate")] // latest ingest snapshot build has stderr out needs fixing in abstractions possibly
 	public class IndexIngestAttachmentApiTests
 		: ApiIntegrationTestBase<IntrusiveOperationCluster, IndexResponse,
 			IIndexRequest<IngestedAttachment>,
@@ -84,7 +106,7 @@ namespace Tests.Document.Single.Index
 
 		private static string PipelineId { get; } = "pipeline-" + RandomString();
 
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
+		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
 			foreach (var value in values)
 			{
@@ -153,7 +175,7 @@ namespace Tests.Document.Single.Index
 
 	public class ReindexAttachmentApiTests : IClusterFixture<IntrusiveOperationCluster>
 	{
-		private readonly IElasticClient _client;
+		private readonly IOpenSearchClient _client;
 
 		private static string RandomString { get; } = Guid.NewGuid().ToString("N").Substring(0, 8);
 		private static string Index { get; } = "project" + RandomString;

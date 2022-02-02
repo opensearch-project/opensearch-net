@@ -1,7 +1,7 @@
 {
   "indices.open":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html",
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/",
       "description":"Opens an index."
     },
     "stability":"stable",

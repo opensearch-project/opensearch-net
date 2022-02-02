@@ -1,14 +1,37 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Nest;
+using OpenSearch.Net;
+using Osc;
 using System.Runtime.Serialization;
 using Tests.Framework;
 using Newtonsoft.Json;
@@ -20,7 +43,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* === Ignoring properties
 	* Properties on a POCO can be ignored for mapping purposes in a few ways:
 	*
-	* - Using the `Ignore` property on a derived `ElasticsearchPropertyAttributeBase` type, such as `TextAttribute`, applied to
+	* - Using the `Ignore` property on a derived `OpenSearchPropertyAttributeBase` type, such as `TextAttribute`, applied to
 	* the property that should be ignored on the POCO
 	*
 	* - Using the `Ignore` property on `PropertyNameAttribute` applied to a property that should be ignored on the POCO
@@ -29,7 +52,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* selector)` on `ConnectionSettings`
 	*
 	* - Using an ignore attribute applied to the POCO property that is understood by
-	* the `IElasticsearchSerializer` used, and inspected inside of the `CreatePropertyMapping()` on
+	* the `IOpenSearchSerializer` used, and inspected inside of the `CreatePropertyMapping()` on
 	* the serializer. Using the builtin `SourceSerializer` this would be the `IgnoreProperty`
 	*
 	* This example demonstrates all ways, using the `Ignore` property on the attribute to ignore the property
@@ -39,7 +62,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	*/
 	public class IgnoringProperties
 	{
-		[ElasticsearchType(RelationName = "company")]
+		[OpenSearchType(RelationName = "company")]
 		public class CompanyWithAttributesAndPropertiesToIgnore
 		{
 			public string Name { get; set; }
@@ -66,7 +89,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 					.Ignore(p => p.FluentMappingPropertyToIgnore)
 				);
 
-			var client = new ElasticClient(connectionSettings);
+			var client = new OpenSearchClient(connectionSettings);
 
 			var createIndexResponse = client.Indices.Create("myindex", c => c
 				.Map<CompanyWithAttributesAndPropertiesToIgnore>(m => m
@@ -128,7 +151,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 					.Ignore(p => p.IgnoreMe)
 				);
 
-			var client = new ElasticClient(connectionSettings);
+			var client = new OpenSearchClient(connectionSettings);
 
 			var createIndexResponse = client.Indices.Create("myindex", c => c
 				.Map<Child>(m => m
@@ -190,7 +213,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 					.Ignore(p => p.IgnoreMe)
 				);
 
-			var client = new ElasticClient(connectionSettings);
+			var client = new OpenSearchClient(connectionSettings);
 
 			var createIndexResponse = client.Indices.Create("myindex", c => c
 				.Map<ParentWithStringId>(m => m

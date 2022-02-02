@@ -1,11 +1,34 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System.Linq;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -33,8 +56,7 @@ namespace Tests.Cluster.ClusterStats
 		{
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
 
-			if (Cluster.ClusterConfiguration.Version >= "6.8.0")
-				response.ClusterUUID.Should().NotBeNullOrWhiteSpace();
+			response.ClusterUUID.Should().NotBeNullOrWhiteSpace();
 
 			response.NodeStatistics.Should().NotBeNull();
 			response.Status.Should().NotBe(ClusterStatus.Red);
@@ -72,22 +94,9 @@ namespace Tests.Cluster.ClusterStats
 			nodes.OperatingSystem.Should().NotBeNull();
 			nodes.OperatingSystem.AvailableProcessors.Should().BeGreaterThan(0);
 			nodes.OperatingSystem.AllocatedProcessors.Should().BeGreaterThan(0);
-
-			if (Cluster.ClusterConfiguration.Version.InRange(">=7.12.0"))
-			{
-				nodes.OperatingSystem.Architectures.Should().NotBeNull();
-				nodes.OperatingSystem.Architectures.Count.Should().BeGreaterThan(0);
-				nodes.OperatingSystem.Architectures.First().Architecture.Should().NotBeNullOrEmpty();
-				nodes.OperatingSystem.Architectures.First().Count.Should().BeGreaterThan(0);
-			}
-
 			nodes.OperatingSystem.Names.Should().NotBeEmpty();
-
-			if (Cluster.ClusterConfiguration.Version >= "6.8.0")
-			{
-				nodes.OperatingSystem.Memory.Should().NotBeNull();
-				nodes.OperatingSystem.PrettyNames.Should().NotBeNull();
-			}
+			nodes.OperatingSystem.Memory.Should().NotBeNull();
+			nodes.OperatingSystem.PrettyNames.Should().NotBeNull();
 
 			var plugins = nodes.Plugins;
 			plugins.Should().NotBeEmpty();
@@ -106,8 +115,7 @@ namespace Tests.Cluster.ClusterStats
 
 			nodes.Versions.Should().NotBeEmpty();
 
-			if (Cluster.ClusterConfiguration.Version >= "7.6.0")
-				nodes.Ingest.Should().NotBeNull();
+			nodes.Ingest.Should().NotBeNull();
 		}
 
 		protected void Assert(ClusterIndicesStats indices)

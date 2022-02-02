@@ -1,0 +1,69 @@
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Osc
+{
+	internal class PartitionHelper<TDocument> : IEnumerable<IList<TDocument>>
+	{
+		private readonly IEnumerable<TDocument> _items;
+		private readonly int _partitionSize;
+		private bool _hasMoreItems;
+
+		internal PartitionHelper(IEnumerable<TDocument> i, int ps)
+		{
+			_items = i;
+			_partitionSize = ps;
+		}
+
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+		public IEnumerator<IList<TDocument>> GetEnumerator()
+		{
+			using (var enumerator = _items.GetEnumerator())
+			{
+				_hasMoreItems = enumerator.MoveNext();
+				while (_hasMoreItems)
+					yield return GetNextBatch(enumerator).ToList();
+			}
+		}
+
+		private IEnumerable<TDocument> GetNextBatch(IEnumerator<TDocument> enumerator)
+		{
+			for (var i = 0; i < _partitionSize; ++i)
+			{
+				yield return enumerator.Current;
+
+				_hasMoreItems = enumerator.MoveNext();
+				if (!_hasMoreItems) yield break;
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>OpenSearch.Net.VirtualizedCluster</PackageId>
+    <Title>OpenSearch.Net.VirtualizedCluster - A highly configurable in memory IConnection</Title>
+    <PackageTags>elasticsearch;elastic;search;lucene;osc</PackageTags>
+    <Description>Provides a way to assert client behaviour through a rule engine backed VirtualClusterConnection</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TestPackageVersion)'!=''">
+    <PackageReference Include="OpenSearch.Net" Version="$(TestPackageVersion)"/>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TestPackageVersion)'==''">
+    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net\OpenSearch.Net.csproj"/>
+  </ItemGroup>
+</Project>

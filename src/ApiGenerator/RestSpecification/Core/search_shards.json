@@ -1,7 +1,7 @@
 {
   "search_shards":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html",
+      "url":"https://opensearch.org/docs/latest/security-plugin/access-control/cross-cluster-search/",
       "description":"Returns information about the indices and shards that a search request would be executed against."
     },
     "stability":"stable",

@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +33,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Xunit;
 // ReSharper disable SuggestVarOrType_Elsewhere
@@ -21,7 +44,7 @@ namespace Tests.ClientConcepts.LowLevel
 	/**[[elasticsearch-net-getting-started]]
 	 * == Getting started
 	 *
-	 * Elasticsearch.Net is a low level Elasticsearch .NET client that has no dependencies on other libraries
+	 * OpenSearch.Net is a low level Elasticsearch .NET client that has no dependencies on other libraries
 	 * and is unopinionated about how you build your requests and responses.
 	 *
 	 */
@@ -34,7 +57,7 @@ namespace Tests.ClientConcepts.LowLevel
 			_cluster = cluster;
 		}
 
-		private IElasticLowLevelClient lowlevelClient = new ElasticLowLevelClient(new ConnectionConfiguration(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
+		private IOpenSearchLowLevelClient lowlevelClient = new OpenSearchLowLevelClient(new ConnectionConfiguration(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
 
 		/**[float]
 		 * === Connecting
@@ -44,7 +67,7 @@ namespace Tests.ClientConcepts.LowLevel
 		 */
 		public void SimpleInstantiation()
 		{
-			var lowlevelClient = new ElasticLowLevelClient();
+			var lowlevelClient = new OpenSearchLowLevelClient();
 		}
 
 		/**
@@ -57,7 +80,7 @@ namespace Tests.ClientConcepts.LowLevel
 			var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
 				.RequestTimeout(TimeSpan.FromMinutes(2));
 
-			var lowlevelClient = new ElasticLowLevelClient(settings);
+			var lowlevelClient = new OpenSearchLowLevelClient(settings);
 		}
 
 		/**
@@ -89,7 +112,7 @@ namespace Tests.ClientConcepts.LowLevel
 			var connectionPool = new SniffingConnectionPool(uris);
 			var settings = new ConnectionConfiguration(connectionPool);
 
-			var lowlevelClient = new ElasticLowLevelClient(settings);
+			var lowlevelClient = new OpenSearchLowLevelClient(settings);
 		}
 
 		/**[float]
@@ -115,15 +138,15 @@ namespace Tests.ClientConcepts.LowLevel
 				LastName = "Laarman"
 			};
 
-			var indexResponse = lowlevelClient.Index<BytesResponse>("people", "1", PostData.Serializable(person)); //<1> synchronous method that returns an `IndexResponse`
-			byte[] responseBytes = indexResponse.Body;
+			var ndexResponse = lowlevelClient.Index<BytesResponse>("people", "1", PostData.Serializable(person)); //<1> synchronous method that returns an `IndexResponse`
+			byte[] responseBytes = ndexResponse.Body;
 
 			var asyncIndexResponse = await lowlevelClient.IndexAsync<StringResponse>("people", "1", PostData.Serializable(person)); //<2> asynchronous method that returns a `Task<IndexResponse>` that can be awaited
 			string responseString = asyncIndexResponse.Body;
 		}
 
 		/**
-		 * NOTE: All available methods within Elasticsearch.Net are exposed as both synchronous and asynchronous versions,
+		 * NOTE: All available methods within OpenSearch.Net are exposed as both synchronous and asynchronous versions,
 		 * with the latter using the idiomatic *Async suffix for the method name.
 		 *
 		 * Both index requests will index the document to the endpoint `/people/person/1`.
@@ -236,17 +259,17 @@ namespace Tests.ClientConcepts.LowLevel
 		*
 		* [NOTE]
 		* --
-		* Elasticsearch.Net does not provide typed objects to represent responses; if you need this, you should consider
+		* OpenSearch.Net does not provide typed objects to represent responses; if you need this, you should consider
 		* using <<nest, NEST, the high level client>>, that does map all requests and responses to types. You can work with
-		* strong types with Elasticsearch.Net but it will be up to you as the developer to configure Elasticsearch.Net so that
-		* it understands how to deserialize your types, most likely by providing your own <<custom-serialization, IElasticsearchSerializer>> implementation
+		* strong types with OpenSearch.Net but it will be up to you as the developer to configure OpenSearch.Net so that
+		* it understands how to deserialize your types, most likely by providing your own <<custom-serialization, IOpenSearchSerializer>> implementation
 		* to `ConnectionConfiguration`.
 		* --
 		*
 		* [float]
 		* === Handling Errors
 		*
-		* By default, Elasticsearch.Net is configured not to throw exceptions if a HTTP response status code is returned that is not in
+		* By default, OpenSearch.Net is configured not to throw exceptions if a HTTP response status code is returned that is not in
 		* the 200-300 range, nor an expected response status code allowed for a given request e.g. checking if an index exists
 		* can return a 404.
 		*
@@ -272,7 +295,7 @@ namespace Tests.ClientConcepts.LowLevel
 			var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
 				.ThrowExceptions();
 
-			var lowlevelClient = new ElasticLowLevelClient(settings);
+			var lowlevelClient = new OpenSearchLowLevelClient(settings);
 		}
 
 		/**
@@ -290,7 +313,7 @@ namespace Tests.ClientConcepts.LowLevel
 					}
 				});
 
-			var lowlevelClient = new ElasticLowLevelClient(settings);
+			var lowlevelClient = new OpenSearchLowLevelClient(settings);
 		}
 
 		// hide

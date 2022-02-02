@@ -1,7 +1,7 @@
 {
   "indices.get_upgrade":{
     "documentation":{
-      "url":"https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html",
+      "url":"",
       "description":"DEPRECATED Returns a progress status of current upgrade."
     },
     "stability":"stable",

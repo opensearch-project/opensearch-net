@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 namespace Scripts
 
@@ -44,7 +67,6 @@ module Versioning =
         let doc_current =
             match globalJson.doc_current with
             | "master" -> "master"
-            | s when s.EndsWith(".x") -> sprintf "%i.x" version.Major
             | _ -> sprintf "%i.%i" version.Major version.Minor
         let doc_branch =
             match globalJson.doc_current with
@@ -93,24 +115,21 @@ module Versioning =
         | None -> NoChange(Current = AnchoredVersion currentVersion)
         | Some v -> Update(New = AnchoredVersion v, Old = AnchoredVersion currentVersion)
         
-    let WriteVersion version =
-        match version with
-        | NoChange _ -> failwithf "cannot run update versions because no explicit version number was passed on the command line"
-        | Update (newVersion, currentVersion) ->
-            match newVersion.Full.PreRelease with
-            | Some v when v.Name.StartsWith("SNAPSHOT", StringComparison.OrdinalIgnoreCase) ->
-                printfn "Building snapshot, foregoing persisting version information"
-            | _ ->
-                // fail if current is greater than the new version
-                if (currentVersion > newVersion) then
-                    failwithf "Can not release %O as it's lower then current %O" newVersion.Full currentVersion.Full
-                writeVersionIntoGlobalJson newVersion.Full
-                writeVersionIntoAutoLabel (currentVersion.Full.ToString()) (newVersion.Full.ToString())
-    
     let Validate target version = 
         match (target, version) with
         | ("release", version) ->
-            WriteVersion version
+            match version with
+            | NoChange _ -> failwithf "cannot run release because no explicit version number was passed on the command line"
+            | Update (newVersion, currentVersion) ->
+                match newVersion.Full.PreRelease with
+                | Some v when v.Name.StartsWith("SNAPSHOT", StringComparison.OrdinalIgnoreCase) ->
+                    printfn "Building snapshot, foregoing persisting version information"
+                | _ ->
+                    // fail if current is greater than the new version
+                    if (currentVersion > newVersion) then
+                        failwithf "Can not release %O as it's lower then current %O" newVersion.Full currentVersion.Full
+                    writeVersionIntoGlobalJson newVersion.Full
+                    writeVersionIntoAutoLabel (currentVersion.Full.ToString()) (newVersion.Full.ToString())
         | _ -> ignore()
     
     let ArtifactsVersion buildVersions =
@@ -125,7 +144,7 @@ module Versioning =
             let allPackages = !! "build/output/*.nupkg" |> Seq.toList
             let toProject (package: string) =
                 let id = Path.GetFileName(package) |> String.replace (version.Full.ToString()) "" |> String.replace "..nupkg" ""
-                let assembly = id |> String.replace "NEST" "Nest"
+                let assembly = id |> String.replace "OSC" "Osc"
                 {| Package = package; NugetId = id; AssemblyName = assembly |} 
                 
             allPackages |> List.map toProject

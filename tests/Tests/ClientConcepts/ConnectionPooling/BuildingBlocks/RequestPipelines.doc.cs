@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -9,12 +32,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using System.Runtime.Serialization;
-using Elasticsearch.Net.VirtualizedCluster;
-using Elasticsearch.Net.VirtualizedCluster.Providers;
+using OpenSearch.Net.VirtualizedCluster;
+using OpenSearch.Net.VirtualizedCluster.Providers;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
 using Tests.Framework;
@@ -69,7 +92,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 				DateTimeProvider.Default,
 				new RecyclableMemoryStreamFactory());
 
-			var client = new ElasticClient(transport);
+			var client = new OpenSearchClient(transport);
 		}
 
 		// hide
@@ -133,7 +156,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 						transport_address = "127.0.0.1:9300",
 						host = "127.0.0.1",
 						ip = "127.0.01",
-						version = "5.0.0-alpha3",
+						version = "1.0.0",
 						build_hash = "e455fd0",
 						roles = new List<string>(),
 						http = new

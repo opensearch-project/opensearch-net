@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 namespace Scripts
 
@@ -49,7 +72,7 @@ module Main =
         Tests.SetTestEnvironmentVariables parsed
         
         let testChain = ["clean"; "version"; "restore"; "full-build"; ]
-        let buildChain = ["test"; "inherit-doc"; "documentation"; ]
+        let buildChain = ["test"; "inherit-doc" ]
         let releaseChain =
             [ 
                 "build";
@@ -72,8 +95,6 @@ module Main =
 
         target "inherit-doc" <| InheritDoc.PatchInheritDocs
         
-        conditionalCommand "documentation" testChain (parsed.GenDocs)  <| fun _ -> Documentation.Generate parsed
-        
         //BUILD
         command "build" buildChain <| fun _ -> printfn "STARTING BUILD"
 
@@ -81,8 +102,7 @@ module Main =
 
         conditional "nuget-pack-versioned" (isCanary) <| fun _ -> Build.VersionedPack artifactsVersion
 
-        conditional "generate-release-notes" (not isCanary && not parsed.SkipReleaseNotes) <| fun _ ->
-            ReleaseNotes.GenerateNotes buildVersions
+        conditional "generate-release-notes" (not isCanary)  <| fun _ -> ReleaseNotes.GenerateNotes buildVersions
         
         target "validate-artifacts" <| fun _ -> Versioning.ValidateArtifacts artifactsVersion
         
@@ -110,10 +130,7 @@ module Main =
         command "cluster" [ "restore"; "full-build" ] <| fun _ ->
             ReposTooling.LaunchCluster parsed
         
-        command "codegen" [ ] <| fun _ -> ReposTooling.GenerateApi parsed
-        
-        target "set-version" <| fun _ -> Versioning.WriteVersion buildVersions
-        
+        command "codegen" [ ] ReposTooling.GenerateApi
         
         command "rest-spec-tests" [ ] <| fun _ ->
             ReposTooling.RestSpecTests parsed.RemainingArguments

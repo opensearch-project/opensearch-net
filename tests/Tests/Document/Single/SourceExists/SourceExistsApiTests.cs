@@ -1,11 +1,34 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Nest;
+using OpenSearch.Net;
+using Osc;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
@@ -14,7 +37,6 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Document.Single.SourceExists
 {
-	[SkipVersion("<5.4.0", "API was documented from 5.4.0 and over")]
 	public class SourceExistsApiTests
 		: ApiIntegrationTestBase<WritableCluster, ExistsResponse, ISourceExistsRequest, SourceExistsDescriptor<Project>, SourceExistsRequest<Project>
 		>
@@ -29,7 +51,7 @@ namespace Tests.Document.Single.SourceExists
 		protected override bool SupportsDeserialization => false;
 		protected override string UrlPath => $"/project/_source/{CallIsolatedValue}?routing={CallIsolatedValue}";
 
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
+		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
 			foreach (var id in values.Values)
 				Client.Index(Project.Instance, i => i.Id(id).Routing(id));
@@ -66,7 +88,7 @@ namespace Tests.Document.Single.SourceExists
 
 		private static DocumentPath<Project> Doc(string id) => new DocumentPath<Project>(id).Index(IndexWithNoSource);
 
-		protected override void IntegrationSetup(IElasticClient client, CallUniqueValues values)
+		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
 			var index = client.Indices.Create(IndexWithNoSource, i => i
 				.Map<Project>(mm => mm

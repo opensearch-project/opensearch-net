@@ -1,18 +1,41 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Aggregations.Bucket.Filters
 {
@@ -184,81 +207,6 @@ namespace Tests.Aggregations.Bucket.Filters
 			foreach (var singleBucket in results.Take(3)) singleBucket.DocCount.Should().BeGreaterThan(0);
 
 			results.Last().DocCount.Should().Be(0); // <1> The last bucket is the _other bucket_
-		}
-	}
-
-	// hide
-	[SkipVersion(">=7.2.0", "Fixed in 7.2.0 server, FiltersAggregation NPE when filters is empty #41459 (issue: #41408)")]
-	public class EmptyFiltersAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public EmptyFiltersAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-		protected override object AggregationJson => new
-		{
-			empty_filters = new
-			{
-				filters = new
-				{
-					filters = new object[] { }
-				}
-			}
-		};
-
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.Filters("empty_filters", agg => agg
-				.AnonymousFilters()
-			);
-
-		protected override AggregationDictionary InitializerAggs =>
-			new FiltersAggregation("empty_filters")
-			{
-				Filters = new List<QueryContainer>()
-			};
-
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
-			response.Aggregations.Filters("empty_filters").Buckets.Should().BeEmpty();
-		}
-	}
-
-	// hide
-	[SkipVersion(">=7.2.0", "Fixed in 7.2.0 server, FiltersAggregation NPE when filters is empty #41459 (issue: #41408)")]
-	public class ConditionlessFiltersAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public ConditionlessFiltersAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-		protected override object AggregationJson => new
-		{
-			conditionless_filters = new
-			{
-				filters = new
-				{
-					filters = new object[] { }
-				}
-			}
-		};
-
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.Filters("conditionless_filters", agg => agg
-				.AnonymousFilters(
-					q => new QueryContainer()
-				)
-			);
-
-		protected override AggregationDictionary InitializerAggs =>
-			new FiltersAggregation("conditionless_filters")
-			{
-				Filters = new List<QueryContainer>
-				{
-					new QueryContainer()
-				}
-			};
-
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
-			response.Aggregations.Filters("conditionless_filters").Buckets.Should().BeEmpty();
 		}
 	}
 }

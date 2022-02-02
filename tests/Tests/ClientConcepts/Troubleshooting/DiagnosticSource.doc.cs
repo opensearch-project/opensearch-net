@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -11,10 +34,10 @@ using System.Diagnostics;
 using System.Threading;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Elasticsearch.Net.Diagnostics;
+using OpenSearch.Net;
+using OpenSearch.Net.Diagnostics;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client.Settings;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
@@ -27,11 +50,11 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * [[diagnostic-source]]
 	 * === Diagnostic Source
 	 *
-	 * Elasticsearch.Net and NEST support capturing diagnostics information using `DiagnosticSource` and `Activity` from the
+	 * OpenSearch.Net and NEST support capturing diagnostics information using `DiagnosticSource` and `Activity` from the
 	 * `System.Diagnostics` namespace.
 	 *
 	 * To aid with the discoverability of the topics you can subscribe to and the event names they emit,
-	 * both topics and event names are exposed as strongly typed strings under `Elasticsearch.Net.Diagnostics.DiagnosticSources`
+	 * both topics and event names are exposed as strongly typed strings under `OpenSearch.Net.Diagnostics.DiagnosticSources`
 	 */
 	public class DiagnosticSourceUsageDocumentation : IClusterFixture<ReadOnlyCluster>
 	{
@@ -67,7 +90,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 
 			public void OnNext(DiagnosticListener value)
 			{
-				void TrySubscribe(string sourceName, Func<IObserver<KeyValuePair<string, object>>> listener) // <1> By inspecting the name, we can selectively subscribe only to the topics `Elasticsearch.Net` emit
+				void TrySubscribe(string sourceName, Func<IObserver<KeyValuePair<string, object>>> listener) // <1> By inspecting the name, we can selectively subscribe only to the topics `OpenSearch.Net` emit
 				{
 					if (value.Name != sourceName) return;
 
@@ -115,7 +138,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 * ==== Subscribing to topics
 		 *
 		 * As a concrete example of subscribing to topics, let's hook into all diagnostic sources and use
-		 * `ListenerObserver` to only listen to the ones from `Elasticsearch.Net`
+		 * `ListenerObserver` to only listen to the ones from `OpenSearch.Net`
 		 */
 		[I] public void SubscribeToTopics()
 		{
@@ -129,7 +152,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 						.IndexName("project")
 					);
 
-				var client = new ElasticClient(connectionSettings);
+				var client = new OpenSearchClient(connectionSettings);
 
 				var response = client.Search<Project>(s => s // <2> make a search API call
 					.MatchAll()

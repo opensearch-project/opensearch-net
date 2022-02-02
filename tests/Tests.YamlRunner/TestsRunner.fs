@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+// SPDX-License-Identifier: Apache-2.0
+//
+// The OpenSearch Contributors require contributions made to
+// this file be licensed under the Apache-2.0 license or a
+// compatible open source license.
+//
+// Modifications Copyright OpenSearch Contributors. See
+// GitHub history for details.
+//
+//  Licensed to Elasticsearch B.V. under one or more contributor
+//  license agreements. See the NOTICE file distributed with
+//  this work for additional information regarding copyright
+//  ownership. Elasticsearch B.V. licenses this file to you under
+//  the Apache License, Version 2.0 (the "License"); you may
+//  not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+// 	http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
+//
 
 namespace Tests.YamlRunner
 
@@ -10,17 +33,17 @@ open Tests.YamlRunner.Models
 open Tests.YamlRunner.TestsReader
 open Tests.YamlRunner.OperationExecutor
 open Tests.YamlRunner.Stashes
-open Elasticsearch.Net
+open OpenSearch.Net
 open Skips
 
-type TestRunner(client:IElasticLowLevelClient, version: string, suite: TestSuite, progress:IProgressBar, barOptions:ProgressBarOptions) =
+type TestRunner(client:IOpenSearchLowLevelClient, version: string, suite: string, progress:IProgressBar, barOptions:ProgressBarOptions) =
     
     member this.OperationExecutor = OperationExecutor(client)
     
     member private this.RunOperation file section operation nth stashes (subProgressBar:IProgressBar) = async {
         let executionContext = {
             Version = version
-            Suite= suite
+            Suite = suite
             File= file
             Folder= file.Directory
             Section= section
@@ -138,17 +161,6 @@ type TestRunner(client:IElasticLowLevelClient, version: string, suite: TestSuite
         return runAllSections |> Seq.toList
         
     }
-    
-    member this.GlobalSetup () =
-        match suite with
-        | Free -> ignore()
-        | Platinum ->
-            let data = PostData.String @"{""password"":""x-pack-test-password"", ""roles"":[""superuser""]}"
-            let r = client.Security.PutUser<DynamicResponse>("x_pack_rest_user", data)
-            let userCreated = r.Success 
-            if (not userCreated) then failwithf "Global setup for %A failed\r\n%s" suite r.DebugInformation
-            client.Indices.Refresh<VoidResponse>("_all") |> ignore
-            
 
     member this.RunTestsInFolder mainMessage (folder:YamlTestFolder) sectionFilter = async {
         let l = folder.Files.Length

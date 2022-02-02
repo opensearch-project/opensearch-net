@@ -1,11 +1,34 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
-using Nest;
+using OpenSearch.Net;
+using Osc;
 using Tests.Core.ManagedElasticsearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -13,7 +36,6 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.MappingManagement.PutMapping
 {
-	[SkipVersion("<7.4.0", "Shape queries introduced in 7.4.0+")]
 	public class PutMappingApiTests
 		: ApiIntegrationAgainstNewIndexTestBase
 			<WritableCluster, PutMappingResponse, IPutMappingRequest, PutMappingDescriptor<Project>, PutMappingRequest<Project>>
@@ -132,11 +154,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 				{
 					type = "rank_feature"
 				},
-				labels = new
-				{
-					type = "flattened",
-					depth_limit = 4
-				},
 				versionControl = new
 				{
 					type = "keyword"
@@ -199,10 +216,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 				)
 				.RankFeature(rf => rf
 					.Name(p => p.Rank)
-				)
-				.Flattened(f => f
-					.Name(p => p.Labels)
-					.DepthLimit(4)
 				)
 				.Keyword(k => k
 					.Name(n => n.VersionControl)
@@ -321,10 +334,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 					}
 				},
 				{ p => p.Rank, new RankFeatureProperty() },
-				{ p => p.Labels, new FlattenedProperty
-				{
-					DepthLimit = 4
-				} },
 				{ p => p.VersionControl, new KeywordProperty() }
 			}
 		};
@@ -337,62 +346,5 @@ namespace Tests.Indices.MappingManagement.PutMapping
 			(client, r) => client.Map(r),
 			(client, r) => client.MapAsync(r)
 		);
-	}
-
-	[SkipVersion("<7.11.0", "Runtime fields introduced in 7.11.0")]
-	public class PutMappingWithRuntimeFieldsTests : ApiTestBase<ReadOnlyCluster, PutMappingResponse, IPutMappingRequest, PutMappingDescriptor<Project>, PutMappingRequest>
-	{
-		// These test serialisation only. Integration tests take place in RuntimeFieldsTests.cs
-
-		private const string ScriptValue = "emit(doc['@timestamp'].value.dayOfWeekEnum.getDisplayName(TextStyle.FULL, Locale.ROOT))";
-
-		public PutMappingWithRuntimeFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-		protected override HttpMethod HttpMethod => HttpMethod.PUT;
-
-		protected override string UrlPath => $"/{CallIsolatedValue}/_mapping";
-
-		protected override PutMappingRequest Initializer => new(CallIsolatedValue)
-		{
-			RuntimeFields = new RuntimeFields
-			{
-				{ "runtime_date", new RuntimeField { Type = FieldType.Date, Format = "yyyy-MM-dd" } },
-				{ "runtime_scripted", new RuntimeField { Type = FieldType.Keyword, Script = new PainlessScript(ScriptValue) } }
-			}
-		};
-
-		protected override Func<PutMappingDescriptor<Project>, IPutMappingRequest> Fluent => d => d
-			.Index(CallIsolatedValue)
-			.RuntimeFields(rtf => rtf
-				.RuntimeField("runtime_date", FieldType.Date, rf => rf.Format("yyyy-MM-dd"))
-				.RuntimeField("runtime_scripted", FieldType.Keyword, rf=> rf.Script(new PainlessScript(ScriptValue))));
-
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.PutMapping(f),
-			(client, f) => client.Indices.PutMappingAsync(f),
-			(client, r) => client.Indices.PutMapping(r),
-			(client, r) => client.Indices.PutMappingAsync(r)
-		);
-
-		protected override object ExpectJson => new
-		{
-			runtime = new
-			{
-				runtime_date = new
-				{
-					type = "date",
-					format = "yyyy-MM-dd"
-				},
-				runtime_scripted = new
-				{
-					type = "keyword",
-					script = new
-					{
-						lang = "painless",
-						source = ScriptValue
-					}
-				}
-			}
-		};
 	}
 }

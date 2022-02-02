@@ -1,18 +1,41 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Nest;
+using Osc;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.Xunit;
 using Tests.Domain;
-using static Nest.Infer;
+using static Osc.Infer;
 
 namespace Tests.Ingest
 {
@@ -75,20 +98,6 @@ namespace Tests.Ingest
 			public override string Key => "append";
 		}
 
-		[SkipVersion("<7.11.0", "Allow duplicates added in 7.11")]
-		public class AppendWithAllowDuplicates : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent =>
-				d => d.Append<Project>(a => a.Field(p => p.State).Value(StateOfBeing.Stable, StateOfBeing.VeryActive).AllowDuplicates(false));
-
-			public override IProcessor Initializer => new AppendProcessor { Field = "state", Value = new object[] { StateOfBeing.Stable, StateOfBeing.VeryActive }, AllowDuplicates = false };
-
-			public override object Json => new { field = "state", value = new[] { "Stable", "VeryActive" }, allow_duplicates = false };
-
-			public override string Key => "append";
-		}
-
-		[SkipVersion("<7.9.0", "Description added in 7.9.0")]
 		public class Csv : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -174,33 +183,6 @@ namespace Tests.Ingest
 			};
 
 			public override string Key => "date";
-		}
-
-		[SkipVersion("<7.5.0", "Introduced in 7.5.0")]
-		public class Enrich : ProcessorAssertion
-		{
-			public static string PolicyName = "enrich_processor_policy";
-
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d.Enrich<Project>(f => f
-				.PolicyName(PolicyName)
-				.Field(f => f.Name)
-				.TargetField("target_field")
-			);
-
-			public override IProcessor Initializer => new EnrichProcessor
-			{
-				PolicyName = PolicyName,
-				Field = Field<Project>(f => f.Name),
-				TargetField = "target_field"
-			};
-
-			public override object Json => new
-			{
-				policy_name = PolicyName,
-				field = "name",
-				target_field = "target_field"
-			};
-			public override string Key => "enrich";
 		}
 
 		public class Fail : ProcessorAssertion
@@ -419,7 +401,6 @@ namespace Tests.Ingest
 			public override string Key => "script";
 		}
 
-		[SkipVersion("<6.1.0", "uses url decode which was introduced in 6.1.0")]
 		public class UrlDecode : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -434,7 +415,6 @@ namespace Tests.Ingest
 			public override string Key => "urldecode";
 		}
 
-		[SkipVersion("<6.4.0", "")]
 		public class Attachment : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -464,40 +444,6 @@ namespace Tests.Ingest
 			public override string Key => "attachment";
 		}
 
-		[SkipVersion("<7.11.0", "Resource name support was added in 7.11")]
-		public class Attachment_WithResourceName : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.Attachment<Project>(ud => ud
-					.Field(p => p.Description)
-					.IndexedCharacters(100_000)
-					.Properties("title", "author")
-					.IgnoreMissing()
-					.ResourceName(n => n.Name)
-				);
-
-			public override IProcessor Initializer => new AttachmentProcessor
-			{
-				Field = "description",
-				Properties = new[] { "title", "author" },
-				IndexedCharacters = 100_000,
-				IgnoreMissing = true,
-				ResourceName = "name"
-			};
-
-			public override object Json => new
-			{
-				field = "description",
-				ignore_missing = true,
-				properties = new[] { "title", "author" },
-				indexed_chars = 100_000,
-				resource_name = "name"
-			};
-
-			public override string Key => "attachment";
-		}
-
-		[SkipVersion("<7.4.0", "Circle processor added in 7.4.0")]
 		public class Circle : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -530,7 +476,6 @@ namespace Tests.Ingest
 			public override string Key => "circle";
 		}
 
-		[SkipVersion("<6.4.0", "")]
 		public class Bytes : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -545,7 +490,6 @@ namespace Tests.Ingest
 			public override string Key => "bytes";
 		}
 
-		[SkipVersion("<6.5.0", "")]
 		public class Dissect : ProcessorAssertion
 		{
 			private readonly string _pattern = "%{clientip} %{ident} %{auth} [%{@timestamp}] \"%{verb} %{request} HTTP/%{httpversion}\" %{status} %{size}";
@@ -575,7 +519,6 @@ namespace Tests.Ingest
 			};
 			public override string Key => "dissect";
 		}
-		[SkipVersion("<6.5.0", "")]
 		public class Drop : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -623,7 +566,6 @@ namespace Tests.Ingest
 			public override string Key => "kv";
 		}
 
-		[SkipVersion("<6.4.0", "trimming options were introduced later")]
 		public class KeyValueTrimming : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -662,7 +604,6 @@ namespace Tests.Ingest
 			public override string Key => "kv";
 		}
 
-		[SkipVersion("<6.5.0", "")]
 		public class SetSecurityUser: ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -683,7 +624,6 @@ namespace Tests.Ingest
 			public override string Key => "set_security_user";
 		}
 
-		[SkipVersion("<6.5.0", "")]
 		public class Pipeline : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -702,121 +642,6 @@ namespace Tests.Ingest
 			};
 
 			public override string Key => "pipeline";
-		}
-
-		[SkipVersion("<7.11.0", "Uses URI parts which was introduced in 7.11.0")]
-		public class UriParts : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.UriParts<Project>(ud => ud
-				.Field(p => p.Description)
-				.KeepOriginal()
-				.RemoveIfSuccessful());
-
-			public override IProcessor Initializer => new UriPartsProcessor { Field = "description", KeepOriginal = true, RemoveIfSuccessful = true };
-			public override object Json => new { field = "description", keep_original = true, remove_if_successful = true };
-			public override string Key => "uri_parts";
-		}
-
-		[SkipVersion("<7.12.0", "Uses fingerprint processor which was introduced in 7.12.0")]
-		public class Fingerprint : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.Fingerprint<Project>(ud => ud
-					.Fields(p => p.Fields(f => f.Labels))
-					.Method("MD5")
-					.Salt("ThisIsASalt!")
-					.TargetField(p => p.Description)
-					.IgnoreMissing());
-
-			public override IProcessor Initializer => new FingerprintProcessor { Fields = "labels", Method = "MD5", Salt = "ThisIsASalt!", TargetField = "description", IgnoreMissing = true };
-			public override object Json => new { fields =  new[] { "labels" }, method = "MD5", salt = "ThisIsASalt!", target_field = "description", ignore_missing = true };
-			public override string Key => "fingerprint";
-		}
-
-		[SkipVersion("<7.12.0", "Uses the network community ID processor which was introduced in 7.12.0")]
-		public class NetworkCommunityId : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.NetworkCommunityId<Project>(ud => ud
-					.DestinationIp(f => f.LeadDeveloper.IpAddress)
-					.DestinationPort("leadDeveloper.portNumber")
-					.IanaNumber(f => f.Name)
-					.IcmpType(f => f.Name)
-					.IcmpCode(f => f.Name)
-					.IgnoreMissing()
-					.Seed(100)
-					.SourceIp(f => f.LeadDeveloper.IpAddress)
-					.SourcePort("leadDeveloper.portNumber")
-					.TargetField(f => f.Description)
-					.Transport(f => f.Name));
-
-			public override IProcessor Initializer => new NetworkCommunityIdProcessor
-			{
-				DestinationIp = Field<Project>(f => f.LeadDeveloper.IpAddress),
-				DestinationPort = "leadDeveloper.portNumber",
-				IanaNumber = "name",
-				IcmpType = "name",
-				IcmpCode = "name",
-				IgnoreMissing = true,
-				Seed = 100,
-				SourceIp = Field<Project>(f => f.LeadDeveloper.IpAddress),
-				SourcePort = "leadDeveloper.portNumber",
-				TargetField = "description",
-				Transport = "name"
-			};
-
-			public override object Json => new
-			{
-				destination_ip = "leadDeveloper.ipAddress",
-				destination_port = "leadDeveloper.portNumber",
-				iana_number = "name",
-				icmp_code = "name",
-				icmp_type = "name",
-				ignore_missing = true,
-				seed = 100,
-				source_ip = "leadDeveloper.ipAddress",
-				source_port = "leadDeveloper.portNumber",
-				target_field = "description",
-				transport = "name"
-			};
-
-			public override string Key => "community_id";
-		}
-
-		[SkipVersion("<7.12.0", "Uses network direction processor which was introduced in 7.12.0")]
-		public class NetworkDirection : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.NetworkDirection<Project>(ud => ud
-					.DestinationIp(f => f.LeadDeveloper.IpAddress)
-					.SourceIp(f => f.LeadDeveloper.IpAddress)
-					.InternalNetworks("network-a", "network-b")
-					.TargetField(p => p.Description)
-					.IgnoreMissing());
-
-			public override IProcessor Initializer => new NetworkDirectionProcessor
-			{
-				DestinationIp = Field<Project>(f => f.LeadDeveloper.IpAddress),
-				SourceIp = Field<Project>(f => f.LeadDeveloper.IpAddress),
-				InternalNetworks = new [] { "network-a", "network-b" },
-				TargetField = "description",
-				IgnoreMissing = true
-			};
-			
-			public override object Json => new
-			{
-				destination_ip = "leadDeveloper.ipAddress",
-				internal_networks = new[]
-				{
-					"network-a", "network-b"
-				},
-				source_ip = "leadDeveloper.ipAddress",
-				target_field = "description",
-				ignore_missing = true
-			};
-			
-			public override string Key => "network_direction";
 		}
 	}
 }

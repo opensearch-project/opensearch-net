@@ -1,6 +1,29 @@
-// Licensed to Elasticsearch B.V under one or more agreements.
-// Elasticsearch B.V licenses this file to you under the Apache 2.0 License.
-// See the LICENSE file in the project root for more information
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*
+* Modifications Copyright OpenSearch Contributors. See
+* GitHub history for details.
+*
+*  Licensed to Elasticsearch B.V. under one or more contributor
+*  license agreements. See the NOTICE file distributed with
+*  this work for additional information regarding copyright
+*  ownership. Elasticsearch B.V. licenses this file to you under
+*  the Apache License, Version 2.0 (the "License"); you may
+*  not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+* 	http://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing,
+*  software distributed under the License is distributed on an
+*  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+*  KIND, either express or implied.  See the License for the
+*  specific language governing permissions and limitations
+*  under the License.
+*/
 
 using System;
 using System.Collections.Generic;
@@ -11,9 +34,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
-using Elasticsearch.Net;
+using OpenSearch.Net;
 using FluentAssertions;
-using Nest;
+using Osc;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
 using Tests.Core.ManagedElasticsearch.Clusters;
@@ -27,7 +50,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Debug mode
 	 *
-	 * The <<debug-information, Debug information>> explains that every response from Elasticsearch.Net
+	 * The <<debug-information, Debug information>> explains that every response from OpenSearch.Net
 	 * and NEST contains a `DebugInformation` property, and properties on `ConnectionSettings` and
 	 * `RequestConfiguration` can control which additional information is included in debug information,
 	 * for all requests or on a per request basis, respectively.
@@ -59,10 +82,8 @@ namespace Tests.ClientConcepts.Troubleshooting
 
 			// hide
 			settings.DefaultIndex(Client.ConnectionSettings.DefaultIndex);
-			// hide
-			settings.PingTimeout(TimeSpan.FromSeconds(5)); // Avoids occasional CI failures
 
-			var client = new ElasticClient(settings);
+			var client = new OpenSearchClient(settings);
 
 			var response = client.Search<Project>(s => s
 				.Query(q => q
@@ -88,7 +109,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		public void DebugModeOnRequestCompleted()
 		{
 			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var client = new ElasticClient(new ConnectionSettings(pool)
+			var client = new OpenSearchClient(new ConnectionSettings(pool)
 				.EnableDebugMode(apiCallDetails =>
 				{
 					// do something with the call details e.g. send with logging framework
