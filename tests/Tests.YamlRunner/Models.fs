@@ -40,15 +40,15 @@ type YamlMap = Dictionary<Object,Object>
 type YamlValue = YamlDictionary of YamlMap | YamlString of string
 
 type DoCatch =
-    | BadRequest // bad_request, 400 response from ES
-    | Unauthorized //unauthorized a 401 response from ES
-    | Forbidden //forbidden a 403 response from ES
-    | Missing //missing a 404 response from ES
-    | RequestTimeout //request_timeout a 408 response from ES
-    | Conflict //conflict a 409 response from ES
-    | Unavailable//unavailable a 503 response from ES
+    | BadRequest // bad_request, 400 response from OpenSearch
+    | Unauthorized //unauthorized a 401 response from OpenSearch
+    | Forbidden //forbidden a 403 response from OpenSearch
+    | Missing //missing a 404 response from OpenSearch
+    | RequestTimeout //request_timeout a 408 response from OpenSearch
+    | Conflict //conflict a 409 response from OpenSearch
+    | Unavailable//unavailable a 503 response from OpenSearch
     | UnknownParameter //param a client-side error indicating an unknown parameter has been passed to the method
-    | OtherBadResponse //request 4xx-5xx error response from ES, not equal to any named response above
+    | OtherBadResponse //request 4xx-5xx error response from OpenSearch, not equal to any named response above
     | CatchRegex of string // /foo bar/ the text of the error message matches this regular expression
     
 let (|IsDoCatch|_|) (s:string) =

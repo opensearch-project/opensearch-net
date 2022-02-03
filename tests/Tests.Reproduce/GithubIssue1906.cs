@@ -45,21 +45,21 @@ namespace Tests.Reproduce
 				.OnRequestCompleted(info =>
 				{
 					// info.Uri is /_search/ without the default index
-					// my ES instance throws an error on the .kibana index (@timestamp field not mapped because I sort on @timestamp)
+					// my OpenSearch instance throws an error on the .kibana index (@timestamp field not mapped because I sort on @timestamp)
 				});
 
 			var client = new OpenSearchClient(connectionSettings);
-			var response = client.Search<ESLogEvent>(s => s);
+			var response = client.Search<OpenSearchLogEvent>(s => s);
 
 			response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
 
-			response = client.Search<ESLogEvent>(new SearchRequest<ESLogEvent>());
+			response = client.Search<OpenSearchLogEvent>(new SearchRequest<OpenSearchLogEvent>());
 			response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
 
-			response = client.Search<ESLogEvent>(new SearchRequest());
+			response = client.Search<OpenSearchLogEvent>(new SearchRequest());
 			response.ApiCall.Uri.AbsolutePath.Should().Be("/_search");
 		}
 
-		private class ESLogEvent { }
+		private class OpenSearchLogEvent { }
 	}
 }

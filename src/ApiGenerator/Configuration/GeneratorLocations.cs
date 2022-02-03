@@ -33,7 +33,7 @@ namespace ApiGenerator.Configuration
 	public static class GeneratorLocations
 	{
 		// @formatter:off — disable formatter after this line
-		public static string EsNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
+		public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
 		public static string LastDownloadedRef { get; } = Path.Combine(Root, "last_downloaded_version.txt");
 
 		public static string NestFolder { get; } = $@"{Root}../../src/Osc/";
@@ -41,7 +41,7 @@ namespace ApiGenerator.Configuration
 		// @formatter:on — enable formatter after this line
 
 		public static string HighLevel(params string[] paths) => NestFolder + string.Join("/", paths);
-		public static string LowLevel(params string[] paths) => EsNetFolder + string.Join("/", paths);
+		public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
 
 		public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
 

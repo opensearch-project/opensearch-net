@@ -30,7 +30,7 @@ namespace Osc
 	public interface IDiskBasedShardAllocationSettings
 	{
 		/// <summary>
-		/// Controls the high watermark. It defaults to 90%, meaning ES will attempt to relocate shards to another node if the node disk usage rises
+		/// Controls the high watermark. It defaults to 90%, meaning OpenSearch will attempt to relocate shards to another node if the node disk usage rises
 		/// above 90%.
 		/// It can also be set to an absolute byte value (similar to the low watermark) to relocate shards once less than the
 		///  configured amount of space is available on the node.
@@ -48,9 +48,9 @@ namespace Osc
 		bool? IncludeRelocations { get; set; }
 
 		/// <summary>
-		/// Controls the low watermark for disk usage. It defaults to 85%, meaning ES will not allocate new shards to nodes once they have more than
+		/// Controls the low watermark for disk usage. It defaults to 85%, meaning OpenSearch will not allocate new shards to nodes once they have more than
 		/// 85% disk used. It can also be set
-		/// to an absolute byte value (like 500mb) to prevent ES from allocating shards if less than the configured amount of space is available.
+		/// to an absolute byte value (like 500mb) to prevent OpenSearch from allocating shards if less than the configured amount of space is available.
 		/// </summary>
 		string LowWatermark { get; set; }
 

@@ -140,7 +140,7 @@ namespace Osc
 				case Field fn: return Equals(fn);
 				case Field[] fns: return Equals(fns);
 				case Expression e: return Equals(e);
-				case Expression[] es: return Equals(es);
+				case Expression[] opensearch: return Equals(opensearch);
 				default: return false;
 			}
 		}

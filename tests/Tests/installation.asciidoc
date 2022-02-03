@@ -29,7 +29,7 @@ Package Manager GUI.
 === Installing the NEST client
 
 The high level `OpenSearchClient`, provides a strongly typed query DSL that maps 
-one-to-one with the {es} query DSL.
+one-to-one with the {opensearch} query DSL.
 
 It can be installed from the Package Manager Console inside Visual Studio by 
 using the following command:

@@ -17,11 +17,14 @@ This document explains who the maintainers are (see below), what they do in this
 
 ## Current Maintainers
 
-| Maintainer               | GitHub ID                               | Affiliation |
-| ------------------------ | --------------------------------------- | ----------- |
-| Jack Mazanec             | [jmazanec15](https://github.com/jmazanec15) | Amazon |
-| Vamshi Vijay Nakkirtha   | [vamshin](https://github.com/vamshin)   |   Amazon    |
-| Vijayan Balasubramanian  | [VijayanB](https://github.com/VijayanB) |   Amazon    |
+| Maintainer               | GitHub ID                                           | Affiliation |
+| ------------------------ | --------------------------------------------------- | ----------- |
+| Anirudha Jadhav          | [anirudha](https://github.com/anirudha)             |   Amazon    |
+| Joshua Li                | [joshuali925](https://github.com/joshuali925)       |   Amazon    |
+| Alex Meizer              | [alexmeizer](https://github.com/alexmeizer)         |  Bit Quill  |
+| Guian Gumpac             | [guiangumpac](https://github.com/guiangumpac)       |  Bit Quill  |
+| Raymond Lum              | [raymond-lum](https://github.com/raymond-lum)       |  Bit Quill  |
+| Yury Fridlyand           | [Yury-Fridlyand](https://github.com/Yury-Fridlyand) |  Bit Quill  |
 
 ## Maintainer Responsibilities
 

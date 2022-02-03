@@ -103,8 +103,8 @@ namespace Osc
 			if (!propertyName.IsNullOrEmpty())
 				return GetPropertyCaseInsensitive(type, propertyName);
 
-			var esTypeAtt = OpenSearchTypeAttribute.From(type);
-			propertyName = esTypeAtt?.IdProperty.IsNullOrEmpty() ?? true ? "Id" : esTypeAtt.IdProperty;
+			var opensearchTypeAtt = OpenSearchTypeAttribute.From(type);
+			propertyName = opensearchTypeAtt?.IdProperty.IsNullOrEmpty() ?? true ? "Id" : opensearchTypeAtt.IdProperty;
 
 			return GetPropertyCaseInsensitive(type, propertyName);
 		}

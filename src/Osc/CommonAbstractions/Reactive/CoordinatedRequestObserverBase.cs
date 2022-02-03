@@ -60,7 +60,7 @@ namespace Osc
 			// This normalizes task cancellation exceptions for observables
 			// If a task cancellation happens in the client it bubbles out as a UnexpectedOpenSearchClientException
 			// where as inside our IObservable implementation we .ThrowIfCancellationRequested() directly.
-			if (error is UnexpectedOpenSearchClientException es && es.InnerException != null && es.InnerException is OperationCanceledException c)
+			if (error is UnexpectedOpenSearchClientException opensearch && opensearch.InnerException != null && opensearch.InnerException is OperationCanceledException c)
 				_onError?.Invoke(c);
 			else _onError?.Invoke(error);
 		}

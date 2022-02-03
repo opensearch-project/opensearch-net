@@ -39,7 +39,7 @@ namespace OpenSearch.Net
 		public const string MimeType = "application/json";
 		public const string MimeTypeTextPlain = "text/plain";
 		public const string OpaqueIdHeader = "X-Opaque-Id";
-		public const string RunAsSecurityHeader = "es-security-runas-user";
+		public const string RunAsSecurityHeader = "opensearch-security-runas-user";
 
 		public RequestData(HttpMethod method, string path, PostData data, IConnectionConfigurationValues global, IRequestParameters local,
 			IMemoryStreamFactory memoryStreamFactory

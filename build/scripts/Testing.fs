@@ -104,8 +104,8 @@ module Tests =
         let passedVersions = match args.CommandArguments with | Integration a -> Some a.ElasticsearchVersions | _ -> None
         match passedVersions with
         | None -> failwith "No versions specified to run integration tests against"
-        | Some esVersions ->
-            for esVersion in esVersions do
+        | Some opensearchVersions ->
+            for opensearchVersion in opensearchVersions do
                 Environment.setEnvironVar "NEST_INTEGRATION_TEST" "1"
-                Environment.setEnvironVar "NEST_INTEGRATION_VERSION" esVersion
+                Environment.setEnvironVar "NEST_INTEGRATION_VERSION" opensearchVersion
                 dotnetTest "tests/Tests/Tests.csproj" args

@@ -54,7 +54,7 @@ namespace Tests.Aggregations.Metric.ExtendedStats
 		};
 
 		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.ExtendedStats("commit_stats", es => es
+			.ExtendedStats("commit_stats", opensearch => opensearch
 				.Field(p => p.NumberOfCommits)
 				.Sigma(1)
 			);
@@ -130,7 +130,7 @@ namespace Tests.Aggregations.Metric.ExtendedStats
 		};
 
 		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.ExtendedStats("commit_stats", es => es
+			.ExtendedStats("commit_stats", opensearch => opensearch
 				.Field(p => p.NumberOfCommits)
 				.Sigma(1)
 			);
