@@ -163,11 +163,11 @@ module Build =
 
             //rewrite assemblies to versioned counterparts
             let dependentAssemblies =
-                let injectEsNet = 
+                let injectOpenSearchNet =
                     match deps |> Seq.contains "OSC" with
                     | true -> List.append deps ["OpenSearch.Net"]
                     | false -> deps
-                injectEsNet
+                injectOpenSearchNet
                 |> Seq.map (fun id ->
                     let p = packages |> Seq.find (fun p -> p.NugetId = id)
                     p.AssemblyName

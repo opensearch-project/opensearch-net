@@ -4,7 +4,7 @@
 = NEST - High level client
 
 The high level client, `OpenSearchClient`, provides a strongly typed query DSL that 
-maps one-to-one with the {es} query DSL. Please refer to <<es-nest>> for 
+maps one-to-one with the {opensearch} query DSL. Please refer to <<es-nest>> for 
 installation details.
 
 NEST internally uses and still exposes the low level client, 

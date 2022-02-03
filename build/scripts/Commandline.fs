@@ -242,27 +242,27 @@ Execution hints can be provided anywhere on the command line
                 }
             }
           
-        | ["integrate"; esVersions] -> 
+        | ["integrate"; opensearchVersions] ->
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split esVersions; ClusterFilter = None; TestFilter = None
+                        ElasticsearchVersions = split opensearchVersions; ClusterFilter = None; TestFilter = None
                 }
             }
-        | ["integrate"; esVersions; clusterFilter] ->
+        | ["integrate"; opensearchVersions; clusterFilter] ->
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split esVersions;
+                        ElasticsearchVersions = split opensearchVersions;
                         ClusterFilter = Some clusterFilter;
                         TestFilter = None
                 }
             }
-        | ["integrate"; esVersions; clusterFilter; testFilter] ->
+        | ["integrate"; opensearchVersions; clusterFilter; testFilter] ->
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split esVersions;
+                        ElasticsearchVersions = split opensearchVersions;
                         ClusterFilter = Some clusterFilter
                         TestFilter = Some testFilter
                 }

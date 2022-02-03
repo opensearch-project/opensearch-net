@@ -75,10 +75,10 @@ namespace OpenSearch.Net.Extensions
 
 		internal static Exception AsAggregateOrFirst(this IEnumerable<Exception> exceptions)
 		{
-			var es = exceptions as Exception[] ?? exceptions?.ToArray();
-			if (es == null || es.Length == 0) return null;
+			var opensearch = exceptions as Exception[] ?? exceptions?.ToArray();
+			if (opensearch == null || opensearch.Length == 0) return null;
 
-			return es.Length == 1 ? es[0] : new AggregateException(es);
+			return opensearch.Length == 1 ? opensearch[0] : new AggregateException(opensearch);
 		}
 
 		internal static void ThrowIfNull<T>(this T value, string name) where T : class

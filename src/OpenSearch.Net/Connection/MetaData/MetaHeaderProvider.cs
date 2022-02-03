@@ -40,8 +40,8 @@ namespace OpenSearch.Net
 		public MetaHeaderProvider()
 		{
 			var clientVersionInfo = ClientVersionInfo.Create<IOpenSearchLowLevelClient>();
-			_asyncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "es", true);
-			_syncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "es", false);
+			_asyncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", true);
+			_syncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", false);
 		}
 		
 		public string HeaderName => MetaHeaderName;

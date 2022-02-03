@@ -5,20 +5,20 @@
 == Introduction
 
 This is the documentation page for `OpenSearch.Net` and `NEST`, the two 
-official .NET clients for {es}.
+official .NET clients for {opensearch}.
 
 [discrete]
 === Why two clients?
 
 `OpenSearch.Net` is a low level, dependency free client that has no opinions 
 about how you build and represent your requests and responses. It has abstracted 
-enough so that **all** the {es} API endpoints are represented as methods but not 
+enough so that **all** the {opensearch} API endpoints are represented as methods but not 
 too much to get in the way of how you want to build your json/request/response 
 objects. It also comes with built in, configurable/overridable cluster failover 
-retry mechanisms. {es} is _elastic_ so why not your client?
+retry mechanisms. {opensearch} is _elastic_ so why not your client?
 
 `NEST` is a high level client that maps all requests and responses as types, and 
-comes with a strongly typed query DSL that maps 1 to 1 with the {es} query DSL. 
+comes with a strongly typed query DSL that maps 1 to 1 with the {opensearch} query DSL. 
 It takes advantage of specific .NET features to provide higher level 
 abstractions such as <<auto-map, auto mapping of CLR types>>. Internally, NEST 
 uses and still exposes the low level `OpenSearch.Net` client, providing 

@@ -4,9 +4,10 @@ This document explains who the admins are (see below), what they do in this repo
 
 ## Current Admins
 
-| Admin                    | GitHub ID                               | Affiliation |
-| -------------------------| --------------------------------------- | ----------- |
-
+| Admin                    | GitHub ID                                      | Affiliation |
+| -------------------------| ---------------------------------------------- | ----------- |
+| Anirudha Jadhav          | [anirudha](https://github.com/anirudha)        |   Amazon    |
+| Joshua Li                | [joshuali925](https://github.com/joshuali925)  |   Amazon    |
 
 ## Admin Responsibilities
 

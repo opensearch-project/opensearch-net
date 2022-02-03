@@ -79,8 +79,8 @@ namespace Tests.Core.Connection.MetaData
 			var parts = result.Split(',');
 			parts.Length.Should().Be(4);
 
-			parts[0].Should().StartWith("es=");
-			var clientVersion = parts[0].Substring(3);
+			parts[0].Should().StartWith("opensearch=");
+			var clientVersion = parts[0].Substring(11);
 			_validVersionRegex.Match(clientVersion).Success.Should().BeTrue();
 
 			parts[1].Should().Be("a=0");
@@ -112,8 +112,8 @@ namespace Tests.Core.Connection.MetaData
 			var parts = result.Split(',');
 			parts.Length.Should().Be(4);
 
-			parts[0].Should().StartWith("es=");
-			var clientVersion = parts[0].Substring(3);
+			parts[0].Should().StartWith("opensearch=");
+			var clientVersion = parts[0].Substring(11);
 			_validVersionRegex.Match(clientVersion).Success.Should().BeTrue();
 
 			parts[1].Should().Be("a=1");
