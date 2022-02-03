@@ -4,7 +4,7 @@
 This page is about about how to install the `OpenSearch.Net` and the `NEST`
 clients.
 
-[[es-net]]
+[[opensearch-net]]
 [discrete]
 === Installing the OpenSearch.Net client
 
@@ -24,7 +24,7 @@ Or by searching for
 https://www.nuget.org/packages/OpenSearch.Net[OpenSearch.Net] in the 
 Package Manager GUI.
 
-[[es-nest]]
+[[opensearch-nest]]
 [discrete]
 === Installing the NEST client
 
