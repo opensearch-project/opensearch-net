@@ -30,7 +30,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
 using Xunit;

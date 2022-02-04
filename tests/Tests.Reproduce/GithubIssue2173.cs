@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

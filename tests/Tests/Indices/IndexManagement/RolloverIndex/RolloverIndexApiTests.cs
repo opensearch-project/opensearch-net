@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;

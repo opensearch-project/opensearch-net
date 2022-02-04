@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -55,7 +55,7 @@ namespace Tests.ClientConcepts.LowLevel
 		* In some applications ,it could make perfect sense to have multiple `OpenSearchClient` instances registered with different
 		* connection settings such as when your application connects to two different OpenSearch clusters.
 		*
-		* IMPORTANT: Due to the semantic versioning of OpenSearch.Net and NEST and their alignment to versions of OpenSearch, all instances of `OpenSearchClient` and
+		* IMPORTANT: Due to the semantic versioning of OpenSearch.Net and OSC and their alignment to versions of OpenSearch, all instances of `OpenSearchClient` and
 		* OpenSearch clusters that are connected to must be on the **same major version**
 		*
 		* Let's demonstrate which components are disposed by creating our own derived `ConnectionSettings`, `IConnectionPool` and `IConnection` types

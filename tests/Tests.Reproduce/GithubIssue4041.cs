@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using static Tests.Core.Serialization.SerializationTestHelper;
 

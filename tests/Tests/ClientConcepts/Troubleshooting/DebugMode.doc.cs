@@ -32,8 +32,8 @@ using System.Net.NetworkInformation;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -51,7 +51,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * === Debug mode
 	 *
 	 * The <<debug-information, Debug information>> explains that every response from OpenSearch.Net
-	 * and NEST contains a `DebugInformation` property, and properties on `ConnectionSettings` and
+	 * and OSC contains a `DebugInformation` property, and properties on `ConnectionSettings` and
 	 * `RequestConfiguration` can control which additional information is included in debug information,
 	 * for all requests or on a per request basis, respectively.
 	 *

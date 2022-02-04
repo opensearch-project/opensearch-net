@@ -26,7 +26,7 @@
 */
 
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -38,21 +38,21 @@ namespace Tests.Search.Explain
 	{
 		[U] public async Task Urls()
 		{
-			var project = new Project { Name = "NEST" };
+			var project = new Project { Name = "OSC" };
 			var routing = Infer.Route(project);
 
-			await POST("/project/_explain/NEST?routing=NEST")
+			await POST("/project/_explain/OSC?routing=OSC")
 					.Fluent(c => c.Explain<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
 					.Request(c => c.Explain<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
 					.FluentAsync(c => c.ExplainAsync<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
 					.RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
 				;
 
-			await POST("/project/_explain/NEST")
-					.Fluent(c => c.Explain<Project>("NEST", e => e.Query(q => q.MatchAll())))
-					.Request(c => c.Explain<Project>(new ExplainRequest<Project>("project", "NEST")))
-					.FluentAsync(c => c.ExplainAsync<Project>("NEST", e => e.Query(q => q.MatchAll())))
-					.RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>("NEST")))
+			await POST("/project/_explain/OSC")
+					.Fluent(c => c.Explain<Project>("OSC", e => e.Query(q => q.MatchAll())))
+					.Request(c => c.Explain<Project>(new ExplainRequest<Project>("project", "OSC")))
+					.FluentAsync(c => c.ExplainAsync<Project>("OSC", e => e.Query(q => q.MatchAll())))
+					.RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>("OSC")))
 				;
 		}
 	}

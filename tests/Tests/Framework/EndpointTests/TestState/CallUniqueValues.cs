@@ -40,7 +40,7 @@ namespace Tests.Framework.EndpointTests.TestState
 	{
 		private readonly string _prefix;
 
-		public CallUniqueValues(string prefix = "nest")
+		public CallUniqueValues(string prefix = "osc")
 		{
 			_prefix = prefix;
 			FixedForAllCallsValue = UniqueValue;

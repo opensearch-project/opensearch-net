@@ -46,7 +46,7 @@ namespace Tests.Mapping.Types
 		protected override object ExpectJson => new
 		{
 			order = 1,
-			index_patterns = new[] { "nestx-*" },
+			index_patterns = new[] { "oscx-*" },
 			settings = new Dictionary<string, object> { { "index.number_of_shards", 1 } },
 			mappings = new
 			{
@@ -70,7 +70,7 @@ namespace Tests.Mapping.Types
 
 		protected override Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> Fluent => d => d
 			.Order(1)
-			.IndexPatterns("nestx-*")
+			.IndexPatterns("oscx-*")
 			.Create(false)
 			.Settings(p => p.NumberOfShards(1))
 			.Map(tm => tm
@@ -91,7 +91,7 @@ namespace Tests.Mapping.Types
 		protected override PutIndexTemplateRequest Initializer => new PutIndexTemplateRequest(CallIsolatedValue)
 		{
 			Order = 1,
-			IndexPatterns = new[] { "nestx-*" },
+			IndexPatterns = new[] { "oscx-*" },
 			Create = false,
 			Settings = new IndexSettings
 			{

@@ -27,7 +27,7 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 
 namespace Tests.Analysis.CharFilters

@@ -39,7 +39,7 @@ namespace Tests.Configuration
 		public static TestConfigurationBase Instance => Lazy.Value;
 
 		private static TestConfigurationBase LoadConfiguration() =>
-			!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("NEST_COMMAND_LINE_BUILD"))
+			!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("OSC_COMMAND_LINE_BUILD"))
 				? (TestConfigurationBase)LoadCommandLineConfiguration()
 				: LoadYamlConfiguration();
 
@@ -49,11 +49,11 @@ namespace Tests.Configuration
 		/// </summary>
 		private static EnvironmentConfiguration LoadCommandLineConfiguration()
 		{
-			var yamlFile = Environment.GetEnvironmentVariable("NEST_YAML_FILE");
+			var yamlFile = Environment.GetEnvironmentVariable("OSC_YAML_FILE");
 			if (string.IsNullOrWhiteSpace(yamlFile))
-				throw new Exception("expected NEST_YAML_FILE to be set when calling build.bat or build.sh");
+				throw new Exception("expected OSC_YAML_FILE to be set when calling build.bat or build.sh");
 			if (!File.Exists(yamlFile))
-				throw new Exception($"expected {yamlFile} to exist on disk NEST_YAML_FILE seems misconfigured");
+				throw new Exception($"expected {yamlFile} to exist on disk OSC_YAML_FILE seems misconfigured");
 
 			//load the test seed from the explicitly passed yaml file when running from FAKE
 			var tempYamlConfiguration = new YamlConfiguration(yamlFile);

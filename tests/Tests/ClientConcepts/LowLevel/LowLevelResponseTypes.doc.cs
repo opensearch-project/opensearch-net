@@ -36,7 +36,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Framework;
 using System.Threading;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net.Extensions;
 using Tests.Domain.Extensions;
 

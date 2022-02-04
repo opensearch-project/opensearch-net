@@ -25,7 +25,7 @@
 *  under the License.
 */
 
- using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 
 namespace Tests.Mapping.Types.Specialized.Point

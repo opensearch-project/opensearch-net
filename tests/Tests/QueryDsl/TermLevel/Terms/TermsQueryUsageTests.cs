@@ -101,7 +101,7 @@ namespace Tests.QueryDsl.TermLevel.Terms
 	*== Verbatim terms query
 	 *
 	 * By default an empty terms array is conditionless so will be rewritten. Sometimes sending an empty an empty array to mean
-	 * match nothing makes sense. You can either use the `ConditionlessQuery` construct from NEST to provide a fallback or make the
+	 * match nothing makes sense. You can either use the `ConditionlessQuery` construct from OSC to provide a fallback or make the
 	 * query verbatim as followed:
 	*/
 	public class VerbatimTermsQueryUsageTests : TermsQueryUsageTests

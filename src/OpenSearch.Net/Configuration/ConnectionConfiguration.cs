@@ -82,7 +82,7 @@ namespace OpenSearch.Net
 		public static readonly TimeSpan DefaultDnsRefreshTimeout = TimeSpan.FromMinutes(5);
 
 		/// <summary>
-		/// The default connection limit for both OpenSearch.Net and Nest. Defaults to <c>80</c>
+		/// The default connection limit for both OpenSearch.Net and Osc. Defaults to <c>80</c>
 #if DOTNETCORE
 		/// <para>Except for <see cref="HttpClientHandler"/> implementations based on curl, which defaults to <see cref="Environment.ProcessorCount"/></para>
 #endif

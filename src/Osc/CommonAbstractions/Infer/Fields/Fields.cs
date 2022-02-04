@@ -60,11 +60,11 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			if (!(settings is IConnectionSettingsValues nestSettings))
+			if (!(settings is IConnectionSettingsValues oscSettings))
 				throw new ArgumentNullException(nameof(settings),
 					$"Can not resolve {nameof(Fields)} if no {nameof(IConnectionSettingsValues)} is provided");
 
-			return string.Join(",", ListOfFields.Where(f => f != null).Select(f => ((IUrlParameter)f).GetString(nestSettings)));
+			return string.Join(",", ListOfFields.Where(f => f != null).Select(f => ((IUrlParameter)f).GetString(oscSettings)));
 		}
 
 		public static implicit operator Fields(string[] fields) => fields.IsEmpty() ? null : new Fields(fields.Select(f => new Field(f)));

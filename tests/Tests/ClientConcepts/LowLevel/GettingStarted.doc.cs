@@ -31,8 +31,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Xunit;
@@ -260,7 +260,7 @@ namespace Tests.ClientConcepts.LowLevel
 		* [NOTE]
 		* --
 		* OpenSearch.Net does not provide typed objects to represent responses; if you need this, you should consider
-		* using <<nest, NEST, the high level client>>, that does map all requests and responses to types. You can work with
+		* using <<osc, OSC, the high level client>>, that does map all requests and responses to types. You can work with
 		* strong types with OpenSearch.Net but it will be up to you as the developer to configure OpenSearch.Net so that
 		* it understands how to deserialize your types, most likely by providing your own <<custom-serialization, IOpenSearchSerializer>> implementation
 		* to `ConnectionConfiguration`.

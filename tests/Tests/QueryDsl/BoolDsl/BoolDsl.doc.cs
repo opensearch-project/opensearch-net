@@ -28,7 +28,7 @@
 using System;
 using System.Linq;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core;
@@ -76,7 +76,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*[float]
 		*=== Operator overloading
 		*
-		* For this reason, NEST introduces **operator overloading** so complex `bool` queries become easier to write.
+		* For this reason, OSC introduces **operator overloading** so complex `bool` queries become easier to write.
 		* The overloaded operators are
 		*
 		* - <<binary-or-operator, Binary `||` operator>>
@@ -248,7 +248,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*            |___term
 		*....
 		*
-		* As you can imagine this becomes unwieldy quite fast, the more complex a query becomes. NEST is smart enough
+		* As you can imagine this becomes unwieldy quite fast, the more complex a query becomes. OSC is smart enough
 		* to join the `&&` queries together to form a single `bool` query
 		*
 		*....
@@ -275,7 +275,7 @@ namespace Tests.QueryDsl.BoolDsl
 		/**[[unary-negation-operator]]
 		 * ==== Unary ! operator
 		 *
-		 * NEST also offers a shorthand notation for creating a `bool` query with a `must_not` clause
+		 * OSC also offers a shorthand notation for creating a `bool` query with a `must_not` clause
 		 * using the unary `!` operator
 		 */
 		[U]
@@ -430,7 +430,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* When combining multiple queries with the binary `&&` operator
 		* where some or all queries have unary operators applied,
-		* NEST is still able to combine them to form a single `bool` query.
+		* OSC is still able to combine them to form a single `bool` query.
 		*
 		* Take for example the following `bool` query
 		*
@@ -445,7 +445,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*    |___term
 		*....
 		*
-		* This can be constructed with NEST using
+		* This can be constructed with OSC using
 		*/
 		[U] public void JoinsMustWithMustNot()
 		{
@@ -519,7 +519,7 @@ namespace Tests.QueryDsl.BoolDsl
 
 		/**==== Combining queries with || or should clauses
 		 *
-		 * As per the previous example, NEST will combine multiple `should` or `||` into a single `bool` query
+		 * As per the previous example, OSC will combine multiple `should` or `||` into a single `bool` query
 		 * with `should` clauses, when it sees that the `bool` queries in play **only** consist of `should` clauses;
 		*
 		* To summarize, this
@@ -568,7 +568,7 @@ namespace Tests.QueryDsl.BoolDsl
 		* So, relating this back to the previous example, you could get back results that **only** contain `term1`.
 		* This is clearly not what was intended when using operator overloading.
 		*
-		* To aid with this, NEST rewrites the previous query as
+		* To aid with this, OSC rewrites the previous query as
 		*....
 		*bool
 		*|___must
@@ -598,9 +598,9 @@ namespace Tests.QueryDsl.BoolDsl
 		/** TIP: *Add parentheses to force evaluation order*
 		*
 		* Using `should` clauses as boost factors can be a really powerful construct when building
-		* search queries, and remember, you can mix and match an actual `bool` query with NEST's operator overloading.
+		* search queries, and remember, you can mix and match an actual `bool` query with OSC's operator overloading.
 		*
-		* There is another subtle situation where NEST will not blindly merge two `bool` queries with only
+		* There is another subtle situation where OSC will not blindly merge two `bool` queries with only
 		* `should` clauses. Consider the following
 		*
 		* [source,sh]
@@ -608,7 +608,7 @@ namespace Tests.QueryDsl.BoolDsl
 		* bool(should=term1, term2, term3, term4, minimum_should_match=2) || term5 || term6
 		* ----
 		*
-		* if NEST identified both sides of a binary `||` operation as only containing `should` clauses and
+		* if OSC identified both sides of a binary `||` operation as only containing `should` clauses and
 		* joined them together, it would give a different meaning to the `minimum_should_match` parameter of
 		* the first `bool` query; rewriting this to a single `bool` with 5 `should` clauses would break the semantics
 		* of the original query because only matching on `term5` or `term6` should still be a hit.
@@ -638,8 +638,8 @@ namespace Tests.QueryDsl.BoolDsl
 		/**[float]
 		* === Locked bool queries
 		*
-		* NEST will not combine `bool` queries if any of the query metadata is set e.g if metadata such as `boost` or `name` are set,
-		* NEST will treat these as locked.
+		* OSC will not combine `bool` queries if any of the query metadata is set e.g if metadata such as `boost` or `name` are set,
+		* OSC will treat these as locked.
 		*
 		* Here we demonstrate that two locked `bool` queries are not combined
 		*/

@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -54,7 +54,7 @@ namespace Tests.Search.MultiSearch
 			new { },
 			new { query = new { match_all = new { } }, from = 0, size = 10 },
 			new { index = "otherindex" },
-			new { query = new { match = new { name = new { query = "nest" } } } },
+			new { query = new { match = new { name = new { query = "osc" } } } },
 			new { index = "otherindex", search_type = "dfs_query_then_fetch" },
 			new { query = new { match_all = new { } } }
 		};
@@ -64,7 +64,7 @@ namespace Tests.Search.MultiSearch
 		protected override Func<MultiSearchDescriptor, IMultiSearchRequest> Fluent => ms => ms
 			.Index(typeof(Project))
 			.Search<Project>(s => s.Query(q => q.MatchAll()).From(0).Size(10))
-			.Search<Project>(s => s.Index("otherindex").Query(q => q.Match(m => m.Field(p => p.Name).Query("nest"))))
+			.Search<Project>(s => s.Index("otherindex").Query(q => q.Match(m => m.Field(p => p.Name).Query("osc"))))
 			.Search<Project>(s => s.Index("otherindex").SearchType(SearchType.DfsQueryThenFetch).Query(q => q.MatchAll()));
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
@@ -77,7 +77,7 @@ namespace Tests.Search.MultiSearch
 				{
 					"s2",
 					new SearchRequest<Project>("otherindex")
-						{ Query = new QueryContainer(new MatchQuery { Field = "name", Query = "nest" }) }
+						{ Query = new QueryContainer(new MatchQuery { Field = "name", Query = "osc" }) }
 				},
 				{
 					"s3",

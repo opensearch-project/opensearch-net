@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Framework;
@@ -65,7 +65,7 @@ namespace Tests.CommonOptions.DateMath
 			* ==== Simple expressions
 			* You can create simple expressions using any of the static methods on `DateMath`
 			*/
-			//Expect("now").WhenSerializing(Nest.DateMath.Now);
+			//Expect("now").WhenSerializing(Osc.DateMath.Now);
 			Expect("2015-05-05T00:00:00").WhenSerializing(Osc.DateMath.Anchored(new DateTime(2015,05, 05)));
 
 			/** strings implicitly convert to `DateMath` */
@@ -161,7 +161,7 @@ namespace Tests.CommonOptions.DateMath
 			/**
 			* ==== Fractional times
 			* Date math expressions within OpenSearch do not support fractional numbers. To make working with Date math
-			* easier within NEST, conversions from `string`, `TimeSpan` and `double` will convert a fractional value to the
+			* easier within OSC, conversions from `string`, `TimeSpan` and `double` will convert a fractional value to the
 			* largest whole number value and unit, rounded to the nearest second.
 			*
 			*/

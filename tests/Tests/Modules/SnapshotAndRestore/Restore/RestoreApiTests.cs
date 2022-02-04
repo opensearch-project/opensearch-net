@@ -69,20 +69,20 @@ namespace Tests.Modules.SnapshotAndRestore.Restore
 
 		protected override object ExpectJson { get; } = new
 		{
-			rename_pattern = "nest-(.+)",
-			rename_replacement = "nest-restored-$1",
+			rename_pattern = "osc-(.+)",
+			rename_replacement = "osc-restored-$1",
 		};
 
 		protected override Func<RestoreDescriptor, IRestoreRequest> Fluent => d => d
-			.RenamePattern("nest-(.+)")
-			.RenameReplacement("nest-restored-$1");
+			.RenamePattern("osc-(.+)")
+			.RenameReplacement("osc-restored-$1");
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
 		protected override RestoreRequest Initializer => new RestoreRequest(RepositoryName, SnapshotName)
 		{
-			RenamePattern = "nest-(.+)",
-			RenameReplacement = "nest-restored-$1"
+			RenamePattern = "osc-(.+)",
+			RenameReplacement = "osc-restored-$1"
 		};
 
 		protected override bool SupportsDeserialization => false;

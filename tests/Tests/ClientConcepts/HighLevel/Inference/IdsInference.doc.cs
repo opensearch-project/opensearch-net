@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
@@ -81,7 +81,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		[U] public void CanGetIdFromDocument()
 		{
-			/** By default NEST will try to find a property called `Id` on the class using reflection
+			/** By default OSC will try to find a property called `Id` on the class using reflection
 			* and create a cached delegate based on the property getter
 			*/
 			var dto = new MyDTO
@@ -94,8 +94,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Expect("d70bd3cf-4e38-46f3-91ca-fcbef29b148e").WhenInferringIdOn(dto);
 
 			/**
-			 * Using connection settings, you can specify a different property that NEST should use to infer Id for the document.
-			* Here we instruct NEST to infer the Id for `MyDTO` based on its `Name` property
+			 * Using connection settings, you can specify a different property that OSC should use to infer Id for the document.
+			* Here we instruct OSC to infer the Id for `MyDTO` based on its `Name` property
 			*/
 			WithConnectionSettings(x => x
 				.DefaultMappingFor<MyDTO>(m => m

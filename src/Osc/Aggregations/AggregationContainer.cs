@@ -36,7 +36,7 @@ namespace Osc
 	/// <summary>
 	/// Describes aggregations that we would like to execute on OpenSearch.
 	/// <para />
-	/// In NEST Aggregation always refers to an aggregation
+	/// In OSC Aggregation always refers to an aggregation
 	/// sent to OpenSearch and an Aggregate describes an aggregation returned from OpenSearch.
 	/// </summary>
 	[JsonFormatter(typeof(AggregationDictionaryFormatter))]

@@ -45,7 +45,7 @@ namespace Tests.Framework.EndpointTests.TestState
 		private readonly object _lock = new object();
 		private readonly ConcurrentDictionary<string, LazyResponses> _usages = new ConcurrentDictionary<string, LazyResponses>();
 
-		public EndpointUsage() : this("nest") { }
+		public EndpointUsage() : this("osc") { }
 
 		protected EndpointUsage(string prefix) => CallUniqueValues = new CallUniqueValues(prefix);
 

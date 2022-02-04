@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -40,7 +40,7 @@ namespace Tests.CodeStandards
 {
 	/** == Naming Conventions
 	*
-	* NEST uses the following naming conventions (with _some_ exceptions).
+	* OSC uses the following naming conventions (with _some_ exceptions).
 	*/
 	public class NamingConventions
 	{
@@ -176,21 +176,21 @@ namespace Tests.CodeStandards
 		}
 
 		[U]
-		public void AllNestTypesAreInNestNamespace()
+		public void AllOscTypesAreInOscNamespace()
 		{
-			var nestAssembly = typeof(IOpenSearchClient).Assembly;
+			var oscAssembly = typeof(IOpenSearchClient).Assembly;
 
 			var exceptions = new List<Type>
 			{
-				nestAssembly.GetType("System.AssemblyVersionInformation", throwOnError: false),
-				nestAssembly.GetType("System.Runtime.Serialization.Formatters.FormatterAssemblyStyle", throwOnError: false),
-				nestAssembly.GetType("System.ComponentModel.Browsable", throwOnError: false),
-				nestAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute", throwOnError: false),
-				nestAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute", throwOnError: false),
+				oscAssembly.GetType("System.AssemblyVersionInformation", throwOnError: false),
+				oscAssembly.GetType("System.Runtime.Serialization.Formatters.FormatterAssemblyStyle", throwOnError: false),
+				oscAssembly.GetType("System.ComponentModel.Browsable", throwOnError: false),
+				oscAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute", throwOnError: false),
+				oscAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute", throwOnError: false),
 			};
 
-			var types = nestAssembly.GetTypes();
-			var typesNotInNestNamespace = types
+			var types = oscAssembly.GetTypes();
+			var typesNotInOscNamespace = types
 				.Where(t => t != null)
 				.Where(t => !exceptions.Contains(t))
 				.Where(t => t.Namespace != "Osc")
@@ -202,7 +202,7 @@ namespace Tests.CodeStandards
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();
 
-			typesNotInNestNamespace.Should().BeEmpty();
+			typesNotInOscNamespace.Should().BeEmpty();
 		}
 
 		[U]

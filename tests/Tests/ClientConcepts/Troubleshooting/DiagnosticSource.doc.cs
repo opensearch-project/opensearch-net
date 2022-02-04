@@ -32,8 +32,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
 using FluentAssertions;
@@ -50,7 +50,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * [[diagnostic-source]]
 	 * === Diagnostic Source
 	 *
-	 * OpenSearch.Net and NEST support capturing diagnostics information using `DiagnosticSource` and `Activity` from the
+	 * OpenSearch.Net and OSC support capturing diagnostics information using `DiagnosticSource` and `Activity` from the
 	 * `System.Diagnostics` namespace.
 	 *
 	 * To aid with the discoverability of the topics you can subscribe to and the event names they emit,

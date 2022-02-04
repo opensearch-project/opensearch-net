@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Framework;
@@ -79,7 +79,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		[U] public void CanGetRoutingFromDocument()
 		{
-			/** By default NEST will try to find a property called `Routing` on the class using reflection
+			/** By default OSC will try to find a property called `Routing` on the class using reflection
 			* and create a cached delegate based on the property getter
 			*/
 			var dto = new MyDTO
@@ -91,8 +91,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Expect(null).WhenInferringRoutingOn(dto);
 
 			/**
-			 * Using connection settings, you can specify a property that NEST should use to infer Routing for the document.
-			* Here we instruct NEST to infer the Routing for `MyDTO` based on its `Name` property
+			 * Using connection settings, you can specify a property that OSC should use to infer Routing for the document.
+			* Here we instruct OSC to infer the Routing for `MyDTO` based on its `Name` property
 			*/
 			WithConnectionSettings(x => x
 				.DefaultMappingFor<MyDTO>(m => m
@@ -115,10 +115,10 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**
 		* ==== JoinField
 		*
-		* If your class has a property of type JoinField, NEST will automatically infer the parentid as the routing value.
+		* If your class has a property of type JoinField, OSC will automatically infer the parentid as the routing value.
 		 *
 		* The name of this property can be anything. Be sure the read the <<parent-child-relationships, section on Parent/Child relationships>> to get a complete
-		 * walkthrough on using Parent Child joins with NEST.
+		 * walkthrough on using Parent Child joins with OSC.
 		*/
 		class MyOtherDTO
 		{
@@ -141,7 +141,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Expect("8080").WhenInferringRoutingOn(dto);
 
 			/**
-			 * Here we link this instance as the root (parent) of the relation. NEST infers that the default routing for this instance
+			 * Here we link this instance as the root (parent) of the relation. OSC infers that the default routing for this instance
 			 * should be the Id of the document itself.
 			 */
 			dto = new MyOtherDTO

@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Aggregations.Bucket.Children;
@@ -41,7 +41,7 @@ namespace Tests.Aggregations
 {
 	/**
 	*=== Reserved aggregation names
-	* NEST uses a heuristics based parser to parse the aggregations back in to typed responses.
+	* OSC uses a heuristics based parser to parse the aggregations back in to typed responses.
 	* Because of this, some of the key properties we use to make decisions about parsing are not allowed as key names
 	* for aggregations in a request.
 	*

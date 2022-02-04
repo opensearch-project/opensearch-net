@@ -51,11 +51,11 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			if (!(settings is IConnectionSettingsValues nestSettings))
+			if (!(settings is IConnectionSettingsValues oscSettings))
 				throw new ArgumentNullException(nameof(settings),
 					$"Can not resolve {nameof(RelationName)} if no {nameof(IConnectionSettingsValues)} is provided");
 
-			return nestSettings.Inferrer.RelationName(this);
+			return oscSettings.Inferrer.RelationName(this);
 		}
 
 		public static RelationName From<T>() => typeof(T);

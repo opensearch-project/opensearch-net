@@ -37,7 +37,7 @@ namespace Tests.ClientConcepts.Connection
 		/**[[configuration-options]]
 		 * === Configuration options
 		 *
-		 * Connecting to OpenSearch with <<opensearch-net-getting-started,OpenSearch.Net>> and <<nest-getting-started,NEST>> is easy, but
+		 * Connecting to OpenSearch with <<opensearch-net-getting-started,OpenSearch.Net>> and <<osc-getting-started,OSC>> is easy, but
 		 * it's entirely possible that you'd like to change the default connection behaviour. There are a number of configuration options available
 		 * on `ConnectionConfiguration` for the low level client and `ConnectionSettings` for the high level client that can be used to control
 		 * how the clients interact with OpenSearch.
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.Connection
 			 *
 			 * The following is a list of available connection configuration options on `ConnectionSettings`:
 			 *
-			 * :xml-docs: Nest:ConnectionSettingsBase`1
+			 * :xml-docs: Osc:ConnectionSettingsBase`1
 			 *
 			 * ==== ConnectionSettings with OpenSearchClient
 			 *

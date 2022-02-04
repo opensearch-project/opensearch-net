@@ -62,7 +62,7 @@ namespace Tests.Core.Client.Settings
 		public static string LocalOrProxyHost => RunningFiddler || RunningMitmProxy ? "ipv4.fiddler" : LocalHost;
 
 		private static int ConnectionLimitDefault =>
-			int.TryParse(Environment.GetEnvironmentVariable("NEST_NUMBER_OF_CONNECTIONS"), out var x)
+			int.TryParse(Environment.GetEnvironmentVariable("OSC_NUMBER_OF_CONNECTIONS"), out var x)
 				? x
 				: ConnectionConfiguration.DefaultConnectionLimit;
 

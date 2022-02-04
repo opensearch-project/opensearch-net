@@ -31,7 +31,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -55,7 +55,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		 * === Field inference
 		 *
 		 * Several places in the OpenSearch API expect the path to a field from your original source document, as a string value.
-		 * NEST allows you to use C# expressions to strongly type these field path strings.
+		 * OSC allows you to use C# expressions to strongly type these field path strings.
 		 *
 		 * These expressions are assigned to a type called `Field`, and there are several ways to create an instance of one
 		 */
@@ -109,7 +109,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* [[field-name-with-boost]]
 		*==== Field Names with Boost
 		*
-		* When specifying a `Field` name, the name can include a boost value; NEST will split the name and boost
+		* When specifying a `Field` name, the name can include a boost value; OSC will split the name and boost
 		* value and set the `Boost` property; a boost value as part of the string takes precedence over a boost
 		* value that may also be passed as the second constructor argument
 		*/
@@ -118,7 +118,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		{
 			Field fieldString = "name^2";
 			var fieldStringConstructor = new Field("name^2");
-			var fieldStringCreate = new Field("name^2", 3); //<1> NEST will take the boost from the name
+			var fieldStringCreate = new Field("name^2", 3); //<1> OSC will take the boost from the name
 
 			fieldString.Name.Should().Be("name");
 			fieldStringConstructor.Name.Should().Be("name");
@@ -151,14 +151,14 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		}
 
 		/**
-		* [[nest-infer]]
-		* ==== Using Nest.Infer methods
+		* [[osc-infer]]
+		* ==== Using Osc.Infer methods
 		* To ease creating a `Field` instance from expressions, there is a static `Infer` class you can use
 		*
 		* [TIP]
 		* ====
-		* This example uses the https://msdn.microsoft.com/en-us/library/sf0df423.aspx#Anchor_0[static import] `using static Nest.Infer;`
-		 * in the using directives to shorthand `Nest.Infer.Field<T>()`
+		* This example uses the https://msdn.microsoft.com/en-us/library/sf0df423.aspx#Anchor_0[static import] `using static Osc.Infer;`
+		 * in the using directives to shorthand `Osc.Infer.Field<T>()`
 		* to simply `Field<T>()`. Be sure to include this static import if copying any of these examples.
 		* ====
 		*
@@ -180,7 +180,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 				.WhenSerializing(fieldString)
 				.WhenSerializing(fieldExpression);
 
-			/** You can specify boosts in the field using a string, as well as using `Nest.Infer.Field` */
+			/** You can specify boosts in the field using a string, as well as using `Osc.Infer.Field` */
 			fieldString = "name^2.1";
 			fieldString.Boost.Should().Be(2.1);
 
@@ -195,7 +195,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**
 		 * [[camel-casing]]
 		* ==== Field name casing
-		* By default, NEST https://en.wikipedia.org/wiki/Camel_case[camelcases] **all** field names to better align with typical
+		* By default, OSC https://en.wikipedia.org/wiki/Camel_case[camelcases] **all** field names to better align with typical
 		* JavaScript and JSON conventions
 		*/
 		[U]
@@ -209,7 +209,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			/** A `Field` constructed from a `string` however is *always* passed along verbatim */
 			setup.Expect("NaMe").WhenSerializing<Field>("NaMe");
 
-			/** If you'd like NEST to not change the casing of field names at all,
+			/** If you'd like OSC to not change the casing of field names at all,
 			 * simply pass a Func<string,string> to `DefaultFieldNameInferrer` that simply returns the
 			 * input string
 			 */
@@ -239,7 +239,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Expect("metadata.hardcoded").WhenSerializing(Field<Project>(p => p.Metadata["hardcoded"]));
 			Expect("metadata.hardcoded.created").WhenSerializing(Field<Project>(p => p.Metadata["hardcoded"].Created));
 
-			/** A cool feature here is that NEST will evaluate variables passed to an indexer */
+			/** A cool feature here is that OSC will evaluate variables passed to an indexer */
 			var variable = "var";
 			Expect("metadata.var").WhenSerializing(Field<Project>(p => p.Metadata[variable]));
 			Expect("metadata.var.created").WhenSerializing(Field<Project>(p => p.Metadata[variable].Created));
@@ -338,7 +338,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**[[field-name-attribute]]
 		* ==== Attribute based naming
 		*
-		* Using NEST's property attributes you can specify a new name for the properties
+		* Using OSC's property attributes you can specify a new name for the properties
 		*/
 		public class BuiltIn
 		{
@@ -372,8 +372,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**[[serializer-specific-field-attribute]]
 		* ==== Serializer specific attributes
 		*
-		* NEST can also use a serializer specific attribute to resolve a field value for a property.
-		* In this example, the {nuget}/NEST.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
+		* OSC can also use a serializer specific attribute to resolve a field value for a property.
+		* In this example, the {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
 		* <<custom-serialization, custom serializer>> for the client and we use the `JsonPropertyAttribute` to resolve a field
 		*/
 		public class SerializerSpecific
@@ -389,8 +389,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		}
 
 		/**
-		* If both a NEST property attribute and a serializer specific attribute are present on a property,
-		* **NEST attributes take precedence**
+		* If both a OSC property attribute and a serializer specific attribute are present on a property,
+		* **OSC attributes take precedence**
 		*/
 		public class Both
 		{
@@ -399,7 +399,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			public string Name { get; set; }
 		}
 		[U]
-		public void NestAttributeTakesPrecedence()
+		public void OscAttributeTakesPrecedence()
 		{
 			Expect("naam").WhenSerializing(Field<Both>(p => p.Name));
 			Expect(new
@@ -471,8 +471,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* To wrap up, the precedence in which field names are inferred is:
 		*
 		* . A naming of the property on `ConnectionSettings` using `.PropertyName()`
-		* . A NEST `PropertyNameAttribute`
-		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/NEST.JsonNetSerializer[`JsonNetSerializer`]
+		* . A OSC `PropertyNameAttribute`
+		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`]
 		* . See if the `MemberInfo` has a `DataMemberAttribute` applied
 		* . Pass the `MemberInfo` to the `DefaultFieldNameInferrer`, which by default will camel case the `Name` property
 		*
@@ -480,16 +480,16 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*/
 		private class Precedence
 		{
-			[Text(Name = "renamedIgnoresNest")]
+			[Text(Name = "renamedIgnoresOsc")]
 			[PropertyName("renamedIgnoresJsonProperty"),JsonProperty("renamedIgnoresJsonProperty")]
 			public string RenamedOnConnectionSettings { get; set; } //<1> Even though this property has various attributes applied we provide an override on ConnectionSettings later that takes precedence.
 
-			[Text(Name = "nestAtt")]
-			[PropertyName("nestProp"),JsonProperty("jsonProp")]
-			public string NestAttribute { get; set; } //<2> Has a `TextAttribute`, `PropertyNameAttribute` and a `JsonPropertyAttribute` - the `TextAttribute` takes precedence.
+			[Text(Name = "oscAtt")]
+			[PropertyName("oscProp"),JsonProperty("jsonProp")]
+			public string OscAttribute { get; set; } //<2> Has a `TextAttribute`, `PropertyNameAttribute` and a `JsonPropertyAttribute` - the `TextAttribute` takes precedence.
 
-			[PropertyName("nestProp"),JsonProperty("jsonProp")]
-			public string NestProperty { get; set; } //<3> Has both a `PropertyNameAttribute` and a `JsonPropertyAttribute` - the `PropertyNameAttribute` takes precedence.
+			[PropertyName("oscProp"),JsonProperty("jsonProp")]
+			public string OscProperty { get; set; } //<3> Has both a `PropertyNameAttribute` and a `JsonPropertyAttribute` - the `PropertyNameAttribute` takes precedence.
 
 			[DataMember(Name ="jsonProp")]
 			public string JsonProperty { get; set; } //<4> `JsonPropertyAttribute` takes precedence.
@@ -535,8 +535,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			).WithPropertyMappingProvider(new CustomPropertyMappingProvider()); // <3> Hook up the custom `IPropertyMappingProvider`
 
 			usingSettings.Expect("renamed").ForField(Field<Precedence>(p => p.RenamedOnConnectionSettings));
-			usingSettings.Expect("nestAtt").ForField(Field<Precedence>(p => p.NestAttribute));
-			usingSettings.Expect("nestProp").ForField(Field<Precedence>(p => p.NestProperty));
+			usingSettings.Expect("oscAtt").ForField(Field<Precedence>(p => p.OscAttribute));
+			usingSettings.Expect("oscProp").ForField(Field<Precedence>(p => p.OscProperty));
 			usingSettings.Expect("jsonProp").ForField(Field<Precedence>(p => p.JsonProperty));
 			usingSettings.Expect("ask").ForField(Field<Precedence>(p => p.AskSerializer));
 			usingSettings.Expect("data").ForField(Field<Precedence>(p => p.DataMember));
@@ -549,15 +549,15 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 				"ask",
 				"DEFAULTFIELDNAMEINFERRER",
 				"jsonProp",
-				"nestProp",
-				"nestAtt",
+				"oscProp",
+				"oscAtt",
 				"renamed",
 				"data"
 			}).AsPropertiesOf(new Precedence
 			{
 				RenamedOnConnectionSettings = "renamed on connection settings",
-				NestAttribute = "using a nest attribute",
-				NestProperty = "using a nest property",
+				OscAttribute = "using a osc attribute",
+				OscProperty = "using a osc property",
 				JsonProperty = "the default serializer resolves json property attributes",
 				AskSerializer = "serializer fiddled with this one",
 				DefaultFieldNameInferrer = "shouting much?",

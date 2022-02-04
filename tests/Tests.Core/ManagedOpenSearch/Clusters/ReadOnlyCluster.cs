@@ -26,7 +26,7 @@
 */
 
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
-using static Elastic.Stack.ArtifactsApi.Products.ElasticsearchPlugin;
+using static OpenSearch.Stack.ArtifactsApi.Products.OpenSearchPlugin;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {

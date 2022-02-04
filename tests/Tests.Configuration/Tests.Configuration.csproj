@@ -3,6 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Elastic.Elasticsearch.Managed" Version="0.2.6" />
+    <PackageReference Include="OpenSearch.OpenSearch.Managed" Version="0.1.0-canary.0.17" />
   </ItemGroup>
 </Project>

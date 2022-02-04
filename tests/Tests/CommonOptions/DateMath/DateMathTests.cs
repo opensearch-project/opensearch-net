@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 
 namespace Tests.CommonOptions.DateMath

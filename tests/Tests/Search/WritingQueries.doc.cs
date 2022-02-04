@@ -28,7 +28,7 @@
 using System;
 using System.Linq;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
@@ -44,7 +44,7 @@ namespace Tests.Search
 	 *
 	 * Once you have data indexed within OpenSearch, you're going to want to be able to search it. OpenSearch
 	 * offers a powerful query DSL to define queries to execute against OpenSearch. This DSL is based on JSON
-	 * and is exposed in NEST in the form of both a Fluent API and an Object Initializer syntax
+	 * and is exposed in OSC in the form of both a Fluent API and an Object Initializer syntax
 	 *
 	 */
 	public class WritingQueries : IClusterFixture<ReadOnlyCluster>
@@ -100,7 +100,7 @@ namespace Tests.Search
 			Expect(expected).FromRequest(searchResponse);
 
 			/**
-			 * The two previous examples both used the Fluent API to express the query. NEST also exposes an
+			 * The two previous examples both used the Fluent API to express the query. OSC also exposes an
 			 * Object Initializer syntax to compose queries
 			 */
 			var searchRequest = new SearchRequest<Project>
@@ -407,7 +407,7 @@ namespace Tests.Search
 			 * so no score is calculated for matching documents (all documents have the same score
 			 * of 1.0 for this query).
 			 *
-			 * Because `bool` queries are so common, NEST overloads operators on queries to make forming
+			 * Because `bool` queries are so common, OSC overloads operators on queries to make forming
 			 * `bool` queries much more succinct. The previous `bool` query can be more concisely
 			 * expressed as
 			 */

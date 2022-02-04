@@ -112,11 +112,11 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			if (!(settings is IConnectionSettingsValues nestSettings))
+			if (!(settings is IConnectionSettingsValues oscSettings))
 				throw new ArgumentNullException(nameof(settings),
 					$"Can not resolve {nameof(Field)} if no {nameof(IConnectionSettingsValues)} is provided");
 
-			return nestSettings.Inferrer.Field(this);
+			return oscSettings.Inferrer.Field(this);
 		}
 
 		public Fields And(Field field) => new Fields(new[] { this, field });

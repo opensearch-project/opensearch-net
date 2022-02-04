@@ -42,11 +42,11 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 		public const string ProjectsAliasFilter = "projects-only";
 
 		public const string ProjectsAliasName = "projects-alias";
-		public const string TestsIndexTemplateName = "nest_tests";
+		public const string TestsIndexTemplateName = "osc_tests";
 
 		public const string RemoteClusterName = "remote-cluster";
 
-		public const string PipelineName = "nest-pipeline";
+		public const string PipelineName = "osc-pipeline";
 
 		private readonly IIndexSettings _defaultIndexSettings = new IndexSettings()
 		{
@@ -133,7 +133,7 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 		public async Task PutPipeline()
 		{
 			var putProcessors = await Client.Ingest.PutPipelineAsync(PipelineName, pi => pi
-				.Description("A pipeline registered by the NEST test framework")
+				.Description("A pipeline registered by the OSC test framework")
 				.Processors(pp => pp
 					.Set<Project>(s => s.Field(p => p.Metadata).Value(new { x = "y" }))
 				)

@@ -32,8 +32,8 @@ using System.Net.NetworkInformation;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
 using FluentAssertions;
@@ -51,7 +51,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Debug information
 	 *
-	 * Every response from OpenSearch.Net and NEST contains a `DebugInformation` property
+	 * Every response from OpenSearch.Net and OSC contains a `DebugInformation` property
 	 * that provides a human readable description of what happened during the request for both successful and
 	 * failed requests
 	 */
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 				)
 			);
 
-			response.DebugInformation.Should().Contain("Valid NEST response");
+			response.DebugInformation.Should().Contain("Valid OSC response");
 		}
 		//hide
 		[U] public void PasswordIsNotExposedInDebugInformation()

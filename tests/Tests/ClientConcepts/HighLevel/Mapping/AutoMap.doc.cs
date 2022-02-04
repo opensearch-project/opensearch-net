@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client;
@@ -42,7 +42,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* === Auto mapping
 	*
 	* When creating a mapping either when creating an index or through the Put Mapping API,
-	* NEST offers a feature called auto mapping that can automagically infer the correct
+	* OSC offers a feature called auto mapping that can automagically infer the correct
 	* OpenSearch field datatypes from the CLR POCO property types you are mapping.
 	**/
 	public class AutoMap
@@ -178,7 +178,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		}
 
 		/**
-		 * Observe that NEST has inferred the OpenSearch types based on the CLR type of our POCO properties.
+		 * Observe that OSC has inferred the OpenSearch types based on the CLR type of our POCO properties.
 		 * In this example,
 		 *
 		 * - Birthday is mapped as a `date`,
@@ -194,7 +194,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * [[inferred-dotnet-type-mapping]]
 		 * === Inferred .NET type mapping
 		 *
-		 * NEST has inferred mapping support for the following .NET types
+		 * OSC has inferred mapping support for the following .NET types
 		 *
 		 * [horizontal]
 		 * `String`:: maps to `"text"` with a `"keyword"` sub field. See <<multi-fields, Multi Fields>>.
@@ -215,19 +215,19 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * `Char`:: maps to `"keyword"`
 		 * `Guid`:: maps to `"keyword"`
 		 *
-		 * and supports a number of special types defined in NEST
+		 * and supports a number of special types defined in OSC
 		 *
 		 * [horizontal]
-		 * `Nest.QueryContainer`:: maps to `"percolator"`
-		 * `Nest.GeoLocation`:: maps to `"geo_point"`
-		 * `Nest.IGeoShape`:: maps to `"geo_shape"` (if you want to map to a `"shape"` type use explicit mapping or the [Shape] attribute on the property)
-		 * `Nest.CompletionField`:: maps to `"completion"`
-		 * `Nest.DateRange`:: maps to `"date_range"`
-		 * `Nest.DoubleRange`:: maps to `"double_range"`
-		 * `Nest.FloatRange`:: maps to `"float_range"`
-		 * `Nest.IntegerRange`:: maps to `"integer_range"`
-		 * `Nest.LongRange`:: maps to `"long_range"`
-		 * `Nest.IpAddressRange`:: maps to `"ip_range"`
+		 * `Osc.QueryContainer`:: maps to `"percolator"`
+		 * `Osc.GeoLocation`:: maps to `"geo_point"`
+		 * `Osc.IGeoShape`:: maps to `"geo_shape"` (if you want to map to a `"shape"` type use explicit mapping or the [Shape] attribute on the property)
+		 * `Osc.CompletionField`:: maps to `"completion"`
+		 * `Osc.DateRange`:: maps to `"date_range"`
+		 * `Osc.DoubleRange`:: maps to `"double_range"`
+		 * `Osc.FloatRange`:: maps to `"float_range"`
+		 * `Osc.IntegerRange`:: maps to `"integer_range"`
+		 * `Osc.LongRange`:: maps to `"long_range"`
+		 * `Osc.IpAddressRange`:: maps to `"ip_range"`
 		 *
 		 * All other types map to `"object"` by default.
 		 *

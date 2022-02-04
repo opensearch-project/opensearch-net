@@ -28,7 +28,7 @@
 using System;
 using System.Text;
 using System.Runtime.Serialization;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Extensions;
 using FluentAssertions;
@@ -43,7 +43,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	 * === Modelling documents with types
 	 *
 	 * OpenSearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
-	 * JSON objects within the request body of a HTTP request. It is natural to model documents within NEST and OpenSearch.Net using
+	 * JSON objects within the request body of a HTTP request. It is natural to model documents within OSC and OpenSearch.Net using
 	 * https://en.wikipedia.org/wiki/Plain_Old_CLR_Object[POCOs (__Plain Old CLR Objects__)].
 	 *
 	 * This section provides an overview of how types and type hierarchies can be used to model documents.
@@ -53,7 +53,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		/**[[default-behaviour]]
 		 * ==== Default behaviour
 		 *
-		 * NEST's default behaviour is to serialize type property names as camelcase JSON object members.
+		 * OSC's default behaviour is to serialize type property names as camelcase JSON object members.
 		 * Given the POCO
 		 */
 		public class MyDocument
@@ -85,7 +85,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * ==== `DefaultFieldNameInferrer` setting
 		 *
 		 * Many different systems may be indexing documents into OpenSearch, using a different
-		 * convention than camelcase for JSON object members. How NEST serializes
+		 * convention than camelcase for JSON object members. How OSC serializes
 		 * POCO property names can be globally controlled using `DefaultFieldNameInferrer` on
 		 * `ConnectionSettings`. The following example defines a function that applies snake casing
 		 * to a passed string, with the function called inside a delegate passed to `DefaultFieldNameInferrer`
@@ -172,10 +172,10 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
 		}
 
-		/**[[nest-property-attributes]]
-		 * ==== NEST property attributes
+		/**[[osc-property-attributes]]
+		 * ==== OSC property attributes
 		 *
-		 * The `PropertyName` attribute can be used to control how a POCO property is serialized. NEST contains
+		 * The `PropertyName` attribute can be used to control how a POCO property is serialized. OSC contains
 		 * a collection of other attributes, such as `Text` attribute, that not only control how a POCO property is serialized,
 		 * but also control how a POCO property is mapped when using <<attribute-mapping, Attribute mapping>>. The `Name` property of
 		 * these attributes controls how a POCO property is serialized in a similar fashion to `PropertyName` attribute.
@@ -210,7 +210,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 *
 		 * The `System.Runtime.Serialization.DataMember` attribute can be used to control how a POCO property is serialized. in a similar
 		 * fashion to `PropertyName` attribute. The `DataMember` attribute may be preferred over `PropertyName` attribute in situations where
-		 * the project in which the POCOs are defined does not have a dependency on NEST.
+		 * the project in which the POCOs are defined does not have a dependency on OSC.
 		 *
 		 * The following example uses the `DataMember` attribute to control how the POCO property
 		 * named `StringProperty` is serialized

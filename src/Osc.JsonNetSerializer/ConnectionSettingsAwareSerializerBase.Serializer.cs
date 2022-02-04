@@ -55,7 +55,7 @@ namespace Osc.JsonNetSerializer
 			BuiltinSerializer = builtinSerializer;
 			Converters = new List<JsonConverter>
 			{
-				new HandleNestTypesOnSourceJsonConverter(BuiltinSerializer, connectionSettings.MemoryStreamFactory),
+				new HandleOscTypesOnSourceJsonConverter(BuiltinSerializer, connectionSettings.MemoryStreamFactory),
 				new TimeSpanToStringConverter()
 			};
 			_serializer = CreateSerializer(SerializationFormatting.Indented);

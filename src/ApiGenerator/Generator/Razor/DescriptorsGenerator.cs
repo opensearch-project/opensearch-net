@@ -37,12 +37,12 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class DescriptorsGenerator : RazorGeneratorBase
 	{
-		public override string Title => "NEST descriptors";
+		public override string Title => "OSC descriptors";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{
 			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.NestFolder, "Descriptors.*.cs"))
+			foreach (var file in Directory.GetFiles(GeneratorLocations.OscFolder, "Descriptors.*.cs"))
 				File.Delete(file);
 
 			var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase.cshtml");

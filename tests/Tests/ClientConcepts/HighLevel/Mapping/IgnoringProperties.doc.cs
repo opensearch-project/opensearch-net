@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using System.Runtime.Serialization;
@@ -194,7 +194,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * used to override inherited properties.
 		 *
 		 * In the following example, the `Id` property is shadowed in `ParentWithStringId` as
-		 * a `string` type, resulting in NEST's automapping inferring the mapping as the default
+		 * a `string` type, resulting in OSC's automapping inferring the mapping as the default
 		 * `text` with `keyword` multi-field field datatype mapping for a `string` type.
 		 *
 		 */

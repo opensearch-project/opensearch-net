@@ -45,7 +45,7 @@ namespace Tests.CommonOptions.Union
 	 * - an `object` with `includes` and `excludes` properties that each accept an array of wildcard patterns to control
 	 * what parts of `_source` to include and exclude, respectively.
 	 *
-	 * That's a lot of different flexibility! NEST includes a `Union<TFirst,TSecond>` type to make it easier to work with
+	 * That's a lot of different flexibility! OSC includes a `Union<TFirst,TSecond>` type to make it easier to work with
 	 * these kinds of parameters, forming the union of two types, `TFirst` and `TSecond`.
 	 */
 	public class Union

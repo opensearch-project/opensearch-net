@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.Client;
 using Tests.Domain;
@@ -89,7 +89,7 @@ namespace Tests.Search
 			Expect(expected).FromRequest(searchResponse);
 
 			/**
-			 * The previous example used the Fluent API to express the query. NEST also exposes an
+			 * The previous example used the Fluent API to express the query. OSC also exposes an
 			 * Object Initializer syntax to compose queries
 			 */
 			var searchRequest = new SearchRequest<Project>

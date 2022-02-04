@@ -38,13 +38,13 @@ namespace Tests.ClientConcepts.HighLevel
 {
 	//TODO update documentation here to reflect type removal
 
-	/**[[nest-getting-started]]
+	/**[[osc-getting-started]]
 	 * == Getting started
 	 *
-	 * NEST is a high level OpenSearch .NET client that still maps very closely to the original OpenSearch API.
+	 * OSC is a high level OpenSearch .NET client that still maps very closely to the original OpenSearch API.
 	 * All requests and responses are exposed through types, making it ideal for getting up and running quickly.
 	 *
-	 * Under the covers, NEST uses the <<opensearch-net,OpenSearch.Net low level client>> to dispatch requests and
+	 * Under the covers, OSC uses the <<opensearch-net,OpenSearch.Net low level client>> to dispatch requests and
 	 * responses, using and extending many of the types within OpenSearch.Net. The low level client itself is still
 	 * exposed on the high level client through the `.LowLevel` property.
 	 */
@@ -80,11 +80,11 @@ namespace Tests.ClientConcepts.HighLevel
 		 * POCO generic type parameter in the request. There are many other <<configuration-options,Configuration options>> on `ConnectionSettings`, which it inherits
 		 * from `ConnectionConfiguration`, the type used to pass additional configuration options to the low level client in <<opensearch-net,OpenSearch.Net>>.
 		 *
-		 * TIP: Specifying a default index is _optional_ but NEST may throw an exception if no index can be inferred for a given request. To understand more around how
+		 * TIP: Specifying a default index is _optional_ but OSC may throw an exception if no index can be inferred for a given request. To understand more around how
 		 * an index can be specified for a request, see <<index-name-inference,Index name inference>>.
 		 *
 		 * `ConnectionSettings` is not restricted to being passed a single address for OpenSearch. There are several different
-		 * types of <<connection-pooling,Connection pool>> available in NEST, each with different characteristics, that can be used to
+		 * types of <<connection-pooling,Connection pool>> available in OSC, each with different characteristics, that can be used to
 		 * configure the client. The following example uses a <<sniffing-connection-pool,SniffingConnectionPool>> seeded with the addresses
 		 * of three OpenSearch nodes in the cluster, and the client will use this type of pool to maintain a list of available nodes within the
 		 * cluster to which it can send requests in a round-robin fashion.
@@ -138,15 +138,15 @@ namespace Tests.ClientConcepts.HighLevel
 		}
 
 		/**
-		 * NOTE: All methods available within NEST are exposed as both synchronous and asynchronous versions,
+		 * NOTE: All methods available within OSC are exposed as both synchronous and asynchronous versions,
 		 * with the latter using the idiomatic *Async suffix on the method name.
 		 *
-		 * This will index the document to the endpoint `/people/_doc/1`. NEST is smart enough to infer the
+		 * This will index the document to the endpoint `/people/_doc/1`. OSC is smart enough to infer the
 		 * the id for the document by looking for an `Id` property on the POCO. Take a look
-		 * at <<ids-inference,Ids inference>> to see other ways in which NEST can be configured to infer an id for a document. The default index configured
+		 * at <<ids-inference,Ids inference>> to see other ways in which OSC can be configured to infer an id for a document. The default index configured
 		 * on `ConnectionSettings` has been used as the index name for the request.
 		 *
-		 * CAUTION: By default, NEST camel cases the property names on the POCO when serializing the POCO into a JSON document to send to OpenSearch.
+		 * CAUTION: By default, OSC camel cases the property names on the POCO when serializing the POCO into a JSON document to send to OpenSearch.
 		 * You can <<camel-casing,change this behaviour>> by using the `.DefaultFieldNameInferrer(Func<string,string>)` method on `ConnectionSettings`.
 		 *
 		 * [float]
@@ -203,10 +203,10 @@ namespace Tests.ClientConcepts.HighLevel
 		 * Single or multiple index names can be provided in the request;
 		 * see the documentation on <<indices-paths,Indices paths>> and <<document-paths,Document paths>>, respectively.
 		 *
-		 * All of the search examples so far have used NEST's Fluent API which uses lambda expressions to construct a query with a structure
+		 * All of the search examples so far have used OSC's Fluent API which uses lambda expressions to construct a query with a structure
 		 * that mimics the structure of a query expressed in the OpenSearch's JSON based {ref_current}/query-dsl.html[Query DSL].
 		 *
-		 * NEST also exposes an Object Initializer syntax that can also be used to construct queries,
+		 * OSC also exposes an Object Initializer syntax that can also be used to construct queries,
 		 * for those not keen on deeply nested lambda expressions (layout is __key__!).
 		 *
 		 * Here's the same query as the previous example, this time constructed using the Object Initializer syntax
@@ -237,7 +237,7 @@ namespace Tests.ClientConcepts.HighLevel
 		 * Using the low level client via the `.LowLevel` property means you can get with the best of both worlds:
 		 *
 		 * . Use the high level client
-		 * . Use the low level client where it makes sense, taking advantage of all the strong types within NEST, and its
+		 * . Use the low level client where it makes sense, taking advantage of all the strong types within OSC, and its
 		 * serializer for deserialization.
 		 *
 		 * Here's an example
@@ -263,7 +263,7 @@ namespace Tests.ClientConcepts.HighLevel
 		}
 		/**
 		 * Here, the query is represented as an anonymous type, but the body of the response is a concrete
-		 * implementation of the same response type returned from the high level client, NEST.
+		 * implementation of the same response type returned from the high level client, OSC.
 		 * --
 		 */
 

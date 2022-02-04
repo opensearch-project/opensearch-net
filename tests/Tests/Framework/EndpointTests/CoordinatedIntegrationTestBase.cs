@@ -29,8 +29,8 @@ using System;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client;
@@ -42,7 +42,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class CoordinatedIntegrationTestBase<TCluster>
 		: IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, INestTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
 	{
 		private readonly CoordinatedUsage _coordinatedUsage;
 

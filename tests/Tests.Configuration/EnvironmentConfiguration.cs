@@ -33,17 +33,17 @@ namespace Tests.Configuration
 	{
 		public EnvironmentConfiguration(YamlConfiguration yamlConfiguration)
 		{
-			Mode = Environment.GetEnvironmentVariable("NEST_INTEGRATION_TEST") != null ? TestMode.Integration : TestMode.Unit;
+			Mode = Environment.GetEnvironmentVariable("OSC_INTEGRATION_TEST") != null ? TestMode.Integration : TestMode.Unit;
 
-			ClusterFilter = Environment.GetEnvironmentVariable("NEST_INTEGRATION_CLUSTER");
-			TestFilter = Environment.GetEnvironmentVariable("NEST_TEST_FILTER");
+			ClusterFilter = Environment.GetEnvironmentVariable("OSC_INTEGRATION_CLUSTER");
+			TestFilter = Environment.GetEnvironmentVariable("OSC_TEST_FILTER");
 
-			var version = Environment.GetEnvironmentVariable("NEST_INTEGRATION_VERSION");
+			var version = Environment.GetEnvironmentVariable("OSC_INTEGRATION_VERSION");
 			OpenSearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.OpenSearchVersion : version;
 			if (OpenSearchVersion == null)
-				throw new Exception("OpenSearch Version could not be determined from env var NEST_INTEGRATION_VERSION nor the test yaml configuration");
+				throw new Exception("OpenSearch Version could not be determined from env var OSC_INTEGRATION_VERSION nor the test yaml configuration");
 
-			var externalSeed = TryGetEnv("NEST_TEST_SEED", out var seed)
+			var externalSeed = TryGetEnv("OSC_TEST_SEED", out var seed)
 				? int.Parse(seed)
 				: yamlConfiguration.SeedProvidedExternally
 					? yamlConfiguration.Seed
@@ -61,7 +61,7 @@ namespace Tests.Configuration
 
 		private static bool RandomBoolConfig(string key, Random randomizer, bool? @default = null)
 		{
-			if (TryGetEnv("NEST_RANDOM_" + key, out var source) && bool.TryParse(source, out var b))
+			if (TryGetEnv("OSC_RANDOM_" + key, out var source) && bool.TryParse(source, out var b))
 				return b;
 
 			return @default ?? randomizer.NextDouble() >= 0.5;

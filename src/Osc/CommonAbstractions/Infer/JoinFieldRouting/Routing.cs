@@ -101,8 +101,8 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			var nestSettings = settings as IConnectionSettingsValues;
-			return GetString(nestSettings);
+			var oscSettings = settings as IConnectionSettingsValues;
+			return GetString(oscSettings);
 		}
 
 		public static implicit operator Routing(string routing) => routing.IsNullOrEmptyCommaSeparatedList(out _) ? null : new Routing(routing);
@@ -116,16 +116,16 @@ namespace Osc
 		/// <summary> Use the inferred routing from <paramref name="document" /> </summary>
 		public static Routing From<T>(T document) where T : class => new Routing(document);
 
-		private string GetString(IConnectionSettingsValues nestSettings)
+		private string GetString(IConnectionSettingsValues oscSettings)
 		{
 			string value = null;
 			if (DocumentGetter != null)
 			{
 				var doc = DocumentGetter();
-				value = nestSettings.Inferrer.Routing(doc);
+				value = oscSettings.Inferrer.Routing(doc);
 			}
 			else if (Document != null)
-				value = nestSettings.Inferrer.Routing(Document);
+				value = oscSettings.Inferrer.Routing(Document);
 
 			return value ?? StringOrLongValue;
 		}

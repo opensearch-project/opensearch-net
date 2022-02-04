@@ -27,7 +27,7 @@
 
 using System.IO;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -57,7 +57,7 @@ namespace Tests.Document.Multiple.Bulk
 		{
 			index = new
 			{
-				_index = "nest-52cfd7aa",
+				_index = "osc-52cfd7aa",
 				_type = "project",
 				_id = "Kuhn LLC",
 				_version = 1,

@@ -71,9 +71,9 @@ namespace ApiGenerator.Domain.Code
 
 		public string RestSpecName { get; }
 
-	/// <summary>
+		/// <summary>
 		/// The pascal cased method name as loaded by <see cref="ApiEndpointFactory.FromFile"/>
-		/// <pre>Uses <see cref="CodeConfiguration.ApiNameMapping"/> mapping of request implementations in the nest code base</pre>
+		/// <pre>Uses <see cref="CodeConfiguration.ApiNameMapping"/> mapping of request implementations in the OSC code base</pre>
 		/// </summary>
 		public string MethodName { get; }
 
@@ -119,7 +119,7 @@ namespace ApiGenerator.Domain.Code
 			Func<string, bool> pc = path.Contains;
 
 			var method = MethodName;
-			// This is temporary for 7.0 transition period
+			// This is temporary for transition period
 			// TODO: remove in master once master in opensearch is scrubbed
 			if (path.Contains("{type}") && !method.Contains("Type")) method += "UsingType";
 

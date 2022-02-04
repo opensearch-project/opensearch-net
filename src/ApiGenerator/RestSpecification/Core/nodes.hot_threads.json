@@ -36,7 +36,7 @@
           ],
           "parts":{},
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot threads API accepts `hotthreads` but only `hot_threads` is documented"
           }
         },
@@ -52,7 +52,7 @@
             }
           },
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot threads API accepts `hotthreads` but only `hot_threads` is documented"
           }
         },
@@ -63,7 +63,7 @@
           ],
           "parts":{},
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot threads API accepts `hotthreads` but only `hot_threads` is documented"
           }
         },
@@ -79,7 +79,7 @@
             }
           },
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot threads API accepts `hotthreads` but only `hot_threads` is documented"
           }
         },
@@ -90,7 +90,7 @@
           ],
           "parts":{},
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot accepts /_cluster/nodes as prefix for backwards compatibility reasons"
           }
         },
@@ -106,7 +106,7 @@
             }
           },
           "deprecated":{
-            "version":"7.0.0",
+            "version":"1.0.0",
             "description":"The hot accepts /_cluster/nodes as prefix for backwards compatibility reasons"
           }
         }

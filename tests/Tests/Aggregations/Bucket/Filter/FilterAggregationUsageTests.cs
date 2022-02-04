@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
@@ -105,7 +105,7 @@ namespace Tests.Aggregations.Bucket.Filter
 
 	/**[float]
 	* === Empty Filter
-	* When the collection of filters is empty or all are conditionless, NEST will serialize them
+	* When the collection of filters is empty or all are conditionless, OSC will serialize them
 	* to an empty object.
 	*/
 	public class EmptyFilterAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>

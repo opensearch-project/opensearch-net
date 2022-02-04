@@ -27,8 +27,8 @@
 
 using System;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client;
@@ -43,7 +43,7 @@ namespace Tests.Aggregations
 {
 	public abstract class AggregationUsageTestBase<TCluster>
 		: ApiIntegrationTestBase<TCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
-		where TCluster : INestTestCluster, IEphemeralCluster<EphemeralClusterConfiguration>, new()
+		where TCluster : IOscTestCluster, IEphemeralCluster<EphemeralClusterConfiguration>, new()
 	{
 		protected AggregationUsageTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 

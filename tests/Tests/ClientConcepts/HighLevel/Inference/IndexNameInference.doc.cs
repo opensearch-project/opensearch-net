@@ -28,7 +28,7 @@
 using FluentAssertions;
 using Osc;
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
@@ -47,7 +47,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 	* Many endpoints within the OpenSearch API expect to receive one or more index names
 	* as part of the request, in order to know what index/indices a request should operate on.
 	*
-	* NEST has a number of ways in which the index name(s) can be specified
+	* OSC has a number of ways in which the index name(s) can be specified
 	*/
 	public class IndexNameInference : DocumentationTestBase
 	{

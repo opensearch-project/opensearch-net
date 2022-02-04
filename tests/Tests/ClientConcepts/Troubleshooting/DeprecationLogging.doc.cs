@@ -27,8 +27,8 @@
 
 using System;
 using System.Collections.Generic;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -47,7 +47,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * OpenSearch will send back `Warn` HTTP Headers when you are using an API feature that is
 	 * deprecated and will be removed or rewritten in a future release.
 	 *
-	 * OpenSearch.NET and NEST report these back to you so you can log and watch out for them.
+	 * OpenSearch.NET and OSC report these back to you so you can log and watch out for them.
 	 */
 	public class DeprecationLogging : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
 	{

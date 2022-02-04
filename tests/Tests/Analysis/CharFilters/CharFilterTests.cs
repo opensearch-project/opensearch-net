@@ -27,7 +27,7 @@
 
 using System;
 using System.Runtime.Serialization;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.Serialization;
 

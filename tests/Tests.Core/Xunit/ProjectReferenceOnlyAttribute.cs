@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
 namespace Tests.Core.Xunit

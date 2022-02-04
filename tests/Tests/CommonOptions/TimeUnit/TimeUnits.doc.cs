@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Framework;
@@ -44,7 +44,7 @@ namespace Tests.CommonOptions.TimeUnit
 		 * Whenever durations need to be specified, eg for a timeout parameter, the duration can be specified
 		 * as a whole number representing time in milliseconds, or as a time value like `2d` for 2 days.
 		 *
-		 * NEST uses a `Time` type to strongly type this and there are several ways to construct one.
+		 * OSC uses a `Time` type to strongly type this and there are several ways to construct one.
 		 *
 		 * ==== Constructor
 		 * The most straight forward way to construct a `Time` is through its constructor

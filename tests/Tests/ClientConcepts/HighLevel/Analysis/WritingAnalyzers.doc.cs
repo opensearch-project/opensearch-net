@@ -27,7 +27,7 @@
 
 using System;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.Client;
 using Tests.Domain;

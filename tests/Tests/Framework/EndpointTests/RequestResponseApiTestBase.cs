@@ -29,8 +29,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
- using Elastic.Elasticsearch.Ephemeral;
- using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+ using OpenSearch.OpenSearch.Ephemeral;
+ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Configuration;
 using Tests.Core.Client;
@@ -44,7 +44,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class RequestResponseApiTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
 		: ExpectJsonTestBase, IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, INestTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
 		where TResponse : class, IResponse
 		where TInterface : class
 		where TDescriptor : class, TInterface

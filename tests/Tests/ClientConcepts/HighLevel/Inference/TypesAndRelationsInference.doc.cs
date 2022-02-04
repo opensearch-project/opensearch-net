@@ -29,7 +29,7 @@ using FluentAssertions;
 using Osc;
 using System;
 using System.Runtime.Serialization;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;

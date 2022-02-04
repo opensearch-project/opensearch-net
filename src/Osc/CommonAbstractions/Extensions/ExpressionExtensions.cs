@@ -75,7 +75,7 @@ namespace Osc
 					// type Doc = { Message: string; State: string }
 					// let field (f:Expr<'a -> 'b>) =
 					//     Microsoft.FSharp.Linq.RuntimeHelpers.LeafExpressionConverter.QuotationToExpression f
-					//     |> Nest.Field.op_Implicit
+					//     |> Osc.Field.op_Implicit
 					//
 					// let fieldExpression = field <@ fun (d: Doc) -> d.Message @>
 					//

@@ -25,21 +25,21 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Core.ManagedOpenSearch
 {
 	public abstract class ClusterTestClassBase<TCluster> : IClusterFixture<TCluster>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, INestTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
 	{
 		protected ClusterTestClassBase(TCluster cluster)
 		{
 			Cluster = cluster;
-			Cluster.ClusterConfiguration.ShowElasticsearchOutputAfterStarted = false;
-			Cluster.ClusterConfiguration.CacheEsHomeInstallation = true;
+			Cluster.ClusterConfiguration.ShowOpenSearchOutputAfterStarted = false;
+			Cluster.ClusterConfiguration.CacheOpenSearchHomeInstallation = true;
 		}
 
 		public IOpenSearchClient Client => Cluster.Client;

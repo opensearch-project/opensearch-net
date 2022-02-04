@@ -29,7 +29,7 @@ using System;
 using System.Linq;
 using System.Runtime.ExceptionServices;
 using System.Threading;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -41,7 +41,7 @@ namespace Tests.Search
 	 *
 	 * The scroll API can be used to return a large collection of documents from OpenSearch.
 	 *
-	 * NEST exposes the scroll API and an observable scroll implementation that can be used
+	 * OSC exposes the scroll API and an observable scroll implementation that can be used
 	 * to write concurrent scroll requests.
 	 */
 	public class ScrollDocuments : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
@@ -78,7 +78,7 @@ namespace Tests.Search
 		 * ==== ScrollAllObservable
 		 *
 		 * Similar to <<bulkall-observable, `BulkAllObservable`>> for bulk indexing a large number of documents,
-		 * NEST exposes an observable scroll implementation, `ScrollAllObservable`, that can be used
+		 * OSC exposes an observable scroll implementation, `ScrollAllObservable`, that can be used
 		 * to write concurrent scroll requests. `ScrollAllObservable` uses sliced scrolls to split the scroll into
 		 * multiple slices that can be consumed concurrently.
 		 *
