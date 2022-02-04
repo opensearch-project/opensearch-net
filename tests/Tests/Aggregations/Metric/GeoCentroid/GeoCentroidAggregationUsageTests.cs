@@ -29,7 +29,7 @@ using System;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -40,7 +40,7 @@ namespace Tests.Aggregations.Metric.GeoCentroid
 	 * A metric aggregation that computes the weighted centroid from all coordinate values
 	 * for a Geo-point datatype field.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-metrics-geocentroid-aggregation.html[Geo Centroid Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-geocentroid-aggregation.html[Geo Centroid Aggregation]
 	 */
 	public class GeoCentroidAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

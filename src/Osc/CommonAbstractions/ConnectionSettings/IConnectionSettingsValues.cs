@@ -43,7 +43,7 @@ namespace Osc
 		/// By default, NEST camel cases property names.
 		/// </summary>
 		/// <example>
-		/// CLR property EmailAddress will be inferred as "emailAddress" Elasticsearch document field name
+		/// CLR property EmailAddress will be inferred as "emailAddress" OpenSearch document field name
 		/// </example>
 		Func<string, string> DefaultFieldNameInferrer { get; }
 
@@ -64,7 +64,7 @@ namespace Osc
 		FluentDictionary<Type, string> DefaultRelationNames { get; }
 
 		/// <summary>
-		/// Specify a property for a CLR type to use to infer the _id of the document when indexed in Elasticsearch.
+		/// Specify a property for a CLR type to use to infer the _id of the document when indexed in OpenSearch.
 		/// </summary>
 		FluentDictionary<Type, string> IdProperties { get; }
 
@@ -84,14 +84,14 @@ namespace Osc
 		FluentDictionary<MemberInfo, IPropertyMapping> PropertyMappings { get; }
 
 		/// <summary>
-		/// Specify a property for a CLR type to use to infer the routing for of a document when indexed in Elasticsearch.
+		/// Specify a property for a CLR type to use to infer the routing for of a document when indexed in OpenSearch.
 		/// </summary>
 		FluentDictionary<Type, string> RouteProperties { get; }
 
 		/// <summary>
 		/// Disables automatic Id inference for given CLR types.
 		/// <para></para>
-		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to Elasticsearch. Adding a type
+		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
 		/// will disable this behaviour for that CLR type. If Id inference should be disabled for all CLR types, use
 		/// <see cref="DefaultDisableIdInference"/>
 		/// </summary>
@@ -100,7 +100,7 @@ namespace Osc
 		/// <summary>
 		/// Disables automatic Id inference for all CLR types.
 		/// <para></para>
-		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to Elasticsearch. Setting this to <c>true</c>
+		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Setting this to <c>true</c>
 		/// will disable this behaviour for all CLR types and cannot be overridden. If Id inference should be disabled only for specific types, use
 		/// <see cref="DisableIdInference"/>
 		/// </summary>

@@ -31,7 +31,7 @@ using System.Runtime.ExceptionServices;
 using System.Threading;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.DocumentationTests;
 
@@ -39,7 +39,7 @@ namespace Tests.Search
 {
 	/**=== Scrolling documents
 	 *
-	 * The scroll API can be used to return a large collection of documents from Elasticsearch.
+	 * The scroll API can be used to return a large collection of documents from OpenSearch.
 	 *
 	 * NEST exposes the scroll API and an observable scroll implementation that can be used
 	 * to write concurrent scroll requests.
@@ -64,7 +64,7 @@ namespace Tests.Search
 				.Query(q => q
 					.Term(f => f.State, StateOfBeing.Stable)
 				)
-				.Scroll("10s") // <1> Specify a scroll time for how long Elasticsearch should keep this scroll open on the server side. The time specified should be sufficient to process the response on the client side.
+				.Scroll("10s") // <1> Specify a scroll time for how long OpenSearch should keep this scroll open on the server side. The time specified should be sufficient to process the response on the client side.
 			);
 
 			while (searchResponse.Documents.Any()) // <2> make subsequent requests to the scroll API to keep fetching documents, whilst documents are returned

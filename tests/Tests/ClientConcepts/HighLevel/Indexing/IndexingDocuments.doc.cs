@@ -38,7 +38,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 	/**[[indexing-documents]]
 	*=== Indexing documents
 	*
-	* NEST exposes the index and bulk APIs of Elasticsearch as methods, to enable indexing of single or multiple documents. In addition to this,
+	* NEST exposes the index and bulk APIs of OpenSearch as methods, to enable indexing of single or multiple documents. In addition to this,
 	* the client provides some convenient shorthand methods for the typical indexing approaches.
 	*/
 	public class Indexing : DocumentationTestBase

@@ -59,21 +59,21 @@ namespace Tests.Search
 		/** [[stored-fields]]
 		 * ==== Stored fields
 		 *
-		 * When indexing a document, by default, Elasticsearch stores the originally sent JSON document in a special
+		 * When indexing a document, by default, OpenSearch stores the originally sent JSON document in a special
 		 * field called {ref_current}/mapping-source-field.html[_source]. Documents returned from
-		 * a search query are materialized from the `_source` field returned from Elasticsearch for each hit.
+		 * a search query are materialized from the `_source` field returned from OpenSearch for each hit.
 		 *
-		 * It is also possible to store a field from the JSON document _separately_ within Elasticsearch
+		 * It is also possible to store a field from the JSON document _separately_ within OpenSearch
 		 * by using {ref_current}/mapping-store.html[store] on the mapping. Why would you ever want to do this?
 		 * Well, you may disable `_source` so that the source is not stored and select to store only specific fields.
 		 * Another possibility is that the `_source` contains a field with large values, for example, the body of
 		 * a blog post, but typically only another field is needed, for example, the title of the blog post.
-		 * In this case, we don't want to pay the cost of Elasticsearch deserializing the entire `_soure` just to
+		 * In this case, we don't want to pay the cost of OpenSearch deserializing the entire `_soure` just to
 		 * get a small field.
 		 *
 		 * [IMPORTANT]
 		 * --
-		 * Opting to disable source for a type mapping means that the original JSON document sent to Elasticsearch
+		 * Opting to disable source for a type mapping means that the original JSON document sent to OpenSearch
 		 * is *not* stored and hence can never be retrieved. Whilst you may save disk space in doing so, certain
 		 * features are not going to work when source is disabled such as the Reindex API or on the fly
 		 * highlighting.

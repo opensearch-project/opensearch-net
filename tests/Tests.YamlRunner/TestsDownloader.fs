@@ -33,8 +33,8 @@ open FSharp.Data
 open Tests.YamlRunner.Models
 
 
-let private rootListingUrl = "https://github.com/elastic/elasticsearch"
-let private rootRawUrl = "https://raw.githubusercontent.com/elastic/elasticsearch"
+let private rootListingUrl = "https://github.com/opensearch-project/opensearch-net"
+let private rootRawUrl = "https://raw.githubusercontent.com/opensearch-project/opensearch-net"
 
 let private openSourceResourcePath = "rest-api-spec/src/main/resources"
 
@@ -54,7 +54,7 @@ let TestRawUrl namedSuite revision folder file =
         
 let private randomTime = Random()
 
-let TemporaryPath revision suite = lazy(Path.Combine(Path.GetTempPath(), "elastic", sprintf "tests-%s-%s" suite revision))
+let TemporaryPath revision suite = lazy(Path.Combine(Path.GetTempPath(), "opensearch", sprintf "tests-%s-%s" suite revision))
 
 let private download url = async {
     let! _wait = Async.Sleep <| randomTime.Next(500, 900)

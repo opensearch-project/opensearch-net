@@ -38,7 +38,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**=== Logging with Fiddler
 	 *
 	 * A web debugging proxy such as http://www.telerik.com/fiddler[Fiddler] is a useful way to capture HTTP traffic
-	 * from a machine, particularly whilst developing against a local Elasticsearch cluster.
+	 * from a machine, particularly whilst developing against a local OpenSearch cluster.
 	 */
 	public class LoggingWithFiddler
 	{
@@ -74,7 +74,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 * image::inspect-requests.png[Inspecting requests and responses]
 		 *
 		 * As before, you may also want to filter traffic to only show requests to `ipv4.fiddler` on the port
-		 * on which you are running Elasticsearch.
+		 * on which you are running OpenSearch.
 		 *
 		 * image::capture-requests-localhost.png[Capturing requests to localhost]
 		 */

@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -43,7 +43,7 @@ namespace Tests.Aggregations.Bucket.RareTerms
 	 * As noted in the terms aggregation docs, actually ordering a terms agg by count ascending has unbounded error.
 	 * Instead, you should use the rare_terms aggregation.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-rare-terms-aggregation.html[rare terms aggregation] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-aggregations-bucket-rare-terms-aggregation.html[rare terms aggregation] for more detail.
 	 */
 	public class RareTermsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

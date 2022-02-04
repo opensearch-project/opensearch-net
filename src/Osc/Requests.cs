@@ -72,7 +72,7 @@ namespace Osc
 
 		///<summary>
 		/// A comma-separated list of filters used to reduce the response.
-		/// <para>Use of response filtering can result in a response from Elasticsearch
+		/// <para>Use of response filtering can result in a response from OpenSearch
 		/// that cannot be correctly deserialized to the respective response type for the request.
 		/// In such situations, use the low level client to issue the request and handle response deserialization</para>
 		///</summary>

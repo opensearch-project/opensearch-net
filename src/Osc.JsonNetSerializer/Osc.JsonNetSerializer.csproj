@@ -2,8 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
     <PackageId>OSC.JsonNetSerializer</PackageId>
-    <Title>OSC.JsonNetSerializer - Elasticsearch .NET custom Json.NET serializer</Title>
-    <PackageTags>elasticsearch,elastic,search,lucene,osc,serializer,json</PackageTags>
+    <Title>OSC.JsonNetSerializer - OpenSearch .NET custom Json.NET serializer</Title>
+    <PackageTags>opensearch,opensearch,search,lucene,osc,serializer,json</PackageTags>
     <Description>OSC uses an internal serializer. This package enables serialization for your documents using your own custom Json.NET serializer</Description>
   </PropertyGroup>
 

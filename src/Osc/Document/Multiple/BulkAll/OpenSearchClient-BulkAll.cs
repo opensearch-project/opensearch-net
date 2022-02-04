@@ -34,7 +34,7 @@ namespace Osc
 	public partial interface IOpenSearchClient
 	{
 		/// <summary>
-		/// BulkAll is a generic helper that will partition any lazy stream of documents and send them to Elasticsearch as concurrent bulk requests.
+		/// BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.
 		/// <para />
 		/// The index to target will be inferred from <typeparamref name="T" />. If no default index has been mapped for <typeparamref name="T" />
 		/// using <see cref="ConnectionSettingsBase{TConnectionSettings}.DefaultMappingFor{TDocument}"/> on <see cref="Osc.ConnectionSettings"/>, an exception will be thrown.
@@ -50,7 +50,7 @@ namespace Osc
 			where T : class;
 
 		/// <summary>
-		/// BulkAll is a generic helper that will partition any lazy stream of documents and send them to Elasticsearch as concurrent bulk requests
+		/// BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests
 		/// <para />
 		/// The index to target will be inferred from <typeparamref name="T" />. If no default index has been mapped for <typeparamref name="T" />
 		/// using <see cref="ConnectionSettingsBase{TConnectionSettings}.DefaultMappingFor{TDocument}"/> on <see cref="Osc.ConnectionSettings"/>, an exception will be thrown.

@@ -35,7 +35,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 	/**[[ingest-nodes]]
 	*=== Ingest Node
 	*
-	* Elasticsearch will automatically re-route index requests to ingest nodes,
+	* OpenSearch will automatically re-route index requests to ingest nodes,
 	* however with some careful consideration you can optimise this path.
 	*/
 	public class IngestNodes : DocumentationTestBase
@@ -45,7 +45,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		/**
 		* ==== Custom indexing client
 		*
-		* Since Elasticsearch will automatically reroute ingest requests to ingest nodes, you don't have to specify or configure any routing
+		* Since OpenSearch will automatically reroute ingest requests to ingest nodes, you don't have to specify or configure any routing
 		* information. However, if you're doing heavy ingestion and have dedicated ingest nodes, it makes sense to send index requests to
 		* these nodes directly, to avoid any extra hops in the cluster.
 		*

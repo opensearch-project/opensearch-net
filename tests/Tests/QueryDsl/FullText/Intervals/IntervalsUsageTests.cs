@@ -27,7 +27,7 @@
 
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -40,7 +40,7 @@ namespace Tests.QueryDsl.FullText.Intervals
 	 *
 	 * The definitions produce sequences of minimal intervals that span terms in a body of text. These intervals can be further combined and filtered by parent sources.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/query-dsl-intervals-query.html[Intervals query]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/query-dsl-intervals-query.html[Intervals query]
 	 */
 	public class IntervalsUsageTests : QueryDslUsageTestsBase
 	{
@@ -291,7 +291,7 @@ namespace Tests.QueryDsl.FullText.Intervals
 	 * === Fuzzy rules
 	 *
 	 * Fuzzy rules can be used to match terms that are similar to the provided term, within an edit distance defined by Fuzziness.
-	 * If the fuzzy expansion matches more than 128 terms, Elasticsearch returns an error.
+	 * If the fuzzy expansion matches more than 128 terms, OpenSearch returns an error.
 	 */
 	public class IntervalsFuzzyUsageTests : QueryDslUsageTestsBase
 	{

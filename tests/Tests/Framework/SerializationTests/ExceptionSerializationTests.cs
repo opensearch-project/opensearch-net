@@ -36,7 +36,7 @@ namespace Tests.Framework.SerializationTests
 {
 	public class ExceptionSerializationTests
 	{
-		private readonly IOpenSearchSerializer _elasticsearchNetSerializer;
+		private readonly IOpenSearchSerializer _opensearchNetSerializer;
 
 		private readonly Exception _exception = new Exception("outer_exception",
 			new InnerException("inner_exception",
@@ -48,13 +48,13 @@ namespace Tests.Framework.SerializationTests
 			var connection = new InMemoryConnection();
 			var values = new ConnectionConfiguration(pool, connection);
 			var lowlevelClient = new OpenSearchLowLevelClient(values);
-			_elasticsearchNetSerializer = lowlevelClient.Serializer;
+			_opensearchNetSerializer = lowlevelClient.Serializer;
 		}
 
 		[U]
 		public void LowLevelExceptionSerializationMatchesJsonNet()
 		{
-			var serialized = _elasticsearchNetSerializer.SerializeToString(_exception);
+			var serialized = _opensearchNetSerializer.SerializeToString(_exception);
 
 			object CreateException(Type exceptionType, string message, int depth)
 			{

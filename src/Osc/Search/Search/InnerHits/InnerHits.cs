@@ -35,7 +35,7 @@ namespace Osc
 	public interface IInnerHits
 	{
 		/// <summary>
-		/// Provides a second level of collapsing, NOTE: Elasticsearch only supports collapsing up to two levels.
+		/// Provides a second level of collapsing, NOTE: OpenSearch only supports collapsing up to two levels.
 		/// </summary>
 		[DataMember(Name ="collapse")]
 		IFieldCollapse Collapse { get; set; }

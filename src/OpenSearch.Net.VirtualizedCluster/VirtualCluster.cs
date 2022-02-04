@@ -50,16 +50,16 @@ namespace OpenSearch.Net.VirtualizedCluster
 		internal string PublishAddressOverride { get; private set; }
 
 		internal bool SniffShouldReturnFqnd { get; private set; }
-		internal string ElasticsearchVersion { get; private set; } = "1.0.0";
+		internal string OpenSearchVersion { get; private set; } = "1.0.0";
 
 		public VirtualCluster SniffShouldReturnFqdn()
 		{
 			SniffShouldReturnFqnd = true;
 			return this;
 		}
-		public VirtualCluster SniffElasticsearchVersionNumber(string version)
+		public VirtualCluster SniffOpenSearchVersionNumber(string version)
 		{
-			ElasticsearchVersion = version;
+			OpenSearchVersion = version;
 			return this;
 		}
 

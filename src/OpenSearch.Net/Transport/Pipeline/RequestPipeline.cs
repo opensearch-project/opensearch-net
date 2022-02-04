@@ -172,11 +172,11 @@ namespace OpenSearch.Net
 			response.ApiCall.AuditTrail = AuditTrail;
 		}
 
-		public TResponse CallElasticsearch<TResponse>(RequestData requestData)
+		public TResponse CallOpenSearch<TResponse>(RequestData requestData)
 			where TResponse : class, IOpenSearchResponse, new()
 		{
 			using (var audit = Audit(HealthyResponse, requestData.Node))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallElasticsearch, requestData))
+			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
 			{
 				audit.Path = requestData.PathAndQuery;
 				try
@@ -198,11 +198,11 @@ namespace OpenSearch.Net
 			}
 		}
 
-		public async Task<TResponse> CallElasticsearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+		public async Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
 			where TResponse : class, IOpenSearchResponse, new()
 		{
 			using (var audit = Audit(HealthyResponse, requestData.Node))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallElasticsearch, requestData))
+			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
 			{
 				audit.Path = requestData.PathAndQuery;
 				try

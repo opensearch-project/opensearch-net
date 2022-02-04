@@ -27,7 +27,7 @@
 
 using System;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Mapping.Types.Specialized.Generic

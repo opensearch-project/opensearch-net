@@ -31,7 +31,7 @@ using System.Linq;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using Xunit;
@@ -42,7 +42,7 @@ namespace Tests.Search.Request
 	* Allows to highlight search results on one or more fields.
 	* The implementation uses either the lucene `highlighter` or `fast-vector-highlighter`.
 	*
-	* See the Elasticsearch documentation on {ref_current}/search-request-body.html#request-body-search-highlighting[highlighting] for more detail.
+	* See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-highlighting[highlighting] for more detail.
 	*/
 	public class HighlightingUsageTests : SearchUsageTestBase
 	{

@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -44,11 +44,11 @@ namespace Tests.Aggregations.Bucket.DateHistogram
 	 * From a functionality perspective, this histogram supports the same features as the normal histogram.
 	 * The main difference is that the interval can be specified by date/time expressions.
 	 *
-	 * NOTE: When specifying a `format` **and** `extended_bounds`, `hard_bounds` or `missing`, in order for Elasticsearch to be able to parse
+	 * NOTE: When specifying a `format` **and** `extended_bounds`, `hard_bounds` or `missing`, in order for OpenSearch to be able to parse
 	 * the serialized `DateTime` of `extended_bounds` or `missing` correctly, the `date_optional_time` format is included
 	 * as part of the `format` value.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-datehistogram-aggregation.html[Date Histogram Aggregation].
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-datehistogram-aggregation.html[Date Histogram Aggregation].
 	*/
 	public class DateHistogramAggregationUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{

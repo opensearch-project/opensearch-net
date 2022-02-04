@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -42,7 +42,7 @@ namespace Tests.Search.Request
 		/**
 		 * Enables explanation for each hit on how its score was computed.
 		 *
-		 * See the Elasticsearch documentation on {ref_current}/search-explain.html[Explain] for more detail.
+		 * See the OpenSearch documentation on {ref_current}/search-explain.html[Explain] for more detail.
 		 */
 		public ExplainUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 

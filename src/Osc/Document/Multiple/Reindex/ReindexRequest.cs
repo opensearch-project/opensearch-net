@@ -34,8 +34,8 @@ namespace Osc
 	/// <summary>
 	///  A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.
 	/// <para>
-	/// This differs from ReindexOnServer() in that documents are fetched from Elasticsearch, transformed on the client side,
-	///  then sent back to Elasticsearch.
+	/// This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
+	///  then sent back to OpenSearch.
 	///  </para>
 	///  <para>
 	/// This will create the target index if it doesn't exist already. If <see cref="CreateIndexRequest" /> is not specified

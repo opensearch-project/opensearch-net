@@ -34,7 +34,7 @@ namespace Osc
 {
 	/// <summary>
 	/// A field to index full-text values, such as the body of an email or the description of a product.
-	/// These fields are analyzed in Elasticsearch, by passing through an analyzer to convert the string
+	/// These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
 	/// into a list of individual terms before being indexed.
 	/// <para />
 	/// Text fields are not used for sorting and seldom used for aggregations

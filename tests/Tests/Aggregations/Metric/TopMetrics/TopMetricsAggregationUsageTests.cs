@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -44,7 +44,7 @@ namespace Tests.Aggregations.Metric.TopMetrics
 	 *
 	 * Top metrics is fairly similar to "top hits" in spirit but because it is more limited it is able to do its job using less memory and is often faster.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-metrics-top-metrics.html[Top Metrics Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-top-metrics.html[Top Metrics Aggregation]
 	 */
 	public class TopMetricsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

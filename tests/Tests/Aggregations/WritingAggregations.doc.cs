@@ -32,7 +32,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Aggregations.Bucket.Children;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.EndpointTests.TestState;
@@ -45,7 +45,7 @@ namespace Tests.Aggregations
 	* NEST allows you to write your aggregations using
 	*
 	* - a strict fluent DSL
-	* - a verbatim object initializer syntax that maps verbatim to the Elasticsearch API
+	* - a verbatim object initializer syntax that maps verbatim to the OpenSearch API
 	* - a more terse object initializer aggregation DSL
 	*
 	* Three different ways, yikes that's a lot to take in! Let's go over them one at a time and explain when you might
@@ -113,7 +113,7 @@ namespace Tests.Aggregations
 		/**[float]
 		* === Object Initializer syntax
 		* The object initializer syntax (OIS) is a one-to-one mapping with how aggregations
-		* have to be represented in the Elasticsearch API. While it has the benefit of being a one-to-one
+		* have to be represented in the OpenSearch API. While it has the benefit of being a one-to-one
 		* mapping, being dictionary based in C# means it can grow verbose rather quickly.
 		*
 		* Here are the same aggregations as expressed in the Fluent API above, with the dictionary-based

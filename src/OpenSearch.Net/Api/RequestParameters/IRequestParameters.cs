@@ -62,7 +62,7 @@ namespace OpenSearch.Net
 		TOut GetQueryStringValue<TOut>(string name);
 
 		/// <summary>
-		/// Gets the stringified representation of a query string value as it would be sent to Elasticsearch.
+		/// Gets the stringified representation of a query string value as it would be sent to OpenSearch.
 		/// </summary>
 		string GetResolvedQueryStringValue(string n, IConnectionConfigurationValues s);
 

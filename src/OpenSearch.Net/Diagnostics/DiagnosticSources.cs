@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Diagnostics
 		public static AuditDiagnosticKeys AuditTrailEvents { get; } = new AuditDiagnosticKeys();
 
 		/// <summary>
-		/// When subscribing to <see cref="RequestPipelineDiagnosticKeys.SourceName"/> you will be notified every time a sniff/ping or an API call to Elasticsearch happens
+		/// When subscribing to <see cref="RequestPipelineDiagnosticKeys.SourceName"/> you will be notified every time a sniff/ping or an API call to OpenSearch happens
 		/// </summary>
 		public static RequestPipelineDiagnosticKeys RequestPipeline { get; } = new RequestPipelineDiagnosticKeys();
 
@@ -107,7 +107,7 @@ namespace OpenSearch.Net.Diagnostics
 		public class RequestPipelineDiagnosticKeys : IDiagnosticsKeys
 		{
 			public string SourceName { get; } = typeof(RequestPipeline).FullName;
-			public string CallElasticsearch { get; } = nameof(CallElasticsearch);
+			public string CallOpenSearch { get; } = nameof(CallOpenSearch);
 			public string Ping { get; } = nameof(Ping);
 			public string Sniff { get; } = nameof(Sniff);
 		}

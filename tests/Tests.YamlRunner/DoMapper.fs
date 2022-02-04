@@ -94,7 +94,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
         match v with
         | :? List<Object> as a ->
             let values = a |> Seq.map toString |> Seq.toList
-            // https://github.com/elastic/elasticsearch/blob/6f1359fb70fba1bd7a1e26f4a9d42a9098ed4371/rest-api-spec/src/main/resources/rest-api-spec/test/indices.refresh/10_basic.yml#L40-L42
+            // https://github.com/opensearch-project/OpenSearch/blob/6c2f01a045b5d50195d6df05d9854e978dced438/rest-api-spec/src/main/resources/rest-api-spec/test/indices.refresh/10_basic.yml#L40-L42
             match values with
             | [] -> "_all" 
             | _ -> String.Join(',', values)

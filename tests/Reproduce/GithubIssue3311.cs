@@ -32,7 +32,7 @@ using Elastic.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Nest;
-using Tests.Framework.ManagedElasticsearch.Clusters;
+using Tests.Framework.ManagedOpenSearch.Clusters;
 
 namespace Tests.Reproduce
 {

@@ -3,9 +3,9 @@
   <PropertyGroup>
     <PackageId>OpenSearch.Net</PackageId>
     <Title>OpenSearch.Net</Title>
-    <PackageTags>elasticsearch;elastic;search;lucene;osc</PackageTags>
+    <PackageTags>opensearch;opensearch;search;lucene;osc</PackageTags>
     <Description>
-      Exposes all the Elasticsearch API endpoints but leaves you in control of building the request and response bodies. 
+      Exposes all the OpenSearch API endpoints but leaves you in control of building the request and response bodies.
       Comes with built in cluster failover/connection pooling support.
     </Description>
   </PropertyGroup>

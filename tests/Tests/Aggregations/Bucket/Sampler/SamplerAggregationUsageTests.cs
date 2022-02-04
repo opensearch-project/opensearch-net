@@ -30,7 +30,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Configuration;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 

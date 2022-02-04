@@ -45,7 +45,7 @@ namespace Tests.Aggregations
 	* Because of this, some of the key properties we use to make decisions about parsing are not allowed as key names
 	* for aggregations in a request.
 	*
-	* Elasticsearch will at some point get a flag that returns the aggregations in a parsable
+	* OpenSearch will at some point get a flag that returns the aggregations in a parsable
 	* fashion. when this happens, this limitation will be lifted but until that time, avoid the following names for
 	* aggregation keys:
 	*/

@@ -27,7 +27,7 @@
 
 using System.Collections.Generic;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -38,7 +38,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 	* This can be useful if, for example, a score function is computationally expensive and
 	* it is sufficient to compute the score on a filtered set of documents.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-script-score-query.html[script_score query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-script-score-query.html[script_score query] for more details.
 	*/
 	public class ScriptScoreQueryUsageTests : QueryDslUsageTestsBase
 	{

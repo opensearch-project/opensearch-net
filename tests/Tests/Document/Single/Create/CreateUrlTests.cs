@@ -63,11 +63,11 @@ namespace Tests.Document.Single.Create
 				.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project, "project2", "NEST") { Document = project }))
 				.FluentAsync(c => c.CreateAsync(project, cc => cc.Index("project2")));
 
-			await PUT("/different-projects/_create/elasticsearch")
-					.Request(c => c.Create(new CreateRequest<Project>("different-projects", "elasticsearch") { Document = project }))
-					.Request(c => c.Create(new CreateRequest<Project>(project, "different-projects", "elasticsearch")))
-					.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project, "different-projects", "elasticsearch")))
-					.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>("different-projects", "elasticsearch")
+			await PUT("/different-projects/_create/opensearch")
+					.Request(c => c.Create(new CreateRequest<Project>("different-projects", "opensearch") { Document = project }))
+					.Request(c => c.Create(new CreateRequest<Project>(project, "different-projects", "opensearch")))
+					.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project, "different-projects", "opensearch")))
+					.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>("different-projects", "opensearch")
 						{ Document = project }))
 				;
 		}

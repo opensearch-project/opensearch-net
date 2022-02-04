@@ -44,7 +44,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	 * === Extending NEST types
 	 *
 	 * Sometimes you might want to provide a custom implementation of a type, perhaps to work around an issue or because
-	 * you're using a third-party plugin that extends the features of Elasticsearch, and NEST does not provide support out of the box.
+	 * you're using a third-party plugin that extends the features of OpenSearch, and NEST does not provide support out of the box.
 	 *
 	 * NEST allows extending its types in some scenarios, discussed here.
 	 *

@@ -52,7 +52,7 @@ namespace Tests.CodeStandards
 				where t.IsClass
 					  && t.Name.Contains("Descriptor")
 					  && !t.Namespace.StartsWith("Osc.Json")
-					  && !t.Namespace.StartsWith("Elastic.Internal")
+					  && !t.Namespace.StartsWith("OpenSearch.Internal")
 					  && !notDescriptors.Contains(t.Name)
 #if __MonoCS__
 					  && !t.FullName.Contains("c__AnonStore") //compiler generated

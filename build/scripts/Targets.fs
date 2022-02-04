@@ -114,10 +114,10 @@ module Main =
                 printfn "Finished Release Build %O, artifacts available at: %s" artifactsVersion Paths.BuildOutput
             | Some path ->
                 Fake.IO.Shell.cp_r Paths.BuildOutput path
-                let zipName = sprintf "elasticsearch-net-%O.zip" artifactsVersion.Full
+                let zipName = sprintf "opencsearch-net-%O.zip" artifactsVersion.Full
                 let outputZip = Path.Combine(path, zipName)
                 let files = !! (sprintf "%s/*.*" path) -- outputZip
-                Fake.IO.Zip.createZip "." outputZip "elastic/elasticsearch-net artifact" 9 true files
+                Fake.IO.Zip.createZip "." outputZip "opensearch-project/opensearch-net artifact" 9 true files
                 printfn "Finished Release Build %O, output copied to: %s" artifactsVersion path
 
         conditional "test-nuget-package" (not parsed.SkipTests) <| fun _ -> Tests.RunReleaseUnitTests artifactsVersion parsed

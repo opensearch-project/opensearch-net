@@ -28,7 +28,7 @@
 namespace Osc
 {
 	/// <summary>
-	/// A document field mapping in Elasticsearch
+	/// A document field mapping in OpenSearch
 	/// </summary>
 	public interface IFieldMapping { }
 }

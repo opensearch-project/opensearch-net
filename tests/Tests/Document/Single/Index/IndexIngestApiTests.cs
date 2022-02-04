@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Domain.Extensions;
 using Tests.Framework.EndpointTests;

@@ -64,23 +64,23 @@ namespace Tests.CodeStandards
 		[U]
 		public void BaseUriWithRelativePathIsRespected()
 		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/elasticsearch"));
+			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch"));
 			var settings = new ConnectionSettings(pool, new InMemoryConnection());
 			var client = new OpenSearchClient(settings);
 			var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-			searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/elasticsearch/_all/_search?typed_keys=true");
+			searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
 		}
 
 		[U]
 		public void BaseUriWithRelativePathAndTrailingSlashIsRespected()
 		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/elasticsearch/"));
+			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch/"));
 			var settings = new ConnectionSettings(pool, new InMemoryConnection());
 			var client = new OpenSearchClient(settings);
 			var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-			searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/elasticsearch/_all/_search?typed_keys=true");
+			searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
 		}
 	}
 }

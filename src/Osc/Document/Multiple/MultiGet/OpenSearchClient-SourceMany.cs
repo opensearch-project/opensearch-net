@@ -49,7 +49,7 @@ namespace Osc
 		}
 
 		/// <summary>
-		/// SourceMany allows you to get a list of T documents out of Elasticsearch, internally it calls into MultiGet()
+		/// SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()
 		/// <para>
 		/// Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
 		/// The response includes a docs array with all the fetched documents, each element similar in structure to a document
@@ -74,7 +74,7 @@ namespace Osc
 		}
 
 		/// <summary>
-		/// SourceMany allows you to get a list of T documents out of Elasticsearch, internally it calls into MultiGet()
+		/// SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()
 		/// <para>
 		/// Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
 		/// The response includes a docs array with all the fetched documents, each element similar in structure to a document
@@ -91,7 +91,7 @@ namespace Osc
 			where T : class => client.SourceMany<T>(ids.Select(i => i.ToString(CultureInfo.InvariantCulture)), index);
 
 		/// <summary>
-		/// SourceMany allows you to get a list of T documents out of Elasticsearch, internally it calls into MultiGet()
+		/// SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()
 		/// <para>
 		/// Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
 		/// The response includes a docs array with all the fetched documents, each element similar in structure to a document
@@ -118,7 +118,7 @@ namespace Osc
 		}
 
 		/// <summary>
-		/// SourceMany allows you to get a list of T documents out of Elasticsearch, internally it calls into MultiGet()
+		/// SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()
 		/// <para>
 		/// Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
 		/// The response includes a docs array with all the fetched documents, each element similar in structure to a document

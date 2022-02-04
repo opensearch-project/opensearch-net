@@ -61,7 +61,7 @@ namespace Osc
 		bool ContinueAfterDroppedDocuments { get; set; }
 
 		/// <summary>
-		///  The documents to send to Elasticsearch, ideally lazily evaluated by using <see langword="yield" />
+		///  The documents to send to OpenSearch, ideally lazily evaluated by using <see langword="yield" />
 		/// return to provide each document.
 		/// <see cref="BulkAllObservable{T}" /> will eager evaluate each partitioned page when operating on it, using
 		/// <see cref="Enumerable.ToList{T}" />.

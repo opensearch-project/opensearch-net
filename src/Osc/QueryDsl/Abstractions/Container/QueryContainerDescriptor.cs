@@ -457,7 +457,7 @@ namespace Osc
 
 		/// <summary>
 		/// Allows you to use regular expression term queries.
-		/// "term queries" means that Elasticsearch will apply the regexp to the terms produced
+		/// "term queries" means that OpenSearch will apply the regexp to the terms produced
 		/// by the tokenizer for that field, and not to the original text of the field.
 		/// </summary>
 		public QueryContainer Regexp(Func<RegexpQueryDescriptor<T>, IRegexpQuery> selector) =>

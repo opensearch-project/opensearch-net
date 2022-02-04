@@ -34,7 +34,7 @@ using System.Threading.Tasks;
 using Osc;
 using Tests.Configuration;
 using Tests.Core.Client;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Serialization;
 using Tests.Domain.Helpers;
 using Tests.Framework.EndpointTests.TestState;

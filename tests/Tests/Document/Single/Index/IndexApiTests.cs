@@ -35,7 +35,7 @@ using Osc;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 using Tests.Domain;
 using Tests.Domain.Extensions;

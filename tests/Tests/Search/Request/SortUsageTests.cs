@@ -31,7 +31,7 @@ using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -252,7 +252,7 @@ namespace Tests.Search.Request
 	 * [float]
 	 * === Nested sort usage
 	 *
-	 * In Elasticsearch, using `nested_path` and `nested_filter` for sorting on fields mapped as
+	 * In OpenSearch, using `nested_path` and `nested_filter` for sorting on fields mapped as
 	 * `nested` types is deprecated. Instead, you should use the `nested` sort instead.
 	 */
 	public class NestedSortUsageTests : SearchUsageTestBase

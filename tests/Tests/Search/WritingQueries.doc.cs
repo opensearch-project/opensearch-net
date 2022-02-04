@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
@@ -42,8 +42,8 @@ namespace Tests.Search
 	// TODO: Additional sections on Paging results (from/size, scroll and search_after), Multisearch and Conditionless queries
 	/**=== Writing queries
 	 *
-	 * Once you have data indexed within Elasticsearch, you're going to want to be able to search it. Elasticsearch
-	 * offers a powerful query DSL to define queries to execute against Elasticsearch. This DSL is based on JSON
+	 * Once you have data indexed within OpenSearch, you're going to want to be able to search it. OpenSearch
+	 * offers a powerful query DSL to define queries to execute against OpenSearch. This DSL is based on JSON
 	 * and is exposed in NEST in the form of both a Fluent API and an Object Initializer syntax
 	 *
 	 */
@@ -232,7 +232,7 @@ namespace Tests.Search
 		}
 
 		 /**
-		 * The benefit of executing a query in a filter context is that Elasticsearch is able to
+		 * The benefit of executing a query in a filter context is that OpenSearch is able to
 		 * forgo calculating a relevancy score, as well as cache filters for faster subsequent performance.
 		 *
 		 * [IMPORTANT]

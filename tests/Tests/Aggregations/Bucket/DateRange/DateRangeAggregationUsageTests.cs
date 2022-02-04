@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -45,7 +45,7 @@ namespace Tests.Aggregations.Bucket.DateRange
 	 *
 	 * IMPORTANT: this aggregation includes the `from` value and excludes the `to` value for each range.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-daterange-aggregation.html[Date Range Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-daterange-aggregation.html[Date Range Aggregation]
 	*/
 	public class DateRangeAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

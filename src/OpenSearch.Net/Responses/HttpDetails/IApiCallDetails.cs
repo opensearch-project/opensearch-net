@@ -68,7 +68,7 @@ namespace OpenSearch.Net
 		IConnectionConfigurationValues ConnectionConfiguration { get; }
 
 		/// <summary>
-		/// A collection of deprecation warnings returned from Elasticsearch.
+		/// A collection of deprecation warnings returned from OpenSearch.
 		/// <para>Used to signal that the request uses an API feature that is marked as deprecated</para>
 		/// </summary>
 		IEnumerable<string> DeprecationWarnings { get; }
@@ -79,7 +79,7 @@ namespace OpenSearch.Net
 		HttpMethod HttpMethod { get; }
 
 		/// <summary>
-		/// The HTTP status code as returned by Elasticsearch
+		/// The HTTP status code as returned by OpenSearch
 		/// </summary>
 		int? HttpStatusCode { get; }
 

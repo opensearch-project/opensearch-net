@@ -33,7 +33,7 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// The date datatype maps a field as a date in Elasticsearch.
+	/// The date datatype maps a field as a date in OpenSearch.
 	/// </summary>
 	[InterfaceDataContract]
 	public interface IDateProperty : IDocValuesProperty

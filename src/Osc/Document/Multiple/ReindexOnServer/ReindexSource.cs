@@ -49,7 +49,7 @@ namespace Osc
 		QueryContainer Query { get; set; }
 
 		/// <summary>
-		/// Reindex from a remote Elasticsearch cluster
+		/// Reindex from a remote OpenSearch cluster
 		/// </summary>
 		[DataMember(Name ="remote")]
 		IRemoteSource Remote { get; set; }

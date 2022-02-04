@@ -31,7 +31,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.ClientConcepts.Connection;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 
 namespace Tests.ClientConcepts.ConnectionPooling.Pinging
@@ -46,11 +46,11 @@ namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 		[I]
 		public void UsesRelativePathForPing()
 		{
-			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/elasticsearch/") });
+			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/opensearch/") });
 			var settings = new ConnectionSettings(pool,
 				new HttpConnectionTests.TestableHttpConnection(response =>
 				{
-					response.RequestMessage.RequestUri.AbsolutePath.Should().StartWith("/elasticsearch/");
+					response.RequestMessage.RequestUri.AbsolutePath.Should().StartWith("/opensearch/");
 				}));
 
 			var client = new OpenSearchClient(settings);
@@ -60,14 +60,14 @@ namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 		[I]
 		public void UsesRelativePathForPing()
 		{
-			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/elasticsearch/") });
+			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/opensearch/") });
 			var connection = new HttpWebRequestConnectionTests.TestableHttpWebRequestConnection();
 			var settings = new ConnectionSettings(pool, connection);
 
 			var client = new OpenSearchClient(settings);
 			var healthResponse = client.Ping();
 
-			connection.LastRequest.Address.AbsolutePath.Should().StartWith("/elasticsearch/");
+			connection.LastRequest.Address.AbsolutePath.Should().StartWith("/opensearch/");
 		}
 #endif
 	}

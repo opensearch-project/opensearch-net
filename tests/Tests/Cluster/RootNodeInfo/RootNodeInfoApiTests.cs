@@ -29,7 +29,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.Configuration;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -63,7 +63,7 @@ namespace Tests.Cluster.RootNodeInfo
 			response.Version.BuildDate.Should().BeAfter(default);
 			response.Version.BuildFlavor.Should().NotBeNullOrWhiteSpace();
 			response.Version.BuildHash.Should().NotBeNullOrWhiteSpace();
-			response.Version.BuildSnapshot.Should().Be(TestConfiguration.Instance.ElasticsearchVersionIsSnapshot);
+			response.Version.BuildSnapshot.Should().Be(TestConfiguration.Instance.OpenSearchVersionIsSnapshot);
 			response.Version.BuildType.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumIndexCompatibilityVersion.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumWireCompatibilityVersion.Should().NotBeNullOrWhiteSpace();

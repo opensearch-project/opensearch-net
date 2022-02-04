@@ -28,7 +28,7 @@
 using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 using Tests.Domain;
 using Tests.Framework.DocumentationTests;

@@ -38,7 +38,7 @@ namespace Tests.Domain.Helpers
 
 		public static string PercolatorType => "query";
 
-		private static bool InRange(string range) => TestConfiguration.Instance.ElasticsearchVersion.InRange(range);
+		private static bool InRange(string range) => TestConfiguration.Instance.OpenSearchVersion.InRange(range);
 
 		public static object Dependant(object builtin, object source) => TestConfiguration.Instance.Random.SourceSerializer ? source : builtin;
 	}

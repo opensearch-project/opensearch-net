@@ -30,7 +30,7 @@ using System.Threading;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 
 namespace Tests.Document.Multiple.BulkAll

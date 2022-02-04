@@ -29,7 +29,7 @@ using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Reproduce
 {

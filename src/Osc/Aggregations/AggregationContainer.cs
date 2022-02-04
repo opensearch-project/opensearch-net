@@ -34,10 +34,10 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// Describes aggregations that we would like to execute on Elasticsearch.
+	/// Describes aggregations that we would like to execute on OpenSearch.
 	/// <para />
 	/// In NEST Aggregation always refers to an aggregation
-	/// sent to Elasticsearch and an Aggregate describes an aggregation returned from Elasticsearch.
+	/// sent to OpenSearch and an Aggregate describes an aggregation returned from OpenSearch.
 	/// </summary>
 	[JsonFormatter(typeof(AggregationDictionaryFormatter))]
 	public class AggregationDictionary : IsADictionaryBase<string, IAggregationContainer>
@@ -331,7 +331,7 @@ namespace Osc
 
 		// This is currently used to support deserializing the response from SQL Translate,
 		// which forms a response which uses "aggregations", rather than "aggs". Longer term
-		// it would be preferred to address that in Elasticsearch itself.
+		// it would be preferred to address that in OpenSearch itself.
 		[DataMember(Name = "aggregations")]
 		private AggregationDictionary _aggs;
 		

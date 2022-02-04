@@ -27,7 +27,7 @@
 
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -37,7 +37,7 @@ namespace Tests.QueryDsl.Specialized.DistanceFeature
 	* Boosts the relevance score of documents closer to a provided `origin` date or point. For example, you can use this query to give
 	* more weight to documents closer to a certain date or location.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-distance-feature-query.html[distance feature query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-distance-feature-query.html[distance feature query] for more details.
 	*
 	* [float]
 	* == Using a date

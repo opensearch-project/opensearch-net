@@ -39,7 +39,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
@@ -61,10 +61,10 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * verbose debug information, configuring a number of settings like
 	 *
 	 * * disabling direct streaming to capture request and response bytes
-	 * * prettyfying JSON responses from Elasticsearch
+	 * * prettyfying JSON responses from OpenSearch
 	 * * collecting TCP statistics when a request is made
 	 * * collecting thread pool statistics when a request is made
-	 * * including the Elasticsearch stack trace in the response if there is a an error on the server side
+	 * * including the OpenSearch stack trace in the response if there is a an error on the server side
 	 */
 	public class DebugMode : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
 	{

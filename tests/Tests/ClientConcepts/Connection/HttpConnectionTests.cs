@@ -34,8 +34,8 @@ using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
-using Tests.Core.ManagedElasticsearch;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using HttpMethod = OpenSearch.Net.HttpMethod;
 using FluentAssertions;
 using System.Text.RegularExpressions;
@@ -224,7 +224,7 @@ namespace Tests.ClientConcepts.Connection
 			var requestData = CreateRequestData();
 			var connection = new TestableHttpConnection(responseMessage =>
 			{
-				responseMessage.RequestMessage.Headers.TryGetValues("x-elastic-client-meta", out var headerValue).Should().BeTrue();
+				responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
 				headerValue.Should().HaveCount(1);
 				headerValue.Single().Should().NotBeNullOrEmpty();
 				regex.Match(headerValue.Single()).Success.Should().BeTrue();
@@ -241,7 +241,7 @@ namespace Tests.ClientConcepts.Connection
 			var requestData = CreateRequestData(requestMetaData: m => m.TryAddMetaData("helper", "r"));
 			var connection = new TestableHttpConnection(responseMessage =>
 			{
-				responseMessage.RequestMessage.Headers.TryGetValues("x-elastic-client-meta", out var headerValue).Should().BeTrue();
+				responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
 				headerValue.Should().HaveCount(1);
 				headerValue.Single().Should().NotBeNullOrEmpty();
 				headerValue.Single().Should().EndWith(",h=r");
@@ -257,7 +257,7 @@ namespace Tests.ClientConcepts.Connection
 			var requestData = CreateRequestData(disableMetaHeader: true);
 			var connection = new TestableHttpConnection(responseMessage =>
 			{
-				responseMessage.RequestMessage.Headers.TryGetValues("x-elastic-client-meta", out var headerValue).Should().BeFalse();
+				responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeFalse();
 			});
 
 			connection.Request<StringResponse>(requestData);

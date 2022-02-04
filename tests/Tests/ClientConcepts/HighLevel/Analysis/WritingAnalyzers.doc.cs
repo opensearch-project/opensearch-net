@@ -40,7 +40,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 	 * === Writing analyzers
 	 *
 	 * There are times when you would like to analyze text in a bespoke fashion, either by configuring
-	 * how one of Elasticsearch's built-in {ref_current}/analysis-analyzers.html[analyzers] works, or
+	 * how one of OpenSearch's built-in {ref_current}/analysis-analyzers.html[analyzers] works, or
 	 * by combining analysis components together to build a custom analyzer.
 	 *
 	 * [[analysis-chain]]
@@ -54,7 +54,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 	 *
 	 * image::analysis-chain.png[analysis chain]
 	 *
-	 * Check out the Elasticsearch documentation on the {ref_current}/analyzer-anatomy.html[Anatomy of an analyzer]
+	 * Check out the OpenSearch documentation on the {ref_current}/analyzer-anatomy.html[Anatomy of an analyzer]
 	 * to understand more.
 	 */
 	public class WritingAnalyzers
@@ -77,7 +77,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * {ref_current}/docs-reindex.html[Reindex API]
 		 * --
 		 *
-		 * Here's a simple example that specifies that the `name` field in Elasticsearch,
+		 * Here's a simple example that specifies that the `name` field in OpenSearch,
 		 * which maps to the `Name` POCO property on the `Project` type, uses the `whitespace` analyzer at index time
 		 */
 		public void AddAnalyzerToFieldMapping()
@@ -112,7 +112,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 					.Analysis(a => a
 						.Analyzers(aa => aa
 							.Standard("standard_english", sa => sa
-								.StopWords("_english_") // <1> Pre-defined list of English stopwords within Elasticsearch
+								.StopWords("_english_") // <1> Pre-defined list of English stopwords within OpenSearch
 							)
 						)
 					)
@@ -169,7 +169,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * A custom analyzer can be composed when none of the built-in analyzers fit your needs. A custom analyzer
 		 * is built from the components that you saw in <<analysis-chain, the analysis chain>> and a
 		 * {ref_current}/position-increment-gap.html[position increment gap],
-		 * that determines the size of gap that Elasticsearch should insert between array elements, when a
+		 * that determines the size of gap that OpenSearch should insert between array elements, when a
 		 * field can hold multiple values e.g. a `List<string>` POCO property.
 		 *
 		 * For this example, imagine we are indexing programming questions, where the question content

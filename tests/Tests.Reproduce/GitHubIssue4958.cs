@@ -45,7 +45,7 @@ namespace Tests.Reproduce
 			var settings = new ConnectionSettings(pool, new InMemoryConnection())
 				.DefaultIndex(defaultIndex)
 				.DisableDirectStreaming()
-				.DefaultMappingFor<AccountAddressElasticInfo>(i => i
+				.DefaultMappingFor<AccountAddressOpenSearchInfo>(i => i
 					.IndexName(defaultIndex)
 					.PropertyName(p => p.AccountId, "accountid")
 					.IdProperty(p => p.AccountAddressVersionId)
@@ -53,7 +53,7 @@ namespace Tests.Reproduce
 
 			var client = new OpenSearchClient(settings);
 
-			var response = client.DeleteByQuery<AccountAddressElasticInfo>(d => d
+			var response = client.DeleteByQuery<AccountAddressOpenSearchInfo>(d => d
 				.Query(q => q
 					.Term(f => f.AccountId, "value")
 				)
@@ -70,7 +70,7 @@ namespace Tests.Reproduce
 			public string AccountId { get; set; }
 		}
 
-		public class AccountAddressElasticInfo : AccountAddressInfo
+		public class AccountAddressOpenSearchInfo : AccountAddressInfo
 		{
 
 			public DateTime Timestamp => DateTime.Now;

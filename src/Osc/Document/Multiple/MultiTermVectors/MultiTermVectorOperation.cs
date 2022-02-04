@@ -39,7 +39,7 @@ namespace Osc
 	public interface IMultiTermVectorOperation
 	{
 		/// <summary>
-		/// A document not indexed in Elasticsearch,
+		/// A document not indexed in OpenSearch,
 		/// to generate term vectors for
 		/// </summary>
 		[DataMember(Name = "doc")]

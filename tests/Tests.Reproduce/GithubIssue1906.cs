@@ -45,7 +45,7 @@ namespace Tests.Reproduce
 				.OnRequestCompleted(info =>
 				{
 					// info.Uri is /_search/ without the default index
-					// my OpenSearch instance throws an error on the .kibana index (@timestamp field not mapped because I sort on @timestamp)
+					// my OpenSearch instance throws an error on the .opensearchDashboards index (@timestamp field not mapped because I sort on @timestamp)
 				});
 
 			var client = new OpenSearchClient(connectionSettings);

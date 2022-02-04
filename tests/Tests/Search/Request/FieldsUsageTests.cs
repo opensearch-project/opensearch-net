@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -44,7 +44,7 @@ namespace Tests.Search.Request
 	* which is off by default and generally not recommended.
 	* Use <<source-filtering-usage,source filtering>> instead to select subsets of the original source document to be returned.
 	*
-	* See the Elasticsearch documentation on {ref_current}/search-request-body.html#request-body-search-stored-fields[Fields] for more detail.
+	* See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-stored-fields[Fields] for more detail.
 	*/
 	public class FieldsUsageTests : SearchUsageTestBase
 	{

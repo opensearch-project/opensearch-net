@@ -31,7 +31,7 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -88,7 +88,7 @@ namespace Tests.Document.Multiple.Bulk
 			response.Took.Should().BeGreaterThan(0);
 			response.Errors.Should().BeTrue();
 
-			//a delete not found is not an error (also in Elasticsearch)
+			//a delete not found is not an error (also in OpenSearch)
 			//if you do a single bulk delete on an unknown id .Errors will be false
 			response.ItemsWithErrors.Should().NotBeNull().And.HaveCount(1);
 			response.Items.Should().NotBeEmpty();

@@ -38,7 +38,7 @@ namespace Osc
 		string HighWatermark { get; set; }
 
 		/// <summary>
-		/// Defaults to true, which means that Elasticsearch will take into account shards that are currently being relocated to the target node when
+		/// Defaults to true, which means that OpenSearch will take into account shards that are currently being relocated to the target node when
 		/// computing
 		/// a node’s disk usage. Taking relocating shards' sizes into account may, however, mean that the disk usage for a node is incorrectly
 		/// estimated on the high side,
@@ -57,7 +57,7 @@ namespace Osc
 		/// <summary>Defaults to true. Set to false to disable the disk allocation decider.</summary>
 		bool? ThresholdEnabled { get; set; }
 
-		/// <summary>How often Elasticsearch should check on disk usage for each node in the cluster. Defaults to 30s.</summary>
+		/// <summary>How often OpenSearch should check on disk usage for each node in the cluster. Defaults to 30s.</summary>
 		Time UpdateInterval { get; set; }
 	}
 

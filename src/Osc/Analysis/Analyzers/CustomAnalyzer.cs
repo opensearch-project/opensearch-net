@@ -57,7 +57,7 @@ namespace Osc
 		IEnumerable<string> Filter { get; set; }
 
 		/// <summary>
-		/// When indexing an array of text values, Elasticsearch inserts a fake "gap" between the last term of one value
+		/// When indexing an array of text values, OpenSearch inserts a fake "gap" between the last term of one value
 		/// and the first term of the next value to ensure that a phrase query doesn’t match two terms from different array elements.
 		/// Defaults to 100.
 		/// </summary>

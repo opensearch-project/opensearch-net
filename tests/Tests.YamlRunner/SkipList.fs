@@ -87,9 +87,6 @@ let SkipList = dict<SkipFile,SkipSection> [
     
     //TODO has dates without strings which trips up our yaml parser
     SkipFile "runtime_fields/40_date.yml", All
-       
-    // Temporary disabling this test while https://github.com/elastic/elasticsearch/pull/66794
-    SkipFile "search.highlight/20_fvh.yml", All
 
     SkipFile "nodes.info/10_basic.yml", Section "node_info role test"
 ]

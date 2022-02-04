@@ -51,9 +51,9 @@ Targets:
   - incremental build and unit test for .NET 4.5, [testfilter] allows you to do a contains match on the tests to be run.
 * release <version>
   - 0 create a release worthy nuget packages for [version] under build\output
-* integrate <elasticsearch_versions> [clustername] [testfilter] 
-  - run integration tests for <elasticsearch_versions> which is a semicolon separated list of
-    elasticsearch versions to test or `latest`. Can filter tests by <clustername> and <testfilter>
+* integrate <opensearch_versions> [clustername] [testfilter] 
+  - run integration tests for <opensearch_versions> which is a semicolon separated list of
+    opensearch versions to test or `latest`. Can filter tests by <clustername> and <testfilter>
 * canary 
   - create a canary nuget package based on the current version.
 * cluster <cluster-name> [version]
@@ -102,7 +102,7 @@ Execution hints can be provided anywhere on the command line
 
     type VersionArguments = { Version: string; OutputLocation: string option }
     type TestArguments = { TrxExport: bool; TestFilter: string option; }
-    type IntegrationArguments = { TrxExport: bool; TestFilter: string option; ClusterFilter: string option; ElasticsearchVersions: string list; }
+    type IntegrationArguments = { TrxExport: bool; TestFilter: string option; ClusterFilter: string option; OpenSearchVersions: string list; }
 
     type BenchmarkArguments = { Endpoint: string; Username: string option; Password: string option; }
     type ClusterArguments = { Name: string; Version: string option; }
@@ -225,18 +225,18 @@ Execution hints can be provided anywhere on the command line
                 }
             }
 
-        | ["benchmark"; IsUrl elasticsearch; username; password] ->
+        | ["benchmark"; IsUrl opensearch; username; password] ->
             {
                 parsed with CommandArguments = Benchmark {
-                        Endpoint = elasticsearch;
+                        Endpoint = opensearch;
                         Username = Some username;
                         Password = Some password;
                 }
             }
-        | ["benchmark"; IsUrl elasticsearch] ->
+        | ["benchmark"; IsUrl opensearch] ->
             {
                 parsed with CommandArguments = Benchmark {
-                        Endpoint = elasticsearch;
+                        Endpoint = opensearch;
                         Username = None
                         Password = None
                 }
@@ -246,14 +246,14 @@ Execution hints can be provided anywhere on the command line
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split opensearchVersions; ClusterFilter = None; TestFilter = None
+                        OpenSearchVersions = split opensearchVersions; ClusterFilter = None; TestFilter = None
                 }
             }
         | ["integrate"; opensearchVersions; clusterFilter] ->
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split opensearchVersions;
+                        OpenSearchVersions = split opensearchVersions;
                         ClusterFilter = Some clusterFilter;
                         TestFilter = None
                 }
@@ -262,7 +262,7 @@ Execution hints can be provided anywhere on the command line
             {
                 parsed with CommandArguments = Integration {
                         TrxExport = report
-                        ElasticsearchVersions = split opensearchVersions;
+                        OpenSearchVersions = split opensearchVersions;
                         ClusterFilter = Some clusterFilter
                         TestFilter = Some testFilter
                 }

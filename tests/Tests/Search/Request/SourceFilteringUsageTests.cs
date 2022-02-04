@@ -31,7 +31,7 @@ using FluentAssertions;
 using Osc;
 using System.Runtime.Serialization;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using Xunit;
@@ -44,7 +44,7 @@ namespace Tests.Search.Request
 	 * By default operations return the contents of the `_source` field unless
 	 * you have used the fields parameter or if the `_source` field is disabled.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-request-body.html#request-body-search-source-filtering[Source Filtering] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-source-filtering[Source Filtering] for more detail.
 	 */
 	public class SourceFilteringUsageTests : SearchUsageTestBase
 	{

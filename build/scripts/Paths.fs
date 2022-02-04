@@ -29,8 +29,8 @@ namespace Scripts
 
 module Paths =
 
-    let OwnerName = "elastic"
-    let RepositoryName = "elasticsearch-net"
+    let OwnerName = "opensearch"
+    let RepositoryName = "opensearch-net"
     let Repository = sprintf "https://github.com/%s/%s/" OwnerName RepositoryName
 
     let BuildFolder = "build"
@@ -52,7 +52,7 @@ module Paths =
     let NugetOutput = sprintf "%s" BuildOutput
     let SourceFolder = "src"
     
-    let Solution = "Elasticsearch.sln"
+    let Solution = "OpenSearch.sln"
     
     let Keys(keyFile) = sprintf "%s/%s" KeysFolder keyFile
     let Source(folder) = sprintf "%s/%s" SourceFolder folder

@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -45,7 +45,7 @@ namespace Tests.Aggregations.Metric.Boxplot
 	 * boxplot aggregation returns essential information for making a box plot: minimum, maximum median, first quartile (25th percentile)
 	 * and third quartile (75th percentile) values.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-metrics-boxplot-aggregation.html[Boxplot Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-boxplot-aggregation.html[Boxplot Aggregation]
 	 */
 	public class BoxplotAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

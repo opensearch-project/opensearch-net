@@ -27,7 +27,7 @@
 
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -41,7 +41,7 @@ namespace Tests.QueryDsl.Specialized.RankFeature
      * Compared to using `function_score` or other ways to modify the score, this query has the benefit of being able to efficiently
 	 * skip non-competitive hits when track_total_hits is not set to true. Speedups may be spectacular.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-rank-feature-query.html[rank feature query] for more details.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-rank-feature-query.html[rank feature query] for more details.
 	*/
 	public class RankFeatureQueryUsageTests : QueryDslUsageTestsBase
 	{

@@ -53,7 +53,7 @@ type Arguments =
             | Folder _ -> "Only run tests in this folder"
             | TestFile _ -> "Only run tests starting with this filename"
             | TestSection _ -> "Only run test with this name (best used in conjuction with -t)"
-            | Endpoint _ -> "The elasticsearch endpoint to run tests against"
+            | Endpoint _ -> "The opensearch endpoint to run tests against"
             | JUnitOutputFile _ -> "The path and file name to use for the junit xml output, defaults to a random tmp filename"
             | Profile _ -> "Print out process id and wait for confirmation to kick off the tests"
 
@@ -105,7 +105,7 @@ let validateRevisionParams endpoint _passedRevision namedSuite =
         | null -> ""
         | s -> sprintf "%s:%s" s.Username (s.Password.CreateString())
         
-    printfn "Running elasticsearch %O %s" (node.Uri) auth
+    printfn "Running opensearch %O %s" (node.Uri) auth
     
     let r =
         let config = RequestConfiguration(DisableDirectStreaming=Nullable(true))
@@ -114,7 +114,7 @@ let validateRevisionParams endpoint _passedRevision namedSuite =
         
     printfn "%s" r.DebugInformation
     if not r.Success then
-        failwithf "No running elasticsearch found at %s" endpoint
+        failwithf "No running opensearch found at %s" endpoint
     
     let version = r.Get<string>("version.number") 
     let runningRevision = r.Get<string>("version.build_hash")

@@ -123,7 +123,7 @@ namespace Osc
 		bool TimedOut { get; }
 
 		/// <summary>
-		/// Time in milliseconds for Elasticsearch to execute the search
+		/// Time in milliseconds for OpenSearch to execute the search
 		/// </summary>
 		long Took { get; }
 

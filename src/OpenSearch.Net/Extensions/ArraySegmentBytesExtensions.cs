@@ -75,7 +75,7 @@ namespace OpenSearch.Net.Extensions
 			var longBytes = isNegative ? LongMinValue : LongMaxValue;
 
 			// this doesn't handle positive values that are prefixed with + symbol.
-			// Elasticsearch does not return values with this prefix.
+			// OpenSearch does not return values with this prefix.
 			var i = isNegative ? 1 : 0;
 			var check = arraySegment.Count == longBytes.Length;
 			while (i < arraySegment.Count)

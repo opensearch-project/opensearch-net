@@ -42,7 +42,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	/**[[modelling-documents-with-types]]
 	 * === Modelling documents with types
 	 *
-	 * Elasticsearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
+	 * OpenSearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
 	 * JSON objects within the request body of a HTTP request. It is natural to model documents within NEST and OpenSearch.Net using
 	 * https://en.wikipedia.org/wiki/Plain_Old_CLR_Object[POCOs (__Plain Old CLR Objects__)].
 	 *
@@ -84,7 +84,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		/**[[default-field-name-inferrer]]
 		 * ==== `DefaultFieldNameInferrer` setting
 		 *
-		 * Many different systems may be indexing documents into Elasticsearch, using a different
+		 * Many different systems may be indexing documents into OpenSearch, using a different
 		 * convention than camelcase for JSON object members. How NEST serializes
 		 * POCO property names can be globally controlled using `DefaultFieldNameInferrer` on
 		 * `ConnectionSettings`. The following example defines a function that applies snake casing
@@ -539,7 +539,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		}
 		/**
 		 * In summary, careful consideration should be made when using type hierarchies to represent documents
-		 * that are indexed in Elasticsearch. It is generally recommended to stick to simple POCOs, where possible.
+		 * that are indexed in OpenSearch. It is generally recommended to stick to simple POCOs, where possible.
 		 */
 	}
 }

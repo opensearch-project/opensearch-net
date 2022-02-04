@@ -87,7 +87,7 @@ namespace Osc
 		}
 	}
 	/// <summary>
-	/// OpenSearchClient is NEST's strongly typed client which exposes fully mapped Elasticsearch endpoints
+	/// OpenSearchClient is NEST's strongly typed client which exposes fully mapped OpenSearch endpoints
 	/// </summary>
 	public partial class OpenSearchClient : IOpenSearchClient
 	{
@@ -96,7 +96,7 @@ namespace Osc
 		public OpenSearchClient(Uri uri) : this(new ConnectionSettings(uri)) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// <para></para>If you want more control use the <see cref="OpenSearchClient(IConnectionSettingsValues)"/> constructor and pass an instance of
 		/// <see cref="ConnectionSettings" /> that takes <paramref name="cloudId"/> in its constructor as well
@@ -104,7 +104,7 @@ namespace Osc
 		public OpenSearchClient(string cloudId, BasicAuthenticationCredentials credentials) : this(new ConnectionSettings(cloudId, credentials)) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// <para></para>If you want more control use the <see cref="OpenSearchClient(IConnectionSettingsValues)"/> constructor and pass an instance of
 		/// <see cref="ConnectionSettings" /> that takes <paramref name="cloudId"/> in its constructor as well

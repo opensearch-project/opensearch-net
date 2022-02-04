@@ -140,7 +140,7 @@ namespace Tests.Analysis
 					t,
 					a = t.GetCustomAttributes(typeof(SkipVersionAttribute)).FirstOrDefault() as SkipVersionAttribute
 				})
-				.Where(@t1 => @t1.a == null || !@t1.a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.ElasticsearchVersion)))
+				.Where(@t1 => @t1.a == null || !@t1.a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion)))
 				.Select(@t1 => (TAssertion)Activator.CreateInstance(@t1.t));
 			return types.ToList();
 		}

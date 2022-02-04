@@ -33,7 +33,7 @@ namespace Osc
 {
 	/// <summary>
 	/// The fuzzy rule matches terms that are similar to the provided term, within an edit distance defined by Fuzziness.
-	/// If the fuzzy expansion matches more than 128 terms, Elasticsearch returns an error.
+	/// If the fuzzy expansion matches more than 128 terms, OpenSearch returns an error.
 	/// </summary>
 	[ReadAs(typeof(IntervalsFuzzy))]
 	public interface IIntervalsFuzzy : IIntervalsNoFilter

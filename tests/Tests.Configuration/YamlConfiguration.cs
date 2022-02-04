@@ -45,13 +45,13 @@ namespace Tests.Configuration
 				.ToDictionary(ConfigName, ConfigValue);
 
 			Mode = GetTestMode(_config["mode"]);
-			var version = _config["elasticsearch_version"];
-			ElasticsearchVersion = version;
+			var version = _config["opensearch_version"];
+			OpenSearchVersion = version;
 			if (string.IsNullOrWhiteSpace(version))
 				throw new Exception("No default version was set in test.yaml or test.default.yaml");
 			ForceReseed = BoolConfig("force_reseed", false);
 			TestOnlyOne = BoolConfig("test_only_one", false);
-			TestAgainstAlreadyRunningElasticsearch = BoolConfig("test_against_already_running_elasticsearch", true);
+			TestAgainstAlreadyRunningOpenSearch = BoolConfig("test_against_already_running_opensearch", true);
 			ClusterFilter = _config.ContainsKey("cluster_filter") ? _config["cluster_filter"] : null;
 			TestFilter = _config.ContainsKey("test_filter") ? _config["test_filter"] : null;
 

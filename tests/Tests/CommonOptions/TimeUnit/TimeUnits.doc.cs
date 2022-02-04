@@ -141,7 +141,7 @@ namespace Tests.CommonOptions.TimeUnit
 
 		/** ==== Special Time values
 		 *
-		 * Elasticsearch has two special values that can sometimes be passed where a `Time` is accepted
+		 * OpenSearch has two special values that can sometimes be passed where a `Time` is accepted
 		 *
 		 * - `0` represented as `Time.Zero`
 		 * - `-1` represented as `Time.MinusOne`

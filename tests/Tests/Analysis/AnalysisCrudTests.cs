@@ -29,7 +29,7 @@ using System.Linq;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using static Tests.Framework.Extensions.Promisify;
@@ -46,7 +46,7 @@ namespace Tests.Analysis
 		*
 		* In this example we will create an index with analysis settings, read those settings back, update the analysis settings
 		* and do another read after the update to assert our new analysis setting is applied.
-		* There is NO mechanism to delete an analysis setting in Elasticsearch.
+		* There is NO mechanism to delete an analysis setting in OpenSearch.
 		*/
 		protected override bool SupportsDeletes => false;
 
@@ -123,7 +123,7 @@ namespace Tests.Analysis
 		}
 
 		/**
-		* Elasticsearch has an `UpdateIndexSettings()` call but in order to be able to use it you first need to close the index and reopen it afterwards
+		* OpenSearch has an `UpdateIndexSettings()` call but in order to be able to use it you first need to close the index and reopen it afterwards
 		*/
 		protected override LazyResponses Update() =>
 			Calls<UpdateIndexSettingsDescriptor, UpdateIndexSettingsRequest, IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(

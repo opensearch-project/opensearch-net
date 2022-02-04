@@ -42,9 +42,9 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* [[fluent-mapping]]
 	* === Fluent mapping
 	*
-	* Fluent mapping POCO properties to fields within an Elasticsearch type mapping
+	* Fluent mapping POCO properties to fields within an OpenSearch type mapping
 	* offers the most control over the process. With fluent mapping, each property of
-	* the POCO is explicitly mapped to an Elasticsearch type field mapping.
+	* the POCO is explicitly mapped to an OpenSearch type field mapping.
 	*/
 
 	public class FluentMapping
@@ -154,7 +154,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		/** Manual mapping in this way is powerful but can become verbose and unwieldy for
 		* large POCOs. The majority of the time you simply want to map *all* the properties of a POCO in a single go
 		* without having to specify the mapping for each property,
-		* particularly when there is <<auto-map,inferred mapping>> from CLR types to Elasticsearch types.
+		* particularly when there is <<auto-map,inferred mapping>> from CLR types to OpenSearch types.
 		*
 		* This is where the fluent mapping in conjunction with auto mapping comes in.
 		*

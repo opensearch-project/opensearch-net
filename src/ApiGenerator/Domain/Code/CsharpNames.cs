@@ -120,7 +120,7 @@ namespace ApiGenerator.Domain.Code
 
 			var method = MethodName;
 			// This is temporary for 7.0 transition period
-			// TODO: remove in master once master in elasticsearch is scrubbed
+			// TODO: remove in master once master in opensearch is scrubbed
 			if (path.Contains("{type}") && !method.Contains("Type")) method += "UsingType";
 
 			if (ms("Indices") && !pc("{index}"))

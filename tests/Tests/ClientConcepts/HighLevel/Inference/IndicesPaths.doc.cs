@@ -42,7 +42,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**[[indices-paths]]
 		* === Indices paths
 		*
-		* Some APIs in Elasticsearch take an index name, a collection of index names,
+		* Some APIs in OpenSearch take an index name, a collection of index names,
 		* or the special `_all` marker (used to specify all indices), in the URI path of the request, to specify the indices that
 		* the request should execute against.
 		*
@@ -165,7 +165,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		/**===== All Indices
 		*
-		* Elasticsearch allows searching across multiple indices using the special `_all` marker.
+		* OpenSearch allows searching across multiple indices using the special `_all` marker.
 		*
 		* NEST exposes the `_all` marker with `Indices.All` and `Indices.AllIndices`. Why expose it in two ways, you ask?
 		* Well, you may be using both `Nest.Indices` and `Nest.Types` in the same file and you may also be using C#6

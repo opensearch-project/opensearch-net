@@ -40,7 +40,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Core.Client.Settings;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework;
 using static OpenSearch.Net.VirtualizedCluster.Rules.TimesHelper;
 using static OpenSearch.Net.AuditEvent;

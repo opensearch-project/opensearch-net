@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Framework.EndpointTests

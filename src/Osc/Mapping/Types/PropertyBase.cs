@@ -35,20 +35,20 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// A mapping for a property type to a document field in Elasticsearch
+	/// A mapping for a property type to a document field in OpenSearch
 	/// </summary>
 	[InterfaceDataContract]
 	[JsonFormatter(typeof(PropertyFormatter))]
 	public interface IProperty : IFieldMapping
 	{
 		/// <summary>
-		/// Local property metadata that will not be stored in Elasticsearch with the mappings
+		/// Local property metadata that will not be stored in OpenSearch with the mappings
 		/// </summary>
 		[IgnoreDataMember]
 		IDictionary<string, object> LocalMetadata { get; set; }
 
 		/// <summary>
-		/// Metadata attached to the field. This metadata is stored in but opaque to Elasticsearch. It is
+		/// Metadata attached to the field. This metadata is stored in but opaque to OpenSearch. It is
 		/// only useful for multiple applications that work on the same indices to share
 		/// meta information about fields such as units.
 		///<para></para>

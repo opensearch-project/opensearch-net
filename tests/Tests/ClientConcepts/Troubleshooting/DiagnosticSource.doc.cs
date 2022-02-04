@@ -39,7 +39,7 @@ using OpenSearch.Net.Diagnostics;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Client.Settings;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Xunit;

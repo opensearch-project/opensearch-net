@@ -126,7 +126,7 @@ namespace Osc
 		/// <summary>
 		///  Whether to force the use of the path style access pattern. If `true`, the
 		// path style access pattern will be used. If `false`, the access pattern will
-		// be automatically determined by the AWS Java SDK used internally by Elasticsearch
+		// be automatically determined by the AWS Java SDK used internally by OpenSearch
 		/// </summary>
 		[DataMember(Name = "path_style_access")]
 		[JsonFormatter(typeof(NullableStringBooleanFormatter))]

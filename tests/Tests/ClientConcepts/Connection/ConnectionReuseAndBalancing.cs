@@ -37,8 +37,8 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using static Osc.Infer;
 

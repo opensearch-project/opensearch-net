@@ -55,7 +55,7 @@ namespace ApiGenerator.Domain.Specification
 					case "routing":
 						yield return "A document is routed to a particular shard in an index using the following formula";
 						yield return "<para> shard_num = hash(_routing) % num_primary_shards</para>";
-						yield return "<para>Elasticsearch will use the document id if not provided. </para>";
+						yield return "<para>OpenSearch will use the document id if not provided. </para>";
 						yield return "<para>For requests that are constructed from/for a document NEST will automatically infer the routing key";
 						yield return
 							"if that document has a <see cref=\"Nest.JoinField\" /> or a routing mapping on for its type exists on <see cref=\"Nest.ConnectionSettings\" /></para> ";
@@ -67,7 +67,7 @@ namespace ApiGenerator.Domain.Specification
 						yield break;
 					case "filter_path":
 						yield return Description;
-						yield return "<para>Use of response filtering can result in a response from Elasticsearch ";
+						yield return "<para>Use of response filtering can result in a response from OpenSearch ";
 						yield return "that cannot be correctly deserialized to the respective response type for the request. ";
 						yield return "In such situations, use the low level client to issue the request and handle response deserialization</para>";
 

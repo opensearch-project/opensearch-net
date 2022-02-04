@@ -34,7 +34,7 @@ namespace Osc
 {
 	/// <summary>
 	/// This class is used by <see cref="IBulkRequest.Operations" /> which needs thread safe adding <see cref="ICollection{T}.Add" /> as well as expose
-	/// an equivalent of <see cref="List{T}.AddRange"/>. Because operations from Elasticsearch are executed in order none of the types in
+	/// an equivalent of <see cref="List{T}.AddRange"/>. Because operations from OpenSearch are executed in order none of the types in
 	/// System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <see cref="BulkResponse.Items"/>
 	/// is ordered and lines up with <see cref="BulkRequest.Operations"/> allowing one to zip the two together.
 	/// </summary>

@@ -40,7 +40,7 @@ namespace Osc
 		public string DiskAvailable { get; set; }
 
 		/// <summary>
-		/// Amount of disk used by Elasticsearch indices
+		/// Amount of disk used by OpenSearch indices
 		/// </summary>
 		[DataMember(Name ="disk.indices")]
 		public string DiskIndices { get; set; }
@@ -58,7 +58,7 @@ namespace Osc
 		public string DiskTotal { get; set; }
 
 		/// <summary>
-		/// Amount of disk used (total, not just Elasticsearch)
+		/// Amount of disk used (total, not just OpenSearch)
 		/// </summary>
 		[DataMember(Name ="disk.used")]
 		public string DiskUsed { get; set; }

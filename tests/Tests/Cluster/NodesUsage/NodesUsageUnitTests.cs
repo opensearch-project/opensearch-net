@@ -82,11 +82,11 @@ namespace Tests.Cluster.NodesUsage
 							since = 1492553906606,
 							rest_actions = new Dictionary<string, object>
 							{
-								{ "org.elasticsearch.rest.action.admin.cluster.RestNodesUsageAction", 1 },
-								{ "org.elasticsearch.rest.action.admin.indices.RestCreateIndexAction", 1 },
-								{ "org.elasticsearch.rest.action.document.RestGetAction", 1 },
-								{ "org.elasticsearch.rest.action.search.RestSearchAction", 19 },
-								{ "org.elasticsearch.rest.action.admin.cluster.RestNodesInfoAction", 36 }
+								{ "org.opensearch.rest.action.admin.cluster.RestNodesUsageAction", 1 },
+								{ "org.opensearch.rest.action.admin.indices.RestCreateIndexAction", 1 },
+								{ "org.opensearch.rest.action.document.RestGetAction", 1 },
+								{ "org.opensearch.rest.action.search.RestSearchAction", 19 },
+								{ "org.opensearch.rest.action.admin.cluster.RestNodesInfoAction", 36 }
 							}
 						}
 					}
@@ -121,8 +121,8 @@ namespace Tests.Cluster.NodesUsage
 			node.Since.Should().Be(new DateTimeOffset(2017, 4, 18, 22, 18, 26, 606, TimeSpan.Zero));
 			node.RestActions.Should().NotBeNull();
 			node.RestActions.Should().HaveCount(5);
-			node.RestActions.Should().ContainKey("org.elasticsearch.rest.action.search.RestSearchAction");
-			node.RestActions["org.elasticsearch.rest.action.search.RestSearchAction"].Should().Be(19);
+			node.RestActions.Should().ContainKey("org.opensearch.rest.action.search.RestSearchAction");
+			node.RestActions["org.opensearch.rest.action.search.RestSearchAction"].Should().Be(19);
 		}
 	}
 }

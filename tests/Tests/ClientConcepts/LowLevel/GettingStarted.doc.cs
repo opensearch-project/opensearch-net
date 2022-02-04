@@ -34,17 +34,17 @@ using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Xunit;
 // ReSharper disable SuggestVarOrType_Elsewhere
 // ReSharper disable SuggestVarOrType_BuiltInTypes
 
 namespace Tests.ClientConcepts.LowLevel
 {
-	/**[[elasticsearch-net-getting-started]]
+	/**[[opensearch-net-getting-started]]
 	 * == Getting started
 	 *
-	 * OpenSearch.Net is a low level Elasticsearch .NET client that has no dependencies on other libraries
+	 * OpenSearch.Net is a low level OpenSearch .NET client that has no dependencies on other libraries
 	 * and is unopinionated about how you build your requests and responses.
 	 *
 	 */
@@ -62,7 +62,7 @@ namespace Tests.ClientConcepts.LowLevel
 		/**[float]
 		 * === Connecting
 		 *
-		 * To connect to Elasticsearch running locally at `http://localhost:9200` is as simple as
+		 * To connect to OpenSearch running locally at `http://localhost:9200` is as simple as
 		 * instantiating a new instance of the client
 		 */
 		public void SimpleInstantiation()
@@ -71,7 +71,7 @@ namespace Tests.ClientConcepts.LowLevel
 		}
 
 		/**
-		 * Often you may need to pass additional configuration options to the client such as the address of Elasticsearch if it's running on
+		 * Often you may need to pass additional configuration options to the client such as the address of OpenSearch if it's running on
 		 * a remote machine. This is where `ConnectionConfiguration` comes in; an instance can be instantiated to provide
 		 * the client with different configuration values.
 		 */
@@ -94,10 +94,10 @@ namespace Tests.ClientConcepts.LowLevel
 		 * [float]
 		 * ==== Connection pools
 		 *
-		 * `ConnectionConfiguration` is not restricted to being passed a single address for Elasticsearch. There are several different
+		 * `ConnectionConfiguration` is not restricted to being passed a single address for OpenSearch. There are several different
 		 * types of <<connection-pooling,Connection pool>> available, each with different characteristics that can be used to
 		 * configure the client. The following example uses a <<sniffing-connection-pool,SniffingConnectionPool>> seeded with the addresses
-		 * of three Elasticsearch nodes in the cluster, and the client will use this type of pool to maintain a list of available nodes within the
+		 * of three OpenSearch nodes in the cluster, and the client will use this type of pool to maintain a list of available nodes within the
 		 * cluster to which it can send requests in a round-robin fashion.
 		 */
 		public void UsingConnectionPool()
@@ -118,7 +118,7 @@ namespace Tests.ClientConcepts.LowLevel
 		/**[float]
 		 * === Indexing
 		 *
-		 * Once a client had been configured to connect to Elasticsearch, we need to get some data into the cluster to work with.
+		 * Once a client had been configured to connect to OpenSearch, we need to get some data into the cluster to work with.
 		 * Imagine we have the following http://en.wikipedia.org/wiki/Plain_Old_CLR_Object[Plain Old CLR Object (POCO)]
 		 */
 		public class Person
@@ -172,12 +172,12 @@ namespace Tests.ClientConcepts.LowLevel
 		* Check out the documentation on <<post-data, Post Data>> to see all of these permutations in action.
 		*
 		* The generic type parameter on the method specifies the type of the response body. In the last example, we return the response as a
-		* string from Elasticsearch, forgoing any deserialization.
+		* string from OpenSearch, forgoing any deserialization.
 		*
 		* [float]
 		* ==== Bulk indexing
 		*
-		* If you need to index many documents, Elasticsearch has a {ref_current}/docs-bulk.html[Bulk API] that can be used to perform many operations in one request
+		* If you need to index many documents, OpenSearch has a {ref_current}/docs-bulk.html[Bulk API] that can be used to perform many operations in one request
 		*/
 		public void BulkIndexing()
 		{
@@ -196,14 +196,14 @@ namespace Tests.ClientConcepts.LowLevel
 		}
 		/**
 		* The client will serialize each item seperately and join items up using the `\n` character as required by the Bulk API. Refer to the
-		* Elasticsearch Bulk API documentation for further details and supported operations.
+		* OpenSearch Bulk API documentation for further details and supported operations.
 		*
 		* [float]
 		* === Searching
 		*
 		* Now that we have indexed some documents we can begin to search for them.
 		*
-		* The Elasticsearch Query DSL can be expressed using an anonymous type within the request
+		* The OpenSearch Query DSL can be expressed using an anonymous type within the request
 		*/
 		public void SearchingWithAnonymousTypes()
 		{
@@ -255,7 +255,7 @@ namespace Tests.ClientConcepts.LowLevel
 		/**
 		* As you can see, using strings is a little more cumbersome than using anonymous types because of the need to escape
 		* double quotes, but it can be useful at times nonetheless. `responseBytes` will contain
-		* the bytes of the response from Elasticsearch.
+		* the bytes of the response from OpenSearch.
 		*
 		* [NOTE]
 		* --

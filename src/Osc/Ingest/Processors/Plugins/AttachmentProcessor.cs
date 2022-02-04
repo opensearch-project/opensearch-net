@@ -34,7 +34,7 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// The ingest attachment plugin lets Elasticsearch extract file attachments in common formats
+	/// The ingest attachment plugin lets OpenSearch extract file attachments in common formats
 	/// (such as PPT, XLS, and PDF) by using the Apache text extraction library Tika.
 	/// You can use the ingest attachment plugin as a replacement for the mapper attachment plugin.
 	/// </summary>

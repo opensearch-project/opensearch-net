@@ -59,7 +59,7 @@ namespace Tests.ClientConcepts.Connection
 		 * `InMemoryConnection` is an in-built `IConnection` that makes it easy to write unit tests against. It can be
 		 * configured to respond with default response bytes, HTTP status code and an exception when a call is made.
 		 *
-		 * `InMemoryConnection` **doesn't actually send any requests or receive any responses from Elasticsearch**;
+		 * `InMemoryConnection` **doesn't actually send any requests or receive any responses from OpenSearch**;
 		 * requests are still serialized and the request bytes can be obtained on the response if `.DisableDirectStreaming` is
 		 * set to `true` on the request or globally
 		 */

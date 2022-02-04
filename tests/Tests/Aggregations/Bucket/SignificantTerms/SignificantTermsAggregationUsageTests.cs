@@ -29,7 +29,7 @@ using System;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -46,7 +46,7 @@ namespace Tests.Aggregations.Bucket.SignificantTerms
 	 * As a result, the API for this feature may change in non-backwards compatible ways
 	 * --
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-significantterms-aggregation.html[significant terms aggregation] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-aggregations-bucket-significantterms-aggregation.html[significant terms aggregation] for more detail.
 	 */
 	public class SignificantTermsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

@@ -39,9 +39,9 @@ namespace Tests.Configuration
 			TestFilter = Environment.GetEnvironmentVariable("NEST_TEST_FILTER");
 
 			var version = Environment.GetEnvironmentVariable("NEST_INTEGRATION_VERSION");
-			ElasticsearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.ElasticsearchVersion : version;
-			if (ElasticsearchVersion == null)
-				throw new Exception("Elasticsearch Version could not be determined from env var NEST_INTEGRATION_VERSION nor the test yaml configuration");
+			OpenSearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.OpenSearchVersion : version;
+			if (OpenSearchVersion == null)
+				throw new Exception("OpenSearch Version could not be determined from env var NEST_INTEGRATION_VERSION nor the test yaml configuration");
 
 			var externalSeed = TryGetEnv("NEST_TEST_SEED", out var seed)
 				? int.Parse(seed)

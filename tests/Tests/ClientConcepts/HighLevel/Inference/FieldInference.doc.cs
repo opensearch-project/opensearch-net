@@ -54,7 +54,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**[[field-inference]]
 		 * === Field inference
 		 *
-		 * Several places in the Elasticsearch API expect the path to a field from your original source document, as a string value.
+		 * Several places in the OpenSearch API expect the path to a field from your original source document, as a string value.
 		 * NEST allows you to use C# expressions to strongly type these field path strings.
 		 *
 		 * These expressions are assigned to a type called `Field`, and there are several ways to create an instance of one
@@ -245,7 +245,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Expect("metadata.var.created").WhenSerializing(Field<Project>(p => p.Metadata[variable].Created));
 
 			/**
-			* If you are using Elasticearch's multi-fields, which you really should as they allow
+			* If you are using OpenSearchearch's multi-fields, which you really should as they allow
 			* you to analyze a string in a number of different ways, these __"virtual"__ sub fields
 			* do not always map back on to your POCO. By calling `.Suffix()` on expressions, you describe the sub fields that
 			* should be mapped and <<auto-map, how they are mapped>>

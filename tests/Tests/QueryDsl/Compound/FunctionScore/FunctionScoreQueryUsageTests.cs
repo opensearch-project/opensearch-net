@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -41,7 +41,7 @@ namespace Tests.QueryDsl.Compound.FunctionScore
 	* This can be useful if, for example, a score function is computationally expensive and it is
 	* sufficient to compute the score on a filtered set of documents.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-function-score-query.html[function score query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-function-score-query.html[function score query] for more details.
 	*/
 	public class FunctionScoreQueryUsageTests : QueryDslUsageTestsBase
 	{

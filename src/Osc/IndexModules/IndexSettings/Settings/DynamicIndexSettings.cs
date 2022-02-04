@@ -117,7 +117,7 @@ namespace Osc
 		ISimilarities Similarity { get; set; }
 
 		/// <summary>
-		/// Configure logging thresholds and levels in Elasticsearch for search/fetch and indexing
+		/// Configure logging thresholds and levels in OpenSearch for search/fetch and indexing
 		/// </summary>
 		ISlowLog SlowLog { get; set; }
 

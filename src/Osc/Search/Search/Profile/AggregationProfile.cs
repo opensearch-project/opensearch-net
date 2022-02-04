@@ -50,7 +50,7 @@ namespace Osc
 		public long TimeInNanoseconds { get; internal set; }
 
 		/// <summary>
-		/// The Elasticsearch aggregation type
+		/// The OpenSearch aggregation type
 		/// </summary>
 		[DataMember(Name ="type")]
 		public string Type { get; internal set; }

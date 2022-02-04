@@ -51,7 +51,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		/**[[reindex]]
 		 * ==== Reindex
 		 *
-		 * The reindex API of Elasticsearch is exposed as the `ReindexOnServer` method (and its asynchronous counterpart, `ReindexOnServerAsync`) on
+		 * The reindex API of OpenSearch is exposed as the `ReindexOnServer` method (and its asynchronous counterpart, `ReindexOnServerAsync`) on
 		 * the client. Simple usage is to define a source index and destination index and wait for the operation to complete
 		 *
 		 * NOTE: The destination index **must** exist before starting the reindex process
@@ -70,10 +70,10 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		}
 
 		/**
-		 * In the example above, Elasticsearch will wait for the reindex process to complete before returning a response to the client. As such,
+		 * In the example above, OpenSearch will wait for the reindex process to complete before returning a response to the client. As such,
 		 * ensure that the client is configured with a sufficient request timeout when using `WaitForCompletion`.
 		 *
-		 * Instead of waiting for the reindex process to complete, reindex can be run asynchronously on Elasticsearch, returning a task that
+		 * Instead of waiting for the reindex process to complete, reindex can be run asynchronously on OpenSearch, returning a task that
 		 * can be used with the task APIs, to get the status of the process or cancel it. The following example demonstrates this approach
 		 */
 		public void ReindexOnServerWithoutWaitingForCompletion()
@@ -151,24 +151,24 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		 *
 		 * [IMPORTANT]
 		 * --
-		 * In contrast to the `ReindexOnServer` method, which uses the reindex API of Elasticsearch to perform the reindex process
+		 * In contrast to the `ReindexOnServer` method, which uses the reindex API of OpenSearch to perform the reindex process
 		 * entirely on the server, the `Reindex` method
 		 *
 		 * 1. retrieves batches of documents over the network from the source index on the server
 		 * 2. allows modifications to be performed on the client side
 		 * 3. makes requests to bulk index the modified documents to the destination index
 		 *
-		 * Such an approach can be more flexible than what is provided by the reindex API, at the cost of many more requests to Elasticsearch and
+		 * Such an approach can be more flexible than what is provided by the reindex API, at the cost of many more requests to OpenSearch and
 		 * higher network traffic. Both approaches have their usages so you should choose the one that best suits your requirements.
 		 *
 		 * You might be wondering why `ReindexOnServer` that uses the reindex API, and `Reindex` that uses an observable approach, are called as such.
-		 * The `Reindex` method existed on the client long before the reindex API existed in Elasticsearch. Since the
+		 * The `Reindex` method existed on the client long before the reindex API existed in OpenSearch. Since the
 		 * APIs are quite different on the client, when the reindex API was introduced, it was decided to name it `ReindexOnServer` to not conflict
 		 * with the existing method that is still popularly used.
 		 * --
 		 *
 		 * `Reindex` builds on top of <<scrollall-observable, `ScrollAllObservable`>> and <<bulkall-observable, `BulkAllObservable`>> to fetch
-		 * documents from, and index documents into Elasticsearch, respectively. The following example demonstrates a simple use of `Reindex`
+		 * documents from, and index documents into OpenSearch, respectively. The following example demonstrates a simple use of `Reindex`
 		 */
 		public void Reindex()
 		{

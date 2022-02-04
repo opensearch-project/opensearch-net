@@ -63,7 +63,7 @@ namespace Osc
 		/// <summary>
 		/// Defines the approach for how to represent shapes at indexing and search time.
 		/// It also influences the capabilities available so it is recommended to let
-		/// Elasticsearch set this parameter automatically.
+		/// OpenSearch set this parameter automatically.
 		/// </summary>
 		[DataMember(Name ="strategy")]
 		GeoStrategy? Strategy { get; set; }

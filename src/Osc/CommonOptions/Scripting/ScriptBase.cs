@@ -105,7 +105,7 @@ namespace Osc
 	public class ScriptDescriptor : DescriptorBase<ScriptDescriptor, IDescriptor>
 	{
 		/// <summary>
-		/// A script that has been indexed in Elasticsearch with the specified id
+		/// A script that has been indexed in OpenSearch with the specified id
 		/// </summary>
 		public IndexedScriptDescriptor Id(string id) => new IndexedScriptDescriptor(id);
 

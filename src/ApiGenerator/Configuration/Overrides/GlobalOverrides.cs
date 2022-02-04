@@ -38,7 +38,7 @@ namespace ApiGenerator.Configuration.Overrides
 
 		public override IDictionary<string, string> ObsoleteQueryStringParams { get; set; } = new Dictionary<string, string>
 		{
-			{ "copy_settings", "Elasticsearch 6.4 will throw an exception if this is turned off see elastic/elasticsearch#30404" }
+			{ "copy_settings", "" }
 		};
 
 		public override IDictionary<string, string> RenameQueryStringParams { get; } = new Dictionary<string, string>
@@ -66,7 +66,6 @@ namespace ApiGenerator.Configuration.Overrides
 
 		public override IEnumerable<string> SkipQueryStringParams { get; } = new[]
 		{
-			"parent", //can be removed once https://github.com/elastic/elasticsearch/pull/41098 is in
 			"copy_settings", //this still needs a PR?
 			"source", // allows the body to be specified as a request param, we do not want to advertise this with a strongly typed method
 			"timestamp",

@@ -51,7 +51,7 @@ namespace Osc
 		Routing IndexRouting { get; set; }
 
 		/// <summary>
-		/// If an alias points to multiple indices, Elasticsearch will reject the write operations
+		/// If an alias points to multiple indices, OpenSearch will reject the write operations
 		/// unless one is explicitly marked as the write alias using this property.
 		/// </summary>
 		[DataMember(Name = "is_write_index")]

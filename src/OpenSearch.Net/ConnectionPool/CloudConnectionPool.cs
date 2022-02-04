@@ -32,29 +32,29 @@ namespace OpenSearch.Net
 {
 	/// <summary>
 	/// An <see cref="IConnectionPool"/> implementation that can be seeded with a cloud id
-	/// and will signal the right defaults for the client to use for Elastic Cloud to <see cref="IConnectionConfigurationValues"/>.
+	/// and will signal the right defaults for the client to use for OpenSearch Cloud to <see cref="IConnectionConfigurationValues"/>.
 	///
-	/// <para>Read more about Elastic Cloud Id:</para>
+	/// <para>Read more about OpenSearch Cloud Id:</para>
 	/// <para></para>
 	/// </summary>
 	public class CloudConnectionPool : SingleNodeConnectionPool
 	{
 		/// <summary>
 		/// An <see cref="IConnectionPool"/> implementation that can be seeded with a cloud id
-		/// and will signal the right defaults for the client to use for Elastic Cloud to <see cref="IConnectionConfigurationValues"/>.
+		/// and will signal the right defaults for the client to use for OpenSearch Cloud to <see cref="IConnectionConfigurationValues"/>.
 		///
-		/// <para>Read more about Elastic Cloud Id here</para>
+		/// <para>Read more about OpenSearch Cloud Id here</para>
 		/// <para></para>
 		/// </summary>
 		/// <param name="cloudId">
 		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string<c>
 		/// <para>Base64 encoded string contains the following tokens in order separated by $:</para>
 		/// <para>* Host Name (mandatory)</para>
-		/// <para>* Elasticsearch UUID (mandatory)</para>
-		/// <para>* Kibana UUID</para>
+		/// <para>* OpenSearch UUID (mandatory)</para>
+		/// <para>* OpenSearchDashboards UUID</para>
 		/// <para>* APM UUID</para>
 		/// <para></para>
-		/// <para> We then use these tokens to create the URI to your Elastic Cloud cluster!</para>
+		/// <para> We then use these tokens to create the URI to your OpenSearch Cloud cluster!</para>
 		/// <para></para>
 		/// <para> Read more here: </para>
 		/// </param>
@@ -63,20 +63,20 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// An <see cref="IConnectionPool"/> implementation that can be seeded with a cloud id
-		/// and will signal the right defaults for the client to use for Elastic Cloud to <see cref="IConnectionConfigurationValues"/>.
+		/// and will signal the right defaults for the client to use for OpenSearch Cloud to <see cref="IConnectionConfigurationValues"/>.
 		///
-		/// <para>Read more about Elastic Cloud Id here</para>
+		/// <para>Read more about OpenSearch Cloud Id here</para>
 		/// <para></para>
 		/// </summary>
 		/// <param name="cloudId">
 		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string<c>
 		/// <para>Base64 encoded string contains the following tokens in order separated by $:</para>
 		/// <para>* Host Name (mandatory)</para>
-		/// <para>* Elasticsearch UUID (mandatory)</para>
-		/// <para>* Kibana UUID</para>
+		/// <para>* OpenSearch UUID (mandatory)</para>
+		/// <para>* OpenSearchDashboards UUID</para>
 		/// <para>* APM UUID</para>
 		/// <para></para>
-		/// <para> We then use these tokens to create the URI to your Elastic Cloud cluster!</para>
+		/// <para> We then use these tokens to create the URI to your OpenSearch Cloud cluster!</para>
 		/// <para></para>
 		/// <para> Read more here: </para>
 		/// </param>
@@ -130,11 +130,11 @@ namespace OpenSearch.Net
 			if (string.IsNullOrWhiteSpace(domainName))
 				throw new ArgumentException($"Parameter {nameof(cloudId)} decoded base_64_data contains no domain name, {exceptionSuffix}", nameof(cloudId));
 
-			var elasticsearchUuid = parts[1].Trim();
-			if (string.IsNullOrWhiteSpace(elasticsearchUuid))
-				throw new ArgumentException($"Parameter {nameof(cloudId)} decoded base_64_data contains no elasticsearch UUID, {exceptionSuffix}", nameof(cloudId));
+			var opensearchUuid = parts[1].Trim();
+			if (string.IsNullOrWhiteSpace(opensearchUuid))
+				throw new ArgumentException($"Parameter {nameof(cloudId)} decoded base_64_data contains no opensearch UUID, {exceptionSuffix}", nameof(cloudId));
 
-			return new ParsedCloudId(clusterName, new Uri($"https://{elasticsearchUuid}.{domainName}"));
+			return new ParsedCloudId(clusterName, new Uri($"https://{opensearchUuid}.{domainName}"));
 		}
 
 		protected override void DisposeManagedResources()

@@ -33,7 +33,7 @@ using Elastic.Elasticsearch.Ephemeral;
 using Elastic.Elasticsearch.Managed;
 using FluentAssertions.Common;
 using Tests.Configuration;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.ClusterLauncher
 {

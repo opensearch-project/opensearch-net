@@ -116,7 +116,7 @@ namespace ApiGenerator
 			Console.WriteLine();
 			AnsiConsole.Render(
 				new Panel(grid)
-					.Header(new PanelHeader("[b white on chartreuse4] Elasticsearch .NET client API generator [/]", Justify.Left))
+					.Header(new PanelHeader("[b white on chartreuse4] OpenSearch .NET client API generator [/]", Justify.Left))
 			);
 			Console.WriteLine();
 

@@ -2023,7 +2023,7 @@ namespace Osc
 	}
 
 	///<summary>Request for Resolve <para></para></summary>
-	///<remarks>Note: Experimental within the Elasticsearch server, this functionality is experimental and may be changed or removed completely in a future release. Elastic will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.</remarks>
+	///<remarks>Note: Experimental within the OpenSearch server, this functionality is experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.</remarks>
 	public partial class ResolveIndexRequest : PlainRequestBase<ResolveIndexRequestParameters>, IResolveIndexRequest
 	{
 		protected IResolveIndexRequest Self => this;
