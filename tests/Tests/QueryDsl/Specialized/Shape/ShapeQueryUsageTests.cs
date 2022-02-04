@@ -28,18 +28,18 @@
 using System.Collections.Generic;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.QueryDsl.Specialized.Shape
 {
 	/**
-	 * Like geo_shape, Elasticsearch supports the ability to index arbitrary two dimension (non Geospatial) geometries making
+	 * Like geo_shape, OpenSearch supports the ability to index arbitrary two dimension (non Geospatial) geometries making
 	 * it possible to map out virtual worlds, sporting venues, theme parks, and CAD diagrams. The shape field type
 	 * supports points, lines, polygons, multi-polygons, envelope, etc.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-shape-query.html[shape queries] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-shape-query.html[shape queries] for more detail.
 	 */
 	public abstract class ShapeQueryUsageTestsBase : QueryDslUsageTestsBase
 	{
@@ -184,7 +184,7 @@ namespace Tests.QueryDsl.Specialized.Shape
 	 * [[shape-query-multipoint]]
 	 * == Querying with MultiPoint
 	 *
-	 * NOTE: Elasticsearch required when MultiPoint is indexed using BKD trees (the default).
+	 * NOTE: OpenSearch required when MultiPoint is indexed using BKD trees (the default).
 	 */
 	public class ShapeMultiPointQueryUsageTests : ShapeQueryUsageTestsBase
 	{
@@ -687,7 +687,7 @@ namespace Tests.QueryDsl.Specialized.Shape
 	* a pre-defined list of shapes which are useful to your application and you want to reference this using a logical name (for example New Zealand)
 	* rather than having to provide their coordinates each time. In this situation it is only necessary to provide:
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-shape-query.html for more detail.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-shape-query.html for more detail.
 	*/
 	public class ShapeIndexedShapeQueryUsageTests : QueryDslUsageTestsBase
 	{

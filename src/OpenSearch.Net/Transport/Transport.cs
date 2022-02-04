@@ -97,7 +97,7 @@ namespace OpenSearch.Net
 					{
 						pipeline.SniffOnStaleCluster();
 						Ping(pipeline, node);
-						response = pipeline.CallElasticsearch<TResponse>(requestData);
+						response = pipeline.CallOpenSearch<TResponse>(requestData);
 						if (!response.ApiCall.SuccessOrKnownError)
 						{
 							pipeline.MarkDead(node);
@@ -152,7 +152,7 @@ namespace OpenSearch.Net
 					{
 						await pipeline.SniffOnStaleClusterAsync(cancellationToken).ConfigureAwait(false);
 						await PingAsync(pipeline, node, cancellationToken).ConfigureAwait(false);
-						response = await pipeline.CallElasticsearchAsync<TResponse>(requestData, cancellationToken).ConfigureAwait(false);
+						response = await pipeline.CallOpenSearchAsync<TResponse>(requestData, cancellationToken).ConfigureAwait(false);
 						if (!response.ApiCall.SuccessOrKnownError)
 						{
 							pipeline.MarkDead(node);
@@ -240,7 +240,7 @@ namespace OpenSearch.Net
 					a.OriginalException = clientException;
 				//On .NET Core the IConnection implementation throws exceptions on bad responses
 				//This causes it to behave differently to .NET FULL. We already wrapped the WebException
-				//under ElasticsearchServerException and it exposes way more information as part of it's
+				//under OpenSearchServerException and it exposes way more information as part of it's
 				//exception message e.g the the root cause of the server error body.
 #if !DOTNETCORE
 				if (a.OriginalException is WebException)

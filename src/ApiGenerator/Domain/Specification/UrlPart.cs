@@ -30,7 +30,6 @@ using System.Collections.Generic;
 namespace ApiGenerator.Domain.Specification
 {
 
-	//TODO once https://github.com/elastic/elasticsearch/pull/42346 lands
 	// Rename this type to Deprecation and remove Path duplication
 	public class DeprecatedPath
 	{

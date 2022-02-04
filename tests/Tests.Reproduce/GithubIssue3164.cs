@@ -40,7 +40,7 @@ namespace Tests.Reproduce
 	public class GithubIssue3164
 	{
 		[U]
-		public void SerializerRespectsDateTimeValuesFromElasticsearch()
+		public void SerializerRespectsDateTimeValuesFromOpenSearch()
 		{
 			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 

@@ -97,7 +97,7 @@ namespace Osc
 			if (BackingDictionary == null || !BackingDictionary.TryGetValue(field, out var o))
 				return null;
 
-			//numerics are always returned as doubles by Elasticsearch.
+			//numerics are always returned as doubles by OpenSearch.
 			if (!IsNumeric(typeof(TValue)))
 				return o.As<TValue[]>();
 

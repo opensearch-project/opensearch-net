@@ -42,7 +42,7 @@ namespace Tests.Core.Connection.MetaData
 		[U] public void HeaderName_ReturnsExpectedValue()
 		{
 			var sut = new MetaHeaderProvider();
-			sut.HeaderName.Should().Be("x-elastic-client-meta");
+			sut.HeaderName.Should().Be("opensearch-client-meta");
 		}
 
 		[U] public void HeaderName_ReturnsNullWhenDisabled()

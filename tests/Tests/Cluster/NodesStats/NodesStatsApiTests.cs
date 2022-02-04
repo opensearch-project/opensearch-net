@@ -32,8 +32,8 @@ using FluentAssertions;
 using Osc;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
-using Tests.Core.ManagedElasticsearch.NodeSeeders;
+using Tests.Core.ManagedOpenSearch.Clusters;
+using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -84,7 +84,6 @@ namespace Tests.Cluster.NodesStats
 			kv.Key.Should().NotBeNullOrWhiteSpace();
 			var node = kv.Value;
 			Assert(node);
-			Assert(node.Indices);
 			Assert(node.OperatingSystem);
 			Assert(node.Process);
 			Assert(node.Transport);
@@ -130,46 +129,6 @@ namespace Tests.Cluster.NodesStats
 			node.Host.Should().NotBeNullOrWhiteSpace();
 			node.Ip.Should().NotBeEmpty();
 			node.Roles.Should().NotBeNullOrEmpty();
-		}
-
-		protected void Assert(IndexStats index)
-		{
-			index.Should().NotBeNull();
-
-			index.Documents.Should().NotBeNull();
-			//index.Documents.Count.Should().BeGreaterThan(0);
-
-			index.Store.Should().NotBeNull();
-			index.Store.SizeInBytes.Should().BeGreaterOrEqualTo(0);
-			index.Store.ReservedInBytes.Should().BeGreaterOrEqualTo(0);
-
-			index.Completion.Should().NotBeNull();
-			index.Fielddata.Should().NotBeNull();
-
-			index.Flush.Should().NotBeNull();
-
-			index.Get.Should().NotBeNull();
-			index.Indexing.Should().NotBeNull();
-			index.Merges.Should().NotBeNull();
-			index.QueryCache.Should().NotBeNull();
-			index.Recovery.Should().NotBeNull();
-
-			index.Segments.Should().NotBeNull();
-			//index.Segments.Count.Should().BeGreaterThan(0);
-			//index.Segments.DocValuesMemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.IndexWriterMaxMemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.MemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.NormsMemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.StoredFieldsMemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.PointsMemoryInBytes.Should().BeGreaterThan(0);
-			//index.Segments.TermsMemoryInBytes.Should().BeGreaterThan(0);
-
-			index.Store.Should().NotBeNull();
-			//index.Store.SizeInBytes.Should().BeGreaterThan(0);
-
-			index.Search.Should().NotBeNull();
-			index.Translog.Should().NotBeNull();
-			index.Warmer.Should().NotBeNull();
 		}
 
 		protected void Assert(OperatingSystemStats os)

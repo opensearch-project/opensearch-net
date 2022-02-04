@@ -59,7 +59,7 @@ using Osc.Specification.TasksApi;
 namespace Osc
 {
 	///<summary>
-	///Elasticsearch high level client 
+	///OpenSearch high level client 
 	///</summary>
 	public partial interface IOpenSearchClient
 	{

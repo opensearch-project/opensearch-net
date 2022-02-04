@@ -46,10 +46,10 @@ namespace OpenSearch.Net
 
 		DateTime StartedOn { get; }
 
-		TResponse CallElasticsearch<TResponse>(RequestData requestData)
+		TResponse CallOpenSearch<TResponse>(RequestData requestData)
 			where TResponse : class, IOpenSearchResponse, new();
 
-		Task<TResponse> CallElasticsearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+		Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
 			where TResponse : class, IOpenSearchResponse, new();
 
 		void MarkAlive(Node node);

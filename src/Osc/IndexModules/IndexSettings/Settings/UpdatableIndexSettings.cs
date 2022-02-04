@@ -30,7 +30,7 @@ using System;
 namespace Osc
 {
 	/// <summary>
-	/// Collection of Elasticsearch index settings that can be dynamically updated
+	/// Collection of OpenSearch index settings that can be dynamically updated
 	/// </summary>
 	public static class UpdatableIndexSettings
 	{

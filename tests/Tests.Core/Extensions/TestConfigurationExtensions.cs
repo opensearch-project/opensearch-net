@@ -40,6 +40,6 @@ namespace Tests.Core.Extensions
 					: new InMemoryConnection(response);
 
 		public static bool InRange(this TestConfigurationBase configuration, string range) =>
-			configuration.ElasticsearchVersion.InRange(range);
+			configuration.OpenSearchVersion.InRange(range);
 	}
 }

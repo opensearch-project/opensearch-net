@@ -147,7 +147,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			//hide
 			var response = new
 			{
-				cluster_name = "elasticsearch",
+				cluster_name = "opensearch",
 				nodes = new
 				{
 					node1 = new
@@ -165,7 +165,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 						},
 						settings = new Dictionary<string, object>
 						{
-							{ "cluster.name", "elasticsearch" },
+							{ "cluster.name", "opensearch" },
 							{ "node.name", "Node Name 1" }
 						}
 					}

@@ -28,8 +28,8 @@
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
-using Tests.Core.ManagedElasticsearch.NodeSeeders;
+using Tests.Core.ManagedOpenSearch.Clusters;
+using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 

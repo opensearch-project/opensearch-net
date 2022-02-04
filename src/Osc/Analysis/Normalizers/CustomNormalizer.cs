@@ -37,7 +37,7 @@ namespace Osc
 	/// char filters and token filters. Only the filters that work on a per-character basis are
 	/// allowed. For instance a lowercasing filter would be allowed, but not a stemming filter,
 	/// which needs to look at the keyword as a whole.
-	/// <para>Elasticsearch does not ship with built-in normalizers so far, so the only way to create one is through composing a custom one</para>
+	/// <para>OpenSearch does not ship with built-in normalizers so far, so the only way to create one is through composing a custom one</para>
 	/// </summary>
 	[InterfaceDataContract]
 	public interface ICustomNormalizer : INormalizer

@@ -39,8 +39,8 @@ namespace Osc
 		[DataMember(Name ="description")]
 		public string Description { get; set; }
 
-		[DataMember(Name ="elasticsearch_version")]
-		public string ElasticsearchVersion { get; set; }
+		[DataMember(Name ="opensearch_version")]
+		public string OpenSearchVersion { get; set; }
 
 		[DataMember(Name ="extended_plugins")]
 		public IReadOnlyCollection<string> ExtendedPlugins { get; set; }

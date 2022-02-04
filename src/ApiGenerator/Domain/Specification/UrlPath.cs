@@ -41,7 +41,6 @@ namespace ApiGenerator.Domain.Specification
 		public List<UrlPart> Parts { get; }
 
 		//TODO mark the parts that are deprecated
-		//TODO this will all go away once https://github.com/elastic/elasticsearch/pull/42346 lands 
 		public UrlPath(DeprecatedPath path, IDictionary<string, UrlPart> originalParts, IReadOnlyCollection<UrlPath> allNonDeprecatedPaths) 
 			: this(path.Path, originalParts)
 		{

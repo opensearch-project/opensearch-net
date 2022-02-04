@@ -43,7 +43,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	/**[[multi-fields]]
 	* === Multi fields
 	*
-	* It is often useful to index the same field in Elasticsearch in different ways, to
+	* It is often useful to index the same field in OpenSearch in different ways, to
 	* serve different purposes, for example, mapping a POCO `string` property as a
 	* `text` datatype for full text search as well as mapping as a `keyword` datatype for
 	* structured search, sorting and aggregations. Another example is mapping a POCO `string`
@@ -172,7 +172,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		/**
 		* [NOTE]
 		* --
-		* Multi fields do not change the original `_source` field in Elasticsearch; they affect only how
+		* Multi fields do not change the original `_source` field in OpenSearch; they affect only how
 		* a field is indexed.
 		*
 		* New multi fields can be added to existing fields using the Put Mapping API.

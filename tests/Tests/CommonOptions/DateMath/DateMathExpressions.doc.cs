@@ -57,7 +57,7 @@ namespace Tests.CommonOptions.DateMath
 		 * - `s` (second)
 		 *
 		 * :datemath: {ref_current}/common-options.html#date-math
-		 * Be sure to read the Elasticsearch documentation on {datemath}[Date Math].
+		 * Be sure to read the OpenSearch documentation on {datemath}[Date Math].
 		 */
 		[U] public void SimpleExpressions()
 		{
@@ -160,7 +160,7 @@ namespace Tests.CommonOptions.DateMath
 		{
 			/**
 			* ==== Fractional times
-			* Date math expressions within Elasticsearch do not support fractional numbers. To make working with Date math
+			* Date math expressions within OpenSearch do not support fractional numbers. To make working with Date math
 			* easier within NEST, conversions from `string`, `TimeSpan` and `double` will convert a fractional value to the
 			* largest whole number value and unit, rounded to the nearest second.
 			*

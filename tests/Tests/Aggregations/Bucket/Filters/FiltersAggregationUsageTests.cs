@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -44,7 +44,7 @@ namespace Tests.Aggregations.Bucket.Filters
 	 * Each bucket will collect all documents that match its associated filter. For documents
 	 * that do not match any filter, these will be collected in the _other bucket_.
 	 *
-	 * Be sure to read the Elasticsearch documentation {ref_current}/search-aggregations-bucket-filters-aggregation.html[Filters Aggregation]
+	 * Be sure to read the OpenSearch documentation {ref_current}/search-aggregations-bucket-filters-aggregation.html[Filters Aggregation]
 	*/
 
 	/**[float]

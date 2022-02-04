@@ -62,7 +62,7 @@ namespace Osc
 		ReindexRouting Routing { get; set; }
 
 		/// <summary>
-		/// Setting to <see cref="OpenSearch.Net.VersionType.External" /> will cause Elasticsearch
+		/// Setting to <see cref="OpenSearch.Net.VersionType.External" /> will cause OpenSearch
 		/// to preserve the version from the source, create any documents that are missing,
 		/// and update any documents that have an older version in the destination index
 		/// than they do in the source index

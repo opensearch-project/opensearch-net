@@ -53,9 +53,6 @@ namespace Osc
 		[DataMember(Name = "http")]
 		public HttpStats Http { get; internal set; }
 
-		[DataMember(Name = "indices")]
-		public IndexStats Indices { get; internal set; }
-
 		[DataMember(Name = "ingest")]
 		public NodeIngestStats Ingest { get; internal set; }
 

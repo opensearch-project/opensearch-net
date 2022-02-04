@@ -222,7 +222,7 @@ namespace Osc
 
 		/// <summary>
 		/// <para>Configure whether the filter will skip tokens with a keyword attribute of true.</para>
-		/// <para>(Optional) When not configured, this defaults to false in Elasticsearch.</para>
+		/// <para>(Optional) When not configured, this defaults to false in OpenSearch.</para>
 		/// </summary>
 		/// <param name="ignoreKeywords">If true, the filter skips tokens with a keyword attribute of true.</param>
 		public WordDelimiterGraphTokenFilterDescriptor IgnoreKeywords(bool? ignoreKeywords = true) =>

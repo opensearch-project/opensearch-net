@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Framework.EndpointTests

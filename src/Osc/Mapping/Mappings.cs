@@ -35,7 +35,7 @@ namespace Osc
 	public abstract class ObsoleteMappingsBase : ITypeMapping
 	{
 		/// <summary>
-		/// Types are gone from Elasticsearch, this class solely exist to help you move your complex mappings over
+		/// Types are gone from OpenSearch, this class solely exist to help you move your complex mappings over
 		/// to the new way of writing the mappings. Use TypeMapping directly instead.
 		/// <pre>
 		/// This class won't receive updates, please be advised to move over if you need to utilize
@@ -105,11 +105,11 @@ namespace Osc
 		public ITypeMapping Map(Func<TypeMappingDescriptor<object>, ITypeMapping> selector) =>
 			new PreventMappingMultipleTypesDescriptor(selector?.Invoke(new TypeMappingDescriptor<object>()));
 
-		[Obsolete("Types are gone from Elasticsearch, the first argument is completely ignored please remove it")]
+		[Obsolete("Types are gone from OpenSearch, the first argument is completely ignored please remove it")]
 		public ITypeMapping Map<T>(object type, Func<TypeMappingDescriptor<T>, ITypeMapping> selector) where T : class =>
 			new PreventMappingMultipleTypesDescriptor(selector?.Invoke(new TypeMappingDescriptor<T>()));
 
-		[Obsolete("Types are gone from Elasticsearch, the first argument is completely ignored please remove it")]
+		[Obsolete("Types are gone from OpenSearch, the first argument is completely ignored please remove it")]
 		public ITypeMapping Map(object type, Func<TypeMappingDescriptor<object>, ITypeMapping> selector) =>
 			new PreventMappingMultipleTypesDescriptor(selector?.Invoke(new TypeMappingDescriptor<object>()));
 	}

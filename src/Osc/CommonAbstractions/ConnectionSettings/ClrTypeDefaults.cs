@@ -44,7 +44,7 @@ namespace Osc
 		string IdPropertyName { get; set; }
 
 		/// <summary>
-		/// The default Elasticsearch index name for the given <see cref="ClrType" />
+		/// The default OpenSearch index name for the given <see cref="ClrType" />
 		/// </summary>
 		string IndexName { get; set; }
 
@@ -154,7 +154,7 @@ namespace Osc
 		bool IClrTypeMapping.DisableIdInference { get; set; }
 
 		/// <summary>
-		/// The default Elasticsearch index name for <typeparamref name="TDocument" />
+		/// The default OpenSearch index name for <typeparamref name="TDocument" />
 		/// </summary>
 		public ClrTypeMappingDescriptor<TDocument> IndexName(string indexName) => Assign(indexName, (a, v) => a.IndexName = v);
 

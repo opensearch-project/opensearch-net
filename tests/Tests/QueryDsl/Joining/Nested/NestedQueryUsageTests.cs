@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -40,7 +40,7 @@ namespace Tests.QueryDsl.Joining.Nested
 	* The query is executed against the nested objects / docs as if they were indexed as separate
 	* docs (they are, internally) and resulting in the root parent doc (or parent nested mapping).
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-nested-query.html[nested query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-nested-query.html[nested query] for more details.
 	*/
 	public class NestedUsageTests : QueryDslUsageTestsBase
 	{

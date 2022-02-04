@@ -46,8 +46,8 @@ namespace Tests.Core.Xunit
 			RunUnitTests = TestConfiguration.Instance.RunUnitTests;
 			ClusterFilter = TestConfiguration.Instance.ClusterFilter;
 			TestFilter = TestConfiguration.Instance.TestFilter;
-			Version = TestConfiguration.Instance.ElasticsearchVersion;
-			IntegrationTestsMayUseAlreadyRunningNode = TestConfiguration.Instance.TestAgainstAlreadyRunningElasticsearch;
+			Version = TestConfiguration.Instance.OpenSearchVersion;
+			IntegrationTestsMayUseAlreadyRunningNode = TestConfiguration.Instance.TestAgainstAlreadyRunningOpenSearch;
 
 			Generators.Initialize();
 		}
@@ -138,7 +138,7 @@ namespace Tests.Core.Xunit
 
 			if (runningIntegrations)
 				sb.Append("integrate ")
-					.Append(TestConfiguration.Instance.ElasticsearchVersion);
+					.Append(TestConfiguration.Instance.OpenSearchVersion);
 			else
 				sb.Append("test");
 

@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
@@ -44,10 +44,10 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Deprecation logging
 	 *
-	 * Elasticsearch will send back `Warn` HTTP Headers when you are using an API feature that is
+	 * OpenSearch will send back `Warn` HTTP Headers when you are using an API feature that is
 	 * deprecated and will be removed or rewritten in a future release.
 	 *
-	 * Elasticsearch.NET and NEST report these back to you so you can log and watch out for them.
+	 * OpenSearch.NET and NEST report these back to you so you can log and watch out for them.
 	 */
 	public class DeprecationLogging : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
 	{

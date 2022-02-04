@@ -697,30 +697,6 @@ namespace Osc.Specification.IndicesApi
 		/// <para></para>
 		/// <a href = ""></a>
 		/// </summary>
-		public RecoveryStatusResponse RecoveryStatus(Indices index = null, Func<RecoveryStatusDescriptor, IRecoveryStatusRequest> selector = null) => RecoveryStatus(selector.InvokeOrDefault(new RecoveryStatusDescriptor().Index(index: index)));
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<RecoveryStatusResponse> RecoveryStatusAsync(Indices index = null, Func<RecoveryStatusDescriptor, IRecoveryStatusRequest> selector = null, CancellationToken ct = default) => RecoveryStatusAsync(selector.InvokeOrDefault(new RecoveryStatusDescriptor().Index(index: index)), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public RecoveryStatusResponse RecoveryStatus(IRecoveryStatusRequest request) => DoRequest<IRecoveryStatusRequest, RecoveryStatusResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<RecoveryStatusResponse> RecoveryStatusAsync(IRecoveryStatusRequest request, CancellationToken ct = default) => DoRequestAsync<IRecoveryStatusRequest, RecoveryStatusResponse>(request, request.RequestParameters, ct);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/">https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</a>
-		/// </summary>
 		public RefreshResponse Refresh(Indices index = null, Func<RefreshDescriptor, IRefreshRequest> selector = null) => Refresh(selector.InvokeOrDefault(new RefreshDescriptor().Index(index: index)));
 		/// <summary>
 		/// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
@@ -789,54 +765,6 @@ namespace Osc.Specification.IndicesApi
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
 		/// </summary>
-		public SegmentsResponse Segments(Indices index = null, Func<SegmentsDescriptor, ISegmentsRequest> selector = null) => Segments(selector.InvokeOrDefault(new SegmentsDescriptor().Index(index: index)));
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public Task<SegmentsResponse> SegmentsAsync(Indices index = null, Func<SegmentsDescriptor, ISegmentsRequest> selector = null, CancellationToken ct = default) => SegmentsAsync(selector.InvokeOrDefault(new SegmentsDescriptor().Index(index: index)), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public SegmentsResponse Segments(ISegmentsRequest request) => DoRequest<ISegmentsRequest, SegmentsResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public Task<SegmentsResponse> SegmentsAsync(ISegmentsRequest request, CancellationToken ct = default) => DoRequestAsync<ISegmentsRequest, SegmentsResponse>(request, request.RequestParameters, ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.shard_stores</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public IndicesShardStoresResponse ShardStores(Indices index = null, Func<IndicesShardStoresDescriptor, IIndicesShardStoresRequest> selector = null) => ShardStores(selector.InvokeOrDefault(new IndicesShardStoresDescriptor().Index(index: index)));
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.shard_stores</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<IndicesShardStoresResponse> ShardStoresAsync(Indices index = null, Func<IndicesShardStoresDescriptor, IIndicesShardStoresRequest> selector = null, CancellationToken ct = default) => ShardStoresAsync(selector.InvokeOrDefault(new IndicesShardStoresDescriptor().Index(index: index)), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.shard_stores</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public IndicesShardStoresResponse ShardStores(IIndicesShardStoresRequest request) => DoRequest<IIndicesShardStoresRequest, IndicesShardStoresResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.shard_stores</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<IndicesShardStoresResponse> ShardStoresAsync(IIndicesShardStoresRequest request, CancellationToken ct = default) => DoRequestAsync<IIndicesShardStoresRequest, IndicesShardStoresResponse>(request, request.RequestParameters, ct);
-		/// <summary>
-		/// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/</a>
-		/// </summary>
 		public ShrinkIndexResponse Shrink(IndexName index, IndexName target, Func<ShrinkIndexDescriptor, IShrinkIndexRequest> selector = null) => Shrink(selector.InvokeOrDefault(new ShrinkIndexDescriptor(index: index, target: target)));
 		/// <summary>
 		/// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
@@ -884,30 +812,6 @@ namespace Osc.Specification.IndicesApi
 		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
-		/// </summary>
-		public IndicesStatsResponse Stats(Indices index = null, Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null) => Stats(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)));
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
-		/// </summary>
-		public Task<IndicesStatsResponse> StatsAsync(Indices index = null, Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null, CancellationToken ct = default) => StatsAsync(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
-		/// </summary>
-		public IndicesStatsResponse Stats(IIndicesStatsRequest request) => DoRequest<IIndicesStatsRequest, IndicesStatsResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
-		/// </summary>
-		public Task<IndicesStatsResponse> StatsAsync(IIndicesStatsRequest request, CancellationToken ct = default) => DoRequestAsync<IIndicesStatsRequest, IndicesStatsResponse>(request, request.RequestParameters, ct);
-		/// <summary>
-		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
 		/// </summary>
 		public BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector) => BulkAlias(selector.InvokeOrDefault(new BulkAliasDescriptor()));
 		/// <summary>

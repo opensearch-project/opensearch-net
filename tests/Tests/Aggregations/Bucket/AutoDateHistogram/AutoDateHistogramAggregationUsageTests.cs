@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -45,11 +45,11 @@ namespace Tests.Aggregations.Bucket.AutoDateHistogram
 	 * and the interval of the buckets is automatically chosen to best achieve that target. The number of buckets
 	 * returned will always be less than or equal to this target number.
 	 *
-	 * NOTE: When specifying a `format` **and** `extended_bounds` or `missing`, in order for Elasticsearch to be able to parse
+	 * NOTE: When specifying a `format` **and** `extended_bounds` or `missing`, in order for OpenSearch to be able to parse
 	 * the serialized `DateTime` of `extended_bounds` or `missing` correctly, the `date_optional_time` format is included
 	 * as part of the `format` value.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-autodatehistogram-aggregation.html[Auto Date Histogram Aggregation].
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-autodatehistogram-aggregation.html[Auto Date Histogram Aggregation].
 	*/
 	public class AutoDateHistogramAggregationUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{

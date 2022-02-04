@@ -44,7 +44,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 	/**[[index-name-inference]]
 	*=== Index name inference
 	*
-	* Many endpoints within the Elasticsearch API expect to receive one or more index names
+	* Many endpoints within the OpenSearch API expect to receive one or more index names
 	* as part of the request, in order to know what index/indices a request should operate on.
 	*
 	* NEST has a number of ways in which the index name(s) can be specified

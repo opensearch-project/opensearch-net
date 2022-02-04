@@ -96,7 +96,7 @@ namespace Osc
 
 		private PropertyInfo GetInferredId(Type type)
 		{
-			// if the type specifies through ElasticAttribute what the id prop is
+			// if the type specifies through OpenSearchAttribute what the id prop is
 			// use that no matter what
 
 			_connectionSettings.IdProperties.TryGetValue(type, out var propertyName);

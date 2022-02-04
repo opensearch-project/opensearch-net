@@ -43,7 +43,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	*
 	* When creating a mapping either when creating an index or through the Put Mapping API,
 	* NEST offers a feature called auto mapping that can automagically infer the correct
-	* Elasticsearch field datatypes from the CLR POCO property types you are mapping.
+	* OpenSearch field datatypes from the CLR POCO property types you are mapping.
 	**/
 	public class AutoMap
 	{
@@ -178,7 +178,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		}
 
 		/**
-		 * Observe that NEST has inferred the Elasticsearch types based on the CLR type of our POCO properties.
+		 * Observe that NEST has inferred the OpenSearch types based on the CLR type of our POCO properties.
 		 * In this example,
 		 *
 		 * - Birthday is mapped as a `date`,
@@ -233,12 +233,12 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 *
 		 *[IMPORTANT]
 		 * --
-		 * Some .NET types do not have direct equivalent Elasticsearch types. For example, `System.Decimal` is a type
+		 * Some .NET types do not have direct equivalent OpenSearch types. For example, `System.Decimal` is a type
 		 * commonly used to express currencies and other financial calculations that require large numbers of significant
-		 * integral and fractional digits and no round-off errors. There is no equivalent type in Elasticsearch, and the
+		 * integral and fractional digits and no round-off errors. There is no equivalent type in OpenSearch, and the
 		 * nearest type is {ref_current}/number.html[double], a double-precision 64-bit IEEE 754 floating point.
 		 *
-		 * When a POCO has a `System.Decimal` property, it is automapped to the Elasticsearch `double` type. With the caveat
+		 * When a POCO has a `System.Decimal` property, it is automapped to the OpenSearch `double` type. With the caveat
 		 * of a potential loss of precision, this is generally acceptable for a lot of use cases, but it can however cause
 		 * problems in _some_ edge cases.
 		 *
@@ -262,7 +262,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * on the `Employee` class did not get any of its properties mapped.
 		 *
 		 * This is done as a safe-guard to prevent stack overflows and all the fun that comes with
-		 * __infinite__ recursion.  Additionally, in most cases, when it comes to Elasticsearch mappings, it is
+		 * __infinite__ recursion.  Additionally, in most cases, when it comes to OpenSearch mappings, it is
 		 * often an edge case to have deeply nested mappings like this.  However, you may still have
 		 * the need to do this, so you can control the recursion depth of `.AutoMap()`.
 		 *

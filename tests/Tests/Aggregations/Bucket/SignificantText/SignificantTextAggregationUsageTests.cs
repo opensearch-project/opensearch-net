@@ -30,7 +30,7 @@ using System.Linq;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -54,7 +54,7 @@ namespace Tests.Aggregations.Bucket.SignificantText
 	 * of results.
 	 * --
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-significanttext-aggregation.html[significant text aggregation] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-aggregations-bucket-significanttext-aggregation.html[significant text aggregation] for more detail.
 	 */
 	public class SignificantTextAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

@@ -80,7 +80,7 @@ namespace Osc
 
 		/// <summary>
 		/// Sets max size of the n-grams (shingles) in the field. If the field doesn’t contain n-grams (shingles), this should be omitted or set to 1.
-		/// Note that Elasticsearch tries to detect the gram size based on the specified field. If the field uses a shingle filter,
+		/// Note that OpenSearch tries to detect the gram size based on the specified field. If the field uses a shingle filter,
 		/// the gram_size is set to the max_shingle_size if not explicitly set.
 		/// </summary>
 		[DataMember(Name = "gram_size")]

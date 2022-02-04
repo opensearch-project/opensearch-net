@@ -31,7 +31,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Reproduce
 {

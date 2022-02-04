@@ -32,7 +32,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -42,7 +42,7 @@ namespace Tests.Search.Request
 	/**
 	 * The suggest feature suggests similar looking terms based on a provided text by using a suggester.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-suggesters.html[Suggesters] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-suggesters.html[Suggesters] for more detail.
 	 */
 	public class SuggestUsageTests : SearchUsageTestBase
 	{

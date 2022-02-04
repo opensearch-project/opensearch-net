@@ -52,7 +52,7 @@ namespace Osc
 		public NormalizersDescriptor UserDefined(string name, INormalizer analyzer) => Assign(name, analyzer);
 
 		/// <summary>
-		/// Elasticsearch does not ship with built-in normalizers so far, so the only way to
+		/// OpenSearch does not ship with built-in normalizers so far, so the only way to
 		/// get one is by building a custom one. Custom normalizers take a list of char character
 		/// filters and a list of token filters.
 		/// </summary>

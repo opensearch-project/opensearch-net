@@ -46,7 +46,7 @@ namespace Osc
 		/// <summary>
 		/// Maximum number of automaton states required for the query. Default is 10000.
         /// <para />
-		/// Elasticsearch uses Apache Lucene internally to parse regular expressions.
+		/// OpenSearch uses Apache Lucene internally to parse regular expressions.
 		/// Lucene converts each regular expression to a finite automaton containing a number of determinized states.
 		/// <para />
 		/// You can use this parameter to prevent that conversion from unintentionally consuming too

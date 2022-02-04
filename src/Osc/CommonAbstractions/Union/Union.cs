@@ -32,7 +32,7 @@ namespace Osc
 {
 	/// <summary>
 	/// Represents the union of two types, <typeparamref name="TFirst" /> and <typeparamref name="TSecond" />. Used
-	/// in scenarios where an Elasticsearch API may accept more than one different input data structure.
+	/// in scenarios where an OpenSearch API may accept more than one different input data structure.
 	/// </summary>
 	/// <typeparam name="TFirst">The first type</typeparam>
 	/// <typeparam name="TSecond">The second type</typeparam>

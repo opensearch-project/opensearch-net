@@ -48,10 +48,10 @@ namespace ApiGenerator
 			ProgressCharacter = '─',
 		};
 
-		private static string CommitsUrl = "https://github.com/elastic/elasticsearch/commits/{branch}";
+		private static string CommitsUrl = "https://github.com/opensearch-project/opensearch-net/commits/{branch}";
 		private static readonly Dictionary<string, string> OnlineSpecifications = new Dictionary<string, string>
 		{
-			{ "Core", "https://github.com/elastic/elasticsearch/tree/{ref}/rest-api-spec/src/main/resources/rest-api-spec/api" },
+			{ "Core", "https://github.com/opensearch-project/opensearch-net/tree/{ref}/rest-api-spec/src/main/resources/rest-api-spec/api" },
 		};
 
 		private static readonly ProgressBarOptions SubProgressBarOptions = new ProgressBarOptions
@@ -101,7 +101,7 @@ namespace ApiGenerator
 			var html = await response.Content.ReadAsStringAsync();
 			var dom = CQ.Create(html);
 
-			var prefix = "/elastic/elasticsearch/commit/";
+			var prefix = "/opensearch-project/opensearch-net/commit/";
 			var commit = dom["a.text-mono"]
 				.Select(s => s.GetAttribute("href"))
 				.Where(a => a.StartsWith(prefix))

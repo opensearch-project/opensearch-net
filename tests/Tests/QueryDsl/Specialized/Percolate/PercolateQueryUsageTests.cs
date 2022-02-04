@@ -32,8 +32,8 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
-using Tests.Core.ManagedElasticsearch.NodeSeeders;
+using Tests.Core.ManagedOpenSearch.Clusters;
+using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -131,7 +131,7 @@ namespace Tests.QueryDsl.Specialized.Percolate
 	* IMPORTANT: In order for the percolate query to work, the index in which your stored queries reside must contain
 	* a mapping for documents that you wish to percolate, so that they are parsed correctly at query time.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
 	*
 	* In this example, we have a document stored with a `query` field that is mapped as a `percolator` type. This field
 	* contains a `match` query.
@@ -200,7 +200,7 @@ namespace Tests.QueryDsl.Specialized.Percolate
 	* - `id` of the document
 	* - `document_type` type / mapping of the document
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
 	*/
 	public class PercolateQueryExistingDocumentUsageTests : PercolateQueryUsageTestsBase
 	{
@@ -262,7 +262,7 @@ namespace Tests.QueryDsl.Specialized.Percolate
 	* Percolating multiple documents in a single request can improve performance as queries
 	* only need to be parsed and matched once instead of multiple times.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-percolate-query.html[percolate query] for more details.
 	*/
 	public class PercolateMultipleDocumentsQueryUsageTests : PercolateQueryUsageTestsBase
 	{

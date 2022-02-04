@@ -62,20 +62,20 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		{
 			/** ==== Building a Node path
 			* passing a node with a path should be preserved.
-			* Sometimes an Elasticsearch node lives behind a proxy
+			* Sometimes an OpenSearch node lives behind a proxy
 			*/
-			var node = new Node(new Uri("http://test.example/elasticsearch"));
+			var node = new Node(new Uri("http://test.example/opensearch"));
 
 			node.Uri.Port.Should().Be(80);
-			node.Uri.AbsolutePath.Should().Be("/elasticsearch/");
+			node.Uri.AbsolutePath.Should().Be("/opensearch/");
 
 			/** *We force paths to end with a forward slash* so that they can later be safely combined */
 			var combinedPath = new Uri(node.Uri, "index/type/_search");
-			combinedPath.AbsolutePath.Should().Be("/elasticsearch/index/type/_search");
+			combinedPath.AbsolutePath.Should().Be("/opensearch/index/type/_search");
 
 			/** which is exactly what the `CreatePath` method does on `Node` */
 			combinedPath = node.CreatePath("index/type/_search");
-			combinedPath.AbsolutePath.Should().Be("/elasticsearch/index/type/_search");
+			combinedPath.AbsolutePath.Should().Be("/opensearch/index/type/_search");
 		}
 
 		/** ==== Marking Nodes */

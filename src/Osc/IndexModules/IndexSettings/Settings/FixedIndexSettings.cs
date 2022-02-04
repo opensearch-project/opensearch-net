@@ -28,7 +28,7 @@
 namespace Osc
 {
 	/// <summary>
-	/// const string collection of known Elasticsearch index settings that can only be provided at
+	/// const string collection of known OpenSearch index settings that can only be provided at
 	/// index creation time
 	/// </summary>
 	public static class FixedIndexSettings

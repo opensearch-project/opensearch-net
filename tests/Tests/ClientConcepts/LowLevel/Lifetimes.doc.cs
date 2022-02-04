@@ -53,10 +53,10 @@ namespace Tests.ClientConcepts.LowLevel
 		* **caches are __per__ `ConnectionSettings`**.
 		*
 		* In some applications ,it could make perfect sense to have multiple `OpenSearchClient` instances registered with different
-		* connection settings such as when your application connects to two different Elasticsearch clusters.
+		* connection settings such as when your application connects to two different OpenSearch clusters.
 		*
-		* IMPORTANT: Due to the semantic versioning of OpenSearch.Net and NEST and their alignment to versions of Elasticsearch, all instances of `OpenSearchClient` and
-		* Elasticsearch clusters that are connected to must be on the **same major version**
+		* IMPORTANT: Due to the semantic versioning of OpenSearch.Net and NEST and their alignment to versions of OpenSearch, all instances of `OpenSearchClient` and
+		* OpenSearch clusters that are connected to must be on the **same major version**
 		*
 		* Let's demonstrate which components are disposed by creating our own derived `ConnectionSettings`, `IConnectionPool` and `IConnection` types
 		*/

@@ -59,7 +59,7 @@ namespace Tests.CodeStandards
 				.Where(t => t.IsClass && t.IsAbstract && !t.IsSealed && !exceptions.Contains(t))
 				//when testing nuget package against merged internalize json.net skip its types.
 				.Where(t => !t.Namespace.StartsWith("Osc.Json"))
-				.Where(t => !t.Namespace.StartsWith("Elastic.Internal"))
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Internal"))
 				.Where(t => !t.Name.Split('`')[0].EndsWith("Base"))
 				.Select(t => t.Name.Split('`')[0])
 				.ToList();
@@ -196,7 +196,7 @@ namespace Tests.CodeStandards
 				.Where(t => t.Namespace != "Osc")
 				//when testing nuget package against merged internalize json.net skip its types.
 				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Json"))
-				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Elastic.Internal"))
+				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("OpenSearch.Internal"))
 				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Specification"))
 				.Where(t => !t.Name.StartsWith("<"))
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
@@ -206,28 +206,28 @@ namespace Tests.CodeStandards
 		}
 
 		[U]
-		public void AllElasticsearchNetTypesAreInElasticsearchNetNamespace()
+		public void AllOpenSearchNetTypesAreInOpenSearchNetNamespace()
 		{
-			var elasticsearchNetAssembly = typeof(IOpenSearchLowLevelClient).Assembly;
+			var opensearchNetAssembly = typeof(IOpenSearchLowLevelClient).Assembly;
 
 			var exceptions = new List<Type>
 			{
-				elasticsearchNetAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute"),
-				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute"),
-				elasticsearchNetAssembly.GetType("System.AssemblyVersionInformation"),
-				elasticsearchNetAssembly.GetType("System.FormattableString"),
-				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.FormattableStringFactory"),
-				elasticsearchNetAssembly.GetType("System.Runtime.CompilerServices.FormattableStringFactory"),
-				elasticsearchNetAssembly.GetType("Purify.Purifier"),
-				elasticsearchNetAssembly.GetType("Purify.Purifier+IPurifier"),
-				elasticsearchNetAssembly.GetType("Purify.Purifier+PurifierDotNet"),
-				elasticsearchNetAssembly.GetType("Purify.Purifier+PurifierMono"),
-				elasticsearchNetAssembly.GetType("Purify.Purifier+UriInfo"),
-				elasticsearchNetAssembly.GetType("System.ComponentModel.Browsable")
+				opensearchNetAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute"),
+				opensearchNetAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute"),
+				opensearchNetAssembly.GetType("System.AssemblyVersionInformation"),
+				opensearchNetAssembly.GetType("System.FormattableString"),
+				opensearchNetAssembly.GetType("System.Runtime.CompilerServices.FormattableStringFactory"),
+				opensearchNetAssembly.GetType("System.Runtime.CompilerServices.FormattableStringFactory"),
+				opensearchNetAssembly.GetType("Purify.Purifier"),
+				opensearchNetAssembly.GetType("Purify.Purifier+IPurifier"),
+				opensearchNetAssembly.GetType("Purify.Purifier+PurifierDotNet"),
+				opensearchNetAssembly.GetType("Purify.Purifier+PurifierMono"),
+				opensearchNetAssembly.GetType("Purify.Purifier+UriInfo"),
+				opensearchNetAssembly.GetType("System.ComponentModel.Browsable")
 			};
 
-			var types = elasticsearchNetAssembly.GetTypes();
-			var typesNotIElasticsearchNetNamespace = types
+			var types = opensearchNetAssembly.GetTypes();
+			var typesNotIOpenSearchNetNamespace = types
 				.Where(t => !exceptions.Contains(t))
 				.Where(t => t.Namespace != null)
 				.Where(t => t.Namespace != "OpenSearch.Net" && !t.Namespace.StartsWith("OpenSearch.Net.Specification"))
@@ -238,7 +238,7 @@ namespace Tests.CodeStandards
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();
 
-			typesNotIElasticsearchNetNamespace.Should().BeEmpty();
+			typesNotIOpenSearchNetNamespace.Should().BeEmpty();
 		}
 
 		/// implementation from System.CodeDom.Compiler.CodeGenerator.IsValidLanguageIndependentIdentifier(string value)

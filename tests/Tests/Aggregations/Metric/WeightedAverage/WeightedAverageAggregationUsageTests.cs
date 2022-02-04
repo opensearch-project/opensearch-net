@@ -30,7 +30,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -45,7 +45,7 @@ namespace Tests.Aggregations.Metric.WeightedAverage
 	 * value. Weighted averages, on the other hand, weight each datapoint differently. The amount that each
 	 * datapoint contributes to the final value is extracted from the document, or provided by a script.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-metrics-weight-avg-aggregation.html[Weighted Avg Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-weight-avg-aggregation.html[Weighted Avg Aggregation]
 	 */
 	public class WeightedAverageAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

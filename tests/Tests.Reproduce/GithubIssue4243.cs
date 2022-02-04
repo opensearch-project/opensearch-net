@@ -30,7 +30,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.CatApi;
 using FluentAssertions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Reproduce
 {

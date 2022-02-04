@@ -2,10 +2,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>OSC</PackageId>
-    <Title>OSC - Elasticsearch .NET high level client</Title>
-    <PackageTags>elasticsearch;elastic;search;lucene;osc</PackageTags>
+    <Title>OSC - OpenSearch .NET high level client</Title>
+    <PackageTags>opensearch;opensearch;search;lucene;osc</PackageTags>
     <Description>
-      Strongly typed interface to Elasticsearch. Fluent and classic object initializer mappings of requests and 
+      Strongly typed interface to OpenSearch. Fluent and classic object initializer mappings of requests and 
       responses. Uses and exposes OpenSearch.Net.
     </Description>
   </PropertyGroup>

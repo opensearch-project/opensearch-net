@@ -27,7 +27,7 @@
 
 using System.Linq;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -36,7 +36,7 @@ namespace Tests.QueryDsl.TermLevel.Terms
 	/**
 	* Filters documents that have fields that match any of the provided terms (not analyzed).
 	*
-	* Be sure to read the Elasticsearch documentation on {ref_current}/query-dsl-terms-query.html[Terms query] for more information.
+	* Be sure to read the OpenSearch documentation on {ref_current}/query-dsl-terms-query.html[Terms query] for more information.
 	*/
 	public class TermsQueryUsageTests : QueryDslUsageTestsBase
 	{

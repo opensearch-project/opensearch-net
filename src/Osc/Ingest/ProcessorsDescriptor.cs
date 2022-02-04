@@ -35,7 +35,7 @@ namespace Osc
 		public ProcessorsDescriptor() : base(new List<IProcessor>()) { }
 
 		/// <summary>
-		/// The ingest attachment plugin lets Elasticsearch extract file attachments in common formats
+		/// The ingest attachment plugin lets OpenSearch extract file attachments in common formats
 		/// (such as PPT, XLS, and PDF) by using the Apache text extraction library Tika.
 		/// You can use the ingest attachment plugin as a replacement for the mapper attachment plugin.
 		/// </summary>
@@ -76,10 +76,6 @@ namespace Osc
 		/// </summary>
 		public ProcessorsDescriptor DotExpander<T>(Func<DotExpanderProcessorDescriptor<T>, IDotExpanderProcessor> selector) where T : class =>
 			Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new DotExpanderProcessorDescriptor<T>())));
-
-		/// <inheritdoc cref="IEnrichProcessor"/>
-		public ProcessorsDescriptor Enrich<T>(Func<EnrichProcessorDescriptor<T>, IEnrichProcessor> selector) where T : class =>
-			Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new EnrichProcessorDescriptor<T>())));
 
 		/// <inheritdoc cref="IFailProcessor"/>
 		public ProcessorsDescriptor Fail(Func<FailProcessorDescriptor, IFailProcessor> selector) =>

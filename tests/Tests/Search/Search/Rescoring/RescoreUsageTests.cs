@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -41,7 +41,7 @@ namespace Tests.Search.Search.Rescoring
 	 * returned by the query and post_filter phases, using a secondary (usually more costly) algorithm,
 	 * instead of applying the costly algorithm to all documents in the index.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-request-rescore.html[Rescoring] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-request-rescore.html[Rescoring] for more detail.
 	 */
 	public class RescoreUsageTests : SearchUsageTestBase
 	{

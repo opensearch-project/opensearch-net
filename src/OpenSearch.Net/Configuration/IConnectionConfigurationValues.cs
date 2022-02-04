@@ -62,7 +62,7 @@ namespace OpenSearch.Net
 		/// </summary>
 		X509CertificateCollection ClientCertificates { get; }
 
-		/// <summary> The connection implementation to use when talking with Elasticsearch </summary>
+		/// <summary> The connection implementation to use when talking with OpenSearch </summary>
 		IConnection Connection { get; }
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace OpenSearch.Net
 		/// </summary>
 		int ConnectionLimit { get; }
 
-		/// <summary> The connection pool to use when talking with Elasticsearch </summary>
+		/// <summary> The connection pool to use when talking with OpenSearch </summary>
 		IConnectionPool ConnectionPool { get; }
 
 		/// <summary>
@@ -96,7 +96,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// When set to true will disable (de)serializing directly to the request and response stream and return a byte[]
-		/// copy of the raw request and response on Elasticsearch calls. Defaults to  false
+		/// copy of the raw request and response on OpenSearch calls. Defaults to  false
 		/// </summary>
 		bool DisableDirectStreaming { get; }
 
@@ -109,7 +109,7 @@ namespace OpenSearch.Net
 		bool DisablePings { get; }
 
 		/// <summary>
-		/// Enable gzip compressed requests and responses, do note that you need to configure Elasticsearch to set this
+		/// Enable gzip compressed requests and responses, do note that you need to configure OpenSearch to set this
 		/// <para></para>
 		/// </summary>
 		bool EnableHttpCompression { get; }
@@ -144,7 +144,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// When a retryable exception occurs or status code is returned this controls the maximum
-		/// amount of times we should retry the call to Elasticsearch
+		/// amount of times we should retry the call to OpenSearch
 		/// </summary>
 		int? MaxRetries { get; }
 
@@ -186,7 +186,7 @@ namespace OpenSearch.Net
 		TimeSpan? PingTimeout { get; }
 
 		/// <summary>
-		/// Forces all requests to have ?pretty=true, causing Elasticsearch to return formatted json.
+		/// Forces all requests to have ?pretty=true, causing OpenSearch to return formatted json.
 		/// Also forces the client to send out formatted json. Defaults to false
 		/// </summary>
 		bool PrettyJson { get; }
@@ -215,7 +215,7 @@ namespace OpenSearch.Net
 		IOpenSearchSerializer RequestResponseSerializer { get; }
 
 		/// <summary>
-		/// The timeout in milliseconds for each request to Elasticsearch
+		/// The timeout in milliseconds for each request to OpenSearch
 		/// </summary>
 		TimeSpan RequestTimeout { get; }
 
@@ -225,7 +225,7 @@ namespace OpenSearch.Net
 		Func<object, X509Certificate, X509Chain, SslPolicyErrors, bool> ServerCertificateValidationCallback { get; }
 
 		/// <summary>
-		/// Configure the client to skip deserialization of certain status codes e.g: you run Elasticsearch behind a proxy that returns an unexpected
+		/// Configure the client to skip deserialization of certain status codes e.g: you run OpenSearch behind a proxy that returns an unexpected
 		/// json format
 		/// </summary>
 		IReadOnlyCollection<int> SkipDeserializationForStatusCodes { get; }
@@ -248,7 +248,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Instead of following a c/go like error checking on response.IsValid do throw an exception (except when <see cref="IApiCallDetails.SuccessOrKnownError"/> is false)
-		/// on the client when a call resulted in an exception on either the client or the Elasticsearch server.
+		/// on the client when a call resulted in an exception on either the client or the OpenSearch server.
 		/// <para>Reasons for such exceptions could be search parser errors, index missing exceptions, etc...</para>
 		/// </summary>
 		bool ThrowExceptions { get; }
@@ -257,7 +257,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// The user agent string to send with requests. Useful for debugging purposes to understand client and framework
-		/// versions that initiate requests to Elasticsearch
+		/// versions that initiate requests to OpenSearch
 		/// </summary>
 		string UserAgent { get; }
 

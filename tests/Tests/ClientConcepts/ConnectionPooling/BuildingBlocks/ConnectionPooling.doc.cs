@@ -50,11 +50,11 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		 * --
 		 * Despite the name, a connection pool in NEST is **not** like connection pooling that you may be familiar with from
 		 * https://msdn.microsoft.com/en-us/library/bb399543(v=vs.110).aspx[interacting with a database using ADO.Net]; for example,
-		 * a connection pool in NEST is **not** responsible for managing an underlying pool of TCP connections to Elasticsearch,
+		 * a connection pool in NEST is **not** responsible for managing an underlying pool of TCP connections to OpenSearch,
 		 * this is https://blogs.msdn.microsoft.com/adarshk/2005/01/02/understanding-system-net-connection-management-and-servicepointmanager/[handled by the ServicePointManager in Desktop CLR].
 		 * --
 		 *
-		 * So, what is a connection pool in NEST responsible for? It is responsible for managing the nodes in an Elasticsearch
+		 * So, what is a connection pool in NEST responsible for? It is responsible for managing the nodes in an OpenSearch
 		 * cluster to which a connection can be made and there is one instance of an `IConnectionPool` associated with an
 		 * instance of `ConnectionSettings`. Since a <<lifetimes,single client and connection settings instance is recommended for the
 		 * life of the application>>, the lifetime of a single connection pool instance will also be bound to the lifetime
@@ -74,7 +74,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		* ==== SingleNodeConnectionPool
 		*
 		* The simplest of all connection pools and the default if no connection pool is explicitly passed to the `ConnectionSettings` constructor.
-		* It takes a single `Uri` and uses that to connect to Elasticsearch for all the calls. Single node connection pool doesn't opt in to
+		* It takes a single `Uri` and uses that to connect to OpenSearch for all the calls. Single node connection pool doesn't opt in to
 		* sniffing or pinging behavior and will never mark nodes dead or alive. The one `Uri` it holds is always ready to go.
 		*
 		* Single node connection pool is the pool to use if your cluster contains only a single node or you are interacting with
@@ -116,15 +116,15 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		* ==== CloudConnectionPool
 		*
 		* A specialized subclass of `SingleNodeConnectionPool` that accepts a Cloud Id and credentials.
-		* When used the client will also pick Elastic Cloud optimized defaults for the connection settings.
+		* When used the client will also pick OpenSearch Cloud optimized defaults for the connection settings.
 		 *
-		 * A Cloud Id for your cluster can be fetched from your Elastic Cloud cluster administration console.
+		 * A Cloud Id for your cluster can be fetched from your OpenSearch Cloud cluster administration console.
 		 *
 		 * A Cloud Id should be in the form of `cluster_name:base_64_data` where `base_64_data` are the UUIDs for the services in this cloud instance e.g
 		 *
-		 * `host_name$elasticsearch_uuid$kibana_uuid$apm_uuid`
+		 * `host_name$opensearch_uuid$opensearchDashboards_uuid$apm_uuid`
 		 *
-		 * Out of these, only `host_name` and `elasticsearch_uuid` are always available.
+		 * Out of these, only `host_name` and `opensearch_uuid` are always available.
 		 *
 		*/
 		[U] public void CloudConnectionPool()
@@ -134,17 +134,17 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			// hide
 			var hostName = "cloud-endpoint.example";
 			// hide
-			var elasticsearchUuid = "3dadf823f05388497ea684236d918a1a";
+			var opensearchUuid = "3dadf823f05388497ea684236d918a1a";
 			// hide
-			var services = $"{hostName}${elasticsearchUuid}$3f26e1609cf54a0f80137a80de560da4";
+			var services = $"{hostName}${opensearchUuid}$3f26e1609cf54a0f80137a80de560da4";
 			// hide
 			var cloudId = $"my_cluster:{ToBase64(services)}";
 
 			/**
 			 * A cloud connection pool can be created using credentials and a `cloudId`
 			 */
-			var credentials = new BasicAuthenticationCredentials("username", "password"); // <1> a username and password that can access Elasticsearch service on Elastic Cloud
-			var pool = new CloudConnectionPool(cloudId, credentials); // <2> `cloudId` is a value that can be retrieved from the Elastic Cloud web console
+			var credentials = new BasicAuthenticationCredentials("username", "password"); // <1> a username and password that can access OpenSearch service on OpenSearch Cloud
+			var pool = new CloudConnectionPool(cloudId, credentials); // <2> `cloudId` is a value that can be retrieved from the OpenSearch Cloud web console
 			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			// hide
@@ -153,7 +153,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 				pool.Nodes.Should().HaveCount(1);
 				var node = pool.Nodes.First();
 				node.Uri.Port.Should().Be(443);
-				node.Uri.Host.Should().Be($"{elasticsearchUuid}.{hostName}");
+				node.Uri.Host.Should().Be($"{opensearchUuid}.{hostName}");
 				node.Uri.Scheme.Should().Be("https");
 			}
 

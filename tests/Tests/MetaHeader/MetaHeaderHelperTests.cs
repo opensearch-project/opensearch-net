@@ -164,38 +164,6 @@ namespace Tests.MetaHeader
 			public void OnNext(SnapshotStatusResponse value) { }
 		}
 
-		[U] public void RestoreHelperRequestsIncludeExpectedHelperMetaData()
-		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-			// We can avoid specifying response bodies and this still exercises all requests.
-			var responses = new List<(int, string)>
-			{
-				(200, "{}"),
-				(200, "{}")
-			};
-
-			var connection = new TestableInMemoryConnection(a =>
-				a.RequestMetaData.Single(x => x.Key == "helper").Value.Should().Be("sr"), responses);
-			var settings = new ConnectionSettings(pool, connection);
-			var client = new OpenSearchClient(settings);
-
-			var observableRestore = new RestoreObservable(client, new RestoreRequest("repository-a", "snapshot-a"));
-			var observer = new RestoreObserver(connection);
-			using var subscription = observableRestore.Subscribe(observer);
-		}
-
-		private class RestoreObserver : IObserver<RecoveryStatusResponse>
-		{
-			private readonly TestableInMemoryConnection _connection;
-
-			public RestoreObserver(TestableInMemoryConnection connection) => _connection = connection;
-
-			public void OnCompleted() => _connection.AssertExpectedCallCount();
-			public void OnError(Exception error) => throw new NotImplementedException();
-			public void OnNext(RecoveryStatusResponse value) { }
-		}
-
 		protected static IEnumerable<SmallObject> CreateLazyStreamOfDocuments(int count)
 		{
 			for (var i = 0; i < count; i++)

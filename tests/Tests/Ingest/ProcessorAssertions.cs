@@ -64,7 +64,7 @@ namespace Tests.Ingest
 			from t in typeof(ProcessorAssertions).GetNestedTypes()
 			where typeof(IProcessorAssertion).IsAssignableFrom(t) && t.IsClass
 			let a = t.GetCustomAttributes(typeof(SkipVersionAttribute)).FirstOrDefault() as SkipVersionAttribute
-			where a == null || !a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.ElasticsearchVersion))
+			where a == null || !a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion))
 			select (IProcessorAssertion)Activator.CreateInstance(t);
 
 		public static IProcessor[] Initializers => All.Select(a => a.Initializer).ToArray();

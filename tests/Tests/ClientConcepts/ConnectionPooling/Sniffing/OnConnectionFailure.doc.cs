@@ -46,7 +46,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 		* Sniffing on connection is enabled by default when using a connection pool that allows reseeding.
 		* The only connection pool we ship with that allows this is the <<sniffing-connection-pool, Sniffing connection pool>>.
 		*
-		* This can be very handy to force a refresh of the connection pool's known healthy nodes by asking the Elasticsearch cluster itself, and
+		* This can be very handy to force a refresh of the connection pool's known healthy nodes by asking the OpenSearch cluster itself, and
 		* a sniff tries to get the nodes by asking each node it currently knows about, until one responds.
 		*/
 

@@ -68,7 +68,7 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// Helper to create a certificate validation callback based on the certificate authority certificate that we used to
 		/// generate the nodes certificates with. This callback does NOT expect the CA to be part of the chain presented by the server.
-		/// Including the root certificate in the chain increases the SSL handshake size and Elasticsearch's certgen by default does not include
+		/// Including the root certificate in the chain increases the SSL handshake size and OpenSearch's certgen by default does not include
 		/// the CA in the certificate chain.
 		/// </summary>
 		/// <param name="caCertificate">The ca certificate used to generate the nodes certificate </param>

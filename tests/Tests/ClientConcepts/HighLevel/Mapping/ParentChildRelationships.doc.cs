@@ -64,7 +64,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		* There is no requirement that the parent and child .NET types are related at all. The types could be plain POCO's or `MyChild`
 		* could be a subclass of `MyParent`. The only requirement is that they have **a** property where the property type is `JoinField`.
 		*
-		* As per Elasticsearch's constraints you should only have **a single** property of type JoinField on your POCO.
+		* As per OpenSearch's constraints you should only have **a single** property of type JoinField on your POCO.
 		*
 		*/
 		public abstract class MyDocument
@@ -273,7 +273,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * A parent and all of it's (grand)children still need to live on the same shard so you still need to take care of specifying routing.
 		 *
 		 * In the past you would have to provide the parent id on the request using `parent=<parentid>` this was always an alias for routing
-		 * and thus in Elasticsearch you need to provide `routing=<parentid>` instead.
+		 * and thus in OpenSearch you need to provide `routing=<parentid>` instead.
 		 *
 		 * NEST has a handy helper to infer the correct routing value given a document that is smart enough to find the join field and infer
 		 * correct parent.

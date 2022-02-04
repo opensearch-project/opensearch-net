@@ -30,7 +30,7 @@ using System.Linq;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -57,7 +57,7 @@ namespace Tests.QueryDsl.Compound.Bool
 	 *
 	 * Check out the <<bool-queries,`bool` queries section>> for more details on `bool` queries with NEST.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-bool-query.html[bool query] for more details.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-bool-query.html[bool query] for more details.
 	 */
 	public class BoolQueryUsageTests : QueryDslUsageTestsBase
 	{

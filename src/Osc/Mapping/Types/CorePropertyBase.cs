@@ -32,7 +32,7 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// Core properties of a mapping for a property type to a document field in Elasticsearch
+	/// Core properties of a mapping for a property type to a document field in OpenSearch
 	/// </summary>
 	[InterfaceDataContract]
 	public interface ICoreProperty : IProperty

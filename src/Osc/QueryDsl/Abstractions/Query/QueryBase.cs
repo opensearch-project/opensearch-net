@@ -45,7 +45,7 @@ namespace Osc
 
 		/// <summary>
 		/// Whether the query is conditionless. A conditionless query is not serialized as part of the request
-		/// sent to Elasticsearch.
+		/// sent to OpenSearch.
 		/// </summary>
 		[IgnoreDataMember]
 		bool Conditionless { get; }

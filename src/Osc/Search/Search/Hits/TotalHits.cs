@@ -38,7 +38,7 @@ namespace Osc
 	/// can't generally be computed accurately without visiting all matches, which
 	/// is costly for queries that match lots of documents. Given that it is often
 	/// enough to have a lower bounds of the number of hits, such as
-	/// "there are more than 1000 hits", Elasticsearch has options to stop counting as soon
+	/// "there are more than 1000 hits", OpenSearch has options to stop counting as soon
 	/// as a threshold has been reached in order to improve query times.
 	/// </summary>
 	[JsonFormatter(typeof(TotalHitsFormatter))]

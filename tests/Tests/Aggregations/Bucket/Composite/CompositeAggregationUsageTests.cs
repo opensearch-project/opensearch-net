@@ -33,7 +33,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Configuration;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -51,7 +51,7 @@ namespace Tests.Aggregations.Bucket.Composite
      * The composite buckets are built from the combinations of the values extracted/created
 	 * for each document and each combination is considered as a composite bucket.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-composite-aggregation.html[Composite Aggregation].
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-composite-aggregation.html[Composite Aggregation].
 	*/
 	public class CompositeAggregationUsageTests : ProjectsOnlyAggregationUsageTestBase
 	{

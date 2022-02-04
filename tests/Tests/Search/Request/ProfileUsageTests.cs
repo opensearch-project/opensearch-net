@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -47,7 +47,7 @@ namespace Tests.Search.Request
 	* The output from the Profile API is very verbose, especially for complicated queries executed across many shards.
 	* Pretty-printing the response is recommended to help understand the output
 	*
-	* See the Elasticsearch documentation on {ref_current}/search-profile.html[Profile API] for more detail.
+	* See the OpenSearch documentation on {ref_current}/search-profile.html[Profile API] for more detail.
 	*/
 	public class ProfileUsageTests : SearchUsageTestBase
 	{

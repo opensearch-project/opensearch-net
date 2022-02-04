@@ -46,7 +46,7 @@ using OpenSearch.Net.Extensions;
 namespace OpenSearch.Net
 {
 	/// <summary>
-	/// Allows you to control how <see cref="OpenSearchLowLevelClient"/> behaves and where/how it connects to Elasticsearch
+	/// Allows you to control how <see cref="OpenSearchLowLevelClient"/> behaves and where/how it connects to OpenSearch
 	/// </summary>
 	public class ConnectionConfiguration : ConnectionConfiguration<ConnectionConfiguration>
 	{
@@ -70,7 +70,7 @@ namespace OpenSearch.Net
 		public static readonly TimeSpan DefaultPingTimeoutOnSSL = TimeSpan.FromSeconds(5);
 
 		/// <summary>
-		/// The default timeout before the client aborts a request to Elasticsearch.
+		/// The default timeout before the client aborts a request to OpenSearch.
 		/// Defaults to 1 minute
 		/// </summary>
 		public static readonly TimeSpan DefaultTimeout = TimeSpan.FromMinutes(1);
@@ -92,24 +92,24 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// The default user agent for OpenSearch.Net
 		/// </summary>
-		public static readonly string DefaultUserAgent = $"elasticsearch-net/{typeof(IConnectionConfigurationValues).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion} ({RuntimeInformation.OSDescription}; {RuntimeInformation.FrameworkDescription}; OpenSearch.Net)";
+		public static readonly string DefaultUserAgent = $"opensearch-net/{typeof(IConnectionConfigurationValues).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion} ({RuntimeInformation.OSDescription}; {RuntimeInformation.FrameworkDescription}; OpenSearch.Net)";
 
 		/// <summary>
 		/// Creates a new instance of <see cref="ConnectionConfiguration"/>
 		/// </summary>
-		/// <param name="uri">The root of the Elasticsearch node we want to connect to. Defaults to http://localhost:9200</param>
+		/// <param name="uri">The root of the OpenSearch node we want to connect to. Defaults to http://localhost:9200</param>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
 		public ConnectionConfiguration(Uri uri = null)
 			: this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200"))) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// </summary>
 		public ConnectionConfiguration(string cloudId, BasicAuthenticationCredentials credentials) : this(new CloudConnectionPool(cloudId, credentials)) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// </summary>
 		public ConnectionConfiguration(string cloudId, ApiKeyAuthenticationCredentials credentials) : this(new CloudConnectionPool(cloudId, credentials)) { }
@@ -354,7 +354,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Enables gzip compressed requests and responses.
-		/// <para>IMPORTANT: You need to configure http compression on Elasticsearch to be able to use this</para>
+		/// <para>IMPORTANT: You need to configure http compression on OpenSearch to be able to use this</para>
 		/// <para></para>
 		/// </summary>
 		public T EnableHttpCompression(bool enabled = true) => Assign(enabled, (a, v) => a._enableHttpCompression = v);
@@ -372,7 +372,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Instead of following a c/go like error checking on response.IsValid do throw an exception (except when <see cref="IApiCallDetails.SuccessOrKnownError"/> is false)
-		/// on the client when a call resulted in an exception on either the client or the Elasticsearch server.
+		/// on the client when a call resulted in an exception on either the client or the OpenSearch server.
 		/// <para>Reasons for such exceptions could be search parser errors, index missing exceptions, etc...</para>
 		/// </summary>
 		public T ThrowExceptions(bool alwaysThrow = true) => Assign(alwaysThrow, (a, v) => a._throwExceptions = v);
@@ -397,8 +397,8 @@ namespace OpenSearch.Net
 		public T GlobalHeaders(NameValueCollection headers) => Assign(headers, (a, v) => a._headers.Add(v));
 
 		/// <summary>
-		/// Sets the default timeout in milliseconds for each request to Elasticsearch. Defaults to <c>60</c> seconds.
-		/// <para>NOTE: You can set this to a high value here, and specify a timeout on Elasticsearch's side.</para>
+		/// Sets the default timeout in milliseconds for each request to OpenSearch. Defaults to <c>60</c> seconds.
+		/// <para>NOTE: You can set this to a high value here, and specify a timeout on OpenSearch's side.</para>
 		/// </summary>
 		/// <param name="timeout">time out in milliseconds</param>
 		public T RequestTimeout(TimeSpan timeout) => Assign(timeout, (a, v) => a._requestTimeout = v);
@@ -460,7 +460,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Forces all requests to have ?pretty=true querystring parameter appended,
-		/// causing Elasticsearch to return formatted JSON.
+		/// causing OpenSearch to return formatted JSON.
 		/// Defaults to <c>false</c>
 		/// </summary>
 		public T PrettyJson(bool b = true) => Assign(b, (a, v) =>
@@ -474,7 +474,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Forces all requests to have ?error_trace=true querystring parameter appended,
-		/// causing Elasticsearch to return stack traces as part of serialized exceptions
+		/// causing OpenSearch to return stack traces as part of serialized exceptions
 		/// Defaults to <c>false</c>
 		/// </summary>
 		public T IncludeServerStackTraceOnError(bool b = true) => Assign(b, (a, v) =>
@@ -495,7 +495,7 @@ namespace OpenSearch.Net
 		public T DisableDirectStreaming(bool b = true) => Assign(b, (a, v) => a._disableDirectStreaming = v);
 
 		/// <summary>
-		/// Registers an <see cref="Action{IApiCallDetails}" /> that is called when a response is received from Elasticsearch.
+		/// Registers an <see cref="Action{IApiCallDetails}" /> that is called when a response is received from OpenSearch.
 		/// This can be useful for implementing custom logging.
 		/// Multiple callbacks can be registered by calling this multiple times
 		/// </summary>
@@ -510,38 +510,38 @@ namespace OpenSearch.Net
 			Assign(handler, (a, v) => a._onRequestDataCreated += v ?? DefaultRequestDataCreated);
 
 		/// <summary>
-		/// Basic Authentication credentials to send with all requests to Elasticsearch
+		/// Basic Authentication credentials to send with all requests to OpenSearch
 		/// </summary>
 		public T BasicAuthentication(string username, string password) =>
 			Assign(new BasicAuthenticationCredentials(username, password), (a, v) => a._basicAuthCredentials = v);
 
 		/// <summary>
-		/// Basic Authentication credentials to send with all requests to Elasticsearch
+		/// Basic Authentication credentials to send with all requests to OpenSearch
 		/// </summary>
 		public T BasicAuthentication(string username, SecureString password) =>
 			Assign(new BasicAuthenticationCredentials(username, password), (a, v) => a._basicAuthCredentials = v);
 
 		/// <summary>
-		/// Api Key to send with all requests to Elasticsearch
+		/// Api Key to send with all requests to OpenSearch
 		/// </summary>
 		public T ApiKeyAuthentication(string id, SecureString apiKey) =>
 			Assign(new ApiKeyAuthenticationCredentials(id, apiKey), (a, v) => a._apiKeyAuthCredentials = v);
 
 		/// <summary>
-		/// Api Key to send with all requests to Elasticsearch
+		/// Api Key to send with all requests to OpenSearch
 		/// </summary>
 		public T ApiKeyAuthentication(string id, string apiKey) =>
 			Assign(new ApiKeyAuthenticationCredentials(id, apiKey), (a, v) => a._apiKeyAuthCredentials = v);
 
 		/// <summary>
-		/// Api Key to send with all requests to Elasticsearch
+		/// Api Key to send with all requests to OpenSearch
 		/// </summary>
 		public T ApiKeyAuthentication(ApiKeyAuthenticationCredentials credentials) =>
 			Assign(credentials, (a, v) => a._apiKeyAuthCredentials = v);
 
 		/// <summary>
 		/// Allows for requests to be pipelined. http://en.wikipedia.org/wiki/HTTP_pipelining
-		/// <para>NOTE: HTTP pipelining must also be enabled in Elasticsearch for this to work properly.</para>
+		/// <para>NOTE: HTTP pipelining must also be enabled in OpenSearch for this to work properly.</para>
 		/// </summary>
 		public T EnableHttpPipelining(bool enabled = true) => Assign(enabled, (a, v) => a._enableHttpPipelining = v);
 
@@ -603,7 +603,7 @@ namespace OpenSearch.Net
 			Assign(new X509Certificate2Collection { new X509Certificate(certificatePath) }, (a, v) => a._clientCertificates = v);
 
 		/// <summary>
-		/// Configure the client to skip deserialization of certain status codes e.g: you run Elasticsearch behind a proxy that returns a HTML for 401,
+		/// Configure the client to skip deserialization of certain status codes e.g: you run OpenSearch behind a proxy that returns a HTML for 401,
 		/// 500
 		/// </summary>
 		public T SkipDeserializationForStatusCodes(params int[] statusCodes) =>
@@ -611,7 +611,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// The user agent string to send with requests. Useful for debugging purposes to understand client and framework
-		/// versions that initiate requests to Elasticsearch
+		/// versions that initiate requests to OpenSearch
 		/// </summary>
 		public T UserAgent(string userAgent) => Assign(userAgent, (a, v) => a._userAgent = v);
 

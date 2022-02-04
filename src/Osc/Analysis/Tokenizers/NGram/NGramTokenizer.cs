@@ -51,7 +51,7 @@ namespace Osc
 		int? MinGram { get; set; }
 
 		/// <summary>
-		/// Characters classes to keep in the tokens, Elasticsearch will
+		/// Characters classes to keep in the tokens, OpenSearch will
 		/// split on characters that don’t belong to any of these classes.
 		/// </summary>
 		[DataMember(Name ="token_chars")]

@@ -87,7 +87,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -172,7 +172,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -224,7 +224,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -284,7 +284,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -357,7 +357,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -491,7 +491,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -561,7 +561,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -635,7 +635,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -737,7 +737,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -830,7 +830,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -909,7 +909,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -964,7 +964,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1104,7 +1104,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1307,7 +1307,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1374,7 +1374,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1425,7 +1425,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1502,7 +1502,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1566,7 +1566,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>
@@ -1639,7 +1639,7 @@ namespace Osc
 		///<summary>
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
-		/// <para>Elasticsearch will use the document id if not provided. </para>
+		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document NEST will automatically infer the routing key
 		/// if that document has a <see cref = "Osc.JoinField"/> or a routing mapping on for its type exists on <see cref = "Osc.ConnectionSettings"/></para> 
 		///</summary>

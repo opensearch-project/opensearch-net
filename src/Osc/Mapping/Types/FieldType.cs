@@ -89,7 +89,7 @@ namespace Osc
 
 		/// <summary>
 		/// object type, no need to set this manually if its not a value type this will be set.
-		/// Only set this if you need to force a value type to be mapped to an Elasticsearch object type.
+		/// Only set this if you need to force a value type to be mapped to an OpenSearch object type.
 		/// </summary>
 		[EnumMember(Value = "object")]
 		Object,

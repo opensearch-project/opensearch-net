@@ -38,7 +38,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		/**[[document-paths]]
 		 * === Document paths
 		 *
-		 * Many APIs in Elasticsearch describe a path to a document. In NEST, besides generating a constructor that takes
+		 * Many APIs in OpenSearch describe a path to a document. In NEST, besides generating a constructor that takes
 		 * an Index and Id separately, we also generate a constructor that allows you to describe the path
 		 * to your document more succinctly using a an instance of the `DocumentPath<T>` type.
 		 */

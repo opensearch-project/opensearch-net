@@ -28,7 +28,7 @@
 using System;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -40,7 +40,7 @@ namespace Tests.QueryDsl.Specialized.Pinned
 	 * Promotes selected documents to rank higher than those matching a given query. This feature is typically used to
 	 * guide searchers to curated documents that are promoted over and above any "organic" matches for a search. The promoted or "pinned"
 	 * documents are identified using the document IDs stored in the _id field.
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-pinned-query.html[pinned query] for more details.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-pinned-query.html[pinned query] for more details.
 	*/
 	public class PinnedQueryUsageTests : QueryDslUsageTestsBase
 	{

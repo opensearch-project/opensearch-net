@@ -170,7 +170,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * You can even take the visitor approach a step further, and instead of visiting on `IProperty` types, visit
 		 * directly on your POCO reflected `PropertyInfo` properties.
 		 *
-		 * As an example, let's create a visitor that maps all CLR types to an Elasticsearch text datatype (`ITextProperty`).
+		 * As an example, let's create a visitor that maps all CLR types to an OpenSearch text datatype (`ITextProperty`).
 		 */
 		public class EverythingIsATextPropertyVisitor : NoopPropertyVisitor
 		{

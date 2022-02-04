@@ -40,7 +40,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		 *
 		 * ==== Implicit conversion
 		 *
-		 * Several places in the Elasticsearch API expect an instance of the `Id` type to be passed.
+		 * Several places in the OpenSearch API expect an instance of the `Id` type to be passed.
 		 * This is a special type that you can implicitly convert to from the following types
 		 *
 		 * - `Int32`
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* instance to build up a path.
 		* There is no implicit conversion from any object to `Id`, but we can call `Id.From`.
 		*
-		* Imagine your codebase has the following type that we want to index into Elasticsearch
+		* Imagine your codebase has the following type that we want to index into OpenSearch
 		*/
 		class MyDTO
 		{

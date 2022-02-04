@@ -71,7 +71,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 			var testcases = new[,]
 			{
 				{"helloworld/[::1]:9200", "helloworld", "[::1]", "9200"},
-				{"elastic.co/192.168.2.1:231", "elastic.co", "192.168.2.1", "231"}
+				{"opensearch.org/192.168.2.1:231", "opensearch.org", "192.168.2.1", "231"}
 			};
 
 			for (var i = 0; i < testcases.GetLength(0); i++)

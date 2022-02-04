@@ -50,7 +50,7 @@ namespace Osc
 		[DataMember(Name = "contexts")]
 		IDictionary<string, IEnumerable<Context>> Contexts { get; }
 
-		// TODO this should be reported to elastic/elasticsearch
+		// TODO this should be reported to opensearch-project/opensearch-net
 		[DataMember(Name = "_score")]
 		double? DocumentScore { get; }
 

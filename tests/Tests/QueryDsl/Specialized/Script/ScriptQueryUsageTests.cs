@@ -27,7 +27,7 @@
 
 using System.Collections.Generic;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -36,7 +36,7 @@ namespace Tests.QueryDsl.Specialized.Script
 	/**
 	* A query allowing to define {ref_current}/modules-scripting.html[scripts] as queries.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-script-query.html[script query] for more details.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-script-query.html[script query] for more details.
 	*/
 	public class ScriptQueryUsageTests : QueryDslUsageTestsBase
 	{

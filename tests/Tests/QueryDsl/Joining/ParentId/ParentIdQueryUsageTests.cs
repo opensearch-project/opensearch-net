@@ -26,7 +26,7 @@
 */
 
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -35,7 +35,7 @@ namespace Tests.QueryDsl.Joining.ParentId
 	/**
 	 * The `parent_id` query can be used to find child documents which belong to a particular parent.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-parent-id-query.html[parent_id query] for more details.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-parent-id-query.html[parent_id query] for more details.
 	 */
 	public class ParentIdQueryUsageTests : QueryDslUsageTestsBase
 	{

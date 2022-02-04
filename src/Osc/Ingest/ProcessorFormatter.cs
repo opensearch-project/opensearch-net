@@ -67,7 +67,6 @@ namespace Osc
 			{ "pipeline", 28 },
 			{ "drop", 29 },
 			{ "circle", 30 },
-			{ "enrich", 31 },
 			{ "csv", 32 },
 			{ "uri_parts", 33 },
 			{ "fingerprint", 34 },
@@ -186,9 +185,6 @@ namespace Osc
 					case 30:
 						processor = Deserialize<CircleProcessor>(ref reader, formatterResolver);
 						break;
-					case 31:
-						processor = Deserialize<EnrichProcessor>(ref reader, formatterResolver);
-						break;
 					case 32:
 						processor = Deserialize<CsvProcessor>(ref reader, formatterResolver);
 						break;
@@ -245,9 +241,6 @@ namespace Osc
 					break;
 				case "dot_expander":
 					Serialize<IDotExpanderProcessor>(ref writer, value, formatterResolver);
-					break;
-				case "enrich":
-					Serialize<IEnrichProcessor>(ref writer, value, formatterResolver);
 					break;
 				case "fail":
 					Serialize<IFailProcessor>(ref writer, value, formatterResolver);

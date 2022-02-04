@@ -27,7 +27,7 @@
 
 using System.Linq;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -38,7 +38,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 	* analyzed and thus must match exactly. The number of terms that must match varies per document and
 	* is either controlled by a minimum should match field or computed per document in a minimum should match script.
 	*
-	* Be sure to read the Elasticsearch documentation on {ref_current}/query-dsl-terms-set-query.html[Terms Set query] for more information.
+	* Be sure to read the OpenSearch documentation on {ref_current}/query-dsl-terms-set-query.html[Terms Set query] for more information.
 	*
 	* [float]
 	*=== Minimum should match with field

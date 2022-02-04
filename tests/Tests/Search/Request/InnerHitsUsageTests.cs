@@ -34,7 +34,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -227,7 +227,7 @@ namespace Tests.Search.Request
 	*
 	* Inner hits can be used by defining an `inner_hits` definition on a `nested`, `has_child` or `has_parent` query and filter.
 	*
-	* See the Elasticsearch documentation on {ref_current}/search-request-body.html#request-body-search-inner-hits[Inner hits] for more detail.
+	* See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-inner-hits[Inner hits] for more detail.
 	*/
 	public abstract class InnerHitsApiTestsBase<TRoyal>
 		: ApiIntegrationTestBase<IntrusiveOperationCluster, ISearchResponse<TRoyal>,

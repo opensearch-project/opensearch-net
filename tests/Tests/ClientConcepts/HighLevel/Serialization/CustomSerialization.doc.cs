@@ -126,7 +126,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * If implementing `IOpenSearchSerializer` is enough, why do we need to provide an instance wrapped in a factory `Func`?
 		 *
 		 * There are various cases where you might have a POCO type that contains a NEST type as one of its properties. For example,
-		 * consider if you want to use percolation; you need to store Elasticsearch queries as part of the `_source` of your document,
+		 * consider if you want to use percolation; you need to store OpenSearch queries as part of the `_source` of your document,
 		 * which means you need to have a POCO that looks something like this
 		 */
 		public class MyPercolationDocument
@@ -147,7 +147,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * using `Json.NET`, that is smart enough to delegate the serialization of known NEST types back to the built-in
 		 * `RequestResponseSerializer`. This package is also useful if
 		 *
-		 * . You want to control how your documents and values are stored and retrieved from Elasticsearch using `Json.NET`
+		 * . You want to control how your documents and values are stored and retrieved from OpenSearch using `Json.NET`
 		 * . You want to use `Newtonsoft.Json.Linq` types such as `JObject` within your documents
 		 *
 		 * The easiest way to hook this custom source serializer up is as follows

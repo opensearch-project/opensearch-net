@@ -33,15 +33,15 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 {
 	public static class SniffResponseBytes
 	{
-		private static string ClusterName => "elasticsearch-test-cluster";
+		private static string ClusterName => "opensearch-test-cluster";
 
-		//version = TestConfiguration.Instance.ElasticsearchVersion,
-		public static byte[] Create(IEnumerable<Node> nodes, string elasticsearchVersion,string publishAddressOverride, bool randomFqdn = false)
+		//version = TestConfiguration.Instance.OpenSearchVersion,
+		public static byte[] Create(IEnumerable<Node> nodes, string opensearchVersion,string publishAddressOverride, bool randomFqdn = false)
 		{
 			var response = new
 			{
 				cluster_name = ClusterName,
-				nodes = SniffResponseNodes(nodes, elasticsearchVersion, publishAddressOverride, randomFqdn)
+				nodes = SniffResponseNodes(nodes, opensearchVersion, publishAddressOverride, randomFqdn)
 			};
 			using (var ms = RecyclableMemoryStreamFactory.Default.Create())
 			{
@@ -52,7 +52,7 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 
 		private static IDictionary<string, object> SniffResponseNodes(
 			IEnumerable<Node> nodes,
-			string elasticsearchVersion,
+			string opensearchVersion,
 			string publishAddressOverride,
 			bool randomFqdn
 		) =>
@@ -60,9 +60,9 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 				let id = string.IsNullOrEmpty(node.Id) ? Guid.NewGuid().ToString("N").Substring(0, 8) : node.Id
 				let name = string.IsNullOrEmpty(node.Name) ? Guid.NewGuid().ToString("N").Substring(0, 8) : node.Name
 				select new { id, name, node })
-			.ToDictionary(kv => kv.id, kv => CreateNodeResponse(kv.node, kv.name, elasticsearchVersion, publishAddressOverride, randomFqdn));
+			.ToDictionary(kv => kv.id, kv => CreateNodeResponse(kv.node, kv.name, opensearchVersion, publishAddressOverride, randomFqdn));
 
-		private static object CreateNodeResponse(Node node, string name, string elasticsearchVersion, string publishAddressOverride, bool randomFqdn)
+		private static object CreateNodeResponse(Node node, string name, string opensearchVersion, string publishAddressOverride, bool randomFqdn)
 		{
 			var port = node.Uri.Port;
 			var fqdn = randomFqdn ? $"fqdn{port}/" : "";
@@ -81,7 +81,7 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 				transport_address = $"127.0.0.1:{port + 1000}]",
 				host = Guid.NewGuid().ToString("N").Substring(0, 8),
 				ip = "127.0.0.1",
-				version = elasticsearchVersion,
+				version = opensearchVersion,
 				build_hash = Guid.NewGuid().ToString("N").Substring(0, 8),
 				roles = new List<string>(),
 				http = node.HttpEnabled

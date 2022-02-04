@@ -27,7 +27,7 @@
 
 using System;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -46,7 +46,7 @@ namespace Tests.Search.Request
 				{
 					name = new
 					{
-						value = "elasticsearch"
+						value = "opensearch"
 					}
 				}
 			}
@@ -55,7 +55,7 @@ namespace Tests.Search.Request
 		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
 			.MinScore(0.5)
 			.Query(q => q
-				.Term(p => p.Name, "elasticsearch")
+				.Term(p => p.Name, "opensearch")
 			);
 
 		protected override SearchRequest<Project> Initializer =>
@@ -65,7 +65,7 @@ namespace Tests.Search.Request
 				Query = new TermQuery
 				{
 					Field = "name",
-					Value = "elasticsearch"
+					Value = "opensearch"
 				}
 			};
 	}

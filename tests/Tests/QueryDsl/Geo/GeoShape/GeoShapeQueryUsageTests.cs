@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -42,7 +42,7 @@ namespace Tests.QueryDsl.Geo.GeoShape
      * The query supports two ways of defining the query shape, either by providing a whole
 	 * shape definition, or by referencing the name of a shape pre-indexed in another index.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/query-dsl-geo-shape-query.html[geoshape queries] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/query-dsl-geo-shape-query.html[geoshape queries] for more detail.
 	 */
 	public abstract class GeoShapeQueryUsageTestsBase : QueryDslUsageTestsBase
 	{
@@ -187,7 +187,7 @@ namespace Tests.QueryDsl.Geo.GeoShape
 	 * [[geo-shape-query-multipoint]]
 	 * == Querying with MultiPoint
 	 *
-	 * NOTE: Elasticsearch required when MultiPoint is indexed using BKD trees (the default).
+	 * NOTE: OpenSearch required when MultiPoint is indexed using BKD trees (the default).
 	 */
 	public class GeoShapeMultiPointQueryUsageTests : GeoShapeQueryUsageTestsBase
 	{
@@ -690,7 +690,7 @@ namespace Tests.QueryDsl.Geo.GeoShape
 	* This is particularly useful for when you have a pre-defined list of shapes which are useful to your application and you want to reference this
 	* using a logical name (for example __New Zealand__), rather than having to provide their coordinates within the request each time.
 	*
-	* See the Elasticsearch documentation on {ref_current}/query-dsl-geo-shape-query.html[geoshape queries] for more detail.
+	* See the OpenSearch documentation on {ref_current}/query-dsl-geo-shape-query.html[geoshape queries] for more detail.
 	*/
 	public class GeoShapeIndexedShapeQueryUsageTests : QueryDslUsageTestsBase
 	{

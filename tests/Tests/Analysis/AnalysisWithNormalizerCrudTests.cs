@@ -26,7 +26,7 @@
 */
 
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 using static Tests.Framework.Extensions.Promisify;
 

@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -44,7 +44,7 @@ namespace Tests.Aggregations.Pipeline.MovingFunction
 	 *
      * This is conceptually very similar to the Moving Average pipeline aggregation, except it provides more functionality.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-pipeline-movfn-aggregation.html[Moving Function Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-pipeline-movfn-aggregation.html[Moving Function Aggregation]
 	 */
 	public class MovingFunctionAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

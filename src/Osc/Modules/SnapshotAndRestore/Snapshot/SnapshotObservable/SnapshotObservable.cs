@@ -35,7 +35,7 @@ namespace Osc
 {
 	public class SnapshotObservable : IDisposable, IObservable<SnapshotStatusResponse>
 	{
-		private readonly IOpenSearchClient _elasticClient;
+		private readonly IOpenSearchClient _opensearchClient;
 		private readonly TimeSpan _interval = TimeSpan.FromSeconds(2);
 		private readonly ISnapshotRequest _snapshotRequest;
 		private readonly SnapshotStatusHumbleObject _snapshotStatusHumbleObject;
@@ -45,21 +45,21 @@ namespace Osc
 		private EventHandler<SnapshotNextEventArgs> _nextEventHandler;
 		private Timer _timer;
 
-		public SnapshotObservable(IOpenSearchClient elasticClient, ISnapshotRequest snapshotRequest)
+		public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
 		{
-			elasticClient.ThrowIfNull(nameof(elasticClient));
+			opensearchClient.ThrowIfNull(nameof(opensearchClient));
 			snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
 
-			_elasticClient = elasticClient;
+			_opensearchClient = opensearchClient;
 			_snapshotRequest = snapshotRequest;
 			_snapshotRequest.RequestParameters.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
-			_snapshotStatusHumbleObject = new SnapshotStatusHumbleObject(elasticClient, snapshotRequest);
+			_snapshotStatusHumbleObject = new SnapshotStatusHumbleObject(opensearchClient, snapshotRequest);
 			_snapshotStatusHumbleObject.Completed += StopTimer;
 			_snapshotStatusHumbleObject.Error += StopTimer;
 		}
 
-		public SnapshotObservable(IOpenSearchClient elasticClient, ISnapshotRequest snapshotRequest, TimeSpan interval)
-			: this(elasticClient, snapshotRequest)
+		public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest, TimeSpan interval)
+			: this(opensearchClient, snapshotRequest)
 		{
 			interval.ThrowIfNull(nameof(interval));
 			if (interval.Ticks < 0) throw new ArgumentOutOfRangeException(nameof(interval));
@@ -76,7 +76,7 @@ namespace Osc
 			try
 			{
 				_snapshotRequest.RequestParameters.WaitForCompletion = false;
-				var snapshotResponse = _elasticClient.Snapshot.Snapshot(_snapshotRequest);
+				var snapshotResponse = _opensearchClient.Snapshot.Snapshot(_snapshotRequest);
 
 				if (!snapshotResponse.IsValid)
 					throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to create snapshot.", snapshotResponse.ApiCall);
@@ -173,15 +173,15 @@ namespace Osc
 
 	public class SnapshotStatusHumbleObject
 	{
-		private readonly IOpenSearchClient _elasticClient;
+		private readonly IOpenSearchClient _opensearchClient;
 		private readonly ISnapshotRequest _snapshotRequest;
 		
-		public SnapshotStatusHumbleObject(IOpenSearchClient elasticClient, ISnapshotRequest snapshotRequest)
+		public SnapshotStatusHumbleObject(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
 		{
-			elasticClient.ThrowIfNull(nameof(elasticClient));
+			opensearchClient.ThrowIfNull(nameof(opensearchClient));
 			snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
 
-			_elasticClient = elasticClient;
+			_opensearchClient = opensearchClient;
 			_snapshotRequest = snapshotRequest;
 		}
 
@@ -201,7 +201,7 @@ namespace Osc
 				snapshotRequest.RequestConfiguration.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
 
 				var snapshotStatusResponse =
-					_elasticClient.Snapshot.Status(snapshotRequest);
+					_opensearchClient.Snapshot.Status(snapshotRequest);
 
 				if (!snapshotStatusResponse.IsValid)
 					throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to get snapshot status.",

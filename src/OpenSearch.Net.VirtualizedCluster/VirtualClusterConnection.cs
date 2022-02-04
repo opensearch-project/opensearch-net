@@ -91,7 +91,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 				var response = new
 				{
 					name = "Razor Fist",
-					cluster_name = "elasticsearch-test-cluster",
+					cluster_name = "opensearch-test-cluster",
 					version = new
 					{
 						number = "2.0.0",
@@ -141,7 +141,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 						_cluster.SniffingRules,
 						requestData.RequestTimeout,
 						(r) => UpdateCluster(r.NewClusterState),
-						(r) => SniffResponseBytes.Create(_cluster.Nodes, _cluster.ElasticsearchVersion,_cluster.PublishAddressOverride, _cluster.SniffShouldReturnFqnd)
+						(r) => SniffResponseBytes.Create(_cluster.Nodes, _cluster.OpenSearchVersion,_cluster.PublishAddressOverride, _cluster.SniffShouldReturnFqnd)
 					);
 				}
 				if (IsPingRequest(requestData))

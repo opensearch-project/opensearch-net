@@ -44,7 +44,7 @@ namespace Osc
 	{
 		/// <summary> The default user agent for Nest </summary>
 		public static readonly string DefaultUserAgent =
-			$"elasticsearch-net/{typeof(IConnectionSettingsValues).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion} ({RuntimeInformation.OSDescription}; {RuntimeInformation.FrameworkDescription}; Nest)";
+			$"opensearch-net/{typeof(IConnectionSettingsValues).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion} ({RuntimeInformation.OSDescription}; {RuntimeInformation.FrameworkDescription}; Nest)";
 
 		/// <summary>
 		/// A delegate used to construct a serializer to serialize CLR types representing documents and other types related to
@@ -60,13 +60,13 @@ namespace Osc
 		public ConnectionSettings(Uri uri = null) : this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200"))) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// </summary>
 		public ConnectionSettings(string cloudId, BasicAuthenticationCredentials credentials) : this(new CloudConnectionPool(cloudId, credentials)) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// </summary>
 		public ConnectionSettings(string cloudId, ApiKeyAuthenticationCredentials credentials) : this(new CloudConnectionPool(cloudId, credentials)) { }
@@ -167,7 +167,7 @@ namespace Osc
 		/// By default, NEST camel cases property names.
 		/// </summary>
 		/// <example>
-		/// CLR property EmailAddress will be inferred as "emailAddress" Elasticsearch document field name
+		/// CLR property EmailAddress will be inferred as "emailAddress" OpenSearch document field name
 		/// </example>
 		public TConnectionSettings DefaultFieldNameInferrer(Func<string, string> fieldNameInferrer) =>
 			Assign(fieldNameInferrer, (a, v) => a._defaultFieldNameInferrer = v);
@@ -175,7 +175,7 @@ namespace Osc
 		/// <summary>
 		/// Disables automatic Id inference for given CLR types.
 		/// <para></para>
-		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to Elasticsearch. Adding a type
+		/// NEST by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
 		/// will disable this behaviour for that CLR type. If Id inference should be disabled for all CLR types, use
 		/// <see cref="DefaultDisableIdInference"/>
 		/// </summary>

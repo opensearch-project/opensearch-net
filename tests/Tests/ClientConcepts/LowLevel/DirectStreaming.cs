@@ -155,7 +155,7 @@ namespace Tests.ClientConcepts.LowLevel
 				.Query(q => q
 					.Match(m => m
 						.Field(p => p.Name)
-						.Query("elastic")
+						.Query("opensearch")
 					)
 				)
 			);

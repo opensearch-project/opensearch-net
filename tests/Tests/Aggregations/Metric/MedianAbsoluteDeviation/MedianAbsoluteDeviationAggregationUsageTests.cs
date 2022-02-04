@@ -30,7 +30,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -46,7 +46,7 @@ namespace Tests.Aggregations.Metric.MedianAbsoluteDeviation
 	 * It is calculated as the median of each data point's deviation from the median of the
 	 * entire sample. That is, for a random variable `X`, the median absolute deviation is `median(|median(X) - Xi|)`.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-metrics-median-absolute-deviation-aggregation.html[Median Absolute Deviation Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-median-absolute-deviation-aggregation.html[Median Absolute Deviation Aggregation]
 	 */
 	public class MedianAbsoluteDeviationAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

@@ -33,7 +33,7 @@ using OpenSearch.Net;
 namespace Osc
 {
 	/// <summary>
-	/// A response from Elasticsearch
+	/// A response from OpenSearch
 	/// </summary>
 	public interface IResponse : IOpenSearchResponse
 	{
@@ -48,7 +48,7 @@ namespace Osc
 		/// Checks if a response is functionally valid or not.
 		/// This is a NEST abstraction to have a single property to check whether there was something wrong with a request.
 		/// <para>
-		/// For instance, an Elasticsearch bulk response always returns 200 and individual bulk items may fail,
+		/// For instance, an OpenSearch bulk response always returns 200 and individual bulk items may fail,
 		/// <see cref="IsValid" /> will be false in that case.
 		/// </para>
 		/// <para>
@@ -75,7 +75,7 @@ namespace Osc
 		Exception OriginalException { get; }
 
 		/// <summary>
-		/// If the response results in an error on Elasticsearch's side an <pre>error</pre> element will be returned, this is
+		/// If the response results in an error on OpenSearch's side an <pre>error</pre> element will be returned, this is
 		/// mapped to
 		/// <see cref="ServerError" /> in NEST.
 		/// <para>Possibly set when <see cref="IsValid" /> is false, depending on the cause of the error</para>

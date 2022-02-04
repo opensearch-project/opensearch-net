@@ -38,10 +38,10 @@ namespace Tests.Configuration
 		/// <summary> comma separated list of test method names to execute </summary>
 		public string TestFilter { get; protected set; }
 
-		/// <summary> The Elasticsearch version to test against, defined for both unit and integration tests</summary>
-		public ElasticVersion ElasticsearchVersion { get; protected set; }
+		/// <summary> The OpenSearch version to test against, defined for both unit and integration tests</summary>
+		public ElasticVersion OpenSearchVersion { get; protected set; }
 
-		public bool ElasticsearchVersionIsSnapshot => ElasticsearchVersion.ArtifactBuildState == ArtifactBuildState.Snapshot;
+		public bool OpenSearchVersionIsSnapshot => OpenSearchVersion.ArtifactBuildState == ArtifactBuildState.Snapshot;
 
 		/// <summary> Force a reseed (bootstrap) of the cluster even if checks indicate bootstrap already ran </summary>
 		public bool ForceReseed { get; protected set; }
@@ -50,7 +50,7 @@ namespace Tests.Configuration
 		/// Signals to our test framework that the cluster was started externally. The framework will assert this before
 		/// attempting to spin up a cluster. If no node is found the framework will still spin up a node.
 		/// </summary>
-		public bool TestAgainstAlreadyRunningElasticsearch { get; protected set; }
+		public bool TestAgainstAlreadyRunningOpenSearch { get; protected set; }
 
 		/// <summary> The mode to run the tests under <see cref="TestMode"/></summary>
 		public TestMode Mode { get; protected set; }
@@ -74,7 +74,7 @@ namespace Tests.Configuration
 		/// This is fixed for now, specifying false leads to flaky tests, warrants deeper investigation
 		/// in our abstractions project
 		/// </summary>
-		public bool ShowElasticsearchOutputAfterStarted { get; } = true;
+		public bool ShowOpenSearchOutputAfterStarted { get; } = true;
 
 		/// <summary> When specified will only run one overload in API tests, helpful when debugging locally </summary>
 		public bool TestOnlyOne { get; protected set; }

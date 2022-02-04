@@ -31,7 +31,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -41,7 +41,7 @@ namespace Tests.Aggregations.Bucket.Terms
 	/**
 	 * A multi-bucket value source based aggregation where buckets are dynamically built - one per unique value.
 	 *
-	 * See the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-terms-aggregation.html[terms aggregation] for more detail.
+	 * See the OpenSearch documentation on {ref_current}/search-aggregations-bucket-terms-aggregation.html[terms aggregation] for more detail.
 	 */
 	public class TermsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{
@@ -520,7 +520,7 @@ namespace Tests.Aggregations.Bucket.Terms
 	 * [float]
 	 * == Typed Keys aggregations
 	 *
-	 * In Elasticsearch you can provide a `typed_keys` parameter which will prefix all the aggregation names
+	 * In OpenSearch you can provide a `typed_keys` parameter which will prefix all the aggregation names
 	 * with the type of aggregation that is returned. The following modifies the previous nested terms aggregation and sends it again
 	 * but this time with the `typed_keys` option set. The client should treat this in a an opaque fashion so let's assert that it does.
 	 */

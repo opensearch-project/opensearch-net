@@ -49,7 +49,7 @@ namespace Tests.ClientConcepts.LowLevel
 		 * === Post data
 		 *
 		 * The low level client allows you to post a `string` or `byte[]` array directly. On top of this,
-		 * if you pass a collection of `string` or `object` they will be serialized using Elasticsearch's special bulk/multi format.
+		 * if you pass a collection of `string` or `object` they will be serialized using OpenSearch's special bulk/multi format.
 		 */
 		private readonly string @string = "fromString";
 		private readonly byte[] bytes = Utf8Bytes("fromByteArray");

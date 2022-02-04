@@ -26,7 +26,7 @@
 */
 
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -150,7 +150,7 @@ namespace Tests.QueryDsl.FullText.MultiMatch
 	/**[float]
 	 * === Multi match with no fields specified
 	 *
-	 * With Elasticsearch it's possible to send a Multi Match query without providing any fields.
+	 * With OpenSearch it's possible to send a Multi Match query without providing any fields.
 	 * When no fields are provided the Multi Match query will use the fields defined in the index setting `index.query.default_field`
 	 * (which in turns defaults to `*`).
 	 */

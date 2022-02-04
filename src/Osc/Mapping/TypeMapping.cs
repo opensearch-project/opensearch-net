@@ -61,7 +61,7 @@ namespace Osc
 
 		/// <summary>
 		/// Dynamic templates allow you to define custom mappings that can be applied to dynamically added fields based on
-		/// <para>- the datatype detected by Elasticsearch, with <see cref="IDynamicTemplate.MatchMappingType"/>.</para>
+		/// <para>- the datatype detected by OpenSearch, with <see cref="IDynamicTemplate.MatchMappingType"/>.</para>
 		/// <para>- the name of the field, with <see cref="IDynamicTemplate.Match"/> and <see cref="IDynamicTemplate.Unmatch"/> or
 		/// <see cref="IDynamicTemplate.MatchPattern"/>.</para>
 		/// <para>- the full dotted path to the field, with <see cref="IDynamicTemplate.PathMatch"/> and
@@ -84,7 +84,7 @@ namespace Osc
 		IFieldNamesField FieldNamesField { get; set; }
 
 		/// <summary>
-		/// Custom meta data to associate with a mapping. Not used by Elasticsearch,
+		/// Custom meta data to associate with a mapping. Not used by OpenSearch,
 		/// but can be used to store application-specific metadata.
 		/// </summary>
 		[DataMember(Name = "_meta")]

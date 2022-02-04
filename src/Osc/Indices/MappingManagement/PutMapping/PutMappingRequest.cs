@@ -104,7 +104,7 @@ namespace Osc
 			Fluent.Assign(this, value, assigner);
 
 		/// <summary>
-		/// Convenience method to map as much as it can based on ElasticType attributes set on the type.
+		/// Convenience method to map as much as it can based on OpenSearchType attributes set on the type.
 		/// <para>This method also automatically sets up mappings for primitive values types (e.g. int, long, double, DateTime...)</para>
 		/// <para>Class types default to object and Enums to int</para>
 		/// <para>Later calls can override whatever is set by this call.</para>

@@ -101,7 +101,7 @@ module Tests =
         dotnetTest "tests/tests.proj" args
 
     let RunIntegrationTests args =
-        let passedVersions = match args.CommandArguments with | Integration a -> Some a.ElasticsearchVersions | _ -> None
+        let passedVersions = match args.CommandArguments with | Integration a -> Some a.OpenSearchVersions | _ -> None
         match passedVersions with
         | None -> failwith "No versions specified to run integration tests against"
         | Some opensearchVersions ->

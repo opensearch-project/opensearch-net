@@ -30,7 +30,7 @@ using Elastic.Elasticsearch.Xunit.Sdk;
 using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
@@ -76,7 +76,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 			);
 
 			/**
-			 * This returns the following response from Elasticsearch
+			 * This returns the following response from OpenSearch
 			 */
 			//json
 			var expected = new

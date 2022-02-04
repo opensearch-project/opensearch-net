@@ -34,22 +34,22 @@ using OpenSearch.Net.Extensions;
 namespace OpenSearch.Net
 {
 	/// <summary>
-	/// Low level client that exposes all of Elasticsearch API endpoints but leaves you in charge of building request and handling the response
+	/// Low level client that exposes all of OpenSearch API endpoints but leaves you in charge of building request and handling the response
 	/// </summary>
 	// ReSharper disable once RedundantExtendsListEntry
 	public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
 	{
-		/// <summary>Instantiate a new low level Elasticsearch client to http://localhost:9200</summary>
+		/// <summary>Instantiate a new low level OpenSearch client to http://localhost:9200</summary>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
 		public OpenSearchLowLevelClient() : this(new Transport<IConnectionConfigurationValues>(new ConnectionConfiguration())) { }
 
-		/// <summary>Instantiate a new low level Elasticsearch client using the specified settings</summary>
+		/// <summary>Instantiate a new low level OpenSearch client using the specified settings</summary>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
 		public OpenSearchLowLevelClient(IConnectionConfigurationValues settings) : this(
 			new Transport<IConnectionConfigurationValues>(settings ?? new ConnectionConfiguration())) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
 		/// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
@@ -57,7 +57,7 @@ namespace OpenSearch.Net
 		public OpenSearchLowLevelClient(string cloudId, BasicAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
 
 		/// <summary>
-		/// Sets up the client to communicate to Elastic Cloud using <paramref name="cloudId"/>,
+		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
 		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
 		/// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
 		/// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
@@ -65,7 +65,7 @@ namespace OpenSearch.Net
 		public OpenSearchLowLevelClient(string cloudId, ApiKeyAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
 
 		/// <summary>
-		/// Instantiate a new low level Elasticsearch client explicitly specifying a custom transport setup
+		/// Instantiate a new low level OpenSearch client explicitly specifying a custom transport setup
 		/// </summary>
 		public OpenSearchLowLevelClient(ITransport<IConnectionConfigurationValues> transport)
 		{

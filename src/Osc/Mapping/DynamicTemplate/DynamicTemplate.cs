@@ -37,7 +37,7 @@ namespace Osc
 	/// A Dynamic template that defines custom mappings to be applied
 	/// to dynamically added fields based on:
 	/// <para />
-	/// - the datatype detected by Elasticsearch, with <see cref="MatchMappingType" />.
+	/// - the datatype detected by OpenSearch, with <see cref="MatchMappingType" />.
 	/// <para />
 	/// - the name of the field, with <see cref="Match" /> and <see cref="Unmatch" /> or <see cref="MatchPattern" />.
 	/// <para />
@@ -61,7 +61,7 @@ namespace Osc
 
 		/// <summary>
 		/// Matches on the datatype detected by dynamic field mapping,
-		/// in other words, the datatype that Elasticsearch thinks the field should have.
+		/// in other words, the datatype that OpenSearch thinks the field should have.
 		/// Only the following datatypes can be automatically detected: boolean, date, double,
 		/// long, object, string. It also accepts * to match all datatypes.
 		/// </summary>

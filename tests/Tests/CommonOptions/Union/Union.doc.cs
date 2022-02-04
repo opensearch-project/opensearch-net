@@ -36,7 +36,7 @@ namespace Tests.CommonOptions.Union
 {
 	/**[[union]]
 	 * === Union type
-	 * Some API parameters within Elasticsearch can accept more than one JSON data structure, for example, source filtering on
+	 * Some API parameters within OpenSearch can accept more than one JSON data structure, for example, source filtering on
 	 * a search request can accept
 	 *
 	 * - a `bool` value to disable `_source` retrieval

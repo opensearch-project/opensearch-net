@@ -32,7 +32,7 @@ namespace OpenSearch.Net
 	/// </summary>
 	public class MetaHeaderProvider
 	{
-		private const string MetaHeaderName = "x-elastic-client-meta";
+		private const string MetaHeaderName = "opensearch-client-meta";
 		
 		private readonly MetaDataHeader _asyncMetaDataHeader;
 		private readonly MetaDataHeader _syncMetaDataHeader;

@@ -32,7 +32,7 @@ using Elastic.Elasticsearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static Osc.Infer;
@@ -43,7 +43,7 @@ namespace Tests.Aggregations.Bucket.Filter
 	 * Defines a single bucket of all the documents in the current document set context that match a specified filter.
 	 * Often this will be used to narrow down the current aggregation context to a specific set of documents.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-filter-aggregation.html[Filter Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-filter-aggregation.html[Filter Aggregation]
 	*/
 	public class FilterAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

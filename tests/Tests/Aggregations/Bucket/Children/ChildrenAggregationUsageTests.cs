@@ -27,7 +27,7 @@
 
 using System;
 using Osc;
-using Tests.Core.ManagedElasticsearch.Clusters;
+using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
@@ -37,7 +37,7 @@ namespace Tests.Aggregations.Bucket.Children
 	 * A special single bucket aggregation that enables aggregating from buckets on parent document types to
 	 * buckets on child documents.
 	 *
-	 * Be sure to read the Elasticsearch documentation on {ref_current}/search-aggregations-bucket-children-aggregation.html[Children Aggregation]
+	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-bucket-children-aggregation.html[Children Aggregation]
 	 */
 	public class ChildrenAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 	{

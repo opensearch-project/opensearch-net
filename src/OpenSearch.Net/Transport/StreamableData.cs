@@ -34,7 +34,7 @@ namespace OpenSearch.Net
 {
 	/// <summary>
 	/// Represents an instance of <see cref="PostData"/> that can handle <see cref="PostType.StreamHandler"/>.
-	/// Allows users full control over how they want to write data to the stream to Elasticsearch
+	/// Allows users full control over how they want to write data to the stream to OpenSearch
 	/// </summary>
 	/// <typeparam name="T">The data or a state object used during writing, passed to the handlers to avoid boxing</typeparam>
 	public class StreamableData<T> : PostData, IPostData<T>

@@ -41,10 +41,10 @@ namespace Tests.ClientConcepts.HighLevel
 	/**[[nest-getting-started]]
 	 * == Getting started
 	 *
-	 * NEST is a high level Elasticsearch .NET client that still maps very closely to the original Elasticsearch API.
+	 * NEST is a high level OpenSearch .NET client that still maps very closely to the original OpenSearch API.
 	 * All requests and responses are exposed through types, making it ideal for getting up and running quickly.
 	 *
-	 * Under the covers, NEST uses the <<elasticsearch-net,OpenSearch.Net low level client>> to dispatch requests and
+	 * Under the covers, NEST uses the <<opensearch-net,OpenSearch.Net low level client>> to dispatch requests and
 	 * responses, using and extending many of the types within OpenSearch.Net. The low level client itself is still
 	 * exposed on the high level client through the `.LowLevel` property.
 	 */
@@ -55,7 +55,7 @@ namespace Tests.ClientConcepts.HighLevel
 		/**[float]
 		 * === Connecting
 		 *
-		 * To connect to Elasticsearch running locally at `http://localhost:9200` is as simple as instantiating a new instance of the client
+		 * To connect to OpenSearch running locally at `http://localhost:9200` is as simple as instantiating a new instance of the client
 		 */
 		public void SimpleInstantiation()
 		{
@@ -63,7 +63,7 @@ namespace Tests.ClientConcepts.HighLevel
 		}
 
 		/**
-		 * Often you may need to pass additional configuration options to the client such as the address of Elasticsearch if it's running on
+		 * Often you may need to pass additional configuration options to the client such as the address of OpenSearch if it's running on
 		 * a remote machine. This is where `ConnectionSettings` come in; an instance can be instantiated to provide the client with different
 		 * configurations.
 		 */
@@ -78,15 +78,15 @@ namespace Tests.ClientConcepts.HighLevel
 		/**
 		 * In this example, a default index was also specified to use if no other index is supplied for the request or can be inferred for the
 		 * POCO generic type parameter in the request. There are many other <<configuration-options,Configuration options>> on `ConnectionSettings`, which it inherits
-		 * from `ConnectionConfiguration`, the type used to pass additional configuration options to the low level client in <<elasticsearch-net,OpenSearch.Net>>.
+		 * from `ConnectionConfiguration`, the type used to pass additional configuration options to the low level client in <<opensearch-net,OpenSearch.Net>>.
 		 *
 		 * TIP: Specifying a default index is _optional_ but NEST may throw an exception if no index can be inferred for a given request. To understand more around how
 		 * an index can be specified for a request, see <<index-name-inference,Index name inference>>.
 		 *
-		 * `ConnectionSettings` is not restricted to being passed a single address for Elasticsearch. There are several different
+		 * `ConnectionSettings` is not restricted to being passed a single address for OpenSearch. There are several different
 		 * types of <<connection-pooling,Connection pool>> available in NEST, each with different characteristics, that can be used to
 		 * configure the client. The following example uses a <<sniffing-connection-pool,SniffingConnectionPool>> seeded with the addresses
-		 * of three Elasticsearch nodes in the cluster, and the client will use this type of pool to maintain a list of available nodes within the
+		 * of three OpenSearch nodes in the cluster, and the client will use this type of pool to maintain a list of available nodes within the
 		 * cluster to which it can send requests in a round-robin fashion.
 		 */
 		public void UsingConnectionPool()
@@ -108,7 +108,7 @@ namespace Tests.ClientConcepts.HighLevel
 		/**[float]
 		 * === Indexing
 		 *
-		 * Once a client had been configured to connect to Elasticsearch, we need to get some data into the cluster
+		 * Once a client had been configured to connect to OpenSearch, we need to get some data into the cluster
 		 * to work with.
 		 *
 		 * Imagine we have the following http://en.wikipedia.org/wiki/Plain_Old_CLR_Object[Plain Old CLR Object (POCO)]
@@ -146,7 +146,7 @@ namespace Tests.ClientConcepts.HighLevel
 		 * at <<ids-inference,Ids inference>> to see other ways in which NEST can be configured to infer an id for a document. The default index configured
 		 * on `ConnectionSettings` has been used as the index name for the request.
 		 *
-		 * CAUTION: By default, NEST camel cases the property names on the POCO when serializing the POCO into a JSON document to send to Elasticsearch.
+		 * CAUTION: By default, NEST camel cases the property names on the POCO when serializing the POCO into a JSON document to send to OpenSearch.
 		 * You can <<camel-casing,change this behaviour>> by using the `.DefaultFieldNameInferrer(Func<string,string>)` method on `ConnectionSettings`.
 		 *
 		 * [float]
@@ -204,7 +204,7 @@ namespace Tests.ClientConcepts.HighLevel
 		 * see the documentation on <<indices-paths,Indices paths>> and <<document-paths,Document paths>>, respectively.
 		 *
 		 * All of the search examples so far have used NEST's Fluent API which uses lambda expressions to construct a query with a structure
-		 * that mimics the structure of a query expressed in the Elasticsearch's JSON based {ref_current}/query-dsl.html[Query DSL].
+		 * that mimics the structure of a query expressed in the OpenSearch's JSON based {ref_current}/query-dsl.html[Query DSL].
 		 *
 		 * NEST also exposes an Object Initializer syntax that can also be used to construct queries,
 		 * for those not keen on deeply nested lambda expressions (layout is __key__!).
@@ -271,7 +271,7 @@ namespace Tests.ClientConcepts.HighLevel
 		/**[float]
 		 * === Aggregations
 		 *
-		 * In addition to structured and unstructured search, Elasticsearch is also able to aggregate data based on a search query
+		 * In addition to structured and unstructured search, OpenSearch is also able to aggregate data based on a search query
 		 */
 		public async Task Aggregations()
 		{

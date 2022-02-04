@@ -35,8 +35,8 @@ namespace Tests.Configuration
 		{
 			Console.WriteLine(new string('-', 20));
 			Console.WriteLine("Starting tests using config:");
-			Console.WriteLine($" - {nameof(config.TestAgainstAlreadyRunningElasticsearch)}: {config.TestAgainstAlreadyRunningElasticsearch}");
-			Console.WriteLine($" - {nameof(config.ElasticsearchVersion)}: {config.ElasticsearchVersion}");
+			Console.WriteLine($" - {nameof(config.TestAgainstAlreadyRunningOpenSearch)}: {config.TestAgainstAlreadyRunningOpenSearch}");
+			Console.WriteLine($" - {nameof(config.OpenSearchVersion)}: {config.OpenSearchVersion}");
 			Console.WriteLine($" - {nameof(config.Mode)}: {config.Mode}");
 			Console.WriteLine($" - {nameof(config.Seed)}: {config.Seed}");
 			Console.WriteLine($" - {nameof(config.ForceReseed)}: {config.ForceReseed}");
