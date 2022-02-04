@@ -62,7 +62,7 @@ namespace Osc
 
 	public interface IClrTypeMapping<TDocument> : IClrTypeMapping where TDocument : class
 	{
-		/// <summary> Set a default Id property on CLR type <typeparamref name="TDocument" /> that NEST will evaluate </summary>
+		/// <summary> Set a default Id property on CLR type <typeparamref name="TDocument" /> that OSC will evaluate </summary>
 		Expression<Func<TDocument, object>> IdProperty { get; set; }
 
 		/// <summary>
@@ -164,12 +164,12 @@ namespace Osc
 		public ClrTypeMappingDescriptor<TDocument> RelationName(string relationName) => Assign(relationName, (a, v) => a.RelationName = v);
 
 		/// <summary>
-		/// Set a default Id property on CLR type <typeparamref name="TDocument" /> that NEST will evaluate
+		/// Set a default Id property on CLR type <typeparamref name="TDocument" /> that OSC will evaluate
 		/// </summary>
 		public ClrTypeMappingDescriptor<TDocument> IdProperty(Expression<Func<TDocument, object>> property) => Assign(property, (a, v) => a.IdProperty = v);
 
 		/// <summary>
-		/// Set a default Id property on CLR type <typeparamref name="TDocument" /> that NEST will evaluate
+		/// Set a default Id property on CLR type <typeparamref name="TDocument" /> that OSC will evaluate
 		/// </summary>
 		public ClrTypeMappingDescriptor<TDocument> IdProperty(string property) => Assign(property, (a, v) => a.IdPropertyName = v);
 

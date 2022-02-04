@@ -27,8 +27,8 @@
 
 using System;
 using System.Security.Cryptography.X509Certificates;
- using Elastic.Elasticsearch.Ephemeral;
- using Elastic.Elasticsearch.Xunit;
+ using OpenSearch.OpenSearch.Ephemeral;
+ using OpenSearch.OpenSearch.Xunit;
  using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client.Settings;

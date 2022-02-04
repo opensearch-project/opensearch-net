@@ -50,7 +50,7 @@ namespace Tests.Search.Count
 				{
 					name = new
 					{
-						query = "NEST"
+						query = "OSC"
 					}
 				}
 			}
@@ -62,7 +62,7 @@ namespace Tests.Search.Count
 			.Query(q => q
 				.Match(m => m
 					.Field(p => p.Name)
-					.Query("NEST")
+					.Query("OSC")
 				)
 			);
 
@@ -73,7 +73,7 @@ namespace Tests.Search.Count
 			Query = new QueryContainer(new MatchQuery
 			{
 				Field = "name",
-				Query = "NEST"
+				Query = "OSC"
 			})
 		};
 

@@ -42,7 +42,7 @@ using static Osc.Infer;
 namespace Tests.Aggregations
 {
 	/**=== Writing aggregations
-	* NEST allows you to write your aggregations using
+	* OSC allows you to write your aggregations using
 	*
 	* - a strict fluent DSL
 	* - a verbatim object initializer syntax that maps verbatim to the OpenSearch API
@@ -168,7 +168,7 @@ namespace Tests.Aggregations
 			};
 
 		/** Now that's much cleaner! Assigning an `*Aggregation` type directly to the `Aggregation` property
-		 *  on a search request works because there are implicit conversions within NEST to handle this for you.
+		 *  on a search request works because there are implicit conversions within OSC to handle this for you.
 		 */
 	}
 

@@ -26,7 +26,7 @@
 */
 
 using System.IO;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -90,7 +90,7 @@ namespace Tests.QueryDsl.TermLevel.Term
 	*== Verbatim term query
 	 *
 	 * By default an empty term is conditionless so will be rewritten. Sometimes sending an empty term to
-	 * match nothing makes sense. You can either use the `ConditionlessQuery` construct from NEST to provide a fallback or make the
+	 * match nothing makes sense. You can either use the `ConditionlessQuery` construct from OSC to provide a fallback or make the
 	 * query verbatim as followed:
 	*/
 	public class VerbatimTermQueryUsageTests : TermQueryUsageTests

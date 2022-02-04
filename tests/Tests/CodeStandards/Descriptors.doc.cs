@@ -32,7 +32,7 @@ using FluentAssertions;
 using Osc;
 using Tests.Framework;
 using System.Reflection;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.CodeStandards
 {

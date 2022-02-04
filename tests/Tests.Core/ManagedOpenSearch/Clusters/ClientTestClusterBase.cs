@@ -26,10 +26,10 @@
 */
 
 using System.IO;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Ephemeral.Plugins;
-using Elastic.Elasticsearch.Xunit;
-using Elastic.Stack.ArtifactsApi.Products;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Ephemeral.Plugins;
+using OpenSearch.OpenSearch.Xunit;
+using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Net;
 using Osc;
 using Tests.Configuration;
@@ -40,11 +40,11 @@ using Tests.Domain.Extensions;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, INestTestCluster
+	public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOscTestCluster
 	{
 		protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
 
-		protected ClientTestClusterBase(params ElasticsearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
+		protected ClientTestClusterBase(params OpenSearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
 
 		protected ClientTestClusterBase(ClientTestClusterConfiguration configuration) : base(configuration) { }
 
@@ -64,18 +64,18 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 
 	public class ClientTestClusterConfiguration : XunitClusterConfiguration
 	{
-		public ClientTestClusterConfiguration(params ElasticsearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
+		public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
 
 		public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.None, int numberOfNodes = 1,
-			params ElasticsearchPlugin[] plugins
+			params OpenSearchPlugin[] plugins
 		)
-			: base(TestClient.Configuration.OpenSearchVersion, features, new ElasticsearchPlugins(plugins), numberOfNodes)
+			: base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
 		{
 			TestConfiguration = TestClient.Configuration;
-			ShowElasticsearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
+			ShowOpenSearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
 			HttpFiddlerAware = true;
 
-			CacheEsHomeInstallation = true;
+			CacheOpenSearchHomeInstallation = true;
 
 			Add(AttributeKey("testingcluster"), "true");
 			Add(AttributeKey("gateway"), "true");

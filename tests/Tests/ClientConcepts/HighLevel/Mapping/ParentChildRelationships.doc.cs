@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -88,7 +88,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		/**
 		* ==== Parent And Child mapping
 		*
-		* In the following example we setup our client and give our types prefered index and type names. In NEST we can
+		* In the following example we setup our client and give our types prefered index and type names. In OSC we can
 		* also give a type a preferred `RelationName` as can be seen on the `DefaultMappingFor<MyParent>`.
 		*
 		* Also note that we give `MyChild` and `MyParent` the same default `doc` type name to make sure they end up in the same index
@@ -131,7 +131,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 
 			/**
 			* We call `AutoMap()` for both types to discover properties of both .NET types. `AutoMap()` won't automatically setup the
-			* join field mapping though because NEST can not infer all the `Relations` that are required by your domain.
+			* join field mapping though because OSC can not infer all the `Relations` that are required by your domain.
 			*
 			* In this case we setup `MyChild` to be child of `MyParent`. `.Join()` has many overloads so be sure to check them out if you
 			* need to map not one but multiple children.
@@ -275,7 +275,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * In the past you would have to provide the parent id on the request using `parent=<parentid>` this was always an alias for routing
 		 * and thus in OpenSearch you need to provide `routing=<parentid>` instead.
 		 *
-		 * NEST has a handy helper to infer the correct routing value given a document that is smart enough to find the join field and infer
+		 * OSC has a handy helper to infer the correct routing value given a document that is smart enough to find the join field and infer
 		 * correct parent.
 		 */
 		[U]
@@ -301,8 +301,8 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 			indexResponse.ApiCall.Uri.Query.Should().Contain("routing=1337");
 
 			/**
-			 * The same goes for when we index a child, we can pass the instance directly to `Routing` and NEST will use the parent id
-			 * already specified on `child`. Here we use the static import `using static Nest.Infer` and it's `Route()` static method to
+			 * The same goes for when we index a child, we can pass the instance directly to `Routing` and OSC will use the parent id
+			 * already specified on `child`. Here we use the static import `using static Osc.Infer` and it's `Route()` static method to
 			 * create an instance of `Routing`
 			 */
 			indexResponse = client.Index(child, i => i.Routing(Route(child)));
@@ -330,7 +330,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * --
 		 * If you use multiple levels of parent and child relations e.g `A => B => C`, when you index `C`, you
 		 * need to provide the id of `A` as the routing key *but* the id of `B` to set up the relation on the join field.
-		 * In this case, NEST `JoinRouting` helper is unable to resolve to the id of `A` and will return the id of `B`.
+		 * In this case, OSC `JoinRouting` helper is unable to resolve to the id of `A` and will return the id of `B`.
 		 *
 		 */
 	}

@@ -52,7 +52,7 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// A string describing the purpose of the serializer emitting this events.
 		/// <para>In `Elastisearch.Net` this will always be "request/response"</para>
-		/// <para>Using `Nest` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
+		/// <para>Using `Osc` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
 		/// </summary>
 		public string Purpose { get; }
 

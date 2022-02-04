@@ -83,8 +83,8 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			var nestSettings = (IConnectionSettingsValues)settings;
-			return nestSettings.Inferrer.Id(Document) ?? StringOrLongValue;
+			var oscSettings = (IConnectionSettingsValues)settings;
+			return oscSettings.Inferrer.Id(Document) ?? StringOrLongValue;
 		}
 
 		public static implicit operator Id(string id) => id.IsNullOrEmpty() ? null : new Id(id);

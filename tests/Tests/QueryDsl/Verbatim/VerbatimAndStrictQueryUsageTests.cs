@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -43,7 +43,7 @@ namespace Tests.QueryDsl.Verbatim
 	 * === Verbatim Query Usage
 	 *
 	 * An individual query can be marked as verbatim in order take effect; a verbatim query will be serialized and
-	 * sent in the request to OpenSearch, bypassing NEST's conditionless checks.
+	 * sent in the request to OpenSearch, bypassing OSC's conditionless checks.
 	 */
 	public class CompoundVerbatimQueryUsageTests : QueryDslUsageTestsBase
 	{

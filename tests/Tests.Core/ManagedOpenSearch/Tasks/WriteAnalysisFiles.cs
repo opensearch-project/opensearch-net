@@ -27,9 +27,9 @@
 
 using System;
 using System.IO;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Ephemeral.Tasks;
-using Elastic.Elasticsearch.Managed.ConsoleWriters;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Ephemeral.Tasks;
+using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Core.ManagedOpenSearch.Tasks

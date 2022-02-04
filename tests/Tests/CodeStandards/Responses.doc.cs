@@ -32,7 +32,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -141,7 +141,7 @@ namespace Tests.CodeStandards
 					}
 				}
 				else if (propertyInfo.PropertyType.IsClass &&
-						 (propertyInfo.PropertyType.Namespace.StartsWith("Nest") || propertyInfo.PropertyType.Namespace.StartsWith("OpenSearch.Net"))
+						 (propertyInfo.PropertyType.Namespace.StartsWith("Osc") || propertyInfo.PropertyType.Namespace.StartsWith("OpenSearch.Net"))
 						 //Do not traverse known response dictionaries
 						 && !ResponseDictionaries.Contains(propertyInfo.PropertyType)
 				)

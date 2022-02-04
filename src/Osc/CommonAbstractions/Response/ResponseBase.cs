@@ -46,7 +46,7 @@ namespace Osc
 
 		/// <summary>
 		/// Checks if a response is functionally valid or not.
-		/// This is a NEST abstraction to have a single property to check whether there was something wrong with a request.
+		/// This is a OSC abstraction to have a single property to check whether there was something wrong with a request.
 		/// <para>
 		/// For instance, an OpenSearch bulk response always returns 200 and individual bulk items may fail,
 		/// <see cref="IsValid" /> will be false in that case.
@@ -77,7 +77,7 @@ namespace Osc
 		/// <summary>
 		/// If the response results in an error on OpenSearch's side an <pre>error</pre> element will be returned, this is
 		/// mapped to
-		/// <see cref="ServerError" /> in NEST.
+		/// <see cref="ServerError" /> in OSC.
 		/// <para>Possibly set when <see cref="IsValid" /> is false, depending on the cause of the error</para>
 		/// <para>
 		/// You can also configure the client to always throw an <see cref="OpenSearchClientException" /> using
@@ -104,7 +104,7 @@ namespace Osc
 			get
 			{
 				var sb = new StringBuilder();
-				sb.Append($"{(!IsValid ? "Inv" : "V")}alid NEST response built from a ");
+				sb.Append($"{(!IsValid ? "Inv" : "V")}alid OSC response built from a ");
 				sb.AppendLine(ApiCall?.ToString().ToCamelCase() ?? "null ApiCall which is highly exceptional, please open a bug if you see this");
 				if (!IsValid) DebugIsValid(sb);
 				if (ApiCall != null) ResponseStatics.DebugInformationBuilder(ApiCall, sb);
@@ -177,6 +177,6 @@ namespace Osc
 		/// <summary>Subclasses can override this to provide more information on why a call is not valid.</summary>
 		protected virtual void DebugIsValid(StringBuilder sb) { }
 
-		public override string ToString() => $"{(!IsValid ? "Inv" : "V")}alid NEST response built from a {ApiCall?.ToString().ToCamelCase()}";
+		public override string ToString() => $"{(!IsValid ? "Inv" : "V")}alid OSC response built from a {ApiCall?.ToString().ToCamelCase()}";
 	}
 }

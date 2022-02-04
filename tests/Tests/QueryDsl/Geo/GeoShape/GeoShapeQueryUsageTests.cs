@@ -26,7 +26,7 @@
 */
 
 using System.Collections.Generic;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

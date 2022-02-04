@@ -30,8 +30,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -46,7 +46,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Audit trail
 	 *
-	 * OpenSearch.Net and NEST provide an audit trail for the events within the request pipeline that
+	 * OpenSearch.Net and OSC provide an audit trail for the events within the request pipeline that
 	 * occur when a request is made. This audit trail is available on the response as demonstrated in the
 	 * following example.
 	 */
@@ -84,7 +84,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 			 * readable fashion, similar to
 			 *
 			 * ....
-			 * Valid NEST response built from a successful low level call on POST: /project/doc/_search
+			 * Valid OSC response built from a successful low level call on POST: /project/doc/_search
 			 * # Audit trail of this API call:
 			 *  - [1] SniffOnStartup: Took: 00:00:00.0360264
 			 *  - [2] SniffSuccess: Node: http://localhost:9200/ Took: 00:00:00.0310228

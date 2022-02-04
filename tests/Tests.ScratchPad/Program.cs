@@ -113,7 +113,7 @@ namespace Tests.ScratchPad
 		{
 			index = new
 			{
-				_index = "nest-52cfd7aa",
+				_index = "osc-52cfd7aa",
 				_type = "_doc",
 				_id = project.Name,
 				_version = 1,

@@ -36,22 +36,6 @@
         "type":"string",
         "description":"a short version of the Accept header, e.g. json, yaml"
       },
-      "size":{
-        "type":"enum",
-        "description":"The multiplier in which to display values",
-        "options":[
-          "",
-          "k",
-          "m",
-          "g",
-          "t",
-          "p"
-        ],
-        "deprecated":{
-          "version":"7.7.0",
-          "description":"Setting this value has no effect and will be removed from the specification."
-        }
-      },
       "local":{
         "type":"boolean",
         "description":"Return local information, do not retrieve the state from master node (default: false)"

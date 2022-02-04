@@ -80,11 +80,11 @@ namespace Osc
 
 		string IUrlParameter.GetString(IConnectionConfigurationValues settings)
 		{
-			if (!(settings is IConnectionSettingsValues nestSettings))
+			if (!(settings is IConnectionSettingsValues oscSettings))
 				throw new ArgumentNullException(nameof(settings),
 					$"Can not resolve {nameof(PropertyName)} if no {nameof(IConnectionSettingsValues)} is provided");
 
-			return nestSettings.Inferrer.PropertyName(this);
+			return oscSettings.Inferrer.PropertyName(this);
 		}
 
 		public static implicit operator PropertyName(string name) => name.IsNullOrEmpty() ? null : new PropertyName(name);

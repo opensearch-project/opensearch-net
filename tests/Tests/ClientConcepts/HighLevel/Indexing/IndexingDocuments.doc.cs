@@ -38,7 +38,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 	/**[[indexing-documents]]
 	*=== Indexing documents
 	*
-	* NEST exposes the index and bulk APIs of OpenSearch as methods, to enable indexing of single or multiple documents. In addition to this,
+	* OSC exposes the index and bulk APIs of OpenSearch as methods, to enable indexing of single or multiple documents. In addition to this,
 	* the client provides some convenient shorthand methods for the typical indexing approaches.
 	*/
 	public class Indexing : DocumentationTestBase
@@ -103,7 +103,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		* ==== Multiple documents with `IndexMany`
 		*
 		* Multiple documents can be indexed using the `IndexMany` and `IndexManyAsync` methods, again either synchronously or asynchronously, respectively.
-		* These methods are specific to the NEST client to provide a convenient shortcut to indexing
+		* These methods are specific to the OSC client to provide a convenient shortcut to indexing
 		* multiple documents using the `_bulk` endpoint.
 		*
 		* NOTE: `IndexMany` all documents in a single HTTP request, so for very large document collections it is not a recommended approach

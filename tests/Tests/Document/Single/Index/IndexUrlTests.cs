@@ -27,7 +27,7 @@
 
 using System;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -41,7 +41,7 @@ namespace Tests.Document.Single.Index
 	{
 		[U] public async Task Urls()
 		{
-			var project = new Project { Name = "NEST" };
+			var project = new Project { Name = "OSC" };
 
 			await POST("/project/_doc")
 				.Fluent(c => c.Index(project, i => i.Id(null)))
@@ -62,9 +62,9 @@ namespace Tests.Document.Single.Index
 					Document = new { }
 				}));
 
-			await PUT("/project/_doc/NEST")
+			await PUT("/project/_doc/OSC")
 				.Fluent(c => c.IndexDocument(project))
-				.Request(c => c.Index(new IndexRequest<Project>(index: "project", id: "NEST") { Document = project }))
+				.Request(c => c.Index(new IndexRequest<Project>(index: "project", id: "OSC") { Document = project }))
 				.Request(c => c.Index(new IndexRequest<Project>(project)))
 				.FluentAsync(c => c.IndexDocumentAsync(project))
 				.RequestAsync(c => c.IndexAsync(new IndexRequest<Project>(project)));
@@ -72,7 +72,7 @@ namespace Tests.Document.Single.Index
 
 		[U] public async Task LowLevelUrls()
 		{
-			var project = new Project { Name = "NEST" };
+			var project = new Project { Name = "OSC" };
 
 			await POST("/index/_doc")
 				.LowLevel(c => c.Index<VoidResponse>("index", PostData.Empty))

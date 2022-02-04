@@ -69,10 +69,10 @@ namespace Osc
 
 		public string GetString(IConnectionConfigurationValues settings)
 		{
-			if (!(settings is IConnectionSettingsValues nestSettings))
-				throw new Exception("Tried to pass index name on querystring but it could not be resolved because no nest settings are available");
+			if (!(settings is IConnectionSettingsValues oscSettings))
+				throw new Exception("Tried to pass index name on querystring but it could not be resolved because no OSC settings are available");
 
-			return nestSettings.Inferrer.IndexName(this);
+			return oscSettings.Inferrer.IndexName(this);
 		}
 
 		public static IndexName From<T>() => typeof(T);

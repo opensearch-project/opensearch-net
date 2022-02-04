@@ -29,8 +29,8 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Extensions;
@@ -41,7 +41,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class ConnectionErrorTestBase<TCluster>
 		: RequestResponseApiTestBase<TCluster, RootNodeInfoResponse, IRootNodeInfoRequest, RootNodeInfoDescriptor, RootNodeInfoRequest>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, INestTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
 	{
 		protected ConnectionErrorTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 

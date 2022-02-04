@@ -8,17 +8,6 @@
         "resolved": "3.3.0",
         "contentHash": "BjYuufZ3EucWK5vzLBFh13Fpb3a4esbnPzvPlAlDLOAzuQaSYRxBqBbHWxAM4c55170pNE07xFTF9DrXuGcCsw=="
       },
-      "Elastic.Elasticsearch.Managed": {
-        "type": "Direct",
-        "requested": "[0.2.6, )",
-        "resolved": "0.2.6",
-        "contentHash": "JvAFjwwQ7lsPHA3AfDoKgwxs40gd8NrU9troMpKuqW5Ah9vi30wq6AzSYc6fXJ7g3KL9P2gLRyc8XnMjxJj2iw==",
-        "dependencies": {
-          "Elastic.Stack.ArtifactsApi": "0.2.6",
-          "Proc": "0.6.1",
-          "System.Net.Http": "4.3.1"
-        }
-      },
       "Fake.Core.Environment": {
         "type": "Direct",
         "requested": "[5.15.0, )",
@@ -105,6 +94,17 @@
           "NETStandard.Library": "1.6.0"
         }
       },
+      "OpenSearch.OpenSearch.Managed": {
+        "type": "Direct",
+        "requested": "[0.1.0-canary.0.17, )",
+        "resolved": "0.1.0-canary.0.17",
+        "contentHash": "n5aybS3KBbl6IQENfYEydRRGaDzu1lc7QZCdMNZGZ8Zu8VcoA+jc+3mhULzHRwwk8Y7XgQgC7OX1lOuRcAotHw==",
+        "dependencies": {
+          "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.17",
+          "Proc": "0.6.1",
+          "System.Net.Http": "4.3.1"
+        }
+      },
       "Proc": {
         "type": "Direct",
         "requested": "[0.6.1, )",
@@ -113,15 +113,6 @@
         "dependencies": {
           "System.Diagnostics.Process": "[4.3.0]",
           "System.Threading.Thread": "[4.3.0]"
-        }
-      },
-      "Elastic.Stack.ArtifactsApi": {
-        "type": "Transitive",
-        "resolved": "0.2.6",
-        "contentHash": "3ewZWhWQcQLCu/vAifxbKNCr+h1eXTyNcS7FqAJ2wupaZZ0yjsNf+YGHcOFI7P+hEByYW9kIyEFoOTUwa0/oaQ==",
-        "dependencies": {
-          "SemanticVersioning": "0.8.0",
-          "System.Text.Json": "4.6.0"
         }
       },
       "Fake.Core.Context": {
@@ -257,6 +248,15 @@
           "System.Threading.Timer": "4.0.1",
           "System.Xml.ReaderWriter": "4.0.11",
           "System.Xml.XDocument": "4.0.11"
+        }
+      },
+      "OpenSearch.Stack.ArtifactsApi": {
+        "type": "Transitive",
+        "resolved": "0.1.0-canary.0.17",
+        "contentHash": "RrzfTrT1D4rj+zkaT/FKKTXet9JGcRYwgzco0MtFOPxLKU6Sst+9QdcVcJxp6TNEs/aGTDQtBnm1lTaO8D9RbA==",
+        "dependencies": {
+          "SemanticVersioning": "0.8.0",
+          "System.Text.Json": "4.6.0"
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": {

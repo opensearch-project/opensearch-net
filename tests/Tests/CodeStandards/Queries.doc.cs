@@ -28,7 +28,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using System.Runtime.Serialization;

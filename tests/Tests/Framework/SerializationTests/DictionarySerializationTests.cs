@@ -29,7 +29,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -40,7 +40,7 @@ namespace Tests.Framework.SerializationTests
 	/// <summary>
 	/// <see cref="IIsADictionary"/> implementations do not use
 	/// <see cref="VerbatimDictionaryKeysFormatter{TKey,TValue}"/>
-	/// so keys are camel cased on serialization, in line with NEST conventions
+	/// so keys are camel cased on serialization, in line with OSC conventions
 	/// </summary>
 	public class IsADictionarySerializationTests
 	{

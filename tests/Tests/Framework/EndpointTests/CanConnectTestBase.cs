@@ -26,8 +26,8 @@
 */
 
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Ephemeral;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -38,7 +38,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class CanConnectTestBase<TCluster>
 		: ApiIntegrationTestBase<TCluster, RootNodeInfoResponse, IRootNodeInfoRequest, RootNodeInfoDescriptor, RootNodeInfoRequest>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, INestTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
 	{
 		protected CanConnectTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 

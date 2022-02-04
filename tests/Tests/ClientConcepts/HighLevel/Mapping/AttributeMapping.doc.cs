@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using System.Runtime.Serialization;
 using Tests.Core.Client;
@@ -47,7 +47,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* to the inferred mapping? This is where attribute mapping can help.
 	*
 	* It is possible to define your mappings using attributes on your POCO type and properties. With
-	* attributes on properties and calling `.AutoMap()`, NEST will infer the mappings from the POCO property
+	* attributes on properties and calling `.AutoMap()`, OSC will infer the mappings from the POCO property
 	* types **and** take into account the mapping attributes.
 	*
 	* [IMPORTANT]
@@ -178,7 +178,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		/**
 		 * Attribute mapping can be a convenient way to control how POCOs are mapped with minimal code, however
 		 * there are some mapping features that cannot be expressed with attributes, for example, <<multi-fields, Multi fields>>.
-		 * In order to have the full power of mapping in NEST at your disposal,
+		 * In order to have the full power of mapping in OSC at your disposal,
 		 * take a look at <<fluent-mapping, Fluent Mapping>> next.
 		 */
 	}

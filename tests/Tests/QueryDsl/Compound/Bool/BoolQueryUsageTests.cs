@@ -27,7 +27,7 @@
 
 using System;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -55,7 +55,7 @@ namespace Tests.QueryDsl.Compound.Bool
 	 * `must_not`::
 	 * The clause (query) must not appear in the matching documents.
 	 *
-	 * Check out the <<bool-queries,`bool` queries section>> for more details on `bool` queries with NEST.
+	 * Check out the <<bool-queries,`bool` queries section>> for more details on `bool` queries with OSC.
 	 *
 	 * See the OpenSearch documentation on {ref_current}/query-dsl-bool-query.html[bool query] for more details.
 	 */

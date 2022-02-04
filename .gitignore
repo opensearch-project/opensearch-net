@@ -20,7 +20,6 @@
 *.cache
 *.ilk
 *.log
-*.nupkg
 *.ncrunchsolution
 [Bb]in
 [Dd]ebug/
@@ -38,7 +37,6 @@ _NCrunch*/
 
 .fake/*
 .fake
-packages/*
 paket.exe
 paket-files/*.cached
 
@@ -67,7 +65,6 @@ build/tools/*
 docs/node_modules
 doc/Help
 
-/src/Nest.Tests.Unit/*.ncrunchproject
 *.ncrunchproject
 Cache
 YamlCache

@@ -26,10 +26,10 @@
 */
 
 using System.Collections.Generic;
-using Elastic.Stack.ArtifactsApi.Products;
+using OpenSearch.Stack.ArtifactsApi.Products;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
-using static Elastic.Stack.ArtifactsApi.Products.ElasticsearchPlugin;
+using static OpenSearch.Stack.ArtifactsApi.Products.OpenSearchPlugin;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
@@ -43,7 +43,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 
 		private static ClientTestClusterConfiguration CreateConfiguration()
 		{
-			var plugins = new List<ElasticsearchPlugin>
+			var plugins = new List<OpenSearchPlugin>
 			{
 				IngestGeoIp,
 				IngestAttachment,
@@ -53,7 +53,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 				MapperMurmur3,
 			};
 
-			plugins.Add(new ElasticsearchPlugin("analysis-nori"));
+			plugins.Add(new OpenSearchPlugin("analysis-nori"));
 
 			return new ClientTestClusterConfiguration(plugins.ToArray())
 			{

@@ -34,7 +34,7 @@ using OpenSearch.Net.Utf8Json;
 namespace Osc
 {
 	/// <summary>
-	/// Contains aggregates that are returned by OpenSearch. In NEST, Aggregation always refers to an aggregation
+	/// Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
 	/// request to OpenSearch and an Aggregate describes an aggregation response.
 	/// </summary>
 	[JsonFormatter(typeof(AggregateDictionaryFormatter))]

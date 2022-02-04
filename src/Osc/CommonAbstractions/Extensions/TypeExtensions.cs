@@ -209,8 +209,8 @@ namespace Osc
 
 		internal delegate T ObjectActivator<out T>(params object[] args);
 
-		private static readonly Assembly NestAssembly = typeof(TypeExtensions).Assembly;
+		private static readonly Assembly OscAssembly = typeof(TypeExtensions).Assembly;
 
-		public static bool IsNestType(this Type type) => type.Assembly == NestAssembly;
+		public static bool IsOscType(this Type type) => type.Assembly == OscAssembly;
 	}
 }

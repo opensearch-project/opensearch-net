@@ -39,7 +39,7 @@ namespace Osc
 				return;
 			}
 
-			if (value.GetType().IsNestType())
+			if (value.GetType().IsOscType())
 				formatterResolver.GetFormatter<T>().Serialize(ref writer, value, formatterResolver);
 			else
 				base.Serialize(ref writer, value, formatterResolver);

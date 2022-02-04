@@ -26,7 +26,7 @@
 */
 
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;

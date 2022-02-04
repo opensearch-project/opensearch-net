@@ -27,8 +27,8 @@
 
 using System;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core.Client;
@@ -71,7 +71,7 @@ namespace Tests.Analysis
 
 		protected AnalysisComponentTestBase()
 		{
-			Client = (ElasticXunitRunner.CurrentCluster as INestTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
+			Client = (OpenSearchXunitRunner.CurrentCluster as IOscTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
 			Usage.KickOffOnce(Client, true);
 		}
 

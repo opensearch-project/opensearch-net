@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -163,7 +163,7 @@ namespace Tests.Document.Single.Index
 			var attachment = getResponse.Source.Attachment;
 
 			attachment.Title.Should().Be("Attachment Test Document");
-			attachment.Keywords.Should().Be("nest,test,document");
+			attachment.Keywords.Should().Be("osc,test,document");
 			attachment.Date.Should().Be(new DateTime(2016, 12, 08, 3, 5, 13, DateTimeKind.Utc));
 			attachment.ContentType.Should().Be("application/pdf");
 			attachment.Author.Should().Be("Russ Cam");
@@ -253,7 +253,7 @@ namespace Tests.Document.Single.Index
 			getResponse.ShouldBeValid();
 			ingestedAttachment.Should().NotBeNull();
 			ingestedAttachment.Attachment.Title.Should().Be("Attachment Test Document");
-			ingestedAttachment.Attachment.Keywords.Should().Be("nest,test,document");
+			ingestedAttachment.Attachment.Keywords.Should().Be("osc,test,document");
 			ingestedAttachment.Attachment.Date.Should().Be(new DateTime(2016, 12, 08, 3, 5, 13, DateTimeKind.Utc));
 			ingestedAttachment.Attachment.ContentType.Should().Be("application/pdf");
 			ingestedAttachment.Attachment.Author.Should().Be("Russ Cam");

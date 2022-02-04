@@ -26,7 +26,7 @@
 */
 
 using System;
- using Elastic.Elasticsearch.Ephemeral;
+ using OpenSearch.OpenSearch.Ephemeral;
  using OpenSearch.Net;
 using FluentAssertions;
 using Osc;

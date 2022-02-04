@@ -27,7 +27,7 @@
 
 using System;
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.VirtualizedCluster;
 using OpenSearch.Net.VirtualizedCluster.Audit;
@@ -40,7 +40,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.MaxRetries
 	{
 		/**[[retries]]
 		*=== Retries
-		* By default, NEST will retry a request as many times as there are nodes in the cluster, that the client knows about.
+		* By default, OSC will retry a request as many times as there are nodes in the cluster, that the client knows about.
 		*
 		* Retries still respects the request timeout however, meaning if you have a 100 node cluster
 		* and a request timeout of 20 seconds, the client will retry as many times as it can before
@@ -50,7 +50,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.MaxRetries
 		public async Task DefaultMaxIsNumberOfNodes()
 		{
 			/**
-			 * Retry behaviour can be demonstrated using NEST's Virtual cluster test framework. In the following
+			 * Retry behaviour can be demonstrated using OSC's Virtual cluster test framework. In the following
 			 * example, a ten node cluster is defined that always fails on all client calls, except on port 9209
 			 */
 			var audit = new Auditor(() => VirtualClusterWith

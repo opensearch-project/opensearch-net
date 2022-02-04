@@ -27,7 +27,7 @@
 
 using System;
 using System.Linq;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Osc;
 using Tests.Core;
@@ -41,7 +41,7 @@ namespace Tests.ClientConcepts.HighLevel.CovariantHits
 	{
 		/**=== Covariant search results
 		 *
-		 * NEST used to have a feature that allowed you to map multiple types in an index back into a covariant list.
+		 * OSC used to have a feature that allowed you to map multiple types in an index back into a covariant list.
 		 *
 		 * Since types are removed in OpenSearch this feature is no longer supported. Because you can
 		 * now explicitly inject a serializer for user types only (_source, fields etcetera) please rely on a JsonConverter that

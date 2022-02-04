@@ -87,7 +87,7 @@ namespace Osc
 		}
 	}
 	/// <summary>
-	/// OpenSearchClient is NEST's strongly typed client which exposes fully mapped OpenSearch endpoints
+	/// OpenSearchClient is OSC's strongly typed client which exposes fully mapped OpenSearch endpoints
 	/// </summary>
 	public partial class OpenSearchClient : IOpenSearchClient
 	{

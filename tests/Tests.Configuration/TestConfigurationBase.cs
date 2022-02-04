@@ -26,7 +26,7 @@
 */
 
 using System;
-using Elastic.Stack.ArtifactsApi;
+using OpenSearch.Stack.ArtifactsApi;
 
 namespace Tests.Configuration
 {
@@ -39,7 +39,7 @@ namespace Tests.Configuration
 		public string TestFilter { get; protected set; }
 
 		/// <summary> The OpenSearch version to test against, defined for both unit and integration tests</summary>
-		public ElasticVersion OpenSearchVersion { get; protected set; }
+		public OpenSearchVersion OpenSearchVersion { get; protected set; }
 
 		public bool OpenSearchVersionIsSnapshot => OpenSearchVersion.ArtifactBuildState == ArtifactBuildState.Snapshot;
 
@@ -94,7 +94,7 @@ namespace Tests.Configuration
 		/// <summary> Run tests with a custom source serializer rather than the build in one </summary>
 		public bool SourceSerializer { get; set; }
 
-		/// <summary> Randomly enable typed keys on searches (defaults to true) on NEST search requests</summary>
+		/// <summary> Randomly enable typed keys on searches (defaults to true) on OSC search requests</summary>
 		public bool TypedKeys { get; set; }
 
 		/// <summary> Randomly enable compression on the http requests</summary>

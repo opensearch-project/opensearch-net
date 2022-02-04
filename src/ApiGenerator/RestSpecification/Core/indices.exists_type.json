@@ -2,7 +2,7 @@
   "indices.exists_type":{
     "documentation":{
       "url":"https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/",
-      "description":"Returns information about whether a particular document type exists. (DEPRECATED)"
+      "description":"Returns information about whether a particular document type exists."
     },
     "stability":"stable",
     "visibility":"public",

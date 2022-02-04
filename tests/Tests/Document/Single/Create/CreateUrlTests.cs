@@ -26,7 +26,7 @@
 */
 
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -38,7 +38,7 @@ namespace Tests.Document.Single.Create
 	{
 		[U] public async Task Urls()
 		{
-			var project = new Project { Name = "NEST" };
+			var project = new Project { Name = "OSC" };
 
 			await PUT("/project/_create/1")
 				.Fluent(c => c.Create<object>(new { }, i => i.Index(typeof(Project)).Id(1)))
@@ -49,7 +49,7 @@ namespace Tests.Document.Single.Create
 					Document = new { }
 				}));
 
-			await PUT("/project/_create/NEST")
+			await PUT("/project/_create/OSC")
 				.Fluent(c => c.CreateDocument(project))
 				.Fluent(c => c.Create(project, f => f))
 				.Request(c => c.Create(new CreateRequest<Project>(project)))
@@ -57,10 +57,10 @@ namespace Tests.Document.Single.Create
 				.FluentAsync(c => c.CreateAsync(project, f => f))
 				.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project)));
 
-			await PUT("/project2/_create/NEST")
+			await PUT("/project2/_create/OSC")
 				.Fluent(c => c.Create(project, cc => cc.Index("project2")))
-				.Request(c => c.Create(new CreateRequest<Project>(project, "project2", "NEST") { Document = project }))
-				.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project, "project2", "NEST") { Document = project }))
+				.Request(c => c.Create(new CreateRequest<Project>(project, "project2", "OSC") { Document = project }))
+				.RequestAsync(c => c.CreateAsync(new CreateRequest<Project>(project, "project2", "OSC") { Document = project }))
 				.FluentAsync(c => c.CreateAsync(project, cc => cc.Index("project2")));
 
 			await PUT("/different-projects/_create/opensearch")

@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
@@ -40,7 +40,7 @@ namespace Tests.CommonOptions.DistanceUnit
 		 * the distance unit can be specified as a double number representing distance in meters, as a new instance of
 		 * a `Distance`, or as a string of the form number and distance unit e.g. "`2.72km`"
 		 *
-		 * NEST uses a `Distance` type to strongly type distance units and there are several ways to construct one.
+		 * OSC uses a `Distance` type to strongly type distance units and there are several ways to construct one.
 		 *
 		 * ==== Constructor
 		 * The most straight forward way to construct a `Distance` is through its constructor

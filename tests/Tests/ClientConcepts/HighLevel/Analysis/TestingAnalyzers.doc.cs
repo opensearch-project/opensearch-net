@@ -26,8 +26,8 @@
 */
 
 using System;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -129,7 +129,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 			//hide
 			Expect(expected).WhenSerializing(analyzeResponse as AnalyzeResponse);
 
-			/**which is deserialized to an instance of `AnalyzeResponse` by NEST
+			/**which is deserialized to an instance of `AnalyzeResponse` by OSC
 			 * that we can work with
 			 */
 			foreach (var analyzeToken in analyzeResponse.Tokens)

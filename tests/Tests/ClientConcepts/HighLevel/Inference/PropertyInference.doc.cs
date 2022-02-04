@@ -27,8 +27,8 @@
 
 using System;
 using System.Linq.Expressions;
-using Elastic.Elasticsearch.Xunit.Sdk;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.Sdk;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

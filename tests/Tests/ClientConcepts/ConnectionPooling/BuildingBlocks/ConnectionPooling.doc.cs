@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -44,17 +44,17 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		/**[[connection-pooling]]
 		 * === Connection pools
 		 * Connection pooling is the internal mechanism that takes care of registering what nodes there are in the cluster and which
-		 * NEST can use to issue client calls on.
+		 * OSC can use to issue client calls on.
 		 *
 		 * [IMPORTANT]
 		 * --
-		 * Despite the name, a connection pool in NEST is **not** like connection pooling that you may be familiar with from
+		 * Despite the name, a connection pool in OSC is **not** like connection pooling that you may be familiar with from
 		 * https://msdn.microsoft.com/en-us/library/bb399543(v=vs.110).aspx[interacting with a database using ADO.Net]; for example,
-		 * a connection pool in NEST is **not** responsible for managing an underlying pool of TCP connections to OpenSearch,
+		 * a connection pool in OSC is **not** responsible for managing an underlying pool of TCP connections to OpenSearch,
 		 * this is https://blogs.msdn.microsoft.com/adarshk/2005/01/02/understanding-system-net-connection-management-and-servicepointmanager/[handled by the ServicePointManager in Desktop CLR].
 		 * --
 		 *
-		 * So, what is a connection pool in NEST responsible for? It is responsible for managing the nodes in an OpenSearch
+		 * So, what is a connection pool in OSC responsible for? It is responsible for managing the nodes in an OpenSearch
 		 * cluster to which a connection can be made and there is one instance of an `IConnectionPool` associated with an
 		 * instance of `ConnectionSettings`. Since a <<lifetimes,single client and connection settings instance is recommended for the
 		 * life of the application>>, the lifetime of a single connection pool instance will also be bound to the lifetime
@@ -301,7 +301,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			var client = new OpenSearchClient(new ConnectionSettings(pool));
 
 			/** Or using an enumerable of `Node`. A major benefit in using nodes is that you can include
-			* known node roles when seeding, which NEST can then use to favour particular API requests. For example,
+			* known node roles when seeding, which OSC can then use to favour particular API requests. For example,
 			* sniffing on master eligible nodes first, and take master only nodes out of rotation for issuing client calls on.
 			*/
 			var nodes = uris.Select(u=>new Node(u));

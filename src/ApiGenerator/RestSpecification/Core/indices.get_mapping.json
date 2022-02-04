@@ -28,44 +28,6 @@
               "description":"A comma-separated list of index names"
             }
           }
-        },
-        {
-          "path":"/_mapping/{type}",
-          "methods":[
-            "GET"
-          ],
-          "parts":{
-            "type":{
-              "type":"list",
-              "description":"A comma-separated list of document types",
-              "deprecated":true
-            }
-          },
-          "deprecated":{
-            "version":"7.0.0",
-            "description":"Specifying types in urls has been deprecated"
-          }
-        },
-        {
-          "path":"/{index}/_mapping/{type}",
-          "methods":[
-            "GET"
-          ],
-          "parts":{
-            "index":{
-              "type":"list",
-              "description":"A comma-separated list of index names"
-            },
-            "type":{
-              "type":"list",
-              "description":"A comma-separated list of document types",
-              "deprecated":true
-            }
-          },
-          "deprecated":{
-            "version":"7.0.0",
-            "description":"Specifying types in urls has been deprecated"
-          }
         }
       ]
     },
@@ -97,14 +59,6 @@
       "master_timeout":{
         "type":"time",
         "description":"Specify timeout for connection to master"
-      },
-      "local":{
-        "type":"boolean",
-        "description":"Return local information, do not retrieve the state from master node (default: false)",
-        "deprecated":{
-          "version":"7.8.0",
-          "description":"This parameter is a no-op and field mappings are always retrieved locally."
-        }
       }
     }
   }

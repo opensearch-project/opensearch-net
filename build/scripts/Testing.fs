@@ -46,16 +46,16 @@ module Tests =
             | Some v -> Environment.setEnvironVar key <| sprintf "%O" v
             | None -> ignore()
         
-        env "NEST_INTEGRATION_CLUSTER" clusterFilter
-        env "NEST_TEST_FILTER" testFilter
+        env "OSC_INTEGRATION_CLUSTER" clusterFilter
+        env "OSC_TEST_FILTER" testFilter
         let seed = Some <| args.Seed.ToString(CultureInfo.InvariantCulture)
-        env "NEST_TEST_SEED" seed 
+        env "OSC_TEST_SEED" seed
 
         for random in args.RandomArguments do 
             let tokens = random.Split [|':'|]
             let key = tokens.[0].ToUpper()
             let b = if tokens.Length = 1 then true else (bool.Parse (tokens.[1]))
-            let key = sprintf "NEST_RANDOM_%s" key
+            let key = sprintf "OSC_RANDOM_%s" key
             let value = (if b then "true" else "false")
             env key (Some <| value)
         ignore()
@@ -106,6 +106,6 @@ module Tests =
         | None -> failwith "No versions specified to run integration tests against"
         | Some opensearchVersions ->
             for opensearchVersion in opensearchVersions do
-                Environment.setEnvironVar "NEST_INTEGRATION_TEST" "1"
-                Environment.setEnvironVar "NEST_INTEGRATION_VERSION" opensearchVersion
+                Environment.setEnvironVar "OSC_INTEGRATION_TEST" "1"
+                Environment.setEnvironVar "OSC_INTEGRATION_VERSION" opensearchVersion
                 dotnetTest "tests/Tests/Tests.csproj" args

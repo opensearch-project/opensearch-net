@@ -95,8 +95,8 @@ namespace Osc
 			return true;
 		}
 
-		private string ResolveId(Id id, IConnectionSettingsValues nestSettings) =>
-			id.Document != null ? nestSettings.Inferrer.Id(id.Document) : id.StringOrLongValue;
+		private string ResolveId(Id id, IConnectionSettingsValues oscSettings) =>
+			id.Document != null ? oscSettings.Inferrer.Id(id.Document) : id.StringOrLongValue;
 
 		private static JoinField GetJoinFieldFromObject(Type type, object @object)
 		{

@@ -26,7 +26,7 @@
 */
 
 using System.Collections.Generic;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 

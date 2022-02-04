@@ -34,7 +34,7 @@ using OpenSearch.Net.Utf8Json;
 
 namespace Osc
 {
-	/// <summary>The built in internal serializer that the high level client NEST uses.</summary>
+	/// <summary>The built in internal serializer that the high level client OSC uses.</summary>
 	internal class DefaultHighLevelSerializer : IOpenSearchSerializer, IInternalSerializer
 	{
 		public DefaultHighLevelSerializer(IJsonFormatterResolver formatterResolver) => FormatterResolver = formatterResolver;

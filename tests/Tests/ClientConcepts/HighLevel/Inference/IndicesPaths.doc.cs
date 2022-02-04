@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
@@ -46,7 +46,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* or the special `_all` marker (used to specify all indices), in the URI path of the request, to specify the indices that
 		* the request should execute against.
 		*
-		* In NEST, these index names can be specified using the `Indices` type.
+		* In OSC, these index names can be specified using the `Indices` type.
 		*
 		* ==== Implicit Conversion
 		*
@@ -111,9 +111,9 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		}
 
 		/**
-		* [[nest-indices]]
-		*==== Using Nest.Indices methods
-		* To make creating `IndexName` or `Indices` instances easier, `Nest.Indices` also contains several static methods
+		* [[osc-indices]]
+		*==== Using Osc.Indices methods
+		* To make creating `IndexName` or `Indices` instances easier, `Osc.Indices` also contains several static methods
 		* that can be used to construct them.
 		*
 		*===== Single index
@@ -122,7 +122,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* [TIP]
 		* ====
-		* This example uses the static import `using static Nest.Indices;` in the using directives to shorthand `Nest.Indices.Index()`
+		* This example uses the static import `using static Osc.Indices;` in the using directives to shorthand `Osc.Indices.Index()`
 		* to simply `Index()`. Be sure to include this static import if copying any of these examples.
 		* ====
 		*/
@@ -167,8 +167,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* OpenSearch allows searching across multiple indices using the special `_all` marker.
 		*
-		* NEST exposes the `_all` marker with `Indices.All` and `Indices.AllIndices`. Why expose it in two ways, you ask?
-		* Well, you may be using both `Nest.Indices` and `Nest.Types` in the same file and you may also be using C#6
+		* OSC exposes the `_all` marker with `Indices.All` and `Indices.AllIndices`. Why expose it in two ways, you ask?
+		* Well, you may be using both `Osc.Indices` and `Osc.Types` in the same file and you may also be using C#6
 		* static imports too; in this scenario, the `All` property becomes ambiguous between `Indices.All` and `Types.All`, so the
 		* `_all` marker for indices is exposed as `Indices.AllIndices`, to alleviate this ambiguity
 		*/

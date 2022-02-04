@@ -26,7 +26,7 @@
 */
 
 using System.Threading.Tasks;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 
 namespace Tests.Ingest.GrokProcessorPatterns

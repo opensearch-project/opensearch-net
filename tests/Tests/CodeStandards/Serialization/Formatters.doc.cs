@@ -33,7 +33,7 @@ using Osc;
 using Tests.Framework;
 using System.Collections.Generic;
 using System.Reflection;
-using Elastic.Elasticsearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net.Utf8Json;
 
 namespace Tests.CodeStandards.Serialization

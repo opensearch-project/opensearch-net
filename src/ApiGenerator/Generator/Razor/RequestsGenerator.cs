@@ -37,12 +37,12 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class RequestsGenerator : RazorGeneratorBase
 	{
-		public override string Title => "NEST requests";
+		public override string Title => "OSC requests";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{
 			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.NestFolder, "Requests.*.cs"))
+			foreach (var file in Directory.GetFiles(GeneratorLocations.OscFolder, "Requests.*.cs"))
 				File.Delete(file);
 
 			var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
