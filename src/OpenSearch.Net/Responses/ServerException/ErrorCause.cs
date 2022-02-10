@@ -73,8 +73,6 @@ namespace OpenSearch.Net
 
 		public string Language { get; internal set; }
 
-		public string LicensedExpiredFeature { get; internal set; }
-
 		public int? Line { get; internal set; }
 
 		public string Phase { get; internal set; }
@@ -113,7 +111,6 @@ namespace OpenSearch.Net
 			{ "index", 6 },
 			{ "index_uuid", 7 },
 			{ "lang", 8 },
-			{ "license.expired.feature", 9 },
 			{ "line", 10 },
 			{ "phase", 11 },
 			{ "reason", 12 },
@@ -189,9 +186,6 @@ namespace OpenSearch.Net
 									break;
 								case 8:
 									errorCause.Language = reader.ReadString();
-									break;
-								case 9:
-									errorCause.LicensedExpiredFeature = reader.ReadString();
 									break;
 								case 10:
 									errorCause.Line = reader.ReadInt32();
@@ -335,16 +329,6 @@ namespace OpenSearch.Net
 
 				writer.WritePropertyName("lang");
 				writer.WriteString(value.Language);
-				count++;
-			}
-
-			if (value.LicensedExpiredFeature != null)
-			{
-				if (count > 0)
-					writer.WriteValueSeparator();
-
-				writer.WritePropertyName("license.expired.feature");
-				writer.WriteString(value.LicensedExpiredFeature);
 				count++;
 			}
 

@@ -38,20 +38,6 @@ using Tests.Domain.Helpers;
 
 namespace Tests.Domain
 {
-	public class Labels
-	{
-		public LabelActivity LabelActivity { get; set; }
-		public string Priority { get; set; }
-
-		public IList<string> Release { get; set; }
-	}
-
-	public class LabelActivity
-	{
-		public long? Closed { get; set; }
-		public long? Created { get; set; }
-	}
-
 	public class ProjectRuntimeFields
 	{
 		[DataMember(Name = "runtime_started_on_day_of_week")]
@@ -78,7 +64,6 @@ namespace Tests.Domain
 
 		public JoinField Join => JoinField.Root<Project>();
 
-		public Labels Labels { get; set; }
 		public DateTime LastActivity { get; set; }
 		public Developer LeadDeveloper { get; set; }
 		public SimpleGeoPoint LocationPoint { get; set; }
@@ -140,20 +125,6 @@ namespace Tests.Domain
 						{ "color", new[] { "red", "blue", "green", "violet", "yellow" }.Take(Gimme.Random.Number(1, 4)) }
 					}
 				})
-				.RuleFor(p => p.Labels, f =>
-					{
-						var closedDate = f.Date.Recent(7);
-						return new Labels
-						{
-						Priority = Gimme.Random.ListItem(new List<string> { "urgent", "high", "normal", "low" }),
-						Release = Gimme.Random.ListItems(new List<string> { f.System.Semver(), f.System.Semver(), f.System.Semver(), f.System.Semver() }),
-						LabelActivity = new LabelActivity
-								{
-									Created = f.Date.Past(1, closedDate).ToUnixTime(),
-									Closed = closedDate.ToUnixTime()
-								}
-						};
-					})
 				.RuleFor(p => p.VersionControl, VersionControlConstant);
 
 		public static IList<Project> Projects { get; } = Generator.Clone().Generate(100);
