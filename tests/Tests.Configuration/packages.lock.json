@@ -21,7 +21,7 @@
         "type": "Direct",
         "requested": "[0.1.0-canary.0.17, )",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "n5aybS3KBbl6IQENfYEydRRGaDzu1lc7QZCdMNZGZ8Zu8VcoA+jc+3mhULzHRwwk8Y7XgQgC7OX1lOuRcAotHw==",
+        "contentHash": "9MsxDXQoSmbKxahAS1405BwUhVRdV+ZFDKULYe8wq9BnwNJrQOnZjgbRRhSK10q9B+6oy2UwSYzoA0bcpab+Cw==",
         "dependencies": {
           "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.17",
           "Proc": "0.6.1",
@@ -74,7 +74,7 @@
       "OpenSearch.Stack.ArtifactsApi": {
         "type": "Transitive",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "RrzfTrT1D4rj+zkaT/FKKTXet9JGcRYwgzco0MtFOPxLKU6Sst+9QdcVcJxp6TNEs/aGTDQtBnm1lTaO8D9RbA==",
+        "contentHash": "I3kblDxGU+p/EhswGUsPeAmWUDpcrHP0NksFQ/5aie0RMxuQ1+TSEJKckQlAnfqoezl0PUMp7v/MzJwIZOBFDg==",
         "dependencies": {
           "SemanticVersioning": "0.8.0",
           "System.Text.Json": "4.6.0"
