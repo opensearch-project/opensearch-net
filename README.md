@@ -33,7 +33,7 @@ OSC is the official high-level .NET client of [OpenSearch](https://github.com/op
 
 ## Getting Started
 Include OSC in your .csproj file.
-```
+```xml
 <Project>
   ...
   <ItemGroup>
@@ -55,7 +55,7 @@ A low-level, dependency free client that has no opinions how you build and repre
 
 ## Getting Started
 Include OpenSearch.Net in your .csproj file.
-```
+```xml
 <Project>
   ...
   <ItemGroup>
