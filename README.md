@@ -12,6 +12,8 @@ OpenSearch .NET Client
 
 **opensearch-net** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
 
+**OSC** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net high level client NEST licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
+
 ## Project Resources
 
 * [Project Website](https://opensearch.org/)
@@ -24,6 +26,50 @@ OpenSearch .NET Client
 * [Release Management](RELEASING.md)
 * [Admin Responsibilities](ADMINS.md)
 * [Security](SECURITY.md)
+
+# [OSC](https://github.com/opensearch-project/opensearch-net/tree/main/src/Osc)
+
+OSC is the official high-level .NET client of [OpenSearch](https://github.com/opensearch-project/OpenSearch).
+
+## Getting Started
+Include OSC in your .csproj file.
+```xml
+<Project>
+  ...
+  <ItemGroup>
+    <ProjectReference Include="..\opensearch-net\src\Osc\Osc.csproj" />
+  </ItemGroup>
+</Project>
+```
+
+**Connecting to a single node**
+```csharp
+var node = new Uri("http://myserver:9200");
+var settings = new ConnectionSettings(node);
+var client = new OpenSearchClient(settings);
+```
+
+# [OpenSearch.Net](src/OpenSearch.Net)
+
+A low-level, dependency free client that has no opinions how you build and represent your requests and responses.
+
+## Getting Started
+Include OpenSearch.Net in your .csproj file.
+```xml
+<Project>
+  ...
+  <ItemGroup>
+    <ProjectReference Include="..\opensearch-net\src\OpenSearch.Net\OpenSearch.Net.csproj" />
+  </ItemGroup>
+</Project>
+```
+
+**Connecting**
+```csharp
+var node = new Uri("http://myserver:9200");
+var config = new ConnectionConfiguration(node);
+var client = new OpenSearchLowLevelClient(config);
+```
 
 ## Code of Conduct
 
