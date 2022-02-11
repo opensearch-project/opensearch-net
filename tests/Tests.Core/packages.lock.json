@@ -60,7 +60,7 @@
         "type": "Direct",
         "requested": "[0.1.0-canary.0.17, )",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "+5MKISJACBBVcs23LnU/4cAYsJXl1i2TWePYvXJOwPjvxuWBoPPDE+WtZn6zG29YdGZ0xKwx22WonL7ncPbrNw==",
+        "contentHash": "dAoEAV4ac4XSlJVhd5l3ML1Be3vNNq4y6PFoJQ1PKNvdzN2G5ud8XoHG9SrTcPoIV2pKO6wIVfYlvaqAFthhWg==",
         "dependencies": {
           "OpenSearch.OpenSearch.Ephemeral": "0.1.0-canary.0.17",
           "xunit": "2.3.1"
@@ -169,7 +169,7 @@
       "OpenSearch.OpenSearch.Ephemeral": {
         "type": "Transitive",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "x8e542cS6BYkI48DUhu12068USyr/AVSXQRBrbg+IEcScRmF9dtn0bv3XPYZ+9RQCW7zEAITAHI7EcxjMDbyzw==",
+        "contentHash": "BKbxCo0hhbfuJf12IRvJJEWo5Lw/Ofr7d+lvXrSd89iHXKJSCr8l3rxzf5iuMwGvBVLiBhAjz77fPEITWGpj1w==",
         "dependencies": {
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.17",
           "SharpZipLib.NETStandard": "1.0.7"
@@ -178,7 +178,7 @@
       "OpenSearch.OpenSearch.Managed": {
         "type": "Transitive",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "n5aybS3KBbl6IQENfYEydRRGaDzu1lc7QZCdMNZGZ8Zu8VcoA+jc+3mhULzHRwwk8Y7XgQgC7OX1lOuRcAotHw==",
+        "contentHash": "9MsxDXQoSmbKxahAS1405BwUhVRdV+ZFDKULYe8wq9BnwNJrQOnZjgbRRhSK10q9B+6oy2UwSYzoA0bcpab+Cw==",
         "dependencies": {
           "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.17",
           "Proc": "0.6.1",
@@ -188,7 +188,7 @@
       "OpenSearch.Stack.ArtifactsApi": {
         "type": "Transitive",
         "resolved": "0.1.0-canary.0.17",
-        "contentHash": "RrzfTrT1D4rj+zkaT/FKKTXet9JGcRYwgzco0MtFOPxLKU6Sst+9QdcVcJxp6TNEs/aGTDQtBnm1lTaO8D9RbA==",
+        "contentHash": "I3kblDxGU+p/EhswGUsPeAmWUDpcrHP0NksFQ/5aie0RMxuQ1+TSEJKckQlAnfqoezl0PUMp7v/MzJwIZOBFDg==",
         "dependencies": {
           "SemanticVersioning": "0.8.0",
           "System.Text.Json": "4.6.0"
@@ -1314,14 +1314,14 @@
       "OSC": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "7.0.0"
+          "OpenSearch.Net": "1.0.0"
         }
       },
       "OSC.JsonNetSerializer": {
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
-          "OSC": "7.0.0"
+          "OSC": "1.0.0"
         }
       },
       "tests.configuration": {
@@ -1335,9 +1335,9 @@
         "dependencies": {
           "Bogus": "22.1.2",
           "Newtonsoft.Json": "12.0.1",
-          "OSC": "7.0.0",
+          "OSC": "1.0.0",
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.17",
-          "Tests.Configuration": "7.0.0"
+          "Tests.Configuration": "1.0.0"
         }
       }
     }

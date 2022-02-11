@@ -1045,37 +1045,6 @@ namespace Osc
 		public PutIndexTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 	}
 
-	///<summary>Descriptor for RecoveryStatus <para></para></summary>
-	public partial class RecoveryStatusDescriptor : RequestDescriptorBase<RecoveryStatusDescriptor, RecoveryStatusRequestParameters, IRecoveryStatusRequest>, IRecoveryStatusRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRecoveryStatus;
-		///<summary>/_recovery</summary>
-		public RecoveryStatusDescriptor(): base()
-		{
-		}
-
-		///<summary>/{index}/_recovery</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public RecoveryStatusDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices IRecoveryStatusRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</summary>
-		public RecoveryStatusDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public RecoveryStatusDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public RecoveryStatusDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Display only those recoveries that are currently on-going</summary>
-		public RecoveryStatusDescriptor ActiveOnly(bool? activeonly = true) => Qs("active_only", activeonly);
-		///<summary>Whether to display detailed information about shard recovery</summary>
-		public RecoveryStatusDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
-	}
-
 	///<summary>Descriptor for Refresh <para>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</para></summary>
 	public partial class RefreshDescriptor : RequestDescriptorBase<RefreshDescriptor, RefreshRequestParameters, IRefreshRequest>, IRefreshRequest
 	{
@@ -1171,41 +1140,6 @@ namespace Osc
 		public RolloverIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 		///<summary>Set the number of active shards to wait for on the newly created rollover index before the operation returns.</summary>
 		public RolloverIndexDescriptor WaitForActiveShards(string waitforactiveshards) => Qs("wait_for_active_shards", waitforactiveshards);
-	}
-
-	///<summary>Descriptor for Segments <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</para></summary>
-	public partial class SegmentsDescriptor : RequestDescriptorBase<SegmentsDescriptor, SegmentsRequestParameters, ISegmentsRequest>, ISegmentsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesSegments;
-		///<summary>/_segments</summary>
-		public SegmentsDescriptor(): base()
-		{
-		}
-
-		///<summary>/{index}/_segments</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public SegmentsDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices ISegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</summary>
-		public SegmentsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public SegmentsDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public SegmentsDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
-		public SegmentsDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public SegmentsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
-		public SegmentsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Includes detailed memory usage by Lucene.</summary>
-		public SegmentsDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
 	}
 
 	///<summary>Descriptor for ShardStores <para></para></summary>
@@ -1309,76 +1243,6 @@ namespace Osc
 		public SplitIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 		///<summary>Set the number of active shards to wait for on the shrunken index before the operation returns.</summary>
 		public SplitIndexDescriptor WaitForActiveShards(string waitforactiveshards) => Qs("wait_for_active_shards", waitforactiveshards);
-	}
-
-	///<summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-	public partial class IndicesStatsDescriptor : RequestDescriptorBase<IndicesStatsDescriptor, IndicesStatsRequestParameters, IIndicesStatsRequest>, IIndicesStatsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesStats;
-		///<summary>/_stats</summary>
-		public IndicesStatsDescriptor(): base()
-		{
-		}
-
-		///<summary>/_stats/{metric}</summary>
-		///<param name = "metric">Optional, accepts null</param>
-		public IndicesStatsDescriptor(Metrics metric): base(r => r.Optional("metric", metric))
-		{
-		}
-
-		///<summary>/{index}/_stats</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public IndicesStatsDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		///<summary>/{index}/_stats/{metric}</summary>
-		///<param name = "index">Optional, accepts null</param>
-		///<param name = "metric">Optional, accepts null</param>
-		public IndicesStatsDescriptor(Indices index, Metrics metric): base(r => r.Optional("index", index).Optional("metric", metric))
-		{
-		}
-
-		// values part of the url path
-		Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-		Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>Limit the information returned the specific metrics.</summary>
-		public IndicesStatsDescriptor Metric(Metrics metric) => Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
-		///<summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</summary>
-		public IndicesStatsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public IndicesStatsDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public IndicesStatsDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor CompletionFields(Fields completionfields) => Qs("completion_fields", completionfields);
-		///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
-			where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public IndicesStatsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>A comma-separated list of fields for `fielddata` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor FielddataFields(Fields fielddatafields) => Qs("fielddata_fields", fielddatafields);
-		///<summary>A comma-separated list of fields for `fielddata` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
-			where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
-		///<summary>A comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
-		///<summary>A comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards)</summary>
-		public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
-			where T : class => Qs("fields", fields?.Select(e => (Field)e));
-		///<summary>If set to false stats will also collected from closed indices if explicitly specified or if expand_wildcards expands to closed indices</summary>
-		public IndicesStatsDescriptor ForbidClosedIndices(bool? forbidclosedindices = true) => Qs("forbid_closed_indices", forbidclosedindices);
-		///<summary>A comma-separated list of search groups for `search` index metric</summary>
-		public IndicesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
-		///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested)</summary>
-		public IndicesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) => Qs("include_segment_file_sizes", includesegmentfilesizes);
-		///<summary>If set to true segment stats will include stats for segments that are not currently loaded into memory</summary>
-		public IndicesStatsDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) => Qs("include_unloaded_segments", includeunloadedsegments);
-		///<summary>Return stats aggregated at cluster, index or shard level</summary>
-		public IndicesStatsDescriptor Level(Level? level) => Qs("level", level);
 	}
 
 	///<summary>Descriptor for BulkAlias <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>

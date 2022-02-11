@@ -119,7 +119,6 @@ namespace Tests.ClientConcepts.ServerError
 			errorMetadata.Should().NotBeNull(origin);
 			errorMetadata.Grouped.Should().BeTrue(origin);
 			errorMetadata.Phase.Should().Be("query", origin);
-			errorMetadata.LicensedExpiredFeature.Should().Be("ml", origin);
 			errorMetadata.Index.Should().Be("index", origin);
 			errorMetadata.IndexUUID.Should().NotBeNullOrWhiteSpace(origin);
 			errorMetadata.ResourceType.Should().NotBeNullOrWhiteSpace(origin);

@@ -98,7 +98,7 @@
       "OSC": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "7.0.0"
+          "OpenSearch.Net": "1.0.0"
         }
       }
     },
@@ -308,7 +308,7 @@
       "OSC": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "7.0.0"
+          "OpenSearch.Net": "1.0.0"
         }
       }
     }

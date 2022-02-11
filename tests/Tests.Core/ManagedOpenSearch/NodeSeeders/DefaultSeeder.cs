@@ -390,17 +390,6 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 					.Name(p => p.ArbitraryShape)
 				);
 
-			// These two settings are targeted for older clusever versions, but could be relevant even now
-			// Keeping this in for future reference. Perhaps some tests might fail without this.
-			/*
-			props.Object<Labels>(f => f
-				.Name(p => p.Labels)
-				.Enabled(false)
-			);
-			props.Keyword(f => f
-				.Name(p => p.VersionControl)
-			);
-			*/
 			return props;
 		}
 
