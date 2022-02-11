@@ -83,7 +83,6 @@ namespace Tests.Mapping.Types.Core.Number
 					similarity = "classic",
 					store = true,
 					index = false,
-					boost = 1.5,
 					null_value = 0.0,
 					ignore_malformed = true,
 					coerce = true,

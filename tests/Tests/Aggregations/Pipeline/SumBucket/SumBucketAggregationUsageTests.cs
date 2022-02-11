@@ -46,7 +46,7 @@ namespace Tests.Aggregations.Pipeline.SumBucket
 				date_histogram = new
 				{
 					field = "startedOn",
-					interval = "month",
+					calendar_interval = "month",
 				},
 				aggs = new
 				{
