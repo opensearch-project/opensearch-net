@@ -111,16 +111,16 @@ namespace OpenSearch.Net
 			{ "index", 6 },
 			{ "index_uuid", 7 },
 			{ "lang", 8 },
-			{ "line", 10 },
-			{ "phase", 11 },
-			{ "reason", 12 },
-			{ "resource.id", 13 },
-			{ "resource.type", 14 },
-			{ "script", 15 },
-			{ "script_stack", 16 },
-			{ "shard", 17 },
-			{ "stack_trace", 18 },
-			{ "type", 19 }
+			{ "line", 9 },
+			{ "phase", 10 },
+			{ "reason", 11 },
+			{ "resource.id", 12 },
+			{ "resource.type", 13 },
+			{ "script", 14 },
+			{ "script_stack", 15 },
+			{ "shard", 16 },
+			{ "stack_trace", 17 },
+			{ "type", 18 }
 		};
 
 		public static readonly NullableStringIntFormatter ShardFormatter = new NullableStringIntFormatter();
@@ -187,34 +187,34 @@ namespace OpenSearch.Net
 								case 8:
 									errorCause.Language = reader.ReadString();
 									break;
-								case 10:
+								case 9:
 									errorCause.Line = reader.ReadInt32();
 									break;
-								case 11:
+								case 10:
 									errorCause.Phase = reader.ReadString();
 									break;
-								case 12:
+								case 11:
 									errorCause.Reason = reader.ReadString();
 									break;
-								case 13:
+								case 12:
 									errorCause.ResourceId = ErrorCauseFormatterStatics.SingleOrEnumerableFormatter.Deserialize(ref reader, formatterResolver);
 									break;
-								case 14:
+								case 13:
 									errorCause.ResourceType = reader.ReadString();
 									break;
-								case 15:
+								case 14:
 									errorCause.Script = reader.ReadString();
 									break;
-								case 16:
+								case 15:
 									errorCause.ScriptStack = ErrorCauseFormatterStatics.SingleOrEnumerableFormatter.Deserialize(ref reader, formatterResolver);
 									break;
-								case 17:
+								case 16:
 									errorCause.Shard = ErrorCauseFormatterStatics.ShardFormatter.Deserialize(ref reader, formatterResolver);
 									break;
-								case 18:
+								case 17:
 									errorCause.StackTrace = reader.ReadString();
 									break;
-								case 19:
+								case 18:
 									errorCause.Type = reader.ReadString();
 									break;
 							}
