@@ -53,9 +53,9 @@ namespace Tests.Mapping.Types.Shape
 
 		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
 			.Shape(s => s
-				.Name(p => p.ArbitraryShape)
-				.Orientation(ShapeOrientation.ClockWise)
-				.Coerce()
+				// .Name(p => p.ArbitraryShape)
+				// .Orientation(ShapeOrientation.ClockWise)
+				// .Coerce()
 			);
 
 

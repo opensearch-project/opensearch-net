@@ -79,7 +79,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 
 			Add(AttributeKey("testingcluster"), "true");
 			Add(AttributeKey("gateway"), "true");
-			Add("search.remote.connect", "true");
+			// Add("search.remote.connect", "true");
 
 			Add($"script.disable_max_compilations_rate", "true");
 

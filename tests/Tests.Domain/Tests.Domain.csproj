@@ -11,7 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bogus" Version="22.1.2" />
-    <PackageReference Include="OpenSearch.OpenSearch.Managed" Version="0.1.0-canary.0.17" />
+    <PackageReference Include="OpenSearch.OpenSearch.Managed" Version="0.1.0-canary.0.32" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Configuration\Tests.Configuration.csproj" />
   </ItemGroup>

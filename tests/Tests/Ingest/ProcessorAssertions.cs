@@ -449,10 +449,10 @@ namespace Tests.Ingest
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
 				.Circle<Project>(ud => ud
 					.Field(p => p.Description)
-					.TargetField(p => p.ArbitraryShape)
-					.ShapeType(ShapeType.Shape)
-					.ErrorDistance(10d)
-					.IgnoreMissing()
+					// .TargetField(p => p.ArbitraryShape)
+					// .ShapeType(ShapeType.Shape)
+					// .ErrorDistance(10d)
+					// .IgnoreMissing()
 				);
 
 			public override IProcessor Initializer => new CircleProcessor

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>OpenSearch.OpenSearch.Managed</id>
-    <version>0.1.0-canary.0.17</version>
+    <version>0.1.0-canary.0.32</version>
     <authors>OpenSearch Project and contributors</authors>
     <license type="expression">Apache-2.0</license>
     <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
@@ -13,15 +13,15 @@
     <releaseNotes>https://github.com/opensearch-project/opensearch-net-abstractions/releases</releaseNotes>
     <copyright>OpenSearch</copyright>
     <tags>opensearch,opensearch,cluster,observable,rx</tags>
-    <repository type="git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="bcf36fca7ae0b6e60d6d325fc6bf958151fc4f3f" />
+    <repository type="git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="eddfd683994854f314e43e507339a1e0758a463d" />
     <dependencies>
       <group targetFramework=".NETFramework4.6.1">
-        <dependency id="OpenSearch.Stack.ArtifactsApi" version="0.1.0-canary.0.17" exclude="Build,Analyzers" />
+        <dependency id="OpenSearch.Stack.ArtifactsApi" version="0.1.0-canary.0.32" exclude="Build,Analyzers" />
         <dependency id="Proc" version="0.6.1" exclude="Build,Analyzers" />
         <dependency id="System.Net.Http" version="4.3.1" exclude="Build,Analyzers" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="OpenSearch.Stack.ArtifactsApi" version="0.1.0-canary.0.17" exclude="Build,Analyzers" />
+        <dependency id="OpenSearch.Stack.ArtifactsApi" version="0.1.0-canary.0.32" exclude="Build,Analyzers" />
         <dependency id="Proc" version="0.6.1" exclude="Build,Analyzers" />
         <dependency id="System.Net.Http" version="4.3.1" exclude="Build,Analyzers" />
       </group>
