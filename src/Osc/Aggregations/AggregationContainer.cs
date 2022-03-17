@@ -119,9 +119,6 @@ namespace Osc
 		[DataMember(Name = "avg_bucket")]
 		IAverageBucketAggregation AverageBucket { get; set; }
 
-		[DataMember(Name = "boxplot")]
-		IBoxplotAggregation Boxplot { get; set; }
-
 		[DataMember(Name = "bucket_script")]
 		IBucketScriptAggregation BucketScript { get; set; }
 
@@ -258,9 +255,6 @@ namespace Osc
 		[DataMember(Name = "rare_terms")]
 		IRareTermsAggregation RareTerms { get; set; }
 
-		[DataMember(Name = "rate")]
-		IRateAggregation Rate { get; set; }
-
 		[DataMember(Name = "reverse_nested")]
 		IReverseNestedAggregation ReverseNested { get; set; }
 
@@ -306,9 +300,6 @@ namespace Osc
 		[DataMember(Name = "median_absolute_deviation")]
 		IMedianAbsoluteDeviationAggregation MedianAbsoluteDeviation { get; set; }
 
-		[DataMember(Name = "string_stats")]
-		IStringStatsAggregation StringStats { get; set; }
-
 		[DataMember(Name = "multi_terms")]
 		IMultiTermsAggregation MultiTerms { get; set; }
 		
@@ -334,9 +325,6 @@ namespace Osc
 		public IAverageAggregation Average { get; set; }
 
 		public IAverageBucketAggregation AverageBucket { get; set; }
-
-		/// <inheritdoc cref="IBoxplotAggregation"/>
-		public IBoxplotAggregation Boxplot { get; set; }
 
 		public IBucketScriptAggregation BucketScript { get; set; }
 
@@ -426,8 +414,6 @@ namespace Osc
 
 		public IRareTermsAggregation RareTerms { get; set; }
 
-		public IRateAggregation Rate { get; set; }
-
 		public IReverseNestedAggregation ReverseNested { get; set; }
 
 		public ISamplerAggregation Sampler { get; set; }
@@ -456,8 +442,6 @@ namespace Osc
 		public IWeightedAverageAggregation WeightedAverage { get; set; }
 
 		public IMedianAbsoluteDeviationAggregation MedianAbsoluteDeviation { get; set; }
-
-		public IStringStatsAggregation StringStats { get; set; }
 
 		public IMultiTermsAggregation MultiTerms { get; set; }
 
@@ -502,8 +486,6 @@ namespace Osc
 		IAverageAggregation IAggregationContainer.Average { get; set; }
 
 		IAverageBucketAggregation IAggregationContainer.AverageBucket { get; set; }
-
-		IBoxplotAggregation IAggregationContainer.Boxplot { get; set; }
 
 		IBucketScriptAggregation IAggregationContainer.BucketScript { get; set; }
 
@@ -594,8 +576,6 @@ namespace Osc
 
 		IRareTermsAggregation IAggregationContainer.RareTerms { get; set; }
 
-		IRateAggregation IAggregationContainer.Rate { get; set; }
-
 		IReverseNestedAggregation IAggregationContainer.ReverseNested { get; set; }
 
 		ISamplerAggregation IAggregationContainer.Sampler { get; set; }
@@ -625,8 +605,6 @@ namespace Osc
 		IWeightedAverageAggregation IAggregationContainer.WeightedAverage { get; set; }
 
 		IMedianAbsoluteDeviationAggregation IAggregationContainer.MedianAbsoluteDeviation { get; set; }
-
-		IStringStatsAggregation IAggregationContainer.StringStats { get; set; }
 
 		IVariableWidthHistogramAggregation IAggregationContainer.VariableWidthHistogram { get; set; }
 
@@ -776,10 +754,6 @@ namespace Osc
 			Func<RareTermsAggregationDescriptor<T>, IRareTermsAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.RareTerms = d);
-
-		public AggregationContainerDescriptor<T> Rate(string name,
-			Func<RateAggregationDescriptor<T>, IRateAggregation> selector) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Rate = d);
 
 		public AggregationContainerDescriptor<T> Stats(string name,
 			Func<StatsAggregationDescriptor<T>, IStatsAggregation> selector
@@ -950,18 +924,6 @@ namespace Osc
 			Func<MedianAbsoluteDeviationAggregationDescriptor<T>, IMedianAbsoluteDeviationAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.MedianAbsoluteDeviation = d);
-
-		/// <inheritdoc cref="IStringStatsAggregation"/>
-		public AggregationContainerDescriptor<T> StringStats(string name,
-			Func<StringStatsAggregationDescriptor<T>, IStringStatsAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.StringStats = d);
-
-		/// <inheritdoc cref="IBoxplotAggregation"/>
-		public AggregationContainerDescriptor<T> Boxplot(string name,
-			Func<BoxplotAggregationDescriptor<T>, IBoxplotAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Boxplot = d);
 
 		public AggregationContainerDescriptor<T> VariableWidthHistogram(string name,
 			Func<VariableWidthHistogramAggregationDescriptor<T>, IVariableWidthHistogramAggregation> selector

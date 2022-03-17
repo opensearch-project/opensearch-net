@@ -107,8 +107,6 @@ namespace Osc
 
 		void Visit(IRareTermsAggregation aggregation);
 
-		void Visit(IRateAggregation aggregation);
-
 		void Visit(ITermsAggregation aggregation);
 
 		void Visit(ISignificantTermsAggregation aggregation);
@@ -174,10 +172,6 @@ namespace Osc
 		void Visit(IWeightedAverageAggregation aggregation);
 
 		void Visit(IMovingFunctionAggregation aggregation);
-
-		void Visit(IStringStatsAggregation aggregation);
-
-		void Visit(IBoxplotAggregation aggregation);
 
 		void Visit(IMultiTermsAggregation aggregation);
 
@@ -270,8 +264,6 @@ namespace Osc
 
 		public virtual void Visit(IRareTermsAggregation aggregation) { }
 
-		public virtual void Visit(IRateAggregation aggregation) { }
-
 		public virtual void Visit(INestedAggregation aggregation) { }
 
 		public virtual void Visit(INormalizeAggregation aggregation) { }
@@ -313,10 +305,6 @@ namespace Osc
 		public virtual void Visit(IWeightedAverageAggregation aggregation) { }
 
 		public virtual void Visit(IMovingFunctionAggregation aggregation) { }
-
-		public virtual void Visit(IStringStatsAggregation aggregation) { }
-
-		public virtual void Visit(IBoxplotAggregation aggregation) { }
 
 		public virtual void Visit(IMultiTermsAggregation aggregationContainer) { }
 

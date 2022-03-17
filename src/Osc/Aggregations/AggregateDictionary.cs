@@ -105,8 +105,6 @@ namespace Osc
 
 		public StatsAggregate Stats(string key) => TryGet<StatsAggregate>(key);
 
-		public StringStatsAggregate StringStats(string key) => TryGet<StringStatsAggregate>(key);
-
 		public StatsAggregate StatsBucket(string key) => TryGet<StatsAggregate>(key);
 
 		public ExtendedStatsAggregate ExtendedStats(string key) => TryGet<ExtendedStatsAggregate>(key);
@@ -229,8 +227,6 @@ namespace Osc
 				};
 		}
 
-		public ValueAggregate Rate(string key) => TryGet<ValueAggregate>(key);
-
 		public MultiBucketAggregate<RareTermsBucket<string>> RareTerms(string key) => RareTerms<string>(key);
 
 		public MultiBucketAggregate<RangeBucket> Range(string key) => GetMultiBucketAggregate<RangeBucket>(key);
@@ -290,8 +286,6 @@ namespace Osc
 		public MatrixStatsAggregate MatrixStats(string key) => TryGet<MatrixStatsAggregate>(key);
 
 		public ValueAggregate MedianAbsoluteDeviation(string key) => TryGet<ValueAggregate>(key);
-
-		public BoxplotAggregate Boxplot(string key) => TryGet<BoxplotAggregate>(key);
 
 		private TAggregate TryGet<TAggregate>(string key) where TAggregate : class, IAggregate =>
 			BackingDictionary.TryGetValue(key, out var agg) ? agg as TAggregate : null;
