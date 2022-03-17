@@ -140,9 +140,6 @@ namespace Osc
 		[DataMember(Name = "cumulative_sum")]
 		ICumulativeSumAggregation CumulativeSum { get; set; }
 
-		[DataMember(Name = "cumulative_cardinality")]
-		ICumulativeCardinalityAggregation CumulativeCardinality { get; set; }
-
 		[DataMember(Name = "date_histogram")]
 		IDateHistogramAggregation DateHistogram { get; set; }
 
@@ -225,16 +222,8 @@ namespace Osc
 		[DataMember(Name = "moving_fn")]
 		IMovingFunctionAggregation MovingFunction { get; set; }
 
-		/// <inheritdoc cref="IMovingPercentilesAggregation"/>
-		[DataMember(Name = "moving_percentiles")]
-		IMovingPercentilesAggregation MovingPercentiles { get; set; }
-
 		[DataMember(Name = "nested")]
 		INestedAggregation Nested { get; set; }
-
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		[DataMember(Name = "normalize")]
-		INormalizeAggregation Normalize { get; set; }
 
 		/// <inheritdoc cref="IParentAggregation"/>
 		[DataMember(Name = "parent")]
@@ -340,8 +329,6 @@ namespace Osc
 
 		public ICumulativeSumAggregation CumulativeSum { get; set; }
 
-		public ICumulativeCardinalityAggregation CumulativeCardinality { get; set; }
-
 		public IDateHistogramAggregation DateHistogram { get; set; }
 
 		public IAutoDateHistogramAggregation AutoDateHistogram { get; set; }
@@ -393,13 +380,7 @@ namespace Osc
 
 		public IMovingFunctionAggregation MovingFunction { get; set; }
 
-		/// <inheritdoc cref="IMovingPercentilesAggregation"/>
-		public IMovingPercentilesAggregation MovingPercentiles { get; set; }
-
 		public INestedAggregation Nested { get; set; }
-
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		public INormalizeAggregation Normalize { get; set; }
 
 		/// <inheritdoc cref="IParentAggregation"/>
 		public IParentAggregation Parent { get; set; }
@@ -501,8 +482,6 @@ namespace Osc
 
 		ICumulativeSumAggregation IAggregationContainer.CumulativeSum { get; set; }
 
-		ICumulativeCardinalityAggregation IAggregationContainer.CumulativeCardinality { get; set; }
-
 		IDateHistogramAggregation IAggregationContainer.DateHistogram { get; set; }
 
 		IAutoDateHistogramAggregation IAggregationContainer.AutoDateHistogram { get; set; }
@@ -556,13 +535,9 @@ namespace Osc
 
 		IMovingFunctionAggregation IAggregationContainer.MovingFunction { get; set; }
 
-		IMovingPercentilesAggregation IAggregationContainer.MovingPercentiles { get; set; }
-
 		IMultiTermsAggregation IAggregationContainer.MultiTerms { get; set; }
 		
 		INestedAggregation IAggregationContainer.Nested { get; set; }
-
-		INormalizeAggregation IAggregationContainer.Normalize { get; set; }
 
 		IParentAggregation IAggregationContainer.Parent { get; set; }
 
@@ -728,12 +703,6 @@ namespace Osc
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.Nested = d);
 
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		public AggregationContainerDescriptor<T> Normalize(string name,
-			Func<NormalizeAggregationDescriptor, INormalizeAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Normalize = d);
-
 		/// <inheritdoc cref="IParentAggregation"/>
 		public AggregationContainerDescriptor<T> Parent<TParent>(string name,
 			Func<ParentAggregationDescriptor<T, TParent>, IParentAggregation> selector
@@ -850,20 +819,10 @@ namespace Osc
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.MovingFunction = d);
 
-		public AggregationContainerDescriptor<T> MovingPercentiles(string name,
-			Func<MovingPercentilesAggregationDescriptor, IMovingPercentilesAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.MovingPercentiles = d);
-
 		public AggregationContainerDescriptor<T> CumulativeSum(string name,
 			Func<CumulativeSumAggregationDescriptor, ICumulativeSumAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.CumulativeSum = d);
-
-		public AggregationContainerDescriptor<T> CumulativeCardinality(string name,
-			Func<CumulativeCardinalityAggregationDescriptor, ICumulativeCardinalityAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.CumulativeCardinality = d);
 
 		public AggregationContainerDescriptor<T> SerialDifferencing(string name,
 			Func<SerialDifferencingAggregationDescriptor, ISerialDifferencingAggregation> selector

@@ -75,7 +75,6 @@ namespace Osc
 				Accept(v, d.Aggregations);
 			});
 			AcceptAggregation(aggregation.CumulativeSum, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.CumulativeCardinality, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.DateHistogram, visitor, (v, d) =>
 			{
 				v.Visit(d);
@@ -140,7 +139,6 @@ namespace Osc
 				Accept(v, d.Aggregations);
 			});
 			AcceptAggregation(aggregation.MovingAverage, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.MovingPercentiles, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.MultiTerms, visitor, (v, d) =>
 			{
 				v.Visit(d);
@@ -150,10 +148,6 @@ namespace Osc
 			{
 				v.Visit(d);
 				Accept(v, d.Aggregations);
-			});
-			AcceptAggregation(aggregation.Normalize, visitor, (v, d) =>
-			{
-				v.Visit(d);
 			});
 			AcceptAggregation(aggregation.Parent, visitor, (v, d) =>
 			{

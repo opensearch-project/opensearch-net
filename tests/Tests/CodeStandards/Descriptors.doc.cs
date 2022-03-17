@@ -240,7 +240,6 @@ namespace Tests.CodeStandards
 				where !(m.Name == nameof(RankFeatureLogarithmFunctionDescriptor.ScalingFactor) && dt == typeof(RankFeatureLogarithmFunctionDescriptor))
 				where !(m.Name == nameof(RankFeatureSigmoidFunctionDescriptor.Exponent) && dt == typeof(RankFeatureSigmoidFunctionDescriptor))
 				where !(m.Name == nameof(RankFeatureSigmoidFunctionDescriptor.Pivot) && dt == typeof(RankFeatureSigmoidFunctionDescriptor))
-				where !(m.Name == nameof(NormalizeAggregationDescriptor.Method) && dt == typeof(NormalizeAggregationDescriptor))
 
 				select new {m, d, p};
 

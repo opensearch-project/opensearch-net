@@ -82,8 +82,6 @@ namespace Osc
 
 		public ValueAggregate CumulativeSum(string key) => TryGet<ValueAggregate>(key);
 
-		public ValueAggregate CumulativeCardinality(string key) => TryGet<ValueAggregate>(key);
-
 		public ValueAggregate BucketScript(string key) => TryGet<ValueAggregate>(key);
 
 		public ValueAggregate SerialDifferencing(string key) => TryGet<ValueAggregate>(key);
@@ -118,8 +116,6 @@ namespace Osc
 		public PercentilesAggregate Percentiles(string key) => TryGet<PercentilesAggregate>(key);
 
 		public PercentilesAggregate PercentilesBucket(string key) => TryGet<PercentilesAggregate>(key);
-
-		public PercentilesAggregate MovingPercentiles(string key) => TryGet<PercentilesAggregate>(key);
 
 		public PercentilesAggregate PercentileRanks(string key) => TryGet<PercentilesAggregate>(key);
 
