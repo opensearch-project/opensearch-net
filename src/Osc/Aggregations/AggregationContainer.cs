@@ -297,10 +297,6 @@ namespace Osc
 		[DataMember(Name = "top_hits")]
 		ITopHitsAggregation TopHits { get; set; }
 
-		/// <inheritdoc cref="ITTestAggregation"/>
-		[DataMember(Name = "t_test")]
-		ITTestAggregation TTest { get; set; }
-
 		[DataMember(Name = "value_count")]
 		IValueCountAggregation ValueCount { get; set; }
 
@@ -312,9 +308,6 @@ namespace Osc
 
 		[DataMember(Name = "string_stats")]
 		IStringStatsAggregation StringStats { get; set; }
-
-		[DataMember(Name = "top_metrics")]
-		ITopMetricsAggregation TopMetrics { get; set; }
 
 		[DataMember(Name = "multi_terms")]
 		IMultiTermsAggregation MultiTerms { get; set; }
@@ -458,8 +451,6 @@ namespace Osc
 
 		public ITopHitsAggregation TopHits { get; set; }
 
-		public ITTestAggregation TTest { get; set; }
-
 		public IValueCountAggregation ValueCount { get; set; }
 
 		public IWeightedAverageAggregation WeightedAverage { get; set; }
@@ -467,8 +458,6 @@ namespace Osc
 		public IMedianAbsoluteDeviationAggregation MedianAbsoluteDeviation { get; set; }
 
 		public IStringStatsAggregation StringStats { get; set; }
-
-		public ITopMetricsAggregation TopMetrics { get; set; }
 
 		public IMultiTermsAggregation MultiTerms { get; set; }
 
@@ -631,8 +620,6 @@ namespace Osc
 
 		ITopHitsAggregation IAggregationContainer.TopHits { get; set; }
 
-		ITTestAggregation IAggregationContainer.TTest { get; set; }
-
 		IValueCountAggregation IAggregationContainer.ValueCount { get; set; }
 
 		IWeightedAverageAggregation IAggregationContainer.WeightedAverage { get; set; }
@@ -640,8 +627,6 @@ namespace Osc
 		IMedianAbsoluteDeviationAggregation IAggregationContainer.MedianAbsoluteDeviation { get; set; }
 
 		IStringStatsAggregation IAggregationContainer.StringStats { get; set; }
-
-		ITopMetricsAggregation IAggregationContainer.TopMetrics { get; set; }
 
 		IVariableWidthHistogramAggregation IAggregationContainer.VariableWidthHistogram { get; set; }
 
@@ -831,12 +816,6 @@ namespace Osc
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.TopHits = d);
 
-		/// <inheritdoc cref="ITTestAggregation"/>
-		public AggregationContainerDescriptor<T> TTest(string name,
-			Func<TTestAggregationDescriptor<T>, ITTestAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.TTest = d);
-
 		public AggregationContainerDescriptor<T> Children<TChild>(string name,
 			Func<ChildrenAggregationDescriptor<TChild>, IChildrenAggregation> selector
 		) where TChild : class =>
@@ -983,12 +962,6 @@ namespace Osc
 			Func<BoxplotAggregationDescriptor<T>, IBoxplotAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.Boxplot = d);
-
-		/// <inheritdoc cref="ITopMetricsAggregation"/>
-		public AggregationContainerDescriptor<T> TopMetrics(string name,
-			Func<TopMetricsAggregationDescriptor<T>, ITopMetricsAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.TopMetrics = d);
 
 		public AggregationContainerDescriptor<T> VariableWidthHistogram(string name,
 			Func<VariableWidthHistogramAggregationDescriptor<T>, IVariableWidthHistogramAggregation> selector

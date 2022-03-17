@@ -179,10 +179,6 @@ namespace Osc
 
 		void Visit(IBoxplotAggregation aggregation);
 
-		void Visit(ITopMetricsAggregation aggregation);
-
-		void Visit(ITTestAggregation aggregation);
-
 		void Visit(IMultiTermsAggregation aggregation);
 
 		void Visit(IVariableWidthHistogramAggregation aggregation);
@@ -321,10 +317,6 @@ namespace Osc
 		public virtual void Visit(IStringStatsAggregation aggregation) { }
 
 		public virtual void Visit(IBoxplotAggregation aggregation) { }
-
-		public virtual void Visit(ITopMetricsAggregation aggregation) { }
-
-		public virtual void Visit(ITTestAggregation aggregation) { }
 
 		public virtual void Visit(IMultiTermsAggregation aggregationContainer) { }
 

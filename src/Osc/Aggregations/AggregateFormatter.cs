@@ -202,9 +202,6 @@ namespace Osc
 					case 11:
 						aggregate = GetBoxplotAggregate(ref reader, formatterResolver, meta);
 						break;
-					case 12:
-						aggregate = GetTopMetricsAggregate(ref reader, formatterResolver, meta);
-						break;
 					case 13:
 						aggregate = GetGeoLineAggregate(ref reader, formatterResolver, meta);
 						break;
@@ -310,14 +307,6 @@ namespace Osc
 			}
 
 			return boxplot;
-		}
-
-		private IAggregate GetTopMetricsAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, IReadOnlyDictionary<string, object> meta)
-		{
-			var topMetrics = new TopMetricsAggregate { Meta = meta };
-			var formatter = formatterResolver.GetFormatter<List<TopMetric>>();
-			topMetrics.Top = formatter.Deserialize(ref reader, formatterResolver);
-			return topMetrics;
 		}
 
 		private IAggregate GetTopHitsAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, IReadOnlyDictionary<string, object> meta)
