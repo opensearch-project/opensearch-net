@@ -112,9 +112,9 @@ namespace Tests.Indices.MappingManagement.GetMapping
 
 			response.Accept(visitor);
 			visitor.CountsShouldContainKeyAndCountBe("type", 1);
-			visitor.CountsShouldContainKeyAndCountBe("text", b ? 18 : 17);
+			visitor.CountsShouldContainKeyAndCountBe("text", b ? 19 : 18);
 			visitor.CountsShouldContainKeyAndCountBe("keyword", keywordCount);
-			visitor.CountsShouldContainKeyAndCountBe("object", 9);
+			visitor.CountsShouldContainKeyAndCountBe("object", 8);
 			visitor.CountsShouldContainKeyAndCountBe("number", 9);
 			visitor.CountsShouldContainKeyAndCountBe("ip", 2);
 			visitor.CountsShouldContainKeyAndCountBe("geo_point", 3);
