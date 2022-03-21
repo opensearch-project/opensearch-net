@@ -53,8 +53,6 @@ namespace Osc
 
 		void Visit(IGeoShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-		void Visit(IShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
-
 		void Visit(ICompletionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
 		void Visit(IIpProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);

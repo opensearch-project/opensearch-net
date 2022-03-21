@@ -115,9 +115,6 @@ namespace Osc
 		/// <inheritdoc cref="IGeoShapeProperty"/>
 		TReturnType GeoShape(Func<GeoShapePropertyDescriptor<T>, IGeoShapeProperty> selector);
 
-		/// <inheritdoc cref="IShapeProperty"/>
-		TReturnType Shape(Func<ShapePropertyDescriptor<T>, IShapeProperty> selector);
-
 		/// <inheritdoc cref="ICompletionProperty"/>
 		TReturnType Completion(Func<CompletionPropertyDescriptor<T>, ICompletionProperty> selector);
 
@@ -196,9 +193,6 @@ namespace Osc
 
 		/// <inheritdoc cref="IGeoShapeProperty"/>
 		public PropertiesDescriptor<T> GeoShape(Func<GeoShapePropertyDescriptor<T>, IGeoShapeProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IShapeProperty"/>
-		public PropertiesDescriptor<T> Shape(Func<ShapePropertyDescriptor<T>, IShapeProperty> selector) => SetProperty(selector);
 
 		/// <inheritdoc cref="IIntegerRangeProperty"/>
 		public PropertiesDescriptor<T> IntegerRange(Func<IntegerRangePropertyDescriptor<T>, IIntegerRangeProperty> selector) => SetProperty(selector);

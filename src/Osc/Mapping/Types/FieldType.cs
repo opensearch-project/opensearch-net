@@ -158,9 +158,6 @@ namespace Osc
 		RankFeature,
 
 		[EnumMember(Value = "rank_features")]
-		RankFeatures,
-
-		[EnumMember(Value = "shape")]
-		Shape
+		RankFeatures
 	}
 }

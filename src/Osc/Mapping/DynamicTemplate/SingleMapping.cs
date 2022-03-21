@@ -74,10 +74,6 @@ namespace Osc
 			selector?.Invoke(new GeoShapePropertyDescriptor<T>());
 
 		/// <inheritdoc />
-		public IProperty Shape(Func<ShapePropertyDescriptor<T>, IShapeProperty> selector) =>
-			selector?.Invoke(new ShapePropertyDescriptor<T>());
-
-		/// <inheritdoc />
 		public IProperty IntegerRange(Func<IntegerRangePropertyDescriptor<T>, IIntegerRangeProperty> selector) =>
 			selector?.Invoke(new IntegerRangePropertyDescriptor<T>());
 

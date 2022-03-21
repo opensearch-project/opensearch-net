@@ -103,7 +103,6 @@ namespace Osc
 				case FieldType.Ip: return Deserialize<IpProperty>(ref segmentReader, formatterResolver);
 				case FieldType.GeoPoint: return Deserialize<GeoPointProperty>(ref segmentReader, formatterResolver);
 				case FieldType.GeoShape: return Deserialize<GeoShapeProperty>(ref segmentReader, formatterResolver);
-				case FieldType.Shape: return Deserialize<ShapeProperty>(ref segmentReader, formatterResolver);
 				case FieldType.Completion: return Deserialize<CompletionProperty>(ref segmentReader, formatterResolver);
 				case FieldType.TokenCount: return Deserialize<TokenCountProperty>(ref segmentReader, formatterResolver);
 				case FieldType.Murmur3Hash: return Deserialize<Murmur3HashProperty>(ref segmentReader, formatterResolver);
@@ -174,9 +173,6 @@ namespace Osc
 					break;
 				case IGeoShapeProperty geoShapeProperty:
 					Serialize(ref writer, geoShapeProperty, formatterResolver);
-					break;
-				case IShapeProperty shapeProperty:
-					Serialize(ref writer, shapeProperty, formatterResolver);
 					break;
 				case ICompletionProperty completionProperty:
 					Serialize(ref writer, completionProperty, formatterResolver);
