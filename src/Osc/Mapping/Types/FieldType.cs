@@ -161,21 +161,6 @@ namespace Osc
 		RankFeatures,
 
 		[EnumMember(Value = "shape")]
-		Shape,
-
-		[EnumMember(Value = "histogram")]
-		Histogram,
-
-		[EnumMember(Value = "wildcard")]
-		Wildcard,
-
-		[EnumMember(Value = "point")]
-		Point,
-
-		/// <summary>
-		/// Version field type for storing semver compatible version numbers.
-		/// </summary>
-		[EnumMember(Value = "version")]
-		Version
+		Shape
 	}
 }

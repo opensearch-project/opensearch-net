@@ -210,8 +210,6 @@ namespace Tests.Indices.MappingManagement.GetMapping
 
 		public void Visit(IShapeProperty mapping) => Increment("shape");
 
-		public void Visit(IPointProperty mapping) => Increment("point");
-
 		public void Visit(IIpProperty mapping) => Increment("ip");
 
 		public void Visit(IObjectProperty mapping) => Increment("object");
@@ -229,10 +227,6 @@ namespace Tests.Indices.MappingManagement.GetMapping
 		public void Visit(IRankFeaturesProperty mapping) => Increment("rank_features");
 
 		public void Visit(ISearchAsYouTypeProperty property) => Increment("search_as_you_type");
-
-		public void Visit(IHistogramProperty property) => Increment("histogram");
-
-		public void Visit(IVersionProperty property) => Increment("version");
 
 		private void Increment(string key)
 		{

@@ -188,12 +188,6 @@ namespace Osc
 							Accept(t.Fields);
 						});
 						break;
-					case FieldType.Point:
-						Visit<IPointProperty>(field, t =>
-						{
-							_visitor.Visit(t);
-						});
-						break;
 					case FieldType.Completion:
 						Visit<ICompletionProperty>(field, t =>
 						{
@@ -274,18 +268,6 @@ namespace Osc
 						break;
 					case FieldType.RankFeatures:
 						Visit<IRankFeaturesProperty>(field, t =>
-						{
-							_visitor.Visit(t);
-						});
-						break;
-					case FieldType.Histogram:
-						Visit<IHistogramProperty>(field, t =>
-						{
-							_visitor.Visit(t);
-						});
-						break;
-					case FieldType.Version:
-						Visit<IVersionProperty>(field, t =>
 						{
 							_visitor.Visit(t);
 						});

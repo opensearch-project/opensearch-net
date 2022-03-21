@@ -78,10 +78,6 @@ namespace Osc
 			selector?.Invoke(new ShapePropertyDescriptor<T>());
 
 		/// <inheritdoc />
-		public IProperty Point(Func<PointPropertyDescriptor<T>, IPointProperty> selector) =>
-			selector?.Invoke(new PointPropertyDescriptor<T>());
-
-		/// <inheritdoc />
 		public IProperty IntegerRange(Func<IntegerRangePropertyDescriptor<T>, IIntegerRangeProperty> selector) =>
 			selector?.Invoke(new IntegerRangePropertyDescriptor<T>());
 
@@ -96,10 +92,6 @@ namespace Osc
 		/// <inheritdoc />
 		public IProperty Join(Func<JoinPropertyDescriptor<T>, IJoinProperty> selector) =>
 			selector?.Invoke(new JoinPropertyDescriptor<T>());
-
-		/// <inheritdoc />
-		public IProperty Histogram(Func<HistogramPropertyDescriptor<T>, IHistogramProperty> selector) =>
-			selector?.Invoke(new HistogramPropertyDescriptor<T>());
 
     /// <inheritdoc />
 		public IProperty FieldAlias(Func<FieldAliasPropertyDescriptor<T>, IFieldAliasProperty> selector) =>
@@ -159,14 +151,6 @@ namespace Osc
 		/// <inheritdoc />
 		public IProperty SearchAsYouType(Func<SearchAsYouTypePropertyDescriptor<T>, ISearchAsYouTypeProperty> selector) =>
 			selector?.Invoke(new SearchAsYouTypePropertyDescriptor<T>());
-
-		/// <inheritdoc />
-		public IProperty Wildcard(Func<WildcardPropertyDescriptor<T>, IWildcardProperty> selector) =>
-			selector?.Invoke(new WildcardPropertyDescriptor<T>());
-		
-		/// <inheritdoc />
-		public IProperty Version(Func<VersionPropertyDescriptor<T>, IVersionProperty> selector) =>
-			selector?.Invoke(new VersionPropertyDescriptor<T>());
 
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		public IProperty Scalar(Expression<Func<T, int>> field, Func<NumberPropertyDescriptor<T>, INumberProperty> selector = null) =>
