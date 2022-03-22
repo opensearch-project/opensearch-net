@@ -63,8 +63,8 @@ namespace Tests.Core.Extensions
 
 				var noCertValidation = current.ServerCertificateValidationCallback == null;
 
-				if (cluster.ClusterConfiguration.EnableSecurity && notAlreadyAuthenticated)
-					settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username, ClusterAuthentication.Admin.Password);
+				//if (cluster.ClusterConfiguration.EnableSecurity && notAlreadyAuthenticated)
+				//	settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username, ClusterAuthentication.Admin.Password);
 				if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
 				{
 					//todo use CA callback instead of allowall
