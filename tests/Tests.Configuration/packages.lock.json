@@ -19,11 +19,11 @@
       },
       "OpenSearch.OpenSearch.Managed": {
         "type": "Direct",
-        "requested": "[0.1.0-canary.0.17, )",
-        "resolved": "0.1.0-canary.0.17",
-        "contentHash": "9MsxDXQoSmbKxahAS1405BwUhVRdV+ZFDKULYe8wq9BnwNJrQOnZjgbRRhSK10q9B+6oy2UwSYzoA0bcpab+Cw==",
+        "requested": "[0.1.0-canary.0.34, )",
+        "resolved": "0.1.0-canary.0.34",
+        "contentHash": "W7v22aHNzWTpM1VyyzztKxZqViYA3X9m68o416vTlyxM99HMO96i57KXZBls3KiXDxWWvzn26F4CRIpaDpxYRw==",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.17",
+          "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.34",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.1"
         }
@@ -73,8 +73,8 @@
       },
       "OpenSearch.Stack.ArtifactsApi": {
         "type": "Transitive",
-        "resolved": "0.1.0-canary.0.17",
-        "contentHash": "I3kblDxGU+p/EhswGUsPeAmWUDpcrHP0NksFQ/5aie0RMxuQ1+TSEJKckQlAnfqoezl0PUMp7v/MzJwIZOBFDg==",
+        "resolved": "0.1.0-canary.0.34",
+        "contentHash": "uwzqcSw4qi0EegfhxtAP7u3eWfGqImOAHSvefpT76c7xfwbvVp+jF4XhBZQBAIENmE3ChXop7tIMWNvJTU2XSQ==",
         "dependencies": {
           "SemanticVersioning": "0.8.0",
           "System.Text.Json": "4.6.0"
