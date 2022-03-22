@@ -107,10 +107,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 				{
 					type = "geo_shape"
 				},
-				// arbitraryShape = new
-				// {
-				// 	type = "shape"
-				// },
 				metadata = new { type = "object" },
 				name = new
 				{
@@ -189,7 +185,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 					.Name(p => p.Name)
 					.Index(false)
 				)
-				// .Shape(shape => shape.Name(p => p.ArbitraryShape))
 				.Object<Developer>(o => o
 					.Name(p => p.LeadDeveloper)
 					.AutoMap()
@@ -293,7 +288,6 @@ namespace Tests.Indices.MappingManagement.PutMapping
 					}
 				},
 				{ p => p.LocationShape, new GeoShapeProperty() },
-				// { p => p.ArbitraryShape, new ShapeProperty() },
 				{ p => p.Metadata, new ObjectProperty() },
 				{ p => p.Name, new TextProperty { Index = false } },
 				{ p => p.NumberOfCommits, new NumberProperty(NumberType.Integer) },
