@@ -63,10 +63,8 @@ namespace Osc
 			{ "urldecode", 24 },
 			{ "bytes", 25 },
 			{ "dissect", 26 },
-			{ "set_security_user", 27 },
 			{ "pipeline", 28 },
 			{ "drop", 29 },
-			{ "circle", 30 },
 			{ "csv", 32 },
 			{ "uri_parts", 33 },
 			{ "fingerprint", 34 },
@@ -173,17 +171,11 @@ namespace Osc
 					case 26:
 						processor = Deserialize<DissectProcessor>(ref reader, formatterResolver);
 						break;
-					case 27:
-						processor = Deserialize<SetSecurityUserProcessor>(ref reader, formatterResolver);
-						break;
 					case 28:
 						processor = Deserialize<PipelineProcessor>(ref reader, formatterResolver);
 						break;
 					case 29:
 						processor = Deserialize<DropProcessor>(ref reader, formatterResolver);
-						break;
-					case 30:
-						processor = Deserialize<CircleProcessor>(ref reader, formatterResolver);
 						break;
 					case 32:
 						processor = Deserialize<CsvProcessor>(ref reader, formatterResolver);
@@ -305,17 +297,11 @@ namespace Osc
 				case "dissect":
 					Serialize<IDissectProcessor>(ref writer, value, formatterResolver);
 					break;
-				case "set_security_user":
-					Serialize<ISetSecurityUserProcessor>(ref writer, value, formatterResolver);
-					break;
 				case "pipeline":
 					Serialize<IPipelineProcessor>(ref writer, value, formatterResolver);
 					break;
 				case "drop":
 					Serialize<IDropProcessor>(ref writer, value, formatterResolver);
-					break;
-				case "circle":
-					Serialize<ICircleProcessor>(ref writer, value, formatterResolver);
 					break;
 				case "uri_parts":
 					Serialize<IUriPartsProcessor>(ref writer, value, formatterResolver);
