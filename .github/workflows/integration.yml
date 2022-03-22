@@ -1,0 +1,30 @@
+name: Integration tests
+
+on: [push, pull_request]
+
+jobs:
+  integration:
+    name: Integration
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cluster: ["opensearch"]
+        secured: ["false"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.100'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+      - run: dotnet nuget locals all --clear
+        name: Clear nuget cache
+      - run: "./build.sh integrate 1.2.4 readonly,writable random:test_only_one --report"
+        name: ${{ matrix.cluster }} Integration Tests
