@@ -93,6 +93,8 @@ namespace Tests.Configuration
 
 		protected void ParseServerType(string version)
 		{
+			if (string.IsNullOrEmpty(version))
+				return;
 			// Assuming received string might be in format '$version' or '$ServerType-$version'
 			var hasServerType = Enum.GetNames(ServerType.GetType()).Any(s => version.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
 			if (hasServerType)
