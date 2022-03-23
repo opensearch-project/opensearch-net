@@ -199,7 +199,7 @@ namespace Osc
 					case 10:
 						aggregate = GetMatrixStatsAggregate(ref reader, formatterResolver, meta);
 						break;
-					case 13:
+					case 11:
 						aggregate = GetGeoLineAggregate(ref reader, formatterResolver, meta);
 						break;
 				}

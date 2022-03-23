@@ -63,13 +63,13 @@ namespace Osc
 			{ "urldecode", 24 },
 			{ "bytes", 25 },
 			{ "dissect", 26 },
-			{ "pipeline", 28 },
-			{ "drop", 29 },
-			{ "csv", 32 },
-			{ "uri_parts", 33 },
-			{ "fingerprint", 34 },
-			{ "community_id", 35 },
-			{ "network_direction", 36 }
+			{ "pipeline", 27 },
+			{ "drop", 28 },
+			{ "csv", 29 },
+			{ "uri_parts", 30 },
+			{ "fingerprint", 31 },
+			{ "community_id", 32 },
+			{ "network_direction", 33 }
 		};
 
 		public IProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
@@ -171,25 +171,25 @@ namespace Osc
 					case 26:
 						processor = Deserialize<DissectProcessor>(ref reader, formatterResolver);
 						break;
-					case 28:
+					case 27:
 						processor = Deserialize<PipelineProcessor>(ref reader, formatterResolver);
 						break;
-					case 29:
+					case 28:
 						processor = Deserialize<DropProcessor>(ref reader, formatterResolver);
 						break;
-					case 32:
+					case 29:
 						processor = Deserialize<CsvProcessor>(ref reader, formatterResolver);
 						break;
-					case 33:
+					case 30:
 						processor = Deserialize<UriPartsProcessor>(ref reader, formatterResolver);
 						break;
-					case 34:
+					case 31:
 						processor = Deserialize<FingerprintProcessor>(ref reader, formatterResolver);
 						break;
-					case 35:
+					case 32:
 						processor = Deserialize<NetworkCommunityIdProcessor>(ref reader, formatterResolver);
 						break;
-					case 36:
+					case 33:
 						processor = Deserialize<NetworkDirectionProcessor>(ref reader, formatterResolver);
 						break;
 				}
