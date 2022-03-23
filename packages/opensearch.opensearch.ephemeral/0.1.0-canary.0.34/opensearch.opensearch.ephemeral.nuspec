@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>OpenSearch.OpenSearch.Ephemeral</id>
-    <version>0.1.0-canary.0.17</version>
+    <version>0.1.0-canary.0.34</version>
     <authors>OpenSearch Project and contributors</authors>
     <license type="expression">Apache-2.0</license>
     <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
@@ -12,15 +12,15 @@
     <releaseNotes>https://github.com/opensearch-project/opensearch-net-abstractions/releases</releaseNotes>
     <copyright>OpenSearch</copyright>
     <tags>opensearch,opensearch,cluster,ephemeral</tags>
-    <repository type="git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="bcf36fca7ae0b6e60d6d325fc6bf958151fc4f3f" />
+    <repository type="git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="9ac3c0555414b2d8016081cfdb0a08fd7ab8a94a" />
     <dependencies>
       <group targetFramework=".NETFramework4.6.1">
-        <dependency id="OpenSearch.OpenSearch.Managed" version="0.1.0-canary.0.17" exclude="Build,Analyzers" />
+        <dependency id="OpenSearch.OpenSearch.Managed" version="0.1.0-canary.0.34" exclude="Build,Analyzers" />
         <dependency id="SharpZipLib.NETStandard" version="1.0.7" exclude="Build,Analyzers" />
         <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" exclude="Build,Analyzers" />
       </group>
       <group targetFramework=".NETStandard2.0">
-        <dependency id="OpenSearch.OpenSearch.Managed" version="0.1.0-canary.0.17" exclude="Build,Analyzers" />
+        <dependency id="OpenSearch.OpenSearch.Managed" version="0.1.0-canary.0.34" exclude="Build,Analyzers" />
         <dependency id="SharpZipLib.NETStandard" version="1.0.7" exclude="Build,Analyzers" />
       </group>
     </dependencies>
