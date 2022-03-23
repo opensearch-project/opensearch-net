@@ -106,13 +106,14 @@ namespace Tests.Indices.MappingManagement.GetMapping
 		private static void AssertVisitedProperties(GetMappingResponse response)
 		{
 			var visitor = new TestVisitor();
-			var b = TestClient.Configuration.Random.SourceSerializer;
+			var clientSourceSerializer = TestClient.Configuration.Random.SourceSerializer;
 
-			var keywordCount = b ? 20 : 19;
+			var keywordCount = clientSourceSerializer ? 20 : 19;
+			var textCount = clientSourceSerializer ? 19 : 18;
 
 			response.Accept(visitor);
 			visitor.CountsShouldContainKeyAndCountBe("type", 1);
-			visitor.CountsShouldContainKeyAndCountBe("text", b ? 19 : 18);
+			visitor.CountsShouldContainKeyAndCountBe("text", textCount);
 			visitor.CountsShouldContainKeyAndCountBe("keyword", keywordCount);
 			visitor.CountsShouldContainKeyAndCountBe("object", 8);
 			visitor.CountsShouldContainKeyAndCountBe("number", 9);
