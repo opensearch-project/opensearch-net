@@ -106,15 +106,16 @@ namespace Tests.Indices.MappingManagement.GetMapping
 		private static void AssertVisitedProperties(GetMappingResponse response)
 		{
 			var visitor = new TestVisitor();
-			var b = TestClient.Configuration.Random.SourceSerializer;
+			var clientSourceSerializer = TestClient.Configuration.Random.SourceSerializer;
 
-			var keywordCount = b ? 20 : 19;
+			var keywordCount = clientSourceSerializer ? 20 : 19;
+			var textCount = clientSourceSerializer ? 19 : 18;
 
 			response.Accept(visitor);
 			visitor.CountsShouldContainKeyAndCountBe("type", 1);
-			visitor.CountsShouldContainKeyAndCountBe("text", b ? 18 : 17);
+			visitor.CountsShouldContainKeyAndCountBe("text", textCount);
 			visitor.CountsShouldContainKeyAndCountBe("keyword", keywordCount);
-			visitor.CountsShouldContainKeyAndCountBe("object", 9);
+			visitor.CountsShouldContainKeyAndCountBe("object", 8);
 			visitor.CountsShouldContainKeyAndCountBe("number", 9);
 			visitor.CountsShouldContainKeyAndCountBe("ip", 2);
 			visitor.CountsShouldContainKeyAndCountBe("geo_point", 3);
@@ -208,10 +209,6 @@ namespace Tests.Indices.MappingManagement.GetMapping
 
 		public void Visit(IGeoShapeProperty mapping) => Increment("geo_shape");
 
-		public void Visit(IShapeProperty mapping) => Increment("shape");
-
-		public void Visit(IPointProperty mapping) => Increment("point");
-
 		public void Visit(IIpProperty mapping) => Increment("ip");
 
 		public void Visit(IObjectProperty mapping) => Increment("object");
@@ -229,10 +226,6 @@ namespace Tests.Indices.MappingManagement.GetMapping
 		public void Visit(IRankFeaturesProperty mapping) => Increment("rank_features");
 
 		public void Visit(ISearchAsYouTypeProperty property) => Increment("search_as_you_type");
-
-		public void Visit(IHistogramProperty property) => Increment("histogram");
-
-		public void Visit(IVersionProperty property) => Increment("version");
 
 		private void Increment(string key)
 		{

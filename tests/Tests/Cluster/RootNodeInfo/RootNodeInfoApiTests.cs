@@ -70,6 +70,13 @@ namespace Tests.Cluster.RootNodeInfo
 			response.Version.BuildType.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumIndexCompatibilityVersion.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumWireCompatibilityVersion.Should().NotBeNullOrWhiteSpace();
+
+			// ODFE contains BuildFlavor while OpenSearch does not
+			// OpenSearch contains Distribution while ODFE does not
+			if (response.Version.BuildFlavor == null)
+				response.Version.Distribution.Should().NotBeNullOrWhiteSpace();
+			else
+				response.Version.BuildFlavor.Should().NotBeNullOrWhiteSpace();
 		}
 	}
 }

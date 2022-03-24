@@ -42,10 +42,6 @@ namespace Osc
 
 		public virtual void Visit(IGeoShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
-		public virtual void Visit(IShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
-
-		public virtual void Visit(IPointProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
-
 		public virtual void Visit(ICompletionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
 		public virtual void Visit(IMurmur3HashProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
@@ -88,15 +84,9 @@ namespace Osc
 
 		public virtual void Visit(IKeywordProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
-		public virtual void Visit(IHistogramProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
-
 		public virtual void Visit(ISearchAsYouTypeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
 		public virtual void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
-
-		public virtual void Visit(IWildcardProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
-
-		public virtual void Visit(IVersionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
 		public virtual IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) => null;
 
@@ -133,9 +123,6 @@ namespace Osc
 					break;
 				case IGeoShapeProperty geoShapeType:
 					Visit(geoShapeType, propertyInfo, attribute);
-					break;
-				case IShapeProperty shapeType:
-					Visit(shapeType, propertyInfo, attribute);
 					break;
 				case IGeoPointProperty geoPointType:
 					Visit(geoPointType, propertyInfo, attribute);
@@ -182,23 +169,11 @@ namespace Osc
 				case IRankFeaturesProperty rankFeatures:
 					Visit(rankFeatures, propertyInfo, attribute);
 					break;
-				case IHistogramProperty histogram:
-					Visit(histogram, propertyInfo, attribute);
-					break;
-				case IPointProperty point:
-					Visit(point, propertyInfo, attribute);
-					break;
 				case ISearchAsYouTypeProperty searchAsYouType:
 					Visit(searchAsYouType, propertyInfo, attribute);
 					break;
-				case IWildcardProperty wildcard:
-					Visit(wildcard, propertyInfo, attribute);
-					break;
 				case IFieldAliasProperty fieldAlias:
 					Visit(fieldAlias, propertyInfo, attribute);
-					break;
-				case IVersionProperty version:
-					Visit(version, propertyInfo, attribute);
 					break;
 			}
 		}
