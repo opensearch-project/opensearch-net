@@ -65,7 +65,6 @@ namespace Osc
 			visitor.Visit(aggregation);
 			AcceptAggregation(aggregation.Average, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.AverageBucket, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.Boxplot, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.BucketScript, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.BucketSort, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.BucketSelector, visitor, (v, d) => v.Visit(d));
@@ -76,7 +75,6 @@ namespace Osc
 				Accept(v, d.Aggregations);
 			});
 			AcceptAggregation(aggregation.CumulativeSum, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.CumulativeCardinality, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.DateHistogram, visitor, (v, d) =>
 			{
 				v.Visit(d);
@@ -141,7 +139,6 @@ namespace Osc
 				Accept(v, d.Aggregations);
 			});
 			AcceptAggregation(aggregation.MovingAverage, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.MovingPercentiles, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.MultiTerms, visitor, (v, d) =>
 			{
 				v.Visit(d);
@@ -151,10 +148,6 @@ namespace Osc
 			{
 				v.Visit(d);
 				Accept(v, d.Aggregations);
-			});
-			AcceptAggregation(aggregation.Normalize, visitor, (v, d) =>
-			{
-				v.Visit(d);
 			});
 			AcceptAggregation(aggregation.Parent, visitor, (v, d) =>
 			{
@@ -173,7 +166,6 @@ namespace Osc
 				v.Visit(d);
 				Accept(v, d.Aggregations);
 			});
-			AcceptAggregation(aggregation.Rate, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.ReverseNested, visitor, (v, d) =>
 			{
 				v.Visit(d);
@@ -212,7 +204,6 @@ namespace Osc
 			AcceptAggregation(aggregation.GeoCentroid, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.Composite, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.MedianAbsoluteDeviation, visitor, (v, d) => v.Visit(d));
-			AcceptAggregation(aggregation.TTest, visitor, (v, d) => v.Visit(d));
 			AcceptAggregation(aggregation.VariableWidthHistogram, visitor, (v, d) =>
 			{
 				v.Visit(d);

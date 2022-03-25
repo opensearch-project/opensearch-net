@@ -385,9 +385,6 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 				.RankFeature(rf => rf
 					.Name(p => p.Rank)
 					.PositiveScoreImpact()
-				)
-				.Shape(g => g
-					.Name(p => p.ArbitraryShape)
 				);
 
 			return props;

@@ -444,38 +444,6 @@ namespace Tests.Ingest
 			public override string Key => "attachment";
 		}
 
-		public class Circle : ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.Circle<Project>(ud => ud
-					.Field(p => p.Description)
-					.TargetField(p => p.ArbitraryShape)
-					.ShapeType(ShapeType.Shape)
-					.ErrorDistance(10d)
-					.IgnoreMissing()
-				);
-
-			public override IProcessor Initializer => new CircleProcessor
-			{
-				Field = "description",
-				TargetField = "arbitraryShape",
-				ShapeType = ShapeType.Shape,
-				ErrorDistance = 10d,
-				IgnoreMissing = true
-			};
-
-			public override object Json => new
-			{
-				field = "description",
-				target_field = "arbitraryShape",
-				shape_type = "shape",
-				error_distance = 10.0,
-				ignore_missing = true,
-			};
-
-			public override string Key => "circle";
-		}
-
 		public class Bytes : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
@@ -602,26 +570,6 @@ namespace Tests.Ingest
 			};
 
 			public override string Key => "kv";
-		}
-
-		public class SetSecurityUser: ProcessorAssertion
-		{
-			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent => d => d
-				.SetSecurityUser<Project>(ud => ud
-					.Field(p => p.Name)
-				);
-
-			public override IProcessor Initializer => new SetSecurityUserProcessor
-			{
-				Field = "name",
-			};
-
-			public override object Json => new
-			{
-				field = "name",
-			};
-
-			public override string Key => "set_security_user";
 		}
 
 		public class Pipeline : ProcessorAssertion

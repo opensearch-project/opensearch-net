@@ -55,6 +55,9 @@ namespace Osc
 		
 		[DataMember(Name ="build_snapshot")]
 		public bool BuildSnapshot { get; set; }
+
+		[DataMember(Name ="distribution")]
+		public string Distribution { get; set; }
 		
 		[DataMember(Name ="minimum_wire_compatibility_version")]
 		public string MinimumWireCompatibilityVersion { get; set; }

@@ -55,10 +55,6 @@ namespace Osc
 
 		void Visit(IGeoShapeProperty property);
 
-		void Visit(IShapeProperty property);
-
-		void Visit(IPointProperty property);
-
 		void Visit(INumberProperty property);
 
 		void Visit(ICompletionProperty property);
@@ -88,10 +84,6 @@ namespace Osc
 		void Visit(IRankFeaturesProperty property);
 
 		void Visit(ISearchAsYouTypeProperty property);
-
-		void Visit(IHistogramProperty property);
-
-		void Visit(IVersionProperty property);
 	}
 
 	public class NoopMappingVisitor : IMappingVisitor
@@ -112,8 +104,6 @@ namespace Osc
 
 		public virtual void Visit(IBinaryProperty property) { }
 
-		public virtual void Visit(IPointProperty property) { }
-
 		public virtual void Visit(INumberProperty property) { }
 
 		public virtual void Visit(IObjectProperty property) { }
@@ -125,8 +115,6 @@ namespace Osc
 		public virtual void Visit(IGeoPointProperty property) { }
 
 		public virtual void Visit(IGeoShapeProperty property) { }
-
-		public virtual void Visit(IShapeProperty property) { }
 
 		public virtual void Visit(ICompletionProperty property) { }
 
@@ -155,9 +143,5 @@ namespace Osc
 		public virtual void Visit(IRankFeaturesProperty property) { }
 
 		public virtual void Visit(ISearchAsYouTypeProperty property) { }
-
-		public virtual void Visit(IHistogramProperty property) { }
-
-		public virtual void Visit(IVersionProperty property) { }
 	}
 }
