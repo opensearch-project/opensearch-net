@@ -66,7 +66,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 	{
 		public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
 
-		public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.None, int numberOfNodes = 1,
+		public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
 			params OpenSearchPlugin[] plugins
 		)
 			: base(TestClient.Configuration.OpenSearchVersion, Configuration.TestConfiguration.Instance.ServerType, features, new OpenSearchPlugins(plugins), numberOfNodes)

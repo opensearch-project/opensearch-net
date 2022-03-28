@@ -26,10 +26,9 @@
 */
 
 using System;
-using System.Security.Cryptography.X509Certificates;
- using OpenSearch.OpenSearch.Ephemeral;
- using OpenSearch.OpenSearch.Xunit;
- using OpenSearch.Net;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit;
+using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client.Settings;
 
@@ -61,13 +60,15 @@ namespace Tests.Core.Extensions
 					&& current.ApiKeyAuthenticationCredentials == null
 					&& current.ClientCertificates == null;
 
+				if (notAlreadyAuthenticated)
+					settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username,
+															ClusterAuthentication.Admin.Password);
+
 				var noCertValidation = current.ServerCertificateValidationCallback == null;
 
 				if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
 				{
 					//todo use CA callback instead of allowall
-					// ReSharper disable once UnusedVariable
-					var ca = new X509Certificate2(cluster.ClusterConfiguration.FileSystem.CaCertificate);
 					settings = settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
 				}
 				var client = new OpenSearchClient(settings);
