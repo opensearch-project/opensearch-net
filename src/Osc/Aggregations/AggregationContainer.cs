@@ -119,9 +119,6 @@ namespace Osc
 		[DataMember(Name = "avg_bucket")]
 		IAverageBucketAggregation AverageBucket { get; set; }
 
-		[DataMember(Name = "boxplot")]
-		IBoxplotAggregation Boxplot { get; set; }
-
 		[DataMember(Name = "bucket_script")]
 		IBucketScriptAggregation BucketScript { get; set; }
 
@@ -142,9 +139,6 @@ namespace Osc
 
 		[DataMember(Name = "cumulative_sum")]
 		ICumulativeSumAggregation CumulativeSum { get; set; }
-
-		[DataMember(Name = "cumulative_cardinality")]
-		ICumulativeCardinalityAggregation CumulativeCardinality { get; set; }
 
 		[DataMember(Name = "date_histogram")]
 		IDateHistogramAggregation DateHistogram { get; set; }
@@ -228,16 +222,8 @@ namespace Osc
 		[DataMember(Name = "moving_fn")]
 		IMovingFunctionAggregation MovingFunction { get; set; }
 
-		/// <inheritdoc cref="IMovingPercentilesAggregation"/>
-		[DataMember(Name = "moving_percentiles")]
-		IMovingPercentilesAggregation MovingPercentiles { get; set; }
-
 		[DataMember(Name = "nested")]
 		INestedAggregation Nested { get; set; }
-
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		[DataMember(Name = "normalize")]
-		INormalizeAggregation Normalize { get; set; }
 
 		/// <inheritdoc cref="IParentAggregation"/>
 		[DataMember(Name = "parent")]
@@ -257,9 +243,6 @@ namespace Osc
 
 		[DataMember(Name = "rare_terms")]
 		IRareTermsAggregation RareTerms { get; set; }
-
-		[DataMember(Name = "rate")]
-		IRateAggregation Rate { get; set; }
 
 		[DataMember(Name = "reverse_nested")]
 		IReverseNestedAggregation ReverseNested { get; set; }
@@ -297,10 +280,6 @@ namespace Osc
 		[DataMember(Name = "top_hits")]
 		ITopHitsAggregation TopHits { get; set; }
 
-		/// <inheritdoc cref="ITTestAggregation"/>
-		[DataMember(Name = "t_test")]
-		ITTestAggregation TTest { get; set; }
-
 		[DataMember(Name = "value_count")]
 		IValueCountAggregation ValueCount { get; set; }
 
@@ -309,12 +288,6 @@ namespace Osc
 
 		[DataMember(Name = "median_absolute_deviation")]
 		IMedianAbsoluteDeviationAggregation MedianAbsoluteDeviation { get; set; }
-
-		[DataMember(Name = "string_stats")]
-		IStringStatsAggregation StringStats { get; set; }
-
-		[DataMember(Name = "top_metrics")]
-		ITopMetricsAggregation TopMetrics { get; set; }
 
 		[DataMember(Name = "multi_terms")]
 		IMultiTermsAggregation MultiTerms { get; set; }
@@ -342,9 +315,6 @@ namespace Osc
 
 		public IAverageBucketAggregation AverageBucket { get; set; }
 
-		/// <inheritdoc cref="IBoxplotAggregation"/>
-		public IBoxplotAggregation Boxplot { get; set; }
-
 		public IBucketScriptAggregation BucketScript { get; set; }
 
 		public IBucketSelectorAggregation BucketSelector { get; set; }
@@ -358,8 +328,6 @@ namespace Osc
 		public ICompositeAggregation Composite { get; set; }
 
 		public ICumulativeSumAggregation CumulativeSum { get; set; }
-
-		public ICumulativeCardinalityAggregation CumulativeCardinality { get; set; }
 
 		public IDateHistogramAggregation DateHistogram { get; set; }
 
@@ -412,13 +380,7 @@ namespace Osc
 
 		public IMovingFunctionAggregation MovingFunction { get; set; }
 
-		/// <inheritdoc cref="IMovingPercentilesAggregation"/>
-		public IMovingPercentilesAggregation MovingPercentiles { get; set; }
-
 		public INestedAggregation Nested { get; set; }
-
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		public INormalizeAggregation Normalize { get; set; }
 
 		/// <inheritdoc cref="IParentAggregation"/>
 		public IParentAggregation Parent { get; set; }
@@ -432,8 +394,6 @@ namespace Osc
 		public IRangeAggregation Range { get; set; }
 
 		public IRareTermsAggregation RareTerms { get; set; }
-
-		public IRateAggregation Rate { get; set; }
 
 		public IReverseNestedAggregation ReverseNested { get; set; }
 
@@ -458,17 +418,11 @@ namespace Osc
 
 		public ITopHitsAggregation TopHits { get; set; }
 
-		public ITTestAggregation TTest { get; set; }
-
 		public IValueCountAggregation ValueCount { get; set; }
 
 		public IWeightedAverageAggregation WeightedAverage { get; set; }
 
 		public IMedianAbsoluteDeviationAggregation MedianAbsoluteDeviation { get; set; }
-
-		public IStringStatsAggregation StringStats { get; set; }
-
-		public ITopMetricsAggregation TopMetrics { get; set; }
 
 		public IMultiTermsAggregation MultiTerms { get; set; }
 
@@ -514,8 +468,6 @@ namespace Osc
 
 		IAverageBucketAggregation IAggregationContainer.AverageBucket { get; set; }
 
-		IBoxplotAggregation IAggregationContainer.Boxplot { get; set; }
-
 		IBucketScriptAggregation IAggregationContainer.BucketScript { get; set; }
 
 		IBucketSelectorAggregation IAggregationContainer.BucketSelector { get; set; }
@@ -529,8 +481,6 @@ namespace Osc
 		ICompositeAggregation IAggregationContainer.Composite { get; set; }
 
 		ICumulativeSumAggregation IAggregationContainer.CumulativeSum { get; set; }
-
-		ICumulativeCardinalityAggregation IAggregationContainer.CumulativeCardinality { get; set; }
 
 		IDateHistogramAggregation IAggregationContainer.DateHistogram { get; set; }
 
@@ -585,13 +535,9 @@ namespace Osc
 
 		IMovingFunctionAggregation IAggregationContainer.MovingFunction { get; set; }
 
-		IMovingPercentilesAggregation IAggregationContainer.MovingPercentiles { get; set; }
-
 		IMultiTermsAggregation IAggregationContainer.MultiTerms { get; set; }
 		
 		INestedAggregation IAggregationContainer.Nested { get; set; }
-
-		INormalizeAggregation IAggregationContainer.Normalize { get; set; }
 
 		IParentAggregation IAggregationContainer.Parent { get; set; }
 
@@ -604,8 +550,6 @@ namespace Osc
 		IRangeAggregation IAggregationContainer.Range { get; set; }
 
 		IRareTermsAggregation IAggregationContainer.RareTerms { get; set; }
-
-		IRateAggregation IAggregationContainer.Rate { get; set; }
 
 		IReverseNestedAggregation IAggregationContainer.ReverseNested { get; set; }
 
@@ -631,17 +575,11 @@ namespace Osc
 
 		ITopHitsAggregation IAggregationContainer.TopHits { get; set; }
 
-		ITTestAggregation IAggregationContainer.TTest { get; set; }
-
 		IValueCountAggregation IAggregationContainer.ValueCount { get; set; }
 
 		IWeightedAverageAggregation IAggregationContainer.WeightedAverage { get; set; }
 
 		IMedianAbsoluteDeviationAggregation IAggregationContainer.MedianAbsoluteDeviation { get; set; }
-
-		IStringStatsAggregation IAggregationContainer.StringStats { get; set; }
-
-		ITopMetricsAggregation IAggregationContainer.TopMetrics { get; set; }
 
 		IVariableWidthHistogramAggregation IAggregationContainer.VariableWidthHistogram { get; set; }
 
@@ -765,12 +703,6 @@ namespace Osc
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.Nested = d);
 
-		/// <inheritdoc cref="INormalizeAggregation"/>
-		public AggregationContainerDescriptor<T> Normalize(string name,
-			Func<NormalizeAggregationDescriptor, INormalizeAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Normalize = d);
-
 		/// <inheritdoc cref="IParentAggregation"/>
 		public AggregationContainerDescriptor<T> Parent<TParent>(string name,
 			Func<ParentAggregationDescriptor<T, TParent>, IParentAggregation> selector
@@ -791,10 +723,6 @@ namespace Osc
 			Func<RareTermsAggregationDescriptor<T>, IRareTermsAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.RareTerms = d);
-
-		public AggregationContainerDescriptor<T> Rate(string name,
-			Func<RateAggregationDescriptor<T>, IRateAggregation> selector) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Rate = d);
 
 		public AggregationContainerDescriptor<T> Stats(string name,
 			Func<StatsAggregationDescriptor<T>, IStatsAggregation> selector
@@ -830,12 +758,6 @@ namespace Osc
 			Func<TopHitsAggregationDescriptor<T>, ITopHitsAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.TopHits = d);
-
-		/// <inheritdoc cref="ITTestAggregation"/>
-		public AggregationContainerDescriptor<T> TTest(string name,
-			Func<TTestAggregationDescriptor<T>, ITTestAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.TTest = d);
 
 		public AggregationContainerDescriptor<T> Children<TChild>(string name,
 			Func<ChildrenAggregationDescriptor<TChild>, IChildrenAggregation> selector
@@ -897,20 +819,10 @@ namespace Osc
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.MovingFunction = d);
 
-		public AggregationContainerDescriptor<T> MovingPercentiles(string name,
-			Func<MovingPercentilesAggregationDescriptor, IMovingPercentilesAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.MovingPercentiles = d);
-
 		public AggregationContainerDescriptor<T> CumulativeSum(string name,
 			Func<CumulativeSumAggregationDescriptor, ICumulativeSumAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.CumulativeSum = d);
-
-		public AggregationContainerDescriptor<T> CumulativeCardinality(string name,
-			Func<CumulativeCardinalityAggregationDescriptor, ICumulativeCardinalityAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.CumulativeCardinality = d);
 
 		public AggregationContainerDescriptor<T> SerialDifferencing(string name,
 			Func<SerialDifferencingAggregationDescriptor, ISerialDifferencingAggregation> selector
@@ -971,24 +883,6 @@ namespace Osc
 			Func<MedianAbsoluteDeviationAggregationDescriptor<T>, IMedianAbsoluteDeviationAggregation> selector
 		) =>
 			_SetInnerAggregation(name, selector, (a, d) => a.MedianAbsoluteDeviation = d);
-
-		/// <inheritdoc cref="IStringStatsAggregation"/>
-		public AggregationContainerDescriptor<T> StringStats(string name,
-			Func<StringStatsAggregationDescriptor<T>, IStringStatsAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.StringStats = d);
-
-		/// <inheritdoc cref="IBoxplotAggregation"/>
-		public AggregationContainerDescriptor<T> Boxplot(string name,
-			Func<BoxplotAggregationDescriptor<T>, IBoxplotAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.Boxplot = d);
-
-		/// <inheritdoc cref="ITopMetricsAggregation"/>
-		public AggregationContainerDescriptor<T> TopMetrics(string name,
-			Func<TopMetricsAggregationDescriptor<T>, ITopMetricsAggregation> selector
-		) =>
-			_SetInnerAggregation(name, selector, (a, d) => a.TopMetrics = d);
 
 		public AggregationContainerDescriptor<T> VariableWidthHistogram(string name,
 			Func<VariableWidthHistogramAggregationDescriptor<T>, IVariableWidthHistogramAggregation> selector

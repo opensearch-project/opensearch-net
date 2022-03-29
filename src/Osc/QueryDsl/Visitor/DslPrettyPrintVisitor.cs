@@ -232,8 +232,6 @@ namespace Osc
 
 		public virtual void Visit(ITermsSetQuery query) => Write("terms_set");
 
-		public virtual void Visit(IPinnedQuery query) => Write("pinned");
-
 		private void Write(string queryType, Dictionary<string, string> properties)
 		{
 			properties = properties ?? new Dictionary<string, string>();

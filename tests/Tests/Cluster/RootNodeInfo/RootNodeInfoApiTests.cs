@@ -61,12 +61,22 @@ namespace Tests.Cluster.RootNodeInfo
 			response.Version.Should().NotBeNull();
 			response.Version.Number.Should().NotBeNullOrWhiteSpace();
 			response.Version.BuildDate.Should().BeAfter(default);
-			response.Version.BuildFlavor.Should().NotBeNullOrWhiteSpace();
+			if (TestConfiguration.Instance.ServerType == OpenSearch.Stack.ArtifactsApi.ServerType.OpenSearch)
+				response.Version.Distribution.Should().NotBeNullOrWhiteSpace();
+			else
+				response.Version.BuildFlavor.Should().NotBeNullOrWhiteSpace();
 			response.Version.BuildHash.Should().NotBeNullOrWhiteSpace();
 			response.Version.BuildSnapshot.Should().Be(TestConfiguration.Instance.OpenSearchVersionIsSnapshot);
 			response.Version.BuildType.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumIndexCompatibilityVersion.Should().NotBeNullOrWhiteSpace();
 			response.Version.MinimumWireCompatibilityVersion.Should().NotBeNullOrWhiteSpace();
+
+			// ODFE contains BuildFlavor while OpenSearch does not
+			// OpenSearch contains Distribution while ODFE does not
+			if (response.Version.BuildFlavor == null)
+				response.Version.Distribution.Should().NotBeNullOrWhiteSpace();
+			else
+				response.Version.BuildFlavor.Should().NotBeNullOrWhiteSpace();
 		}
 	}
 }

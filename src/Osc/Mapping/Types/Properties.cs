@@ -115,12 +115,6 @@ namespace Osc
 		/// <inheritdoc cref="IGeoShapeProperty"/>
 		TReturnType GeoShape(Func<GeoShapePropertyDescriptor<T>, IGeoShapeProperty> selector);
 
-		/// <inheritdoc cref="IShapeProperty"/>
-		TReturnType Shape(Func<ShapePropertyDescriptor<T>, IShapeProperty> selector);
-
-		/// <inheritdoc cref="IPointProperty"/>
-		TReturnType Point(Func<PointPropertyDescriptor<T>, IPointProperty> selector);
-
 		/// <inheritdoc cref="ICompletionProperty"/>
 		TReturnType Completion(Func<CompletionPropertyDescriptor<T>, ICompletionProperty> selector);
 
@@ -151,9 +145,6 @@ namespace Osc
 		/// <inheritdoc cref="IJoinProperty"/>
 		TReturnType Join(Func<JoinPropertyDescriptor<T>, IJoinProperty> selector);
 
-		/// <inheritdoc cref="IHistogramProperty"/>
-		TReturnType Histogram(Func<HistogramPropertyDescriptor<T>, IHistogramProperty> selector);
-
 		/// <inheritdoc cref="IFieldAliasProperty"/>
 		TReturnType FieldAlias(Func<FieldAliasPropertyDescriptor<T>, IFieldAliasProperty> selector);
 
@@ -165,12 +156,6 @@ namespace Osc
 
 		/// <inheritdoc cref="ISearchAsYouTypeProperty"/>
 		TReturnType SearchAsYouType(Func<SearchAsYouTypePropertyDescriptor<T>, ISearchAsYouTypeProperty> selector);
-
-		/// <inheritdoc cref="IWildcardProperty"/>
-		TReturnType Wildcard(Func<WildcardPropertyDescriptor<T>, IWildcardProperty> selector);
-
-		/// <inheritdoc cref="IVersionProperty"/>
-		TReturnType Version(Func<VersionPropertyDescriptor<T>, IVersionProperty> selector);
 	}
 
 	public partial class PropertiesDescriptor<T> where T : class
@@ -208,12 +193,6 @@ namespace Osc
 
 		/// <inheritdoc cref="IGeoShapeProperty"/>
 		public PropertiesDescriptor<T> GeoShape(Func<GeoShapePropertyDescriptor<T>, IGeoShapeProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IShapeProperty"/>
-		public PropertiesDescriptor<T> Shape(Func<ShapePropertyDescriptor<T>, IShapeProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IPointProperty"/>
-		public PropertiesDescriptor<T> Point(Func<PointPropertyDescriptor<T>, IPointProperty> selector) => SetProperty(selector);
 
 		/// <inheritdoc cref="IIntegerRangeProperty"/>
 		public PropertiesDescriptor<T> IntegerRange(Func<IntegerRangePropertyDescriptor<T>, IIntegerRangeProperty> selector) => SetProperty(selector);
@@ -271,15 +250,6 @@ namespace Osc
 
 		/// <inheritdoc cref="IRankFeaturesProperty"/>
 		public PropertiesDescriptor<T> RankFeatures(Func<RankFeaturesPropertyDescriptor<T>, IRankFeaturesProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IHistogramProperty"/>
-		public PropertiesDescriptor<T> Histogram(Func<HistogramPropertyDescriptor<T>, IHistogramProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IWildcardProperty"/>
-		public PropertiesDescriptor<T> Wildcard(Func<WildcardPropertyDescriptor<T>, IWildcardProperty> selector) => SetProperty(selector);
-
-		/// <inheritdoc cref="IVersionProperty"/>
-		public PropertiesDescriptor<T> Version(Func<VersionPropertyDescriptor<T>, IVersionProperty> selector) => SetProperty(selector);
 
 		/// <summary>
 		/// Map a custom property.

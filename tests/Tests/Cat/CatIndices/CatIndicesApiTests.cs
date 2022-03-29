@@ -26,8 +26,8 @@
 */
 
 using System;
- using OpenSearch.OpenSearch.Ephemeral;
- using OpenSearch.Net;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -57,43 +57,4 @@ namespace Tests.Cat.CatIndices
 			response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.Status));
 	}
 
-	public class CatIndicesApiNotFoundWithSecurityTests
-		: ApiIntegrationTestBase<WritableCluster, CatResponse<CatIndicesRecord>, ICatIndicesRequest, CatIndicesDescriptor, CatIndicesRequest>
-	{
-		public CatIndicesApiNotFoundWithSecurityTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-		protected override bool ExpectIsValid => false;
-		protected override int ExpectStatusCode => 403;
-
-		protected override Func<CatIndicesDescriptor, ICatIndicesRequest> Fluent => f => f
-			.Index("doesnot-exist-*")
-			.RequestConfiguration(r => r.BasicAuthentication(ClusterAuthentication.User.Username, ClusterAuthentication.User.Password));
-
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-
-		protected override CatIndicesRequest Initializer => new CatIndicesRequest("doesnot-exist-*")
-		{
-			RequestConfiguration = new RequestConfiguration
-			{
-				BasicAuthenticationCredentials = new BasicAuthenticationCredentials(
-					ClusterAuthentication.User.Username,
-					ClusterAuthentication.User.Password)
-			}
-		};
-
-		protected override string UrlPath => "/_cat/indices/doesnot-exist-%2A";
-
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Indices(f),
-			(client, f) => client.Cat.IndicesAsync(f),
-			(client, r) => client.Cat.Indices(r),
-			(client, r) => client.Cat.IndicesAsync(r)
-		);
-
-		protected override void ExpectResponse(CatResponse<CatIndicesRecord> response)
-		{
-			response.Records.Should().BeEmpty();
-			response.ApiCall.Should().NotBeNull();
-		}
-	}
 }
