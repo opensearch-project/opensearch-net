@@ -140,7 +140,7 @@ module ReleaseNotes =
         let client = GitHubClient(ProductHeaderValue("ReleaseNotesGenerator"))  
         client.Credentials <- Credentials.Anonymous
 
-        client.Issue.GetAllForRepository(Paths.OwnerName, Paths.RepositoryName, filter)
+        client.Issue.GetAllForRepository(Paths.GitHubOwnerName, Paths.GitHubRepositoryName, filter)
         |> Async.AwaitTask
         |> Async.RunSynchronously
         |> filterByPullRequests issueNumberRegex

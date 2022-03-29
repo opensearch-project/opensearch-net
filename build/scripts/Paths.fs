@@ -29,9 +29,9 @@ namespace Scripts
 
 module Paths =
 
-    let OwnerName = "opensearch"
-    let RepositoryName = "opensearch-net"
-    let Repository = sprintf "https://github.com/%s/%s/" OwnerName RepositoryName
+    let GitHubOwnerName = "opensearch-project"
+    let GitHubRepositoryName = "opensearch-net"
+    let Repository = sprintf "https://github.com/%s/%s/" GitHubOwnerName GitHubRepositoryName
 
     let BuildFolder = "build"
     let TargetsFolder = "build/scripts"
