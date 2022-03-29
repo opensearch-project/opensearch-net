@@ -1,3 +1,9 @@
+[![Build](https://github.com/opensearch-project/opensearch-net/actions/workflows/compile.yml/badge.svg)](https://github.com/opensearch-project/opensearch-net/actions/workflows/compile.yml)
+[![Unit Tests](https://github.com/opensearch-project/opensearch-net/actions/workflows/test-jobs.yml/badge.svg)](https://github.com/opensearch-project/opensearch-net/actions/workflows/test-jobs.yml)
+[![Integration Tests](https://github.com/opensearch-project/opensearch-net/actions/workflows/integration.yml/badge.svg)](https://github.com/opensearch-project/opensearch-net/actions/workflows/integration.yml)
+[![Chat](https://img.shields.io/badge/chat-on%20forums-blue)](https://discuss.opendistrocommunity.dev/c/clients/)
+[![PRs welcome!](https://img.shields.io/badge/PRs-welcome!-success)](https://github.com/opensearch-project/opensearch-net/compare)
+
 ![OpenSearch logo](OpenSearch.svg)
 
 OpenSearch .NET Client
