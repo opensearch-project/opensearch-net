@@ -76,7 +76,7 @@ module ReleaseNotes =
             ("Uncategorized", "Uncategorized")
         ]
         uncategorized = "Uncategorized"
-    };
+    }
         
     let groupByLabel (config: Config) (items: List<GitHubItem>) =
         let dict = Dictionary<string, GitHubItem list>()     
