@@ -86,7 +86,7 @@ var indexingResponse = client.Index(tweet, idx => idx.Index("mytweetindex")); //
 All the calls have async variants:
 
 ```csharp
-var indexingResponse = client.IndexAsync(tweet, idx => idx.Index("mytweetindex")); // returns a Task<IndexResponse>
+var indexingResponseTask = client.IndexAsync(tweet, idx => idx.Index("mytweetindex")); // returns a Task<IndexResponse>
 
 // Or, in an async-context
 var indexingResponse = await client.IndexAsync(tweet, idx => idx.Index("mytweetindex")); // awaits a Task<IndexResponse>
@@ -115,7 +115,7 @@ var searchResponse = client.Search<Tweet>(s => s
 );
 ```
 
-As well as an object initializer syntax if lambdas aren't your thing:
+As well as an object initializer syntax:
 
 ```csharp
 var request = new SearchRequest
@@ -133,9 +133,9 @@ var searchResponse = client.Search<Tweet>(request);
 OSC also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
 
 ```csharp
-//.LowLevel is of type IOpenSearchLowLevelClient
+IOpenSearchLowLevelClient lowLevelClient = client.LowLevel;
 // Generic parameter of Search<> is the type of .Body on response
-var response = client.LowLevel.Search<SearchResponse<Tweet>>("mytweetindex", PostData.Serializable(new
+var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", PostData.Serializable(new
 {
 	from = 0,
 	size = 10,
@@ -152,7 +152,7 @@ var response = client.LowLevel.Search<SearchResponse<Tweet>>("mytweetindex", Pos
 
 # [OpenSearch.Net](src/OpenSearch.Net)
 
-A low-level, dependency free client that has no opinions how you build and represent your requests and responses.
+A low-level, dependency free client is a just a .Net wrapper for the REST API. It allows you to build and represent your own requests and responses according to you needs.
 
 ## Getting Started
 Include OpenSearch.Net in your .csproj file.
