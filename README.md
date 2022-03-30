@@ -37,7 +37,7 @@ Include OSC in your .csproj file.
 <Project>
   ...
   <ItemGroup>
-    <ProjectReference Include="..\opensearch-net\src\Osc\Osc.csproj" />
+    <PackageReference Include="Osc" Version="1.0.0" />
   </ItemGroup>
 </Project>
 ```
@@ -160,7 +160,7 @@ Include OpenSearch.Net in your .csproj file.
 <Project>
   ...
   <ItemGroup>
-    <ProjectReference Include="..\opensearch-net\src\OpenSearch.Net\OpenSearch.Net.csproj" />
+    <PackageReference Include="OpenSearch.Net" Version="1.0.0" />
   </ItemGroup>
 </Project>
 ```
