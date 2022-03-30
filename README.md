@@ -152,7 +152,7 @@ var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", Post
 
 # [OpenSearch.Net](src/OpenSearch.Net)
 
-A low-level, dependency free client is a just a .Net wrapper for the REST API. It allows you to build and represent your own requests and responses according to you needs.
+A low-level, dependency free client that is a simple .NET wrapper for the REST API. It allows you to build and represent your own requests and responses according to you needs.
 
 ## Getting Started
 Include OpenSearch.Net in your .csproj file.
