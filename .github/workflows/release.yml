@@ -25,4 +25,4 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: release-candidate
-        path: build/output/*
+        path: build/output/*.nupkg
