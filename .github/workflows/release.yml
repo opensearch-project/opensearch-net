@@ -1,0 +1,28 @@
+name: Create Release Candidate
+
+on: [pull_request,push]
+
+jobs:
+  generate-rc:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.100'
+    - uses: actions/cache@v2
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    - run: dotnet nuget locals all --clear
+      name: Clear nuget cache
+    - name: Generate Release
+      run: |
+        ./build.sh release 1.0.0
+    - uses: actions/upload-artifact@v2
+      with:
+        name: release-candidate
+        path: build/output/*
