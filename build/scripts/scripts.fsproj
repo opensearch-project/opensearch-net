@@ -25,10 +25,13 @@
     <Content Include="..\..\.github\workflows\backport.yml"><Link>backport.yml</Link></Content>
     <Content Include="..\..\.github\auto-label.json"><Link>auto-label.json</Link></Content>
     <Content Include="..\..\.github\workflows\test-jobs.yml"><Link>test-jobs.yml</Link></Content>
-    <Content Include="..\..\.github\workflows\integration-jobs.yml"><Link>integration-jobs.yml</Link></Content>
-    <Content Include="..\..\.github\workflows\unified-release.yml">
-      <Link>unified-release.yml</Link>
-    </Content>
+    <Content Include="..\..\.github\workflows\integration.yml"><Link>integration.yml</Link></Content>
+    <Content Include="..\..\.github\workflows\compile.yml"><Link>compile.yml</Link></Content>
+    <Content Include="..\..\.github\workflows\license.yml"><Link>license.yml</Link></Content>
+    <Content Include="..\..\.github\add-license-headers.sh"><Link>add-license-headers.sh</Link></Content>
+    <Content Include="..\..\.github\check-license-headers.sh"><Link>check-license-headers.sh</Link></Content>
+    <Content Include="..\..\.github\license-header.txt"><Link>license-header.txt</Link></Content>
+    <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FSharp.Core" Version="5.0.0" />
