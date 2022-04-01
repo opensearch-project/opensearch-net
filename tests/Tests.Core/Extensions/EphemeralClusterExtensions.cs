@@ -26,10 +26,9 @@
 */
 
 using System;
-using System.Security.Cryptography.X509Certificates;
- using OpenSearch.OpenSearch.Ephemeral;
- using OpenSearch.OpenSearch.Xunit;
- using OpenSearch.Net;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit;
+using OpenSearch.Net;
 using Osc;
 using Tests.Core.Client.Settings;
 
@@ -56,23 +55,34 @@ namespace Tests.Core.Extensions
 			{
 				var settings = modifySettings(cluster.CreateConnectionSettings());
 
-				var current = (IConnectionConfigurationValues)settings;
-				var notAlreadyAuthenticated = current.BasicAuthenticationCredentials == null
-					&& current.ApiKeyAuthenticationCredentials == null
-					&& current.ClientCertificates == null;
-
-				var noCertValidation = current.ServerCertificateValidationCallback == null;
-
-				if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
-				{
-					//todo use CA callback instead of allowall
-					// ReSharper disable once UnusedVariable
-					var ca = new X509Certificate2(cluster.ClusterConfiguration.FileSystem.CaCertificate);
-					settings = settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
-				}
+				settings = (ConnectionSettings)UpdateSettings(cluster, settings);
 				var client = new OpenSearchClient(settings);
 				return client;
 			});
+		}
+
+		public static ConnectionConfiguration<TConnectionSettings> UpdateSettings<TConfig, TConnectionSettings>
+			(this IEphemeralCluster<TConfig> cluster, ConnectionConfiguration<TConnectionSettings> settings)
+			where TConfig : EphemeralClusterConfiguration
+			where TConnectionSettings : ConnectionConfiguration<TConnectionSettings>
+		{
+			var current = (IConnectionConfigurationValues)settings;
+			var notAlreadyAuthenticated = current.BasicAuthenticationCredentials == null
+				&& current.ApiKeyAuthenticationCredentials == null
+				&& current.ClientCertificates == null;
+
+			if (notAlreadyAuthenticated)
+				settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username,
+														ClusterAuthentication.Admin.Password);
+
+			var noCertValidation = current.ServerCertificateValidationCallback == null;
+
+			if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
+			{
+				//todo use CA callback instead of allowall
+				settings = settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
+			}
+			return settings;
 		}
 	}
 }
