@@ -33,6 +33,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
+using Tests.Core.Extensions;
 
 namespace Tests.Framework.SerializationTests
 {
@@ -42,22 +43,27 @@ namespace Tests.Framework.SerializationTests
 
 		public BytesResponseTests(ReadOnlyCluster cluster) => _cluster = cluster;
 
-		[I] public void NonNullBytesResponse()
+		[I]
+		public void NonNullBytesResponse()
 		{
 			var client = _cluster.Client;
 
 			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
+			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
 		}
 
-		[I] public void NonNullBytesLowLevelResponse()
+		[I]
+		public void NonNullBytesLowLevelResponse()
 		{
-			var settings  = new ConnectionConfiguration(new Uri($"http://localhost:{_cluster.Nodes.First().Port ?? 9200}"));
+			var settings  = new ConnectionConfiguration(_cluster.NodesUris().First());
+			settings = (ConnectionConfiguration)_cluster.UpdateSettings(settings);
 			var lowLevelClient = new OpenSearchLowLevelClient(settings);
 
 			var bytesResponse = lowLevelClient.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
+			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
 		}
@@ -75,13 +81,15 @@ namespace Tests.Framework.SerializationTests
 
 			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
+			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
 			bytesResponse.TryGetServerError(out var serverError).Should().BeFalse();
 			serverError.Should().BeNull();
 		}
 
-		[U] public void SkipDeserializationForStatusCodesSetsBody()
+		[U]
+		public void SkipDeserializationForStatusCodesSetsBody()
 		{
 			var responseBytes = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
 
@@ -93,6 +101,7 @@ namespace Tests.Framework.SerializationTests
 
 			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
+			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
 		}
