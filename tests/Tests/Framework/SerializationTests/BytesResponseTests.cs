@@ -81,7 +81,6 @@ namespace Tests.Framework.SerializationTests
 
 			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
-			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
 			bytesResponse.TryGetServerError(out var serverError).Should().BeFalse();
@@ -101,7 +100,6 @@ namespace Tests.Framework.SerializationTests
 
 			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
-			bytesResponse.Success.Should().BeTrue();
 			bytesResponse.Body.Should().NotBeNull();
 			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
 		}
