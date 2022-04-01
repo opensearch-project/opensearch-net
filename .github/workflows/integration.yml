@@ -31,6 +31,12 @@ jobs:
         name: Clear nuget cache
       - run: "./build.sh integrate ${{ env.cluster }}-${{ matrix.version }} readonly,writable random:test_only_one --report"
         name: ${{ env.cluster }} Integration Tests
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-${{ matrix.cluster }}-${{ matrix.version }}
+          path: build/output/*
         
   integration-opendistro:
     name: Integration OpenDistro
@@ -58,3 +64,9 @@ jobs:
         name: Clear nuget cache
       - run: "./build.sh integrate ${{ env.cluster }}-${{ matrix.version }} readonly,writable random:test_only_one --report"
         name: ${{ env.cluster }} Integration Tests
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-${{ matrix.cluster }}-${{ matrix.version }}
+          path: build/output/*
