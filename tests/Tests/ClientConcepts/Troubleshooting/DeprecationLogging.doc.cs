@@ -25,18 +25,13 @@
 *  under the License.
 */
 
-using System;
 using System.Collections.Generic;
-using OpenSearch.OpenSearch.Xunit.Sdk;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
-using Tests.Framework;
 using Tests.Framework.DocumentationTests;
-using Xunit;
 using static Osc.Infer;
 
 namespace Tests.ClientConcepts.Troubleshooting
@@ -49,11 +44,13 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 *
 	 * OpenSearch.NET and OSC report these back to you so you can log and watch out for them.
 	 */
+	[SkipVersion(">1.0.0", "Disabled due to https://github.com/opensearch-project/security/issues/1731")]
 	public class DeprecationLogging : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
 	{
 		public DeprecationLogging(ReadOnlyCluster cluster) : base(cluster) { }
 
-		[I] public void RequestWithMultipleWarning()
+		[I]
+		public void RequestWithMultipleWarning()
 		{
 			var request = new SearchRequest<Project>
 			{
