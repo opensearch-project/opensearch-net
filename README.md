@@ -63,9 +63,9 @@ var client = new OpenSearchClient(config);
 ```csharp
 var nodes = new Uri[]
 {
-	new Uri("http://myserver1:9200"),
-	new Uri("http://myserver2:9200"),
-	new Uri("http://myserver3:9200")
+    new Uri("http://myserver1:9200"),
+    new Uri("http://myserver2:9200"),
+    new Uri("http://myserver3:9200")
 };
 
 var pool = new StaticNodePool(nodes);
@@ -143,16 +143,16 @@ IOpenSearchLowLevelClient lowLevelClient = client.LowLevel;
 // Generic parameter of Search<> is the type of .Body on response
 var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", PostData.Serializable(new
 {
-	from = 0,
-	size = 10,
-	fields = new [] {"id", "name"},
-	query = new {
-		term = new {
-			name = new {
-				value= "OSC"
-			}
-		}
-	}
+    from = 0,
+    size = 10,
+    fields = new [] {"id", "name"},
+    query = new {
+        term = new {
+            name = new {
+                value= "OSC"
+            }
+        }
+    }
 }));
 ```
 
