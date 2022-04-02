@@ -1,0 +1,30 @@
+name: Create Release Candidate
+
+on: [pull_request,push]
+env:
+  VERSION: 1.0.0
+jobs:
+  create-release-artifacts:
+    name: Create Release Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.100'
+    - uses: actions/cache@v2
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    - run: dotnet nuget locals all --clear
+      name: Clear nuget cache
+    - name: Generate Release
+      run: |
+        ./build.sh release $VERSION
+    - uses: actions/upload-artifact@v2
+      with:
+        name: opensearch-net-${{env.VERSION}}-release-candidate
+        path: build/output/*.nupkg
