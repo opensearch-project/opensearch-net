@@ -8,14 +8,37 @@ jobs:
     runs-on: ubuntu-latest
     env:
       cluster: opensearch
+      plugins-directory: /tmp/opensearch-plugins
     strategy:
       fail-fast: false
       matrix:
-        # Versions 1.0.x are disabled due to https://github.com/opensearch-project/project-website/issues/737
-        # No plugins released for these versions, so test can't run properly
-        version: [1.3.0, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0]
+        # 1.0.1 is skipped because it doesn't have a tag in OpenSearch repo, we can't check out to compile plugins
+        version: [1.3.0, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0, 1.0.0]
 
     steps:
+        # Due to https://github.com/opensearch-project/project-website/issues/737
+        # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
+        # Compiled plugins are copied to ${plugins-directory} where picked up by the test framework
+        # Versions of OpenSearch starting 1.1.0 are able to download plugins from the Internet
+      - name: Clone OpenSearch repository at tag ${{ matrix.version }}
+        if: ${{ matrix.version == '1.0.0' }}
+        uses: actions/checkout@v3
+        with:
+          repository: opensearch-project/OpenSearch
+          ref: ${{ matrix.version }}
+          path: opensearch
+      - name: Make plugins directory
+        if: ${{ matrix.version == '1.0.0' }}
+        run: mkdir ${{ env.plugins-directory }}
+      - name: Build plugins
+        if: ${{ matrix.version == '1.0.0' }}
+        run: |
+          cd opensearch
+          PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
+          for plugin in ${PluginList[*]}; do
+            ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=false
+            cp plugins/$plugin/build/distributions/$plugin-${{ matrix.version }}.zip ${{ env.plugins-directory }}
+          done
       - name: Checkout
         uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
