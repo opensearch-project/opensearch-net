@@ -37,7 +37,7 @@
     <PackageReference Include="FSharp.Core" Version="5.0.0" />
 
     <PackageReference Include="Bullseye" Version="3.3.0" />
-    <PackageReference Include="OpenSearch.OpenSearch.Managed" Version="0.1.0-canary.0.34" />
+    <PackageReference Include="OpenSearch.OpenSearch.Managed" Version="0.1.0-canary.0.276" />
     
     <PackageReference Include="Fake.Core.Environment" Version="5.15.0" />
     <PackageReference Include="Fake.Core.SemVer" Version="5.15.0" />
