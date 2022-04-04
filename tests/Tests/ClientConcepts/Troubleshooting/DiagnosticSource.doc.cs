@@ -27,22 +27,16 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
-using OpenSearch.OpenSearch.Xunit.Sdk;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
-using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.Client.Settings;
+using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
-using Tests.Framework;
-using Xunit;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {
@@ -140,18 +134,18 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 * As a concrete example of subscribing to topics, let's hook into all diagnostic sources and use
 		 * `ListenerObserver` to only listen to the ones from `OpenSearch.Net`
 		 */
-		[I] public void SubscribeToTopics()
+		[I]
+		public void SubscribeToTopics()
 		{
-
 			using(var listenerObserver = new ListenerObserver())
 			using (var subscription = DiagnosticListener.AllListeners.Subscribe(listenerObserver))
 			{
-				var pool = new SniffingConnectionPool(new []{ TestConnectionSettings.CreateUri() }); // <1> use a sniffing connection pool that sniffs on startup and pings before first usage, so our diagnostics will emit most topics.
+				var pool = new SniffingConnectionPool(_cluster.NodesUris()); // <1> use a sniffing connection pool that sniffs on startup and pings before first usage, so our diagnostics will emit most topics.
 				var connectionSettings = new ConnectionSettings(pool)
 					.DefaultMappingFor<Project>(i => i
 						.IndexName("project")
 					);
-
+				connectionSettings = (ConnectionSettings)_cluster.UpdateSettings(connectionSettings);
 				var client = new OpenSearchClient(connectionSettings);
 
 				var response = client.Search<Project>(s => s // <2> make a search API call

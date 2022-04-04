@@ -26,20 +26,13 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.Sdk;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.Client.Settings;
+using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
-using Tests.Framework;
-using Xunit;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {
@@ -59,18 +52,20 @@ namespace Tests.ClientConcepts.Troubleshooting
 			_cluster = cluster;
 		}
 
-		[I] public void AvailableOnResponse()
+		[I]
+		public void AvailableOnResponse()
 		{
 			/**
 			 * We'll use a Sniffing connection pool here since it sniffs on startup and pings before
 			 * first usage, so we can get an audit trail with a few events out
 			 */
-			var pool = new SniffingConnectionPool(new []{ TestConnectionSettings.CreateUri() });
+			var pool = new SniffingConnectionPool(_cluster.NodesUris());
 			var connectionSettings = new ConnectionSettings(pool)
 				.DefaultMappingFor<Project>(i => i
 					.IndexName("project")
 				);
 
+			connectionSettings = (ConnectionSettings)_cluster.UpdateSettings(connectionSettings);
 			var client = new OpenSearchClient(connectionSettings);
 
 			/**

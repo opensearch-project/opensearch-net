@@ -26,13 +26,14 @@
 */
 
 using System;
+using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using Osc;
 using Tests.ClientConcepts.Connection;
 using Tests.Core.ManagedOpenSearch.Clusters;
-
+using Tests.Core.Extensions;
 
 namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 {
@@ -46,28 +47,36 @@ namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 		[I]
 		public void UsesRelativePathForPing()
 		{
-			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/opensearch/") });
+			var uris = _cluster.NodesUris().Select(u => new Uri(u.AbsoluteUri.Trim('/') + "/opensearch/"));
+			var pool = new StaticConnectionPool(uris);
 			var settings = new ConnectionSettings(pool,
 				new HttpConnectionTests.TestableHttpConnection(response =>
 				{
 					response.RequestMessage.RequestUri.AbsolutePath.Should().StartWith("/opensearch/");
 				}));
+			settings = (ConnectionSettings)_cluster.UpdateSettings(settings);
 
 			var client = new OpenSearchClient(settings);
 			var healthResponse = client.Ping();
+			healthResponse.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.PingSuccess);
+			healthResponse.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.HealthyResponse);
 		}
 #else
 		[I]
 		public void UsesRelativePathForPing()
 		{
-			var pool = new StaticConnectionPool(new[] { new Uri("http://localhost:9200/opensearch/") });
+			var uris = _cluster.NodesUris().Select(u => new Uri(u.AbsoluteUri.Trim('/') + "/opensearch/"));
+			var pool = new StaticConnectionPool(uris);
 			var connection = new HttpWebRequestConnectionTests.TestableHttpWebRequestConnection();
 			var settings = new ConnectionSettings(pool, connection);
+			settings = (ConnectionSettings)_cluster.UpdateSettings(settings);
 
 			var client = new OpenSearchClient(settings);
 			var healthResponse = client.Ping();
 
 			connection.LastRequest.Address.AbsolutePath.Should().StartWith("/opensearch/");
+			healthResponse.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.PingSuccess);
+			healthResponse.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.HealthyResponse);
 		}
 #endif
 	}
