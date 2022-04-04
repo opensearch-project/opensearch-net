@@ -54,8 +54,8 @@ namespace Tests.Core.Extensions
 			return cluster.GetOrAddClient(c =>
 			{
 				var settings = modifySettings(cluster.CreateConnectionSettings());
-
 				settings = (ConnectionSettings)UpdateSettings(cluster, settings);
+
 				var client = new OpenSearchClient(settings);
 				return client;
 			});
