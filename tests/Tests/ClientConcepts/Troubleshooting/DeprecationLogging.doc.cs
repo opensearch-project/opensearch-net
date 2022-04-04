@@ -44,7 +44,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 *
 	 * OpenSearch.NET and OSC report these back to you so you can log and watch out for them.
 	 */
-	[SkipVersion(">1.0.0,<1.13.0", "Disabled due to https://github.com/opensearch-project/security/issues/1731.")]
+	[SkipVersion(">=1.0.0,<1.13.0", "Disabled due to https://github.com/opensearch-project/security/issues/1731.")]
 	public class DeprecationLogging : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
 	{
 		public DeprecationLogging(ReadOnlyCluster cluster) : base(cluster) { }
