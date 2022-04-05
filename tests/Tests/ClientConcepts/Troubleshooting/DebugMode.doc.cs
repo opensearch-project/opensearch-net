@@ -25,25 +25,15 @@
 *  under the License.
 */
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.Sdk;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
-using Tests.Core.Client;
-using Tests.Core.Client.Settings;
+using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
-using Tests.Framework;
 using Tests.Framework.DocumentationTests;
-using Xunit;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {
@@ -70,18 +60,15 @@ namespace Tests.ClientConcepts.Troubleshooting
 	{
 		public DebugMode(ReadOnlyCluster cluster) : base(cluster) { }
 
-		[I] public void EnableDebugMode()
+		[I]
+		public void EnableDebugMode()
 		{
-			IConnectionPool pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-
-			// hide
-			pool = new StaticConnectionPool(Cluster.NodesUris());
+			var pool = new StaticConnectionPool(Cluster.NodesUris());
 
 			var settings = new ConnectionSettings(pool)
+				.DefaultIndex(Client.ConnectionSettings.DefaultIndex)
 				.EnableDebugMode(); // <1> configure debug mode
-
-			// hide
-			settings.DefaultIndex(Client.ConnectionSettings.DefaultIndex);
+			settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
 
 			var client = new OpenSearchClient(settings);
 
@@ -93,11 +80,8 @@ namespace Tests.ClientConcepts.Troubleshooting
 
 			var debugInformation = response.DebugInformation; // <2> verbose debug information
 
-			// hide
-			{
-				debugInformation.Should().Contain("TCP states:");
-				debugInformation.Should().Contain("ThreadPool statistics:");
-			}
+			debugInformation.Should().Contain("TCP states:");
+			debugInformation.Should().Contain("ThreadPool statistics:");
 		}
 
 		/**
@@ -108,13 +92,14 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 */
 		public void DebugModeOnRequestCompleted()
 		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var client = new OpenSearchClient(new ConnectionSettings(pool)
+			var pool = new SingleNodeConnectionPool(Cluster.NodesUris().First());
+			var settings = new ConnectionSettings(pool)
 				.EnableDebugMode(apiCallDetails =>
 				{
 					// do something with the call details e.g. send with logging framework
-				})
-			);
+				});
+			settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
+			var client = new OpenSearchClient(settings);
 		}
 	}
 

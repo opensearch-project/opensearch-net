@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>OpenSearch.Stack.ArtifactsApi</id>
-    <version>0.1.0-canary.0.34</version>
+    <version>0.1.0-canary.0.276</version>
     <authors>OpenSearch Project and contributors</authors>
     <license type="expression">Apache-2.0</license>
     <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
@@ -12,7 +12,7 @@
     <releaseNotes>https://github.com/opensearch-project/opensearch-net-abstractions/releases</releaseNotes>
     <copyright>OpenSearch</copyright>
     <tags>opensearch,opensearch,stack,versioning,artifacts</tags>
-    <repository type="git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="9ac3c0555414b2d8016081cfdb0a08fd7ab8a94a" />
+    <repository type="Git" url="https://github.com/opensearch-project/opensearch-net-abstractions" commit="b98f1caf704bdc34ad31ae4f57dc7a43306f0f40" />
     <dependencies>
       <group targetFramework=".NETFramework4.6.1">
         <dependency id="SemanticVersioning" version="0.8.0" exclude="Build,Analyzers" />

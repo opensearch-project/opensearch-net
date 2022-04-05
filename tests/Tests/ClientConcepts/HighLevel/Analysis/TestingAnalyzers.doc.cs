@@ -26,15 +26,12 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.Sdk;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Osc;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
-using Tests.Framework;
 using Tests.Framework.DocumentationTests;
-using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.ClientConcepts.HighLevel.Analysis
@@ -46,6 +43,15 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 	 * does what we expect it to. This is where the {ref_current}/indices-analyze.html[Analyze API] comes in.
 	 *
 	 */
+	// OpenDistro v.1.13.0 with security plugin activated gets exception when `_analyze` server API called and returns it to a user:
+	//	"type" : "security_exception",
+	//	"reason": "Unexpected exception indices:admin/analyze"
+	//	"stack_trace": "ElasticsearchSecurityException[Unexpected exception indices:admin/analyze]
+	//		at com.amazon.opendistroforelasticsearch.security.filter.OpenDistroSecurityFilter.apply0(OpenDistroSecurityFilter.java:361)
+	//		....
+	// See forum thread about this bug: https://discuss.opendistrocommunity.dev/t/analyze-api-error/5640
+	// Fixed in OpenDistro 1.13.1.
+	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class TestingAnalyzers : IntegrationDocumentationTestBase, IClusterFixture<WritableCluster>
 	{
 		//hide
