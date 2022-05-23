@@ -11,6 +11,7 @@
   - [Project Resources](#project-resources)
   - [OSC](#osc)
   - [Getting Started](#getting-started)
+  - [Compatibility with OpenSearch](#compatibility-with-opensearch)
   - [Code of Conduct](#code-of-conduct)
   - [License](#license)
   - [Copyright](#copyright)
@@ -43,6 +44,10 @@ OSC is the official high-level .NET client of [OpenSearch](https://github.com/op
 ## Getting Started
 
 See [USER_GUIDE](USER_GUIDE.md) to get started with the .NET client.
+
+## Compatibility with OpenSearch
+
+See [COMPATIBILITY](COMPATIBILITY.md).
 
 ## Code of Conduct
 
