@@ -164,7 +164,7 @@ module Build =
             //rewrite assemblies to versioned counterparts
             let dependentAssemblies =
                 let injectOpenSearchNet =
-                    match deps |> Seq.contains "OSC" with
+                    match deps |> Seq.contains "OpenSearch.Client" with
                     | true -> List.append deps ["OpenSearch.Net"]
                     | false -> deps
                 injectOpenSearchNet
