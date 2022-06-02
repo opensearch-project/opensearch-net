@@ -51,7 +51,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 	/**
 	 * === Debug information
 	 *
-	 * Every response from OpenSearch.Net and OSC contains a `DebugInformation` property
+	 * Every response from OpenSearch.Net and OpenSearch.Client contains a `DebugInformation` property
 	 * that provides a human readable description of what happened during the request for both successful and
 	 * failed requests
 	 */
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 				)
 			);
 
-			response.DebugInformation.Should().Contain("Valid OSC response");
+			response.DebugInformation.Should().Contain("Valid OpenSearch.Client response");
 		}
 		//hide
 		[U] public void PasswordIsNotExposedInDebugInformation()
