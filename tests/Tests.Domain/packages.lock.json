@@ -797,6 +797,12 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
+      "opensearch.client": {
+        "type": "Project",
+        "dependencies": {
+          "OpenSearch.Net": "1.0.0"
+        }
+      },
       "opensearch.net": {
         "type": "Project",
         "dependencies": {
@@ -805,12 +811,6 @@
           "System.Diagnostics.DiagnosticSource": "5.0.0",
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0"
-        }
-      },
-      "OpenSearch.Client": {
-        "type": "Project",
-        "dependencies": {
-          "OpenSearch.Net": "1.0.0"
         }
       },
       "tests.configuration": {

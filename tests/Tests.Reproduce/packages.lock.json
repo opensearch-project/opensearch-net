@@ -1287,7 +1287,7 @@
           "OpenSearch.Net": "1.0.0"
         }
       },
-      "OSC.JsonNetSerializer": {
+      "OpenSearch.Client.JsonNetSerializer": {
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
@@ -1308,7 +1308,7 @@
           "JunitXml.TestLogger": "2.1.78",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "Nullean.VsTest.Pretty.TestLogger": "0.3.0",
-          "OSC.JsonNetSerializer": "1.0.0",
+          "OpenSearch.Client.JsonNetSerializer": "1.0.0",
           "OpenSearch.OpenSearch.Xunit": "0.1.0-canary.0.276",
           "Proc": "0.6.1",
           "Tests.Domain": "1.0.0",

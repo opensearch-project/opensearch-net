@@ -31,9 +31,9 @@ using System.Linq;
 using OpenSearch.Net;
 using Newtonsoft.Json;
 using OpenSearch.Client;
-using Osc.JsonNetSerializer.Converters;
+using OpenSearch.Client.JsonNetSerializer.Converters;
 
-namespace Osc.JsonNetSerializer
+namespace OpenSearch.Client.JsonNetSerializer
 {
 	public abstract partial class ConnectionSettingsAwareSerializerBase
 	{

@@ -32,7 +32,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

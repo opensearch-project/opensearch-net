@@ -64,7 +64,7 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.targets = Directory.Build.targets
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osc.JsonNetSerializer", "src\Osc.JsonNetSerializer\Osc.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Client.JsonNetSerializer", "src\OpenSearch.Client.JsonNetSerializer\OpenSearch.Client.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

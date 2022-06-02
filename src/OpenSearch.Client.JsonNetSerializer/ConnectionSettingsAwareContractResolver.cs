@@ -36,7 +36,7 @@ using Newtonsoft.Json.Serialization;
 using OpenSearch.Client;
 using JsonProperty = Newtonsoft.Json.Serialization.JsonProperty;
 
-namespace Osc.JsonNetSerializer
+namespace OpenSearch.Client.JsonNetSerializer
 {
 	public class ConnectionSettingsAwareContractResolver : DefaultContractResolver
 	{

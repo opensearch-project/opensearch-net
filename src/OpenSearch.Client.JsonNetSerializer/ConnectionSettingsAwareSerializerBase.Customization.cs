@@ -33,7 +33,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using Newtonsoft.Json;
 
-namespace Osc.JsonNetSerializer
+namespace OpenSearch.Client.JsonNetSerializer
 {
 	public abstract partial class ConnectionSettingsAwareSerializerBase : IOpenSearchSerializer
 	{

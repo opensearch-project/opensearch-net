@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <PackageId>OSC.JsonNetSerializer</PackageId>
-    <Title>OSC.JsonNetSerializer - OpenSearch .NET custom Json.NET serializer</Title>
-    <PackageTags>opensearch,opensearch,search,lucene,osc,serializer,json</PackageTags>
-    <Description>OSC uses an internal serializer. This package enables serialization for your documents using your own custom Json.NET serializer</Description>
+    <PackageId>OpenSearch.Client.JsonNetSerializer</PackageId>
+    <Title>OpenSearch.Client.JsonNetSerializer - OpenSearch .NET custom Json.NET serializer</Title>
+    <PackageTags>opensearch,opensearch,search,lucene,opensearch.client,client,serializer,json</PackageTags>
+    <Description>OpenSearch.Client uses an internal serializer. This package enables serialization for your documents using your own custom Json.NET serializer</Description>
   </PropertyGroup>
 
   <PropertyGroup>

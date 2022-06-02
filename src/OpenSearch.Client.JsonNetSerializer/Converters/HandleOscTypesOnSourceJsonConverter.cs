@@ -33,7 +33,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenSearch.Client;
 
-namespace Osc.JsonNetSerializer.Converters
+namespace OpenSearch.Client.JsonNetSerializer.Converters
 {
 	public class HandleOscTypesOnSourceJsonConverter : JsonConverter
 	{

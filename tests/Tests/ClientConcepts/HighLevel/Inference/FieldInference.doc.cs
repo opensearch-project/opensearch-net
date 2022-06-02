@@ -35,7 +35,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
@@ -373,7 +373,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* ==== Serializer specific attributes
 		*
 		* OSC can also use a serializer specific attribute to resolve a field value for a property.
-		* In this example, the {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
+		* In this example, the {nuget}/OpenSearch.Client.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
 		* <<custom-serialization, custom serializer>> for the client and we use the `JsonPropertyAttribute` to resolve a field
 		*/
 		public class SerializerSpecific
@@ -472,7 +472,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* . A naming of the property on `ConnectionSettings` using `.PropertyName()`
 		* . A OSC `PropertyNameAttribute`
-		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`]
+		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/OpenSearch.Client.JsonNetSerializer[`JsonNetSerializer`]
 		* . See if the `MemberInfo` has a `DataMemberAttribute` applied
 		* . Pass the `MemberInfo` to the `DefaultFieldNameInferrer`, which by default will camel case the `Name` property
 		*

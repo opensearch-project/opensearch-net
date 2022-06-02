@@ -56,6 +56,13 @@
           "Microsoft.TestPlatform.ObjectModel": "15.8.0"
         }
       },
+      "OpenSearch.Client.JsonNetSerializer": {
+        "type": "Project",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.1",
+          "OpenSearch.Client": "1.0.0"
+        }
+      },
       "OpenSearch.OpenSearch.Xunit": {
         "type": "Direct",
         "requested": "[0.1.0-canary.0.276, )",
@@ -165,6 +172,22 @@
         "type": "Transitive",
         "resolved": "12.0.1",
         "contentHash": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg=="
+      },
+      "opensearch.net": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.Buffers": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "5.0.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.Emit.Lightweight": "4.3.0"
+        }
+      },
+      "OpenSearch.Client": {
+        "type": "Project",
+        "dependencies": {
+          "OpenSearch.Net": "1.0.0"
+        }
       },
       "OpenSearch.OpenSearch.Ephemeral": {
         "type": "Transitive",
@@ -1299,29 +1322,6 @@
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "xunit.extensibility.core": "[2.3.1]"
-        }
-      },
-      "opensearch.net": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.CSharp": "4.6.0",
-          "System.Buffers": "4.5.1",
-          "System.Diagnostics.DiagnosticSource": "5.0.0",
-          "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0"
-        }
-      },
-      "OpenSearch.Client": {
-        "type": "Project",
-        "dependencies": {
-          "OpenSearch.Net": "1.0.0"
-        }
-      },
-      "OSC.JsonNetSerializer": {
-        "type": "Project",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
-          "OpenSearch.Client": "1.0.0"
         }
       },
       "tests.configuration": {

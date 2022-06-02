@@ -31,7 +31,7 @@ using OpenSearch.Net;
 using Newtonsoft.Json;
 using OpenSearch.Client;
 
-namespace Osc.JsonNetSerializer
+namespace OpenSearch.Client.JsonNetSerializer
 {
 	public class JsonNetSerializer : ConnectionSettingsAwareSerializerBase
 	{

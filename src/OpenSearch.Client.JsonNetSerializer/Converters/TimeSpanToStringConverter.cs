@@ -25,30 +25,38 @@
 *  under the License.
 */
 
-using System.IO;
-using OpenSearch.Net;
+using System;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-namespace Osc.JsonNetSerializer
+namespace OpenSearch.Client.JsonNetSerializer.Converters
 {
-	internal static class JTokenExtensions
+	/// <summary>
+	/// Included for compatibility reasons
+	/// </summary>
+	internal class TimeSpanToStringConverter : JsonConverter
 	{
-		/// <summary>
-		/// Writes a <see cref="JToken" /> to a <see cref="MemoryStream" /> using <see cref="ConnectionSettingsAwareSerializerBase.ExpectedEncoding" />
-		/// </summary>
-		public static MemoryStream ToStream(this JToken token, IMemoryStreamFactory memoryStreamFactory)
+		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{
-			var ms = memoryStreamFactory.Create();
-			using (var streamWriter = new StreamWriter(ms, ConnectionSettingsAwareSerializerBase.ExpectedEncoding,
-				ConnectionSettingsAwareSerializerBase.DefaultBufferSize, true))
-			using (var writer = new JsonTextWriter(streamWriter))
+			if (value == null)
+				writer.WriteNull();
+			else
 			{
-				token.WriteTo(writer);
-				writer.Flush();
-				ms.Position = 0;
-				return ms;
+				var timeSpan = (TimeSpan)value;
+				writer.WriteValue(timeSpan.Ticks);
 			}
 		}
+
+		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+		{
+			switch (reader.TokenType)
+			{
+				case JsonToken.Null: return null;
+				case JsonToken.String: return TimeSpan.Parse((string)reader.Value);
+				case JsonToken.Integer: return new TimeSpan((long)reader.Value);
+			}
+			throw new JsonSerializationException($"Cannot convert token of type {reader.TokenType} to {objectType}.");
+		}
+
+		public override bool CanConvert(Type objectType) => objectType == typeof(TimeSpan) || objectType == typeof(TimeSpan?);
 	}
 }

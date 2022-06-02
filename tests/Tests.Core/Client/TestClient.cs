@@ -26,7 +26,7 @@
 */
 
 using OpenSearch.Client;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client.JsonNetSerializer;
 using Tests.Configuration;
 using Tests.Core.Client.Settings;
 using Tests.Domain.Extensions;
