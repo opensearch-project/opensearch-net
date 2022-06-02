@@ -28,13 +28,13 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
-using ValueType = Osc.ValueType;
+using static OpenSearch.Client.Infer;
+using ValueType = OpenSearch.Client.ValueType;
 
 namespace Tests.Aggregations.Metric.WeightedAverage
 {

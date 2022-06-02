@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -121,7 +121,7 @@ namespace Tests.Indices.IndexManagement.RolloverIndex
 				MaxAge = "7d",
 				MaxDocs = 1000
 			},
-			Settings = new Osc.IndexSettings
+			Settings = new OpenSearch.Client.IndexSettings
 			{
 				NumberOfShards = 1,
 				NumberOfReplicas = 1

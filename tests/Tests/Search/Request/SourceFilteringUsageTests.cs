@@ -28,14 +28,14 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using Xunit;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.Search.Request

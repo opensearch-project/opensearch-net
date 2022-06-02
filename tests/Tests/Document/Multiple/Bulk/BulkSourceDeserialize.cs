@@ -30,7 +30,7 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 
 namespace Tests.Document.Multiple.Bulk

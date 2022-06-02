@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;

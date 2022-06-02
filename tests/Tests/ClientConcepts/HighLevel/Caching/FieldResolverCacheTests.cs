@@ -35,10 +35,10 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using Microsoft.FSharp.Core;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Xunit.Abstractions;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 
 namespace Tests.ClientConcepts.HighLevel.Caching

@@ -26,14 +26,14 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.Range.DoubleRange
 {
 	public class DoubleRangeTest
 	{
 		[DoubleRange]
-		public Osc.DoubleRange Range { get; set; }
+		public OpenSearch.Client.DoubleRange Range { get; set; }
 	}
 
 	public class DoubleRangeAttributeTests : AttributeTestsBase<DoubleRangeTest>

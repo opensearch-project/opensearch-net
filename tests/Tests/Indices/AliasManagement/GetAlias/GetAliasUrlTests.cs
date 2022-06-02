@@ -27,9 +27,9 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.AliasManagement.GetAlias

@@ -29,7 +29,7 @@ using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 
 namespace Tests.CodeStandards.Serialization
@@ -48,7 +48,7 @@ namespace Tests.CodeStandards.Serialization
 
 
 			var serializer = c.RequestResponseSerializer;
-			var serialized = serializer.SerializeToString(new Osc.Analysis { CharFilters = new CharFilters() });
+			var serialized = serializer.SerializeToString(new OpenSearch.Client.Analysis { CharFilters = new CharFilters() });
 			serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
 			serialized.Should().Contain("char_filter");
 

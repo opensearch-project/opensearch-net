@@ -26,7 +26,7 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Domain;
 using static Tests.Core.Serialization.SerializationTestHelper;
@@ -38,16 +38,16 @@ namespace Tests.Search
 	 *
 	 * Runtime fields can be returned with search requests by specifying the fields using `.Fields`
 	 * on the search request.
-	 * 
+	 *
 	 * [WARNING]
 	 * --
-	 * This functionality is in beta and is subject to change. The design and code is less mature 
-	 * than official GA features and is being provided as-is with no warranties. Beta features 
+	 * This functionality is in beta and is subject to change. The design and code is less mature
+	 * than official GA features and is being provided as-is with no warranties. Beta features
 	 * are not subject to the support SLA of official GA features.
 	 * --
 	 *
 	 */
-	public class SearchingRuntimeFields 
+	public class SearchingRuntimeFields
 	{
 		private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
 

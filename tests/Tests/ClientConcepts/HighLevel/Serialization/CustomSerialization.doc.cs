@@ -34,7 +34,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Osc.JsonNetSerializer;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;

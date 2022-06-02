@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 
@@ -37,7 +37,7 @@ namespace Tests.Indices.IndexManagement.IndicesExists
 	{
 		[U] public async Task Urls()
 		{
-			var indices = Osc.Indices.Index<Project>().And<CommitActivity>();
+			var indices = OpenSearch.Client.Indices.Index<Project>().And<CommitActivity>();
 			var index = "project";
 			await UrlTester.HEAD($"/{index}")
 					.Fluent(c => c.Indices.Exists(index, s => s))

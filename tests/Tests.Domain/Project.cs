@@ -31,7 +31,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Bogus;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Domain.Extensions;
 using Tests.Domain.Helpers;
@@ -82,7 +82,7 @@ namespace Tests.Domain
 		public StateOfBeing State { get; set; }
 		public CompletionField Suggest { get; set; }
 		public IEnumerable<Tag> Tags { get; set; }
-		
+
 		public string Type => TypeName;
 
 		//the first applies when using internal source serializer the latter when using JsonNetSourceSerializer
@@ -197,7 +197,7 @@ namespace Tests.Domain
 	public class ProjectTransform
 	{
 		public double? AverageCommits { get; set; }
-		
+
 		public long WeekStartedOnMillis { get; set; }
 
 		public DateTime WeekStartedOnDate { get; set; }

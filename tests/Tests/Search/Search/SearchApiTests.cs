@@ -31,7 +31,7 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -596,14 +596,14 @@ namespace Tests.Search.Search
 		protected override int ExpectStatusCode => 200;
 
 		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.Index(Osc.Indices.Index<Project>().And("cluster_two:project"))
+			.Index(OpenSearch.Client.Indices.Index<Project>().And("cluster_two:project"))
 			.Query(q => q
 				.MatchAll()
 			);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override SearchRequest<Project> Initializer => new SearchRequest<Project>(Osc.Indices.Index<Project>().And("cluster_two:project"))
+		protected override SearchRequest<Project> Initializer => new SearchRequest<Project>(OpenSearch.Client.Indices.Index<Project>().And("cluster_two:project"))
 		{
 			Query = new MatchAllQuery()
 		};

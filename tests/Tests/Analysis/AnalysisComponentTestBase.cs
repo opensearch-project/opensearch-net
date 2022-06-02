@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Serialization;
@@ -95,7 +95,7 @@ namespace Tests.Analysis
 			Settings = new IndexSettings { Analysis = InitializerAnalysis() }
 		};
 
-		protected abstract Osc.Analysis InitializerAnalysis();
+		protected abstract OpenSearch.Client.Analysis InitializerAnalysis();
 
 		[U] public virtual async Task TestPutSettingsRequest() => await Usage.AssertOnAllResponses(r =>
 		{

@@ -31,7 +31,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Tests.Core.Client.Serializers;

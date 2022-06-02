@@ -33,7 +33,7 @@ using System.Threading;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Framework;
 

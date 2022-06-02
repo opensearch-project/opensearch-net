@@ -30,7 +30,7 @@ using System.Diagnostics;
 using System.Threading;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 
 namespace Tests.ScratchPad

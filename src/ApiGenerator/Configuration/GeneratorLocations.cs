@@ -36,7 +36,7 @@ namespace ApiGenerator.Configuration
 		public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
 		public static string LastDownloadedRef { get; } = Path.Combine(Root, "last_downloaded_version.txt");
 
-		public static string OscFolder { get; } = $@"{Root}../../src/Osc/";
+		public static string OscFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
 		public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
 		// @formatter:on — enable formatter after this line
 

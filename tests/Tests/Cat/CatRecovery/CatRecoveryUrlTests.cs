@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -47,9 +47,9 @@ namespace Tests.Cat.CatRecovery
 
 			await GET("/_cat/recovery/project")
 				.Fluent(c => c.Cat.Recovery(r => r.Index<Project>()))
-				.Request(c => c.Cat.Recovery(new CatRecoveryRequest(Osc.Indices.Index<Project>())))
+				.Request(c => c.Cat.Recovery(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())))
 				.FluentAsync(c => c.Cat.RecoveryAsync(r => r.Index<Project>()))
-				.RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest(Osc.Indices.Index<Project>())));
+				.RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())));
 		}
 	}
 }

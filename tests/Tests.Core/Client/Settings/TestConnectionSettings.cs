@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client.Serializers;
 using Tests.Core.Extensions;

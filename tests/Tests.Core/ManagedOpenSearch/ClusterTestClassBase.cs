@@ -27,7 +27,7 @@
 
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Core.ManagedOpenSearch

@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Tests.Core.Client;
 using Tests.Framework;

@@ -27,7 +27,7 @@
 
 using System;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 namespace Tests.QueryDsl.BoolDsl.Operators

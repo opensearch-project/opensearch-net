@@ -31,6 +31,7 @@ using System.IO;
 using OpenSearch.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenSearch.Client;
 
 namespace Osc.JsonNetSerializer.Converters
 {

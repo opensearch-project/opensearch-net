@@ -95,7 +95,7 @@
           "System.Diagnostics.DiagnosticSource": "5.0.0"
         }
       },
-      "OSC": {
+      "OpenSearch.Client": {
         "type": "Project",
         "dependencies": {
           "OpenSearch.Net": "1.0.0"
@@ -305,7 +305,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0"
         }
       },
-      "OSC": {
+      "OpenSearch.Client": {
         "type": "Project",
         "dependencies": {
           "OpenSearch.Net": "1.0.0"

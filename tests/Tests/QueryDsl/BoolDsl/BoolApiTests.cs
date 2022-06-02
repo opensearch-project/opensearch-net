@@ -31,10 +31,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 
 namespace Tests.QueryDsl.BoolDsl

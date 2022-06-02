@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ApiGenerator.Domain.Specification 
+namespace ApiGenerator.Domain.Specification
 {
 	public class UrlPath
 	{
@@ -41,7 +41,7 @@ namespace ApiGenerator.Domain.Specification
 		public List<UrlPart> Parts { get; }
 
 		//TODO mark the parts that are deprecated
-		public UrlPath(DeprecatedPath path, IDictionary<string, UrlPart> originalParts, IReadOnlyCollection<UrlPath> allNonDeprecatedPaths) 
+		public UrlPath(DeprecatedPath path, IDictionary<string, UrlPart> originalParts, IReadOnlyCollection<UrlPath> allNonDeprecatedPaths)
 			: this(path.Path, originalParts)
 		{
 			Deprecation = path;
@@ -86,7 +86,7 @@ namespace ApiGenerator.Domain.Specification
 		public string AutoResolveBaseArguments(string generic) => string.Join(", ", Parts.Select(p => !ResolvabeFromT.Contains(p.Name) ? p.Name : $"typeof({generic})"));
 
 		public string DocumentPathBaseArgument(string generic) => string.Join(", ",
-			_additionalPartsForConstructor.Select(p => p.Name =="id" ? $"id ?? Osc.Id.From(documentWithId)"
+			_additionalPartsForConstructor.Select(p => p.Name =="id" ? $"id ?? OpenSearch.Client.Id.From(documentWithId)"
 				: ResolvabeFromT.Contains(p.Name) ? $"{p.Name} ?? typeof({generic})" : p.Name));
 
 		public string DocumentPathConstructorArgument(string generic) => string.Join(", ",

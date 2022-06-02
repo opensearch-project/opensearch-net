@@ -30,14 +30,14 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Aggregations
 {
@@ -47,7 +47,7 @@ namespace Tests.Aggregations
 	{
 		protected AggregationUsageTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected virtual Osc.Indices AgainstIndex { get; } = Index<Project>();
+		protected virtual OpenSearch.Client.Indices AgainstIndex { get; } = Index<Project>();
 
 		protected abstract object AggregationJson { get; }
 
@@ -112,7 +112,7 @@ namespace Tests.Aggregations
 	{
 		protected ProjectsOnlyAggregationUsageTestBase(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override Osc.Indices AgainstIndex => DefaultSeeder.ProjectsAliasFilter;
+		protected override OpenSearch.Client.Indices AgainstIndex => DefaultSeeder.ProjectsAliasFilter;
 		protected override string UrlPath => $"/{DefaultSeeder.ProjectsAliasFilter}/_search";
 
 		// https://youtrack.jetbrains.com/issue/RIDER-19912

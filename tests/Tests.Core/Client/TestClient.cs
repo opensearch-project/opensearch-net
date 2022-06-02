@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Osc.JsonNetSerializer;
 using Tests.Configuration;
 using Tests.Core.Client.Settings;

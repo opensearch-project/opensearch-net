@@ -33,6 +33,7 @@ using OpenSearch.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
+using OpenSearch.Client;
 using JsonProperty = Newtonsoft.Json.Serialization.JsonProperty;
 
 namespace Osc.JsonNetSerializer

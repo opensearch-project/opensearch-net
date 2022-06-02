@@ -29,7 +29,7 @@ using System;
 using System.Threading;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 

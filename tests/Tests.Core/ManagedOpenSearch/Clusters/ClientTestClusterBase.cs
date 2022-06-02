@@ -31,7 +31,7 @@ using OpenSearch.OpenSearch.Ephemeral.Plugins;
 using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

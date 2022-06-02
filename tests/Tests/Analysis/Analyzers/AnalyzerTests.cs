@@ -27,7 +27,7 @@
 
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Analysis.Analyzers
 {

@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
@@ -64,7 +64,7 @@ namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 
 		protected override UpdateIndexSettingsRequest Initializer => new UpdateIndexSettingsRequest(CallIsolatedValue)
 		{
-			IndexSettings = new Osc.IndexSettings(new Dictionary<string, object>
+			IndexSettings = new OpenSearch.Client.IndexSettings(new Dictionary<string, object>
 			{
 				{ "index.number_of_replicas", 3 },
 				{ "index.priority", 2 }
@@ -122,7 +122,7 @@ namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 
 		protected override UpdateIndexSettingsRequest Initializer => new UpdateIndexSettingsRequest(CallIsolatedValue)
 		{
-			IndexSettings = new Osc.IndexSettings
+			IndexSettings = new OpenSearch.Client.IndexSettings
 			{
 				RefreshInterval = null
 			}

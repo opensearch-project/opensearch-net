@@ -28,7 +28,7 @@
     <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0'" Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="Osc" Key="$(ExposedPublicKey)" />
+    <InternalsVisibleTo Include="OpenSearch.Client" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.CustomDynamicObjectResolver" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.DynamicCompositeResolver" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.DynamicObjectResolverAllowPrivateFalseExcludeNullFalseNameMutateOriginal" Key="$(ExposedPublicKey)" />

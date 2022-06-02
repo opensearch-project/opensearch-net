@@ -33,7 +33,7 @@ using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 
 namespace Tests.CodeStandards
@@ -58,7 +58,7 @@ namespace Tests.CodeStandards
 			var abstractClassesNotEndingInBase = typeof(IRequest).Assembly.GetTypes()
 				.Where(t => t.IsClass && t.IsAbstract && !t.IsSealed && !exceptions.Contains(t))
 				//when testing nuget package against merged internalize json.net skip its types.
-				.Where(t => !t.Namespace.StartsWith("Osc.Json"))
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Client.Json"))
 				.Where(t => !t.Namespace.StartsWith("OpenSearch.Internal"))
 				.Where(t => !t.Name.Split('`')[0].EndsWith("Base"))
 				.Select(t => t.Name.Split('`')[0])
@@ -193,11 +193,11 @@ namespace Tests.CodeStandards
 			var typesNotInOscNamespace = types
 				.Where(t => t != null)
 				.Where(t => !exceptions.Contains(t))
-				.Where(t => t.Namespace != "Osc")
+				.Where(t => t.Namespace != "OpenSearch.Client")
 				//when testing nuget package against merged internalize json.net skip its types.
-				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Json"))
+				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("OpenSearch.Client.Json"))
 				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("OpenSearch.Internal"))
-				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("Osc.Specification"))
+				.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && !t.Namespace.StartsWith("OpenSearch.Client.Specification"))
 				.Where(t => !t.Name.StartsWith("<"))
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();

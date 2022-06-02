@@ -29,6 +29,7 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using OpenSearch.Client;
 
 namespace Osc.JsonNetSerializer
 {

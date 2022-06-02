@@ -30,7 +30,7 @@ using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.DocumentationTests;
 
 namespace Tests.ClientConcepts.HighLevel.Indexing

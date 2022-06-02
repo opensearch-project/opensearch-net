@@ -28,7 +28,7 @@
 using System;
 using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Serialization;
 
 namespace Tests.Analysis.CharFilters
@@ -136,9 +136,9 @@ namespace Tests.Analysis.CharFilters
 						{
 							Settings = new IndexSettings
 							{
-								Analysis = new Osc.Analysis
+								Analysis = new OpenSearch.Client.Analysis
 								{
-									CharFilters = new Osc.CharFilters()
+									CharFilters = new OpenSearch.Client.CharFilters()
 									{
 										{ FilterName, UserDefinedFilter }
 									}

@@ -30,7 +30,7 @@ using System.Linq;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping
 {

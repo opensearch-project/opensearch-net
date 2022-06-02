@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Bogus;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Domain.Helpers;
 

@@ -34,7 +34,7 @@ using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 using Bogus;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client;
 

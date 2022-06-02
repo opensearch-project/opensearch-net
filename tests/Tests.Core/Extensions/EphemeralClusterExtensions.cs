@@ -29,7 +29,7 @@ using System;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client.Settings;
 
 namespace Tests.Core.Extensions

@@ -865,7 +865,7 @@
           "System.Diagnostics.DiagnosticSource": "5.0.0"
         }
       },
-      "OSC": {
+      "OpenSearch.Client": {
         "type": "Project",
         "dependencies": {
           "OpenSearch.Net": "1.0.0"
@@ -875,7 +875,7 @@
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1",
-          "OSC": "1.0.0"
+          "OpenSearch.Client": "1.0.0"
         }
       },
       "tests.configuration": {
@@ -904,7 +904,7 @@
         "dependencies": {
           "Bogus": "22.1.2",
           "Newtonsoft.Json": "12.0.1",
-          "OSC": "1.0.0",
+          "OpenSearch.Client": "1.0.0",
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.276",
           "Tests.Configuration": "1.0.0"
         }

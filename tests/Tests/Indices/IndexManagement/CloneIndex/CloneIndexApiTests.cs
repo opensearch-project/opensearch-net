@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -108,7 +108,7 @@ namespace Tests.Indices.IndexManagement.CloneIndex
 
 		protected override CloneIndexRequest Initializer => new CloneIndexRequest(CallIsolatedValue, CallIsolatedValue + CloneSuffix)
 		{
-			Settings = new Osc.IndexSettings
+			Settings = new OpenSearch.Client.IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,

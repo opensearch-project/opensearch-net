@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -47,9 +47,9 @@ namespace Tests.Cat.CatShards
 
 			await GET("/_cat/shards/project")
 				.Fluent(c => c.Cat.Shards(r => r.Index<Project>()))
-				.Request(c => c.Cat.Shards(new CatShardsRequest(Osc.Indices.Index<Project>())))
+				.Request(c => c.Cat.Shards(new CatShardsRequest(OpenSearch.Client.Indices.Index<Project>())))
 				.FluentAsync(c => c.Cat.ShardsAsync(r => r.Index<Project>()))
-				.RequestAsync(c => c.Cat.ShardsAsync(new CatShardsRequest(Osc.Indices.Index<Project>())));
+				.RequestAsync(c => c.Cat.ShardsAsync(new CatShardsRequest(OpenSearch.Client.Indices.Index<Project>())));
 		}
 	}
 }

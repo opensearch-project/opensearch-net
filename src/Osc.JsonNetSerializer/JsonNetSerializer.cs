@@ -29,6 +29,7 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net;
 using Newtonsoft.Json;
+using OpenSearch.Client;
 
 namespace Osc.JsonNetSerializer
 {

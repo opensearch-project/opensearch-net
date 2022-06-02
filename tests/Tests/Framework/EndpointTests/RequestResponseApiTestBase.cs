@@ -31,7 +31,7 @@ using System.Linq;
 using System.Threading.Tasks;
  using OpenSearch.OpenSearch.Ephemeral;
  using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;

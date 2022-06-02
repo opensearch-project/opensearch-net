@@ -26,7 +26,7 @@
 */
 
 using System;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 

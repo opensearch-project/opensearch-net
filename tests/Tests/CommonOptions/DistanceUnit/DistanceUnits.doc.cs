@@ -26,7 +26,7 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
@@ -49,7 +49,7 @@ namespace Tests.CommonOptions.DistanceUnit
 		public void Constructor()
 		{
 			var unitComposed = new Distance(25);
-			var unitComposedWithUnits = new Distance(25, Osc.DistanceUnit.Meters);
+			var unitComposedWithUnits = new Distance(25, OpenSearch.Client.DistanceUnit.Meters);
 
 			/**
 			* `Distance` serializes to a string composed of a factor and distance unit.
@@ -86,47 +86,47 @@ namespace Tests.CommonOptions.DistanceUnit
 			/** ===== Metric
 			*`mm` (Millimeters)
 			*/
-			Expect("2mm").WhenSerializing(new Distance(2, Osc.DistanceUnit.Millimeters));
+			Expect("2mm").WhenSerializing(new Distance(2, OpenSearch.Client.DistanceUnit.Millimeters));
 
 			/**
 			*`cm` (Centimeters)
 			*/
-			Expect("123.456cm").WhenSerializing(new Distance(123.456, Osc.DistanceUnit.Centimeters));
+			Expect("123.456cm").WhenSerializing(new Distance(123.456, OpenSearch.Client.DistanceUnit.Centimeters));
 
 			/**
 			*`m` (Meters)
 			*/
-			Expect("400m").WhenSerializing(new Distance(400, Osc.DistanceUnit.Meters));
+			Expect("400m").WhenSerializing(new Distance(400, OpenSearch.Client.DistanceUnit.Meters));
 
 			/**
 			*`km` (Kilometers)
 			*/
-			Expect("0.1km").WhenSerializing(new Distance(0.1, Osc.DistanceUnit.Kilometers));
+			Expect("0.1km").WhenSerializing(new Distance(0.1, OpenSearch.Client.DistanceUnit.Kilometers));
 
 			/** ===== Imperial
 			*`in` (Inches)
 			*/
-			Expect("43.23in").WhenSerializing(new Distance(43.23, Osc.DistanceUnit.Inch));
+			Expect("43.23in").WhenSerializing(new Distance(43.23, OpenSearch.Client.DistanceUnit.Inch));
 
 			/**
 			*`ft` (Feet)
 			*/
-			Expect("3.33ft").WhenSerializing(new Distance(3.33, Osc.DistanceUnit.Feet));
+			Expect("3.33ft").WhenSerializing(new Distance(3.33, OpenSearch.Client.DistanceUnit.Feet));
 
 			/**
 			*`yd` (Yards)
 			*/
-			Expect("9yd").WhenSerializing(new Distance(9, Osc.DistanceUnit.Yards));
+			Expect("9yd").WhenSerializing(new Distance(9, OpenSearch.Client.DistanceUnit.Yards));
 
 			/**
 			*`mi` (Miles)
 			*/
-			Expect("0.62mi").WhenSerializing(new Distance(0.62, Osc.DistanceUnit.Miles));
+			Expect("0.62mi").WhenSerializing(new Distance(0.62, OpenSearch.Client.DistanceUnit.Miles));
 
 			/**
 			*`nmi` or `NM` (Nautical Miles)
 			*/
-			Expect("45.5nmi").WhenSerializing(new Distance(45.5, Osc.DistanceUnit.NauticalMiles));
+			Expect("45.5nmi").WhenSerializing(new Distance(45.5, OpenSearch.Client.DistanceUnit.NauticalMiles));
 		}
 	}
 }

@@ -30,14 +30,14 @@ using System.Globalization;
 using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Multiple.MultiTermVectors 
+namespace Tests.Document.Multiple.MultiTermVectors
 {
 	public class MultiTermVectorsIdsNotFoundApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, MultiTermVectorsResponse, IMultiTermVectorsRequest, MultiTermVectorsDescriptor,

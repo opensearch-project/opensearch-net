@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 namespace Tests.Mapping.Types.Core.Join

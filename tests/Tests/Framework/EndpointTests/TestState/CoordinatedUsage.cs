@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

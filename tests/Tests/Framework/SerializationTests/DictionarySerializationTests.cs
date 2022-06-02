@@ -32,7 +32,7 @@ using System.Collections.ObjectModel;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Serialization;
 
 namespace Tests.Framework.SerializationTests

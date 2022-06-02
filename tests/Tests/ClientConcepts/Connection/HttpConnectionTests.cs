@@ -33,7 +33,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using HttpMethod = OpenSearch.Net.HttpMethod;
@@ -81,7 +81,7 @@ namespace Tests.ClientConcepts.Connection
 			connection.InUseHandlers.Should().Be(1);
 			connection.RemovedHandlers.Should().Be(1);
 		}
-		
+
 		[I] public async Task MultipleInstancesOfHttpClientWhenRequestTimeoutChanges() =>
 			await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(TimeSpan.FromSeconds(30)));
 
@@ -139,7 +139,7 @@ namespace Tests.ClientConcepts.Connection
 				connectionSettings.Proxy(proxyAddress, null, (string)null);
 
 			var requestParameters = new SearchRequestParameters();
-			
+
 			if (requestMetaData is object)
 			{
 				requestParameters.RequestConfiguration ??= new RequestConfiguration();

@@ -32,7 +32,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Extensions;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json;
 using Tests.Core.Client;
 using Tests.Framework.DocumentationTests;

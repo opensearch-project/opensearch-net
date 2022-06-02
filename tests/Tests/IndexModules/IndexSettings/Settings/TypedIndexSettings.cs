@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.IndexModules.IndexSettings.Settings
 {
@@ -36,7 +36,7 @@ namespace Tests.IndexModules.IndexSettings.Settings
 		/**
 		 */
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, Osc.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -93,8 +93,8 @@ namespace Tests.IndexModules.IndexSettings.Settings
 
 			/**
 			 */
-			protected override Osc.IndexSettings Initializer =>
-				new Osc.IndexSettings(new Dictionary<string, object>
+			protected override OpenSearch.Client.IndexSettings Initializer =>
+				new OpenSearch.Client.IndexSettings(new Dictionary<string, object>
 				{
 					{ "any.setting", "can be set" },
 					{ "doubles", 1.1 },

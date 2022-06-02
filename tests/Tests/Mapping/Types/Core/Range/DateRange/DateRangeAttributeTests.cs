@@ -26,14 +26,14 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.Range.DateRange
 {
 	public class DateRangeTest
 	{
 		[DateRange(Coerce = false, Format = "yyyy-MM")]
-		public Osc.DateRange Range { get; set; }
+		public OpenSearch.Client.DateRange Range { get; set; }
 	}
 
 	public class DateRangeAttributeTests : AttributeTestsBase<DateRangeTest>

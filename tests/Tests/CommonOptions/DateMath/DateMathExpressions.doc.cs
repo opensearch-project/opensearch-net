@@ -28,7 +28,7 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 // ReSharper disable SuggestVarOrType_Elsewhere
@@ -65,18 +65,18 @@ namespace Tests.CommonOptions.DateMath
 			* ==== Simple expressions
 			* You can create simple expressions using any of the static methods on `DateMath`
 			*/
-			//Expect("now").WhenSerializing(Osc.DateMath.Now);
-			Expect("2015-05-05T00:00:00").WhenSerializing(Osc.DateMath.Anchored(new DateTime(2015,05, 05)));
+			//Expect("now").WhenSerializing(OpenSearch.Client.DateMath.Now);
+			Expect("2015-05-05T00:00:00").WhenSerializing(OpenSearch.Client.DateMath.Anchored(new DateTime(2015,05, 05)));
 
 			/** strings implicitly convert to `DateMath` */
-			Expect("now").WhenSerializing<Osc.DateMath>("now");
+			Expect("now").WhenSerializing<OpenSearch.Client.DateMath>("now");
 
 			/** but are lenient to bad math expressions */
 			var nonsense = "now||*asdaqwe";
 
 			/** the resulting date math will assume the whole string is the anchor */
 			Expect(nonsense)
-				.WhenSerializing<Osc.DateMath>(nonsense)
+				.WhenSerializing<OpenSearch.Client.DateMath>(nonsense)
 				.AssertSubject(dateMath => ((IDateMath)dateMath)
 					.Anchor.Match(
 						d => d.Should().NotBe(default(DateTime)),
@@ -97,7 +97,7 @@ namespace Tests.CommonOptions.DateMath
 
 			// hide
 			Expect(expected)
-				.WhenSerializing<Osc.DateMath>(date)
+				.WhenSerializing<OpenSearch.Client.DateMath>(date)
 				.AssertSubject(dateMath => ((IDateMath)dateMath)
 					.Anchor.Match(
 						d => d.Should().Be(date),
@@ -119,7 +119,7 @@ namespace Tests.CommonOptions.DateMath
 
 			// hide
 			Expect(expected)
-				.WhenSerializing<Osc.DateMath>(utcDate)
+				.WhenSerializing<OpenSearch.Client.DateMath>(utcDate)
 				.AssertSubject(dateMath => ((IDateMath)dateMath)
 					.Anchor.Match(
 						d => d.Should().Be(utcDate),
@@ -135,15 +135,15 @@ namespace Tests.CommonOptions.DateMath
 			* Ranges can be chained on to simple expressions
 			*/
 			Expect("now+1d").WhenSerializing(
-				Osc.DateMath.Now.Add("1d"));
+				OpenSearch.Client.DateMath.Now.Add("1d"));
 
 			/** Including multiple operations */
 			Expect("now+1d-1m").WhenSerializing(
-				Osc.DateMath.Now.Add("1d").Subtract(TimeSpan.FromMinutes(1)));
+				OpenSearch.Client.DateMath.Now.Add("1d").Subtract(TimeSpan.FromMinutes(1)));
 
 			/** A rounding value can be chained to the end of the expression, after which no more ranges can be appended */
 			Expect("now+1d-1m/d").WhenSerializing(
-				Osc.DateMath.Now.Add("1d")
+				OpenSearch.Client.DateMath.Now.Add("1d")
 					.Subtract(TimeSpan.FromMinutes(1))
 					.RoundTo(DateMathTimeUnit.Day));
 
@@ -151,7 +151,7 @@ namespace Tests.CommonOptions.DateMath
 			* Again, multiple ranges can be chained
 			*/
 			Expect("2015-05-05T00:00:00||+1d-1m").WhenSerializing(
-				Osc.DateMath.Anchored(new DateTime(2015,05,05))
+				OpenSearch.Client.DateMath.Anchored(new DateTime(2015,05,05))
 					.Add("1d")
 					.Subtract(TimeSpan.FromMinutes(1)));
 		}
@@ -165,31 +165,31 @@ namespace Tests.CommonOptions.DateMath
 			* largest whole number value and unit, rounded to the nearest second.
 			*
 			*/
-			Expect("now+1w").WhenSerializing(Osc.DateMath.Now.Add(TimeSpan.FromDays(7)));
+			Expect("now+1w").WhenSerializing(OpenSearch.Client.DateMath.Now.Add(TimeSpan.FromDays(7)));
 
-			Expect("now+1w").WhenSerializing(Osc.DateMath.Now.Add("1w"));
+			Expect("now+1w").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("1w"));
 
-			Expect("now+1w").WhenSerializing(Osc.DateMath.Now.Add(604800000));
+			Expect("now+1w").WhenSerializing(OpenSearch.Client.DateMath.Now.Add(604800000));
 
-			Expect("now+7d").WhenSerializing(Osc.DateMath.Now.Add("7d"));
+			Expect("now+7d").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("7d"));
 
-			Expect("now+30h").WhenSerializing(Osc.DateMath.Now.Add(TimeSpan.FromHours(30)));
+			Expect("now+30h").WhenSerializing(OpenSearch.Client.DateMath.Now.Add(TimeSpan.FromHours(30)));
 
-			Expect("now+30h").WhenSerializing(Osc.DateMath.Now.Add("1.25d"));
+			Expect("now+30h").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("1.25d"));
 
 			Expect("now+90001s").WhenSerializing(
-				Osc.DateMath.Now.Add(TimeSpan.FromHours(25).Add(TimeSpan.FromSeconds(1))));
+				OpenSearch.Client.DateMath.Now.Add(TimeSpan.FromHours(25).Add(TimeSpan.FromSeconds(1))));
 
 			Expect("now+90000s").WhenSerializing(
-				Osc.DateMath.Now.Add(TimeSpan.FromHours(25).Add(TimeSpan.FromMilliseconds(1))));
+				OpenSearch.Client.DateMath.Now.Add(TimeSpan.FromHours(25).Add(TimeSpan.FromMilliseconds(1))));
 
-			Expect("now+1y").WhenSerializing(Osc.DateMath.Now.Add("1y"));
+			Expect("now+1y").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("1y"));
 
-			Expect("now+12M").WhenSerializing(Osc.DateMath.Now.Add("12M"));
+			Expect("now+12M").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("12M"));
 
-			Expect("now+18M").WhenSerializing(Osc.DateMath.Now.Add("1.5y"));
+			Expect("now+18M").WhenSerializing(OpenSearch.Client.DateMath.Now.Add("1.5y"));
 
-			Expect("now+52w").WhenSerializing(Osc.DateMath.Now.Add(TimeSpan.FromDays(7 * 52)));
+			Expect("now+52w").WhenSerializing(OpenSearch.Client.DateMath.Now.Add(TimeSpan.FromDays(7 * 52)));
 		}
 
 		[U] public void Rounding()
@@ -199,16 +199,16 @@ namespace Tests.CommonOptions.DateMath
 			 * Rounding can be controlled using the constructor, and passing a value for rounding
 			 */
 			Expect("now+2s").WhenSerializing(
-				Osc.DateMath.Now.Add(new DateMathTime("2.5s", MidpointRounding.ToEven)));
+				OpenSearch.Client.DateMath.Now.Add(new DateMathTime("2.5s", MidpointRounding.ToEven)));
 
 			Expect("now+3s").WhenSerializing(
-				Osc.DateMath.Now.Add(new DateMathTime("2.5s", MidpointRounding.AwayFromZero)));
+				OpenSearch.Client.DateMath.Now.Add(new DateMathTime("2.5s", MidpointRounding.AwayFromZero)));
 
 			Expect("now+0s").WhenSerializing(
-				Osc.DateMath.Now.Add(new DateMathTime(500, MidpointRounding.ToEven)));
+				OpenSearch.Client.DateMath.Now.Add(new DateMathTime(500, MidpointRounding.ToEven)));
 
 			Expect("now+1s").WhenSerializing(
-				Osc.DateMath.Now.Add(new DateMathTime(500, MidpointRounding.AwayFromZero)));
+				OpenSearch.Client.DateMath.Now.Add(new DateMathTime(500, MidpointRounding.AwayFromZero)));
 		}
 
 		[U] public void EqualityAndComparison()

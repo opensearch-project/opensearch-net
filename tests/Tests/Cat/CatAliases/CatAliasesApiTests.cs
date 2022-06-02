@@ -27,7 +27,7 @@
 
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Framework.EndpointTests;

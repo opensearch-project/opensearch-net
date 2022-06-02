@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;

@@ -26,9 +26,9 @@
 */
 
 using System;
-using Osc;
+using OpenSearch.Client;
 
-namespace Tests.Core.Serialization 
+namespace Tests.Core.Serialization
 {
 	public class IntermediateChangedSettings
 	{

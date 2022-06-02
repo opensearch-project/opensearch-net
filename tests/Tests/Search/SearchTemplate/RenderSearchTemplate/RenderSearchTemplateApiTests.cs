@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
