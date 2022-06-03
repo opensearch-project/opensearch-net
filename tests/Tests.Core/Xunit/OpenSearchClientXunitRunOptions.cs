@@ -38,9 +38,9 @@ using Tests.Configuration;
 namespace Tests.Core.Xunit
 {
 	/// <summary> Feeding TestClient.Configuration options to the runner</summary>
-	public class OscXunitRunOptions : OpenSearchXunitRunOptions
+	public class OpenSearchClientXunitRunOptions : OpenSearchXunitRunOptions
 	{
-		public OscXunitRunOptions()
+		public OpenSearchClientXunitRunOptions()
 		{
 			RunIntegrationTests = TestConfiguration.Instance.RunIntegrationTests;
 			RunUnitTests = TestConfiguration.Instance.RunUnitTests;

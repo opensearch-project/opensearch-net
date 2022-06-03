@@ -30,4 +30,4 @@ using Tests.Core.Xunit;
 using Xunit;
 
 [assembly: TestFramework("OpenSearch.OpenSearch.Xunit.Sdk.OpenSearchTestFramework", "OpenSearch.OpenSearch.Xunit")]
-[assembly: OpenSearchXunitConfiguration(typeof(OscXunitRunOptions))]
+[assembly: OpenSearchXunitConfiguration(typeof(OpenSearchClientXunitRunOptions))]
