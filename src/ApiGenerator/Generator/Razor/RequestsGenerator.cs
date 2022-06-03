@@ -37,7 +37,7 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class RequestsGenerator : RazorGeneratorBase
 	{
-		public override string Title => "OSC requests";
+		public override string Title => "OpenSearch.Client requests";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{

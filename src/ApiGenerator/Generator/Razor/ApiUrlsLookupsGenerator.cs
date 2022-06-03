@@ -35,7 +35,7 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class ApiUrlsLookupsGenerator : RazorGeneratorBase
 	{
-		public override string Title => "OSC static url lookups";
+		public override string Title => "OpenSearch.Client static url lookups";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{

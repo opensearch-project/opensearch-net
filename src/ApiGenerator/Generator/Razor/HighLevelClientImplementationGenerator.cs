@@ -38,7 +38,7 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 	{
-		public override string Title => "OSC client implementation";
+		public override string Title => "OpenSearch.Client client implementation";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{
