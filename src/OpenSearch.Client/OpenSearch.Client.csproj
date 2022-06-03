@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>OpenSearch.Client</PackageId>
     <Title>High-level OpenSearch client for .NET</Title>
-    <PackageTags>opensearch;opensearch;search;lucene;osc</PackageTags>
+    <PackageTags>opensearch;opensearch;search;lucene;client;opensearch.client</PackageTags>
     <Description>
       Strongly typed interface to OpenSearch. Fluent and classic object initializer mappings of requests and 
       responses. Uses and exposes OpenSearch.Net.

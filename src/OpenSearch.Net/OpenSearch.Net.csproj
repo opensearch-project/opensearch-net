@@ -3,7 +3,7 @@
   <PropertyGroup>
     <PackageId>OpenSearch.Net</PackageId>
     <Title>OpenSearch.Net</Title>
-    <PackageTags>opensearch;opensearch;search;lucene;osc</PackageTags>
+    <PackageTags>opensearch;opensearch;search;lucene;client;opensearch.client</PackageTags>
     <Description>
       Exposes all the OpenSearch API endpoints but leaves you in control of building the request and response bodies.
       Comes with built in cluster failover/connection pooling support.
