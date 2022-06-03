@@ -70,7 +70,7 @@ namespace OpenSearch.Client
 		public string GetString(IConnectionConfigurationValues settings)
 		{
 			if (!(settings is IConnectionSettingsValues oscSettings))
-				throw new Exception("Tried to pass index name on querystring but it could not be resolved because no OSC settings are available");
+				throw new Exception("Tried to pass index name on querystring but it could not be resolved because no OpenSearch.Client settings are available");
 
 			return oscSettings.Inferrer.IndexName(this);
 		}

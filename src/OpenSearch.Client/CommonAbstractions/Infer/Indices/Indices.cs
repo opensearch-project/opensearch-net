@@ -63,7 +63,7 @@ namespace OpenSearch.Client
 			{
 				if (!(settings is IConnectionSettingsValues oscSettings))
 					throw new Exception(
-						"Tried to pass index names on querysting but it could not be resolved because no OSC settings are available");
+						"Tried to pass index names on querysting but it could not be resolved because no OpenSearch.Client settings are available");
 
 				var infer = oscSettings.Inferrer;
 				var indices = many.Indices.Select(i => infer.IndexName(i)).Distinct();
