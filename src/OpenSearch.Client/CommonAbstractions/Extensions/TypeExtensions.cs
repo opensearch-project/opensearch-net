@@ -211,6 +211,6 @@ namespace OpenSearch.Client
 
 		private static readonly Assembly OscAssembly = typeof(TypeExtensions).Assembly;
 
-		public static bool IsOscType(this Type type) => type.Assembly == OscAssembly;
+		public static bool IsOpenSearchClientType(this Type type) => type.Assembly == OscAssembly;
 	}
 }

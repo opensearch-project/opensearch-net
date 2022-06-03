@@ -39,7 +39,7 @@ namespace OpenSearch.Client
 				return;
 			}
 
-			if (value.GetType().IsOscType())
+			if (value.GetType().IsOpenSearchClientType())
 				formatterResolver.GetFormatter<T>().Serialize(ref writer, value, formatterResolver);
 			else
 				base.Serialize(ref writer, value, formatterResolver);
