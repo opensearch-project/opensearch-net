@@ -42,7 +42,7 @@ namespace ApiGenerator.Generator.Razor
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{
 			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.OscFolder, "Requests.*.cs"))
+			foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Requests.*.cs"))
 				File.Delete(file);
 
 			var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
