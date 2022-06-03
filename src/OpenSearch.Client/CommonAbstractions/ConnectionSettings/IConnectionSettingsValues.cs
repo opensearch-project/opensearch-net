@@ -33,14 +33,14 @@ using OpenSearch.Net;
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// Provides the connection settings for OSC's high level <see cref="OpenSearchClient" />
+	/// Provides the connection settings for <see cref="OpenSearchClient" />
 	/// </summary>
 	public interface IConnectionSettingsValues : IConnectionConfigurationValues
 	{
 		/// <summary>
 		/// Specifies how field names are inferred from CLR property names.
 		/// <para></para>
-		/// By default, OSC camel cases property names.
+		/// By default, OpenSearch.Client camel cases property names.
 		/// </summary>
 		/// <example>
 		/// CLR property EmailAddress will be inferred as "emailAddress" OpenSearch document field name
@@ -91,7 +91,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Disables automatic Id inference for given CLR types.
 		/// <para></para>
-		/// OSC by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
+		/// OpenSearch.Client by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
 		/// will disable this behaviour for that CLR type. If Id inference should be disabled for all CLR types, use
 		/// <see cref="DefaultDisableIdInference"/>
 		/// </summary>
@@ -100,7 +100,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Disables automatic Id inference for all CLR types.
 		/// <para></para>
-		/// OSC by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Setting this to <c>true</c>
+		/// OpenSearch.Client by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Setting this to <c>true</c>
 		/// will disable this behaviour for all CLR types and cannot be overridden. If Id inference should be disabled only for specific types, use
 		/// <see cref="DisableIdInference"/>
 		/// </summary>

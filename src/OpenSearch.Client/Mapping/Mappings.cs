@@ -83,7 +83,7 @@ namespace OpenSearch.Client
 	}
 
 	/// <summary>
-	/// The common pattern in OSC is that you can call fluent methods multiple types overriding what was previously set.
+	/// The common pattern in OpenSearch.Client is that you can call fluent methods multiple types overriding what was previously set.
 	/// This type prevents a user to call Map() multiple times with different types making it crystal clear not only can you
 	/// no longer have multiple types in an index <see cref="MappingsDescriptor"/> makes the overloads that take type obsolete
 	/// as well. Both <see cref="PreventMappingMultipleTypesDescriptor"/> and <see cref="MappingsDescriptor"/> are obsolete.

@@ -88,7 +88,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public BulkDescriptor Routing(Routing routing) => Qs("routing", routing);
@@ -173,7 +173,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public CountDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
@@ -225,7 +225,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public CreateDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
@@ -285,7 +285,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public DeleteDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
@@ -358,7 +358,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public DeleteByQueryDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
@@ -492,7 +492,7 @@ namespace OpenSearch.Client
 		/// A document is routed to a particular shard in an index using the following formula
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
-		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
+		/// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 		/// if that document has a <see cref = "JoinField"/> or a routing mapping on for its type exists on <see cref = "ConnectionSettings"/></para>
 		///</summary>
 		public DocumentExistsDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);

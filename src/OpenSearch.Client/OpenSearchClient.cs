@@ -87,7 +87,7 @@ namespace OpenSearch.Client
 		}
 	}
 	/// <summary>
-	/// OpenSearchClient is OSC's strongly typed client which exposes fully mapped OpenSearch endpoints
+	/// OpenSearchClient is a strongly typed client which exposes fully mapped OpenSearch endpoints
 	/// </summary>
 	public partial class OpenSearchClient : IOpenSearchClient
 	{

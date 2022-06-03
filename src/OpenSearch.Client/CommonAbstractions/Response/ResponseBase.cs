@@ -46,7 +46,7 @@ namespace OpenSearch.Client
 
 		/// <summary>
 		/// Checks if a response is functionally valid or not.
-		/// This is a OSC abstraction to have a single property to check whether there was something wrong with a request.
+		/// This is a OpenSearch.Client abstraction to have a single property to check whether there was something wrong with a request.
 		/// <para>
 		/// For instance, an OpenSearch bulk response always returns 200 and individual bulk items may fail,
 		/// <see cref="IsValid" /> will be false in that case.
@@ -77,7 +77,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// If the response results in an error on OpenSearch's side an <pre>error</pre> element will be returned, this is
 		/// mapped to
-		/// <see cref="ServerError" /> in OSC.
+		/// <see cref="ServerError" /> in OpenSearch.Client.
 		/// <para>Possibly set when <see cref="IsValid" /> is false, depending on the cause of the error</para>
 		/// <para>
 		/// You can also configure the client to always throw an <see cref="OpenSearchClientException" /> using

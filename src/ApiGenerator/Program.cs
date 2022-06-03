@@ -46,7 +46,7 @@ namespace ApiGenerator
 		/// <param name="branch">The stack's branch we are targeting the generation for</param>
 		/// <param name="interactive">Run the generation interactively, this will ignore all flags</param>
 		/// <param name="download">Whether to download the specs or use an already downloaded copy</param>
-		/// <param name="includeHighLevel">Also generate the high level client (OSC)</param>
+		/// <param name="includeHighLevel">Also generate the high level client (OpenSearch.Client)</param>
 		/// <param name="skipGenerate">Only download the specs, skip all code generation</param>
 		/// <param name="token"></param>
 		/// <returns></returns>

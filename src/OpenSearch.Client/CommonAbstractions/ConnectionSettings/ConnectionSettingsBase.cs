@@ -42,7 +42,7 @@ namespace OpenSearch.Client
 	/// <inheritdoc cref="IConnectionSettingsValues" />
 	public class ConnectionSettings : ConnectionSettingsBase<ConnectionSettings>
 	{
-		/// <summary> The default user agent for OSC </summary>
+		/// <summary> The default user agent for OpenSearch.Client </summary>
 		public static readonly string DefaultUserAgent =
 			$"opensearch-net/{typeof(IConnectionSettingsValues).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion} ({RuntimeInformation.OSDescription}; {RuntimeInformation.FrameworkDescription}; OpenSearch.Client)";
 
@@ -164,7 +164,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Specifies how field names are inferred from CLR property names.
 		/// <para></para>
-		/// By default, OSC camel cases property names.
+		/// By default, OpenSearch.Client camel cases property names.
 		/// </summary>
 		/// <example>
 		/// CLR property EmailAddress will be inferred as "emailAddress" OpenSearch document field name
@@ -175,7 +175,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Disables automatic Id inference for given CLR types.
 		/// <para></para>
-		/// OSC by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
+		/// OpenSearch.Client by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
 		/// will disable this behaviour for that CLR type. If Id inference should be disabled for all CLR types, use
 		/// <see cref="DefaultDisableIdInference"/>
 		/// </summary>
@@ -327,7 +327,7 @@ namespace OpenSearch.Client
 		}
 
 		/// <summary>
-		/// OSC handles 404 in its <see cref="ResponseBase.IsValid"/>, we do not want the low level client throwing exceptions
+		/// OpenSearch.Client handles 404 in its <see cref="ResponseBase.IsValid"/>, we do not want the low level client throwing exceptions
 		/// when <see cref="IConnectionConfigurationValues.ThrowExceptions"/> is enabled for 404's. The client is in charge of composing paths
 		/// so a 404 never signals a wrong url but a missing entity.
 		/// </summary>

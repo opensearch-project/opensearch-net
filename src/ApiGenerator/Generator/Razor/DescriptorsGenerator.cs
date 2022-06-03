@@ -37,7 +37,7 @@ namespace ApiGenerator.Generator.Razor
 {
 	public class DescriptorsGenerator : RazorGeneratorBase
 	{
-		public override string Title => "OSC descriptors";
+		public override string Title => "OpenSearch.Client descriptors";
 
 		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 		{
