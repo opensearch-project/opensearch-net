@@ -40,7 +40,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class ApiTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
 		: RequestResponseApiTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 		where TResponse : class, IResponse
 		where TDescriptor : class, TInterface
 		where TInitializer : class, TInterface

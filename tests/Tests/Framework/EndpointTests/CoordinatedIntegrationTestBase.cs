@@ -42,7 +42,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class CoordinatedIntegrationTestBase<TCluster>
 		: IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 	{
 		private readonly CoordinatedUsage _coordinatedUsage;
 

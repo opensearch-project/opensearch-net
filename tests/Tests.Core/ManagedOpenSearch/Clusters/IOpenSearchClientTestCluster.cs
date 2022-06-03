@@ -29,7 +29,7 @@ using OpenSearch.Client;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	public interface IOscTestCluster
+	public interface IOpenSearchClientTestCluster
 	{
 		IOpenSearchClient Client { get; }
 	}

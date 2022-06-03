@@ -44,7 +44,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class RequestResponseApiTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
 		: ExpectJsonTestBase, IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 		where TResponse : class, IResponse
 		where TInterface : class
 		where TDescriptor : class, TInterface

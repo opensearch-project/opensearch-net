@@ -71,7 +71,7 @@ namespace Tests.Analysis
 
 		protected AnalysisComponentTestBase()
 		{
-			Client = (OpenSearchXunitRunner.CurrentCluster as IOscTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
+			Client = (OpenSearchXunitRunner.CurrentCluster as IOpenSearchClientTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
 			Usage.KickOffOnce(Client, true);
 		}
 

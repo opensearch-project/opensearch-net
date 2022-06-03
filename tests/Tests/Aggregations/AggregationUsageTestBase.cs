@@ -43,7 +43,7 @@ namespace Tests.Aggregations
 {
 	public abstract class AggregationUsageTestBase<TCluster>
 		: ApiIntegrationTestBase<TCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
-		where TCluster : IOscTestCluster, IEphemeralCluster<EphemeralClusterConfiguration>, new()
+		where TCluster : IOpenSearchClientTestCluster, IEphemeralCluster<EphemeralClusterConfiguration>, new()
 	{
 		protected AggregationUsageTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 

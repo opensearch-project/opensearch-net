@@ -40,7 +40,7 @@ using Tests.Domain.Extensions;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOscTestCluster
+	public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOpenSearchClientTestCluster
 	{
 		protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
 

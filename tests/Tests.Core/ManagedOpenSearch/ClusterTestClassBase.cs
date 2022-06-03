@@ -33,7 +33,7 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 namespace Tests.Core.ManagedOpenSearch
 {
 	public abstract class ClusterTestClassBase<TCluster> : IClusterFixture<TCluster>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 	{
 		protected ClusterTestClassBase(TCluster cluster)
 		{

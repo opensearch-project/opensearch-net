@@ -40,11 +40,11 @@ namespace Tests.Framework.EndpointTests.TestState
 	{
 		public static readonly IResponse VoidResponse = new PingResponse();
 
-		private readonly IOscTestCluster _cluster;
+		private readonly IOpenSearchClientTestCluster _cluster;
 
 		private readonly bool _testOnlyOne;
 
-		public CoordinatedUsage(IOscTestCluster cluster, EndpointUsage usage, string prefix = null, bool testOnlyOne = false)
+		public CoordinatedUsage(IOpenSearchClientTestCluster cluster, EndpointUsage usage, string prefix = null, bool testOnlyOne = false)
 		{
 			_cluster = cluster;
 			Usage = usage;

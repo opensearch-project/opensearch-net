@@ -41,7 +41,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class ConnectionErrorTestBase<TCluster>
 		: RequestResponseApiTestBase<TCluster, RootNodeInfoResponse, IRootNodeInfoRequest, RootNodeInfoDescriptor, RootNodeInfoRequest>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 	{
 		protected ConnectionErrorTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
