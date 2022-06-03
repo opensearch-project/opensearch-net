@@ -124,7 +124,7 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
-			var formatterResolver = new OscFormatterResolver(this);
+			var formatterResolver = new OpenSearchClientFormatterResolver(this);
 			var defaultSerializer = new DefaultHighLevelSerializer(formatterResolver);
 			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
 			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;

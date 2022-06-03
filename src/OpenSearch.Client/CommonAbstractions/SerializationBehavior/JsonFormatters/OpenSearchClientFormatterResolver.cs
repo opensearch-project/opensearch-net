@@ -40,12 +40,12 @@ namespace OpenSearch.Client
 		IConnectionSettingsValues Settings { get; }
 	}
 
-	internal class OscFormatterResolver : IJsonFormatterResolver, IJsonFormatterResolverWithSettings
+	internal class OpenSearchClientFormatterResolver : IJsonFormatterResolver, IJsonFormatterResolverWithSettings
 	{
 		private readonly IJsonFormatter<object> _fallbackFormatter;
 		private readonly InnerResolver _innerFormatterResolver;
 
-		public OscFormatterResolver(IConnectionSettingsValues settings)
+		public OpenSearchClientFormatterResolver(IConnectionSettingsValues settings)
 		{
 			Settings = settings;
 			_innerFormatterResolver = new InnerResolver(settings);
