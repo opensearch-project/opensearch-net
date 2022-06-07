@@ -448,14 +448,14 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 			Expect(expected).FromRequest(createIndexResponse);
 		}
 
-		/**
+		/** 
 		* [[mapping-runtime-fields]]
 		* ==== Mapping runtime fields
 		*
-		* A {ref_current}/runtime.html[runtime field] is a field that is evaluated at query time. Runtime fields may
+		* A {ref_current}/runtime.html[runtime field] is a field that is evaluated at query time. Runtime fields may 
 		* be defined in the mapping of an index.
 		*
-		* In this example, we'll define a `CompanyRuntimeFields` class with a single property which we may then use in
+		* In this example, we'll define a `CompanyRuntimeFields` class with a single property which we may then use in 
 		* the strongly-typed runtime field mapping.
 		*/
 
@@ -498,7 +498,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 			Expect(expected).FromRequest(createIndexResponse);
 
 			/**
-			 * It's not necessary to define a type for the runtime field mapping. Runtime fields can optionally be defined
+			 * It's not necessary to define a type for the runtime field mapping. Runtime fields can optionally be defined 
 			 * by providing a `string` name.
 			 */
 			createIndexResponse = _client.Indices.Create("myindex", c => c

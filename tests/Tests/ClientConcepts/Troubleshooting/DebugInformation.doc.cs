@@ -249,7 +249,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 * Collecting TCP statistics may not be accessible in all environments, for example, Azure App Services.
 		 * When this is the case, `TcpStats.GetActiveTcpConnections()` returns `null`.
 		 * --
-		 *
+		 * 
 		 * ==== ThreadPool statistics
          *
 		 * It can often be useful to see the statistics for thread pool threads, particularly when

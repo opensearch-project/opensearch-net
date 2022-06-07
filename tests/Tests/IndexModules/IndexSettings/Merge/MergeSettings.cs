@@ -52,7 +52,7 @@ namespace Tests.IndexModules.IndexSettings.Merge
 			};
 
 			/**
-			 *
+			 * 
 			 */
 			protected override Func<IndexSettingsDescriptor, IPromise<IIndexSettings>> Fluent => s => s
 				.Merge(merge => merge

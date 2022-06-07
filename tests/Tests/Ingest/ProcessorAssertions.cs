@@ -81,7 +81,7 @@ namespace Tests.Ingest
 			foreach (var a in All) a.Fluent(d);
 			return d;
 		}
-
+		
 		public class Append : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent =>

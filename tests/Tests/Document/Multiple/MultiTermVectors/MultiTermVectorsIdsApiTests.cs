@@ -36,7 +36,7 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Multiple.MultiTermVectors
+namespace Tests.Document.Multiple.MultiTermVectors 
 {
 	public class MultiTermVectorsIdsApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, MultiTermVectorsResponse, IMultiTermVectorsRequest, MultiTermVectorsDescriptor,
