@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

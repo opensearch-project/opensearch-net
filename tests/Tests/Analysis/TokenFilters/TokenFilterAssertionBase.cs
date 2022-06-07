@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Analysis.TokenFilters
 {
@@ -47,8 +47,8 @@ namespace Tests.Analysis.TokenFilters
 		protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
 			an.TokenFilters(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
 
-		protected override Osc.Analysis InitializerAnalysis() =>
-			new Osc.Analysis { TokenFilters = new Osc.TokenFilters { { AssertionSetup.Name, AssertionSetup.Initializer } } };
+		protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
+			new OpenSearch.Client.Analysis { TokenFilters = new OpenSearch.Client.TokenFilters { { AssertionSetup.Name, AssertionSetup.Initializer } } };
 
 		// https://youtrack.jetbrains.com/issue/RIDER-19912
 		[U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();

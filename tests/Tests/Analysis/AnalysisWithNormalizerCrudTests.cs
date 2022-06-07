@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 using static Tests.Framework.Extensions.Promisify;
@@ -40,7 +40,7 @@ namespace Tests.Analysis
 		{
 			Settings = new IndexSettings
 			{
-				Analysis = new Osc.Analysis
+				Analysis = new OpenSearch.Client.Analysis
 				{
 					Analyzers = AnalysisUsageTests.AnalyzersInitializer.Analysis.Analyzers,
 					CharFilters = AnalysisUsageTests.CharFiltersInitializer.Analysis.CharFilters,

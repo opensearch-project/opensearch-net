@@ -28,13 +28,13 @@
 using System;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Indices.MappingManagement.GetFieldMapping
 {
@@ -44,7 +44,7 @@ namespace Tests.Indices.MappingManagement.GetFieldMapping
 	{
 		private static readonly Fields Fields = Fields<Project>(p => p.Name, p => p.LeadDeveloper.IpAddress);
 		private static readonly Field NameField = Field<Project>(p => p.Name);
-		private static readonly Osc.Indices OnIndices = Index<Project>().And<ProjectPercolation>();
+		private static readonly OpenSearch.Client.Indices OnIndices = Index<Project>().And<ProjectPercolation>();
 
 		public GetFieldMappingApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 

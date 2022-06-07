@@ -28,7 +28,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -65,7 +65,7 @@ namespace Tests.Indices.IndexSettings.IndexTemplates
 		private PutIndexTemplateRequest CreateInitializer(string name) => new PutIndexTemplateRequest(name)
 		{
 			IndexPatterns = new[] { "startingwiththis-*" },
-			Settings = new Osc.IndexSettings
+			Settings = new OpenSearch.Client.IndexSettings
 			{
 				NumberOfShards = 2
 			}
@@ -109,7 +109,7 @@ namespace Tests.Indices.IndexSettings.IndexTemplates
 		private PutIndexTemplateRequest PutInitializer(string name) => new PutIndexTemplateRequest(name)
 		{
 			IndexPatterns = new[] { "startingwiththis-*" },
-			Settings = new Osc.IndexSettings
+			Settings = new OpenSearch.Client.IndexSettings
 			{
 				NumberOfShards = 1
 			}

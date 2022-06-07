@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
 
 namespace Tests.Document.Multiple.UpdateByQueryRethrottle

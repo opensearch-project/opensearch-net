@@ -28,13 +28,13 @@
 using System;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Cluster.ClusterHealth
 {

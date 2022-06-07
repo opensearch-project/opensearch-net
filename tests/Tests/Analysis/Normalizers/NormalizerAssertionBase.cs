@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Analysis.Normalizers
 {
@@ -47,8 +47,8 @@ namespace Tests.Analysis.Normalizers
 		protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
 			an.Normalizers(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
 
-		protected override Osc.Analysis InitializerAnalysis() =>
-			new Osc.Analysis { Normalizers = new Osc.Normalizers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
+		protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
+			new OpenSearch.Client.Analysis { Normalizers = new OpenSearch.Client.Normalizers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
 
 		// https://youtrack.jetbrains.com/issue/RIDER-19912
 		[U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();

@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.QueryDsl
 {

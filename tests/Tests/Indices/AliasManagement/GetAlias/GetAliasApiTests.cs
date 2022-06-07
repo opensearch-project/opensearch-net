@@ -28,7 +28,7 @@
 using System;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -36,7 +36,7 @@ using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Indices.AliasManagement.GetAlias
 {
@@ -54,7 +54,7 @@ namespace Tests.Indices.AliasManagement.GetAlias
 		protected override bool SupportsDeserialization => false;
 		protected override string UrlPath => $"_all/_alias/{DefaultSeeder.ProjectsAliasName}";
 		
-		protected override GetAliasRequest Initializer => new GetAliasRequest(Osc.Indices.All, Names);
+		protected override GetAliasRequest Initializer => new GetAliasRequest(OpenSearch.Client.Indices.All, Names);
 		protected override Func<GetAliasDescriptor, IGetAliasRequest> Fluent => d => d.Name(Names);
 
 		protected override LazyResponses ClientUsage() => Calls(
@@ -90,7 +90,7 @@ namespace Tests.Indices.AliasManagement.GetAlias
 		protected override bool SupportsDeserialization => false;
 		protected override string UrlPath => $"_all/_alias/{DefaultSeeder.ProjectsAliasName}%2Cx%2Cy";
 		
-		protected override GetAliasRequest Initializer => new GetAliasRequest(Osc.Indices.All, Names);
+		protected override GetAliasRequest Initializer => new GetAliasRequest(OpenSearch.Client.Indices.All, Names);
 		protected override Func<GetAliasDescriptor, IGetAliasRequest> Fluent => d => d.Name(Names);
 
 		protected override LazyResponses ClientUsage() => Calls(

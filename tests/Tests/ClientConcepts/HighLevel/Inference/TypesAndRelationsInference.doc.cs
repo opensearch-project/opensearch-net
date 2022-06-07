@@ -26,7 +26,7 @@
 */
 
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using System;
 using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
@@ -35,7 +35,7 @@ using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {

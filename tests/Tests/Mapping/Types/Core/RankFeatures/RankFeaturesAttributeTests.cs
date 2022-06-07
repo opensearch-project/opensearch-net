@@ -26,7 +26,7 @@
 */
 
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.RankFeatures
 {

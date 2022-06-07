@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -39,7 +39,7 @@ namespace Tests.QueryDsl.Geo.BoundingBox
 		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IGeoBoundingBoxQuery>(a => a.GeoBoundingBox)
 		{
 			q => q.BoundingBox = null,
-			q => q.BoundingBox = new Osc.BoundingBox(),
+			q => q.BoundingBox = new OpenSearch.Client.BoundingBox(),
 			q => q.Field = null
 		};
 
@@ -48,7 +48,7 @@ namespace Tests.QueryDsl.Geo.BoundingBox
 			Boost = 1.1,
 			Name = "named_query",
 			Field = Infer.Field<Project>(p => p.LocationPoint),
-			BoundingBox = new Osc.BoundingBox
+			BoundingBox = new OpenSearch.Client.BoundingBox
 			{
 				TopLeft = new GeoLocation(34, -34),
 				BottomRight = new GeoLocation(-34, 34),
@@ -102,7 +102,7 @@ namespace Tests.QueryDsl.Geo.BoundingBox
 		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IGeoBoundingBoxQuery>(a => a.GeoBoundingBox)
 		{
 			q => q.BoundingBox = null,
-			q => q.BoundingBox = new Osc.BoundingBox(),
+			q => q.BoundingBox = new OpenSearch.Client.BoundingBox(),
 			q => q.Field = null
 		};
 
@@ -111,7 +111,7 @@ namespace Tests.QueryDsl.Geo.BoundingBox
 			Boost = 1.1,
 			Name = "named_query",
 			Field = Infer.Field<Project>(p => p.LocationPoint),
-			BoundingBox = new Osc.BoundingBox
+			BoundingBox = new OpenSearch.Client.BoundingBox
 			{
 				WellKnownText = "BBOX (-34, 34, 34, -34)"
 			},

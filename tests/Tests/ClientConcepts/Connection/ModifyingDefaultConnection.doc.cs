@@ -35,7 +35,7 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Tests.Core.Extensions;
 using Tests.Domain;

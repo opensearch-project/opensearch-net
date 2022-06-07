@@ -37,7 +37,7 @@ namespace Tests.CommonOptions.DateMath
 		public void ImplicitConversionFromNullString()
 		{
 			string nullString = null;
-			Osc.DateMath dateMath = nullString;
+			OpenSearch.Client.DateMath dateMath = nullString;
 			dateMath.Should().BeNull();
 		}
 
@@ -45,7 +45,7 @@ namespace Tests.CommonOptions.DateMath
 		public void ImplicitConversionFromNullNullableDateTime()
 		{
 			DateTime? nullableDateTime = null;
-			Osc.DateMath dateMath = nullableDateTime;
+			OpenSearch.Client.DateMath dateMath = nullableDateTime;
 			dateMath.Should().BeNull();
 		}
 
@@ -53,7 +53,7 @@ namespace Tests.CommonOptions.DateMath
 		public void ImplicitConversionFromDefaultDateTimeIsMinValue()
 		{
 			DateTime nullableDateTime = default;
-			Osc.DateMath dateMath = nullableDateTime;
+			OpenSearch.Client.DateMath dateMath = nullableDateTime;
 			dateMath.Should().NotBeNull();
 			dateMath.ToString().Should().Be("0001-01-01T00:00:00");
 		}
@@ -62,7 +62,7 @@ namespace Tests.CommonOptions.DateMath
 		public void ImplicitConversionFromDateMathString()
 		{
 			var nullString = "now+3d";
-			Osc.DateMath dateMath = nullString;
+			OpenSearch.Client.DateMath dateMath = nullString;
 			dateMath.Should().NotBeNull();
 		}
 
@@ -70,7 +70,7 @@ namespace Tests.CommonOptions.DateMath
 		public void ImplicitConversionFromNullableDateTimeWithValue()
 		{
 			DateTime? nullableDateTime = DateTime.Now;
-			Osc.DateMath dateMath = nullableDateTime;
+			OpenSearch.Client.DateMath dateMath = nullableDateTime;
 			dateMath.Should().NotBeNull();
 		}
 	}

@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

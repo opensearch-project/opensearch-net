@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
@@ -51,7 +51,7 @@ namespace Tests.CodeStandards
 				from t in typeof(DescriptorBase<,>).Assembly.Types()
 				where t.IsClass
 					  && t.Name.Contains("Descriptor")
-					  && !t.Namespace.StartsWith("Osc.Json")
+					  && !t.Namespace.StartsWith("OpenSearch.Client.Json")
 					  && !t.Namespace.StartsWith("OpenSearch.Internal")
 					  && !notDescriptors.Contains(t.Name)
 #if __MonoCS__
@@ -74,7 +74,7 @@ namespace Tests.CodeStandards
 				from t in typeof(SelectorBase).Assembly.Types()
 				where t.IsClass
 					  && t.Name.Contains("Selector")
-					  && !t.Namespace.StartsWith("Osc.Json")
+					  && !t.Namespace.StartsWith("OpenSearch.Client.Json")
 					  && !notSelectors.Contains(t.Name)
 #if __MonoCS__
 					  && !t.FullName.Contains("c__AnonStore") //compiler generated

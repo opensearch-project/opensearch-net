@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -86,9 +86,9 @@ namespace Tests.Search.Count
 
 			await POST("/_all/_count")
 					.Fluent(c => c.Count<Project>(s => s.AllIndices().Query(q => q.MatchAll())))
-					.Request(c => c.Count(new CountRequest<Project>(Osc.Indices.All) { Query = new MatchAllQuery() }))
+					.Request(c => c.Count(new CountRequest<Project>(OpenSearch.Client.Indices.All) { Query = new MatchAllQuery() }))
 					.FluentAsync(c => c.CountAsync<Project>(s => s.AllIndices().Query(q => q.MatchAll())))
-					.RequestAsync(c => c.CountAsync(new CountRequest<Project>(Osc.Indices.All) { Query = new MatchAllQuery() }))
+					.RequestAsync(c => c.CountAsync(new CountRequest<Project>(OpenSearch.Client.Indices.All) { Query = new MatchAllQuery() }))
 				;
 		}
 	}

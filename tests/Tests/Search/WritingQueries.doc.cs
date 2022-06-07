@@ -29,7 +29,7 @@ using System;
 using System.Linq;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;

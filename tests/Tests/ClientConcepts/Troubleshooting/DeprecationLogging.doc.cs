@@ -28,11 +28,11 @@
 using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.DocumentationTests;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {

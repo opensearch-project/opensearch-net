@@ -30,12 +30,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.Xunit;
 using Tests.Domain;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Ingest
 {

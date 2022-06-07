@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using static Tests.Core.Serialization.SerializationTestHelper;
 using Name = Bogus.DataSets.Name;

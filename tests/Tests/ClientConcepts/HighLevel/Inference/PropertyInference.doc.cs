@@ -29,7 +29,7 @@ using System;
 using System.Linq.Expressions;
 using OpenSearch.OpenSearch.Xunit.Sdk;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;

@@ -34,8 +34,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client;
+using OpenSearch.Client.JsonNetSerializer;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -143,7 +143,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		/**
 		 * ==== JsonNetSerializer
 		 *
-		 * We ship a separate {nuget}/OSC.JsonNetSerializer[OSC.JsonNetSerializer] package that helps in composing a custom `SourceSerializer`
+		 * We ship a separate {nuget}/OpenSearch.Client.JsonNetSerializer[OpenSearch.Client.JsonNetSerializer] package that helps in composing a custom `SourceSerializer`
 		 * using `Json.NET`, that is smart enough to delegate the serialization of known OSC types back to the built-in
 		 * `RequestResponseSerializer`. This package is also useful if
 		 *

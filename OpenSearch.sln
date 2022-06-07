@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RelatedFiles", "RelatedFiles", "{432D5575-2347-4D3C-BF8C-3E38410C46CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Osc", "src\Osc\Osc.csproj", "{072BA7DA-7B60-407D-8B6E-95E3186BE70C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSearch.Client", "src\OpenSearch.Client\OpenSearch.Client.csproj", "{072BA7DA-7B60-407D-8B6E-95E3186BE70C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenSearch.Net", "src\OpenSearch.Net\OpenSearch.Net.csproj", "{E97CCF40-0BA6-43FE-9F2D-58D454134088}"
 EndProject
@@ -64,7 +64,7 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.targets = Directory.Build.targets
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osc.JsonNetSerializer", "src\Osc.JsonNetSerializer\Osc.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Client.JsonNetSerializer", "src\OpenSearch.Client.JsonNetSerializer\OpenSearch.Client.JsonNetSerializer.csproj", "{B16AAB37-9FF4-4940-AC7D-437DFD18A6F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

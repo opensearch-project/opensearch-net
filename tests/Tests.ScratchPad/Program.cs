@@ -33,7 +33,7 @@ using System.Threading.Tasks;
 using BenchmarkDotNet.Running;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Domain;
 

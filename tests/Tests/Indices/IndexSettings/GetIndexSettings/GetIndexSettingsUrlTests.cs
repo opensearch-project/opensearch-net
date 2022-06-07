@@ -27,9 +27,9 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
-using static Osc.Indices;
+using static OpenSearch.Client.Indices;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.IndexSettings.GetIndexSettings
@@ -39,7 +39,7 @@ namespace Tests.Indices.IndexSettings.GetIndexSettings
 		[U] public async Task Urls()
 		{
 			var index = "index1,index2";
-			Osc.Indices indices = index;
+			OpenSearch.Client.Indices indices = index;
 			var name = "name";
 			Name n = name;
 			await GET($"/index1%2Cindex2/_settings/{name}")

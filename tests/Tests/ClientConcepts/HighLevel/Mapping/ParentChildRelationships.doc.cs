@@ -32,14 +32,14 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Mapping
 {
@@ -302,7 +302,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 
 			/**
 			 * The same goes for when we index a child, we can pass the instance directly to `Routing` and OSC will use the parent id
-			 * already specified on `child`. Here we use the static import `using static Osc.Infer` and it's `Route()` static method to
+			 * already specified on `child`. Here we use the static import `using static OpenSearch.Client.Infer` and it's `Route()` static method to
 			 * create an instance of `Routing`
 			 */
 			indexResponse = client.Index(child, i => i.Routing(Route(child)));
