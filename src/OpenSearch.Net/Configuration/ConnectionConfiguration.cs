@@ -280,7 +280,7 @@ namespace OpenSearch.Net
 		bool IConnectionConfigurationValues.TransferEncodingChunked => _transferEncodingChunked;
 		bool IConnectionConfigurationValues.EnableTcpStats => _enableTcpStats;
 		bool IConnectionConfigurationValues.EnableThreadPoolStats => _enableThreadPoolStats;
-
+		
 		MetaHeaderProvider IConnectionConfigurationValues.MetaHeaderProvider { get; } = new MetaHeaderProvider();
 
 		void IDisposable.Dispose() => DisposeManagedResources();
@@ -365,7 +365,7 @@ namespace OpenSearch.Net
 		public T DisableAutomaticProxyDetection(bool disable = true) => Assign(disable, (a, v) => a._disableAutomaticProxyDetection = v);
 
 		/// <summary>
-		/// Disables the meta header which is included on all requests by default. This header contains lightweight information
+		/// Disables the meta header which is included on all requests by default. This header contains lightweight information 
 		/// about the client and runtime.
 		/// </summary>
 		public T DisableMetaHeader(bool disable = true) => Assign(disable, (a, v) => a._disableMetaHeader = v);
