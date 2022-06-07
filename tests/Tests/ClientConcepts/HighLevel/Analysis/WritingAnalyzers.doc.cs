@@ -28,7 +28,7 @@
 using System;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Domain;
 using Tests.Framework;

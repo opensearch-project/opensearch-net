@@ -31,7 +31,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.VirtualizedCluster;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 using Tests.Domain.Extensions;

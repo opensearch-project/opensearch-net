@@ -26,7 +26,7 @@
 */
 
 using System;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json;
 
 namespace Tests.Core.Serialization

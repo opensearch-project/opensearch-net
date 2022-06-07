@@ -144,8 +144,7 @@ module Versioning =
             let allPackages = !! "build/output/*.nupkg" |> Seq.toList
             let toProject (package: string) =
                 let id = Path.GetFileName(package) |> String.replace (version.Full.ToString()) "" |> String.replace "..nupkg" ""
-                let assembly = id |> String.replace "OSC" "Osc"
-                {| Package = package; NugetId = id; AssemblyName = assembly |} 
+                {| Package = package; NugetId = id; AssemblyName = id |} 
                 
             allPackages |> List.map toProject
         packages

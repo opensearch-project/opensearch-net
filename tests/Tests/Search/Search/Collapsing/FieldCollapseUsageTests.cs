@@ -28,13 +28,13 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.Search.Search.Collapsing
 {

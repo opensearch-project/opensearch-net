@@ -27,8 +27,8 @@
 
 using System.Collections.Generic;
 using OpenSearch.Net;
-using Osc;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client;
+using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Tests.Domain;

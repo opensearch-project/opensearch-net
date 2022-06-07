@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <PackageId>OpenSearch.Client.JsonNetSerializer</PackageId>
+    <Title>OpenSearch.Client.JsonNetSerializer - OpenSearch .NET custom Json.NET serializer</Title>
+    <PackageTags>opensearch,opensearch,search,lucene,opensearch.client,client,serializer,json</PackageTags>
+    <Description>OpenSearch.Client uses an internal serializer. This package enables serialization for your documents using your own custom Json.NET serializer</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenSearch.Client\OpenSearch.Client.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+</Project>

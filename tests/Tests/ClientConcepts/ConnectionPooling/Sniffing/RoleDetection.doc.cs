@@ -37,7 +37,7 @@ using OpenSearch.Net;
 using OpenSearch.Net.VirtualizedCluster;
 using OpenSearch.Net.VirtualizedCluster.Audit;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client.Settings;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

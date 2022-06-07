@@ -29,7 +29,7 @@ using System;
 using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Document.Multiple.Reindex;
 using Tests.Domain;
 using Tests.Core.Extensions;

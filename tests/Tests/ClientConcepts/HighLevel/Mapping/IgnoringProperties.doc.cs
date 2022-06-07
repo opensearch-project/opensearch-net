@@ -31,7 +31,7 @@ using System.Reflection;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using System.Runtime.Serialization;
 using Tests.Framework;
 using Newtonsoft.Json;

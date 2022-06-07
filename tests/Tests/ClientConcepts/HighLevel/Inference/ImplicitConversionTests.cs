@@ -30,7 +30,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
@@ -107,19 +107,19 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		[U] public void Indices()
 		{
-			Implicit<Osc.Indices>((string)null).Should().BeNull();
-			Implicit<Osc.Indices>((Osc.Indices.ManyIndices)null).Should().BeNull();
-			Implicit<Osc.Indices>((string[])null).Should().BeNull();
-			Implicit<Osc.Indices>((IndexName)null).Should().BeNull();
-			Implicit<Osc.Indices>((IndexName[])null).Should().BeNull();
-			Implicit<Osc.Indices>((IndexName)null).Should().BeNull();
-			Implicit<Osc.Indices>("").Should().BeNull();
-			Implicit<Osc.Indices>("    ").Should().BeNull();
-			Implicit<Osc.Indices>(",, ,,    ").Should().BeNull();
-			Implicit<Osc.Indices>(new string[] { }).Should().BeNull();
-			Implicit<Osc.Indices>(new IndexName[] { }).Should().BeNull();
-			Implicit<Osc.Indices>(new string[] { null, null }).Should().BeNull();
-			Implicit<Osc.Indices>(new IndexName[] { null, null }).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((string)null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((OpenSearch.Client.Indices.ManyIndices)null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((string[])null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((IndexName)null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((IndexName[])null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>((IndexName)null).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>("").Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>("    ").Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>(",, ,,    ").Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>(new string[] { }).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>(new IndexName[] { }).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>(new string[] { null, null }).Should().BeNull();
+			Implicit<OpenSearch.Client.Indices>(new IndexName[] { null, null }).Should().BeNull();
 		}
 
 		[U] public void Names()

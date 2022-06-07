@@ -26,7 +26,7 @@
 */
 
 using System;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Analysis.Normalizers
 {

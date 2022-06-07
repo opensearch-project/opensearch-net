@@ -27,9 +27,9 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
-using static Osc.Indices;
+using static OpenSearch.Client.Indices;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
@@ -39,7 +39,7 @@ namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 		[U] public async Task Urls()
 		{
 			var index = "index1,index2";
-			Osc.Indices indices = index;
+			OpenSearch.Client.Indices indices = index;
 			await PUT($"/index1%2Cindex2/_settings")
 					.Fluent(c => c.Indices.UpdateSettings(indices, s => s))
 					.Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest(index)))

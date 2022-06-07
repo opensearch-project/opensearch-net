@@ -26,7 +26,7 @@
 */
 
 using System;
-using Osc;
+using OpenSearch.Client;
 using Tests.IndexModules;
 
 namespace Tests.Analysis.TokenFilters
@@ -210,9 +210,9 @@ namespace Tests.Analysis.TokenFilters
 		public static IndexSettings InitializerExample =>
 			new IndexSettings
 			{
-				Analysis = new Osc.Analysis
+				Analysis = new OpenSearch.Client.Analysis
 				{
-					TokenFilters = new Osc.TokenFilters
+					TokenFilters = new OpenSearch.Client.TokenFilters
 					{
 						{ "myAscii", new AsciiFoldingTokenFilter { PreserveOriginal = true } },
 						{

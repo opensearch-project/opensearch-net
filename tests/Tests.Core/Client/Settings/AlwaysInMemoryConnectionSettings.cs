@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Core.Client.Settings
 {

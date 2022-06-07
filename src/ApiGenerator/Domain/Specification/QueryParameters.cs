@@ -56,9 +56,9 @@ namespace ApiGenerator.Domain.Specification
 						yield return "A document is routed to a particular shard in an index using the following formula";
 						yield return "<para> shard_num = hash(_routing) % num_primary_shards</para>";
 						yield return "<para>OpenSearch will use the document id if not provided. </para>";
-						yield return "<para>For requests that are constructed from/for a document OSC will automatically infer the routing key";
+						yield return "<para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key";
 						yield return
-							"if that document has a <see cref=\"Osc.JoinField\" /> or a routing mapping on for its type exists on <see cref=\"Osc.ConnectionSettings\" /></para> ";
+							"if that document has a <see cref=\"OpenSearch.Client.JoinField\" /> or a routing mapping on for its type exists on <see cref=\"OpenSearch.Client.ConnectionSettings\" /></para> ";
 
 						yield break;
 					case "_source":

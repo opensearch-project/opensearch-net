@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Domain;
@@ -119,7 +119,7 @@ namespace Tests.QueryDsl.Specialized.Percolate
 					}
 				}, d => d.Index(percolationIndex));
 				Client.Index(Project.Instance, i => i.Routing(Project.Instance.Name));
-				Client.Indices.Refresh(Osc.Indices.Index(percolationIndex).And<Project>());
+				Client.Indices.Refresh(OpenSearch.Client.Indices.Index(percolationIndex).And<Project>());
 			}
 		}
 	}

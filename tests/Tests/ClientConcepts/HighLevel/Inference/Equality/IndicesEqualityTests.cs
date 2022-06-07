@@ -36,22 +36,22 @@ namespace Tests.ClientConcepts.HighLevel.Inference.Equality
 	{
 		[U] public void Eq()
 		{
-			Osc.Indices types = "foo,bar";
-			Osc.Indices[] equal = { "foo,bar", "bar,foo", "foo,  bar", "bar,  foo   " };
+			OpenSearch.Client.Indices types = "foo,bar";
+			OpenSearch.Client.Indices[] equal = { "foo,bar", "bar,foo", "foo,  bar", "bar,  foo   " };
 			foreach (var t in equal)
 			{
 				(t == types).ShouldBeTrue(t);
 				t.Should().Be(types);
 			}
 
-			(Osc.Indices.All == "_all").Should().BeTrue();
+			(OpenSearch.Client.Indices.All == "_all").Should().BeTrue();
 		}
 
 
 		[U] public void NotEq()
 		{
-			Osc.Indices types = "foo,bar";
-			Osc.Indices[] notEqual = { "foo,bar,x", "foo", typeof(Project) };
+			OpenSearch.Client.Indices types = "foo,bar";
+			OpenSearch.Client.Indices[] notEqual = { "foo,bar,x", "foo", typeof(Project) };
 			foreach (var t in notEqual)
 			{
 				(t != types).ShouldBeTrue(t);
@@ -61,19 +61,19 @@ namespace Tests.ClientConcepts.HighLevel.Inference.Equality
 
 		[U] public void TypedEq()
 		{
-			Osc.Indices t1 = typeof(Project), t2 = typeof(Project);
+			OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(Project);
 			(t1 == t2).ShouldBeTrue(t2);
 		}
 
 		[U] public void TypedNotEq()
 		{
-			Osc.Indices t1 = typeof(Project), t2 = typeof(CommitActivity);
+			OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(CommitActivity);
 			(t1 != t2).ShouldBeTrue(t2);
 		}
 
 		[U] public void Null()
 		{
-			Osc.Indices value = typeof(Project);
+			OpenSearch.Client.Indices value = typeof(Project);
 			(value == null).Should().BeFalse();
 			(null == value).Should().BeFalse();
 		}

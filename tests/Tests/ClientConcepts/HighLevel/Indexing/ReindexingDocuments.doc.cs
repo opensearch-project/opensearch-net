@@ -31,7 +31,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 

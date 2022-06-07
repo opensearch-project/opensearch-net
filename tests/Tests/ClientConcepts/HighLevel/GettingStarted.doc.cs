@@ -32,7 +32,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.ClientConcepts.HighLevel
 {
@@ -213,7 +213,7 @@ namespace Tests.ClientConcepts.HighLevel
 		 */
 		public async Task ObjectInitializerSyntax()
 		{
-			var searchRequest = new SearchRequest<Person>(Osc.Indices.All) //<1> All indices and types are specified in the constructor
+			var searchRequest = new SearchRequest<Person>(OpenSearch.Client.Indices.All) //<1> All indices and types are specified in the constructor
 			{
 				From = 0,
 				Size = 10,

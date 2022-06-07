@@ -32,7 +32,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
@@ -42,7 +42,7 @@ namespace Tests.Framework.EndpointTests
 {
 	public abstract class CoordinatedIntegrationTestBase<TCluster>
 		: IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOscTestCluster, new()
+		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 	{
 		private readonly CoordinatedUsage _coordinatedUsage;
 

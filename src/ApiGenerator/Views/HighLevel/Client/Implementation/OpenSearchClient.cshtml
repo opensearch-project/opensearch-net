@@ -8,7 +8,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Osc;
+using OpenSearch.Client;
 @{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
 
 @{
@@ -16,7 +16,7 @@ using Osc;
 	var namespaces = model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
 <text>
 // ReSharper disable RedundantTypeArgumentsOfMethod
-namespace Osc
+namespace OpenSearch.Client
 {
 	///<summary>
 	///OpenSearch high level client

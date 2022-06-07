@@ -26,14 +26,14 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.Range.IntegerRange
 {
 	public class IntegerRangeTest
 	{
 		[IntegerRange]
-		public Osc.IntegerRange Range { get; set; }
+		public OpenSearch.Client.IntegerRange Range { get; set; }
 	}
 
 	public class IntegerRangeAttributeTests : AttributeTestsBase<IntegerRangeTest>

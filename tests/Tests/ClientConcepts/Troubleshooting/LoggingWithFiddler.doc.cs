@@ -31,7 +31,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {

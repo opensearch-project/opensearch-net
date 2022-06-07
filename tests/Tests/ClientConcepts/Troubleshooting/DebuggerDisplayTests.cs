@@ -29,7 +29,7 @@ using System;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 // ReSharper disable SuggestVarOrType_Elsewhere
@@ -134,10 +134,10 @@ namespace Tests.ClientConcepts.Troubleshooting
 
 		[U] public void IndicesDebug()
 		{
-			Osc.Indices all = Osc.Indices.All;
-			Osc.Indices fromTypeName = Infer.Index<Project>();
-			Osc.Indices fromType = typeof(CommitActivity);
-			Osc.Indices multiple = Infer.Index("someindex").And<Project>();
+			OpenSearch.Client.Indices all = OpenSearch.Client.Indices.All;
+			OpenSearch.Client.Indices fromTypeName = Infer.Index<Project>();
+			OpenSearch.Client.Indices fromType = typeof(CommitActivity);
+			OpenSearch.Client.Indices multiple = Infer.Index("someindex").And<Project>();
 
 			DebugFor(all).Should().Be("_all");
 			DebugFor(fromTypeName).Should().Be($"Count: 1 [(1: IndexName for typeof: {nameof(Project)})]");

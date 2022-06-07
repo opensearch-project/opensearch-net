@@ -33,7 +33,7 @@ using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

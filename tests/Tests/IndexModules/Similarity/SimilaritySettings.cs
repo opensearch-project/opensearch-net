@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.IndexModules.Similarity
 {

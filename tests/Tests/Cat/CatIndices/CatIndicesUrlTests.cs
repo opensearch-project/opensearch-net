@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -47,9 +47,9 @@ namespace Tests.Cat.CatIndices
 
 			await GET("/_cat/indices/project")
 					.Fluent(c => c.Cat.Indices(i => i.Index<Project>()))
-					.Request(c => c.Cat.Indices(new CatIndicesRequest(Osc.Indices.Index<Project>())))
+					.Request(c => c.Cat.Indices(new CatIndicesRequest(OpenSearch.Client.Indices.Index<Project>())))
 					.FluentAsync(c => c.Cat.IndicesAsync(i => i.Index<Project>()))
-					.RequestAsync(c => c.Cat.IndicesAsync(new CatIndicesRequest(Osc.Indices.Index<Project>())))
+					.RequestAsync(c => c.Cat.IndicesAsync(new CatIndicesRequest(OpenSearch.Client.Indices.Index<Project>())))
 				;
 		}
 	}

@@ -26,14 +26,14 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.Range.LongRange
 {
 	public class LongRangeTest
 	{
 		[LongRange]
-		public Osc.LongRange Range { get; set; }
+		public OpenSearch.Client.LongRange Range { get; set; }
 	}
 
 	public class LongRangeAttributeTests : AttributeTestsBase<LongRangeTest>

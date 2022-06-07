@@ -26,7 +26,7 @@
 */
 
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
@@ -37,7 +37,7 @@ using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
@@ -52,7 +52,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 	public class IndexNameInference : DocumentationTestBase
 	{
 		//hide
-		private class ConnectionSettings : Osc.ConnectionSettings
+		private class ConnectionSettings : OpenSearch.Client.ConnectionSettings
 		{
 			public ConnectionSettings() : base(new InMemoryConnection())
 			{
@@ -288,8 +288,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 			Index<Project>().Should().NotBe(Index<Developer>());
 			Index<Project>("cluster_one").Should().NotBe(Index<Developer>("cluster_one"));
 
-			Osc.Indices indices1 = "foo,bar";
-			Osc.Indices indices2 = "bar,foo";
+			OpenSearch.Client.Indices indices1 = "foo,bar";
+			OpenSearch.Client.Indices indices2 = "bar,foo";
 			indices1.Should().Be(indices2);
 			(indices1 == indices2).Should().BeTrue();
 		}

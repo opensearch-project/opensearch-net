@@ -31,7 +31,7 @@ using System.Linq;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Analysis.Analyzers;
 using Tests.Analysis.CharFilters;
 using Tests.Analysis.Normalizers;
@@ -63,41 +63,41 @@ namespace Tests.Analysis
 			Fluent<AnalyzersDescriptor, IAnalyzerAssertion, IAnalyzers>(i => i.Fluent, (a, v) => a.Analyzers = v.Value);
 
 		public static IndexSettings AnalyzersInitializer =>
-			Init<Osc.Analyzers, IAnalyzerAssertion, IAnalyzer>(i => i.Initializer, (a, v) => a.Analyzers = v);
+			Init<OpenSearch.Client.Analyzers, IAnalyzerAssertion, IAnalyzer>(i => i.Initializer, (a, v) => a.Analyzers = v);
 
 		public static IndexSettings CharFiltersFluent =>
 			Fluent<CharFiltersDescriptor, ICharFilterAssertion, ICharFilters>(i => i.Fluent, (a, v) => a.CharFilters = v.Value);
 
 		public static IndexSettings CharFiltersInitializer =>
-			Init<Osc.CharFilters, ICharFilterAssertion, ICharFilter>(i => i.Initializer, (a, v) => a.CharFilters = v);
+			Init<OpenSearch.Client.CharFilters, ICharFilterAssertion, ICharFilter>(i => i.Initializer, (a, v) => a.CharFilters = v);
 
 		public static IndexSettings NormalizersFluent =>
 			Fluent<NormalizersDescriptor, INormalizerAssertion, INormalizers>(i => i.Fluent, (a, v) => a.Normalizers = v.Value);
 
 		public static IndexSettings NormalizersInitializer =>
-			Init<Osc.Normalizers, INormalizerAssertion, INormalizer>(i => i.Initializer, (a, v) => a.Normalizers = v);
+			Init<OpenSearch.Client.Normalizers, INormalizerAssertion, INormalizer>(i => i.Initializer, (a, v) => a.Normalizers = v);
 
 		public static IndexSettings TokenFiltersFluent =>
 			Fluent<TokenFiltersDescriptor, ITokenFilterAssertion, ITokenFilters>(i => i.Fluent, (a, v) => a.TokenFilters = v.Value);
 
 		public static IndexSettings TokenFiltersInitializer =>
-			Init<Osc.TokenFilters, ITokenFilterAssertion, ITokenFilter>(i => i.Initializer, (a, v) => a.TokenFilters = v);
+			Init<OpenSearch.Client.TokenFilters, ITokenFilterAssertion, ITokenFilter>(i => i.Initializer, (a, v) => a.TokenFilters = v);
 
 		public static IndexSettings TokenizersFluent =>
 			Fluent<TokenizersDescriptor, ITokenizerAssertion, ITokenizers>(i => i.Fluent, (a, v) => a.Tokenizers = v.Value);
 
 		public static IndexSettings TokenizersInitializer =>
-			Init<Osc.Tokenizers, ITokenizerAssertion, ITokenizer>(i => i.Initializer, (a, v) => a.Tokenizers = v);
+			Init<OpenSearch.Client.Tokenizers, ITokenizerAssertion, ITokenizer>(i => i.Initializer, (a, v) => a.Tokenizers = v);
 
 		private static IndexSettings Fluent<TContainer, TAssertion, TValue>(Func<TAssertion, Func<string, TContainer, IPromise<TValue>>> fluent,
-			Action<Osc.Analysis, IPromise<TValue>> set
+			Action<OpenSearch.Client.Analysis, IPromise<TValue>> set
 		)
 			where TAssertion : IAnalysisAssertion
 			where TContainer : IPromise<TValue>, new()
 			where TValue : class => Wrap(an => set(an, Apply<TContainer, TAssertion>((t, a) => fluent(a)(a.Name, t))));
 
 		private static IndexSettings Init<TContainer, TAssertion, TInitializer>(Func<TAssertion, TInitializer> value,
-			Action<Osc.Analysis, TContainer> set
+			Action<OpenSearch.Client.Analysis, TContainer> set
 		)
 			where TAssertion : IAnalysisAssertion
 			where TContainer : IDictionary<string, TInitializer>, new() =>
@@ -112,9 +112,9 @@ namespace Tests.Analysis
 				return t;
 			}, t => t);
 
-		private static IndexSettings Wrap(Action<Osc.Analysis> set)
+		private static IndexSettings Wrap(Action<OpenSearch.Client.Analysis> set)
 		{
-			var a = new Osc.Analysis();
+			var a = new OpenSearch.Client.Analysis();
 			var s = new IndexSettings { Analysis = a };
 			set(a);
 			return s;

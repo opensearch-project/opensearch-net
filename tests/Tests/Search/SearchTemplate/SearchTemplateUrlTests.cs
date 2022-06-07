@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 
@@ -60,9 +60,9 @@ namespace Tests.Search.SearchTemplate
 				;
 			await UrlTester.POST("/_all/_search/template")
 					.Fluent(c => c.SearchTemplate<Project>(s => s.AllIndices()))
-					.Request(c => c.SearchTemplate<Project>(new SearchTemplateRequest<Project>(Osc.Indices.All)))
+					.Request(c => c.SearchTemplate<Project>(new SearchTemplateRequest<Project>(OpenSearch.Client.Indices.All)))
 					.FluentAsync(c => c.SearchTemplateAsync<Project>(s => s.AllIndices()))
-					.RequestAsync(c => c.SearchTemplateAsync<Project>(new SearchTemplateRequest<Project>(Osc.Indices.All)))
+					.RequestAsync(c => c.SearchTemplateAsync<Project>(new SearchTemplateRequest<Project>(OpenSearch.Client.Indices.All)))
 				;
 		}
 	}

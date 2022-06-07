@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters

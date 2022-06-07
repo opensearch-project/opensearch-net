@@ -27,7 +27,7 @@
 
 using System;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 namespace Tests.ClientConcepts.Connection
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.Connection
 			 *
 			 * The following is a list of available connection configuration options on `ConnectionSettings`:
 			 *
-			 * :xml-docs: Osc:ConnectionSettingsBase`1
+			 * :xml-docs: OpenSearch.Client:ConnectionSettingsBase`1
 			 *
 			 * ==== ConnectionSettings with OpenSearchClient
 			 *

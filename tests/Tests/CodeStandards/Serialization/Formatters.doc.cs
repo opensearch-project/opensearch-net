@@ -29,7 +29,7 @@ using System;
 using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using System.Collections.Generic;
 using System.Reflection;

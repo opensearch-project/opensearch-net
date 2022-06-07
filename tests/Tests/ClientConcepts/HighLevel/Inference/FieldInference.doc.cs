@@ -34,8 +34,8 @@ using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client;
+using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 using Tests.Core.Client;
 using Tests.Core.Client.Settings;
@@ -43,8 +43,8 @@ using Tests.Core.Xunit;
 using Tests.Domain;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
-using static Osc.Infer;
-using Field = Osc.Field;
+using static OpenSearch.Client.Infer;
+using Field = OpenSearch.Client.Field;
 // ReSharper disable ArrangeMethodOrOperatorBody
 
 namespace Tests.ClientConcepts.HighLevel.Inference
@@ -152,13 +152,13 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		/**
 		* [[osc-infer]]
-		* ==== Using Osc.Infer methods
+		* ==== Using OpenSearch.Client.Infer methods
 		* To ease creating a `Field` instance from expressions, there is a static `Infer` class you can use
 		*
 		* [TIP]
 		* ====
-		* This example uses the https://msdn.microsoft.com/en-us/library/sf0df423.aspx#Anchor_0[static import] `using static Osc.Infer;`
-		 * in the using directives to shorthand `Osc.Infer.Field<T>()`
+		* This example uses the https://msdn.microsoft.com/en-us/library/sf0df423.aspx#Anchor_0[static import] `using static OpenSearch.Client.Infer;`
+		 * in the using directives to shorthand `OpenSearch.Client.Infer.Field<T>()`
 		* to simply `Field<T>()`. Be sure to include this static import if copying any of these examples.
 		* ====
 		*
@@ -180,7 +180,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 				.WhenSerializing(fieldString)
 				.WhenSerializing(fieldExpression);
 
-			/** You can specify boosts in the field using a string, as well as using `Osc.Infer.Field` */
+			/** You can specify boosts in the field using a string, as well as using `OpenSearch.Client.Infer.Field` */
 			fieldString = "name^2.1";
 			fieldString.Boost.Should().Be(2.1);
 
@@ -373,7 +373,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* ==== Serializer specific attributes
 		*
 		* OSC can also use a serializer specific attribute to resolve a field value for a property.
-		* In this example, the {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
+		* In this example, the {nuget}/OpenSearch.Client.JsonNetSerializer[`JsonNetSerializer`] is hooked up as the
 		* <<custom-serialization, custom serializer>> for the client and we use the `JsonPropertyAttribute` to resolve a field
 		*/
 		public class SerializerSpecific
@@ -472,7 +472,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* . A naming of the property on `ConnectionSettings` using `.PropertyName()`
 		* . A OSC `PropertyNameAttribute`
-		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/OSC.JsonNetSerializer[`JsonNetSerializer`]
+		* . Ask the serializer if the property has a verbatim value, e.g. it has a `JsonPropertyAttribute` if using {nuget}/OpenSearch.Client.JsonNetSerializer[`JsonNetSerializer`]
 		* . See if the `MemberInfo` has a `DataMemberAttribute` applied
 		* . Pass the `MemberInfo` to the `DefaultFieldNameInferrer`, which by default will camel case the `Name` property
 		*

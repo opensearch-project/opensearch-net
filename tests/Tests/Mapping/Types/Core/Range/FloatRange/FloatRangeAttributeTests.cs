@@ -26,14 +26,14 @@
 */
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.Range.FloatRange
 {
 	public class FloatRangeTest
 	{
 		[FloatRange]
-		public Osc.FloatRange Range { get; set; }
+		public OpenSearch.Client.FloatRange Range { get; set; }
 	}
 
 	public class FloatRangeAttributeTests : AttributeTestsBase<FloatRangeTest>

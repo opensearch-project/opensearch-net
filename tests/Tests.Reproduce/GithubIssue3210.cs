@@ -28,7 +28,7 @@
 using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce

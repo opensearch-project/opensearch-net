@@ -33,7 +33,7 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client.Settings;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -89,7 +89,7 @@ namespace Tests.Document.Multiple.MultiGet
 
 		[I] public void ReturnsDocsMatchingDistinctIdsFromDifferentIndices()
 		{
-			var developerIndex = Osc.Indices.Index<Developer>();
+			var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
 			var indexName = developerIndex.GetString(_client.ConnectionSettings);
 			var reindexName = $"{indexName}-getmany-distinctids";
 
@@ -135,7 +135,7 @@ namespace Tests.Document.Multiple.MultiGet
 
 		[I] public void ReturnsDocsMatchingDistinctIdsFromDifferentIndicesWithRequestLevelIndex()
 		{
-			var developerIndex = Osc.Indices.Index<Developer>();
+			var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
 			var indexName = developerIndex.GetString(_client.ConnectionSettings);
 			var reindexName = $"{indexName}-getmany-distinctidsindex";
 
