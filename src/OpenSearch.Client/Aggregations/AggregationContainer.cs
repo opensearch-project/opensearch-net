@@ -291,7 +291,7 @@ namespace OpenSearch.Client
 
 		[DataMember(Name = "multi_terms")]
 		IMultiTermsAggregation MultiTerms { get; set; }
-
+		
 		[DataMember(Name = "variable_width_histogram")]
 		IVariableWidthHistogramAggregation VariableWidthHistogram { get; set; }
 
@@ -307,10 +307,10 @@ namespace OpenSearch.Client
 		// it would be preferred to address that in OpenSearch itself.
 		[DataMember(Name = "aggregations")]
 		private AggregationDictionary _aggs;
-
+		
 		// ReSharper disable once ConvertToAutoProperty
 		public AggregationDictionary Aggregations { get => _aggs; set => _aggs = value; }
-
+		
 		public IAverageAggregation Average { get; set; }
 
 		public IAverageBucketAggregation AverageBucket { get; set; }
@@ -536,7 +536,7 @@ namespace OpenSearch.Client
 		IMovingFunctionAggregation IAggregationContainer.MovingFunction { get; set; }
 
 		IMultiTermsAggregation IAggregationContainer.MultiTerms { get; set; }
-
+		
 		INestedAggregation IAggregationContainer.Nested { get; set; }
 
 		IParentAggregation IAggregationContainer.Parent { get; set; }
