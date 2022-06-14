@@ -1,7 +1,7 @@
 <Project>
   <!-- Default Version numbers -->
   <PropertyGroup>
-    <CurrentVersion>1.0.0</CurrentVersion>
+    <CurrentVersion>1.0.0-prerelease</CurrentVersion>
     <CurrentAssemblyVersion>1.0.0</CurrentAssemblyVersion>
     <CurrentAssemblyFileVersion>1.0.0</CurrentAssemblyFileVersion>
     <!-- Version and Informational reflect actual version -->
