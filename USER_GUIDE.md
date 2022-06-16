@@ -14,12 +14,12 @@ This user guide specifies how to include and use the .NET client in your applica
 
 ### Getting Started
 
-Include OSC in your .csproj file.
+Include OpenSearch.Client in your .csproj file.
 ```xml
 <Project>
   ...
   <ItemGroup>
-    <PackageReference Include="Osc" Version="1.0.0" />
+    <PackageReference Include="OpenSearch.Client" Version="1.0.0" />
   </ItemGroup>
 </Project>
 ```
@@ -59,7 +59,7 @@ var tweet = new Tweet
     Id = 1,
     User = "kimchy",
     PostDate = new DateTime(2009, 11, 15),
-    Message = "Trying out OSC, so far so good?"
+    Message = "Trying out OpenSearch.Client, so far so good?"
 };
 
 var indexingResponse = client.Index(tweet, idx => idx.Index("mytweetindex")); //or specify index via settings.DefaultIndex("mytweetindex");
@@ -83,7 +83,7 @@ var tweet = getResponse.Source; // the original document
 
 ### Searching for documents
 
-OSC exposes a fluent interface and a [powerful query DSL](https://opensearch.org/docs/latest/opensearch/query-dsl/index/)
+OpenSearch.Client exposes a fluent interface and a [powerful query DSL](https://opensearch.org/docs/latest/opensearch/query-dsl/index/)
 
 ```csharp
 var searchResponse = client.Search<Tweet>(s => s
@@ -92,7 +92,7 @@ var searchResponse = client.Search<Tweet>(s => s
     .Size(10)
     .Query(q => q
         .Term(t => t.User, "kimchy") || q
-        .Match(mq => mq.Field(f => f.User).Query("osc"))
+        .Match(mq => mq.Field(f => f.User).Query("OpenSearch.Client"))
     )
 );
 ```
@@ -105,14 +105,14 @@ var request = new SearchRequest
     From = 0,
     Size = 10,
     Query = new TermQuery { Field = "user", Value = "kimchy" } || 
-            new MatchQuery { Field = "description", Query = "OSC" }
+            new MatchQuery { Field = "description", Query = "OpenSearch.Client" }
 };
 
 var searchResponse = client.Search<Tweet>(request);
 ```
 ### Falling back to OpenSearch.Net
 
-OSC also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
+OpenSearch.Client also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
 
 ```csharp
 IOpenSearchLowLevelClient lowLevelClient = client.LowLevel;
@@ -125,7 +125,7 @@ var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", Post
     query = new {
         term = new {
             name = new {
-                value= "OSC"
+                value= "OpenSearch.Client"
             }
         }
     }
@@ -149,7 +149,9 @@ Include OpenSearch.Net in your .csproj file.
 
 ### Connecting
 
-Connecting using the low-level client is very similar to how you would connect using OSC. In fact, the connection constructs that OSC use are actually OpenSearch.Net constructs. Thus, single node connections and connection pooling still apply when using OpenSearch.Net.
+Connecting using the low-level client is very similar to how you would connect using OpenSearch.Client.
+In fact, the connection constructs that OpenSearch.Client uses are actually OpenSearch.Net constructs.
+Thus, single node connections and connection pooling still apply when using OpenSearch.Net.
 
 ```csharp
 var node = new Uri("http://myserver:9200");
