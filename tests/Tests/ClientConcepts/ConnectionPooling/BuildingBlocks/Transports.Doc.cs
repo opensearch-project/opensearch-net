@@ -29,7 +29,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using System.Threading;
 using Tests.Domain;
 

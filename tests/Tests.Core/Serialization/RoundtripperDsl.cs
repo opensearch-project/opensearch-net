@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client.Settings;
 using Tests.Core.Extensions;

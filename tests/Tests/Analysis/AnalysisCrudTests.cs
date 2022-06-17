@@ -27,7 +27,7 @@
 
 using System.Linq;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -66,7 +66,7 @@ namespace Tests.Analysis
 		{
 			Settings = new IndexSettings
 			{
-				Analysis = new Osc.Analysis
+				Analysis = new OpenSearch.Client.Analysis
 				{
 					Analyzers = AnalysisUsageTests.AnalyzersInitializer.Analysis.Analyzers,
 					CharFilters = AnalysisUsageTests.CharFiltersInitializer.Analysis.CharFilters,
@@ -100,7 +100,7 @@ namespace Tests.Analysis
 				(s, c, r) => c.Indices.GetSettingsAsync(r)
 			);
 
-		protected GetIndexSettingsRequest GetInitializer(string indexName) => new GetIndexSettingsRequest(Osc.Indices.Index((IndexName)indexName));
+		protected GetIndexSettingsRequest GetInitializer(string indexName) => new GetIndexSettingsRequest(OpenSearch.Client.Indices.Index((IndexName)indexName));
 
 		protected IGetIndexSettingsRequest GetFluent(string indexName, GetIndexSettingsDescriptor u) => u;
 
@@ -168,9 +168,9 @@ namespace Tests.Analysis
 		{
 			IndexSettings = new IndexSettings
 			{
-				Analysis = new Osc.Analysis
+				Analysis = new OpenSearch.Client.Analysis
 				{
-					CharFilters = new Osc.CharFilters { { "differentHtml", new HtmlStripCharFilter() } }
+					CharFilters = new OpenSearch.Client.CharFilters { { "differentHtml", new HtmlStripCharFilter() } }
 				}
 			}
 		};

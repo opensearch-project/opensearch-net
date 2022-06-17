@@ -28,12 +28,12 @@
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
-using static Osc.Indices;
+using static OpenSearch.Client.Indices;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
@@ -63,16 +63,16 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*/
 		[U] public void ImplicitConversions()
 		{
-			Osc.Indices singleIndexFromString = "name";
-			Osc.Indices multipleIndicesFromString = "name1, name2";
-			Osc.Indices multipleIndicesFromStringArray = new [] { "name1", "name2" };
-			Osc.Indices allFromString = "_all";
+			OpenSearch.Client.Indices singleIndexFromString = "name";
+			OpenSearch.Client.Indices multipleIndicesFromString = "name1, name2";
+			OpenSearch.Client.Indices multipleIndicesFromStringArray = new [] { "name1", "name2" };
+			OpenSearch.Client.Indices allFromString = "_all";
 
-			Osc.Indices allWithOthersFromString = "_all, name2"; //<1> `_all` will override any specific index names here
+			OpenSearch.Client.Indices allWithOthersFromString = "_all, name2"; //<1> `_all` will override any specific index names here
 
-			Osc.Indices singleIndexFromType = typeof(Project); //<2> The `Project` type has been mapped to a specific index name using <<index-name-type-mapping,`.DefaultMappingFor<Project>`>>
+			OpenSearch.Client.Indices singleIndexFromType = typeof(Project); //<2> The `Project` type has been mapped to a specific index name using <<index-name-type-mapping,`.DefaultMappingFor<Project>`>>
 
-			Osc.Indices singleIndexFromIndexName = IndexName.From<Project>();
+			OpenSearch.Client.Indices singleIndexFromIndexName = IndexName.From<Project>();
 
 			singleIndexFromString.Match(
 				all => all.Should().BeNull(),
@@ -112,8 +112,8 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
 		/**
 		* [[osc-indices]]
-		*==== Using Osc.Indices methods
-		* To make creating `IndexName` or `Indices` instances easier, `Osc.Indices` also contains several static methods
+		*==== Using OpenSearch.Client.Indices methods
+		* To make creating `IndexName` or `Indices` instances easier, `OpenSearch.Client.Indices` also contains several static methods
 		* that can be used to construct them.
 		*
 		*===== Single index
@@ -122,7 +122,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* [TIP]
 		* ====
-		* This example uses the static import `using static Osc.Indices;` in the using directives to shorthand `Osc.Indices.Index()`
+		* This example uses the static import `using static OpenSearch.Client.Indices;` in the using directives to shorthand `OpenSearch.Client.Indices.Index()`
 		* to simply `Index()`. Be sure to include this static import if copying any of these examples.
 		* ====
 		*/
@@ -168,7 +168,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* OpenSearch allows searching across multiple indices using the special `_all` marker.
 		*
 		* OSC exposes the `_all` marker with `Indices.All` and `Indices.AllIndices`. Why expose it in two ways, you ask?
-		* Well, you may be using both `Osc.Indices` and `Osc.Types` in the same file and you may also be using C#6
+		* Well, you may be using both `OpenSearch.Client.Indices` and `OpenSearch.Client.Types` in the same file and you may also be using C#6
 		* static imports too; in this scenario, the `All` property becomes ambiguous between `Indices.All` and `Types.All`, so the
 		* `_all` marker for indices is exposed as `Indices.AllIndices`, to alleviate this ambiguity
 		*/

@@ -28,7 +28,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Framework.EndpointTests.TestState
 {

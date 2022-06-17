@@ -31,8 +31,8 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
-using Osc.JsonNetSerializer;
+using OpenSearch.Client;
+using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 
 namespace Tests.Reproduce

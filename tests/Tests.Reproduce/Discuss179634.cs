@@ -30,7 +30,7 @@ using System.Globalization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Serialization;
 using Tests.Domain;
 

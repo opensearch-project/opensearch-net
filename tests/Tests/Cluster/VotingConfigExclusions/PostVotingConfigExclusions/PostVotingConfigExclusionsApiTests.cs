@@ -30,7 +30,7 @@ using System.Threading;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Cluster.TaskManagement.GetTask;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

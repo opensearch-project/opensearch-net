@@ -26,7 +26,7 @@
 */
 
 #if FEATURE_PROFILING
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using Tests.Framework.MockData;
 using Tests.Framework.Profiling;

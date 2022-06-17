@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 
@@ -37,7 +37,7 @@ namespace Tests.Indices.IndexManagement.OpenCloseIndex.OpenIndex
 	{
 		[U] public async Task Urls()
 		{
-			var indices = Osc.Indices.Index<Project>().And<Developer>();
+			var indices = OpenSearch.Client.Indices.Index<Project>().And<Developer>();
 			var index = "project%2Cdevs";
 			await UrlTester.POST($"/{index}/_open")
 					.Fluent(c => c.Indices.Open(indices, s => s))

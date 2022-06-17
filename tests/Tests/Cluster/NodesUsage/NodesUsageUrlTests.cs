@@ -28,7 +28,7 @@
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
 
 namespace Tests.Cluster.NodesUsage

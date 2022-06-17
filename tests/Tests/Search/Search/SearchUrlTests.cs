@@ -28,7 +28,7 @@
 using System;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -73,9 +73,9 @@ namespace Tests.Search.Search
 
 			await POST("/_all/_search")
 					.Fluent(c => c.Search<Project>(s => s.AllIndices()))
-					.Request(c => c.Search<Project>(new SearchRequest<Project>(Osc.Indices.All)))
+					.Request(c => c.Search<Project>(new SearchRequest<Project>(OpenSearch.Client.Indices.All)))
 					.FluentAsync(c => c.SearchAsync<Project>(s => s.AllIndices()))
-					.RequestAsync(c => c.SearchAsync<Project>(new SearchRequest<Project>(Osc.Indices.All)));
+					.RequestAsync(c => c.SearchAsync<Project>(new SearchRequest<Project>(OpenSearch.Client.Indices.All)));
 
 			await POST("/_search?scroll=1m")
 					.Request(c => c.Search<Project>(new SearchRequest { Scroll = TimeSpan.FromMinutes(1) }))

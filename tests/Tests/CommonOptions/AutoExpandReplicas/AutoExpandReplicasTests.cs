@@ -38,7 +38,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromNullString()
 		{
 			string nullString = null;
-			Osc.AutoExpandReplicas autoExpandReplicas = nullString;
+			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = nullString;
 			autoExpandReplicas.Should().BeNull();
 		}
 
@@ -46,7 +46,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromMinAndMaxString()
 		{
 			var minAndMax = "0-5";
-			Osc.AutoExpandReplicas autoExpandReplicas = minAndMax;
+			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = minAndMax;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -61,7 +61,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromMinAndAllString()
 		{
 			var minAndMax = "0-all";
-			Osc.AutoExpandReplicas autoExpandReplicas = minAndMax;
+			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = minAndMax;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -75,7 +75,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithMinAndMax()
 		{
-			var autoExpandReplicas = Osc.AutoExpandReplicas.Create(2, 3);
+			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create(2, 3);
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(2);
@@ -89,7 +89,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithMinAndAll()
 		{
-			var autoExpandReplicas = Osc.AutoExpandReplicas.Create(0);
+			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create(0);
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -103,7 +103,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithFalse()
 		{
-			var autoExpandReplicas = Osc.AutoExpandReplicas.Create("false");
+			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create("false");
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeFalse();
 			autoExpandReplicas.MinReplicas.Should().BeNull();
@@ -114,7 +114,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void Disabled()
 		{
-			var autoExpandReplicas = Osc.AutoExpandReplicas.Disabled;
+			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Disabled;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeFalse();
 			autoExpandReplicas.MinReplicas.Should().NotHaveValue();
@@ -125,18 +125,18 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 
 		[U]
 		public void MinMustBeEqualOrLessThanMax() =>
-			Assert.Throws<ArgumentException>(() => Osc.AutoExpandReplicas.Create(2, 1));
+			Assert.Throws<ArgumentException>(() => OpenSearch.Client.AutoExpandReplicas.Create(2, 1));
 
 		[U]
 		public void MinMustBeGreaterThanOrEqualToZero() =>
-			Assert.Throws<ArgumentException>(() => Osc.AutoExpandReplicas.Create(-1));
+			Assert.Throws<ArgumentException>(() => OpenSearch.Client.AutoExpandReplicas.Create(-1));
 
 		[U]
 		public void MinMustBeAnInteger() =>
-			Assert.Throws<FormatException>(() => Osc.AutoExpandReplicas.Create("all-all"));
+			Assert.Throws<FormatException>(() => OpenSearch.Client.AutoExpandReplicas.Create("all-all"));
 
 		[U]
 		public void MaxMustBeAllOrAnInteger() =>
-			Assert.Throws<FormatException>(() => Osc.AutoExpandReplicas.Create("2-boo"));
+			Assert.Throws<FormatException>(() => OpenSearch.Client.AutoExpandReplicas.Create("2-boo"));
 	}
 }

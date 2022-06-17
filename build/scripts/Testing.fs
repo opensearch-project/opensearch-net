@@ -85,7 +85,7 @@ module Tests =
     let RunReleaseUnitTests version args =
         //xUnit always does its own build, this env var is picked up by Tests.csproj
         //if its set it will include the local package source (build/output/)
-        //and references OSC and OSC.JsonNetSerializer by the current version
+        //and references OpenSearch.Client and OpenSearch.Client.JsonNetSerializer by the current version
         //this works by not including the local package cache (nay source) 
         //in the project file via:
         //<RestoreSources></RestoreSources>

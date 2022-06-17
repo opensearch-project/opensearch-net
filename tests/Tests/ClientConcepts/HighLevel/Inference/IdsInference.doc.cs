@@ -27,7 +27,7 @@
 
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 

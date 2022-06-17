@@ -25,7 +25,7 @@
 *  under the License.
 */
 
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain.Helpers;
 
 namespace Tests.Domain.Extensions

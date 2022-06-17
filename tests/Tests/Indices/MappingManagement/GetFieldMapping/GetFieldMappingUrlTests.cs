@@ -27,10 +27,10 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
-using static Osc.Infer;
+using static OpenSearch.Client.Infer;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.MappingManagement.GetFieldMapping
@@ -41,7 +41,7 @@ namespace Tests.Indices.MappingManagement.GetFieldMapping
 		public async Task Urls()
 		{
 			var index = "index1,index2";
-			Osc.Indices indices = index;
+			OpenSearch.Client.Indices indices = index;
 			var fields = Field<Project>(p => p.Name).And("field");
 			await GET($"/_mapping/field/name%2Cfield")
 					.Request(c => c.Indices.GetFieldMapping(new GetFieldMappingRequest(fields)))

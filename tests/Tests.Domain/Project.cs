@@ -31,7 +31,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Bogus;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Domain.Extensions;
 using Tests.Domain.Helpers;

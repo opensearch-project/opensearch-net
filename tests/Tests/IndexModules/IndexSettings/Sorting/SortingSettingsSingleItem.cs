@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.IndexModules.IndexSettings.Sorting
 {
@@ -40,7 +40,7 @@ namespace Tests.IndexModules.IndexSettings.Sorting
 			public string field1 { get; set; }
 		}
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, Osc.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -58,8 +58,8 @@ namespace Tests.IndexModules.IndexSettings.Sorting
 					.Missing(IndexSortMissing.First)
 				);
 
-			protected override Osc.IndexSettings Initializer =>
-				new Osc.IndexSettings
+			protected override OpenSearch.Client.IndexSettings Initializer =>
+				new OpenSearch.Client.IndexSettings
 				{
 					Sorting = new SortingSettings
 					{
@@ -84,7 +84,7 @@ namespace Tests.IndexModules.IndexSettings.Sorting
 			public string field2 { get; set; }
 		}
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, Osc.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -102,8 +102,8 @@ namespace Tests.IndexModules.IndexSettings.Sorting
 					.Missing(IndexSortMissing.First, IndexSortMissing.Last)
 				);
 
-			protected override Osc.IndexSettings Initializer =>
-				new Osc.IndexSettings
+			protected override OpenSearch.Client.IndexSettings Initializer =>
+				new OpenSearch.Client.IndexSettings
 				{
 					Sorting = new SortingSettings
 					{

@@ -80,7 +80,7 @@ namespace ApiGenerator.Configuration
 		/// The class name minus Request is used as the canonical .NET name for the API.
 		/// </summary>
 		public static readonly Dictionary<string, string> HighLevelApiNameMapping =
-			(from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*.cs", SearchOption.AllDirectories)
+			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*.cs", SearchOption.AllDirectories)
 				let contents = File.ReadAllText(f.FullName)
 				let c = Regex.Replace(contents, @"^.+\[MapsApi\(""([^ \r\n]+)""\)\].*$", "$1", RegexOptions.Singleline)
 				where !c.Contains(" ") //filter results that did not match
@@ -136,7 +136,7 @@ namespace ApiGenerator.Configuration
 		/// The class name minus Request is used as the canonical .NET name for the API.
 		/// </summary>
 		public static readonly Dictionary<string, string> ResponseBuilderInClientCalls =
-			(from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*.cs", SearchOption.AllDirectories)
+			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*.cs", SearchOption.AllDirectories)
 				from l in File.ReadLines(f.FullName)
 				where Regex.IsMatch(l, ResponseBuilderAttributeRegex)
 				let c = Regex.Replace(l, @"^.+\[ResponseBuilderWithGeneric\(""([^ \r\n]+)""\)\].*$", "$1", RegexOptions.Singleline)
@@ -145,7 +145,7 @@ namespace ApiGenerator.Configuration
 			.ToDictionary(k => k.Key, v => v.Value);
 
 		public static readonly Dictionary<string, string> DescriptorGenericsLookup =
-			(from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
+			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
 				let name = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "")
 				let contents = File.ReadAllText(f.FullName)
 				let c = Regex.Replace(contents, $@"^.+class ({name}Descriptor(?:<[^>\r\n]+>)?[^ \r\n]*).*$", "$1", RegexOptions.Singleline)
@@ -158,7 +158,7 @@ namespace ApiGenerator.Configuration
 		/// <summary> Scan all OSC files for request interfaces and note any generics declared on them </summary>
 		private static readonly List<Tuple<string, string>> AllKnownRequestInterfaces = (
 			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
+			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
 			from l in File.ReadLines(f.FullName)
 			// attempt to locate all Request interfaces lines
 			where Regex.IsMatch(l, @"^.+interface [^ \r\n]+Request")
@@ -180,7 +180,7 @@ namespace ApiGenerator.Configuration
 
 		public static readonly HashSet<string> DocumentRequests = new HashSet<string>((
 			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
+			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
 			from l in File.ReadLines(f.FullName)
 			// attempt to locate all Request interfaces lines
 			where Regex.IsMatch(l, @"^.+interface [^ \r\n]+Request")
@@ -194,7 +194,7 @@ namespace ApiGenerator.Configuration
 
 		public static readonly Dictionary<string, string> DescriptorConstructors = (
 			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
+			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
 			let descriptor = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "Descriptor")
 			let re = $@"^.+public {descriptor}\(([^\r\n\)]+?)\).*$"
 			from l in File.ReadLines(f.FullName)
@@ -229,7 +229,7 @@ namespace ApiGenerator.Configuration
 		public static readonly SortedDictionary<string, (string, string)> ResponseLookup = new SortedDictionary<string, (string, string)>(
 		(
 			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OscFolder).GetFiles("*Response.cs", SearchOption.AllDirectories)
+			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Response.cs", SearchOption.AllDirectories)
 			from l in File.ReadLines(f.FullName)
 			// attempt to locate all Response class lines
 			where Regex.IsMatch(l, @"^.+public class [^ \r\n]+Response")

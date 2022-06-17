@@ -27,7 +27,7 @@
 
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
@@ -60,9 +60,9 @@ namespace Tests.Search.SearchShards
 				;
 			await POST("/_all/_search_shards")
 					.Fluent(c => c.SearchShards<Project>(s => s.AllIndices()))
-					.Request(c => c.SearchShards(new SearchShardsRequest<Project>(Osc.Indices.All)))
+					.Request(c => c.SearchShards(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
 					.FluentAsync(c => c.SearchShardsAsync<Project>(s => s.AllIndices()))
-					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(Osc.Indices.All)))
+					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
 				;
 		}
 	}

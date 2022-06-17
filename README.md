@@ -9,8 +9,9 @@
 - [OpenSearch .NET Client](#opensearch-net-client)
   - [Welcome!](#welcome)
   - [Project Resources](#project-resources)
-  - [OSC](#osc)
+  - [OpenSearch.Client](#opensearch-client)
   - [Getting Started](#getting-started)
+  - [Compatibility with OpenSearch](#compatibility-with-opensearch)
   - [Code of Conduct](#code-of-conduct)
   - [License](#license)
   - [Copyright](#copyright)
@@ -21,7 +22,7 @@
 
 **opensearch-net** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
 
-**OSC** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net high level client NEST licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
+**OpenSearch.Client** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net high level client NEST licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
 
 ## Project Resources
 
@@ -36,13 +37,17 @@
 * [Admin Responsibilities](ADMINS.md)
 * [Security](SECURITY.md)
 
-## [OSC](https://github.com/opensearch-project/opensearch-net/tree/main/src/Osc)
+## [OpenSearch.Client](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Client)
 
-OSC is the official high-level .NET client of [OpenSearch](https://github.com/opensearch-project/OpenSearch).
+OpenSearch.Client is the official high-level .NET client of [OpenSearch](https://github.com/opensearch-project/OpenSearch).
 
 ## Getting Started
 
 See [USER_GUIDE](USER_GUIDE.md) to get started with the .NET client.
+
+## Compatibility with OpenSearch
+
+See [COMPATIBILITY](COMPATIBILITY.md).
 
 ## Code of Conduct
 

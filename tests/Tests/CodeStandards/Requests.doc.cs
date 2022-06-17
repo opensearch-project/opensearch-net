@@ -29,7 +29,7 @@ using System;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Domain;
 
 namespace Tests.CodeStandards

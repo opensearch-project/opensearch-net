@@ -33,7 +33,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using HttpMethod = OpenSearch.Net.HttpMethod;

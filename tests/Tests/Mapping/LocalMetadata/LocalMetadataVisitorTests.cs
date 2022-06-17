@@ -28,7 +28,7 @@
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Tests.Mapping.Types.Core.Text;
 
 namespace Tests.Mapping.LocalMetadata

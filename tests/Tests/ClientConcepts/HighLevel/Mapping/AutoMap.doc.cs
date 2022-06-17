@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
@@ -218,16 +218,16 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * and supports a number of special types defined in OSC
 		 *
 		 * [horizontal]
-		 * `Osc.QueryContainer`:: maps to `"percolator"`
-		 * `Osc.GeoLocation`:: maps to `"geo_point"`
-		 * `Osc.IGeoShape`:: maps to `"geo_shape"` (if you want to map to a `"shape"` type use explicit mapping or the [Shape] attribute on the property)
-		 * `Osc.CompletionField`:: maps to `"completion"`
-		 * `Osc.DateRange`:: maps to `"date_range"`
-		 * `Osc.DoubleRange`:: maps to `"double_range"`
-		 * `Osc.FloatRange`:: maps to `"float_range"`
-		 * `Osc.IntegerRange`:: maps to `"integer_range"`
-		 * `Osc.LongRange`:: maps to `"long_range"`
-		 * `Osc.IpAddressRange`:: maps to `"ip_range"`
+		 * `OpenSearch.Client.QueryContainer`:: maps to `"percolator"`
+		 * `OpenSearch.Client.GeoLocation`:: maps to `"geo_point"`
+		 * `OpenSearch.Client.IGeoShape`:: maps to `"geo_shape"` (if you want to map to a `"shape"` type use explicit mapping or the [Shape] attribute on the property)
+		 * `OpenSearch.Client.CompletionField`:: maps to `"completion"`
+		 * `OpenSearch.Client.DateRange`:: maps to `"date_range"`
+		 * `OpenSearch.Client.DoubleRange`:: maps to `"double_range"`
+		 * `OpenSearch.Client.FloatRange`:: maps to `"float_range"`
+		 * `OpenSearch.Client.IntegerRange`:: maps to `"integer_range"`
+		 * `OpenSearch.Client.LongRange`:: maps to `"long_range"`
+		 * `OpenSearch.Client.IpAddressRange`:: maps to `"ip_range"`
 		 *
 		 * All other types map to `"object"` by default.
 		 *

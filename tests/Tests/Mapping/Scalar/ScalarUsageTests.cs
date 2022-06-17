@@ -27,7 +27,7 @@
 
 using System;
 using System.Collections.Generic;
-using Osc;
+using OpenSearch.Client;
 using Tests.IndexModules;
 
 namespace Tests.Mapping.Scalar

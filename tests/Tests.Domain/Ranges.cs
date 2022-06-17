@@ -28,7 +28,7 @@
 using System;
 using System.Net;
 using Bogus;
-using Osc;
+using OpenSearch.Client;
 using Tests.Configuration;
 
 namespace Tests.Domain

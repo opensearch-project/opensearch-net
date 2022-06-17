@@ -31,7 +31,7 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
+using OpenSearch.Client;
 using Newtonsoft.Json.Linq;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

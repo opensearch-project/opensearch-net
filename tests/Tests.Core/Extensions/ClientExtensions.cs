@@ -26,7 +26,7 @@
 */
 
 using OpenSearch.Net;
-using Osc;
+using OpenSearch.Client;
 
 namespace Tests.Core.Extensions
 {

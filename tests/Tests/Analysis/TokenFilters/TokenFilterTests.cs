@@ -28,7 +28,7 @@
 using System;
 using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using Osc;
+using OpenSearch.Client;
 using Tests.Core.Serialization;
 
 namespace Tests.Analysis.TokenFilters
@@ -1127,9 +1127,9 @@ namespace Tests.Analysis.TokenFilters
 						{
 							Settings = new IndexSettings
 							{
-								Analysis = new Osc.Analysis
+								Analysis = new OpenSearch.Client.Analysis
 								{
-									TokenFilters = new Osc.TokenFilters
+									TokenFilters = new OpenSearch.Client.TokenFilters
 									{
 										{ FilterName, UserDefinedFilter }
 									}
