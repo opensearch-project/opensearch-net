@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsTestProject>True</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net.Auth.AwsSigV4\OpenSearch.Net.Auth.AwsSigV4.csproj" />
+    <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.3.1" />
+  </ItemGroup>
+</Project>
