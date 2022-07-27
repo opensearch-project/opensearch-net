@@ -44,7 +44,7 @@ var nodes = new Uri[]
     new Uri("http://myserver3:9200")
 };
 
-var pool = new StaticNodePool(nodes);
+var pool = new StaticConnectionPool(nodes);
 var settings = new ConnectionSettings(pool);
 var client = new OpenSearchClient(settings);
 ```
