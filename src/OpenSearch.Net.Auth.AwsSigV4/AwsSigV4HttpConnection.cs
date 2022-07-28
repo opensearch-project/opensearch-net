@@ -8,7 +8,6 @@
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
 	using System;
-	using System.Net;
 	using Amazon;
 	using Amazon.Runtime;
 
@@ -17,10 +16,14 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		private readonly AWSCredentials _credentials;
 		private readonly RegionEndpoint _region;
 
-		public AwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region)
+		public AwsSigV4HttpConnection(AWSCredentials credentials = null, RegionEndpoint region = null)
 		{
-			_credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
-			_region = region ?? throw new ArgumentNullException(nameof(region));
+			_credentials = credentials
+				?? FallbackCredentialsFactory.GetCredentials()
+				?? throw new ArgumentNullException(nameof(credentials), "The AWSCredentials were not provided and were unable to be determined from the environment.");
+			_region = region
+				?? FallbackRegionFactory.GetRegionEndpoint()
+				?? throw new ArgumentNullException(nameof(region), "A RegionEndpoint was not provided and was unable to be determined from the environment.");
 		}
 
 #if DOTNETCORE
@@ -30,7 +33,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 
 #else
 
-		protected override HttpWebRequest CreateHttpWebRequest(RequestData requestData)
+		protected override System.Net.HttpWebRequest CreateHttpWebRequest(RequestData requestData)
 		{
 			var request = base.CreateHttpWebRequest(requestData);
 			AwsSigV4Util.SignRequest(request, requestData, _credentials.GetCredentials(), _region, DateTime.UtcNow);

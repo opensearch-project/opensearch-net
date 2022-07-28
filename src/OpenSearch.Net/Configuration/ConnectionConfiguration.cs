@@ -99,9 +99,10 @@ namespace OpenSearch.Net
 		/// Creates a new instance of <see cref="ConnectionConfiguration"/>
 		/// </summary>
 		/// <param name="uri">The root of the OpenSearch node we want to connect to. Defaults to http://localhost:9200</param>
+		/// <param name="connection">A connection implementation that can make API requests. Defaults to <see cref="HttpConnection"/></param>
 		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
-		public ConnectionConfiguration(Uri uri = null)
-			: this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200"))) { }
+		public ConnectionConfiguration(Uri uri = null, IConnection connection = null)
+			: this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200")), connection) { }
 
 		/// <summary>
 		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
@@ -281,7 +282,7 @@ namespace OpenSearch.Net
 		bool IConnectionConfigurationValues.TransferEncodingChunked => _transferEncodingChunked;
 		bool IConnectionConfigurationValues.EnableTcpStats => _enableTcpStats;
 		bool IConnectionConfigurationValues.EnableThreadPoolStats => _enableThreadPoolStats;
-		
+
 		MetaHeaderProvider IConnectionConfigurationValues.MetaHeaderProvider { get; } = new MetaHeaderProvider();
 
 		void IDisposable.Dispose() => DisposeManagedResources();
@@ -366,7 +367,7 @@ namespace OpenSearch.Net
 		public T DisableAutomaticProxyDetection(bool disable = true) => Assign(disable, (a, v) => a._disableAutomaticProxyDetection = v);
 
 		/// <summary>
-		/// Disables the meta header which is included on all requests by default. This header contains lightweight information 
+		/// Disables the meta header which is included on all requests by default. This header contains lightweight information
 		/// about the client and runtime.
 		/// </summary>
 		public T DisableMetaHeader(bool disable = true) => Assign(disable, (a, v) => a._disableMetaHeader = v);
