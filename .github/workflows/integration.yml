@@ -7,7 +7,6 @@ jobs:
     name: Integration OpenSearch
     runs-on: ubuntu-latest
     env:
-      cluster: opensearch
       plugins-directory: /tmp/opensearch-plugins
     strategy:
       fail-fast: false
@@ -52,44 +51,11 @@ jobs:
             ${{ runner.os }}-nuget-
       - run: dotnet nuget locals all --clear
         name: Clear nuget cache
-      - run: "./build.sh integrate ${{ env.cluster }}-${{ matrix.version }} readonly,writable random:test_only_one --report"
-        name: ${{ env.cluster }} Integration Tests
+      - run: "./build.sh integrate ${{ matrix.version }} readonly,writable random:test_only_one --report"
+        name: Integration Tests
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@v3
         with:
-          name: report-${{ matrix.cluster }}-${{ matrix.version }}
-          path: build/output/*
-        
-  integration-opendistro:
-    name: Integration OpenDistro
-    runs-on: ubuntu-latest
-    env:
-      cluster: opendistro
-    strategy:
-      fail-fast: false
-      matrix:
-        version: [1.13.3, 1.13.2, 1.13.1, 1.13.0]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.405'
-      - uses: actions/cache@v2
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-      - run: dotnet nuget locals all --clear
-        name: Clear nuget cache
-      - run: "./build.sh integrate ${{ env.cluster }}-${{ matrix.version }} readonly,writable random:test_only_one --report"
-        name: ${{ env.cluster }} Integration Tests
-      - name: Upload test report
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: report-${{ matrix.cluster }}-${{ matrix.version }}
+          name: report-${{ matrix.version }}
           path: build/output/*
