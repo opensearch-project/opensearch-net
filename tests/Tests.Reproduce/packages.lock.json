@@ -1290,7 +1290,7 @@
       "OpenSearch.Client.JsonNetSerializer": {
         "type": "Project",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
+          "Newtonsoft.Json": "13.0.1",
           "OpenSearch.Client": "1.0.0"
         }
       },
@@ -1319,7 +1319,7 @@
         "type": "Project",
         "dependencies": {
           "Bogus": "22.1.2",
-          "Newtonsoft.Json": "12.0.1",
+          "Newtonsoft.Json": "13.0.1",
           "OpenSearch.Client": "1.0.0",
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.276",
           "Tests.Configuration": "1.0.0"
