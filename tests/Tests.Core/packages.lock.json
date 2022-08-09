@@ -59,7 +59,7 @@
       "OpenSearch.Client.JsonNetSerializer": {
         "type": "Project",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.1",
+          "Newtonsoft.Json": "13.0.1",
           "OpenSearch.Client": "1.0.0"
         }
       },
@@ -170,8 +170,8 @@
       },
       "Newtonsoft.Json": {
         "type": "Transitive",
-        "resolved": "12.0.1",
-        "contentHash": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg=="
+        "resolved": "13.0.1",
+        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
       },
       "opensearch.net": {
         "type": "Project",
@@ -1334,7 +1334,7 @@
         "type": "Project",
         "dependencies": {
           "Bogus": "22.1.2",
-          "Newtonsoft.Json": "12.0.1",
+          "Newtonsoft.Json": "13.0.1",
           "OpenSearch.Client": "1.0.0",
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.276",
           "Tests.Configuration": "1.0.0"
