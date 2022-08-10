@@ -170,14 +170,46 @@ var client = new OpenSearchLowLevelClient(config);
 
 ### Configuring Region & Credentials
 By default, `AwsSigV4HttpConnection` will use the same default logic as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html) to determine the credentials and region to use.
-However, you may explicitly specify one or both to override this logic, for example if you need to assume another IAM role first:
+However, you may explicitly specify one or both to override this logic, for example:
+
+**Explicitly setting the region, but the credentials coming from the environment**
+```shell
+export AWS_ACCESS_KEY_ID="..."
+export AWS_SECRET_ACCESS_KEY="..."
+export AWS_SESSION_TOKEN="..."
+```
 ```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
+var connection = new AwsSigV4HttpConnection(RegionEndpoint.APSoutheast2);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+**Explicitly setting credentials, such as to assume a role, but the region coming from the environment**
+```shell
+export AWS_REGION="ap-southeast-2"
+```
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
 var credentials = new AssumeRoleAWSCredentials(
 				FallbackCredentialsFactory.GetCredentials(),
 				"arn:aws:iam::123456789012:role/my-open-search-ingest-role",
 				"my-ingest-application");
-var region = RegionEndpoint.APSoutheast2;
-var connection = new AwsSigV4HttpConnection(credentials, region);
+var connection = new AwsSigV4HttpConnection(credentials);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+**Explicitly setting credentials and region, such as to assume a role**
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
+var credentials = new AssumeRoleAWSCredentials(
+				FallbackCredentialsFactory.GetCredentials(),
+				"arn:aws:iam::123456789012:role/my-open-search-ingest-role",
+				"my-ingest-application");
+var connection = new AwsSigV4HttpConnection(credentials, RegionEndpoint.APSoutheast2);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
 ```
 
 ## [OpenSearch.Net](src/OpenSearch.Net)
