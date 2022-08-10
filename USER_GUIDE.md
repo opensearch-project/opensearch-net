@@ -1,16 +1,23 @@
 - [User Guide](#user-guide)
+  - [OpenSearch.Client](#opensearchclient) 
     - [Getting Started](#getting-started)
     - [Connecting](#connecting)
     - [Indexing](#indexing)
     - [Getting a document](#getting-a-document)
     - [Searching for documents](#searching-for-documents)
     - [Falling back to OpenSearch.Net](#falling-back-to-opensearchnet)
-  - [OpenSearch.Net](#opensearchnet)
+  - [OpenSearch.Net.Auth.AwsSigV4](#opensearchnetauthawssigv4)
     - [Getting Started](#getting-started-1)
     - [Connecting](#connecting-1)
+    - [Configuring Region & Credentials](#configuring-region--credentials)
+  - [OpenSearch.Net](#opensearchnet)
+    - [Getting Started](#getting-started-2)
+    - [Connecting](#connecting-2)
 # User Guide
 
 This user guide specifies how to include and use the .NET client in your application.
+
+## [OpenSearch.Client](src/OpenSearch.Client)
 
 ### Getting Started
 
