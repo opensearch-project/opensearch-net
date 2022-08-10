@@ -5,12 +5,7 @@
     <NoWarn>CAC001</NoWarn>
     <IsTestProject>False</IsTestProject>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TestPackageVersion)'!=''">
-    <PackageReference Include="OpenSearch.Client.JsonNetSerializer" Version="$(TestPackageVersion)" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TestPackageVersion)'==''">
-    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Client.JsonNetSerializer\OpenSearch.Client.JsonNetSerializer.csproj" />
-  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Domain\Tests.Domain.csproj" />
     

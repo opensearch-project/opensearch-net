@@ -7,12 +7,7 @@
     <IsTestProject>True</IsTestProject>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TestPackageVersion)'!=''">
-    <PackageReference Include="OpenSearch.Net.VirtualizedCluster" Version="$(TestPackageVersion)" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TestPackageVersion)'==''">
-    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net.VirtualizedCluster\OpenSearch.Net.VirtualizedCluster.csproj" />
-  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
     <PackageReference Include="FSharp.Core" Version="4.7.0" />

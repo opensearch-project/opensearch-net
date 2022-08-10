@@ -285,6 +285,41 @@
           "Microsoft.TestPlatform.ObjectModel": "15.8.0"
         }
       },
+      "OpenSearch.Client": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "WJYG7TN0/t2a3LVwu2SUZ1X+sAfc3gB70PpfRZNtq33fMMgNdpiQAl4LifoX+KOBaTsgKzCDaPmYSzxZFXbJxQ==",
+        "dependencies": {
+          "OpenSearch.Net": "1.0.0"
+        }
+      },
+      "OpenSearch.Client.JsonNetSerializer": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "MdPY0BjSGaXYVBG4L2Mr1FXI9U9UTDXSoJJVM0x2yDnTDEEzIF+DwU7GZidzvGjWeGQmaLfANqjDzgm0aPYSBA==",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "OpenSearch.Client": "1.0.0"
+        }
+      },
+      "OpenSearch.Net": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "2misNqVlKPwcg47KHC4rg/SnZRuK663NAy98HDBUqDnpZiy5Z0BqJgnoZZpepNHRZhjcQ2CnHNNDGBr+j1U0yw==",
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.Buffers": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        }
+      },
+      "OpenSearch.Net.VirtualizedCluster": {
+        "type": "Transitive",
+        "resolved": "1.0.0",
+        "contentHash": "s2trH9AVYIJ1hy1DSzGAGp+Lv8ZoDvMMZkob++VflTnBb+mqoN0LY9VaIvaLEDuKIkYp4IOCHwSSHCwnYhc1sg==",
+        "dependencies": {
+          "OpenSearch.Net": "1.0.0"
+        }
+      },
       "OpenSearch.OpenSearch.Ephemeral": {
         "type": "Transitive",
         "resolved": "0.1.0-canary.0.276",
@@ -1320,33 +1355,6 @@
           "xunit.abstractions": "2.0.1"
         }
       },
-      "opensearch.net": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.CSharp": "4.6.0",
-          "System.Buffers": "4.5.1",
-          "System.Diagnostics.DiagnosticSource": "5.0.0"
-        }
-      },
-      "opensearch.net.virtualizedcluster": {
-        "type": "Project",
-        "dependencies": {
-          "OpenSearch.Net": "1.0.0"
-        }
-      },
-      "OpenSearch.Client": {
-        "type": "Project",
-        "dependencies": {
-          "OpenSearch.Net": "1.0.0"
-        }
-      },
-      "OpenSearch.Client.JsonNetSerializer": {
-        "type": "Project",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.0.0"
-        }
-      },
       "tests.configuration": {
         "type": "Project",
         "dependencies": {
@@ -1361,7 +1369,6 @@
           "JunitXml.TestLogger": "2.1.78",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "Nullean.VsTest.Pretty.TestLogger": "0.3.0",
-          "OpenSearch.Client.JsonNetSerializer": "1.0.0",
           "OpenSearch.OpenSearch.Xunit": "0.1.0-canary.0.276",
           "Proc": "0.6.1",
           "Tests.Domain": "1.0.0",
@@ -1374,6 +1381,9 @@
           "Bogus": "22.1.2",
           "Newtonsoft.Json": "13.0.1",
           "OpenSearch.Client": "1.0.0",
+          "OpenSearch.Client.JsonNetSerializer": "1.0.0",
+          "OpenSearch.Net": "1.0.0",
+          "OpenSearch.Net.VirtualizedCluster": "1.0.0",
           "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.276",
           "Tests.Configuration": "1.0.0"
         }
