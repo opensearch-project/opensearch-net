@@ -24,6 +24,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 #else
 	using System.Collections.Specialized;
 	using System.IO;
+	using System.IO.Compression;
 	using System.Net;
 #endif
 
@@ -140,10 +141,14 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		private static byte[] GetBodyBytes(RequestData requestData)
 		{
 			if (requestData.PostData == null) return Array.Empty<byte>();
-			if (requestData.PostData.WrittenBytes is { } data) return data;
 
 			using var ms = new MemoryStream();
-			requestData.PostData.Write(ms, requestData.ConnectionSettings);
+			if (requestData.HttpCompression)
+				using (var zipStream = new GZipStream(ms, CompressionMode.Compress))
+					requestData.PostData.Write(zipStream, requestData.ConnectionSettings);
+			else
+				requestData.PostData.Write(ms, requestData.ConnectionSettings);
+
 			return ms.ToArray();
 		}
 #endif
