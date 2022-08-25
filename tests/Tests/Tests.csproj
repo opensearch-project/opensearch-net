@@ -17,16 +17,9 @@
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="FSharp.Core" Version="4.7.0" />
-    <PackageReference Include="Bogus" Version="22.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Reactive" Version="3.1.1" />
-    <PackageReference Include="SharpZipLib" Version="1.3.3" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
     <PackageReference Include="SemanticVersioning" Version="0.8.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" />
-    <PackageReference Include="xunit.extensibility.execution" Version="2.4.2" />
-    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
     <PackageReference Include="Ben.Demystifier" Version="0.1.4" />
   </ItemGroup>
   <ItemGroup>
