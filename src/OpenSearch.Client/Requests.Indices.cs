@@ -121,11 +121,20 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -291,11 +300,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -368,11 +386,20 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -422,17 +449,27 @@ namespace OpenSearch.Client
 		IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
 		// Request parameters
 		///<summary>Whether a type should be expected in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -501,12 +538,20 @@ namespace OpenSearch.Client
 			get => Q<bool? >("ignore_unavailable");
 			set => Q("ignore_unavailable", value);
 		}
-
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -557,11 +602,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit timestamp for the document</summary>
@@ -603,11 +657,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		Name IDeleteIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -684,7 +747,7 @@ namespace OpenSearch.Client
 			set => Q("include_defaults", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -762,7 +825,7 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -808,7 +871,7 @@ namespace OpenSearch.Client
 			set => Q("flat_settings", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -816,13 +879,23 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
 		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
 	}
 
+	/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
 	[InterfaceDataContract]
 	public partial interface ITypeExistsRequest : IRequest<TypeExistsRequestParameters>
 	{
@@ -840,6 +913,7 @@ namespace OpenSearch.Client
 	}
 
 	///<summary>Request for TypeExists <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</para></summary>
+	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 	public partial class TypeExistsRequest : PlainRequestBase<TypeExistsRequestParameters>, ITypeExistsRequest
 	{
 		protected ITypeExistsRequest Self => this;
@@ -887,7 +961,7 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1113,24 +1187,34 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether to add the type name to the response (default: false)</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
 			set => Q("local", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -1209,7 +1293,7 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1295,13 +1379,14 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether a type should be returned in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1364,17 +1449,27 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether to add the type name to the response (default: false)</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -1467,18 +1562,27 @@ namespace OpenSearch.Client
 			set => Q("include_defaults", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
 			set => Q("local", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -1520,13 +1624,14 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether a type should be returned in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1534,10 +1639,19 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -1596,11 +1710,20 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -1658,11 +1781,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit timestamp for the document</summary>
@@ -1733,17 +1865,27 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether a type should be expected in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -1837,11 +1979,20 @@ namespace OpenSearch.Client
 			set => Q("ignore_unavailable", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Whether to update existing settings. If set to `true` existing settings on an index remain unchanged, the default is `false`</summary>
@@ -1898,17 +2049,27 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether a type should be returned in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -2061,17 +2222,27 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>Whether a type should be included in the body of the mappings.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public bool? IncludeTypeName
 		{
 			get => Q<bool? >("include_type_name");
 			set => Q("include_type_name", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -2191,11 +2362,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		IndexName IShrinkIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -2253,11 +2433,20 @@ namespace OpenSearch.Client
 		[IgnoreDataMember]
 		IndexName ISplitIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -2287,11 +2476,20 @@ namespace OpenSearch.Client
 		internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesBulkAlias;
 		// values part of the url path
 		// Request parameters
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Request timeout</summary>

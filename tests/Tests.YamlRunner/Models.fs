@@ -150,17 +150,17 @@ type Do = {
     with member this.Log () = sprintf "Api %s" <| fst this.ApiCall
 
 type Feature =
-    | CatchUnauthorized // "catch_unauthorized", //NOT seen in master
-    | DefaultShards // "default_shards", //NOT seen in master
-    | EmbeddedStashKey // "embedded_stash_key", //NOT seen in master
+    | CatchUnauthorized // "catch_unauthorized", //NOT seen in main branch
+    | DefaultShards // "default_shards", //NOT seen in main branch
+    | EmbeddedStashKey // "embedded_stash_key", //NOT seen in main branch
     | Headers // "headers", 
     | NodeSelector // "node_selector", // not needed in the client yaml runner always runs single node mode.
-    | StashInKey // "stash_in_key", //NOT seen in master
+    | StashInKey // "stash_in_key", //NOT seen in main branch
     | StashInPath // "stash_in_path",
-    | StashPathReplace // "stash_path_replace", //NOT seen in master
+    | StashPathReplace // "stash_path_replace", //NOT seen in main branch
     | Warnings // "warnings", 
     | Yaml // "yaml", 
-    | Contains // "contains", //NOT seen in master
+    | Contains // "contains", //NOT seen in main branch
     | TransformAndSet // "transform_and_set", 
     | ArbitraryKey // "arbitrary_key"
     | Unsupported of string

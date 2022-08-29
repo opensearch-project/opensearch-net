@@ -30,6 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
+	/// <summary>
+	/// OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+	/// All fields except `count` might be zeroed.
+	/// </summary>
 	[DataContract]
 	public class SegmentsStats
 	{

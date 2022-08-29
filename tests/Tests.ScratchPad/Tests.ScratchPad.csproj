@@ -12,6 +12,6 @@
 
   <ItemGroup>
     <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="5.0.0" />
-    <PackageReference Include="BenchMarkDotNet" Version="0.12.1" />
+    <PackageReference Include="BenchMarkDotNet" Version="0.13.1" />
   </ItemGroup>
 </Project>

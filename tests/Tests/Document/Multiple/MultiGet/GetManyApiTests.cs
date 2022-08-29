@@ -43,9 +43,14 @@ namespace Tests.Document.Multiple.MultiGet
 	public class GetManyApiTests : IClusterFixture<WritableCluster>
 	{
 		private readonly IOpenSearchClient _client;
+		private readonly WritableCluster _cluster;
 		private readonly IEnumerable<long> _ids = Developer.Developers.Select(d => d.Id).Take(10);
 
-		public GetManyApiTests(WritableCluster cluster) => _client = cluster.Client;
+		public GetManyApiTests(WritableCluster cluster)
+		{
+			_client = cluster.Client;
+			_cluster = cluster;
+		}
 
 		[I] public void UsesDefaultIndexAndInferredType()
 		{
@@ -54,7 +59,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response)
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (_cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 			}
@@ -67,7 +73,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response)
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (_cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 			}
@@ -203,7 +210,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response)
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (_cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeFalse();
 			}

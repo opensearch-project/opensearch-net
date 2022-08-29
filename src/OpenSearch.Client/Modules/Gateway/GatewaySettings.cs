@@ -25,6 +25,8 @@
 *  under the License.
 */
 
+using System;
+
 namespace OpenSearch.Client
 {
 	/// <inheritdoc />
@@ -34,6 +36,7 @@ namespace OpenSearch.Client
 		public int? ExpectedDataNodes { get; internal set; }
 
 		/// <inheritdoc />
+		[Obsolete]
 		public int? ExpectedMasterNodes { get; internal set; }
 
 		/// <inheritdoc />

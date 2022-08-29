@@ -85,7 +85,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var document in response.Hits)
 			{
 				document.Index.Should().NotBeNullOrWhiteSpace();
-				document.Type.Should().NotBeNullOrWhiteSpace();
+				if (Cluster.ClusterConfiguration.Version < "2.0.0")
+					document.Type.Should().NotBeNullOrWhiteSpace();
 				document.Id.Should().NotBeNullOrWhiteSpace();
 				document.Found.Should().BeTrue();
 			}
@@ -135,7 +136,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response.Hits)
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (Cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 			}
@@ -191,7 +193,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response.GetMany<Project>(_ids))
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (Cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 				hit.Version.Should().Be(1);
@@ -246,7 +249,8 @@ namespace Tests.Document.Multiple.MultiGet
 			foreach (var hit in response.GetMany<CommitActivity>(_activities.Select(c => c.Id)))
 			{
 				hit.Index.Should().NotBeNullOrWhiteSpace();
-				hit.Type.Should().NotBeNullOrWhiteSpace();
+				if (Cluster.ClusterConfiguration.Version < "2.0.0")
+					hit.Type.Should().NotBeNullOrWhiteSpace();
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 				hit.Version.Should().Be(1);

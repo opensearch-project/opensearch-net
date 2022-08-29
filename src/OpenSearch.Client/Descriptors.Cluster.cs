@@ -89,7 +89,11 @@ namespace OpenSearch.Client
 		///<summary>Whether to return all default clusters setting.</summary>
 		public ClusterGetSettingsDescriptor IncludeDefaults(bool? includedefaults = true) => Qs("include_defaults", includedefaults);
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}
@@ -123,10 +127,14 @@ namespace OpenSearch.Client
 		public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
 		///<summary>Specify the level of detail for returned information</summary>
 		public ClusterHealthDescriptor Level(Level? level) => Qs("level", level);
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterHealthDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 		///<summary>Wait until the specified number of shards is active</summary>
@@ -149,10 +157,14 @@ namespace OpenSearch.Client
 		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
 		// values part of the url path
 		// Request parameters
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterPendingTasksDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 	}
 
 	///<summary>Descriptor for PostVotingConfigExclusions <para></para></summary>
@@ -178,7 +190,11 @@ namespace OpenSearch.Client
 		///<summary>Return settings in flat format (default: false)</summary>
 		public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}
@@ -202,7 +218,11 @@ namespace OpenSearch.Client
 		///<summary>Return an explanation of why the commands can or cannot be executed</summary>
 		public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterRerouteDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Limit the information returned to the specified metrics. Defaults to all but metadata</summary>
 		public ClusterRerouteDescriptor Metric(params string[] metric) => Qs("metric", metric);
 		///<summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures</summary>
@@ -254,10 +274,14 @@ namespace OpenSearch.Client
 		public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
 		public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ClusterStateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ClusterStateDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Wait for the metadata version to be equal or greater than the specified metadata version</summary>
 		public ClusterStateDescriptor WaitForMetadataVersion(long? waitformetadataversion) => Qs("wait_for_metadata_version", waitformetadataversion);
 		///<summary>The maximum time to wait for wait_for_metadata_version before timing out</summary>

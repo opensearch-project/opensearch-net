@@ -33,9 +33,11 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Indices.IndexManagement.TypesExists
 {
+	[SkipVersion(">=2.0.0", "Type Mapping API was removed from OpenSearch 2.0")]
 	public class TypeExistsApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, ExistsResponse, ITypeExistsRequest, TypeExistsDescriptor, TypeExistsRequest>
 	{

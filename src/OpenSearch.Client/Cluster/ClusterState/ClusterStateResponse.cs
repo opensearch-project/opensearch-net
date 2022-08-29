@@ -44,8 +44,13 @@ namespace OpenSearch.Client
 		[DataMember(Name = "cluster_uuid")]
 		public string ClusterUUID => State.Get<string>("cluster_uuid");
 
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerNode"/> instead</remarks>
 		[DataMember(Name = "master_node")]
 		public string MasterNode => State.Get<string>("master_node");
+
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterNode"/></remarks>
+		[DataMember(Name = "cluster_manager_node")]
+		public string ClusterManagerNode => State.Get<string>("cluster_manager_node");
 
 		[DataMember(Name = "state_uuid")]
 		public string StateUUID => State.Get<string>("state_uuid");

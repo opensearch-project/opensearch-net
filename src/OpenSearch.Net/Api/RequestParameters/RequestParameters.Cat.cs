@@ -87,7 +87,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -146,7 +146,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -154,10 +154,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -409,7 +418,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("include_unloaded_segments", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -417,10 +426,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Set to true to return stats only for primary shards</summary>
@@ -445,7 +463,8 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 	}
 
-	///<summary>Request options for Master <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-master/</para></summary>
+	///<summary>Request options for Master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
+	///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerRequestParameters"/> instead</remarks>
 	public class CatMasterRequestParameters : RequestParameters<CatMasterRequestParameters>
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -475,7 +494,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -483,10 +502,79 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
+
+		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+		public string[] SortByColumns
+		{
+			get => Q<string[]>("s");
+			set => Q("s", value);
+		}
+
+		///<summary>Verbose mode. Display column headers</summary>
+		public bool? Verbose
+		{
+			get => Q<bool? >("v");
+			set => Q("v", value);
+		}
+	}
+
+	///<summary>Request options for ClusterManager <para>https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</para></summary>
+	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterRequestParameters"/></remarks>
+	public class CatClusterManagerRequestParameters : RequestParameters<CatClusterManagerRequestParameters>
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+		public override bool SupportsBody => false;
+		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
+		public string Format
+		{
+			get => Q<string>("format");
+			set
+			{
+				Q("format", value);
+				SetAcceptHeader(value);
+			}
+		}
+
+		///<summary>Comma-separated list of column names to display</summary>
+		public string[] Headers
+		{
+			get => Q<string[]>("h");
+			set => Q("h", value);
+		}
+
+		///<summary>Return help information</summary>
+		public bool? Help
+		{
+			get => Q<bool? >("help");
+			set => Q("help", value);
+		}
+
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
+		public bool? Local
+		{
+			get => Q<bool? >("local");
+			set => Q("local", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		public TimeSpan ClusterManagerTimeout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -534,7 +622,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -542,10 +630,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -608,10 +705,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -659,7 +765,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -667,10 +773,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -725,7 +840,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("include_bootstrap", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -733,10 +848,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -857,7 +981,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -865,10 +989,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -975,7 +1108,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -983,10 +1116,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -1042,10 +1184,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -1169,7 +1320,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1177,10 +1328,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
@@ -1228,7 +1388,7 @@ namespace OpenSearch.Net.Specification.CatApi
 			set => Q("help", value);
 		}
 
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -1236,10 +1396,19 @@ namespace OpenSearch.Net.Specification.CatApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Comma-separated list of column names or column aliases to sort by</summary>

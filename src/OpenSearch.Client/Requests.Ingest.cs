@@ -89,10 +89,19 @@ namespace OpenSearch.Client
 		Id IDeletePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -134,10 +143,19 @@ namespace OpenSearch.Client
 		Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -187,10 +205,19 @@ namespace OpenSearch.Client
 		Id IPutPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public Time MasterTimeout
 		{
 			get => Q<Time>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public Time ClusterManagerTimeout
+		{
+			get => Q<Time>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>

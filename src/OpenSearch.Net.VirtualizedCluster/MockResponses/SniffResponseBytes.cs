@@ -97,7 +97,7 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 					: null,
 				settings = settings
 			};
-			if (node.MasterEligible) nodeResponse.roles.Add("master");
+			if (node.ClusterManagerEligible) nodeResponse.roles.Add("cluster_manager");
 			if (node.HoldsData) nodeResponse.roles.Add("data");
 			if (node.IngestEnabled) nodeResponse.roles.Add("ingest");
 			if (!node.HttpEnabled)

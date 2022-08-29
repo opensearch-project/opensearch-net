@@ -33,7 +33,6 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using M = System.Collections.Generic.Dictionary<string, object>;
 using static OpenSearch.Client.Infer;
 
 namespace Tests.Cluster.RemoteInfo
@@ -50,44 +49,13 @@ namespace Tests.Cluster.RemoteInfo
 
 		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
-			var oldWay = new M
-			{
-				{
-					"search", new M
-					{
-						{
-							"remote", new M
-							{
-								{
-									"cluster_one", new M
-									{
-										{ "seeds", new[] { "127.0.0.1:9300", "127.0.0.1:9301" } }
-									}
-								},
-								{
-									"cluster_two", new M
-									{
-										{ "seeds", new[] { "127.0.0.1:9300" } }
-									}
-								}
-							}
-						}
-					}
-				}
-			};
-			/**
-			 * You can also use the following helper class which uses
-			 * the new way to configure remote clusters.
-			 */
-			// ReSharper disable once UnusedVariable
-			var newWay = new RemoteClusterConfiguration()
-			{
-				{ "cluster_one", "127.0.0.1:9300", "127.0.0.1:9301" },
-				{ "cluster_two", "127.0.0.1:9300" }
-			};
 			var enableRemoteClusters = client.Cluster.PutSettings(new ClusterPutSettingsRequest
 			{
-				Transient = oldWay
+				Transient = new RemoteClusterConfiguration()
+				{
+					{ "cluster_one", "127.0.0.1:9300", "127.0.0.1:9301" },
+					{ "cluster_two", "127.0.0.1:9300" }
+				}
 			});
 			enableRemoteClusters.ShouldBeValid();
 

@@ -302,7 +302,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 
 			/** Or using an enumerable of `Node`. A major benefit in using nodes is that you can include
 			* known node roles when seeding, which OSC can then use to favour particular API requests. For example,
-			* sniffing on master eligible nodes first, and take master only nodes out of rotation for issuing client calls on.
+			* sniffing on cluster_manager eligible nodes first, and take cluster_manager only nodes out of rotation for issuing client calls on.
 			*/
 			var nodes = uris.Select(u=>new Node(u));
 			pool = new SniffingConnectionPool(nodes);

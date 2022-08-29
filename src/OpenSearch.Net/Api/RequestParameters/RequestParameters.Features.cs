@@ -56,10 +56,19 @@ namespace OpenSearch.Net.Specification.FeaturesApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 }

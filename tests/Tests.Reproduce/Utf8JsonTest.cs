@@ -57,7 +57,7 @@ namespace Tests.Reproduce {
         ""_source"" : {
           ""branches"" : [
             ""dev"",
-            ""master""
+            ""main""
           ],
           ""curatedTags"" : [
             {
@@ -218,7 +218,7 @@ namespace Tests.Reproduce {
         ""_source"" : {
           ""branches"" : [
             ""test"",
-            ""master"",
+            ""main"",
             ""qa"",
             ""release""
           ],
@@ -557,7 +557,7 @@ namespace Tests.Reproduce {
         ""_source"" : {
           ""branches"" : [
             ""test"",
-            ""master"",
+            ""main"",
             ""release""
           ],
           ""curatedTags"" : [
@@ -707,7 +707,7 @@ namespace Tests.Reproduce {
         ""_routing"" : ""D'Amore, Renner and Wyman3001"",
         ""_source"" : {
           ""branches"" : [
-            ""master""
+            ""main""
           ],
           ""curatedTags"" : [
             {

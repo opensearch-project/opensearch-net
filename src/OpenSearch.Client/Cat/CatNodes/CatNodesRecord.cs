@@ -33,6 +33,7 @@ namespace OpenSearch.Client
 	public class CatNodesRecord : ICatRecord
 	{
 		public string Build => _b ?? _build;
+		public string ClusterManager => Master ?? _cm ?? _cluster_manager;
 		public string CompletionSize => _completionSize ?? _cs ?? _completion_size;
 
 		[DataMember(Name ="cpu")]
@@ -124,6 +125,12 @@ namespace OpenSearch.Client
 
 		[DataMember(Name ="build")]
 		internal string _build { get; set; }
+
+		[DataMember(Name ="cm")]
+		internal string _cm { get; set; }
+
+		[DataMember(Name ="cluster_manager")]
+		internal string _cluster_manager { get; set; }
 
 		[DataMember(Name ="completion.size")]
 		internal string _completion_size { get; set; }

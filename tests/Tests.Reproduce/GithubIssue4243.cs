@@ -45,7 +45,10 @@ namespace Tests.Reproduce
 		{
 			var connectionConfiguration = new ConnectionConfiguration(_cluster.Client.ConnectionSettings.ConnectionPool);
 			var lowLevelClient = new OpenSearchLowLevelClient(connectionConfiguration);
-			var response = await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" });
+
+			var response = _cluster.ClusterConfiguration.Version < "2.0.0"
+				? await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" })
+				: await lowLevelClient.Cat.ClusterManagerAsync<StringResponse>(new CatClusterManagerRequestParameters { Format = "JSON" });
 
 			response.Success.Should().BeTrue();
 			response.ApiCall.HttpStatusCode.Should().Be(200);

@@ -54,15 +54,15 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 		{
 			var audit = new Auditor(() => VirtualClusterWith
 				.Nodes(10)
-				.MasterEligible(9202, 9203, 9204)
+				.ClusterManagerEligible(9202, 9203, 9204)
 				.ClientCalls(r => r.SucceedAlways())
 				.Sniff(s => s.SucceedAlways(VirtualClusterWith
 					.Nodes(100)
-					.MasterEligible(9202, 9203, 9204)
+					.ClusterManagerEligible(9202, 9203, 9204)
 					.ClientCalls(r => r.SucceedAlways())
 					.Sniff(ss => ss.SucceedAlways(VirtualClusterWith
 						.Nodes(10)
-						.MasterEligible(9202, 9203, 9204)
+						.ClusterManagerEligible(9202, 9203, 9204)
 						.ClientCalls(r => r.SucceedAlways())
 					))
 				))
