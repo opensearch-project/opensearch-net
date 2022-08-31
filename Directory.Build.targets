@@ -1,8 +1,8 @@
 <Project>
-  <Import Project="$(SolutionRoot)\src\_PublishArtifacts.Build.props" Condition="$(IsPackable) == True"/>
+  <Import Project="src\_PublishArtifacts.Build.props" Condition="$(IsPackable) == True"/>
   <PropertyGroup Condition="$(IsPackable) == True OR $(MSBuildProjectName.StartsWith('Tests'))">
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionRoot)\build\keys\keypair.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)\build\keys\keypair.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="$(IsPackable) == True">
     <OutDir>bin/$(Configuration)/$(TargetFramework)/</OutDir>
