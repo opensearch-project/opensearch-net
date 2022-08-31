@@ -48,9 +48,9 @@ namespace Tests.Search.MultiSearch
 			new { from = 0, size = 10, query = new { match_all = new { } } },
 			new { search_type = "query_then_fetch" },
 			new { },
-			new { index = "devs", type = "developer" },
+			new { index = "devs" },
 			new { from = 0, size = 5, query = new { match_all = new { } } },
-			new { index = "devs", type = "developer" },
+			new { index = "devs" },
 			new { from = 0, size = 5, query = new { match_all = new { } } }
 		}.ToList();
 

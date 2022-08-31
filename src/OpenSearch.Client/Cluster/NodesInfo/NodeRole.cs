@@ -33,8 +33,13 @@ namespace OpenSearch.Client
 	[StringEnum]
 	public enum NodeRole
 	{
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager"/> instead</remarks>
 		[EnumMember(Value = "master")]
 		Master,
+
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master"/></remarks>
+		[EnumMember(Value = "cluster_manager")]
+		ClusterManager,
 
 		[EnumMember(Value = "data")]
 		Data,

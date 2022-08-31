@@ -47,8 +47,8 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			node.Uri.Should().NotBeNull();
 			node.Uri.Port.Should().Be(9200);
 
-			/** By default master eligible and holds data is presumed to be true **/
-			node.MasterEligible.Should().BeTrue();
+			/** By default cluster_manager eligible and holds data is presumed to be true **/
+			node.ClusterManagerEligible.Should().BeTrue();
 			node.HoldsData.Should().BeTrue();
 
 			/** Is resurrected is true on first usage, hints to the transport that a ping might be useful */
@@ -107,11 +107,11 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		{
 			/** ==== Node Equality
 			* Nodes are considered equal if they have the same endpoint, no matter what other metadata is associated */
-			var node = new Node(new Uri("http://localhost:9200")) { MasterEligible = false };
-			var nodeAsMaster = new Node(new Uri("http://localhost:9200")) { MasterEligible = true };
+			var node = new Node(new Uri("http://localhost:9200")) { ClusterManagerEligible = false };
+			var nodeAsClusterManager = new Node(new Uri("http://localhost:9200")) { ClusterManagerEligible = true };
 
-			(node == nodeAsMaster).Should().BeTrue();
-			(node != nodeAsMaster).Should().BeFalse();
+			(node == nodeAsClusterManager).Should().BeTrue();
+			(node != nodeAsClusterManager).Should().BeFalse();
 
 			var uri = new Uri("http://localhost:9200");
 			(node == uri).Should().BeTrue();
@@ -119,7 +119,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			var differentUri = new Uri("http://localhost:9201");
 			(node != differentUri).Should().BeTrue();
 
-			node.Should().Be(nodeAsMaster);
+			node.Should().Be(nodeAsClusterManager);
 		}
 	}
 }

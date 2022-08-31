@@ -109,7 +109,8 @@ namespace Tests.Document.Single.Delete
 			response.ShouldNotBeValid();
 			response.Result.Should().Be(Result.NotFound);
 			response.Index.Should().Be("project");
-			response.Type.Should().Be("_doc");
+			if (Cluster.ClusterConfiguration.Version < "2.0.0")
+				response.Type.Should().Be("_doc");
 			response.Id.Should().Be(CallIsolatedValue);
 			response.Shards.Total.Should().BeGreaterOrEqualTo(1);
 			response.Shards.Successful.Should().BeGreaterOrEqualTo(1);

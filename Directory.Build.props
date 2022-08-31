@@ -21,7 +21,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReleaseNotes>See https://github.com/opensearch-project/opensearch-net/releases</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/opensearch-project/opensearch-net</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/opensearch-project/opensearch-net/master/build/nuget-icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/opensearch-project/opensearch-net/main/build/nuget-icon.png</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup>

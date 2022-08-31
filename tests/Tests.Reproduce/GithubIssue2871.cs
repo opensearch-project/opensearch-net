@@ -100,14 +100,16 @@ namespace Tests.Reproduce
 			var firstMultiGetHit = response.Hits.First();
 			firstMultiGetHit.Error.Should().NotBeNull();
 			firstMultiGetHit.Error.Should().NotBeNull();
-			firstMultiGetHit.Error.Type.Should().NotBeNullOrEmpty();
+			if (_cluster.ClusterConfiguration.Version < "2.0.0")
+				firstMultiGetHit.Error.Type.Should().NotBeNullOrEmpty();
 			firstMultiGetHit.Error.Reason.Should().NotBeNullOrEmpty();
 			firstMultiGetHit.Error.RootCause.Should().NotBeNull().And.HaveCount(1);
 
 			var lastMultiGetHit = response.Hits.Last();
 			lastMultiGetHit.Error.Should().NotBeNull();
 			lastMultiGetHit.Error.Should().NotBeNull();
-			lastMultiGetHit.Error.Type.Should().NotBeNullOrEmpty();
+			if (_cluster.ClusterConfiguration.Version < "2.0.0")
+				lastMultiGetHit.Error.Type.Should().NotBeNullOrEmpty();
 			lastMultiGetHit.Error.Reason.Should().NotBeNullOrEmpty();
 			lastMultiGetHit.Error.RootCause.Should().NotBeNull().And.HaveCount(1);
 		}

@@ -61,6 +61,10 @@
         "type":"time",
         "description":"Explicit operation timeout for connection to master node"
       },
+      "cluster_manager_timeout":{
+        "type":"time",
+        "description":"Explicit operation timeout for connection to cluster_manager_timeout node"
+      },
       "h":{
         "type":"list",
         "description":"Comma-separated list of column names to display"

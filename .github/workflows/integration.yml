@@ -12,7 +12,7 @@ jobs:
       fail-fast: false
       matrix:
         # 1.0.1 is skipped because it doesn't have a tag in OpenSearch repo, we can't check out to compile plugins
-        version: [1.3.1, 1.3.0, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0, 1.0.0]
+        version: [2.2.0, 2.1.0, 2.0.0, 1.3.1, 1.3.0, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0, 1.0.0]
 
     steps:
         # Due to https://github.com/opensearch-project/project-website/issues/737

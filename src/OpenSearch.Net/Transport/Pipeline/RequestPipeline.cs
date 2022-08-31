@@ -104,7 +104,7 @@ namespace OpenSearch.Net
 		public IEnumerable<Node> SniffNodes => _connectionPool
 			.CreateView(LazyAuditable)
 			.ToList()
-			.OrderBy(n => n.MasterEligible ? n.Uri.Port : int.MaxValue);
+			.OrderBy(n => n.ClusterManagerEligible ? n.Uri.Port : int.MaxValue);
 
 		public static string SniffPath => "_nodes/http,settings";
 

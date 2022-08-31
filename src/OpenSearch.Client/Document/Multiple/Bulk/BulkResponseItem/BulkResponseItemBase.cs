@@ -89,6 +89,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// The type against which the bulk operation ran
 		/// </summary>
+		/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
 		[DataMember(Name = "_type")]
 		public string Type { get; internal set; }
 
@@ -103,7 +104,7 @@ namespace OpenSearch.Client
 		{
 			get
 			{
-				if (Error != null || Type.IsNullOrEmpty()) return false;
+				if (Error != null) return false;
 
 				switch (Operation.ToLowerInvariant())
 				{

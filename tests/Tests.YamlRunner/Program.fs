@@ -49,7 +49,7 @@ type Arguments =
         member s.Usage =
             match s with
             | NamedSuite _ -> "specify a known yaml test suite. defaults to `opensource`."
-            | Revision _ -> "The git revision to reference (commit/branch/tag). defaults to `master`"
+            | Revision _ -> "The git revision to reference (commit/branch/tag). defaults to `main`"
             | Folder _ -> "Only run tests in this folder"
             | TestFile _ -> "Only run tests starting with this filename"
             | TestSection _ -> "Only run test with this name (best used in conjuction with -t)"

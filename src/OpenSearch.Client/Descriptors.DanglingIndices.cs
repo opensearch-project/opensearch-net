@@ -77,8 +77,12 @@ namespace OpenSearch.Client
 		// Request parameters
 		///<summary>Must be set to true in order to delete the dangling index</summary>
 		public DeleteDanglingIndexDescriptor AcceptDataLoss(bool? acceptdataloss = true) => Qs("accept_data_loss", acceptdataloss);
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public DeleteDanglingIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public DeleteDanglingIndexDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public DeleteDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}
@@ -104,8 +108,12 @@ namespace OpenSearch.Client
 		// Request parameters
 		///<summary>Must be set to true in order to import the dangling index</summary>
 		public ImportDanglingIndexDescriptor AcceptDataLoss(bool? acceptdataloss = true) => Qs("accept_data_loss", acceptdataloss);
-		///<summary>Specify timeout for connection to master</summary>
+		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public ImportDanglingIndexDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public ImportDanglingIndexDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public ImportDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}

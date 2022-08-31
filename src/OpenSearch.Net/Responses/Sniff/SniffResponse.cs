@@ -78,7 +78,7 @@ namespace OpenSearch.Net
 				{
 					Name = info.name,
 					Id = kv.Key,
-					MasterEligible = info.MasterEligible,
+					ClusterManagerEligible = info.ClusterManagerEligible,
 					HoldsData = info.HoldsData,
 					IngestEnabled = info.IngestEnabled,
 					HttpEnabled = info.HttpEnabled,
@@ -115,7 +115,9 @@ namespace OpenSearch.Net
 
 		internal bool IngestEnabled => roles?.Contains("ingest") ?? false;
 
-		internal bool MasterEligible => roles?.Contains("master") ?? false;
+		internal bool ClusterManagerEligible => (roles == null ? false : roles.Contains("master") || roles.Contains("cluster_manager"));
+		[Obsolete("Use ClusterManagerEligible instead", false)]
+		internal bool MasterEligible => ClusterManagerEligible;
 	}
 
 	internal class NodeInfoHttp

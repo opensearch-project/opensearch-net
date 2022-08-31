@@ -292,9 +292,9 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// The default predicate for <see cref="IConnectionPool" /> implementations that return true for
 		/// <see cref="IConnectionPool.SupportsReseeding" />
-		/// in which case master only nodes are excluded from API calls.
+		/// in which case cluster_manager only nodes are excluded from API calls.
 		/// </summary>
-		private static bool DefaultReseedableNodePredicate(Node node) => !node.MasterOnlyNode;
+		private static bool DefaultReseedableNodePredicate(Node node) => !node.ClusterManagerOnlyNode;
 
 		private static bool DefaultNodePredicate(Node node) => true;
 
@@ -548,7 +548,7 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// Register a predicate to select which nodes that you want to execute API calls on. Note that sniffing requests omit this predicate and
 		/// always execute on all nodes.
-		/// When using an <see cref="IConnectionPool" /> implementation that supports reseeding of nodes, this will default to omitting master only
+		/// When using an <see cref="IConnectionPool" /> implementation that supports reseeding of nodes, this will default to omitting cluster_manager only
 		/// node from regular API calls.
 		/// When using static or single node connection pooling it is assumed the list of node you instantiate the client with should be taken
 		/// verbatim.

@@ -112,7 +112,8 @@ namespace Tests.Document.Single.Get
 		{
 			response.Found.Should().BeFalse();
 			response.Index.Should().Be("project");
-			response.Type.Should().Be("_doc");
+			if (Cluster.ClusterConfiguration.Version < "2.0.0")
+				response.Type.Should().Be("_doc");
 			response.Id.Should().Be(CallIsolatedValue);
 		}
 	}

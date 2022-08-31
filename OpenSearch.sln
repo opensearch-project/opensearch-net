@@ -42,9 +42,16 @@ EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdown", "Markdown", "{2FABB663-F4DB-499A-89F8-3A08828D1D91}"
 ProjectSection(SolutionItems) = preProject
+	admins.md = admins.md
+	code_of_conduct.md = code_of_conduct.md
+	compatibility.md = compatibility.md
 	contributing.md = contributing.md
+	maintainers.md = maintainers.md
 	license.txt = license.txt
 	readme.md = readme.md
+	releasing.md = releasing.md
+	security.md = security.md
+	user_guide.md = user_guide.md
 EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tests.YamlRunner", "tests\Tests.YamlRunner\Tests.YamlRunner.fsproj", "{81473437-5722-4829-A5CD-125B17CCA238}"

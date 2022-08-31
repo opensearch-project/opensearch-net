@@ -187,18 +187,18 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 			});
 		}
 
-		/**==== Prefers master eligible nodes
+		/**==== Prefers cluster_manager eligible nodes
 		 *
-		 * Sniffing prefers to run on master eligible nodes
+		 * Sniffing prefers to run on cluster_manager eligible nodes
 		 */
 		[U] [SuppressMessage("AsyncUsage", "AsyncFixer001:Unnecessary async/await usage", Justification = "Its a test")]
-		public async Task SniffPrefersMasterNodes()
+		public async Task SniffPrefersClusterManagerNodes()
 		{
 			var audit = new Auditor(() => VirtualClusterWith
 				.Nodes(new[] {
-					new Node(new Uri("http://localhost:9200")) { MasterEligible = false },
-					new Node(new Uri("http://localhost:9201")) { MasterEligible = false },
-					new Node(new Uri("http://localhost:9202")) { MasterEligible = true },
+					new Node(new Uri("http://localhost:9200")) { ClusterManagerEligible = false },
+					new Node(new Uri("http://localhost:9201")) { ClusterManagerEligible = false },
+					new Node(new Uri("http://localhost:9202")) { ClusterManagerEligible = true },
 				})
 				.Sniff(s => s.Succeeds(Always))
 				.Ping(s => s.Succeeds(Always))
@@ -216,16 +216,16 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 		}
 
 		/**
-		 * although it will fail over to non-master eligible nodes when sniffing fails on master eligible nodes
+		 * although it will fail over to non-cluster_manager eligible nodes when sniffing fails on cluster_manager eligible nodes
 		 */
 		[U] [SuppressMessage("AsyncUsage", "AsyncFixer001:Unnecessary async/await usage", Justification = "Its a test")]
-		public async Task SniffPrefersMasterNodesButStillFailsOver()
+		public async Task SniffPrefersClusterManagerNodesButStillFailsOver()
 		{
 			var audit = new Auditor(() => VirtualClusterWith
 				.Nodes(new[] {
-					new Node(new Uri("http://localhost:9200")) { MasterEligible = true },
-					new Node(new Uri("http://localhost:9201")) { MasterEligible = true },
-					new Node(new Uri("http://localhost:9202")) { MasterEligible = false },
+					new Node(new Uri("http://localhost:9200")) { ClusterManagerEligible = true },
+					new Node(new Uri("http://localhost:9201")) { ClusterManagerEligible = true },
+					new Node(new Uri("http://localhost:9202")) { ClusterManagerEligible = false },
 				})
 				.Sniff(s => s.Fails(Always))
 				.Sniff(s => s.OnPort(9202).Succeeds(Always))

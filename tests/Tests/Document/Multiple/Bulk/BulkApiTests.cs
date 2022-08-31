@@ -169,7 +169,8 @@ namespace Tests.Document.Multiple.Bulk
 			foreach (var item in response.Items)
 			{
 				item.Index.Should().Be(CallIsolatedValue);
-				item.Type.Should().Be("_doc");
+				if (Cluster.ClusterConfiguration.Version < "2.0.0")
+					item.Type.Should().Be("_doc");
 				item.Status.Should().BeGreaterThan(100);
 				item.Version.Should().BeGreaterThan(0);
 				item.Id.Should().NotBeNullOrWhiteSpace();

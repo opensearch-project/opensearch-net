@@ -67,7 +67,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 			Name = "named_query",
 			Boost = 1.1,
 			Field = Infer.Field<Project>(p => p.Branches),
-			Terms = new[] { "master", "dev" },
+			Terms = new[] { "main", "dev" },
 			MinimumShouldMatchField = Infer.Field<Project>(p => p.RequiredBranches)
 		};
 
@@ -79,7 +79,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 				{
 					_name = "named_query",
 					boost = 1.1,
-					terms = new[] { "master", "dev" },
+					terms = new[] { "main", "dev" },
 					minimum_should_match_field = "requiredBranches"
 				}
 			}
@@ -90,7 +90,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 				.Name("named_query")
 				.Boost(1.1)
 				.Field(p => p.Branches)
-				.Terms("master", "dev")
+				.Terms("main", "dev")
 				.MinimumShouldMatchField(p => p.RequiredBranches)
 			);
 	}
@@ -112,7 +112,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 			Name = "named_query",
 			Boost = 1.1,
 			Field = Infer.Field<Project>(p => p.Branches),
-			Terms = new[] { "master", "dev" },
+			Terms = new[] { "main", "dev" },
 			MinimumShouldMatchScript = new InlineScript("doc['requiredBranches'].size() == 0 ? params.num_terms : Math.min(params.num_terms, doc['requiredBranches'].value)")
 		};
 
@@ -124,7 +124,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 				{
 					_name = "named_query",
 					boost = 1.1,
-					terms = new[] { "master", "dev" },
+					terms = new[] { "main", "dev" },
 					minimum_should_match_script = new
 					{
 						source = "doc['requiredBranches'].size() == 0 ? params.num_terms : Math.min(params.num_terms, doc['requiredBranches'].value)"
@@ -138,7 +138,7 @@ namespace Tests.QueryDsl.TermLevel.TermsSet
 				.Name("named_query")
 				.Boost(1.1)
 				.Field(p => p.Branches)
-				.Terms("master", "dev")
+				.Terms("main", "dev")
 				.MinimumShouldMatchScript(s => s
 					.Source("doc['requiredBranches'].size() == 0 ? params.num_terms : Math.min(params.num_terms, doc['requiredBranches'].value)")
 				)

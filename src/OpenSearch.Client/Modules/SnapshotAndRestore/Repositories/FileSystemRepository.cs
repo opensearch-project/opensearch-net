@@ -34,7 +34,7 @@ namespace OpenSearch.Client
 	/// <summary>
 	/// A snapshot repository that uses a shared file system to store snapshot data.
 	/// The path specified in the location parameter should point to the same location in the shared
-	/// filesystem and be accessible on all data and master nodes.
+	/// filesystem and be accessible on all data and cluster_manager nodes.
 	/// </summary>
 	public interface IFileSystemRepository : IRepository<IFileSystemRepositorySettings> { }
 

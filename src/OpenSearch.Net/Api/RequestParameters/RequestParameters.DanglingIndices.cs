@@ -62,11 +62,20 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
 			set => Q("accept_data_loss", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
-		public TimeSpan MasterTimeout
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -89,11 +98,20 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
 			set => Q("accept_data_loss", value);
 		}
 
-		///<summary>Specify timeout for connection to master</summary>
-		public TimeSpan MasterTimeout
+		///<summary>Specify timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>

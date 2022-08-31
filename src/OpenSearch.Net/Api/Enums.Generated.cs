@@ -64,12 +64,16 @@ namespace OpenSearch.Net
 		RoutingTable = 1 << 3,
 		[EnumMember(Value = "routing_nodes")]
 		RoutingNodes = 1 << 4,
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerNode"/> instead</remarks>
 		[EnumMember(Value = "master_node")]
 		MasterNode = 1 << 5,
 		[EnumMember(Value = "version")]
 		Version = 1 << 6,
 		[EnumMember(Value = "_all")]
-		All = 1 << 7
+		All = 1 << 7,
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterNode"/></remarks>
+		[EnumMember(Value = "cluster_manager_node")]
+		ClusterManagerNode = 1 << 8,
 	}
 
 	[Flags, StringEnum]
@@ -504,6 +508,8 @@ namespace OpenSearch.Net
 				list.Add("routing_nodes");
 			if ((enumValue & ClusterStateMetric.MasterNode) != 0)
 				list.Add("master_node");
+			if ((enumValue & ClusterStateMetric.ClusterManagerNode) != 0)
+				list.Add("cluster_manager_node");
 			if ((enumValue & ClusterStateMetric.Version) != 0)
 				list.Add("version");
 			return string.Join(",", list);

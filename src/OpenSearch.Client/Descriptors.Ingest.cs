@@ -76,7 +76,11 @@ namespace OpenSearch.Client
 		Id IDeletePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public DeletePipelineDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public DeletePipelineDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public DeletePipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}
@@ -102,7 +106,11 @@ namespace OpenSearch.Client
 		public GetPipelineDescriptor Id(Id id) => Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public GetPipelineDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public GetPipelineDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 	}
 
 	///<summary>Descriptor for GrokProcessorPatterns <para></para></summary>
@@ -133,7 +141,11 @@ namespace OpenSearch.Client
 		Id IPutPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 		// Request parameters
 		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
 		public PutPipelineDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
+		public PutPipelineDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
 		///<summary>Explicit operation timeout</summary>
 		public PutPipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 	}

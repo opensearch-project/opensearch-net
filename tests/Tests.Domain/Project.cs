@@ -110,7 +110,7 @@ namespace Tests.Domain
 				.RuleFor(p => p.NumberOfContributors, f => Gimme.Random.Number(1, 50))
 				.RuleFor(p => p.Ranges, f => Ranges.Generator.Generate())
 				.RuleFor(p => p.Rank, f => Gimme.Random.Number(1, 100))
-				.RuleFor(p => p.Branches, f => Gimme.Random.ListItems(new List<string> { "master", "dev", "release", "qa", "test" }))
+				.RuleFor(p => p.Branches, f => Gimme.Random.ListItems(new List<string> { "main", "dev", "release", "qa", "test" }))
 				.RuleFor(p => p.SourceOnly, f =>
 					TestConfiguration.Instance.Random.SourceSerializer ? new SourceOnlyObject() : null
 				)
@@ -202,6 +202,6 @@ namespace Tests.Domain
 
 		public DateTime WeekStartedOnDate { get; set; }
 
-		public long SumIntoMaster { get; set; }
+		public long SumIntoMain { get; set; }
 	}
 }

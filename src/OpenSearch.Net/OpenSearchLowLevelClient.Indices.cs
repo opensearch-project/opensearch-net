@@ -272,12 +272,14 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		///<param name = "index">A comma-separated list of index names; use `_all` to check the types across all indices</param>
 		///<param name = "type">A comma-separated list of document types to check</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		public TResponse TypeExists<TResponse>(string index, string type, TypeExistsRequestParameters requestParameters = null)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(HEAD, Url($"{index:index}/_mapping/{type:type}"), null, RequestParams(requestParameters));
 		///<summary>HEAD on /{index}/_mapping/{type} <para>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</para></summary>
 		///<param name = "index">A comma-separated list of index names; use `_all` to check the types across all indices</param>
 		///<param name = "type">A comma-separated list of document types to check</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 		[MapsApi("indices.exists_type", "index, type")]
 		public Task<TResponse> TypeExistsAsync<TResponse>(string index, string type, TypeExistsRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(HEAD, Url($"{index:index}/_mapping/{type:type}"), ctx, null, RequestParams(requestParameters));

@@ -56,17 +56,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
 		}
 
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
 		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -76,10 +78,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -89,10 +100,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Should this request wait until the operation has completed before returning</summary>
@@ -109,10 +129,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
 		public override bool SupportsBody => true;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -136,10 +165,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 		public override bool SupportsBody => false;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -149,10 +187,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
 		public override bool SupportsBody => false;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
@@ -176,10 +223,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Whether to show verbose snapshot info or only show the basic info found in the repository index blob</summary>
@@ -195,7 +251,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
 		public override bool SupportsBody => false;
-		///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
 		public bool? Local
 		{
 			get => Q<bool? >("local");
@@ -203,10 +259,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -216,10 +281,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => true;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Should this request wait until the operation has completed before returning</summary>
@@ -243,10 +317,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		}
 
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -256,10 +339,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
 		public override bool SupportsBody => false;
 		///<summary>Explicit operation timeout for connection to master node</summary>
-		public TimeSpan MasterTimeout
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
 		{
 			get => Q<TimeSpan>("master_timeout");
 			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>

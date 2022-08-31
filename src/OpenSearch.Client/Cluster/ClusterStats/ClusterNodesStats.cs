@@ -237,6 +237,10 @@ namespace OpenSearch.Client
 	[DataContract]
 	public class ClusterNodeCount
 	{
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master"/></remarks>
+		[DataMember(Name = "cluster_manager")]
+		public int ClusterManager { get; internal set; }
+
 		[DataMember(Name = "coordinating_only")]
 		public int CoordinatingOnly { get; internal set; }
 
@@ -246,6 +250,7 @@ namespace OpenSearch.Client
 		[DataMember(Name = "ingest")]
 		public int Ingest { get; internal set; }
 
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager"/> instead</remarks>
 		[DataMember(Name = "master")]
 		public int Master { get; internal set; }
 

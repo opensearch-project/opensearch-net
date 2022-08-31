@@ -1,8 +1,8 @@
 {
   "cat.master":{
     "documentation":{
-      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-master/",
-      "description":"Returns information about the master node."
+      "url":"https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/",
+      "description":"Returns information about the master node. Deprecated as of OpenSearch 2.0, use cat-cluster_manager instead."
     },
     "stability":"stable",
     "visibility":"public",
