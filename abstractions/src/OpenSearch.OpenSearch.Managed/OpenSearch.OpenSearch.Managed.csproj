@@ -8,6 +8,9 @@
     </Description>
     <PackageTags>opensearch,opensearch,cluster,observable,rx</PackageTags>
     <IsPackable>false</IsPackable>
+    <!-- key is set in root Directory.Build.props-->
+    <SignAssembly>true</SignAssembly>
+
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Proc" Version="0.6.1" />

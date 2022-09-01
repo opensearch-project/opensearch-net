@@ -4,6 +4,9 @@
         <Description>Provides a set of classes to resolve the location of OpenSearch stack products in various stages: released, snapshot and build candidates</Description>
         <PackageTags>opensearch,opensearch,stack,versioning,artifacts</PackageTags>
         <IsPackable>false</IsPackable>
+        <!-- key is set in root Directory.Build.props-->
+        <SignAssembly>true</SignAssembly>
+
     </PropertyGroup>
     
     <ItemGroup>
