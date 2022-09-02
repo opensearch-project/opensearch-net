@@ -7,15 +7,15 @@
 
 #if DOTNETCORE
 
+using System;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Amazon;
+using Amazon.Runtime;
+
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
-	using System;
-	using System.Net.Http;
-	using System.Threading;
-	using System.Threading.Tasks;
-	using Amazon;
-	using Amazon.Runtime;
-
 	internal class AwsSigV4HttpClientHandler : DelegatingHandler
 	{
 		private readonly AWSCredentials _credentials;

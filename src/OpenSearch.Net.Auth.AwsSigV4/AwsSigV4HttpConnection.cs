@@ -5,12 +5,12 @@
 * compatible open source license.
 */
 
+using System;
+using Amazon;
+using Amazon.Runtime;
+
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
-	using System;
-	using Amazon;
-	using Amazon.Runtime;
-
 	/// <summary>
 	/// An <see cref="IConnection"/> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.
 	/// </summary>
