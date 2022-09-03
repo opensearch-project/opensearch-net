@@ -5,6 +5,8 @@
     <Description>Provides an EphemeralCluster implementation that can download/bootstrap/run a throwaway customizable OpenSearch cluster</Description>
     <PackageTags>opensearch,opensearch,cluster,ephemeral</PackageTags>
     <IsPackable>false</IsPackable>
+    <!-- key is set in root Directory.Build.props-->
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SharpZipLib.NETStandard" Version="1.0.7" />
