@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+        <Description>Provides a set of classes to resolve the location of OpenSearch stack products in various stages: released, snapshot and build candidates</Description>
+        <PackageTags>opensearch,opensearch,stack,versioning,artifacts</PackageTags>
+        <IsPackable>false</IsPackable>
+        <!-- key is set in root Directory.Build.props-->
+        <SignAssembly>true</SignAssembly>
+
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="SemanticVersioning" Version="0.8.0" />
+        <PackageReference Include="System.Net.Http" Version="4.3.4" />
+        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+        <PackageReference Include="System.Text.Json" Version="6.0.5" />
+    </ItemGroup>
+
+</Project>
