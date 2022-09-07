@@ -132,45 +132,6 @@
           "Microsoft.TestPlatform.ObjectModel": "15.8.0"
         }
       },
-      "OpenSearch.OpenSearch.Ephemeral": {
-        "type": "Transitive",
-        "resolved": "0.1.0-canary.0.277",
-        "contentHash": "LAAfOtWvcjoCxUq47BGbwfFst12nsvd3FYDRR9OUfSp69BzevNp3bhAd5O2sdaspBg9MkuOD5Mhp8TvWRHCG7g==",
-        "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.277",
-          "SharpZipLib.NETStandard": "1.0.7"
-        }
-      },
-      "OpenSearch.OpenSearch.Managed": {
-        "type": "Transitive",
-        "resolved": "0.1.0-canary.0.277",
-        "contentHash": "BoLSf2fiCphayR0TQulvm0m0MISy8kCL+JrPv1QGrlR4YujWAeSi0izb+vnYEWT9+a8IviTMjU2TGZwpcKSuBQ==",
-        "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "0.1.0-canary.0.277",
-          "Proc": "0.6.1",
-          "System.Net.Http": "4.3.4"
-        }
-      },
-      "OpenSearch.OpenSearch.Xunit": {
-        "type": "Transitive",
-        "resolved": "0.1.0-canary.0.277",
-        "contentHash": "hNAJp5xM9ounExLOS+CmLCTCwpPfirZ5rOTY0UfR2AU+19wp4HLKerwjmJV4cAJM0ba6JvzrjLQcnMGYazM0og==",
-        "dependencies": {
-          "OpenSearch.OpenSearch.Ephemeral": "0.1.0-canary.0.277",
-          "xunit": "2.4.2"
-        }
-      },
-      "OpenSearch.Stack.ArtifactsApi": {
-        "type": "Transitive",
-        "resolved": "0.1.0-canary.0.277",
-        "contentHash": "S3Mxf2FhxL/WJg9f0LGoGLmpvRyFCH0HitsC3bDAgBweO9aqSNmpVeAm7DvKHMwGpSAglUL0+pOBvo2dCi/iVg==",
-        "dependencies": {
-          "SemanticVersioning": "0.8.0",
-          "System.Net.Http": "4.3.4",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Text.Json": "6.0.5"
-        }
-      },
       "Proc": {
         "type": "Transitive",
         "resolved": "0.6.1",
@@ -910,14 +871,14 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "1.0.0"
+          "OpenSearch.Net": "1.1.0"
         }
       },
       "opensearch.client.jsonnetserializer": {
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.0.0"
+          "OpenSearch.Client": "1.1.0"
         }
       },
       "opensearch.net": {
@@ -932,13 +893,44 @@
         "type": "Project",
         "dependencies": {
           "AWSSDK.Core": "3.7.12.11",
-          "OpenSearch.Net": "1.0.0"
+          "OpenSearch.Net": "1.1.0"
+        }
+      },
+      "opensearch.opensearch.ephemeral": {
+        "type": "Project",
+        "dependencies": {
+          "OpenSearch.OpenSearch.Managed": "1.1.0",
+          "SharpZipLib.NETStandard": "1.0.7"
+        }
+      },
+      "opensearch.opensearch.managed": {
+        "type": "Project",
+        "dependencies": {
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
+          "Proc": "0.6.1",
+          "System.Net.Http": "4.3.4"
+        }
+      },
+      "opensearch.opensearch.xunit": {
+        "type": "Project",
+        "dependencies": {
+          "OpenSearch.OpenSearch.Ephemeral": "1.1.0",
+          "xunit": "2.4.2"
+        }
+      },
+      "opensearch.stack.artifactsapi": {
+        "type": "Project",
+        "dependencies": {
+          "SemanticVersioning": "0.8.0",
+          "System.Net.Http": "4.3.4",
+          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
+          "System.Text.Json": "6.0.5"
         }
       },
       "tests.configuration": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.277"
+          "OpenSearch.OpenSearch.Managed": "1.1.0"
         }
       },
       "tests.core": {
@@ -949,10 +941,10 @@
           "JunitXml.TestLogger": "2.1.78",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "Nullean.VsTest.Pretty.TestLogger": "0.3.0",
-          "OpenSearch.Client.JsonNetSerializer": "1.0.0",
-          "OpenSearch.OpenSearch.Xunit": "0.1.0-canary.0.277",
+          "OpenSearch.Client.JsonNetSerializer": "1.1.0",
+          "OpenSearch.OpenSearch.Xunit": "1.1.0",
           "Proc": "0.6.1",
-          "Tests.Domain": "1.0.0",
+          "Tests.Domain": "1.1.0",
           "xunit": "2.4.2"
         }
       },
@@ -961,9 +953,9 @@
         "dependencies": {
           "Bogus": "22.1.2",
           "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.0.0",
-          "OpenSearch.OpenSearch.Managed": "0.1.0-canary.0.277",
-          "Tests.Configuration": "1.0.0"
+          "OpenSearch.Client": "1.1.0",
+          "OpenSearch.OpenSearch.Managed": "1.1.0",
+          "Tests.Configuration": "1.1.0"
         }
       }
     }
