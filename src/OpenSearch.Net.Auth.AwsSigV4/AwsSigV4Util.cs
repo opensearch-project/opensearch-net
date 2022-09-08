@@ -5,19 +5,19 @@
 * compatible open source license.
 */
 
+using System;
+#if DOTNETCORE
+using System.Net.Http;
+using System.Threading.Tasks;
+#else
+using System.Net;
+#endif
+using Amazon;
+using Amazon.Runtime;
+using Amazon.Runtime.Internal.Auth;
+
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
-	using System;
-#if DOTNETCORE
-	using System.Net.Http;
-	using System.Threading.Tasks;
-#else
-	using System.Net;
-#endif
-	using Amazon;
-	using Amazon.Runtime;
-	using Amazon.Runtime.Internal.Auth;
-
 	public static class AwsSigV4Util
 	{
 #if DOTNETCORE

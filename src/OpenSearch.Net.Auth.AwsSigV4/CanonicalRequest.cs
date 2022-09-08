@@ -5,29 +5,28 @@
 * compatible open source license.
 */
 
-namespace OpenSearch.Net.Auth.AwsSigV4
-{
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Web;
-	using Amazon.Runtime;
-	using Amazon.Runtime.Internal.Auth;
-	using Amazon.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+using Amazon.Runtime;
+using Amazon.Runtime.Internal.Auth;
+using Amazon.Util;
 
 #if DOTNETCORE
-	using System.Net.Http;
-	using System.Net.Http.Headers;
-	using System.Threading.Tasks;
-
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 #else
-	using System.Collections.Specialized;
-	using System.IO;
-	using System.IO.Compression;
-	using System.Net;
+using System.Collections.Specialized;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
 #endif
 
+namespace OpenSearch.Net.Auth.AwsSigV4
+{
 	public class CanonicalRequest
 	{
 		private static readonly IComparer<KeyValuePair<string, string>> StringPairComparer = new KeyValuePairComparer<string, string>();

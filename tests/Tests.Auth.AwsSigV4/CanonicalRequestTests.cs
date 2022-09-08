@@ -5,18 +5,18 @@
 * compatible open source license.
 */
 
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
+using Amazon.Runtime;
+using FluentAssertions;
+using OpenSearch.Net.Auth.AwsSigV4;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+
 namespace Tests.Auth.AwsSigV4
 {
-	using System;
-	using System.Linq;
-	using System.Net.Http;
-	using System.Threading.Tasks;
-	using System.Web;
-	using Amazon.Runtime;
-	using FluentAssertions;
-	using OpenSearch.Net.Auth.AwsSigV4;
-	using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-
 	public class CanonicalRequestTests
 	{
 		private static readonly ImmutableCredentials TestCredentials = new("test-access-key", "test-secret-key", null);
