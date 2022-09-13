@@ -27,13 +27,11 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
-using Osc;
-using Tests.Framework.ManagedOpenSearch.Clusters;
+using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Reproduce
 {
@@ -47,17 +45,17 @@ namespace Tests.Reproduce
 		{
 			var indexName = "max-bucket-reproduce";
 
-			var ec = this._cluster.Client;
+			var ec = _cluster.Client;
 			var now = DateTime.Now;
-			var testdata = new DateTime[] { }
+			var testdata = Enumerable.Empty<DateTime>()
 				.Concat(Enumerable.Repeat(now.AddMinutes(1), 3))
 				.Concat(Enumerable.Repeat(now.AddMinutes(2), 4))
 				.Concat(Enumerable.Repeat(now.AddMinutes(3), 1))
-				.Select((d, i) => new MyClass() { Id = i, Time = d, Message = "test", MessageType = 1 })
+				.Select((d, i) => new MyClass { Id = i, Time = d, Message = "test", MessageType = 1 })
 				.ToArray();
-			ec.DeleteIndex(indexName);
+			ec.Indices.Delete(indexName);
 			ec.IndexMany(testdata, indexName);
-			ec.Refresh(indexName);
+			ec.Indices.Refresh(indexName);
 
 			var res = ec
 				.Search<MyClass>(s => s
@@ -71,7 +69,7 @@ namespace Tests.Reproduce
 					.Aggregations(agg => agg
 						.DateHistogram("hist", dh => dh
 							.Field(ff => ff.Time)
-							.Interval(new Time(TimeSpan.FromMinutes(1)))
+							.FixedInterval(new Time(TimeSpan.FromMinutes(1)))
 						)
 						.MaxBucket("max", mb => mb
 							.BucketsPath("hist>_count")
