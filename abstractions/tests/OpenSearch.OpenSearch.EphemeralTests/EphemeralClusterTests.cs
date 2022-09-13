@@ -29,6 +29,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Stack.ArtifactsApi;
 using Xunit;
 
@@ -36,11 +37,11 @@ namespace OpenSearch.OpenSearch.EphemeralTests
 {
 	public class EphemeralClusterTests
 	{
-		[Theory]
+		[TU]
 		[ClassData(typeof(SampleClusters))]
 		public void TestEphemeralCluster(OpenSearchVersion version, ServerType serverType, ClusterFeatures features)
 		{
-			var numberOfNodes = 1;
+			const int numberOfNodes = 1;
 			var clusterConfiguration =
 				new EphemeralClusterConfiguration(version, serverType, features, null, numberOfNodes)
 				{

@@ -41,22 +41,26 @@ namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
 	public abstract class OpenSearchTestCaseDiscoverer : IXunitTestCaseDiscoverer
 	{
 		protected readonly IMessageSink DiagnosticMessageSink;
+		private readonly FactDiscoverer _factDiscoverer;
 
-		protected OpenSearchTestCaseDiscoverer(IMessageSink diagnosticMessageSink) =>
+		protected OpenSearchTestCaseDiscoverer(IMessageSink diagnosticMessageSink)
+		{
 			DiagnosticMessageSink = diagnosticMessageSink;
+			_factDiscoverer = new FactDiscoverer(diagnosticMessageSink);
+		}
 
 		/// <inheritdoc />
 		public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions,
 			ITestMethod testMethod, IAttributeInfo factAttribute) =>
 			SkipMethod(discoveryOptions, testMethod, out var skipReason)
 				? string.IsNullOrEmpty(skipReason)
-					? new IXunitTestCase[] { }
+					? Enumerable.Empty<IXunitTestCase>()
 					: new IXunitTestCase[] {new SkippingTestCase(skipReason, testMethod, null)}
-				: new[]
-				{
-					new XunitTestCase(DiagnosticMessageSink, discoveryOptions.MethodDisplayOrDefault(),
-						discoveryOptions.MethodDisplayOptionsOrDefault(), testMethod)
-				};
+				: DiscoverImpl(discoveryOptions, testMethod, factAttribute);
+
+		protected virtual IEnumerable<IXunitTestCase> DiscoverImpl(ITestFrameworkDiscoveryOptions discoveryOptions,
+			ITestMethod testMethod, IAttributeInfo factAttribute
+		) => _factDiscoverer.Discover(discoveryOptions, testMethod, factAttribute);
 
 		/// <summary>
 		///     Detemines whether a test method should be skipped, and the reason why
