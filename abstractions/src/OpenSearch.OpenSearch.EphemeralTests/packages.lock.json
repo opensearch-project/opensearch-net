@@ -1198,14 +1198,14 @@
       "opensearch.opensearch.ephemeral": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "1.0.0",
+          "OpenSearch.OpenSearch.Managed": "1.1.0",
           "SharpZipLib.NETStandard": "1.0.7"
         }
       },
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.0.0",
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.4"
         }

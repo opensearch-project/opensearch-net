@@ -6,10 +6,7 @@
         "type": "Direct",
         "requested": "[1.0.0-preview.2, )",
         "resolved": "1.0.0-preview.2",
-        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg==",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.0-preview.2"
-        }
+        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg=="
       },
       "NETStandard.Library": {
         "type": "Direct",
@@ -37,11 +34,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
-      },
-      "Microsoft.NETFramework.ReferenceAssemblies.net461": {
-        "type": "Transitive",
-        "resolved": "1.0.0-preview.2",
-        "contentHash": "59D9ISjzCpfHG41r5x4BNZNNOCmE2o5YX8vcdOwsqfxOA0+6vQnxZrYq8KtthUU2JSvC13g941rSr5GRaNQOJg=="
       },
       "Microsoft.Win32.Primitives": {
         "type": "Transitive",
@@ -768,7 +760,7 @@
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.0.0",
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.4"
         }
