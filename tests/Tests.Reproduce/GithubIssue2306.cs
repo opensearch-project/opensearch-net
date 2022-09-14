@@ -51,7 +51,7 @@ namespace Tests.Reproduce
 			response.Result.Should().Be(Result.NotFound);
 			response.Index.Should().Be("project");
 			if (_cluster.ClusterConfiguration.Version < "2.0.0")
-				response.Type.Should().Be("doc");
+				response.Type.Should().Be("_doc");
 			response.Id.Should().Be("non-existent-id");
 		}
 	}
