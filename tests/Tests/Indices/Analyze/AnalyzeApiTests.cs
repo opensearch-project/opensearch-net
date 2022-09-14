@@ -38,15 +38,6 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.Analyze
 {
-	// OpenDistro v.1.13.0 with security plugin activated gets exception when `_analyze` server API called and returns it to a user:
-	//	"type" : "security_exception",
-	//	"reason": "Unexpected exception indices:admin/analyze",
-	//	"stack_trace": "ElasticsearchSecurityException[Unexpected exception indices:admin/analyze]
-	//		at com.amazon.opendistroforelasticsearch.security.filter.OpenDistroSecurityFilter.apply0(OpenDistroSecurityFilter.java:361)
-	//		....
-	// See forum thread about this bug: https://discuss.opendistrocommunity.dev/t/analyze-api-error/5640
-	// Fixed in OpenDistro 1.13.1.
-	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class AnalyzeApiTests : ApiIntegrationTestBase<ReadOnlyCluster, AnalyzeResponse, IAnalyzeRequest, AnalyzeDescriptor, AnalyzeRequest>
 	{
 		public AnalyzeApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
@@ -89,7 +80,6 @@ namespace Tests.Indices.Analyze
 		);
 	}
 
-	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class AnalyzeInlineAnalyzerApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, AnalyzeResponse, IAnalyzeRequest, AnalyzeDescriptor, AnalyzeRequest>
 	{
@@ -165,7 +155,6 @@ namespace Tests.Indices.Analyze
 		}
 	}
 
-	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class AnalyzeInlineNormalizerApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, AnalyzeResponse, IAnalyzeRequest, AnalyzeDescriptor, AnalyzeRequest>
 	{
@@ -231,7 +220,6 @@ namespace Tests.Indices.Analyze
 		}
 	}
 
-	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class AnalyzeExplainApiTests : AnalyzeInlineAnalyzerApiTests
 	{
 		public AnalyzeExplainApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }

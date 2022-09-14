@@ -65,15 +65,9 @@ namespace OpenSearch.OpenSearch.EphemeralTests
 			public IEnumerator<object[]> GetEnumerator()
 			{
 				yield return new object[] {OpenSearchVersion.From("1.2.0"), ServerType.OpenSearch, ClusterFeatures.None};
-				yield return new object[]
-				{
-					OpenSearchVersion.From("opendistro-latest"), ServerType.OpenDistro, ClusterFeatures.None
-				};
+				yield return new object[] {OpenSearchVersion.From("2.2.0"), ServerType.OpenSearch, ClusterFeatures.None};
 				yield return new object[] {OpenSearchVersion.From("1.2.0"), ServerType.OpenSearch, ClusterFeatures.SSL};
-				yield return new object[]
-				{
-					OpenSearchVersion.From("opendistro-latest"), ServerType.OpenDistro, ClusterFeatures.SSL
-				};
+				yield return new object[] {OpenSearchVersion.From("2.2.0"), ServerType.OpenSearch, ClusterFeatures.SSL};
 			}
 
 			IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

@@ -39,15 +39,10 @@ namespace OpenSearch.OpenSearch.Managed.ConsoleWriters
 		public static readonly LineOutParser OpenSearch = new(shortNamePrefix: "o.o", fullNamePrefix: "org.opensearch",
 			securityPluginName: "OpenSearchSecurityPlugin");
 
-		public static readonly LineOutParser OpenDistro = new(shortNamePrefix: "o.e", fullNamePrefix: "org.elastic",
-			securityPluginName: "OpenDistroSecurityPlugin");
 		public static LineOutParser From(ServerType serverType)
 		{
 			switch (serverType)
 			{
-				case ServerType.OpenDistro:
-				case ServerType.ElasticSearch:
-					return LineOutParser.OpenDistro;
 				case ServerType.OpenSearch:
 					return LineOutParser.OpenSearch;
 				default:

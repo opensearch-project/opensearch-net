@@ -101,13 +101,6 @@ namespace OpenSearch.Stack.ArtifactsApi
 				managedVersionString = string.Join("-", parts.Skip(1));
 			}
 
-			if (managedVersionString.StartsWith("latest") && serverType == ServerType.OpenDistro)
-				// No releases for OpenDistro after 1.13.3 - all deveploment afterwards goes to OpenSearch
-				managedVersionString = "1.13.3";
-			if (managedVersionString.StartsWith("latest") && serverType == ServerType.ElasticSearch)
-				// OpenDistro (1.13.x - another not supported) and OpenSearch both based on Elasticsearch v.7.10.2, other versions are incompatible
-				managedVersionString = "7.10.2";
-
 			// TODO resolve `latest` and `latest-x` for OpenSearch
 
 			return new OpenSearchVersion(managedVersionString, ArtifactBuildState.Released, "");

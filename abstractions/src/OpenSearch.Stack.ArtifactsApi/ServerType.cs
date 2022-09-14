@@ -31,8 +31,6 @@ namespace OpenSearch.Stack.ArtifactsApi
 	public enum ServerType
 	{
 		OpenSearch,
-		OpenDistro,
-		ElasticSearch,
 		DEFAULT = OpenSearch
 	}
 }

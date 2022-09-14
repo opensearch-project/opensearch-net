@@ -191,10 +191,6 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 				{
 					{config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath},
 					{"OPENSEARCH_HOME", config.FileSystem.OpenSearchHome},
-					// Duplicate all env vars for ES_* prefix for backward compatibility with OpenDistro and ElasticSearch;
-					// unused env vars would be just ignored.
-					{config.FileSystem.ConfigEnvironmentVariableName.Replace("OPENSEARCH", "ES"), config.FileSystem.ConfigPath},
-					{"ES_HOME", config.FileSystem.OpenSearchHome}
 				}
 			};
 

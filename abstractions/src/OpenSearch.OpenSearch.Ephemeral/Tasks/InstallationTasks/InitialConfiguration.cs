@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System;
 using System.IO;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi;
@@ -39,19 +38,11 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 		{
 			if (cluster.CachingAndCachedHomeExists()) return;
 
-			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.ElasticSearch)
-			{
-				cluster.Writer?.WriteDiagnostic($"{{{nameof(Run)}}} skipping for ElasticSearch");
-				return;
-			}
-
 			var fs = cluster.FileSystem;
 			var script = Path.Combine(fs.OpenSearchHome, "server-initial-config.sh");
 
 			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenSearch)
 				File.WriteAllText(script, InitialConfigurationOpenSearch.GetConfigurationScript(cluster.ClusterConfiguration.Version));
-			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenDistro)
-				File.WriteAllText(script, InitialConfigurationOpenDistro.GetConfigurationScript());
 
 			cluster.Writer?.WriteDiagnostic($"{{{nameof(Run)}}} going to run [server-initial-config.sh]");
 
@@ -62,16 +53,10 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				"run initial cluster configuration",
 				script);
 
-			if (!cluster.ClusterConfiguration.EnableSsl)
-			{
-				if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenSearch)
-					File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml"), "plugins.security.disabled: true");
-				if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenDistro)
-					File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "elasticsearch.yml"), "opendistro_security.disabled: true");
-			}
+			if (cluster.ClusterConfiguration.EnableSsl) return;
 
-			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.ElasticSearch && cluster.ClusterConfiguration.EnableSsl)
-				throw new NotImplementedException("ElasticSearch with SSL is not supported");
+			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenSearch)
+				File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml"), "plugins.security.disabled: true");
 		}
 	}
 }

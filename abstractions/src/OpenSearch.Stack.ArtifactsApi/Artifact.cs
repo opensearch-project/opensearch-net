@@ -45,8 +45,6 @@ namespace OpenSearch.Stack.ArtifactsApi
 			switch (ServerType)
 			{
 				case ServerType.OpenSearch: ProductName = "opensearch"; break; // actually = product.ProductName
-				case ServerType.OpenDistro: ProductName = "opendistroforelasticsearch"; break;
-				case ServerType.ElasticSearch: ProductName = "elasticsearch"; break;
 			}
 			Version = version;
 			DownloadUrl = product?.PatchDownloadUrl(downloadUrl);
