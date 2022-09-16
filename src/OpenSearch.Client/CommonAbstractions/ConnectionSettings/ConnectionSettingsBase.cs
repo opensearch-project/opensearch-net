@@ -58,7 +58,8 @@ namespace OpenSearch.Client
 		/// Creates a new instance of connection settings, if <paramref name="uri"/> is not specified will default to connecting to http://localhost:9200
 		/// </summary>
 		/// <param name="uri"></param>
-		public ConnectionSettings(Uri uri = null) : this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200"))) { }
+		/// <param name="connection"></param>
+		public ConnectionSettings(Uri uri = null, IConnection connection = null) : this(new SingleNodeConnectionPool(uri ?? new Uri("http://localhost:9200")), connection) { }
 
 		/// <summary>
 		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,

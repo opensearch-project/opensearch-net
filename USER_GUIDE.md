@@ -1,25 +1,32 @@
 - [User Guide](#user-guide)
+  - [OpenSearch.Client](#opensearchclient) 
     - [Getting Started](#getting-started)
     - [Connecting](#connecting)
     - [Indexing](#indexing)
     - [Getting a document](#getting-a-document)
     - [Searching for documents](#searching-for-documents)
     - [Falling back to OpenSearch.Net](#falling-back-to-opensearchnet)
-  - [OpenSearch.Net](#opensearchnet)
+  - [OpenSearch.Net.Auth.AwsSigV4](#opensearchnetauthawssigv4)
     - [Getting Started](#getting-started-1)
     - [Connecting](#connecting-1)
+    - [Configuring Region & Credentials](#configuring-region--credentials)
+  - [OpenSearch.Net](#opensearchnet)
+    - [Getting Started](#getting-started-2)
+    - [Connecting](#connecting-2)
 # User Guide
 
 This user guide specifies how to include and use the .NET client in your application.
 
+## [OpenSearch.Client](src/OpenSearch.Client)
+
 ### Getting Started
 
-Include OSC in your .csproj file.
+Include OpenSearch.Client in your .csproj file.
 ```xml
 <Project>
   ...
   <ItemGroup>
-    <PackageReference Include="Osc" Version="1.0.0" />
+    <PackageReference Include="OpenSearch.Client" Version="1.0.0" />
   </ItemGroup>
 </Project>
 ```
@@ -31,7 +38,7 @@ You can connect to your OpenSearch cluster via a single node, or by specifying m
 **Connecting to a single node**
 ```csharp
 var node = new Uri("http://myserver:9200");
-var config = new ConnectionConfiguration(node);
+var config = new ConnectionSettings(node);
 var client = new OpenSearchClient(config);
 ```
 
@@ -83,7 +90,7 @@ var tweet = getResponse.Source; // the original document
 
 ### Searching for documents
 
-OSC exposes a fluent interface and a [powerful query DSL](https://opensearch.org/docs/latest/opensearch/query-dsl/index/)
+OpenSearch.Client exposes a fluent interface and a [powerful query DSL](https://opensearch.org/docs/latest/opensearch/query-dsl/index/)
 
 ```csharp
 var searchResponse = client.Search<Tweet>(s => s
@@ -112,7 +119,7 @@ var searchResponse = client.Search<Tweet>(request);
 ```
 ### Falling back to OpenSearch.Net
 
-OSC also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
+OpenSearch.Client also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
 
 ```csharp
 IOpenSearchLowLevelClient lowLevelClient = client.LowLevel;
@@ -132,6 +139,86 @@ var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", Post
 }));
 ```
 
+## [OpenSearch.Net.Auth.AwsSigV4](src/OpenSearch.Net.Auth.AwsSigV4)
+
+An implementation of AWS SigV4 request signing for performing IAM authentication against the managed Amazon OpenSearch Service.
+It can be used with both the low-level OpenSearch.Net client as well as the higher-level OpenSearch.Client client.
+
+### Getting Started
+Include OpenSearch.Net.Auth.AwsSigV4 along with your preferred client in your .csproj file.
+```xml
+<Project>
+  ...
+  <ItemGroup>
+    <PackageReference Include="OpenSearch.Client" Version="1.0.0" />
+    <PackageReference Include="OpenSearch.Net.Auth.AwsSigV4" Version="1.0.0" />
+  </ItemGroup>
+</Project>
+```
+
+### Connecting
+The only wiring required is to use the `AwsSigV4HttpConnection` implementation of `IConnection`.
+
+**With OpenSearch.Client**
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.us-east-1.es.amazonaws.com");
+var connection = new AwsSigV4HttpConnection();
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+**With OpenSearch.Net**
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.us-east-1.es.amazonaws.com");
+var connection = new AwsSigV4HttpConnection();
+var config = new ConnectionConfiguration(endpoint, connection);
+var client = new OpenSearchLowLevelClient(config);
+```
+
+### Configuring Region & Credentials
+By default, `AwsSigV4HttpConnection` will use the same default logic as the [AWS SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html) to determine the credentials and region to use.
+However, you may explicitly specify one or both to override this logic, for example:
+
+**Explicitly setting the region, but the credentials coming from the environment**
+```shell
+export AWS_ACCESS_KEY_ID="..."
+export AWS_SECRET_ACCESS_KEY="..."
+export AWS_SESSION_TOKEN="..."
+```
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
+var connection = new AwsSigV4HttpConnection(RegionEndpoint.APSoutheast2);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+**Explicitly setting credentials, such as to assume a role, but the region coming from the environment**
+```shell
+export AWS_REGION="ap-southeast-2"
+```
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
+var credentials = new AssumeRoleAWSCredentials(
+				FallbackCredentialsFactory.GetCredentials(),
+				"arn:aws:iam::123456789012:role/my-open-search-ingest-role",
+				"my-ingest-application");
+var connection = new AwsSigV4HttpConnection(credentials);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+**Explicitly setting credentials and region, such as to assume a role**
+```csharp
+var endpoint = new Uri("https://example-aaabbbcccddd111222333.ap-southeast-2.es.amazonaws.com");
+var credentials = new AssumeRoleAWSCredentials(
+				FallbackCredentialsFactory.GetCredentials(),
+				"arn:aws:iam::123456789012:role/my-open-search-ingest-role",
+				"my-ingest-application");
+var connection = new AwsSigV4HttpConnection(credentials, RegionEndpoint.APSoutheast2);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
 ## [OpenSearch.Net](src/OpenSearch.Net)
 
 A low-level, dependency free client that is a simple .NET wrapper for the REST API. It allows you to build and represent your own requests and responses according to you needs.
@@ -149,7 +236,7 @@ Include OpenSearch.Net in your .csproj file.
 
 ### Connecting
 
-Connecting using the low-level client is very similar to how you would connect using OSC. In fact, the connection constructs that OSC use are actually OpenSearch.Net constructs. Thus, single node connections and connection pooling still apply when using OpenSearch.Net.
+Connecting using the low-level client is very similar to how you would connect using OpenSearch.Client. In fact, the connection constructs that OpenSearch.Client use are actually OpenSearch.Net constructs. Thus, single node connections and connection pooling still apply when using OpenSearch.Net.
 
 ```csharp
 var node = new Uri("http://myserver:9200");
