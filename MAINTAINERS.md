@@ -22,12 +22,7 @@ This document explains who the maintainers are (see below), what they do in this
 | ------------------------ | ------------------------------------------------------------------ | ----------- |
 | Anirudha Jadhav          | [anirudha](https://github.com/anirudha)                            |   Amazon    |
 | Joshua Li                | [joshuali925](https://github.com/joshuali925)                      |   Amazon    |
-| Guian Gumpac             | [guiangumpac](https://github.com/guiangumpac)                      |  Bit Quill  |
-| Raymond Lum              | [raymond-lum](https://github.com/raymond-lum)                      |  Bit Quill  |
 | Yury Fridlyand           | [Yury-Fridlyand](https://github.com/Yury-Fridlyand)                |  Bit Quill  |
-| Max Ksyunz               | [MaxKsyunz](https://github.com/MaxKsyunz)                          |  Bit Quill  |
-| Forest Vey               | [forestmvey](https://github.com/forestmvey)                        |  Bit Quill  |
-| Mitchell Gale            | [MitchellGale-BitQuill](https://github.com/MitchellGale-BitQuill)  |  Bit Quill  |
 
 ## Maintainer Responsibilities
 
