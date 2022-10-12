@@ -42,9 +42,6 @@ namespace OpenSearch.Client
 		[DataMember(Name ="number")]
 		public string Number { get; set; }
 
-		[DataMember(Name ="build_flavor")]
-		public string BuildFlavor { get; set; }
-
 		[DataMember(Name ="build_type")]
 		public string BuildType { get; set; }
 

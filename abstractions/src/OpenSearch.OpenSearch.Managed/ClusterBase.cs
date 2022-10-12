@@ -120,7 +120,7 @@ namespace OpenSearch.OpenSearch.Managed
 		public IDisposable Start(TimeSpan waitForStarted)
 		{
 			var nodes = Nodes.Select(n => n.NodeConfiguration.DesiredNodeName).ToArray();
-			var lineHighlightWriter = new LineHighlightWriter(nodes, LineOutParser.From(ClusterConfiguration.ServerType));
+			var lineHighlightWriter = new LineHighlightWriter(nodes, LineOutParser.OpenSearch);
 			return Start(lineHighlightWriter, waitForStarted);
 		}
 

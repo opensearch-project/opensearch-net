@@ -38,7 +38,7 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 	{
 		private Action<StartArguments> _defaultStartArgs = s => { };
 
-		public NodeConfiguration(OpenSearchVersion version, int? port = null) : this(new ClusterConfiguration(version, ServerType.DEFAULT),
+		public NodeConfiguration(OpenSearchVersion version, int? port = null) : this(new ClusterConfiguration(version),
 			port)
 		{
 		}
@@ -85,7 +85,6 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 
 		public INodeFileSystem FileSystem => ClusterConfiguration.FileSystem;
 		public OpenSearchVersion Version => ClusterConfiguration.Version;
-		public ServerType ServerType => ClusterConfiguration.ServerType;
 		public string[] CommandLineArguments => Settings.ToCommandLineArguments(Version);
 
 		public void InitialMasterNodes(string initialMasterNodes) =>

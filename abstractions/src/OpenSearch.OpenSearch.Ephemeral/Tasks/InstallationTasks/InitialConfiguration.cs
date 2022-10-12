@@ -41,8 +41,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 			var fs = cluster.FileSystem;
 			var script = Path.Combine(fs.OpenSearchHome, "server-initial-config.sh");
 
-			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenSearch)
-				File.WriteAllText(script, InitialConfigurationOpenSearch.GetConfigurationScript(cluster.ClusterConfiguration.Version));
+			File.WriteAllText(script, InitialConfigurationOpenSearch.GetConfigurationScript(cluster.ClusterConfiguration.Version));
 
 			cluster.Writer?.WriteDiagnostic($"{{{nameof(Run)}}} going to run [server-initial-config.sh]");
 
@@ -55,8 +54,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 
 			if (cluster.ClusterConfiguration.EnableSsl) return;
 
-			if (cluster.ClusterConfiguration.Artifact.ServerType == ServerType.OpenSearch)
-				File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml"), "plugins.security.disabled: true");
+			File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml"), "plugins.security.disabled: true");
 		}
 	}
 }

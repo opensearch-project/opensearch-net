@@ -39,18 +39,12 @@ namespace OpenSearch.Stack.ArtifactsApi.Resolvers
 
 		public static bool TryResolve(Product product, Version version, OSPlatform platform, Architecture architecture, out Artifact artifact)
 		{
-			var downloadUrl = "";
-			switch (product.ServerType)
-			{
-				case ServerType.OpenSearch:
-					var productMoniker = product.Moniker;
-					var platformMoniker = OsMonikers.GetOpenSearchPlatformMoniker(platform, architecture);
-					var downloadPath = $"{ArtifactsUrl}/releases/bundle/{product}/{version}";
-					var extension = OsMonikers.GetPlatformArchiveExtension(platform);
-					var archive = $"{productMoniker}-{version}-{platformMoniker}.{extension}";
-					downloadUrl = $"{downloadPath}/{archive}";
-					break;
-			}
+			var productMoniker = product.Moniker;
+			var platformMoniker = OsMonikers.GetOpenSearchPlatformMoniker(platform, architecture);
+			var downloadPath = $"{ArtifactsUrl}/releases/bundle/{product}/{version}";
+			var extension = OsMonikers.GetPlatformArchiveExtension(platform);
+			var archive = $"{productMoniker}-{version}-{platformMoniker}.{extension}";
+			var downloadUrl = $"{downloadPath}/{archive}";
 
 			artifact = new Artifact(product, version, downloadUrl, ArtifactBuildState.Released, null);
 			return true;

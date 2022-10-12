@@ -37,11 +37,10 @@ namespace OpenSearch.OpenSearch.Xunit
 	{
 		public XunitClusterConfiguration(
 			OpenSearchVersion version,
-			ServerType serverType,
 			ClusterFeatures features = ClusterFeatures.None,
 			OpenSearchPlugins plugins = null,
 			int numberOfNodes = 1)
-			: base(version, serverType, features, plugins, numberOfNodes) =>
+			: base(version, features, plugins, numberOfNodes) =>
 			AdditionalAfterStartedTasks.Add(new PrintXunitAfterStartedTask());
 
 		/// <inheritdoc />

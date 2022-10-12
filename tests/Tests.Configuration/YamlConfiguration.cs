@@ -48,7 +48,6 @@ namespace Tests.Configuration
 			Mode = GetTestMode(_config["mode"]);
 			var version = _config["opensearch_version"];
 			OpenSearchVersion = version;
-			ParseServerType(version);
 			if (string.IsNullOrWhiteSpace(version))
 				throw new Exception("No default version was set in test.yaml or test.default.yaml");
 			ForceReseed = BoolConfig("force_reseed", false);

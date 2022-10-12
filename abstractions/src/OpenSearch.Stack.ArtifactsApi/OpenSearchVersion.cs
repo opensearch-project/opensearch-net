@@ -62,6 +62,7 @@ namespace OpenSearch.Stack.ArtifactsApi
 			var cacheKey = product.ToString();
 			if (_resolved.TryGetValue(cacheKey, out var artifact))
 				return artifact;
+
 			var currentPlatform = OsMonikers.CurrentPlatform();
 			switch (ArtifactBuildState)
 			{
@@ -87,36 +88,9 @@ namespace OpenSearch.Stack.ArtifactsApi
 		/// <summary>
 		///     Resolves an OpenSearch version using either format '$version' or '$ServerType-$version', where version could be 'x.y.z' or 'latest' or even 'latest-x'
 		/// </summary>
-		public static OpenSearchVersion From(string managedVersionString)
-		{
-			if (managedVersionString == null)
-				return null;
-
-			var serverType = ServerType.DEFAULT;
-			var hasServerType = Enum.GetNames(typeof(ServerType)).Any(s => managedVersionString.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
-			if (hasServerType)
-			{
-				var parts = managedVersionString.Split('-');
-				serverType = (ServerType)Enum.Parse(typeof(ServerType), parts[0], true);
-				managedVersionString = string.Join("-", parts.Skip(1));
-			}
-
-			// TODO resolve `latest` and `latest-x` for OpenSearch
-
-			return new OpenSearchVersion(managedVersionString, ArtifactBuildState.Released, "");
-		}
-
-		internal static bool TryParseBuildCandidate(string passedVersion, out string version, out string gitHash)
-		{
-			version = null;
-			gitHash = null;
-			var tokens = passedVersion.Split(':');
-			if (tokens.Length < 2)
-				return false;
-			version = tokens[1].Trim();
-			gitHash = tokens[0].Trim();
-			return true;
-		}
+		public static OpenSearchVersion From(string managedVersionString) =>
+			// TODO resolve `latest` and `latest-x` for OpenSearchÏ
+			managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, ArtifactBuildState.Released, "");
 
 		public bool InRange(string range)
 		{
@@ -140,26 +114,33 @@ namespace OpenSearch.Stack.ArtifactsApi
 		public static implicit operator OpenSearchVersion(string version) => From(version);
 
 		public static bool operator <(OpenSearchVersion first, string second) => first < (OpenSearchVersion)second;
+
 		public static bool operator >(OpenSearchVersion first, string second) => first > (OpenSearchVersion)second;
 
 		public static bool operator <(string first, OpenSearchVersion second) => (OpenSearchVersion)first < second;
+
 		public static bool operator >(string first, OpenSearchVersion second) => (OpenSearchVersion)first > second;
 
 		public static bool operator <=(OpenSearchVersion first, string second) => first <= (OpenSearchVersion)second;
+
 		public static bool operator >=(OpenSearchVersion first, string second) => first >= (OpenSearchVersion)second;
 
 		public static bool operator <=(string first, OpenSearchVersion second) => (OpenSearchVersion)first <= second;
+
 		public static bool operator >=(string first, OpenSearchVersion second) => (OpenSearchVersion)first >= second;
 
 		public static bool operator ==(OpenSearchVersion first, string second) => first == (OpenSearchVersion)second;
+
 		public static bool operator !=(OpenSearchVersion first, string second) => first != (OpenSearchVersion)second;
 
 
 		public static bool operator ==(string first, OpenSearchVersion second) => (OpenSearchVersion)first == second;
+
 		public static bool operator !=(string first, OpenSearchVersion second) => (OpenSearchVersion)first != second;
 
 		// ReSharper disable once UnusedMember.Local
 		private bool Equals(OpenSearchVersion other) => base.Equals(other);
+
 		public override bool Equals(object obj) => base.Equals(obj);
 
 		public override int GetHashCode() => base.GetHashCode();

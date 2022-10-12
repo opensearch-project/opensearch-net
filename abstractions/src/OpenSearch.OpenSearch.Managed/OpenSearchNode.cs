@@ -44,12 +44,10 @@ namespace OpenSearch.OpenSearch.Managed
 		private readonly ManualResetEvent _startedHandle = new ManualResetEvent(false);
 
 		public OpenSearchNode(OpenSearchVersion version, string openSearchHome = null)
-			: this(new NodeConfiguration(new ClusterConfiguration(version, ServerType.DEFAULT,
-				(v, s) => new NodeFileSystem(v, openSearchHome))))
-		{
-		}
+			: this(new NodeConfiguration(new ClusterConfiguration(version, (v, s) => new NodeFileSystem(v, openSearchHome)))) { }
 
 		public OpenSearchNode(NodeConfiguration config) : base(StartArgs(config)) => NodeConfiguration = config;
+
 		public string Version { get; private set; }
 		public int? Port { get; private set; }
 		public bool NodeStarted { get; private set; }
@@ -88,7 +86,7 @@ namespace OpenSearch.OpenSearch.Managed
 
 		private static Dictionary<string, string> EnvVars(NodeConfiguration config)
 		{
-			var environmentVariables = new Dictionary<string, string> {{"OPENSEARCH_JAVA_OPTS", "-Xms1g -Xmx1g"}};
+			var environmentVariables = new Dictionary<string, string> { { "OPENSEARCH_JAVA_OPTS", "-Xms1g -Xmx1g" } };
 			if (!string.IsNullOrWhiteSpace(config.FileSystem.ConfigPath))
 				environmentVariables.Add(config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath);
 
@@ -101,9 +99,10 @@ namespace OpenSearch.OpenSearch.Managed
 		private bool AssumedStartedStateChecker(string section, string message)
 		{
 			if (AssumeStartedOnNotEnoughMasterPing
-			    && section.Contains("ZenDiscovery")
-			    && message.Contains("not enough master nodes discovered during pinging"))
+				&& section.Contains("ZenDiscovery")
+				&& message.Contains("not enough master nodes discovered during pinging"))
 				return true;
+
 			return false;
 		}
 
@@ -116,6 +115,7 @@ namespace OpenSearch.OpenSearch.Managed
 			var node = NodeConfiguration.DesiredNodeName;
 			var subscription = SubscribeLines(writer);
 			if (WaitForStarted(waitForStarted)) return subscription;
+
 			subscription.Dispose();
 			throw new OpenSearchCleanExitException(
 				$"Failed to start node: {node} before the configured timeout of: {waitForStarted}");
@@ -130,11 +130,13 @@ namespace OpenSearch.OpenSearch.Managed
 			SubscribeLines(writer, onNext, delegate { }, delegate { });
 
 		public IDisposable SubscribeLines(IConsoleLineHandler writer, Action<LineOut> onNext,
-			Action<Exception> onError) =>
+			Action<Exception> onError
+		) =>
 			SubscribeLines(writer, onNext, onError, delegate { });
 
 		public IDisposable SubscribeLines(IConsoleLineHandler writer, Action<LineOut> onNext, Action<Exception> onError,
-			Action onCompleted)
+			Action onCompleted
+		)
 		{
 			Writer = writer;
 			var node = NodeConfiguration.DesiredNodeName;
@@ -188,19 +190,19 @@ namespace OpenSearch.OpenSearch.Managed
 		private static void HardKill(int? processId)
 		{
 			if (!processId.HasValue) return;
+
 			try
 			{
 				var p = Process.GetProcessById(processId.Value);
 				p.Kill();
 			}
-			catch (Exception)
-			{
-			}
+			catch (Exception) { }
 		}
 
 		protected override bool ContinueReadingFromProcessReaders()
 		{
 			if (!NodeStarted) return true;
+
 			return true;
 
 			// some how if we return false here it leads to Task starvation in Proc and tests in e.g will OpenSearch.OpenSearch.Xunit will start
@@ -211,7 +213,7 @@ namespace OpenSearch.OpenSearch.Managed
 
 		protected override bool KeepBufferingLines(LineOut c)
 		{
-			var lineOutParser = LineOutParser.From(NodeConfiguration.ServerType);
+			var lineOutParser = LineOutParser.OpenSearch;
 			//if the node is already started only keep buffering lines while we have a writer and the nodeconfiguration wants output after started
 			if (NodeStarted)
 			{
@@ -246,12 +248,14 @@ namespace OpenSearch.OpenSearch.Managed
 				if (!Port.HasValue)
 					throw new OpenSearchCleanExitException(
 						$"Node started but OpenSearchNode did not grab its port number");
+
 				NodeStarted = true;
 				_startedHandle.Set();
 			}
 
 			// if we have dont a writer always return true
 			if (Writer != null) return true;
+
 			//otherwise only keep buffering if we are not started
 			return !started;
 		}

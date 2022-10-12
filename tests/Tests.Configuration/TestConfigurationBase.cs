@@ -27,7 +27,6 @@
 */
 
 using System;
-using System.Linq;
 using OpenSearch.Stack.ArtifactsApi;
 
 namespace Tests.Configuration
@@ -81,8 +80,6 @@ namespace Tests.Configuration
 		/// <summary> When specified will only run one overload in API tests, helpful when debugging locally </summary>
 		public bool TestOnlyOne { get; protected set; }
 
-		public ServerType ServerType { get; protected set; }
-
 		private static int CurrentSeed { get; } = new Random().Next(1, 1_00_000);
 
 		protected void SetExternalSeed(int? seed, out Random randomizer)
@@ -90,21 +87,6 @@ namespace Tests.Configuration
 			SeedProvidedExternally = seed.HasValue;
 			Seed = seed.GetValueOrDefault(CurrentSeed);
 			randomizer = new Random(Seed);
-		}
-
-		protected void ParseServerType(string version)
-		{
-			if (string.IsNullOrEmpty(version))
-				return;
-			// Assuming received string might be in format '$version' or '$ServerType-$version'
-			var hasServerType = Enum.GetNames(ServerType.GetType()).Any(s => version.StartsWith(s, StringComparison.InvariantCultureIgnoreCase));
-			if (hasServerType)
-			{
-				var parts = version.Split('-');
-				ServerType = (ServerType)Enum.Parse(ServerType.GetType(), parts[0], true);
-			}
-			else
-				ServerType = ServerType.OpenSearch;
 		}
 	}
 
