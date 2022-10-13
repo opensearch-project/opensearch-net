@@ -41,7 +41,7 @@ namespace OpenSearch.Stack.ArtifactsApi
 		internal Artifact(Product product, Version version, string downloadUrl, ArtifactBuildState state,
 			string buildHash)
 		{
-			ProductName = "opensearch";
+			ProductName = product?.ProductName ?? "opensearch";
 			Version = version;
 			DownloadUrl = product?.PatchDownloadUrl(downloadUrl);
 			State = state;

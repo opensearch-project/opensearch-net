@@ -89,7 +89,7 @@ namespace OpenSearch.Stack.ArtifactsApi
 		///     Resolves an OpenSearch version using either format '$version' or '$ServerType-$version', where version could be 'x.y.z' or 'latest' or even 'latest-x'
 		/// </summary>
 		public static OpenSearchVersion From(string managedVersionString) =>
-			// TODO resolve `latest` and `latest-x` for OpenSearchÏ
+			// TODO resolve `latest` and `latest-x` for OpenSearch
 			managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, ArtifactBuildState.Released, "");
 
 		public bool InRange(string range)
