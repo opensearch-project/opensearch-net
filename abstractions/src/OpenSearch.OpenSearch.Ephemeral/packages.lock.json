@@ -147,7 +147,7 @@
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.0.0",
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.4"
         }
@@ -930,7 +930,7 @@
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.0.0",
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.4"
         }

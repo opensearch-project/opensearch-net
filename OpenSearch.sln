@@ -76,7 +76,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Net.Auth.AwsSigV4", "src\OpenSearch.Net.Auth.AwsSigV4\OpenSearch.Net.Auth.AwsSigV4.csproj", "{2BDA50C8-767A-4560-9547-15AFC972A6E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Auth.AwsSigV4", "tests\Tests.Auth.AwsSigV4\Tests.Auth.AwsSigV4.csproj", "{2BCE8150-C16C-4226-B216-C7A0463ADC56}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Stack.ArtifactsApiTests", "abstractions\src\OpenSearch.Stack.ArtifactsApiTests\OpenSearch.Stack.ArtifactsApiTests.csproj", "{1F5A7B1A-2566-481F-91B5-A63D7F939973}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Stack.ArtifactsApiTests", "abstractions\tests\OpenSearch.Stack.ArtifactsApiTests\OpenSearch.Stack.ArtifactsApiTests.csproj", "{1F5A7B1A-2566-481F-91B5-A63D7F939973}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "abstractions", "{87ABA679-F3F4-48CE-82B3-1AAE5D0A5935}"
 	ProjectSection(SolutionItems) = preProject
@@ -87,13 +87,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ABE3B7EE-5B3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.OpenSearch.Ephemeral", "abstractions\src\OpenSearch.OpenSearch.Ephemeral\OpenSearch.OpenSearch.Ephemeral.csproj", "{31668B33-6157-4A5B-8D4C-18AF760DCA1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.OpenSearch.EphemeralTests", "abstractions\src\OpenSearch.OpenSearch.EphemeralTests\OpenSearch.OpenSearch.EphemeralTests.csproj", "{C80D225C-F072-4B24-9ACE-82EFD9362237}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.OpenSearch.EphemeralTests", "abstractions\tests\OpenSearch.OpenSearch.EphemeralTests\OpenSearch.OpenSearch.EphemeralTests.csproj", "{C80D225C-F072-4B24-9ACE-82EFD9362237}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.OpenSearch.Managed", "abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj", "{A9125BAC-71B5-4DC8-879D-1154A0A7DE5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.OpenSearch.Xunit", "abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj", "{39B7E62B-BDDF-46F2-9306-CE5FC68573A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Stack.ArtifactsApi", "abstractions\src\OpenSearch.Stack.ArtifactsApi\OpenSearch.Stack.ArtifactsApi.csproj", "{E7C0BDC2-28AD-4582-8FEA-0F6327A42C0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{22DF419F-9A90-4317-957D-E239EB3F95DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,10 +130,12 @@ Global
 		{2BCE8150-C16C-4226-B216-C7A0463ADC56} = {6C4A2627-AF22-4388-9DF7-7A9AEACFD635}
 		{ABE3B7EE-5B31-4C9A-976A-AD28D257B147} = {87ABA679-F3F4-48CE-82B3-1AAE5D0A5935}
 		{31668B33-6157-4A5B-8D4C-18AF760DCA1B} = {ABE3B7EE-5B31-4C9A-976A-AD28D257B147}
-		{C80D225C-F072-4B24-9ACE-82EFD9362237} = {ABE3B7EE-5B31-4C9A-976A-AD28D257B147}
 		{A9125BAC-71B5-4DC8-879D-1154A0A7DE5C} = {ABE3B7EE-5B31-4C9A-976A-AD28D257B147}
 		{39B7E62B-BDDF-46F2-9306-CE5FC68573A2} = {ABE3B7EE-5B31-4C9A-976A-AD28D257B147}
 		{E7C0BDC2-28AD-4582-8FEA-0F6327A42C0E} = {ABE3B7EE-5B31-4C9A-976A-AD28D257B147}
+		{22DF419F-9A90-4317-957D-E239EB3F95DF} = {87ABA679-F3F4-48CE-82B3-1AAE5D0A5935}
+		{C80D225C-F072-4B24-9ACE-82EFD9362237} = {22DF419F-9A90-4317-957D-E239EB3F95DF}
+		{1F5A7B1A-2566-481F-91B5-A63D7F939973} = {22DF419F-9A90-4317-957D-E239EB3F95DF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5B393962-7586-49BA-BD99-3B1E35F48E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

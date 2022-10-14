@@ -70,7 +70,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 		public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
 			params OpenSearchPlugin[] plugins
 		)
-			: base(TestClient.Configuration.OpenSearchVersion, Configuration.TestConfiguration.Instance.ServerType, features, new OpenSearchPlugins(plugins), numberOfNodes)
+			: base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
 		{
 			TestConfiguration = TestClient.Configuration;
 

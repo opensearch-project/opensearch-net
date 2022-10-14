@@ -42,7 +42,6 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		string ClusterName { get; }
 		NodeSettings DefaultNodeSettings { get; }
 		OpenSearchVersion Version { get; }
-		ServerType ServerType { get; }
 		int NumberOfNodes { get; }
 		int StartingPortNumber { get; set; }
 		bool NoCleanupAfterNodeStopped { get; set; }
@@ -55,17 +54,14 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 
 	public class ClusterConfiguration : ClusterConfiguration<NodeFileSystem>
 	{
-		public ClusterConfiguration(OpenSearchVersion version, ServerType serverType, string openSearchHome, int numberOfNodes = 1)
-			: base(version, serverType, (v, s) => new NodeFileSystem(v, openSearchHome), numberOfNodes, null)
-		{
-		}
+		public ClusterConfiguration(OpenSearchVersion version, string openSearchHome, int numberOfNodes = 1)
+			: base(version, (v, s) => new NodeFileSystem(v, openSearchHome), numberOfNodes, null) { }
 
-		public ClusterConfiguration(OpenSearchVersion version, ServerType serverType,
-			Func<OpenSearchVersion, string, NodeFileSystem> fileSystem = null, int numberOfNodes = 1,
-			string clusterName = null)
-			: base(version, serverType, fileSystem ?? ((v, s) => new NodeFileSystem(v, s)), numberOfNodes, clusterName)
-		{
-		}
+		public ClusterConfiguration(OpenSearchVersion version, Func<OpenSearchVersion, string, NodeFileSystem> fileSystem = null,
+			int numberOfNodes = 1,
+			string clusterName = null
+		)
+			: base(version, fileSystem ?? ((v, s) => new NodeFileSystem(v, s)), numberOfNodes, clusterName) { }
 	}
 
 	public class ClusterConfiguration<TFileSystem> : IClusterConfiguration<TFileSystem>
@@ -81,15 +77,15 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		/// </param>
 		/// <param name="numberOfNodes">The number of nodes in the cluster</param>
 		/// <param name="clusterName">The name of the cluster</param>
-		public ClusterConfiguration(OpenSearchVersion version, ServerType serverType, Func<OpenSearchVersion, string, TFileSystem> fileSystem,
-			int numberOfNodes = 1, string clusterName = null)
+		public ClusterConfiguration(OpenSearchVersion version, Func<OpenSearchVersion, string, TFileSystem> fileSystem,
+			int numberOfNodes = 1, string clusterName = null
+		)
 		{
 			if (fileSystem == null) throw new ArgumentException(nameof(fileSystem));
 
 			ClusterName = clusterName;
 			Version = version;
-			ServerType = serverType;
-			Artifact = version.Artifact(Product.From("opensearch", serverType: serverType));
+			Artifact = version.Artifact(Product.From("opensearch"));
 			FileSystem = fileSystem(Version, ClusterName);
 			NumberOfNodes = numberOfNodes;
 
@@ -112,7 +108,6 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 
 		public string ClusterName { get; }
 		public OpenSearchVersion Version { get; }
-		public ServerType ServerType { get; }
 		public TFileSystem FileSystem { get; }
 		public int NumberOfNodes { get; }
 		public int StartingPortNumber { get; set; } = 9200;
@@ -138,7 +133,7 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		/// <summary>
 		///     Calculates the quorum given the number of instances
 		/// </summary>
-		private static int Quorum(int instanceCount) => Math.Max(1, (int) Math.Floor((double) instanceCount / 2) + 1);
+		private static int Quorum(int instanceCount) => Math.Max(1, (int)Math.Floor((double)instanceCount / 2) + 1);
 
 		/// <summary>
 		///     Creates a node attribute for the version of OpenSearch
@@ -155,6 +150,7 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		protected void Add(string key, string value)
 		{
 			if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(value)) return;
+
 			DefaultNodeSettings.Add(key, value);
 		}
 
@@ -165,6 +161,7 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		protected void Add(string key, string value, string range)
 		{
 			if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(value)) return;
+
 			if (string.IsNullOrWhiteSpace(range) || Version.InRange(range))
 				DefaultNodeSettings.Add(key, value, range);
 		}

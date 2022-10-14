@@ -95,7 +95,7 @@ module Tests =
         Tooling.DotNet.ExecIn "tests/Tests" ["clean";] |> ignore
         // needs forced eval because it picks up local nuget packages not part of package.lock.json
         Tooling.DotNet.ExecIn "tests/Tests" ["restore"; "--force-evaluate"] |> ignore
-        dotnetTest "tests/Tests/Tests.csproj" args
+        dotnetTest "tests/tests.proj" args
 
     let RunUnitTests args =
         dotnetTest "tests/tests.proj" args
@@ -108,4 +108,4 @@ module Tests =
             for opensearchVersion in opensearchVersions do
                 Environment.setEnvironVar "OSC_INTEGRATION_TEST" "1"
                 Environment.setEnvironVar "OSC_INTEGRATION_VERSION" opensearchVersion
-                dotnetTest "tests/Tests/Tests.csproj" args
+                dotnetTest "tests/tests.proj" args

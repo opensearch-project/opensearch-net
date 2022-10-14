@@ -29,6 +29,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Stack.ArtifactsApi;
 using Xunit;
 
@@ -36,13 +37,13 @@ namespace OpenSearch.OpenSearch.EphemeralTests
 {
 	public class EphemeralClusterTests
 	{
-		[Theory]
+		[TU]
 		[ClassData(typeof(SampleClusters))]
-		public void TestEphemeralCluster(OpenSearchVersion version, ServerType serverType, ClusterFeatures features)
+		public void TestEphemeralCluster(OpenSearchVersion version, ClusterFeatures features)
 		{
-			var numberOfNodes = 1;
+			const int numberOfNodes = 1;
 			var clusterConfiguration =
-				new EphemeralClusterConfiguration(version, serverType, features, null, numberOfNodes)
+				new EphemeralClusterConfiguration(version, features, null, numberOfNodes)
 				{
 					ShowOpenSearchOutputAfterStarted = true
 				};
@@ -63,16 +64,10 @@ namespace OpenSearch.OpenSearch.EphemeralTests
 		{
 			public IEnumerator<object[]> GetEnumerator()
 			{
-				yield return new object[] {OpenSearchVersion.From("1.2.0"), ServerType.OpenSearch, ClusterFeatures.None};
-				yield return new object[]
-				{
-					OpenSearchVersion.From("opendistro-latest"), ServerType.OpenDistro, ClusterFeatures.None
-				};
-				yield return new object[] {OpenSearchVersion.From("1.2.0"), ServerType.OpenSearch, ClusterFeatures.SSL};
-				yield return new object[]
-				{
-					OpenSearchVersion.From("opendistro-latest"), ServerType.OpenDistro, ClusterFeatures.SSL
-				};
+				yield return new object[] {OpenSearchVersion.From("1.2.0"), ClusterFeatures.None};
+				yield return new object[] {OpenSearchVersion.From("2.2.0"), ClusterFeatures.None};
+				yield return new object[] {OpenSearchVersion.From("1.2.0"), ClusterFeatures.SSL};
+				yield return new object[] {OpenSearchVersion.From("2.2.0"), ClusterFeatures.SSL};
 			}
 
 			IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

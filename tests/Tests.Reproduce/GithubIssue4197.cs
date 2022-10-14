@@ -48,7 +48,7 @@ namespace Tests.Reproduce
 
 			_client.Indices.Create(index);
 
-			_client.Index(new Doc { ModificationDate = DateTime.Parse("2019-10-09T10:43:07.8633456+02:00") },
+			_client.Index(new Doc { ModificationDate = DateTime.Now },
 				i => i.Index(index).Refresh(Refresh.WaitFor));
 
 			var searchResponse = _client.Search<Doc>(s => s
@@ -66,8 +66,8 @@ namespace Tests.Reproduce
 			);
 
 			var filtersAggregate = searchResponse.Aggregations.Filters("Modification date");
-			filtersAggregate.AnonymousBuckets().Count.Should().Be(1);
-			filtersAggregate.AnonymousBuckets()[0].DocCount.Should().Be(1);
+			filtersAggregate.AnonymousBuckets().Count.Should().Be(1, "there should be exactly one anonymous bucket");
+			filtersAggregate.AnonymousBuckets()[0].DocCount.Should().Be(1, "there should be exactly one document");
 		}
 
 		private class Doc

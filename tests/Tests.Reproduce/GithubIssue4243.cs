@@ -44,8 +44,7 @@ namespace Tests.Reproduce
 		[I]
 		public async Task UsingFormatJsonIsSuccessfulResponse()
 		{
-			var connectionConfiguration = new ConnectionConfiguration(_cluster.Client.ConnectionSettings.ConnectionPool);
-			var lowLevelClient = new OpenSearchLowLevelClient(connectionConfiguration);
+			var lowLevelClient = _cluster.Client.LowLevel;
 
 			var response = _cluster.ClusterConfiguration.Version < "2.0.0"
 				? await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" })

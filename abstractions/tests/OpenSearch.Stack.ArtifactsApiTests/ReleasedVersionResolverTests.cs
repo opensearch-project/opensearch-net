@@ -30,6 +30,7 @@
 using System;
 using System.Net;
 using System.Runtime.InteropServices;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Stack.ArtifactsApi;
 using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Stack.ArtifactsApi.Resolvers;
@@ -43,7 +44,8 @@ namespace OpenSearch.Stack.ArtifactsApiTests
 	    public ReleasedVersionResolverTests(ITestOutputHelper traceSink) => _traceSink = traceSink ?? throw new NullReferenceException(nameof(traceSink));
 
 	    private readonly ITestOutputHelper _traceSink;
-		[Fact]
+
+		[U]
         public void Does_Resolver_Construct_Valid_DownloadUrl_Test()
         {
 	        var testCases = new[]

@@ -41,7 +41,6 @@ namespace Tests.Configuration
 
 			var version = Environment.GetEnvironmentVariable("OSC_INTEGRATION_VERSION");
 			OpenSearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.OpenSearchVersion : version;
-			ParseServerType(version);
 
 			if (OpenSearchVersion == null)
 				throw new Exception("OpenSearch Version could not be determined from env var OSC_INTEGRATION_VERSION nor the test yaml configuration");

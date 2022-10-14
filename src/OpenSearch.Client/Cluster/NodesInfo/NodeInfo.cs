@@ -51,9 +51,6 @@ namespace OpenSearch.Client
 		[DataMember(Name = "version")]
 		public string Version { get; internal set; }
 
-		[DataMember(Name = "build_flavor")]
-		public string BuildFlavor { get; internal set; }
-
 		[DataMember(Name = "build_type")]
 		public string BuildType { get; internal set; }
 

@@ -41,7 +41,7 @@ namespace OpenSearch.OpenSearch.Ephemeral
 	public class EphemeralCluster : EphemeralCluster<EphemeralClusterConfiguration>
 	{
 		public EphemeralCluster(OpenSearchVersion version, int numberOfNodes = 1)
-			: base(new EphemeralClusterConfiguration(version, ServerType.DEFAULT, ClusterFeatures.None, numberOfNodes: numberOfNodes))
+			: base(new EphemeralClusterConfiguration(version, ClusterFeatures.None, numberOfNodes: numberOfNodes))
 		{
 		}
 

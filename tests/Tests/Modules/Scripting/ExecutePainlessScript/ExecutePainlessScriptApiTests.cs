@@ -40,16 +40,6 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Modules.Scripting.ExecutePainlessScript
 {
-	// OpenDistro v.1.13.0 with security plugin activated gets exception when `_scripts/painless` server API called and returns it to a user:
-	//	"type" : "security_exception",
-	//	"reason": "Unexpected exception cluster:admin/scripts/painless/execute",
-	//	"stack_trace": "ElasticsearchSecurityException[Unexpected exception cluster:admin/scripts/painless/execute]
-	//		at com.amazon.opendistroforelasticsearch.security.filter.OpenDistroSecurityFilter.apply0(OpenDistroSecurityFilter.java:361)
-	//		....
-	// See forum threads about this bug: https://discuss.opendistrocommunity.dev/t/analyze-api-error/5640,
-	//									 https://discuss.opendistrocommunity.dev/t/exception-while-calling-cluster-health/6129
-	// Fixed in OpenDistro 1.13.1.
-	[SkipVersion("1.13.0", "OpenDistro 1.13.0 with security malfunction with these API's. See code comments for detailed description.")]
 	public class ExecutePainlessScriptApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, ExecutePainlessScriptResponse<string>, IExecutePainlessScriptRequest,
 			ExecutePainlessScriptDescriptor, ExecutePainlessScriptRequest>

@@ -39,23 +39,6 @@ namespace OpenSearch.OpenSearch.Managed.ConsoleWriters
 		public static readonly LineOutParser OpenSearch = new(shortNamePrefix: "o.o", fullNamePrefix: "org.opensearch",
 			securityPluginName: "OpenSearchSecurityPlugin");
 
-		public static readonly LineOutParser OpenDistro = new(shortNamePrefix: "o.e", fullNamePrefix: "org.elastic",
-			securityPluginName: "OpenDistroSecurityPlugin");
-		public static LineOutParser From(ServerType serverType)
-		{
-			switch (serverType)
-			{
-				case ServerType.OpenDistro:
-				case ServerType.ElasticSearch:
-					return LineOutParser.OpenDistro;
-				case ServerType.OpenSearch:
-					return LineOutParser.OpenSearch;
-				default:
-					throw new ApplicationException(
-						$"Unexpected value for {nameof(serverType)} -- {serverType}");
-			}
-		}
-
 /*
 [2016-09-26T11:43:17,314][INFO ][o.e.n.Node               ] [readonly-node-a9c5f4] initializing ...
 [2016-09-26T11:43:17,470][INFO ][o.e.e.NodeEnvironment    ] [readonly-node-a9c5f4] using [1] data paths, mounts [[BOOTCAMP (C:)]], net usable_space [27.7gb], net total_space [129.7gb], spins? [unknown], types [NTFS]
@@ -118,10 +101,7 @@ namespace OpenSearch.OpenSearch.Managed.ConsoleWriters
 			return true;
 		}
 
-		private bool TryGetStartedConfirmation(string section, string message)
-		{
-			return section == ShortName("n.Node") && message == "started";
-		}
+		private bool TryGetStartedConfirmation(string section, string message) => section == ShortName("n.Node") && message == "started";
 
 		public bool TryGetPortNumber(string section, string message, out int port)
 		{

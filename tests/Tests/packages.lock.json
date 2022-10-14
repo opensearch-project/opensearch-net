@@ -31,10 +31,7 @@
         "type": "Direct",
         "requested": "[1.0.0-preview.2, )",
         "resolved": "1.0.0-preview.2",
-        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg==",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.0-preview.2"
-        }
+        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg=="
       },
       "SemanticVersioning": {
         "type": "Direct",
@@ -102,11 +99,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
-      },
-      "Microsoft.NETFramework.ReferenceAssemblies.net461": {
-        "type": "Transitive",
-        "resolved": "1.0.0-preview.2",
-        "contentHash": "59D9ISjzCpfHG41r5x4BNZNNOCmE2o5YX8vcdOwsqfxOA0+6vQnxZrYq8KtthUU2JSvC13g941rSr5GRaNQOJg=="
       },
       "Microsoft.TestPlatform.ObjectModel": {
         "type": "Transitive",
@@ -1280,14 +1272,14 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "1.0.0"
+          "OpenSearch.Net": "1.1.0"
         }
       },
       "opensearch.client.jsonnetserializer": {
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.0.0"
+          "OpenSearch.Client": "1.1.0"
         }
       },
       "opensearch.net": {
@@ -1301,20 +1293,20 @@
       "opensearch.net.virtualizedcluster": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "1.0.0"
+          "OpenSearch.Net": "1.1.0"
         }
       },
       "opensearch.opensearch.ephemeral": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "1.0.0",
+          "OpenSearch.OpenSearch.Managed": "1.1.0",
           "SharpZipLib.NETStandard": "1.0.7"
         }
       },
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.0.0",
+          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
           "Proc": "0.6.1",
           "System.Net.Http": "4.3.4"
         }
@@ -1322,7 +1314,7 @@
       "opensearch.opensearch.xunit": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Ephemeral": "1.0.0",
+          "OpenSearch.OpenSearch.Ephemeral": "1.1.0",
           "xunit": "2.4.2"
         }
       },
@@ -1338,7 +1330,7 @@
       "tests.configuration": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "1.0.0"
+          "OpenSearch.OpenSearch.Managed": "1.1.0"
         }
       },
       "tests.core": {
@@ -1349,10 +1341,10 @@
           "JunitXml.TestLogger": "2.1.78",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "Nullean.VsTest.Pretty.TestLogger": "0.3.0",
-          "OpenSearch.Client.JsonNetSerializer": "1.0.0",
-          "OpenSearch.OpenSearch.Xunit": "1.0.0",
+          "OpenSearch.Client.JsonNetSerializer": "1.1.0",
+          "OpenSearch.OpenSearch.Xunit": "1.1.0",
           "Proc": "0.6.1",
-          "Tests.Domain": "1.0.0",
+          "Tests.Domain": "1.1.0",
           "xunit": "2.4.2"
         }
       },
@@ -1361,9 +1353,9 @@
         "dependencies": {
           "Bogus": "22.1.2",
           "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.0.0",
-          "OpenSearch.OpenSearch.Managed": "1.0.0",
-          "Tests.Configuration": "1.0.0"
+          "OpenSearch.Client": "1.1.0",
+          "OpenSearch.OpenSearch.Managed": "1.1.0",
+          "Tests.Configuration": "1.1.0"
         }
       }
     }
