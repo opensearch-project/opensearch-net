@@ -7,6 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bump version to `1.2.1`([#115](https://github.com/opensearch-project/opensearch-net/pull/115))
 
 ### Changed
+- Excluded dependabot from `changelog_verifier` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
 
 ### Deprecated
 
