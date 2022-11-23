@@ -270,7 +270,7 @@ namespace OpenSearch.Client
 		/// <inheritdoc />
 		public bool? TrackScores { get; set; }
 		/// <inheritdoc />
-		public bool? TrackTotalHits { get; set; }
+		public TrackTotalHits TrackTotalHits { get; set; }
 		/// <inheritdoc />
 		public bool? Version { get; set; }
 		/// <inheritdoc />
@@ -333,7 +333,7 @@ namespace OpenSearch.Client
 		long? ISearchRequest.TerminateAfter { get; set; }
 		string ISearchRequest.Timeout { get; set; }
 		bool? ISearchRequest.TrackScores { get; set; }
-		bool? ISearchRequest.TrackTotalHits { get; set; }
+		TrackTotalHits ISearchRequest.TrackTotalHits { get; set; }
 		bool? ISearchRequest.Version { get; set; }
 		IRuntimeFields ISearchRequest.RuntimeFields { get; set; }
 
@@ -506,7 +506,10 @@ namespace OpenSearch.Client
 			Assign(rescoreSelector, (a, v) => a.Rescore = v?.Invoke(new RescoringDescriptor<TInferDocument>()).Value);
 
 		/// <inheritdoc cref="ISearchRequest.TrackTotalHits" />
-		public SearchDescriptor<TInferDocument> TrackTotalHits(bool? trackTotalHits = true) => Assign(trackTotalHits, (a, v) => a.TrackTotalHits = v);
+		public SearchDescriptor<TInferDocument> TrackTotalHits() => Assign(true, (a, v) => a.TrackTotalHits = v);
+
+		/// <inheritdoc cref="ISearchRequest.TrackTotalHits" />
+		public SearchDescriptor<TInferDocument> TrackTotalHits(TrackTotalHits trackTotalHits) => Assign(trackTotalHits, (a, v) => a.TrackTotalHits = v);
 
 		/// <inheritdoc cref="ISearchRequest.RuntimeFields" />
 		public SearchDescriptor<TInferDocument> RuntimeFields(Func<RuntimeFieldsDescriptor<TInferDocument>, IPromise<IRuntimeFields>> runtimeFieldsSelector) =>

@@ -2654,7 +2654,7 @@ namespace OpenSearch.Client
 		}
 
 		[DataMember(Name = "track_total_hits")]
-		bool? TrackTotalHits
+		TrackTotalHits TrackTotalHits
 		{
 			get;
 			set;
