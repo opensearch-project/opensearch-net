@@ -8,6 +8,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added `dependabot_changelog` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
 
 ### Changed
+- Updated SDK to .NET 6 ([#126](https://github.com/opensearch-project/opensearch-net/pull/126))
 
 ### Deprecated
 
