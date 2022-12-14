@@ -4,7 +4,6 @@
   </PropertyGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'!=''">
     <PackageReference Include="OpenSearch.Client" Version="$(TestPackageVersion)" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'==''">
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Client\OpenSearch.Client.csproj" />
