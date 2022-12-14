@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <!-- Type Providers are restored using net461, fine for netcoreapp2.2 so we kill the warning -->
     <NoWarn>$(NoWarn);NU1701</NoWarn>
@@ -34,8 +34,6 @@
     <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FSharp.Core" Version="5.0.0" />
-
     <PackageReference Include="Bullseye" Version="3.3.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
     

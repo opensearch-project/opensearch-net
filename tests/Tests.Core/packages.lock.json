@@ -27,13 +27,19 @@
         "type": "Direct",
         "requested": "[16.5.0, )",
         "resolved": "16.5.0",
-        "contentHash": "yHZOhVSPuGqgHi+KhHiAZqNY08avkQraXKvgKgDU8c/ztmGzw7gmukkv49EaTq6T3xmp4XroWk3gAlbJHMxl8w=="
+        "contentHash": "yHZOhVSPuGqgHi+KhHiAZqNY08avkQraXKvgKgDU8c/ztmGzw7gmukkv49EaTq6T3xmp4XroWk3gAlbJHMxl8w==",
+        "dependencies": {
+          "Microsoft.CodeCoverage": "16.5.0"
+        }
       },
       "Microsoft.NETFramework.ReferenceAssemblies": {
         "type": "Direct",
         "requested": "[1.0.0-preview.2, )",
         "resolved": "1.0.0-preview.2",
-        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg=="
+        "contentHash": "m+pJPEO7HyXvrOna5Sr3s77ewXonjYWJTNL6drh8xACnMNxnlqUDKx9HfGeSE9wmfY0lQwppaeZpFTPGaH7kZg==",
+        "dependencies": {
+          "Microsoft.NETFramework.ReferenceAssemblies.net461": "1.0.0-preview.2"
+        }
       },
       "NETStandard.Library": {
         "type": "Direct",
@@ -87,6 +93,11 @@
           "System.Threading.Tasks.Extensions": "4.5.4"
         }
       },
+      "Microsoft.CodeCoverage": {
+        "type": "Transitive",
+        "resolved": "16.5.0",
+        "contentHash": "PM5YLtyN45EyUGePJpaNogndlaQPrMgQQXHKMhMESC6KfSVvt+j7+dxBi8NYC6X6dZVysf7ngwhSW3wwvPJRSQ=="
+      },
       "Microsoft.CSharp": {
         "type": "Transitive",
         "resolved": "4.6.0",
@@ -101,6 +112,11 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
+      },
+      "Microsoft.NETFramework.ReferenceAssemblies.net461": {
+        "type": "Transitive",
+        "resolved": "1.0.0-preview.2",
+        "contentHash": "59D9ISjzCpfHG41r5x4BNZNNOCmE2o5YX8vcdOwsqfxOA0+6vQnxZrYq8KtthUU2JSvC13g941rSr5GRaNQOJg=="
       },
       "Microsoft.TestPlatform.ObjectModel": {
         "type": "Transitive",
@@ -1262,71 +1278,71 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "1.1.0"
+          "OpenSearch.Net": "[1.2.1, )"
         }
       },
       "opensearch.client.jsonnetserializer": {
         "type": "Project",
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.1.0"
+          "Newtonsoft.Json": "[13.0.1, )",
+          "OpenSearch.Client": "[1.2.1, )"
         }
       },
       "opensearch.net": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.CSharp": "4.6.0",
-          "System.Buffers": "4.5.1",
-          "System.Diagnostics.DiagnosticSource": "5.0.0",
-          "System.Reflection.Emit": "4.3.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0"
+          "Microsoft.CSharp": "[4.6.0, )",
+          "System.Buffers": "[4.5.1, )",
+          "System.Diagnostics.DiagnosticSource": "[5.0.0, )",
+          "System.Reflection.Emit": "[4.3.0, )",
+          "System.Reflection.Emit.Lightweight": "[4.3.0, )"
         }
       },
       "opensearch.opensearch.ephemeral": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "1.1.0",
-          "SharpZipLib.NETStandard": "1.0.7"
+          "OpenSearch.OpenSearch.Managed": "[1.2.1, )",
+          "SharpZipLib.NETStandard": "[1.0.7, )"
         }
       },
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "1.1.0",
-          "Proc": "0.6.1",
-          "System.Net.Http": "4.3.4"
+          "OpenSearch.Stack.ArtifactsApi": "[1.2.1, )",
+          "Proc": "[0.6.1, )",
+          "System.Net.Http": "[4.3.4, )"
         }
       },
       "opensearch.opensearch.xunit": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Ephemeral": "1.1.0",
-          "xunit": "2.4.2"
+          "OpenSearch.OpenSearch.Ephemeral": "[1.2.1, )",
+          "xunit": "[2.4.2, )"
         }
       },
       "opensearch.stack.artifactsapi": {
         "type": "Project",
         "dependencies": {
-          "SemanticVersioning": "0.8.0",
-          "System.Net.Http": "4.3.4",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0",
-          "System.Text.Json": "6.0.5"
+          "SemanticVersioning": "[0.8.0, )",
+          "System.Net.Http": "[4.3.4, )",
+          "System.Runtime.InteropServices.RuntimeInformation": "[4.3.0, )",
+          "System.Text.Json": "[6.0.5, )"
         }
       },
       "tests.configuration": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "1.1.0"
+          "OpenSearch.OpenSearch.Managed": "[1.2.1, )"
         }
       },
       "tests.domain": {
         "type": "Project",
         "dependencies": {
-          "Bogus": "22.1.2",
-          "Newtonsoft.Json": "13.0.1",
-          "OpenSearch.Client": "1.1.0",
-          "OpenSearch.OpenSearch.Managed": "1.1.0",
-          "Tests.Configuration": "1.1.0"
+          "Bogus": "[22.1.2, )",
+          "Newtonsoft.Json": "[13.0.1, )",
+          "OpenSearch.Client": "[1.2.1, )",
+          "OpenSearch.OpenSearch.Managed": "[1.2.1, )",
+          "Tests.Configuration": "[1.2.1, )"
         }
       }
     }
