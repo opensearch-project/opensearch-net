@@ -29,6 +29,7 @@
 
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Stack.ArtifactsApi;
@@ -48,6 +49,9 @@ namespace OpenSearch.Stack.ArtifactsApiTests
 		[U]
         public void Does_Resolver_Construct_Valid_DownloadUrl_Test()
         {
+			var httpClient = new HttpClient();
+			httpClient.Timeout = TimeSpan.FromSeconds(3);
+
 	        var testCases = new[]
 	        {
 				new {Product = Product.OpenSearch, Version = "1.2.3", Platform = OSPlatform.Linux, Architecture = Architecture.X64},
@@ -61,12 +65,10 @@ namespace OpenSearch.Stack.ArtifactsApiTests
 			        testCase.Architecture, out var artifact);
 		        Assert.True(resolveSucceeded);
 		        _traceSink.WriteLine($"Checking URL {artifact.DownloadUrl}");
-		        var downloadRequest = WebRequest.CreateHttp(new Uri(artifact.DownloadUrl));
-		        downloadRequest.Timeout = 3 * 1000; // Timeout of 3 seconds.
-				// HTTP HEAD request can be used to check if a web resource exists without getting its content.
-				// See here for more details https://hc.apache.org/httpclient-legacy/methods/head.html
-		        downloadRequest.Method = "HEAD";
-		        var response = (HttpWebResponse)downloadRequest.GetResponse();
+
+				using var request = new HttpRequestMessage(HttpMethod.Head, new Uri(artifact.DownloadUrl));
+				using var response = httpClient.Send(request);
+
 		        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 	        }
         }

@@ -82,7 +82,6 @@ namespace Tests.Framework.EndpointTests
 		protected static string RandomString() => Guid.NewGuid().ToString("N").Substring(0, 8);
 
 		protected string U(string s) => Uri.EscapeDataString(s);
-		protected string Q(string s) => Uri.EscapeUriString(s);
 
 		protected T ExtendedValue<T>(string key) where T : class => UniqueValues.ExtendedValue<T>(key);
 
