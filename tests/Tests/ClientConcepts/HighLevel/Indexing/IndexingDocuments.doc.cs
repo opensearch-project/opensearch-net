@@ -134,7 +134,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 				}
 			};
 
-			var indexManyResponse = client.IndexMany(people); //<1> synchronous method that returns an IBulkResponse
+			var indexManyResponse = client.IndexMany(people); //<1> synchronous method that returns an BulkResponse
 
 			if (indexManyResponse.Errors) //<2> the response can be inspected to see if any of the bulk operations resulted in an error
 			{
@@ -145,7 +145,7 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 			}
 
 			// Alternatively, documents can be indexed asynchronously
-			var indexManyAsyncResponse = await client.IndexManyAsync(people); //<4> asynchronous method that returns a Task<IBulkResponse> that can be awaited
+			var indexManyAsyncResponse = await client.IndexManyAsync(people); //<4> asynchronous method that returns a Task<BulkResponse> that can be awaited
 		}
 
 		/**
@@ -167,13 +167,13 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 			var bulkIndexResponse = client.Bulk(b => b
 				.Index("people")
 				.IndexMany(people)
-			); //<1> synchronous method that returns an IBulkResponse, the same as IndexMany and can be inspected in the same way for errors
+			); //<1> synchronous method that returns an BulkResponse, the same as IndexMany and can be inspected in the same way for errors
 
 			// Alternatively, documents can be indexed asynchronously similar to IndexManyAsync
 			var asyncBulkIndexResponse = await client.BulkAsync(b => b
 				.Index("people")
 				.IndexMany(people)
-			); //<2> asynchronous method that returns a Task<IBulkResponse> that can be awaited
+			); //<2> asynchronous method that returns a Task<BulkResponse> that can be awaited
 		}
 
 		/**
