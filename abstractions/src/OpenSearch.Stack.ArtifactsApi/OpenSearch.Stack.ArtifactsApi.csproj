@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+      <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a set of classes to resolve the location of OpenSearch stack products in various stages: released, snapshot and build candidates</Description>
         <PackageTags>opensearch,opensearch,stack,versioning,artifacts</PackageTags>
         <IsPackable>false</IsPackable>
