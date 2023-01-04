@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Provides an Xunit test framework allowing you to run integration tests against local ephemeral OpenSearch clusters</Description>
     <IsPackable>false</IsPackable>
     <!-- key is set in root Directory.Build.props-->
