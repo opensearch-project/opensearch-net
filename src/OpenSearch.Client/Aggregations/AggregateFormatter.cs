@@ -843,7 +843,7 @@ namespace OpenSearch.Client
 			reader.ReadNext(); // ,
 			reader.ReadNext(); // "key"
 			reader.ReadNext(); // :
-			var key = reader.ReadInt64();
+			var key = reader.ReadDouble();
 			reader.ReadNext(); // ,
 			reader.ReadNext(); // "doc_count"
 			reader.ReadNext(); // :
