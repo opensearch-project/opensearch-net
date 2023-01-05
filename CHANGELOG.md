@@ -16,6 +16,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed `net461` target from internal packages ([#128](https://github.com/opensearch-project/opensearch-net/pull/128))
 
 ### Fixed
+- Fixed parsing of date histogram buckets ([#131](https://github.com/opensearch-project/opensearch-net/pull/131))
 
 ### Security
 
