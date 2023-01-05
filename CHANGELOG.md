@@ -19,5 +19,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Security
 
+### Dependencies
+- Bumps `SemanticVersioning` from 0.8.0 to 2.0.2
+- Bumps `Microsoft.NET.Test.Sdk` from 16.5.0 to 17.4.1
+- Bumps `Octokit` from 0.32.0 to 4.0.3
+- Bumps `BenchMarkDotNet` from 0.13.1 to 0.13.3
+- Bumps `System.Reactive` from 3.1.1 to 5.0.0
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD

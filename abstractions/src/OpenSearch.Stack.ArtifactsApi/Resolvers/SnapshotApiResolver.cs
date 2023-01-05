@@ -35,8 +35,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using OpenSearch.Stack.ArtifactsApi.Platform;
 using OpenSearch.Stack.ArtifactsApi.Products;
-using SemVer;
-using Version = SemVer.Version;
+using SemanticVersioning;
+using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi.Resolvers
 {

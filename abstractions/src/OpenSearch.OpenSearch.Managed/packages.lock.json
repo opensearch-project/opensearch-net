@@ -212,11 +212,8 @@
       },
       "SemanticVersioning": {
         "type": "Transitive",
-        "resolved": "0.8.0",
-        "contentHash": "hUCnQL79hU0W6X4jPeMAtGDwoEJeBEZfGBnkT+jPG45lD7KHn4h61HgYN8y1HAjPrXmC5oJcLx3l8ygPJOqvlA==",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0"
-        }
+        "resolved": "2.0.2",
+        "contentHash": "4EQgYdNZ92SyaO7YFk6olVnebF5V+jrHyMUjvPq89tLeMo8NSfgDF+6Zwq/lgh9j/0yfQp9Lkm0ZA0rUATCZFA=="
       },
       "System.Buffers": {
         "type": "Transitive",
@@ -770,7 +767,7 @@
       "opensearch.stack.artifactsapi": {
         "type": "Project",
         "dependencies": {
-          "SemanticVersioning": "[0.8.0, )",
+          "SemanticVersioning": "[2.0.2, )",
           "System.Net.Http": "[4.3.4, )",
           "System.Runtime.InteropServices.RuntimeInformation": "[4.3.0, )",
           "System.Text.Json": "[7.0.1, )"

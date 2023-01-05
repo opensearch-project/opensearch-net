@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SemVer;
+using SemanticVersioning;
 
 namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
 {

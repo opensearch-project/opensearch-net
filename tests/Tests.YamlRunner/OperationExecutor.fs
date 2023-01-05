@@ -433,9 +433,9 @@ type OperationExecutor(client:IOpenSearchLowLevelClient) =
                 return Failed <| Fail.Create op "%s" op.Section
         | Skip s ->
             let skip reason = Skipped (op, s.Reason |> Option.defaultValue reason)
-            let versionRangeCheck (versions:SemVer.Range list) =
+            let versionRangeCheck (versions:SemanticVersioning.Range list) =
                 let anchoredVersion =
-                    let x = SemVer.Version(op.Version)
+                    let x = SemanticVersioning.Version(op.Version)
                     sprintf "%i.%i.%i" x.Major x.Minor x.Patch
                 
                 let versionInRange =
