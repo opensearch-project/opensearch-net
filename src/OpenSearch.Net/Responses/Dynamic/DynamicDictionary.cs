@@ -92,7 +92,7 @@ namespace OpenSearch.Net
 		/// Traverses data using path notation.
 		/// <para><c>e.g some.deep.nested.json.path</c></para>
 		/// <para></para>
-		/// <para> A special lookup is available for ANY key <c>_arbitrary_key_<c> <c>e.g some.deep._arbitrary_key_.json.path</c> which will traverse into the first key</para>
+		/// <para> A special lookup is available for ANY key <c>_arbitrary_key_</c> <c>e.g some.deep._arbitrary_key_.json.path</c> which will traverse into the first key</para>
 		/// <para> If <c>_arbitrary_key_</c> is the last value it will return the key name</para>
 		/// <para></para>
 		/// </summary>

@@ -1,0 +1,62 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ],
+          "src": "../src"
+        }
+      ],
+      "dest": "obj/temp/docfxapi",
+      "filter": "docfxFilterConfig.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["**/*.yml"],
+        "src": "obj/temp/docfxapi",
+        "dest": "api"
+      },
+      {
+        "files": [
+          "*.md",
+          "toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["LICENSE.txt"],
+        "src": "..",
+        "dest": ""
+      },
+      {
+        "files": ["OpenSearch.svg"],
+        "src": "..",
+        "dest": ""
+      }
+    ],
+    "overwrite": [],
+    "template": ["default", "./custom_template"],
+    "dest": "_site",
+    "markdownEngineName": "markdig",
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "globalMetadata": {
+      "_appTitle": "OpenSearch.Net",
+      "_appLogoPath": "OpenSearch.svg",
+      "_appFaviconPath": "favicon.ico",
+      "_gitContribute": {
+        "repo": "https://github.com/opensearch-project/opensearch-net",
+        "branch": "main"
+      },
+      "_enableSearch": true
+    }
+  }
+}

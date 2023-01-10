@@ -43,7 +43,7 @@ namespace OpenSearch.Client
 		Field Field { get; set; }
 
 		/// <summary>
-		/// If <c>true</c> the processor copies the unparsed URI to <target_field>.original.
+		/// If <c>true</c> the processor copies the unparsed URI to <c>&lt;target_field&gt;.original</c>.
 		/// </summary>
 		[DataMember(Name = "keep_original")]
 		bool? KeepOriginal { get; set; }

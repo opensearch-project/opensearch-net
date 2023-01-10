@@ -66,7 +66,6 @@ namespace OpenSearch.Client
 		IEnumerable<object> Terms { get; set; }
 	}
 
-	/// <
 	/// <inheritdoc cref="ITermsSetQuery" />
 	public class TermsSetQuery : FieldNameQueryBase, ITermsSetQuery
 	{
