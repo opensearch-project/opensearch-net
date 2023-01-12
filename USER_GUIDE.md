@@ -10,6 +10,7 @@
     - [Getting Started](#getting-started-1)
     - [Connecting](#connecting-1)
     - [Configuring Region & Credentials](#configuring-region--credentials)
+    - [Amazon OpenSearch Serverless](#amazon-opensearch-serverless)
   - [OpenSearch.Net](#opensearchnet)
     - [Getting Started](#getting-started-2)
     - [Connecting](#connecting-2)
@@ -26,7 +27,7 @@ Include OpenSearch.Client in your .csproj file.
 <Project>
   ...
   <ItemGroup>
-    <PackageReference Include="OpenSearch.Client" Version="1.0.0" />
+    <PackageReference Include="OpenSearch.Client" Version="1.*" />
   </ItemGroup>
 </Project>
 ```
@@ -141,7 +142,7 @@ var response = lowLevelClient.Search<SearchResponse<Tweet>>("mytweetindex", Post
 
 ## [OpenSearch.Net.Auth.AwsSigV4](src/OpenSearch.Net.Auth.AwsSigV4)
 
-An implementation of AWS SigV4 request signing for performing IAM authentication against the managed Amazon OpenSearch Service.
+An implementation of AWS SigV4 request signing for performing IAM authentication against the managed [Amazon OpenSearch Service](https://aws.amazon.com/opensearch-service/).
 It can be used with both the low-level OpenSearch.Net client as well as the higher-level OpenSearch.Client client.
 
 ### Getting Started
@@ -150,8 +151,8 @@ Include OpenSearch.Net.Auth.AwsSigV4 along with your preferred client in your .c
 <Project>
   ...
   <ItemGroup>
-    <PackageReference Include="OpenSearch.Client" Version="1.0.0" />
-    <PackageReference Include="OpenSearch.Net.Auth.AwsSigV4" Version="1.0.0" />
+    <PackageReference Include="OpenSearch.Client" Version="1.*" />
+    <PackageReference Include="OpenSearch.Net.Auth.AwsSigV4" Version="1.*" />
   </ItemGroup>
 </Project>
 ```
@@ -215,6 +216,21 @@ var credentials = new AssumeRoleAWSCredentials(
 				"arn:aws:iam::123456789012:role/my-open-search-ingest-role",
 				"my-ingest-application");
 var connection = new AwsSigV4HttpConnection(credentials, RegionEndpoint.APSoutheast2);
+var config = new ConnectionSettings(endpoint, connection);
+var client = new OpenSearchClient(config);
+```
+
+### Amazon OpenSearch Serverless
+To configure signing when making requests to [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/) is nearly identical to all above configuration for AwsSigV4, the only difference being the need to configure the service identifier.
+This applies to all variants of the constructor as documented above.
+```shell
+export AWS_ACCESS_KEY_ID="..."
+export AWS_SECRET_ACCESS_KEY="..."
+export AWS_SESSION_TOKEN="..."
+```
+```csharp
+var endpoint = new Uri("https://aaabbbcccddd111222333.ap-southeast-2.aoss.amazonaws.com");
+var connection = new AwsSigV4HttpConnection(RegionEndpoint.APSoutheast2, serviceId: AwsSigV4HttpConnection.OpenSearchServerlessServiceId);
 var config = new ConnectionSettings(endpoint, connection);
 var client = new OpenSearchClient(config);
 ```
