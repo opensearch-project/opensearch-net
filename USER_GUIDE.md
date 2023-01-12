@@ -221,8 +221,7 @@ var client = new OpenSearchClient(config);
 ```
 
 ### Amazon OpenSearch Serverless
-To configure signing when making requests to [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/) is nearly identical to all above configuration for AwsSigV4, the only difference being the need to configure the service identifier.
-This applies to all variants of the constructor as documented above.
+Use the `"aoss"` service identifier to make requests to [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/), otherwise all configuration options are identical to above.
 ```shell
 export AWS_ACCESS_KEY_ID="..."
 export AWS_SECRET_ACCESS_KEY="..."
