@@ -25,16 +25,18 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			HttpRequestMessage request,
 			ImmutableCredentials credentials,
 			RegionEndpoint region,
-			DateTime signingTime)
+			DateTime signingTime,
+			string serviceId)
 		{
 			var canonicalRequest = await CanonicalRequest.From(request, credentials, signingTime).ConfigureAwait(false);
 
-			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, "es", canonicalRequest.SignedHeaders,
+			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, serviceId, canonicalRequest.SignedHeaders,
 				canonicalRequest.ToString());
 
-			request.Headers.TryAddWithoutValidation("x-amz-date", canonicalRequest.XAmzDate);
-			request.Headers.TryAddWithoutValidation("authorization", signature.ForAuthorizationHeader);
-			if (!string.IsNullOrEmpty(canonicalRequest.XAmzSecurityToken)) request.Headers.TryAddWithoutValidation("x-amz-security-token", canonicalRequest.XAmzSecurityToken);
+			request.Headers.TryAddWithoutValidation(HeaderNames.XAmzDate, canonicalRequest.XAmzDate);
+			request.Headers.TryAddWithoutValidation(HeaderNames.XAmzContentSha256, canonicalRequest.XAmzContentSha256);
+			request.Headers.TryAddWithoutValidation(HeaderNames.Authorization, signature.ForAuthorizationHeader);
+			if (!string.IsNullOrEmpty(canonicalRequest.XAmzSecurityToken)) request.Headers.TryAddWithoutValidation(HeaderNames.XAmzSecurityToken, canonicalRequest.XAmzSecurityToken);
 		}
 #else
 		public static void SignRequest(
@@ -42,17 +44,19 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			RequestData requestData,
 			ImmutableCredentials credentials,
 			RegionEndpoint region,
-			DateTime signingTime)
+			DateTime signingTime,
+			string serviceId)
 		{
 			var canonicalRequest = CanonicalRequest.From(request, requestData, credentials, signingTime);
 
-			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, "es", canonicalRequest.SignedHeaders,
+			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, serviceId, canonicalRequest.SignedHeaders,
 				canonicalRequest.ToString());
 
-			request.Headers["x-amz-date"] = canonicalRequest.XAmzDate;
-			request.Headers["authorization"] = signature.ForAuthorizationHeader;
+			request.Headers[HeaderNames.XAmzDate] = canonicalRequest.XAmzDate;
+			request.Headers[HeaderNames.XAmzContentSha256] = canonicalRequest.XAmzContentSha256;
+			request.Headers[HeaderNames.Authorization] = signature.ForAuthorizationHeader;
 			if (!string.IsNullOrEmpty(canonicalRequest.XAmzSecurityToken))
-				request.Headers["x-amz-security-token"] = canonicalRequest.XAmzSecurityToken;
+				request.Headers[HeaderNames.XAmzSecurityToken] = canonicalRequest.XAmzSecurityToken;
 		}
 #endif
 	}
