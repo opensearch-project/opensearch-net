@@ -3,6 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### Added
+- Added support for Amazon OpenSearch Serverless request signing ([#133](https://github.com/opensearch-project/opensearch-net/pull/133))
 - Github workflow for changelog verification ([#111](https://github.com/opensearch-project/opensearch-net/pull/111))
 - Bump version to `1.2.1`([#115](https://github.com/opensearch-project/opensearch-net/pull/115))
 - Added `dependabot_changelog` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
