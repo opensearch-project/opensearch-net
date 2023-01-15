@@ -26,11 +26,11 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			ImmutableCredentials credentials,
 			RegionEndpoint region,
 			DateTime signingTime,
-			string serviceId)
+			string service)
 		{
 			var canonicalRequest = await CanonicalRequest.From(request, credentials, signingTime).ConfigureAwait(false);
 
-			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, serviceId, canonicalRequest.SignedHeaders,
+			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, service, canonicalRequest.SignedHeaders,
 				canonicalRequest.ToString());
 
 			request.Headers.TryAddWithoutValidation(HeaderNames.XAmzDate, canonicalRequest.XAmzDate);
@@ -45,11 +45,11 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			ImmutableCredentials credentials,
 			RegionEndpoint region,
 			DateTime signingTime,
-			string serviceId)
+			string service)
 		{
 			var canonicalRequest = CanonicalRequest.From(request, requestData, credentials, signingTime);
 
-			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, serviceId, canonicalRequest.SignedHeaders,
+			var signature = AWS4Signer.ComputeSignature(credentials, region.SystemName, signingTime, service, canonicalRequest.SignedHeaders,
 				canonicalRequest.ToString());
 
 			request.Headers[HeaderNames.XAmzDate] = canonicalRequest.XAmzDate;

@@ -221,7 +221,7 @@ var client = new OpenSearchClient(config);
 ```
 
 ### Amazon OpenSearch Serverless
-Use the `"aoss"` service identifier to make requests to [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/), otherwise all configuration options are identical to above.
+Use the `"aoss"` service code to make requests to [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/), otherwise all configuration options are identical to above.
 ```shell
 export AWS_ACCESS_KEY_ID="..."
 export AWS_SECRET_ACCESS_KEY="..."
@@ -229,7 +229,7 @@ export AWS_SESSION_TOKEN="..."
 ```
 ```csharp
 var endpoint = new Uri("https://aaabbbcccddd111222333.ap-southeast-2.aoss.amazonaws.com");
-var connection = new AwsSigV4HttpConnection(RegionEndpoint.APSoutheast2, serviceId: AwsSigV4HttpConnection.OpenSearchServerlessServiceId);
+var connection = new AwsSigV4HttpConnection(RegionEndpoint.APSoutheast2, service: AwsSigV4HttpConnection.OpenSearchServerlessService);
 var config = new ConnectionSettings(endpoint, connection);
 var client = new OpenSearchClient(config);
 ```
