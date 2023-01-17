@@ -29,7 +29,7 @@
 using System.Runtime.InteropServices;
 using OpenSearch.Stack.ArtifactsApi.Platform;
 using OpenSearch.Stack.ArtifactsApi.Products;
-using Version = SemVer.Version;
+using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi.Resolvers
 {
