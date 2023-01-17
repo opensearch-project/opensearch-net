@@ -20,13 +20,14 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
-      "SharpZipLib.NETStandard": {
+      "SharpZipLib": {
         "type": "Direct",
-        "requested": "[1.0.7, )",
-        "resolved": "1.0.7",
-        "contentHash": "mYKPizF2CY32RQB8FITYy0e30gVgItFA63SFquruaxq+votwL1T+yOfssK10v4enBcxklr8ks48hS1emw5TTXg==",
+        "requested": "[1.4.1, )",
+        "resolved": "1.4.1",
+        "contentHash": "X8QiHZS7+bbZy85LfpKCAL9oh0yZkiiecWhQL5F1Yn1AKFDYiOzR3UG5vI+9bDYGRGyseVdMW5sTH8mv8LXF1g==",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "System.Memory": "4.5.4",
+          "System.Threading.Tasks.Extensions": "4.5.2"
         }
       },
       "Microsoft.Bcl.AsyncInterfaces": {

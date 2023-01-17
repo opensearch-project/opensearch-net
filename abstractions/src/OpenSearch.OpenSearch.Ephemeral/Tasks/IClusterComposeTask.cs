@@ -244,7 +244,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 		private static void ExtractTar(string file, string toFolder)
 		{
 			using (var inStream = File.OpenRead(file))
-			using (var tarArchive = TarArchive.CreateInputTarArchive(inStream))
+			using (var tarArchive = TarArchive.CreateInputTarArchive(inStream, Encoding.UTF8))
 				tarArchive.ExtractContents(toFolder);
 		}
 
@@ -253,7 +253,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 				using (var inStream = File.OpenRead(file))
 				using (var gzipStream = new GZipInputStream(inStream))
-				using (var tarArchive = TarArchive.CreateInputTarArchive(gzipStream))
+				using (var tarArchive = TarArchive.CreateInputTarArchive(gzipStream, Encoding.UTF8))
 					tarArchive.ExtractContents(toFolder);
 			else
 				//SharpZipLib loses permissions when untarring

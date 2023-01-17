@@ -26,5 +26,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 0.32.0 to 4.0.3
 - Bumps `BenchMarkDotNet` from 0.13.1 to 0.13.3
 - Bumps `System.Reactive` from 3.1.1 to 5.0.0
+- Bumps `SharpZipLib` from 1.0.4 to `1.4.1` ([#136](https://github.com/opensearch-project/opensearch-net/pull/136))
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
