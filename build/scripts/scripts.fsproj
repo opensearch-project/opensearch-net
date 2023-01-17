@@ -40,7 +40,7 @@
     <PackageReference Include="Fake.Core.Environment" Version="5.15.0" />
     <PackageReference Include="Fake.Core.SemVer" Version="5.15.0" />
     <PackageReference Include="Fake.IO.FileSystem" Version="5.15.0" />
-    <PackageReference Include="Fake.IO.Zip" Version="5.15.0" />
+    <PackageReference Include="Fake.IO.Zip" Version="5.23.1" />
     <PackageReference Include="Fake.Tools.Git" Version="5.15.0" />
     
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
