@@ -30,7 +30,7 @@ using System;
 using System.IO;
 using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Stack.ArtifactsApi.Resolvers;
-using Version = SemVer.Version;
+using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi
 {

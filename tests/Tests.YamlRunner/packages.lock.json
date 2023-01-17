@@ -44,9 +44,9 @@
       },
       "SemanticVersioning": {
         "type": "Direct",
-        "requested": "[1.2.2, )",
-        "resolved": "1.2.2",
-        "contentHash": "SpzeSxG9Bl6tHswaEdwLtLLwtHGQEjhuxRjWPkp2MPJHy/Ku4BhCnpeZ2u32qk7E6TV4A6r19t214JXX1Gy0fQ=="
+        "requested": "[2.0.2, )",
+        "resolved": "2.0.2",
+        "contentHash": "4EQgYdNZ92SyaO7YFk6olVnebF5V+jrHyMUjvPq89tLeMo8NSfgDF+6Zwq/lgh9j/0yfQp9Lkm0ZA0rUATCZFA=="
       },
       "SharpYaml": {
         "type": "Direct",

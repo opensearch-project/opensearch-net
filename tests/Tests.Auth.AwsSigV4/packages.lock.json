@@ -4,12 +4,12 @@
     "net6.0": {
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
-        "requested": "[16.5.0, )",
-        "resolved": "16.5.0",
-        "contentHash": "yHZOhVSPuGqgHi+KhHiAZqNY08avkQraXKvgKgDU8c/ztmGzw7gmukkv49EaTq6T3xmp4XroWk3gAlbJHMxl8w==",
+        "requested": "[17.4.1, )",
+        "resolved": "17.4.1",
+        "contentHash": "kJ5/v2ad+VEg1fL8UH18nD71Eu+Fq6dM4RKBVqlV2MLSEK/AW4LUkqlk7m7G+BrxEDJVwPjxHam17nldxV80Ow==",
         "dependencies": {
-          "Microsoft.CodeCoverage": "16.5.0",
-          "Microsoft.TestPlatform.TestHost": "16.5.0"
+          "Microsoft.CodeCoverage": "17.4.1",
+          "Microsoft.TestPlatform.TestHost": "17.4.1"
         }
       },
       "Microsoft.NETFramework.ReferenceAssemblies": {
@@ -57,8 +57,8 @@
       },
       "Microsoft.CodeCoverage": {
         "type": "Transitive",
-        "resolved": "16.5.0",
-        "contentHash": "PM5YLtyN45EyUGePJpaNogndlaQPrMgQQXHKMhMESC6KfSVvt+j7+dxBi8NYC6X6dZVysf7ngwhSW3wwvPJRSQ=="
+        "resolved": "17.4.1",
+        "contentHash": "T21KxaiFawbrrjm0uXjxAStXaBm5P9H6Nnf8BUtBTvIpd8q57lrChVBCY2dnazmSu9/kuX4z5+kAOT78Dod7vA=="
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
@@ -82,19 +82,20 @@
       },
       "Microsoft.TestPlatform.ObjectModel": {
         "type": "Transitive",
-        "resolved": "16.5.0",
-        "contentHash": "NnLFxmFBCAS6kye2JFszD5WKgj4Zve5KX/R0mhYwh6BVnSeybI2unRnjEPtLyY3CAVhwrY4bh/8LNFtslAcGZg==",
+        "resolved": "17.4.1",
+        "contentHash": "v2CwoejusooZa/DZYt7UXo+CJOvwAmqg6ZyFJeIBu+DCRDqpEtf7WYhZ/AWii0EKzANPPLU9+m148aipYQkTuA==",
         "dependencies": {
-          "NuGet.Frameworks": "5.0.0"
+          "NuGet.Frameworks": "5.11.0",
+          "System.Reflection.Metadata": "1.6.0"
         }
       },
       "Microsoft.TestPlatform.TestHost": {
         "type": "Transitive",
-        "resolved": "16.5.0",
-        "contentHash": "ytGymboQIvjNX5pLC0yp/Bz9sGDHqSnLQgBRtd4VrqOUgKmmcfxMYZ6p0TBZgAT1oijdC6xqUZ7rl8mbaaXTJw==",
+        "resolved": "17.4.1",
+        "contentHash": "K7QXM4P4qrDKdPs/VSEKXR08QEru7daAK8vlIbhwENM3peXJwb9QgrAbtbYyyfVnX+F1m+1hntTH6aRX+h/f8g==",
         "dependencies": {
-          "Microsoft.TestPlatform.ObjectModel": "16.5.0",
-          "Newtonsoft.Json": "9.0.1"
+          "Microsoft.TestPlatform.ObjectModel": "17.4.1",
+          "Newtonsoft.Json": "13.0.1"
         }
       },
       "Microsoft.Win32.Primitives": {
@@ -129,8 +130,8 @@
       },
       "NuGet.Frameworks": {
         "type": "Transitive",
-        "resolved": "5.0.0",
-        "contentHash": "c5JVjuVAm4f7E9Vj+v09Z9s2ZsqFDjBpcsyS3M9xRo0bEdm/LVZSzLxxNvfvAwRiiE8nwe1h2G4OwiwlzFKXlA=="
+        "resolved": "5.11.0",
+        "contentHash": "eaiXkUjC4NPcquGWzAGMXjuxvLwc6XGKMptSyOGQeT0X70BUZObuybJFZLA0OfTdueLd3US23NBPTBb6iF3V1Q=="
       },
       "Nullean.VsTest.Pretty.TestLogger": {
         "type": "Transitive",
@@ -249,11 +250,8 @@
       },
       "SemanticVersioning": {
         "type": "Transitive",
-        "resolved": "0.8.0",
-        "contentHash": "hUCnQL79hU0W6X4jPeMAtGDwoEJeBEZfGBnkT+jPG45lD7KHn4h61HgYN8y1HAjPrXmC5oJcLx3l8ygPJOqvlA==",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0"
-        }
+        "resolved": "2.0.2",
+        "contentHash": "4EQgYdNZ92SyaO7YFk6olVnebF5V+jrHyMUjvPq89tLeMo8NSfgDF+6Zwq/lgh9j/0yfQp9Lkm0ZA0rUATCZFA=="
       },
       "SharpZipLib": {
         "type": "Transitive",
@@ -500,6 +498,11 @@
           "System.Reflection": "4.3.0",
           "System.Runtime": "4.3.0"
         }
+      },
+      "System.Reflection.Metadata": {
+        "type": "Transitive",
+        "resolved": "1.6.0",
+        "contentHash": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ=="
       },
       "System.Reflection.Primitives": {
         "type": "Transitive",
@@ -926,7 +929,7 @@
       "opensearch.stack.artifactsapi": {
         "type": "Project",
         "dependencies": {
-          "SemanticVersioning": "[0.8.0, )",
+          "SemanticVersioning": "[2.0.2, )",
           "System.Net.Http": "[4.3.4, )",
           "System.Runtime.InteropServices.RuntimeInformation": "[4.3.0, )",
           "System.Text.Json": "[7.0.1, )"
@@ -944,7 +947,7 @@
           "DiffPlex": "[1.7.1, )",
           "FluentAssertions": "[5.10.3, )",
           "JunitXml.TestLogger": "[2.1.78, )",
-          "Microsoft.NET.Test.Sdk": "[16.5.0, )",
+          "Microsoft.TestPlatform.ObjectModel": "[17.4.1, )",
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",
           "OpenSearch.Client.JsonNetSerializer": "[1.2.1, )",
           "OpenSearch.OpenSearch.Xunit": "[1.2.1, )",

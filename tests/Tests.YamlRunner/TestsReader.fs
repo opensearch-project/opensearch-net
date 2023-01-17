@@ -87,7 +87,7 @@ let private mapSkip (operation:YamlMap) =
     let versionRange =
         match version with
         | Some "all"
-        | Some "All" -> Some <| [SemVer.Range("0.0.0 - 100.0.0")]
+        | Some "All" -> Some <| [SemanticVersioning.Range("0.0.0 - 100.0.0")]
         | Some version ->
             let range v =
                 let range = Regex.Replace(v, @"^\s*?-", "0.0.0 -")
@@ -96,7 +96,7 @@ let private mapSkip (operation:YamlMap) =
                 version.Split(',')
                 |> Array.map (fun v -> v.Trim())
                 |> Array.map range
-                |> Array.map SemVer.Range
+                |> Array.map SemanticVersioning.Range
                 |> Array.toList
             Some <| versions
         | None -> None
