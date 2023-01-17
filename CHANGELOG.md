@@ -19,5 +19,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Security
 
+### Dependencies
+- Bumps `SharpZipLib` from 1.0.4 to `1.4.1` ([#136](https://github.com/opensearch-project/opensearch-net/pull/136))
+
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
