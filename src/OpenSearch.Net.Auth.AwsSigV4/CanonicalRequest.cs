@@ -73,7 +73,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			var bodyBytes = GetBodyBytes(requestData);
 #endif
 
-			var contentSha256 = AWSSDKUtils.ToHex(AWS4Signer.ComputeHash(bodyBytes), true);
+			var xAmzContentSha256 = AWSSDKUtils.ToHex(AWS4Signer.ComputeHash(bodyBytes), true);
 
 			var xAmzDate = AWS4Signer.FormatDateTime(signingTime, "yyyyMMddTHHmmssZ");
 
@@ -86,6 +86,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 
 			canonicalHeaders[HeaderNames.Host] = new List<string> { request.RequestUri.Authority };
 			canonicalHeaders[HeaderNames.XAmzDate] = new List<string> { xAmzDate };
+			canonicalHeaders[HeaderNames.XAmzContentSha256] = new List<string> { xAmzContentSha256 };
 
 			string xAmzSecurityToken = null;
 			if (credentials.UseToken)
@@ -114,7 +115,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			var method = request.Method;
 #endif
 
-			return new CanonicalRequest(method, path, paramString, canonicalHeaders, contentSha256, xAmzDate, xAmzSecurityToken);
+			return new CanonicalRequest(method, path, paramString, canonicalHeaders, xAmzContentSha256, xAmzDate, xAmzSecurityToken);
 		}
 
 #if DOTNETCORE
