@@ -65,7 +65,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		public static CanonicalRequest From(HttpWebRequest request, RequestData requestData, ImmutableCredentials credentials, DateTime signingTime)
 #endif
 		{
-			var path = AWSSDKUtils.CanonicalizeResourcePath(request.RequestUri, null, false);
+			var path = AWSSDKUtils.CanonicalizeResourcePathV2(request.RequestUri, null, false, null);
 
 #if DOTNETCORE
 			var bodyBytes = await GetBodyBytes(request).ConfigureAwait(false);
