@@ -14,17 +14,17 @@
       },
       "FSharp.Core": {
         "type": "Direct",
-        "requested": "[4.7.0, )",
-        "resolved": "4.7.0",
-        "contentHash": "6Bf2qzSCaJoP6tTfO+a5muUS7QbyJANqSut73zQvwQ9It5P0ITz9VKseeia2ofco30c55EQ0jA2wf2+A2gpGnw=="
+        "requested": "[6.0.7, )",
+        "resolved": "6.0.7",
+        "contentHash": "e6wGrq5smV3Yk2fBE/Y0nBG5oFyF59k5Je0a0QDydUpg6liyaafGjD3xvutciKepCP2knspZ/sWViC/F1OyyQQ=="
       },
       "FSharp.Data": {
         "type": "Direct",
-        "requested": "[3.1.1, )",
-        "resolved": "3.1.1",
-        "contentHash": "EZl1iFyxWEn+zZenJY+uldtmzsup/GovJLWnvBbFrj5hiFL3wKbY9pDhps4xfNmvUGfxypsYdIcVGHXQETVx1w==",
+        "requested": "[5.0.2, )",
+        "resolved": "5.0.2",
+        "contentHash": "eQBiOwlk6p8nVehcrxRK/22BwZXzJ2IkHXuqjIZ9Km0bH90WhBoF7OFdLWenc6dYizQmKv3qKIMCkKfVBepi0A==",
         "dependencies": {
-          "FSharp.Core": "4.3.4"
+          "FSharp.Core": "5.0.1"
         }
       },
       "Microsoft.NETFramework.ReferenceAssemblies": {
