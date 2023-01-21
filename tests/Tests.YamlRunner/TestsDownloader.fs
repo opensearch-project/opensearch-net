@@ -57,7 +57,7 @@ let private randomTime = Random()
 let TemporaryPath revision suite = lazy(Path.Combine(Path.GetTempPath(), "opensearch", sprintf "tests-%s-%s" suite revision))
 
 let private download url = async {
-    let! _wait = Async.Sleep <| randomTime.Next(500, 900)
+    let! _wait = Async.Sleep (randomTime.Next(500, 900))
     let! yaml = Http.AsyncRequestString url
     return yaml
 }
