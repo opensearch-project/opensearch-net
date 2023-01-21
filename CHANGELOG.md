@@ -3,9 +3,12 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### Added
+- Added support for Amazon OpenSearch Serverless request signing ([#133](https://github.com/opensearch-project/opensearch-net/pull/133))
 - Github workflow for changelog verification ([#111](https://github.com/opensearch-project/opensearch-net/pull/111))
 - Bump version to `1.2.1`([#115](https://github.com/opensearch-project/opensearch-net/pull/115))
 - Added `dependabot_changelog` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
+### Dependencies
+- Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.114
 
 ### Changed
 - Updated SDK to .NET 6 ([#126](https://github.com/opensearch-project/opensearch-net/pull/126))
@@ -29,5 +32,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `SharpZipLib` from 1.0.4 to 1.4.1 ([#136](https://github.com/opensearch-project/opensearch-net/pull/136))
 - Bumps `FSharp.Core` from 4.7.0 to 6.0.7
 - Bumps `FSharp.Data` from 3.1.1 to 5.0.2
+- Bumps `AWSSDK.Core` from 3.7.12.11 to 3.7.103.17
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD

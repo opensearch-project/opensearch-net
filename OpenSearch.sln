@@ -76,6 +76,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Net.Auth.AwsSigV4", "src\OpenSearch.Net.Auth.AwsSigV4\OpenSearch.Net.Auth.AwsSigV4.csproj", "{2BDA50C8-767A-4560-9547-15AFC972A6E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Auth.AwsSigV4", "tests\Tests.Auth.AwsSigV4\Tests.Auth.AwsSigV4.csproj", "{2BCE8150-C16C-4226-B216-C7A0463ADC56}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Stack.ArtifactsApiTests", "abstractions\tests\OpenSearch.Stack.ArtifactsApiTests\OpenSearch.Stack.ArtifactsApiTests.csproj", "{1F5A7B1A-2566-481F-91B5-A63D7F939973}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abstractions", "abstractions", "{87ABA679-F3F4-48CE-82B3-1AAE5D0A5935}"
