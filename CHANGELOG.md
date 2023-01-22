@@ -7,9 +7,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Github workflow for changelog verification ([#111](https://github.com/opensearch-project/opensearch-net/pull/111))
 - Bump version to `1.2.1`([#115](https://github.com/opensearch-project/opensearch-net/pull/115))
 - Added `dependabot_changelog` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
-### Dependencies
-- Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.114
-- Bumps `BenchMarkDotNet` from 0.13.3 to 0.13.4
 
 ### Changed
 - Updated SDK to .NET 6 ([#126](https://github.com/opensearch-project/opensearch-net/pull/126))
@@ -28,11 +25,13 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `SemanticVersioning` from 0.8.0 to 2.0.2
 - Bumps `Microsoft.NET.Test.Sdk` from 16.5.0 to 17.4.1
 - Bumps `Octokit` from 0.32.0 to 4.0.3
-- Bumps `BenchMarkDotNet` from 0.13.1 to 0.13.3
+- Bumps `BenchMarkDotNet` from 0.13.1 to 0.13.4
 - Bumps `System.Reactive` from 3.1.1 to 5.0.0
 - Bumps `SharpZipLib` from 1.0.4 to 1.4.1 ([#136](https://github.com/opensearch-project/opensearch-net/pull/136))
 - Bumps `FSharp.Core` from 4.7.0 to 6.0.7
 - Bumps `FSharp.Data` from 3.1.1 to 5.0.2
 - Bumps `AWSSDK.Core` from 3.7.12.11 to 3.7.103.17
+- Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.114
+- Bumps `Fake.*` from 5.15.0 to 5.23.1
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
