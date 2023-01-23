@@ -31,9 +31,12 @@
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Direct",
-        "requested": "[5.0.0, )",
-        "resolved": "5.0.0",
-        "contentHash": "tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA=="
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "9W0ewWDuAyDqS2PigdTxk6jDKonfgscY/hP8hm7VpxYhNHZHKvZTdRckberlFk3VnCmr3xBUyMBut12Q+T2aOw==",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
       },
       "BenchmarkDotNet.Annotations": {
         "type": "Transitive",
@@ -1070,7 +1073,7 @@
         "dependencies": {
           "Microsoft.CSharp": "[4.6.0, )",
           "System.Buffers": "[4.5.1, )",
-          "System.Diagnostics.DiagnosticSource": "[5.0.0, )"
+          "System.Diagnostics.DiagnosticSource": "[7.0.0, )"
         }
       },
       "opensearch.opensearch.ephemeral": {

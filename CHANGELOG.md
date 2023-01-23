@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.114
 - Bumps `BenchMarkDotNet` from 0.13.3 to 0.13.4
+- Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 7.0.0
 
 ### Changed
 - Updated SDK to .NET 6 ([#126](https://github.com/opensearch-project/opensearch-net/pull/126))
