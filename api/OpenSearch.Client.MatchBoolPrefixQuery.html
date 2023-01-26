@@ -1,0 +1,539 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MatchBoolPrefixQuery
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MatchBoolPrefixQuery
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.MatchBoolPrefixQuery">
+
+
+  <h1 id="OpenSearch_Client_MatchBoolPrefixQuery" data-uid="OpenSearch.Client.MatchBoolPrefixQuery" class="text-break">Class MatchBoolPrefixQuery
+</h1>
+  <div class="markdown level0 summary"><p>A match_bool_prefix query analyzes its input and constructs a bool query from the terms.
+Each term except the last is used in a term query. The last term is used in a prefix query.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.FieldNameQueryBase.html">FieldNameQueryBase</a></div>
+    <div class="level3"><span class="xref">MatchBoolPrefixQuery</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IMatchBoolPrefixQuery.html">IMatchBoolPrefixQuery</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IFieldNameQuery.html">IFieldNameQuery</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryBase.html#OpenSearch_Client_FieldNameQueryBase_Field">FieldNameQueryBase.Field</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_Boost">QueryBase.Boost</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_IsStrict">QueryBase.IsStrict</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_IsVerbatim">QueryBase.IsVerbatim</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_IsWritable">QueryBase.IsWritable</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_Name">QueryBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_OpenSearch_Client_IQuery_Conditionless">QueryBase.IQuery.Conditionless</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_MatchBoolPrefixQuery_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MatchBoolPrefixQuery : FieldNameQueryBase, IMatchBoolPrefixQuery, IFieldNameQuery, IQuery</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_Analyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.Analyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L116">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_Analyzer_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Analyzer*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_Analyzer" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Analyzer">Analyzer</h4>
+  <div class="markdown level1 summary"><p>The analyzer to use for the query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Analyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_Conditionless.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.Conditionless%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L142">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_Conditionless_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Conditionless*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_Conditionless" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Conditionless">Conditionless</h4>
+  <div class="markdown level1 summary"><p>A match_bool_prefix query analyzes its input and constructs a bool query from the terms.
+Each term except the last is used in a term query. The last term is used in a prefix query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Client.QueryBase.html#OpenSearch_Client_QueryBase_Conditionless">QueryBase.Conditionless</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_Fuzziness.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.Fuzziness%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_Fuzziness_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Fuzziness*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_Fuzziness" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Fuzziness">Fuzziness</h4>
+  <div class="markdown level1 summary"><p>Allows fuzzy matching based on the type of field being queried.
+Applies only to the term sub queries constructed, and not the prefix query for the final term.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFuzziness Fuzziness { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFuzziness.html">IFuzziness</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_FuzzyRewrite.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.FuzzyRewrite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L122">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_FuzzyRewrite_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.FuzzyRewrite*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_FuzzyRewrite" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.FuzzyRewrite">FuzzyRewrite</h4>
+  <div class="markdown level1 summary"><p>Controls how the query is rewritten if <a class="xref" href="OpenSearch.Client.IMatchBoolPrefixQuery.html#OpenSearch_Client_IMatchBoolPrefixQuery_Fuzziness">Fuzziness</a> is set.
+In this scenario, the default is <a class="xref" href="OpenSearch.Client.MultiTermQueryRewrite.html#OpenSearch_Client_MultiTermQueryRewrite_TopTermsBlendedFreqs_System_Int32_">TopTermsBlendedFreqs(Int32)</a>.
+Applies only to the term sub queries constructed, and not the prefix query for the final term.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiTermQueryRewrite FuzzyRewrite { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiTermQueryRewrite.html">MultiTermQueryRewrite</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_FuzzyTranspositions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.FuzzyTranspositions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_FuzzyTranspositions_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.FuzzyTranspositions*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_FuzzyTranspositions" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.FuzzyTranspositions">FuzzyTranspositions</h4>
+  <div class="markdown level1 summary"><p>Sets whether transpositions are supported in fuzzy queries.</p>
+<p></p>
+The default metric used by fuzzy queries to determine a match is the Damerau-Levenshtein
+distance formula which supports transpositions. Setting transposition to false will
+switch to classic Levenshtein distance.
+If not set, Damerau-Levenshtein distance metric will be used.
+Applies only to the term sub queries constructed, and not the prefix query for the final term.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? FuzzyTranspositions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_MaxExpansions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.MaxExpansions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L128">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_MaxExpansions_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.MaxExpansions*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_MaxExpansions" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.MaxExpansions">MaxExpansions</h4>
+  <div class="markdown level1 summary"><p>Controls the number of terms fuzzy queries will expand to. Defaults to <code>50</code>.
+Applies only to the term sub queries constructed, and not the prefix query for the final term.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxExpansions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_MinimumShouldMatch.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.MinimumShouldMatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L131">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_MinimumShouldMatch_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.MinimumShouldMatch*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_MinimumShouldMatch" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.MinimumShouldMatch">MinimumShouldMatch</h4>
+  <div class="markdown level1 summary"><p>A value controlling how many &quot;should&quot; clauses in the resulting boolean query should match.
+It can be an absolute value, a percentage or a combination of both.
+Applies to the bool query constructed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MinimumShouldMatch MinimumShouldMatch { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MinimumShouldMatch.html">MinimumShouldMatch</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_Operator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.Operator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L134">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_Operator_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Operator*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_Operator" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Operator">Operator</h4>
+  <div class="markdown level1 summary"><p>The operator used if no explicit operator is specified.
+The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#OpenSearch_Client_Operator_Or">Or</a>.
+Applies to the bool query constructed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Operator? Operator { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.Operator.html">Operator</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_PrefixLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.PrefixLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L137">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_PrefixLength_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.PrefixLength*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_PrefixLength" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.PrefixLength">PrefixLength</h4>
+  <div class="markdown level1 summary"><p>Set the prefix length for fuzzy queries. Default is <code>0</code>.
+Applies only to the term sub queries constructed, and not the prefix query for the final term.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? PrefixLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery_Query.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery.Query%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L140">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MatchBoolPrefixQuery_Query_" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Query*"></a>
+  <h4 id="OpenSearch_Client_MatchBoolPrefixQuery_Query" data-uid="OpenSearch.Client.MatchBoolPrefixQuery.Query">Query</h4>
+  <div class="markdown level1 summary"><p>The query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Query { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IMatchBoolPrefixQuery.html">IMatchBoolPrefixQuery</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IFieldNameQuery.html">IFieldNameQuery</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MatchBoolPrefixQuery.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MatchBoolPrefixQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MatchBoolPrefix/MatchBoolPrefixQuery.cs/#L113" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

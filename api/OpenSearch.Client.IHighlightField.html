@@ -1,0 +1,843 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IHighlightField
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IHighlightField
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IHighlightField">
+
+
+  <h1 id="OpenSearch_Client_IHighlightField" data-uid="OpenSearch.Client.IHighlightField" class="text-break">Interface IHighlightField
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IHighlightField_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IHighlightField</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_BoundaryChars.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.BoundaryChars%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_BoundaryChars_" data-uid="OpenSearch.Client.IHighlightField.BoundaryChars*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_BoundaryChars" data-uid="OpenSearch.Client.IHighlightField.BoundaryChars">BoundaryChars</h4>
+  <div class="markdown level1 summary"><p>Defines what constitutes a boundary for highlighting when using the fast vector highlighter.
+It's a single string with each boundary character defined in it. It defaults to .,!? \t\n.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;boundary_chars&quot;)]
+string BoundaryChars { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_BoundaryMaxScan.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.BoundaryMaxScan%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_BoundaryMaxScan_" data-uid="OpenSearch.Client.IHighlightField.BoundaryMaxScan*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_BoundaryMaxScan" data-uid="OpenSearch.Client.IHighlightField.BoundaryMaxScan">BoundaryMaxScan</h4>
+  <div class="markdown level1 summary"><p>Controls how far to look for boundary characters. Defaults to 20.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;boundary_max_scan&quot;)]
+int? BoundaryMaxScan { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_BoundaryScanner.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.BoundaryScanner%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_BoundaryScanner_" data-uid="OpenSearch.Client.IHighlightField.BoundaryScanner*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_BoundaryScanner" data-uid="OpenSearch.Client.IHighlightField.BoundaryScanner">BoundaryScanner</h4>
+  <div class="markdown level1 summary"><p>When highlighting a field using the unified highlighter or the fast vector highlighter, you can specify how to break
+the highlighted
+fragments using boundary_scanner</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;boundary_scanner&quot;)]
+BoundaryScanner? BoundaryScanner { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.BoundaryScanner.html">BoundaryScanner</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_BoundaryScannerLocale.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.BoundaryScannerLocale%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_BoundaryScannerLocale_" data-uid="OpenSearch.Client.IHighlightField.BoundaryScannerLocale*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_BoundaryScannerLocale" data-uid="OpenSearch.Client.IHighlightField.BoundaryScannerLocale">BoundaryScannerLocale</h4>
+  <div class="markdown level1 summary"><p>You can further specify boundary_scanner_locale to control which Locale is used to search the text for these
+boundaries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;boundary_scanner_locale&quot;)]
+string BoundaryScannerLocale { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_Field.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.Field%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_Field_" data-uid="OpenSearch.Client.IHighlightField.Field*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_Field" data-uid="OpenSearch.Client.IHighlightField.Field">Field</h4>
+  <div class="markdown level1 summary"><p>The field on which to perform highlighting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field Field { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_IHighlightField_Field_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>In order to perform highlighting, the actual content of the field is required.
+If the field in question is stored (has store set to true in the mapping) it will be used,
+otherwise, the actual _source will be loaded and the relevant field will be extracted from it.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_ForceSource.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.ForceSource%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L82">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_ForceSource_" data-uid="OpenSearch.Client.IHighlightField.ForceSource*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_ForceSource" data-uid="OpenSearch.Client.IHighlightField.ForceSource">ForceSource</h4>
+  <div class="markdown level1 summary"><p>Forces the highlighting to highlight fields based on the source even if fields are stored separately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;force_source&quot;)]
+bool? ForceSource { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_Fragmenter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.Fragmenter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_Fragmenter_" data-uid="OpenSearch.Client.IHighlightField.Fragmenter*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_Fragmenter" data-uid="OpenSearch.Client.IHighlightField.Fragmenter">Fragmenter</h4>
+  <div class="markdown level1 summary"><p>Fragmenter can control how text should be broken up in highlight snippets. However, this option is
+applicable only for the Plain Highlighter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fragmenter&quot;)]
+HighlighterFragmenter? Fragmenter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.HighlighterFragmenter.html">HighlighterFragmenter</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_FragmentOffset.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.FragmentOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_FragmentOffset_" data-uid="OpenSearch.Client.IHighlightField.FragmentOffset*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_FragmentOffset" data-uid="OpenSearch.Client.IHighlightField.FragmentOffset">FragmentOffset</h4>
+  <div class="markdown level1 summary"><p>Controls the margin to start highlighting from when using the fast vector highlighter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fragment_offset&quot;)]
+int? FragmentOffset { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_FragmentSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.FragmentSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L101">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_FragmentSize_" data-uid="OpenSearch.Client.IHighlightField.FragmentSize*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_FragmentSize" data-uid="OpenSearch.Client.IHighlightField.FragmentSize">FragmentSize</h4>
+  <div class="markdown level1 summary"><p>The size of the highlighted fragment, in characters. Defaults to 100</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fragment_size&quot;)]
+int? FragmentSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_HighlightQuery.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.HighlightQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_HighlightQuery_" data-uid="OpenSearch.Client.IHighlightField.HighlightQuery*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_HighlightQuery" data-uid="OpenSearch.Client.IHighlightField.HighlightQuery">HighlightQuery</h4>
+  <div class="markdown level1 summary"><p>The query to use for highlighting</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;highlight_query&quot;)]
+QueryContainer HighlightQuery { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryContainer.html">QueryContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_MatchedFields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.MatchedFields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L116">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_MatchedFields_" data-uid="OpenSearch.Client.IHighlightField.MatchedFields*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_MatchedFields" data-uid="OpenSearch.Client.IHighlightField.MatchedFields">MatchedFields</h4>
+  <div class="markdown level1 summary"><p>Combine matches on multiple fields to highlight a single field when using the fast vector highighter.
+This is most intuitive for multifields that analyze the same string in different ways.
+All matched fields must have term_vector set to with_positions_offsets, but only the field to
+which the matches are combined is loaded so only that field would benefit from having store set to yes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;matched_fields&quot;)]
+Fields MatchedFields { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Fields.html">Fields</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_MaxFragmentLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.MaxFragmentLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_MaxFragmentLength_" data-uid="OpenSearch.Client.IHighlightField.MaxFragmentLength*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_MaxFragmentLength" data-uid="OpenSearch.Client.IHighlightField.MaxFragmentLength">MaxFragmentLength</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_fragment_length&quot;)]
+int? MaxFragmentLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_NoMatchSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.NoMatchSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L127">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_NoMatchSize_" data-uid="OpenSearch.Client.IHighlightField.NoMatchSize*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_NoMatchSize" data-uid="OpenSearch.Client.IHighlightField.NoMatchSize">NoMatchSize</h4>
+  <div class="markdown level1 summary"><p>The length of a snippet of text from the beginning of the field to return
+when no match for highlighting is found. Default behaviour is to not return anything when a match is not found.
+The actual length may be shorter than specified as it tries to break on a word boundary.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;no_match_size&quot;)]
+int? NoMatchSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_NumberOfFragments.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.NumberOfFragments%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_NumberOfFragments_" data-uid="OpenSearch.Client.IHighlightField.NumberOfFragments*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_NumberOfFragments" data-uid="OpenSearch.Client.IHighlightField.NumberOfFragments">NumberOfFragments</h4>
+  <div class="markdown level1 summary"><p>The maximum number of fragments to return. Defaults to 5.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;number_of_fragments&quot;)]
+int? NumberOfFragments { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_Order.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.Order%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_Order_" data-uid="OpenSearch.Client.IHighlightField.Order*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_Order" data-uid="OpenSearch.Client.IHighlightField.Order">Order</h4>
+  <div class="markdown level1 summary"><p>The order in which highlighted fragments are sorted. Only valid for the unified highlighter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;order&quot;)]
+HighlighterOrder? Order { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.HighlighterOrder.html">HighlighterOrder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_PhraseLimit.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.PhraseLimit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L149">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_PhraseLimit_" data-uid="OpenSearch.Client.IHighlightField.PhraseLimit*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_PhraseLimit" data-uid="OpenSearch.Client.IHighlightField.PhraseLimit">PhraseLimit</h4>
+  <div class="markdown level1 summary"><p>Controls the number of matching phrases in a document that are considered. Prevents the
+<a class="xref" href="OpenSearch.Client.HighlighterType.html#OpenSearch_Client_HighlighterType_Fvh">Fvh</a> highlighter from analyzing too many phrases and consuming too much memory.
+When using matched_fields, <a class="xref" href="OpenSearch.Client.IHighlightField.html#OpenSearch_Client_IHighlightField_PhraseLimit">PhraseLimit</a> phrases per matched field are considered. Raising the limit
+increases query time
+and consumes more memory. Only supported by the <a class="xref" href="OpenSearch.Client.HighlighterType.html#OpenSearch_Client_HighlighterType_Fvh">Fvh</a> highlighter. Defaults to 256.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;phrase_limit&quot;)]
+int? PhraseLimit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_PostTags.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.PostTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L157">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_PostTags_" data-uid="OpenSearch.Client.IHighlightField.PostTags*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_PostTags" data-uid="OpenSearch.Client.IHighlightField.PostTags">PostTags</h4>
+  <div class="markdown level1 summary"><p>Controls the post tag in which to wrap highights.
+By default, the highlighting will wrap highlighted text in &lt;em&gt; and &lt;/em&gt;.
+Using the fast vector highlighter, there can be more tags, and the importance is ordered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;post_tags&quot;)]
+IEnumerable&lt;string&gt; PostTags { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_PreTags.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.PreTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_PreTags_" data-uid="OpenSearch.Client.IHighlightField.PreTags*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_PreTags" data-uid="OpenSearch.Client.IHighlightField.PreTags">PreTags</h4>
+  <div class="markdown level1 summary"><p>Controls the pre tag in which to wrap highights.
+By default, the highlighting will wrap highlighted text in &lt;em&gt; and &lt;/em&gt;.
+Using the fast vector highlighter, there can be more tags, and the importance is ordered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;pre_tags&quot;)]
+IEnumerable&lt;string&gt; PreTags { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_RequireFieldMatch.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.RequireFieldMatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L173">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_RequireFieldMatch_" data-uid="OpenSearch.Client.IHighlightField.RequireFieldMatch*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_RequireFieldMatch" data-uid="OpenSearch.Client.IHighlightField.RequireFieldMatch">RequireFieldMatch</h4>
+  <div class="markdown level1 summary"><p>Determines if only fields that hold a query match will be highlighted. Set to <code>false</code>
+will cause any field to be highlighted regardless of whether the query matched specifically on them. Default behaviour
+is <code>true</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;require_field_match&quot;)]
+bool? RequireFieldMatch { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_TagsSchema.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.TagsSchema%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L186">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_TagsSchema_" data-uid="OpenSearch.Client.IHighlightField.TagsSchema*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_TagsSchema" data-uid="OpenSearch.Client.IHighlightField.TagsSchema">TagsSchema</h4>
+  <div class="markdown level1 summary"><p>Use a specific &quot;tag&quot; schemas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;tags_schema&quot;)]
+HighlighterTagsSchema? TagsSchema { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.HighlighterTagsSchema.html">HighlighterTagsSchema</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_IHighlightField_TagsSchema_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Currently a single schema called &quot;styled&quot; with the following pre_tags:
+&lt;em class=&quot;hlt1&quot;&gt;, &lt;em class=&quot;hlt2&quot;&gt;, &lt;em class=&quot;hlt3&quot;&gt;,
+&lt;em class=&quot;hlt4&quot;&gt;, &lt;em class=&quot;hlt5&quot;&gt;, &lt;em class=&quot;hlt6&quot;&gt;,
+&lt;em class=&quot;hlt7&quot;&gt;, &lt;em class=&quot;hlt8&quot;&gt;, &lt;em class=&quot;hlt9&quot;&gt;,
+&lt;em class=&quot;hlt10&quot;&gt;</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField_Type.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField.Type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L192">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IHighlightField_Type_" data-uid="OpenSearch.Client.IHighlightField.Type*"></a>
+  <h4 id="OpenSearch_Client_IHighlightField_Type" data-uid="OpenSearch.Client.IHighlightField.Type">Type</h4>
+  <div class="markdown level1 summary"><p>The type of highlighter to use. Can be a defined or custom highlighter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;type&quot;)]
+Union&lt;HighlighterType, string&gt; Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Union-2.html">Union</a>&lt;<a class="xref" href="OpenSearch.Client.HighlighterType.html">HighlighterType</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlightField.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlightField%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/HighlightField.cs/#L37" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

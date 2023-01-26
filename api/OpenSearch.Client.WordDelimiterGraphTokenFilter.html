@@ -1,0 +1,676 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WordDelimiterGraphTokenFilter
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WordDelimiterGraphTokenFilter
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter">
+
+
+  <h1 id="OpenSearch_Client_WordDelimiterGraphTokenFilter" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter" class="text-break">Class WordDelimiterGraphTokenFilter
+</h1>
+  <div class="markdown level0 summary"><p>Named word_delimiter, it Splits words into subwords and performs optional transformations on subword groups.
+Unlike the word_delimiter this token filter named word_delimiter_graph correctly handles multi terms expansion at query time.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.TokenFilterBase.html">TokenFilterBase</a></div>
+    <div class="level2"><span class="xref">WordDelimiterGraphTokenFilter</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IWordDelimiterGraphTokenFilter.html">IWordDelimiterGraphTokenFilter</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ITokenFilter.html">ITokenFilter</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterBase.html#OpenSearch_Client_TokenFilterBase_Type">TokenFilterBase.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterBase.html#OpenSearch_Client_TokenFilterBase_Version">TokenFilterBase.Version</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WordDelimiterGraphTokenFilter : TokenFilterBase, IWordDelimiterGraphTokenFilter, ITokenFilter</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L147">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter__ctor_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.#ctor*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter__ctor" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.#ctor">WordDelimiterGraphTokenFilter()</h4>
+  <div class="markdown level1 summary"><p>Named word_delimiter, it Splits words into subwords and performs optional transformations on subword groups.
+Unlike the word_delimiter this token filter named word_delimiter_graph correctly handles multi terms expansion at query time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WordDelimiterGraphTokenFilter()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_AdjustOffsets.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.AdjustOffsets%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L150">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_AdjustOffsets_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.AdjustOffsets*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_AdjustOffsets" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.AdjustOffsets">AdjustOffsets</h4>
+  <div class="markdown level1 summary"><p>By default, the filter tries to output subtokens with adjusted offsets to reflect their actual position in the token stream. However, when used in combination with other filters that alter the length or starting position of tokens without changing their offsets (e.g. <a class="xref" href="OpenSearch.Client.TrimTokenFilter.html">TrimTokenFilter</a>) this can cause tokens with illegal offsets to be emitted. Setting <a class="xref" href="OpenSearch.Client.IWordDelimiterGraphTokenFilter.html#OpenSearch_Client_IWordDelimiterGraphTokenFilter_AdjustOffsets">AdjustOffsets</a> to false will stop <a class="xref" href="OpenSearch.Client.WordDelimiterGraphTokenFilter.html">WordDelimiterGraphTokenFilter</a> from adjusting these internal offsets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? AdjustOffsets { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateAll.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateAll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L153">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateAll_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateAll*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateAll" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateAll">CatenateAll</h4>
+  <div class="markdown level1 summary"><p>If true causes all subword parts to be catenated: &quot;wi-fi-4000&quot; ⇒ &quot;wifi4000&quot;. Defaults to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? CatenateAll { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateNumbers.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateNumbers%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L156">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateNumbers_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateNumbers*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateNumbers" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateNumbers">CatenateNumbers</h4>
+  <div class="markdown level1 summary"><p>If true causes maximum runs of number parts to be catenated: &quot;500-42&quot; ⇒ &quot;50042&quot;. Defaults to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? CatenateNumbers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateWords.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateWords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L159">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateWords_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateWords*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_CatenateWords" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.CatenateWords">CatenateWords</h4>
+  <div class="markdown level1 summary"><p>If true causes maximum runs of word parts to be catenated: &quot;wi-fi&quot; ⇒ &quot;wifi&quot;. Defaults to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? CatenateWords { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateNumberParts.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateNumberParts%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L162">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateNumberParts_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateNumberParts*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateNumberParts" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateNumberParts">GenerateNumberParts</h4>
+  <div class="markdown level1 summary"><p>If true causes number subwords to be generated: &quot;500-42&quot; ⇒ &quot;500&quot; &quot;42&quot;. Defaults to true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? GenerateNumberParts { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateWordParts.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateWordParts%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateWordParts_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateWordParts*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_GenerateWordParts" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.GenerateWordParts">GenerateWordParts</h4>
+  <div class="markdown level1 summary"><p>If true causes parts of words to be generated: &quot;PowerShot&quot; ⇒ &quot;Power&quot; &quot;Shot&quot;. Defaults to true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? GenerateWordParts { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_IgnoreKeywords.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.IgnoreKeywords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L168">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_IgnoreKeywords_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.IgnoreKeywords*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_IgnoreKeywords" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.IgnoreKeywords">IgnoreKeywords</h4>
+  <div class="markdown level1 summary"><p>If true, the filter skips tokens with a keyword attribute of true. Defaults to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IgnoreKeywords { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_PreserveOriginal.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.PreserveOriginal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L171">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_PreserveOriginal_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.PreserveOriginal*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_PreserveOriginal" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.PreserveOriginal">PreserveOriginal</h4>
+  <div class="markdown level1 summary"><p>If true includes original words in subwords: &quot;500-42&quot; ⇒ &quot;500-42&quot; &quot;500&quot; &quot;42&quot;. Defaults to false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? PreserveOriginal { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWords.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L174">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWords_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWords*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWords" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWords">ProtectedWords</h4>
+  <div class="markdown level1 summary"><p>A list of protected words from being delimiter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; ProtectedWords { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWordsPath.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWordsPath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L177">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWordsPath_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWordsPath*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_ProtectedWordsPath" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.ProtectedWordsPath">ProtectedWordsPath</h4>
+  <div class="markdown level1 summary"><p>protected_words_path which resolved to a file configured with protected words (one on each line).
+Automatically resolves to config/ based location if exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ProtectedWordsPath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnCaseChange.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnCaseChange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L180">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnCaseChange_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnCaseChange*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnCaseChange" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnCaseChange">SplitOnCaseChange</h4>
+  <div class="markdown level1 summary"><p>If true causes &quot;PowerShot&quot; to be two tokens; (&quot;Power-Shot&quot; remains two parts regards). Defaults to true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? SplitOnCaseChange { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnNumerics.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnNumerics%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L183">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnNumerics_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnNumerics*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_SplitOnNumerics" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.SplitOnNumerics">SplitOnNumerics</h4>
+  <div class="markdown level1 summary"><p>If true causes &quot;j2se&quot; to be three tokens; &quot;j&quot; &quot;2&quot; &quot;se&quot;. Defaults to true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? SplitOnNumerics { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_StemEnglishPossessive.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.StemEnglishPossessive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L186">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_StemEnglishPossessive_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.StemEnglishPossessive*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_StemEnglishPossessive" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.StemEnglishPossessive">StemEnglishPossessive</h4>
+  <div class="markdown level1 summary"><p>If true causes trailing &quot;'s&quot; to be removed for each subword: &quot;O’Neil’s&quot; ⇒ &quot;O&quot;, &quot;Neil&quot;. Defaults to true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? StemEnglishPossessive { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L189">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTable_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTable*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTable" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTable">TypeTable</h4>
+  <div class="markdown level1 summary"><p>A custom type mapping table</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; TypeTable { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTablePath.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTablePath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L192">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTablePath_" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTablePath*"></a>
+  <h4 id="OpenSearch_Client_WordDelimiterGraphTokenFilter_TypeTablePath" data-uid="OpenSearch.Client.WordDelimiterGraphTokenFilter.TypeTablePath">TypeTablePath</h4>
+  <div class="markdown level1 summary"><p>A path to a custom type mapping table file</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TypeTablePath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IWordDelimiterGraphTokenFilter.html">IWordDelimiterGraphTokenFilter</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ITokenFilter.html">ITokenFilter</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_WordDelimiterGraphTokenFilter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.WordDelimiterGraphTokenFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/WordDelimiterGraph/WordDelimiterGraphTokenFilter.cs/#L145" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

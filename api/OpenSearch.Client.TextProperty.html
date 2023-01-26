@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TextProperty
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TextProperty
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.TextProperty">
+
+
+  <h1 id="OpenSearch_Client_TextProperty" data-uid="OpenSearch.Client.TextProperty" class="text-break">Class TextProperty
+</h1>
+  <div class="markdown level0 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.PropertyBase.html">PropertyBase</a></div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.CorePropertyBase.html">CorePropertyBase</a></div>
+    <div class="level3"><span class="xref">TextProperty</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IPropertyWithClrOrigin.html">IPropertyWithClrOrigin</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ITextProperty.html">ITextProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ICoreProperty.html">ICoreProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IFieldMapping.html">IFieldMapping</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_CopyTo">CorePropertyBase.CopyTo</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Fields">CorePropertyBase.Fields</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Similarity">CorePropertyBase.Similarity</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Store">CorePropertyBase.Store</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_LocalMetadata">PropertyBase.LocalMetadata</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_Meta">PropertyBase.Meta</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_Name">PropertyBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_DebugDisplay">PropertyBase.DebugDisplay</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_ToString">PropertyBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_TypeOverride">PropertyBase.TypeOverride</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_OpenSearch_Client_IPropertyWithClrOrigin_ClrOrigin">PropertyBase.IPropertyWithClrOrigin.ClrOrigin</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_OpenSearch_Client_IProperty_Type">PropertyBase.IProperty.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_TextProperty_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TextProperty : CorePropertyBase, IPropertyWithClrOrigin, ITextProperty, ICoreProperty, IProperty, IFieldMapping</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty__ctor_" data-uid="OpenSearch.Client.TextProperty.#ctor*"></a>
+  <h4 id="OpenSearch_Client_TextProperty__ctor" data-uid="OpenSearch.Client.TextProperty.#ctor">TextProperty()</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextProperty()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_Analyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.Analyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_Analyzer_" data-uid="OpenSearch.Client.TextProperty.Analyzer*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_Analyzer" data-uid="OpenSearch.Client.TextProperty.Analyzer">Analyzer</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Analyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_Boost.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.Boost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_Boost_" data-uid="OpenSearch.Client.TextProperty.Boost*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_Boost" data-uid="OpenSearch.Client.TextProperty.Boost">Boost</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Boost { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_EagerGlobalOrdinals.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.EagerGlobalOrdinals%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L96">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_EagerGlobalOrdinals_" data-uid="OpenSearch.Client.TextProperty.EagerGlobalOrdinals*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_EagerGlobalOrdinals" data-uid="OpenSearch.Client.TextProperty.EagerGlobalOrdinals">EagerGlobalOrdinals</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? EagerGlobalOrdinals { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_Fielddata.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.Fielddata%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L97">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_Fielddata_" data-uid="OpenSearch.Client.TextProperty.Fielddata*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_Fielddata" data-uid="OpenSearch.Client.TextProperty.Fielddata">Fielddata</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Fielddata { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_FielddataFrequencyFilter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.FielddataFrequencyFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L98">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_FielddataFrequencyFilter_" data-uid="OpenSearch.Client.TextProperty.FielddataFrequencyFilter*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_FielddataFrequencyFilter" data-uid="OpenSearch.Client.TextProperty.FielddataFrequencyFilter">FielddataFrequencyFilter</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFielddataFrequencyFilter FielddataFrequencyFilter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFielddataFrequencyFilter.html">IFielddataFrequencyFilter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L99">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_Index_" data-uid="OpenSearch.Client.TextProperty.Index*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_Index" data-uid="OpenSearch.Client.TextProperty.Index">Index</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Index { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_IndexOptions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.IndexOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L100">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_IndexOptions_" data-uid="OpenSearch.Client.TextProperty.IndexOptions*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_IndexOptions" data-uid="OpenSearch.Client.TextProperty.IndexOptions">IndexOptions</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexOptions? IndexOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.IndexOptions.html">IndexOptions</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_IndexPhrases.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.IndexPhrases%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L101">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_IndexPhrases_" data-uid="OpenSearch.Client.TextProperty.IndexPhrases*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_IndexPhrases" data-uid="OpenSearch.Client.TextProperty.IndexPhrases">IndexPhrases</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IndexPhrases { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_IndexPrefixes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.IndexPrefixes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L102">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_IndexPrefixes_" data-uid="OpenSearch.Client.TextProperty.IndexPrefixes*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_IndexPrefixes" data-uid="OpenSearch.Client.TextProperty.IndexPrefixes">IndexPrefixes</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITextIndexPrefixes IndexPrefixes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITextIndexPrefixes.html">ITextIndexPrefixes</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_Norms.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.Norms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L103">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_Norms_" data-uid="OpenSearch.Client.TextProperty.Norms*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_Norms" data-uid="OpenSearch.Client.TextProperty.Norms">Norms</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Norms { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_PositionIncrementGap.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.PositionIncrementGap%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_PositionIncrementGap_" data-uid="OpenSearch.Client.TextProperty.PositionIncrementGap*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_PositionIncrementGap" data-uid="OpenSearch.Client.TextProperty.PositionIncrementGap">PositionIncrementGap</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? PositionIncrementGap { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_SearchAnalyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.SearchAnalyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_SearchAnalyzer_" data-uid="OpenSearch.Client.TextProperty.SearchAnalyzer*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_SearchAnalyzer" data-uid="OpenSearch.Client.TextProperty.SearchAnalyzer">SearchAnalyzer</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SearchAnalyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_SearchQuoteAnalyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.SearchQuoteAnalyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L106">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_SearchQuoteAnalyzer_" data-uid="OpenSearch.Client.TextProperty.SearchQuoteAnalyzer*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_SearchQuoteAnalyzer" data-uid="OpenSearch.Client.TextProperty.SearchQuoteAnalyzer">SearchQuoteAnalyzer</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SearchQuoteAnalyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty_TermVector.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty.TermVector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TextProperty_TermVector_" data-uid="OpenSearch.Client.TextProperty.TermVector*"></a>
+  <h4 id="OpenSearch_Client_TextProperty_TermVector" data-uid="OpenSearch.Client.TextProperty.TermVector">TermVector</h4>
+  <div class="markdown level1 summary"><p>A field to index full-text values, such as the body of an email or the description of a product.
+These fields are analyzed in OpenSearch, by passing through an analyzer to convert the string
+into a list of individual terms before being indexed.</p>
+<p></p>
+Text fields are not used for sorting and seldom used for aggregations
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermVectorOption? TermVector { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermVectorOption.html">TermVectorOption</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IPropertyWithClrOrigin.html">IPropertyWithClrOrigin</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ITextProperty.html">ITextProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ICoreProperty.html">ICoreProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IFieldMapping.html">IFieldMapping</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TextProperty.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TextProperty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/Text/TextProperty.cs/#L90" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

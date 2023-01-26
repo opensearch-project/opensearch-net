@@ -1,0 +1,1339 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BulkOperationsCollection&lt;TOperation&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BulkOperationsCollection&lt;TOperation&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.BulkOperationsCollection`1">
+
+
+  <h1 id="OpenSearch_Client_BulkOperationsCollection_1" data-uid="OpenSearch.Client.BulkOperationsCollection`1" class="text-break">Class BulkOperationsCollection&lt;TOperation&gt;
+</h1>
+  <div class="markdown level0 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">BulkOperationsCollection&lt;TOperation&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;TOperation&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;TOperation&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOperation&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_BulkOperationsCollection_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComVisible(false)]
+public sealed class BulkOperationsCollection&lt;TOperation&gt; : IList&lt;TOperation&gt;, ICollection&lt;TOperation&gt;, IEnumerable&lt;TOperation&gt;, IList, ICollection, IEnumerable where TOperation : IBulkOperation</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOperation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1__ctor_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1__ctor" data-uid="OpenSearch.Client.BulkOperationsCollection`1.#ctor">BulkOperationsCollection()</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BulkOperationsCollection()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1__ctor_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.%23ctor(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1__ctor_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1__ctor_System_Collections_Generic_IEnumerable__0__" data-uid="OpenSearch.Client.BulkOperationsCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">BulkOperationsCollection(IEnumerable&lt;TOperation&gt;)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BulkOperationsCollection(IEnumerable&lt;TOperation&gt; operations)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOperation&gt;</td>
+        <td><span class="parametername">operations</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Count.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L57">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Count_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Count*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Count" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Item_System_Int32_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Item(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Item_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Item*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Item_System_Int32_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOperation this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Add__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Add(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Add_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Add*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Add__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Add(`0)">Add(TOperation)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(TOperation item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_AddRange_System_Collections_Generic_IEnumerable__0__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.AddRange(System.Collections.Generic.IEnumerable%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L218">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_AddRange_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.AddRange*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_AddRange_System_Collections_Generic_IEnumerable__0__" data-uid="OpenSearch.Client.BulkOperationsCollection`1.AddRange(System.Collections.Generic.IEnumerable{`0})">AddRange(IEnumerable&lt;TOperation&gt;)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRange(IEnumerable&lt;TOperation&gt; items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TOperation&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Clear.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Clear%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L118">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Clear_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Clear*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Clear" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Contains__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Contains(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Contains_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Contains*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Contains__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Contains(`0)">Contains(TOperation)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TOperation item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_CopyTo__0___System_Int32_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.CopyTo(%600%5B%5D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L128">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_CopyTo_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.CopyTo*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_CopyTo__0___System_Int32_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.CopyTo(`0[],System.Int32)">CopyTo(TOperation[], Int32)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(TOperation[] array, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TOperation[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_GetEnumerator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.GetEnumerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L148">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_GetEnumerator_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.GetEnumerator*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_GetEnumerator" data-uid="OpenSearch.Client.BulkOperationsCollection`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;TOperation&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;TOperation&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_IndexOf__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.IndexOf(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L191">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_IndexOf_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.IndexOf*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_IndexOf__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.IndexOf(`0)">IndexOf(TOperation)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexOf(TOperation item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Insert_System_Int32__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Insert(System.Int32%2C%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L196">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Insert_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Insert*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Insert_System_Int32__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Insert(System.Int32,`0)">Insert(Int32, TOperation)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(int index, TOperation item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_Remove__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.Remove(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_Remove_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Remove*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_Remove__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.Remove(`0)">Remove(TOperation)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(TOperation item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOperation</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.RemoveAt(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L207">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_RemoveAt_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.RemoveAt*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_RemoveAt_System_Int32_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_op_Implicit_System_Collections_Generic_List__0___OpenSearch_Client_BulkOperationsCollection__0_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.op_Implicit(System.Collections.Generic.List%7B%600%7D)~OpenSearch.Client.BulkOperationsCollection%7B%600%7D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L189">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_op_Implicit_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.op_Implicit*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_op_Implicit_System_Collections_Generic_List__0___OpenSearch_Client_BulkOperationsCollection__0_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.op_Implicit(System.Collections.Generic.List{`0})~OpenSearch.Client.BulkOperationsCollection{`0}">Implicit(List&lt;TOperation&gt; to BulkOperationsCollection&lt;TOperation&gt;)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator BulkOperationsCollection&lt;TOperation&gt;(List&lt;TOperation&gt; items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;TOperation&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.BulkOperationsCollection-1.html">BulkOperationsCollection</a>&lt;TOperation&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_Generic_ICollection_TOperation__IsReadOnly.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23Generic%23ICollection%7BTOperation%7D%23IsReadOnly%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_Generic_ICollection_TOperation__IsReadOnly_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#Generic#ICollection{TOperation}#IsReadOnly*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_Generic_ICollection_TOperation__IsReadOnly" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#Generic#ICollection{TOperation}#IsReadOnly">ICollection&lt;TOperation&gt;.IsReadOnly</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ICollection&lt;TOperation&gt;.IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23ICollection%23CopyTo(System.Array%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_CopyTo_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#CopyTo*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_CopyTo_System_Array_System_Int32_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">ICollection.CopyTo(Array, Int32)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ICollection.CopyTo(Array array, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">Array</a></td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_IsSynchronized.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23ICollection%23IsSynchronized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_IsSynchronized_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#IsSynchronized*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_IsSynchronized" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#IsSynchronized">ICollection.IsSynchronized</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ICollection.IsSynchronized { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_SyncRoot.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23ICollection%23SyncRoot%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_SyncRoot_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#SyncRoot*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_ICollection_SyncRoot" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#ICollection#SyncRoot">ICollection.SyncRoot</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ICollection.SyncRoot { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L146">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IEnumerable_GetEnumerator" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Add_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23Add(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L154">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Add_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Add*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Add_System_Object_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Add(System.Object)">IList.Add(Object)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IList.Add(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Contains_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23Contains(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Contains_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Contains*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Contains_System_Object_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Contains(System.Object)">IList.Contains(Object)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.Contains(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IndexOf_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23IndexOf(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L171">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IndexOf_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IndexOf*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IndexOf_System_Object_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IndexOf(System.Object)">IList.IndexOf(Object)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IList.IndexOf(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Insert_System_Int32_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23Insert(System.Int32%2CSystem.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L177">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Insert_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Insert*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Insert_System_Int32_System_Object_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Insert(System.Int32,System.Object)">IList.Insert(Int32, Object)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IList.Insert(int index, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsFixedSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23IsFixedSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsFixedSize_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IsFixedSize*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsFixedSize" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IsFixedSize">IList.IsFixedSize</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.IsFixedSize { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsReadOnly.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23IsReadOnly%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsReadOnly_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IsReadOnly*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_IsReadOnly" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#IsReadOnly">IList.IsReadOnly</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IList.IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Item_System_Int32_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23Item(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Item_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Item*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Item_System_Int32_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Item(System.Int32)">IList.Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IList.this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Remove_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601.System%23Collections%23IList%23Remove(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L183">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Remove_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Remove*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationsCollection_1_System_Collections_IList_Remove_System_Object_" data-uid="OpenSearch.Client.BulkOperationsCollection`1.System#Collections#IList#Remove(System.Object)">IList.Remove(Object)</h4>
+  <div class="markdown level1 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
+is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IList.Remove(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">System.Collections.Generic.IList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">System.Collections.Generic.ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">System.Collections.IList</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">System.Collections.ICollection</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationsCollection_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationsCollection%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationsCollection.cs/#L43" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

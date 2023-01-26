@@ -1,0 +1,601 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IPhraseSuggester
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IPhraseSuggester
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IPhraseSuggester">
+
+
+  <h1 id="OpenSearch_Client_IPhraseSuggester" data-uid="OpenSearch.Client.IPhraseSuggester" class="text-break">Interface IPhraseSuggester
+</h1>
+  <div class="markdown level0 summary"><p>The phrase suggester adds additional logic on top of the <a class="xref" href="OpenSearch.Client.ITermSuggester.html">term suggester</a> to select entire corrected phrases instead of
+individual tokens weighted based on ngram-language models. In practice this suggester will be able to make better decisions
+about which tokens to pick based on co-occurrence and frequencies.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Analyzer">ISuggester.Analyzer</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Field">ISuggester.Field</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Size">ISuggester.Size</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IPhraseSuggester_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPhraseSuggester : ISuggester</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Collate.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Collate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L56">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Collate_" data-uid="OpenSearch.Client.IPhraseSuggester.Collate*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Collate" data-uid="OpenSearch.Client.IPhraseSuggester.Collate">Collate</h4>
+  <div class="markdown level1 summary"><p>Checks each suggestion against the specified query to prune suggestions for which no matching docs exist in the index.
+The collate query for a suggestion is run only on the local shard from which the suggestion has been generated from.
+The query must be specified and can be templated. The current suggestion is automatically made available as
+the {{suggestion}} variable, which should be used in your query. You can still specify your own template params ,
+the suggestion value will be added to the variables you specify.
+Additionally, you can specify a prune to control if all phrase suggestions will be returned; when set to true the
+suggestions will have an additional option collate_match, which will be true if matching documents for the phrase was found,
+false otherwise. The default value for prune is false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;collate&quot;)]
+IPhraseSuggestCollate Collate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPhraseSuggestCollate.html">IPhraseSuggestCollate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Confidence.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Confidence%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Confidence_" data-uid="OpenSearch.Client.IPhraseSuggester.Confidence*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Confidence" data-uid="OpenSearch.Client.IPhraseSuggester.Confidence">Confidence</h4>
+  <div class="markdown level1 summary"><p>The confidence level defines a factor applied to the input phrases score which is used as a threshold for other suggest candidates.
+Only candidates that score higher than the threshold will be included in the result.
+For instance a confidence level of 1.0 will only return suggestions that score higher than the input phrase.
+If set to 0.0 the top N candidates are returned. The default is 1.0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;confidence&quot;)]
+double? Confidence { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_DirectGenerator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.DirectGenerator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_DirectGenerator_" data-uid="OpenSearch.Client.IPhraseSuggester.DirectGenerator*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_DirectGenerator" data-uid="OpenSearch.Client.IPhraseSuggester.DirectGenerator">DirectGenerator</h4>
+  <div class="markdown level1 summary"><p>Candidate generators used to produce a list of possible terms per term in the given text.
+A single candidate generator is similar to a term suggester called for each individual term in the text.
+The output of the generators is subsequently scored in combination with the candidates from the other terms for suggestion candidates.
+Each of the generators is called per term in the original text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;direct_generator&quot;)]
+IEnumerable&lt;IDirectGenerator&gt; DirectGenerator { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.IDirectGenerator.html">IDirectGenerator</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_ForceUnigrams.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.ForceUnigrams%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L79">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_ForceUnigrams_" data-uid="OpenSearch.Client.IPhraseSuggester.ForceUnigrams*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_ForceUnigrams" data-uid="OpenSearch.Client.IPhraseSuggester.ForceUnigrams">ForceUnigrams</h4>
+  <div class="markdown level1 summary"><p>The phrase suggester adds additional logic on top of the <a class="xref" href="OpenSearch.Client.ITermSuggester.html">term suggester</a> to select entire corrected phrases instead of
+individual tokens weighted based on ngram-language models. In practice this suggester will be able to make better decisions
+about which tokens to pick based on co-occurrence and frequencies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;force_unigrams&quot;)]
+bool? ForceUnigrams { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_GramSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.GramSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_GramSize_" data-uid="OpenSearch.Client.IPhraseSuggester.GramSize*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_GramSize" data-uid="OpenSearch.Client.IPhraseSuggester.GramSize">GramSize</h4>
+  <div class="markdown level1 summary"><p>Sets max size of the n-grams (shingles) in the field. If the field doesn’t contain n-grams (shingles), this should be omitted or set to 1.
+Note that OpenSearch tries to detect the gram size based on the specified field. If the field uses a shingle filter,
+the gram_size is set to the max_shingle_size if not explicitly set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;gram_size&quot;)]
+int? GramSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Highlight.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Highlight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Highlight_" data-uid="OpenSearch.Client.IPhraseSuggester.Highlight*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Highlight" data-uid="OpenSearch.Client.IPhraseSuggester.Highlight">Highlight</h4>
+  <div class="markdown level1 summary"><p>Sets up suggestion highlighting. If not provided then no highlighted field is returned.
+If provided must contain exactly pre_tag and post_tag, which are wrapped around the changed tokens.
+If multiple tokens in a row are changed the entire phrase of changed tokens is wrapped rather than each token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;highlight&quot;)]
+IPhraseSuggestHighlight Highlight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPhraseSuggestHighlight.html">IPhraseSuggestHighlight</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_MaxErrors.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.MaxErrors%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_MaxErrors_" data-uid="OpenSearch.Client.IPhraseSuggester.MaxErrors*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_MaxErrors" data-uid="OpenSearch.Client.IPhraseSuggester.MaxErrors">MaxErrors</h4>
+  <div class="markdown level1 summary"><p>The maximum percentage of the terms considered to be misspellings in order to form a correction.
+This method accepts a float value in the range [0..1) as a fraction of the actual query terms or a number &gt;=1 as an absolute number
+of query terms. The default is set to 1.0, meaning only corrections with at most one misspelled term are returned.
+Note that setting this too high can negatively impact performance. Low values like 1 or 2 are recommended; otherwise the time spend
+in suggest calls might exceed the time spend in query execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_errors&quot;)]
+double? MaxErrors { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_RealWordErrorLikelihood.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.RealWordErrorLikelihood%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_RealWordErrorLikelihood_" data-uid="OpenSearch.Client.IPhraseSuggester.RealWordErrorLikelihood*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_RealWordErrorLikelihood" data-uid="OpenSearch.Client.IPhraseSuggester.RealWordErrorLikelihood">RealWordErrorLikelihood</h4>
+  <div class="markdown level1 summary"><p>The likelihood of a term being a misspelled even if the term exists in the dictionary.
+The default is 0.95, meaning 5% of the real words are misspelled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;real_word_error_likelihood&quot;)]
+double? RealWordErrorLikelihood { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Separator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Separator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Separator_" data-uid="OpenSearch.Client.IPhraseSuggester.Separator*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Separator" data-uid="OpenSearch.Client.IPhraseSuggester.Separator">Separator</h4>
+  <div class="markdown level1 summary"><p>The separator that is used to separate terms in the bigram field.
+If not set the whitespace character is used as a separator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;separator&quot;)]
+char? Separator { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_ShardSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.ShardSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L126">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_ShardSize_" data-uid="OpenSearch.Client.IPhraseSuggester.ShardSize*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_ShardSize" data-uid="OpenSearch.Client.IPhraseSuggester.ShardSize">ShardSize</h4>
+  <div class="markdown level1 summary"><p>Sets the maximum number of suggested terms to be retrieved from each individual shard.
+During the reduce phase, only the top N suggestions are returned based on the size option. Defaults to 5.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;shard_size&quot;)]
+int? ShardSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Smoothing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Smoothing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Smoothing_" data-uid="OpenSearch.Client.IPhraseSuggester.Smoothing*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Smoothing" data-uid="OpenSearch.Client.IPhraseSuggester.Smoothing">Smoothing</h4>
+  <div class="markdown level1 summary"><p>Smoothing model to balance weight between infrequent grams (grams (shingles) are not existing in the index)
+and frequent grams (appear at least once in the index).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;smoothing&quot;)]
+SmoothingModelContainer Smoothing { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SmoothingModelContainer.html">SmoothingModelContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_Text.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.Text%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_Text_" data-uid="OpenSearch.Client.IPhraseSuggester.Text*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_Text" data-uid="OpenSearch.Client.IPhraseSuggester.Text">Text</h4>
+  <div class="markdown level1 summary"><p>Sets the text / query to provide suggestions for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+string Text { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester_TokenLimit.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester.TokenLimit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L144">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPhraseSuggester_TokenLimit_" data-uid="OpenSearch.Client.IPhraseSuggester.TokenLimit*"></a>
+  <h4 id="OpenSearch_Client_IPhraseSuggester_TokenLimit" data-uid="OpenSearch.Client.IPhraseSuggester.TokenLimit">TokenLimit</h4>
+  <div class="markdown level1 summary"><p>The phrase suggester adds additional logic on top of the <a class="xref" href="OpenSearch.Client.ITermSuggester.html">term suggester</a> to select entire corrected phrases instead of
+individual tokens weighted based on ngram-language models. In practice this suggester will be able to make better decisions
+about which tokens to pick based on co-occurrence and frequencies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;token_limit&quot;)]
+int? TokenLimit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPhraseSuggester.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPhraseSuggester%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/PhraseSuggester/PhraseSuggester.cs/#L42" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

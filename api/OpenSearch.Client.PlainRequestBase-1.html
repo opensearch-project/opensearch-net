@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PlainRequestBase&lt;TParameters&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PlainRequestBase&lt;TParameters&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.PlainRequestBase`1">
+
+
+  <h1 id="OpenSearch_Client_PlainRequestBase_1" data-uid="OpenSearch.Client.PlainRequestBase`1" class="text-break">Class PlainRequestBase&lt;TParameters&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.RequestBase-1.html">RequestBase</a>&lt;TParameters&gt;</div>
+    <div class="level2"><span class="xref">PlainRequestBase&lt;TParameters&gt;</span></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.AddIndexBlockRequest.html">AddIndexBlockRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.AliasExistsRequest.html">AliasExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.AnalyzeRequest.html">AnalyzeRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkAliasRequest.html">BulkAliasRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkRequest.html">BulkRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CancelTasksRequest.html">CancelTasksRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatAliasesRequest.html">CatAliasesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatAllocationRequest.html">CatAllocationRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatClusterManagerRequest.html">CatClusterManagerRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatCountRequest.html">CatCountRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatFielddataRequest.html">CatFielddataRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatHealthRequest.html">CatHealthRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatHelpRequest.html">CatHelpRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatIndicesRequest.html">CatIndicesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatMasterRequest.html">CatMasterRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatNodeAttributesRequest.html">CatNodeAttributesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatNodesRequest.html">CatNodesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatPendingTasksRequest.html">CatPendingTasksRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatPluginsRequest.html">CatPluginsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatRecoveryRequest.html">CatRecoveryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatRepositoriesRequest.html">CatRepositoriesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatSegmentsRequest.html">CatSegmentsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatShardsRequest.html">CatShardsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatSnapshotsRequest.html">CatSnapshotsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatTasksRequest.html">CatTasksRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatTemplatesRequest.html">CatTemplatesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CatThreadPoolRequest.html">CatThreadPoolRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CleanupRepositoryRequest.html">CleanupRepositoryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClearCacheRequest.html">ClearCacheRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClearScrollRequest.html">ClearScrollRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CloneIndexRequest.html">CloneIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CloneSnapshotRequest.html">CloneSnapshotRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CloseIndexRequest.html">CloseIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterAllocationExplainRequest.html">ClusterAllocationExplainRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterGetSettingsRequest.html">ClusterGetSettingsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterHealthRequest.html">ClusterHealthRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterPendingTasksRequest.html">ClusterPendingTasksRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterPutSettingsRequest.html">ClusterPutSettingsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterRerouteRequest.html">ClusterRerouteRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterStateRequest.html">ClusterStateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ClusterStatsRequest.html">ClusterStatsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CountRequest.html">CountRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CreateIndexRequest.html">CreateIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CreateRepositoryRequest.html">CreateRepositoryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.CreateRequest-1.html">CreateRequest&lt;TDocument&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteAliasRequest.html">DeleteAliasRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html">DeleteByQueryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteByQueryRethrottleRequest.html">DeleteByQueryRethrottleRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteDanglingIndexRequest.html">DeleteDanglingIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteIndexRequest.html">DeleteIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteIndexTemplateRequest.html">DeleteIndexTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeletePipelineRequest.html">DeletePipelineRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteRepositoryRequest.html">DeleteRepositoryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteRequest.html">DeleteRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteScriptRequest.html">DeleteScriptRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteSnapshotRequest.html">DeleteSnapshotRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteVotingConfigExclusionsRequest.html">DeleteVotingConfigExclusionsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.DocumentExistsRequest.html">DocumentExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ExecutePainlessScriptRequest.html">ExecutePainlessScriptRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ExplainRequest.html">ExplainRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.FieldCapabilitiesRequest.html">FieldCapabilitiesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.FlushRequest.html">FlushRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ForceMergeRequest.html">ForceMergeRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetAliasRequest.html">GetAliasRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetFieldMappingRequest.html">GetFieldMappingRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetIndexRequest.html">GetIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetIndexSettingsRequest.html">GetIndexSettingsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetIndexTemplateRequest.html">GetIndexTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetMappingRequest.html">GetMappingRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetPipelineRequest.html">GetPipelineRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetRepositoryRequest.html">GetRepositoryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetRequest.html">GetRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetScriptRequest.html">GetScriptRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetSnapshotRequest.html">GetSnapshotRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GetTaskRequest.html">GetTaskRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GrokProcessorPatternsRequest.html">GrokProcessorPatternsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ImportDanglingIndexRequest.html">ImportDanglingIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.IndexExistsRequest.html">IndexExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.IndexRequest-1.html">IndexRequest&lt;TDocument&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.IndexTemplateExistsRequest.html">IndexTemplateExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.IndicesShardStoresRequest.html">IndicesShardStoresRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ListDanglingIndicesRequest.html">ListDanglingIndicesRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ListTasksRequest.html">ListTasksRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.MultiGetRequest.html">MultiGetRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.MultiSearchRequest.html">MultiSearchRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.MultiSearchTemplateRequest.html">MultiSearchTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.MultiTermVectorsRequest.html">MultiTermVectorsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.NodesHotThreadsRequest.html">NodesHotThreadsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.NodesInfoRequest.html">NodesInfoRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.NodesStatsRequest.html">NodesStatsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.NodesUsageRequest.html">NodesUsageRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.OpenIndexRequest.html">OpenIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PingRequest.html">PingRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PostVotingConfigExclusionsRequest.html">PostVotingConfigExclusionsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PutAliasRequest.html">PutAliasRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PutIndexTemplateRequest.html">PutIndexTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PutMappingRequest.html">PutMappingRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PutPipelineRequest.html">PutPipelineRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.PutScriptRequest.html">PutScriptRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RefreshRequest.html">RefreshRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ReindexOnServerRequest.html">ReindexOnServerRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ReindexRethrottleRequest.html">ReindexRethrottleRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ReloadSecureSettingsRequest.html">ReloadSecureSettingsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RemoteInfoRequest.html">RemoteInfoRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RenderSearchTemplateRequest.html">RenderSearchTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ResolveIndexRequest.html">ResolveIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RestoreRequest.html">RestoreRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RolloverIndexRequest.html">RolloverIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.RootNodeInfoRequest.html">RootNodeInfoRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ScrollRequest.html">ScrollRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SearchRequest.html">SearchRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SearchShardsRequest.html">SearchShardsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SearchTemplateRequest.html">SearchTemplateRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ShrinkIndexRequest.html">ShrinkIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SimulatePipelineRequest.html">SimulatePipelineRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SnapshotRequest.html">SnapshotRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SnapshotStatusRequest.html">SnapshotStatusRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SourceExistsRequest.html">SourceExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SourceRequest.html">SourceRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.SplitIndexRequest.html">SplitIndexRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.TermVectorsRequest-1.html">TermVectorsRequest&lt;TDocument&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.TypeExistsRequest.html">TypeExistsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.UpdateByQueryRequest.html">UpdateByQueryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.UpdateByQueryRethrottleRequest.html">UpdateByQueryRethrottleRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.UpdateIndexSettingsRequest.html">UpdateIndexSettingsRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.UpdateRequest-2.html">UpdateRequest&lt;TDocument, TPartialDocument&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ValidateQueryRequest.html">ValidateQueryRequest</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.VerifyRepositoryRequest.html">VerifyRepositoryRequest</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;TParameters&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_HttpMethod">RequestBase&lt;TParameters&gt;.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestState">RequestBase&lt;TParameters&gt;.RequestState</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_HttpMethod">RequestBase&lt;TParameters&gt;.IRequest.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_ContentType">RequestBase&lt;TParameters&gt;.IRequest.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ContentType">RequestBase&lt;TParameters&gt;.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_TParameters__RequestParameters">RequestBase&lt;TParameters&gt;.IRequest&lt;TParameters&gt;.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RequestParameters">RequestBase&lt;TParameters&gt;.IRequest.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RouteValues">RequestBase&lt;TParameters&gt;.IRequest.RouteValues</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_GetUrl_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;TParameters&gt;.IRequest.GetUrl(IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ResolveUrl_OpenSearch_Client_RouteValues_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;TParameters&gt;.ResolveUrl(RouteValues, IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestDefaults__0_">RequestBase&lt;TParameters&gt;.RequestDefaults(TParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q__1_System_String_">RequestBase&lt;TParameters&gt;.Q&lt;TOut&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q_System_String_System_Object_">RequestBase&lt;TParameters&gt;.Q(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_SetAcceptHeader_System_String_">RequestBase&lt;TParameters&gt;.SetAcceptHeader(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_PlainRequestBase_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class PlainRequestBase&lt;TParameters&gt; : RequestBase&lt;TParameters&gt;, IRequest&lt;TParameters&gt;, IRequest where TParameters : class, IRequestParameters, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TParameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Request/RequestBase.cs/#L132">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1__ctor_" data-uid="OpenSearch.Client.PlainRequestBase`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1__ctor" data-uid="OpenSearch.Client.PlainRequestBase`1.#ctor">PlainRequestBase()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PlainRequestBase()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1__ctor_System_Func_OpenSearch_Client_RouteValues_OpenSearch_Client_RouteValues__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.%23ctor(System.Func%7BOpenSearch.Client.RouteValues%2COpenSearch.Client.RouteValues%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Request/RequestBase.cs/#L134">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1__ctor_" data-uid="OpenSearch.Client.PlainRequestBase`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1__ctor_System_Func_OpenSearch_Client_RouteValues_OpenSearch_Client_RouteValues__" data-uid="OpenSearch.Client.PlainRequestBase`1.#ctor(System.Func{OpenSearch.Client.RouteValues,OpenSearch.Client.RouteValues})">PlainRequestBase(Func&lt;RouteValues, RouteValues&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PlainRequestBase(Func&lt;RouteValues, RouteValues&gt; pathSelector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.RouteValues.html">RouteValues</a>, <a class="xref" href="OpenSearch.Client.RouteValues.html">RouteValues</a>&gt;</td>
+        <td><span class="parametername">pathSelector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_ErrorTrace.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.ErrorTrace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_ErrorTrace_" data-uid="OpenSearch.Client.PlainRequestBase`1.ErrorTrace*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_ErrorTrace" data-uid="OpenSearch.Client.PlainRequestBase`1.ErrorTrace">ErrorTrace</h4>
+  <div class="markdown level1 summary"><p>Include the stack trace of returned errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? ErrorTrace { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_FilterPath.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.FilterPath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_FilterPath_" data-uid="OpenSearch.Client.PlainRequestBase`1.FilterPath*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_FilterPath" data-uid="OpenSearch.Client.PlainRequestBase`1.FilterPath">FilterPath</h4>
+  <div class="markdown level1 summary"><p>A comma-separated list of filters used to reduce the response.</p>
+<p>Use of response filtering can result in a response from OpenSearch
+that cannot be correctly deserialized to the respective response type for the request.
+In such situations, use the low level client to issue the request and handle response deserialization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] FilterPath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_Human.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.Human%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_Human_" data-uid="OpenSearch.Client.PlainRequestBase`1.Human*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_Human" data-uid="OpenSearch.Client.PlainRequestBase`1.Human">Human</h4>
+  <div class="markdown level1 summary"><p>Return human readable values for statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Human { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_Pretty.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.Pretty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_Pretty_" data-uid="OpenSearch.Client.PlainRequestBase`1.Pretty*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_Pretty" data-uid="OpenSearch.Client.PlainRequestBase`1.Pretty">Pretty</h4>
+  <div class="markdown level1 summary"><p>Pretty format the returned JSON response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Pretty { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_RequestConfiguration.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.RequestConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Request/RequestBase.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_RequestConfiguration_" data-uid="OpenSearch.Client.PlainRequestBase`1.RequestConfiguration*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_RequestConfiguration" data-uid="OpenSearch.Client.PlainRequestBase`1.RequestConfiguration">RequestConfiguration</h4>
+  <div class="markdown level1 summary"><p>Specify settings for this request alone, handy if you need a custom timeout or want to bypass sniffing, retries</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRequestConfiguration RequestConfiguration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IRequestConfiguration.html">IRequestConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1_SourceQueryString.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601.SourceQueryString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L101">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_PlainRequestBase_1_SourceQueryString_" data-uid="OpenSearch.Client.PlainRequestBase`1.SourceQueryString*"></a>
+  <h4 id="OpenSearch_Client_PlainRequestBase_1_SourceQueryString" data-uid="OpenSearch.Client.PlainRequestBase`1.SourceQueryString">SourceQueryString</h4>
+  <div class="markdown level1 summary"><p>The URL-encoded request definition. Useful for libraries that do not accept a request body for non-POST requests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SourceQueryString { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PlainRequestBase_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PlainRequestBase%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.cs/#L65" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

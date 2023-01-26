@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SearchShardsRequest
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SearchShardsRequest
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SearchShardsRequest">
+
+
+  <h1 id="OpenSearch_Client_SearchShardsRequest" data-uid="OpenSearch.Client.SearchShardsRequest" class="text-break">Class SearchShardsRequest
+</h1>
+  <div class="markdown level0 summary"><p>Request for SearchShards <p>https://opensearch.org/docs/latest/security-plugin/access-control/cross-cluster-search/</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.RequestBase-1.html">RequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.SearchShardsRequestParameters.html">SearchShardsRequestParameters</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html">PlainRequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.SearchShardsRequestParameters.html">SearchShardsRequestParameters</a>&gt;</div>
+    <div class="level3"><span class="xref">SearchShardsRequest</span></div>
+      <div class="level4"><a class="xref" href="OpenSearch.Client.SearchShardsRequest-1.html">SearchShardsRequest&lt;TDocument&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.ISearchShardsRequest.html">ISearchShardsRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;<a class="xref" href="OpenSearch.Net.SearchShardsRequestParameters.html">SearchShardsRequestParameters</a>&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_RequestConfiguration">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.RequestConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_ErrorTrace">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.ErrorTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_FilterPath">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.FilterPath</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Human">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.Human</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Pretty">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.Pretty</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_SourceQueryString">PlainRequestBase&lt;SearchShardsRequestParameters&gt;.SourceQueryString</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_HttpMethod">RequestBase&lt;SearchShardsRequestParameters&gt;.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestState">RequestBase&lt;SearchShardsRequestParameters&gt;.RequestState</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_HttpMethod">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_ContentType">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ContentType">RequestBase&lt;SearchShardsRequestParameters&gt;.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_TParameters__RequestParameters">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest&lt;SearchShardsRequestParameters&gt;.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RequestParameters">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RouteValues">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest.RouteValues</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_GetUrl_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;SearchShardsRequestParameters&gt;.IRequest.GetUrl(IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ResolveUrl_OpenSearch_Client_RouteValues_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;SearchShardsRequestParameters&gt;.ResolveUrl(RouteValues, IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestDefaults__0_">RequestBase&lt;SearchShardsRequestParameters&gt;.RequestDefaults(SearchShardsRequestParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q__1_System_String_">RequestBase&lt;SearchShardsRequestParameters&gt;.Q&lt;TOut&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q_System_String_System_Object_">RequestBase&lt;SearchShardsRequestParameters&gt;.Q(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_SetAcceptHeader_System_String_">RequestBase&lt;SearchShardsRequestParameters&gt;.SetAcceptHeader(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SearchShardsRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SearchShardsRequest : PlainRequestBase&lt;SearchShardsRequestParameters&gt;, ISearchShardsRequest, IRequest&lt;SearchShardsRequestParameters&gt;, IRequest</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2941">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest__ctor_" data-uid="OpenSearch.Client.SearchShardsRequest.#ctor*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest__ctor" data-uid="OpenSearch.Client.SearchShardsRequest.#ctor">SearchShardsRequest()</h4>
+  <div class="markdown level1 summary"><p>/_search_shards</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SearchShardsRequest()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2947">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest__ctor_" data-uid="OpenSearch.Client.SearchShardsRequest.#ctor*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchShardsRequest.#ctor(OpenSearch.Client.Indices)">SearchShardsRequest(Indices)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_search_shards</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SearchShardsRequest(Indices index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Indices.html">Indices</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Optional, accepts null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2959">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_AllowNoIndices_" data-uid="OpenSearch.Client.SearchShardsRequest.AllowNoIndices*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_AllowNoIndices" data-uid="OpenSearch.Client.SearchShardsRequest.AllowNoIndices">AllowNoIndices</h4>
+  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
+been specified)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? AllowNoIndices { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2966">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_ExpandWildcards_" data-uid="OpenSearch.Client.SearchShardsRequest.ExpandWildcards*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_ExpandWildcards" data-uid="OpenSearch.Client.SearchShardsRequest.ExpandWildcards">ExpandWildcards</h4>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExpandWildcards? ExpandWildcards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.ExpandWildcards.html">ExpandWildcards</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2973">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.SearchShardsRequest.IgnoreUnavailable*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.SearchShardsRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
+  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IgnoreUnavailable { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_Local.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.Local%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2980">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_Local_" data-uid="OpenSearch.Client.SearchShardsRequest.Local*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_Local" data-uid="OpenSearch.Client.SearchShardsRequest.Local">Local</h4>
+  <div class="markdown level1 summary"><p>Return local information, do not retrieve the state from cluster_manager node (default: false)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Local { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_Preference.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.Preference%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2987">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_Preference_" data-uid="OpenSearch.Client.SearchShardsRequest.Preference*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_Preference" data-uid="OpenSearch.Client.SearchShardsRequest.Preference">Preference</h4>
+  <div class="markdown level1 summary"><p>Specify the node or shard the operation should be performed on (default: random)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Preference { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L3001">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_Routing_" data-uid="OpenSearch.Client.SearchShardsRequest.Routing*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_Routing" data-uid="OpenSearch.Client.SearchShardsRequest.Routing">Routing</h4>
+  <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
+<p> shard_num = hash(_routing) % num_primary_shards</p>
+<p>OpenSearch will use the document id if not provided. </p>
+<p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2938">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_Self_" data-uid="OpenSearch.Client.SearchShardsRequest.Self*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_Self" data-uid="OpenSearch.Client.SearchShardsRequest.Self">Self</h4>
+  <div class="markdown level1 summary"><p>Request for SearchShards <p>https://opensearch.org/docs/latest/security-plugin/access-control/cross-cluster-search/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ISearchShardsRequest Self { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISearchShardsRequest.html">ISearchShardsRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest_OpenSearch_Client_ISearchShardsRequest_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest.OpenSearch%23Client%23ISearchShardsRequest%23Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L2952">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchShardsRequest_OpenSearch_Client_ISearchShardsRequest_Index_" data-uid="OpenSearch.Client.SearchShardsRequest.OpenSearch#Client#ISearchShardsRequest#Index*"></a>
+  <h4 id="OpenSearch_Client_SearchShardsRequest_OpenSearch_Client_ISearchShardsRequest_Index" data-uid="OpenSearch.Client.SearchShardsRequest.OpenSearch#Client#ISearchShardsRequest#Index">ISearchShardsRequest.Index</h4>
+  <div class="markdown level1 summary"><p>Request for SearchShards <p>https://opensearch.org/docs/latest/security-plugin/access-control/cross-cluster-search/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+Indices ISearchShardsRequest.Index { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Indices.html">Indices</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISearchShardsRequest.html">ISearchShardsRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchShardsRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchShardsRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/SearchShards/SearchShardsRequest.cs/#L37" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

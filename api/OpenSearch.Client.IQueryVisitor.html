@@ -1,0 +1,2160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IQueryVisitor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IQueryVisitor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IQueryVisitor">
+
+
+  <h1 id="OpenSearch_Client_IQueryVisitor" data-uid="OpenSearch.Client.IQueryVisitor" class="text-break">Interface IQueryVisitor
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IQueryVisitor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IQueryVisitor</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Depth.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Depth%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L36">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Depth_" data-uid="OpenSearch.Client.IQueryVisitor.Depth*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Depth" data-uid="OpenSearch.Client.IQueryVisitor.Depth">Depth</h4>
+  <div class="markdown level1 summary"><p>The current depth of the node being visited</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Depth { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Scope.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Scope%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L41">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Scope_" data-uid="OpenSearch.Client.IQueryVisitor.Scope*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Scope" data-uid="OpenSearch.Client.IQueryVisitor.Scope">Scope</h4>
+  <div class="markdown level1 summary"><p>Hints the relation with the parent, i,e queries inside a Must clause will have VisitorScope.Must set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VisitorScope Scope { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.VisitorScope.html">VisitorScope</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IBoolQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IBoolQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L55">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IBoolQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IBoolQuery)">Visit(IBoolQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IBoolQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IBoolQuery.html">IBoolQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IBoostingQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IBoostingQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L57">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IBoostingQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IBoostingQuery)">Visit(IBoostingQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IBoostingQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IBoostingQuery.html">IBoostingQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IConstantScoreQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IConstantScoreQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IConstantScoreQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IConstantScoreQuery)">Visit(IConstantScoreQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IConstantScoreQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IConstantScoreQuery.html">IConstantScoreQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDateRangeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDateRangeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L131">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDateRangeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDateRangeQuery)">Visit(IDateRangeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDateRangeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDateRangeQuery.html">IDateRangeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDisMaxQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDisMaxQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L61">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDisMaxQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDisMaxQuery)">Visit(IDisMaxQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDisMaxQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDisMaxQuery.html">IDisMaxQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDistanceFeatureQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDistanceFeatureQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L63">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IDistanceFeatureQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IDistanceFeatureQuery)">Visit(IDistanceFeatureQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDistanceFeatureQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDistanceFeatureQuery.html">IDistanceFeatureQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IExistsQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IExistsQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L129">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IExistsQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IExistsQuery)">Visit(IExistsQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IExistsQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IExistsQuery.html">IExistsQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFunctionScoreQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFunctionScoreQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFunctionScoreQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFunctionScoreQuery)">Visit(IFunctionScoreQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFunctionScoreQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFunctionScoreQuery.html">IFunctionScoreQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyDateQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyDateQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyDateQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyDateQuery)">Visit(IFuzzyDateQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFuzzyDateQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFuzzyDateQuery.html">IFuzzyDateQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyNumericQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyNumericQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L69">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyNumericQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyNumericQuery)">Visit(IFuzzyNumericQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFuzzyNumericQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFuzzyNumericQuery.html">IFuzzyNumericQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L67">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyQuery)">Visit(IFuzzyQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFuzzyQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFuzzyQuery.html">IFuzzyQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyStringQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyStringQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L73">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IFuzzyStringQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IFuzzyStringQuery)">Visit(IFuzzyStringQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFuzzyStringQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFuzzyStringQuery.html">IFuzzyStringQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoBoundingBoxQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoBoundingBoxQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L127">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoBoundingBoxQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoBoundingBoxQuery)">Visit(IGeoBoundingBoxQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoBoundingBoxQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoBoundingBoxQuery.html">IGeoBoundingBoxQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoDistanceQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoDistanceQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoDistanceQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoDistanceQuery)">Visit(IGeoDistanceQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoDistanceQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoDistanceQuery.html">IGeoDistanceQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoPolygonQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoPolygonQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoPolygonQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoPolygonQuery)">Visit(IGeoPolygonQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoPolygonQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoPolygonQuery.html">IGeoPolygonQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoShapeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoShapeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L161">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IGeoShapeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IGeoShapeQuery)">Visit(IGeoShapeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoShapeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShapeQuery.html">IGeoShapeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IHasChildQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IHasChildQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IHasChildQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IHasChildQuery)">Visit(IHasChildQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IHasChildQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IHasChildQuery.html">IHasChildQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IHasParentQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IHasParentQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IHasParentQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IHasParentQuery)">Visit(IHasParentQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IHasParentQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IHasParentQuery.html">IHasParentQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IIdsQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IIdsQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L79">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IIdsQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IIdsQuery)">Visit(IIdsQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IIdsQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIdsQuery.html">IIdsQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IIntervalsQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IIntervalsQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IIntervalsQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IIntervalsQuery)">Visit(IIntervalsQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IIntervalsQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIntervalsQuery.html">IIntervalsQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ILongRangeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ILongRangeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L135">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ILongRangeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ILongRangeQuery)">Visit(ILongRangeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ILongRangeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ILongRangeQuery.html">ILongRangeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchAllQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchAllQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchAllQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchAllQuery)">Visit(IMatchAllQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchAllQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchAllQuery.html">IMatchAllQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchBoolPrefixQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchBoolPrefixQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchBoolPrefixQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchBoolPrefixQuery)">Visit(IMatchBoolPrefixQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchBoolPrefixQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchBoolPrefixQuery.html">IMatchBoolPrefixQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchNoneQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchNoneQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchNoneQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchNoneQuery)">Visit(IMatchNoneQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchNoneQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchNoneQuery.html">IMatchNoneQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchPhrasePrefixQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchPhrasePrefixQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchPhrasePrefixQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchPhrasePrefixQuery)">Visit(IMatchPhrasePrefixQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchPhrasePrefixQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchPhrasePrefixQuery.html">IMatchPhrasePrefixQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchPhraseQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchPhraseQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchPhraseQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchPhraseQuery)">Visit(IMatchPhraseQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchPhraseQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchPhraseQuery.html">IMatchPhraseQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L83">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMatchQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMatchQuery)">Visit(IMatchQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMatchQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMatchQuery.html">IMatchQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMoreLikeThisQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMoreLikeThisQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMoreLikeThisQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMoreLikeThisQuery)">Visit(IMoreLikeThisQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMoreLikeThisQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMoreLikeThisQuery.html">IMoreLikeThisQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMultiMatchQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMultiMatchQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L97">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IMultiMatchQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IMultiMatchQuery)">Visit(IMultiMatchQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMultiMatchQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html">IMultiMatchQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_INestedQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.INestedQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L99">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_INestedQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.INestedQuery)">Visit(INestedQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(INestedQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.INestedQuery.html">INestedQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_INumericRangeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.INumericRangeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_INumericRangeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.INumericRangeQuery)">Visit(INumericRangeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(INumericRangeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IParentIdQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IParentIdQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L169">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IParentIdQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IParentIdQuery)">Visit(IParentIdQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IParentIdQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IParentIdQuery.html">IParentIdQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IPercolateQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IPercolateQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L167">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IPercolateQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IPercolateQuery)">Visit(IPercolateQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IPercolateQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPercolateQuery.html">IPercolateQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IPrefixQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IPrefixQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L101">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IPrefixQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IPrefixQuery)">Visit(IPrefixQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IPrefixQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPrefixQuery.html">IPrefixQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQuery)">Visit(IQuery)</h4>
+  <div class="markdown level1 summary"><p>Visit every query item just before they are visited by their specialized Visit() implementation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>The IQuery object that will be visited</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQueryContainer_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQueryContainer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQueryContainer_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQueryContainer)">Visit(IQueryContainer)</h4>
+  <div class="markdown level1 summary"><p>Visit the query container just before we dispatch into the query it holds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IQueryContainer queryDescriptor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IQueryContainer.html">IQueryContainer</a></td>
+        <td><span class="parametername">queryDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQueryStringQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQueryStringQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L103">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IQueryStringQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IQueryStringQuery)">Visit(IQueryStringQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IQueryStringQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IQueryStringQuery.html">IQueryStringQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRangeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRangeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRangeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRangeQuery)">Visit(IRangeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRangeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRangeQuery.html">IRangeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRankFeatureQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRankFeatureQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRankFeatureQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRankFeatureQuery)">Visit(IRankFeatureQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRankFeatureQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRankFeatureQuery.html">IRankFeatureQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRawQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRawQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRawQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRawQuery)">Visit(IRawQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRawQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRawQuery.html">IRawQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRegexpQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRegexpQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L109">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IRegexpQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IRegexpQuery)">Visit(IRegexpQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRegexpQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRegexpQuery.html">IRegexpQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IScriptQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IScriptQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IScriptQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IScriptQuery)">Visit(IScriptQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IScriptQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScriptQuery.html">IScriptQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IScriptScoreQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IScriptScoreQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L121">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IScriptScoreQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IScriptScoreQuery)">Visit(IScriptScoreQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IScriptScoreQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScriptScoreQuery.html">IScriptScoreQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IShapeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IShapeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L163">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IShapeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IShapeQuery)">Visit(IShapeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IShapeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IShapeQuery.html">IShapeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISimpleQueryStringQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISimpleQueryStringQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L111">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISimpleQueryStringQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISimpleQueryStringQuery)">Visit(ISimpleQueryStringQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISimpleQueryStringQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISimpleQueryStringQuery.html">ISimpleQueryStringQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanContainingQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanContainingQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L153">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanContainingQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanContainingQuery)">Visit(ISpanContainingQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanContainingQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanContainingQuery.html">ISpanContainingQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanFieldMaskingQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanFieldMaskingQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L159">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanFieldMaskingQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanFieldMaskingQuery)">Visit(ISpanFieldMaskingQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanFieldMaskingQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanFieldMaskingQuery.html">ISpanFieldMaskingQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanFirstQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanFirstQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanFirstQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanFirstQuery)">Visit(ISpanFirstQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanFirstQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanFirstQuery.html">ISpanFirstQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanMultiTermQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanMultiTermQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L157">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanMultiTermQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanMultiTermQuery)">Visit(ISpanMultiTermQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanMultiTermQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanMultiTermQuery.html">ISpanMultiTermQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanNearQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanNearQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L141">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanNearQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanNearQuery)">Visit(ISpanNearQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanNearQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanNearQuery.html">ISpanNearQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanNotQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanNotQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L143">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanNotQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanNotQuery)">Visit(ISpanNotQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanNotQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanNotQuery.html">ISpanNotQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanOrQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanOrQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L145">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanOrQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanOrQuery)">Visit(ISpanOrQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanOrQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanOrQuery.html">ISpanOrQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L149">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanQuery)">Visit(ISpanQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanQuery.html">ISpanQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanSubQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanSubQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L151">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanSubQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanSubQuery)">Visit(ISpanSubQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanSubQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanSubQuery.html">ISpanSubQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanTermQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanTermQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L147">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanTermQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanTermQuery)">Visit(ISpanTermQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanTermQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanTermQuery.html">ISpanTermQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanWithinQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanWithinQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L155">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ISpanWithinQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ISpanWithinQuery)">Visit(ISpanWithinQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISpanWithinQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISpanWithinQuery.html">ISpanWithinQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermQuery)">Visit(ITermQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITermQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITermQuery.html">ITermQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermRangeQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermRangeQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L137">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermRangeQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermRangeQuery)">Visit(ITermRangeQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITermRangeQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITermRangeQuery.html">ITermRangeQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermsQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermsQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L117">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermsQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermsQuery)">Visit(ITermsQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITermsQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITermsQuery.html">ITermsQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermsSetQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermsSetQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L171">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_ITermsSetQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.ITermsSetQuery)">Visit(ITermsSetQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITermsSetQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITermsSetQuery.html">ITermsSetQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IWildcardQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IWildcardQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L115">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IQueryVisitor_Visit_" data-uid="OpenSearch.Client.IQueryVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IQueryVisitor_Visit_OpenSearch_Client_IWildcardQuery_" data-uid="OpenSearch.Client.IQueryVisitor.Visit(OpenSearch.Client.IWildcardQuery)">Visit(IWildcardQuery)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IWildcardQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IWildcardQuery.html">IWildcardQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IQueryVisitor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IQueryVisitor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/QueryVisitor.cs/#L31" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

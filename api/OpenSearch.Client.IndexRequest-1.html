@@ -1,0 +1,993 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class IndexRequest&lt;TDocument&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class IndexRequest&lt;TDocument&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IndexRequest`1">
+
+
+  <h1 id="OpenSearch_Client_IndexRequest_1" data-uid="OpenSearch.Client.IndexRequest`1" class="text-break">Class IndexRequest&lt;TDocument&gt;
+</h1>
+  <div class="markdown level0 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.RequestBase-1.html">RequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.IndexRequestParameters.html">IndexRequestParameters</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html">PlainRequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.IndexRequestParameters.html">IndexRequestParameters</a>&gt;</div>
+    <div class="level3"><span class="xref">IndexRequest&lt;TDocument&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IIndexRequest-1.html">IIndexRequest</a>&lt;TDocument&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IProxyRequest.html">IProxyRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IDocumentRequest.html">IDocumentRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;<a class="xref" href="OpenSearch.Net.IndexRequestParameters.html">IndexRequestParameters</a>&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_RequestConfiguration">PlainRequestBase&lt;IndexRequestParameters&gt;.RequestConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_ErrorTrace">PlainRequestBase&lt;IndexRequestParameters&gt;.ErrorTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_FilterPath">PlainRequestBase&lt;IndexRequestParameters&gt;.FilterPath</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Human">PlainRequestBase&lt;IndexRequestParameters&gt;.Human</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Pretty">PlainRequestBase&lt;IndexRequestParameters&gt;.Pretty</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_SourceQueryString">PlainRequestBase&lt;IndexRequestParameters&gt;.SourceQueryString</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestState">RequestBase&lt;IndexRequestParameters&gt;.RequestState</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_HttpMethod">RequestBase&lt;IndexRequestParameters&gt;.IRequest.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_ContentType">RequestBase&lt;IndexRequestParameters&gt;.IRequest.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ContentType">RequestBase&lt;IndexRequestParameters&gt;.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_TParameters__RequestParameters">RequestBase&lt;IndexRequestParameters&gt;.IRequest&lt;IndexRequestParameters&gt;.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RequestParameters">RequestBase&lt;IndexRequestParameters&gt;.IRequest.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RouteValues">RequestBase&lt;IndexRequestParameters&gt;.IRequest.RouteValues</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_GetUrl_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;IndexRequestParameters&gt;.IRequest.GetUrl(IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ResolveUrl_OpenSearch_Client_RouteValues_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;IndexRequestParameters&gt;.ResolveUrl(RouteValues, IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestDefaults__0_">RequestBase&lt;IndexRequestParameters&gt;.RequestDefaults(IndexRequestParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q__1_System_String_">RequestBase&lt;IndexRequestParameters&gt;.Q&lt;TOut&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q_System_String_System_Object_">RequestBase&lt;IndexRequestParameters&gt;.Q(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_SetAcceptHeader_System_String_">RequestBase&lt;IndexRequestParameters&gt;.SetAcceptHeader(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IndexRequest_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IndexRequest&lt;TDocument&gt; : PlainRequestBase&lt;IndexRequestParameters&gt;, IIndexRequest&lt;TDocument&gt;, IProxyRequest, IDocumentRequest, IRequest&lt;IndexRequestParameters&gt;, IRequest where TDocument : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TDocument</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1882">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor" data-uid="OpenSearch.Client.IndexRequest`1.#ctor">IndexRequest()</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(%600%2COpenSearch.Client.IndexName%2COpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1888">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(`0,OpenSearch.Client.IndexName,OpenSearch.Client.Id)">IndexRequest(TDocument, IndexName, Id)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc/{id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDocument</span></td>
+        <td><span class="parametername">documentWithId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The document used to resolve the path from</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1877">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(OpenSearch.Client.Id)">IndexRequest(Id)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc/{id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest(Id id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Optional, accepts null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.IndexName%2COpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1865">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(OpenSearch.Client.IndexName,OpenSearch.Client.Id)">IndexRequest(IndexName, Id)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc/{id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index, Id id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>this parameter is required</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Optional, accepts null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1871">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(OpenSearch.Client.IndexName)">IndexRequest(IndexName)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>this parameter is required</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Document.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Document%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Single/Index/IndexRequest.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Document_" data-uid="OpenSearch.Client.IndexRequest`1.Document*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Document" data-uid="OpenSearch.Client.IndexRequest`1.Document">Document</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDocument Document { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDocument</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_HttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.HttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Single/Index/IndexRequest.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_HttpMethod_" data-uid="OpenSearch.Client.IndexRequest`1.HttpMethod*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_HttpMethod" data-uid="OpenSearch.Client.IndexRequest`1.HttpMethod">HttpMethod</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override HttpMethod HttpMethod { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.HttpMethod.html">HttpMethod</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">OpenSearch.Client.RequestBase&lt;OpenSearch.Net.IndexRequestParameters&gt;.HttpMethod</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_IfPrimaryTerm.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.IfPrimaryTerm%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1897">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_IfPrimaryTerm_" data-uid="OpenSearch.Client.IndexRequest`1.IfPrimaryTerm*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_IfPrimaryTerm" data-uid="OpenSearch.Client.IndexRequest`1.IfPrimaryTerm">IfPrimaryTerm</h4>
+  <div class="markdown level1 summary"><p>only perform the index operation if the last operation that has changed the document has the specified primary term</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? IfPrimaryTerm { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_IfSequenceNumber.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.IfSequenceNumber%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1904">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_IfSequenceNumber_" data-uid="OpenSearch.Client.IndexRequest`1.IfSequenceNumber*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_IfSequenceNumber" data-uid="OpenSearch.Client.IndexRequest`1.IfSequenceNumber">IfSequenceNumber</h4>
+  <div class="markdown level1 summary"><p>only perform the index operation if the last operation that has changed the document has the specified sequence number</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? IfSequenceNumber { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_OpType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.OpType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1914">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_OpType_" data-uid="OpenSearch.Client.IndexRequest`1.OpType*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_OpType" data-uid="OpenSearch.Client.IndexRequest`1.OpType">OpType</h4>
+  <div class="markdown level1 summary"><p>Explicit operation type. Defaults to <code>index</code> for requests with an explicit document ID, and to <code>create</code>for requests without an explicit
+document ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OpType? OpType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.OpType.html">OpType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Pipeline.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Pipeline%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1921">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Pipeline_" data-uid="OpenSearch.Client.IndexRequest`1.Pipeline*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Pipeline" data-uid="OpenSearch.Client.IndexRequest`1.Pipeline">Pipeline</h4>
+  <div class="markdown level1 summary"><p>The pipeline id to preprocess incoming documents with</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Pipeline { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Refresh.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Refresh%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1931">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Refresh_" data-uid="OpenSearch.Client.IndexRequest`1.Refresh*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Refresh" data-uid="OpenSearch.Client.IndexRequest`1.Refresh">Refresh</h4>
+  <div class="markdown level1 summary"><p>If <code>true</code> then refresh the affected shards to make this operation visible to search, if <code>wait_for</code> then wait for a refresh to make this
+operation visible to search, if <code>false</code> (the default) then do nothing with refreshes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Refresh? Refresh { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.Refresh.html">Refresh</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_RequireAlias.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.RequireAlias%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1938">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_RequireAlias_" data-uid="OpenSearch.Client.IndexRequest`1.RequireAlias*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_RequireAlias" data-uid="OpenSearch.Client.IndexRequest`1.RequireAlias">RequireAlias</h4>
+  <div class="markdown level1 summary"><p>When true, requires destination to be an alias. Default is false</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? RequireAlias { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1952">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Routing_" data-uid="OpenSearch.Client.IndexRequest`1.Routing*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Routing" data-uid="OpenSearch.Client.IndexRequest`1.Routing">Routing</h4>
+  <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
+<p> shard_num = hash(_routing) % num_primary_shards</p>
+<p>OpenSearch will use the document id if not provided. </p>
+<p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1860">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Self_" data-uid="OpenSearch.Client.IndexRequest`1.Self*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Self" data-uid="OpenSearch.Client.IndexRequest`1.Self">Self</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IIndexRequest&lt;TDocument&gt; Self { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIndexRequest-1.html">IIndexRequest</a>&lt;TDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1959">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Timeout_" data-uid="OpenSearch.Client.IndexRequest`1.Timeout*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Timeout" data-uid="OpenSearch.Client.IndexRequest`1.Timeout">Timeout</h4>
+  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time Timeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_Version.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.Version%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1966">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_Version_" data-uid="OpenSearch.Client.IndexRequest`1.Version*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_Version" data-uid="OpenSearch.Client.IndexRequest`1.Version">Version</h4>
+  <div class="markdown level1 summary"><p>Explicit version number for concurrency control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? Version { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_VersionType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.VersionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1973">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_VersionType_" data-uid="OpenSearch.Client.IndexRequest`1.VersionType*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_VersionType" data-uid="OpenSearch.Client.IndexRequest`1.VersionType">VersionType</h4>
+  <div class="markdown level1 summary"><p>Specific version type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VersionType? VersionType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.VersionType.html">VersionType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_WaitForActiveShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.WaitForActiveShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1984">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_WaitForActiveShards_" data-uid="OpenSearch.Client.IndexRequest`1.WaitForActiveShards*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_WaitForActiveShards" data-uid="OpenSearch.Client.IndexRequest`1.WaitForActiveShards">WaitForActiveShards</h4>
+  <div class="markdown level1 summary"><p>Sets the number of shard copies that must be active before proceeding with the index operation. Defaults to 1, meaning the primary shard
+only. Set to <code>all</code> for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the
+shard (number of replicas + 1)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WaitForActiveShards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Id.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.OpenSearch%23Client%23IIndexRequest%7BTDocument%7D%23Id%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1893">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Id_" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IIndexRequest{TDocument}#Id*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Id" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IIndexRequest{TDocument}#Id">IIndexRequest&lt;TDocument&gt;.Id</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+Id IIndexRequest&lt;TDocument&gt;.Id { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.OpenSearch%23Client%23IIndexRequest%7BTDocument%7D%23Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1891">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Index_" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IIndexRequest{TDocument}#Index*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IIndexRequest_TDocument__Index" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IIndexRequest{TDocument}#Index">IIndexRequest&lt;TDocument&gt;.Index</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+IndexName IIndexRequest&lt;TDocument&gt;.Index { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IProxyRequest_WriteJson_OpenSearch_Net_IOpenSearchSerializer_System_IO_Stream_OpenSearch_Net_SerializationFormatting_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.OpenSearch%23Client%23IProxyRequest%23WriteJson(OpenSearch.Net.IOpenSearchSerializer%2CSystem.IO.Stream%2COpenSearch.Net.SerializationFormatting)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Single/Index/IndexRequest.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IProxyRequest_WriteJson_" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IProxyRequest#WriteJson*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1_OpenSearch_Client_IProxyRequest_WriteJson_OpenSearch_Net_IOpenSearchSerializer_System_IO_Stream_OpenSearch_Net_SerializationFormatting_" data-uid="OpenSearch.Client.IndexRequest`1.OpenSearch#Client#IProxyRequest#WriteJson(OpenSearch.Net.IOpenSearchSerializer,System.IO.Stream,OpenSearch.Net.SerializationFormatting)">IProxyRequest.WriteJson(IOpenSearchSerializer, Stream, SerializationFormatting)</h4>
+  <div class="markdown level1 summary"><p>Request for Index <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IProxyRequest.WriteJson(IOpenSearchSerializer sourceSerializer, Stream stream, SerializationFormatting formatting)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IOpenSearchSerializer.html">IOpenSearchSerializer</a></td>
+        <td><span class="parametername">sourceSerializer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.SerializationFormatting.html">SerializationFormatting</a></td>
+        <td><span class="parametername">formatting</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IIndexRequest-1.html">IIndexRequest&lt;TDocument&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IProxyRequest.html">IProxyRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDocumentRequest.html">IDocumentRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1858" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

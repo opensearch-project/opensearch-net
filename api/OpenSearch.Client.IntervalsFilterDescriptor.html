@@ -1,0 +1,905 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class IntervalsFilterDescriptor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class IntervalsFilterDescriptor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IntervalsFilterDescriptor">
+
+
+  <h1 id="OpenSearch_Client_IntervalsFilterDescriptor" data-uid="OpenSearch.Client.IntervalsFilterDescriptor" class="text-break">Class IntervalsFilterDescriptor
+</h1>
+  <div class="markdown level0 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a>, <a class="xref" href="OpenSearch.Client.IIntervalsFilter.html">IIntervalsFilter</a>&gt;</div>
+    <div class="level2"><span class="xref">IntervalsFilterDescriptor</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IIntervalsFilter.html">IIntervalsFilter</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;IntervalsFilterDescriptor, IIntervalsFilter&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;IntervalsFilterDescriptor, IIntervalsFilter&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;IIntervalsFilter, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IntervalsFilterDescriptor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IntervalsFilterDescriptor : DescriptorBase&lt;IntervalsFilterDescriptor, IIntervalsFilter&gt;, IDescriptor, IIntervalsFilter</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_After_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.After(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L170">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_After_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.After*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_After_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.After(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">After(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that appear after an interval from the filter role</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor After(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_Before_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.Before(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L166">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_Before_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Before*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_Before_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Before(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">Before(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that appear before an interval from the filter role</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor Before(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_ContainedBy_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.ContainedBy(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L146">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_ContainedBy_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.ContainedBy*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_ContainedBy_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.ContainedBy(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">ContainedBy(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that are contained by an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor ContainedBy(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_Containing_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.Containing(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L142">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_Containing_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Containing*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_Containing_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Containing(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">Containing(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that contain an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor Containing(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_NotContainedBy_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.NotContainedBy(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L154">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_NotContainedBy_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotContainedBy*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_NotContainedBy_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotContainedBy(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">NotContainedBy(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that are not contained by an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor NotContainedBy(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_NotContaining_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.NotContaining(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L150">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_NotContaining_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotContaining*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_NotContaining_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotContaining(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">NotContaining(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that do not contain an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor NotContaining(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_NotOverlapping_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.NotOverlapping(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L162">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_NotOverlapping_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotOverlapping*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_NotOverlapping_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.NotOverlapping(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">NotOverlapping(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that do not overlap with an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor NotOverlapping(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_Overlapping_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.Overlapping(System.Func%7BOpenSearch.Client.IntervalsDescriptor%2COpenSearch.Client.IntervalsContainer%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L158">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_Overlapping_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Overlapping*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_Overlapping_System_Func_OpenSearch_Client_IntervalsDescriptor_OpenSearch_Client_IntervalsContainer__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Overlapping(System.Func{OpenSearch.Client.IntervalsDescriptor,OpenSearch.Client.IntervalsContainer})">Overlapping(Func&lt;IntervalsDescriptor, IntervalsContainer&gt;)</h4>
+  <div class="markdown level1 summary"><p>Produces intervals that overlap with an interval from the filter rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor Overlapping(Func&lt;IntervalsDescriptor, IntervalsContainer&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.IntervalsDescriptor.html">IntervalsDescriptor</a>, <a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.Script(System.Func%7BOpenSearch.Client.ScriptDescriptor%2COpenSearch.Client.IScript%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L174">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_Script_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Script*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.Script(System.Func{OpenSearch.Client.ScriptDescriptor,OpenSearch.Client.IScript})">Script(Func&lt;ScriptDescriptor, IScript&gt;)</h4>
+  <div class="markdown level1 summary"><p>filter intervals based on their start position, end position and internal gap count, using a script.
+The script has access to an <pre><code>interval</code></pre> variable, with <pre><code>start</code></pre>,
+<pre><code>end</code></pre> and <pre><code>gaps</code></pre> properties
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IntervalsFilterDescriptor Script(Func&lt;ScriptDescriptor, IScript&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.ScriptDescriptor.html">ScriptDescriptor</a>, <a class="xref" href="OpenSearch.Client.IScript.html">IScript</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsFilterDescriptor.html">IntervalsFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_After.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23After%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L131">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_After_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#After*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_After" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#After">IIntervalsFilter.After</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.After { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Before.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23Before%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L132">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Before_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Before*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Before" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Before">IIntervalsFilter.Before</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.Before { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_ContainedBy.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23ContainedBy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_ContainedBy_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#ContainedBy*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_ContainedBy" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#ContainedBy">IIntervalsFilter.ContainedBy</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.ContainedBy { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Containing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23Containing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L134">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Containing_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Containing*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Containing" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Containing">IIntervalsFilter.Containing</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.Containing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContainedBy.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23NotContainedBy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L135">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContainedBy_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotContainedBy*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContainedBy" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotContainedBy">IIntervalsFilter.NotContainedBy</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.NotContainedBy { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContaining.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23NotContaining%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L136">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContaining_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotContaining*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotContaining" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotContaining">IIntervalsFilter.NotContaining</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.NotContaining { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotOverlapping.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23NotOverlapping%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L137">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotOverlapping_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotOverlapping*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_NotOverlapping" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#NotOverlapping">IIntervalsFilter.NotOverlapping</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.NotOverlapping { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Overlapping.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23Overlapping%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L138">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Overlapping_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Overlapping*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Overlapping" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Overlapping">IIntervalsFilter.Overlapping</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IntervalsContainer IIntervalsFilter.Overlapping { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IntervalsContainer.html">IntervalsContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Script.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch%23Client%23IIntervalsFilter%23Script%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Script_" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Script*"></a>
+  <h4 id="OpenSearch_Client_IntervalsFilterDescriptor_OpenSearch_Client_IIntervalsFilter_Script" data-uid="OpenSearch.Client.IntervalsFilterDescriptor.OpenSearch#Client#IIntervalsFilter#Script">IIntervalsFilter.Script</h4>
+  <div class="markdown level1 summary"><p>Filters intervals produced by any rules by their relation to the intervals produced by another rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IScript IIntervalsFilter.Script { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScript.html">IScript</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IIntervalsFilter.html">IIntervalsFilter</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IntervalsFilterDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IntervalsFilterDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/Intervals/IntervalsFilter.cs/#L129" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

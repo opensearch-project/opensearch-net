@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ConnectionConfiguration
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ConnectionConfiguration
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.ConnectionConfiguration">
+
+
+  <h1 id="OpenSearch_Net_ConnectionConfiguration" data-uid="OpenSearch.Net.ConnectionConfiguration" class="text-break">Class ConnectionConfiguration
+</h1>
+  <div class="markdown level0 summary"><p>Allows you to control how <a class="xref" href="OpenSearch.Net.OpenSearchLowLevelClient.html">OpenSearchLowLevelClient</a> behaves and where/how it connects to OpenSearch</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">OpenSearch.Net.ConnectionConfiguration</span>&lt;<a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a>&gt;</div>
+    <div class="level2"><span class="xref">ConnectionConfiguration</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_ConnectionConfiguration_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ConnectionConfiguration : ConnectionConfiguration&lt;ConnectionConfiguration&gt;, IConnectionConfigurationValues, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IConnection_OpenSearch_Net_IOpenSearchSerializer_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(OpenSearch.Net.IConnectionPool%2COpenSearch.Net.IConnection%2COpenSearch.Net.IOpenSearchSerializer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L154">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IConnection_OpenSearch_Net_IOpenSearchSerializer_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(OpenSearch.Net.IConnectionPool,OpenSearch.Net.IConnection,OpenSearch.Net.IOpenSearchSerializer)">ConnectionConfiguration(IConnectionPool, IConnection, IOpenSearchSerializer)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(IConnectionPool connectionPool, IConnection connection, IOpenSearchSerializer serializer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></td>
+        <td><span class="parametername">connectionPool</span></td>
+        <td><p>A connection pool implementation that tells the client what nodes are available</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>An connection implementation that can make API requests</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IOpenSearchSerializer.html">IOpenSearchSerializer</a></td>
+        <td><span class="parametername">serializer</span></td>
+        <td><p>A serializer implementation used to serialize requests and deserialize responses</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IConnection_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(OpenSearch.Net.IConnectionPool%2COpenSearch.Net.IConnection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L136">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IConnection_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(OpenSearch.Net.IConnectionPool,OpenSearch.Net.IConnection)">ConnectionConfiguration(IConnectionPool, IConnection)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(IConnectionPool connectionPool, IConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></td>
+        <td><span class="parametername">connectionPool</span></td>
+        <td><p>A connection pool implementation that tells the client what nodes are available</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>An connection implementation that can make API requests</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IOpenSearchSerializer_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(OpenSearch.Net.IConnectionPool%2COpenSearch.Net.IOpenSearchSerializer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L145">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_OpenSearch_Net_IOpenSearchSerializer_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(OpenSearch.Net.IConnectionPool,OpenSearch.Net.IOpenSearchSerializer)">ConnectionConfiguration(IConnectionPool, IOpenSearchSerializer)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(IConnectionPool connectionPool, IOpenSearchSerializer serializer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></td>
+        <td><span class="parametername">connectionPool</span></td>
+        <td><p>A connection pool implementation that tells the client what nodes are available</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IOpenSearchSerializer.html">IOpenSearchSerializer</a></td>
+        <td><span class="parametername">serializer</span></td>
+        <td><p>A serializer implementation used to serialize requests and deserialize responses</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(OpenSearch.Net.IConnectionPool)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L127">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_OpenSearch_Net_IConnectionPool_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(OpenSearch.Net.IConnectionPool)">ConnectionConfiguration(IConnectionPool)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(IConnectionPool connectionPool)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></td>
+        <td><span class="parametername">connectionPool</span></td>
+        <td><p>A connection pool implementation that tells the client what nodes are available</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_System_String_OpenSearch_Net_ApiKeyAuthenticationCredentials_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(System.String%2COpenSearch.Net.ApiKeyAuthenticationCredentials)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L121">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_System_String_OpenSearch_Net_ApiKeyAuthenticationCredentials_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(System.String,OpenSearch.Net.ApiKeyAuthenticationCredentials)">ConnectionConfiguration(String, ApiKeyAuthenticationCredentials)</h4>
+  <div class="markdown level1 summary"><p>Sets up the client to communicate to OpenSearch Cloud using <code data-dev-comment-type="paramref" class="paramref">cloudId</code>,</p>
+<p><a class="xref" href="OpenSearch.Net.CloudConnectionPool.html">CloudConnectionPool</a> documentation for more information on how to obtain your Cloud Id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(string cloudId, ApiKeyAuthenticationCredentials credentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cloudId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.ApiKeyAuthenticationCredentials.html">ApiKeyAuthenticationCredentials</a></td>
+        <td><span class="parametername">credentials</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_System_String_OpenSearch_Net_BasicAuthenticationCredentials_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(System.String%2COpenSearch.Net.BasicAuthenticationCredentials)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L115">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_System_String_OpenSearch_Net_BasicAuthenticationCredentials_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(System.String,OpenSearch.Net.BasicAuthenticationCredentials)">ConnectionConfiguration(String, BasicAuthenticationCredentials)</h4>
+  <div class="markdown level1 summary"><p>Sets up the client to communicate to OpenSearch Cloud using <code data-dev-comment-type="paramref" class="paramref">cloudId</code>,</p>
+<p><a class="xref" href="OpenSearch.Net.CloudConnectionPool.html">CloudConnectionPool</a> documentation for more information on how to obtain your Cloud Id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(string cloudId, BasicAuthenticationCredentials credentials)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cloudId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.BasicAuthenticationCredentials.html">BasicAuthenticationCredentials</a></td>
+        <td><span class="parametername">credentials</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration__ctor_System_Uri_OpenSearch_Net_IConnection_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.%23ctor(System.Uri%2COpenSearch.Net.IConnection)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_ConnectionConfiguration__ctor_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor*"></a>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration__ctor_System_Uri_OpenSearch_Net_IConnection_" data-uid="OpenSearch.Net.ConnectionConfiguration.#ctor(System.Uri,OpenSearch.Net.IConnection)">ConnectionConfiguration(Uri, IConnection)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="OpenSearch.Net.ConnectionConfiguration.html">ConnectionConfiguration</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionConfiguration(Uri uri = null, IConnection connection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">uri</span></td>
+        <td><p>The root of the OpenSearch node we want to connect to. Defaults to http://localhost:9200</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>A connection implementation that can make API requests. Defaults to <a class="xref" href="OpenSearch.Net.HttpConnection.html">HttpConnection</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultConnectionLimit.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultConnectionLimit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L95">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultConnectionLimit" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultConnectionLimit">DefaultConnectionLimit</h4>
+  <div class="markdown level1 summary"><p>The default connection limit for both OpenSearch.Net and OpenSearch.Client. Defaults to <code>80</code></p>
+<p>Except for <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpclienthandler">HttpClientHandler</a> implementations based on curl, which defaults to <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.environment.processorcount#system-environment-processorcount">ProcessorCount</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly int DefaultConnectionLimit</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultDnsRefreshTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultDnsRefreshTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L83">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultDnsRefreshTimeout" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultDnsRefreshTimeout">DefaultDnsRefreshTimeout</h4>
+  <div class="markdown level1 summary"><p>The default timeout before a TCP connection is forcefully recycled so that DNS updates come through
+Defaults to 5 minutes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultDnsRefreshTimeout</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultPingTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultPingTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L65">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultPingTimeout" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultPingTimeout">DefaultPingTimeout</h4>
+  <div class="markdown level1 summary"><p>The default ping timeout. Defaults to 2 seconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultPingTimeout</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultPingTimeoutOnSSL.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultPingTimeoutOnSSL%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L71">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultPingTimeoutOnSSL" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultPingTimeoutOnSSL">DefaultPingTimeoutOnSSL</h4>
+  <div class="markdown level1 summary"><p>The default ping timeout when the connection is over HTTPS. Defaults to
+5 seconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultPingTimeoutOnSSL</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L77">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultTimeout" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultTimeout">DefaultTimeout</h4>
+  <div class="markdown level1 summary"><p>The default timeout before the client aborts a request to OpenSearch.
+Defaults to 1 minute</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly TimeSpan DefaultTimeout</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration_DefaultUserAgent.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration.DefaultUserAgent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L100">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_ConnectionConfiguration_DefaultUserAgent" data-uid="OpenSearch.Net.ConnectionConfiguration.DefaultUserAgent">DefaultUserAgent</h4>
+  <div class="markdown level1 summary"><p>The default user agent for OpenSearch.Net</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string DefaultUserAgent</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_ConnectionConfiguration.md&amp;value=---%0Auid%3A%20OpenSearch.Net.ConnectionConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/ConnectionConfiguration.cs/#L52" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

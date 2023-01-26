@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StickyConnectionPool
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StickyConnectionPool
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.StickyConnectionPool">
+
+
+  <h1 id="OpenSearch_Net_StickyConnectionPool" data-uid="OpenSearch.Net.StickyConnectionPool" class="text-break">Class StickyConnectionPool
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Net.StaticConnectionPool.html">StaticConnectionPool</a></div>
+    <div class="level2"><span class="xref">StickyConnectionPool</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_GlobalCursor">StaticConnectionPool.GlobalCursor</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_LastUpdate">StaticConnectionPool.LastUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_MaxRetries">StaticConnectionPool.MaxRetries</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_Nodes">StaticConnectionPool.Nodes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_SniffedOnStartup">StaticConnectionPool.SniffedOnStartup</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_SupportsPinging">StaticConnectionPool.SupportsPinging</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_SupportsReseeding">StaticConnectionPool.SupportsReseeding</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_UsingSsl">StaticConnectionPool.UsingSsl</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_AliveNodes">StaticConnectionPool.AliveNodes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_DateTimeProvider">StaticConnectionPool.DateTimeProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_InternalNodes">StaticConnectionPool.InternalNodes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_Random">StaticConnectionPool.Random</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_Randomize">StaticConnectionPool.Randomize</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_System_IDisposable_Dispose">StaticConnectionPool.IDisposable.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_RetryInternalNodes_System_Int32_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__">StaticConnectionPool.RetryInternalNodes(Int32, Action&lt;AuditEvent, Node&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_SelectAliveNodes_System_Int32_System_Collections_Generic_List_OpenSearch_Net_Node__System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__">StaticConnectionPool.SelectAliveNodes(Int32, List&lt;Node&gt;, Action&lt;AuditEvent, Node&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_SortNodes_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__">StaticConnectionPool.SortNodes(IEnumerable&lt;Node&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_DisposeManagedResources">StaticConnectionPool.DisposeManagedResources()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_StickyConnectionPool_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class StickyConnectionPool : StaticConnectionPool, IConnectionPool, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_StickyConnectionPool__ctor_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.StickyConnectionPool.%23ctor(System.Collections.Generic.IEnumerable%7BOpenSearch.Net.Node%7D%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/StickyConnectionPool.cs/#L40">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_StickyConnectionPool__ctor_" data-uid="OpenSearch.Net.StickyConnectionPool.#ctor*"></a>
+  <h4 id="OpenSearch_Net_StickyConnectionPool__ctor_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.StickyConnectionPool.#ctor(System.Collections.Generic.IEnumerable{OpenSearch.Net.Node},OpenSearch.Net.IDateTimeProvider)">StickyConnectionPool(IEnumerable&lt;Node&gt;, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StickyConnectionPool(IEnumerable&lt;Node&gt; nodes, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Net.Node.html">Node</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_StickyConnectionPool__ctor_System_Collections_Generic_IEnumerable_System_Uri__OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.StickyConnectionPool.%23ctor(System.Collections.Generic.IEnumerable%7BSystem.Uri%7D%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/StickyConnectionPool.cs/#L37">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_StickyConnectionPool__ctor_" data-uid="OpenSearch.Net.StickyConnectionPool.#ctor*"></a>
+  <h4 id="OpenSearch_Net_StickyConnectionPool__ctor_System_Collections_Generic_IEnumerable_System_Uri__OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.StickyConnectionPool.#ctor(System.Collections.Generic.IEnumerable{System.Uri},OpenSearch.Net.IDateTimeProvider)">StickyConnectionPool(IEnumerable&lt;Uri&gt;, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StickyConnectionPool(IEnumerable&lt;Uri&gt; uris, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a>&gt;</td>
+        <td><span class="parametername">uris</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_StickyConnectionPool_CreateView_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__.md&amp;value=---%0Auid%3A%20OpenSearch.Net.StickyConnectionPool.CreateView(System.Action%7BOpenSearch.Net.AuditEvent%2COpenSearch.Net.Node%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/StickyConnectionPool.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_StickyConnectionPool_CreateView_" data-uid="OpenSearch.Net.StickyConnectionPool.CreateView*"></a>
+  <h4 id="OpenSearch_Net_StickyConnectionPool_CreateView_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__" data-uid="OpenSearch.Net.StickyConnectionPool.CreateView(System.Action{OpenSearch.Net.AuditEvent,OpenSearch.Net.Node})">CreateView(Action&lt;AuditEvent, Node&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Node&gt; CreateView(Action&lt;AuditEvent, Node&gt; audit = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="OpenSearch.Net.AuditEvent.html">AuditEvent</a>, <a class="xref" href="OpenSearch.Net.Node.html">Node</a>&gt;</td>
+        <td><span class="parametername">audit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Net.Node.html">Node</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_CreateView_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__">StaticConnectionPool.CreateView(Action&lt;AuditEvent, Node&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_StickyConnectionPool_Reseed_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__.md&amp;value=---%0Auid%3A%20OpenSearch.Net.StickyConnectionPool.Reseed(System.Collections.Generic.IEnumerable%7BOpenSearch.Net.Node%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/StickyConnectionPool.cs/#L67">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_StickyConnectionPool_Reseed_" data-uid="OpenSearch.Net.StickyConnectionPool.Reseed*"></a>
+  <h4 id="OpenSearch_Net_StickyConnectionPool_Reseed_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__" data-uid="OpenSearch.Net.StickyConnectionPool.Reseed(System.Collections.Generic.IEnumerable{OpenSearch.Net.Node})">Reseed(IEnumerable&lt;Node&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Reseed(IEnumerable&lt;Node&gt; nodes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Net.Node.html">Node</a>&gt;</td>
+        <td><span class="parametername">nodes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Net.StaticConnectionPool.html#OpenSearch_Net_StaticConnectionPool_Reseed_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__">StaticConnectionPool.Reseed(IEnumerable&lt;Node&gt;)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_StickyConnectionPool.md&amp;value=---%0Auid%3A%20OpenSearch.Net.StickyConnectionPool%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/StickyConnectionPool.cs/#L35" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

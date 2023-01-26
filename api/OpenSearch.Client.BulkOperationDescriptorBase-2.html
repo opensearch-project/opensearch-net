@@ -1,0 +1,1047 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2">
+
+
+  <h1 id="OpenSearch_Client_BulkOperationDescriptorBase_2" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2" class="text-break">Class BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;TDescriptor, TInterface&gt;</div>
+    <div class="level2"><span class="xref">BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;</span></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkCreateDescriptor-1.html">BulkCreateDescriptor&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkDeleteDescriptor-1.html">BulkDeleteDescriptor&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkIndexDescriptor-1.html">BulkIndexDescriptor&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html">BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IBulkOperation.html">IBulkOperation</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;TDescriptor, TInterface&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;TDescriptor, TInterface&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;TInterface, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_BulkOperationDescriptorBase_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt; : DescriptorBase&lt;TDescriptor, TInterface&gt;, IDescriptor, IBulkOperation where TDescriptor : BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;, TInterface, IBulkOperation where TInterface : class, IBulkOperation</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TDescriptor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TInterface</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationClrType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.BulkOperationClrType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationClrType_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.BulkOperationClrType*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationClrType" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.BulkOperationClrType">BulkOperationClrType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Type BulkOperationClrType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.BulkOperationType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L69">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationType_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.BulkOperationType*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_BulkOperationType" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.BulkOperationType">BulkOperationType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string BulkOperationType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_GetBulkOperationBody.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.GetBulkOperationBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetBulkOperationBody_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetBulkOperationBody*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetBulkOperationBody" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetBulkOperationBody">GetBulkOperationBody()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract object GetBulkOperationBody()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_GetIdForOperation_OpenSearch_Client_Inferrer_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.GetIdForOperation(OpenSearch.Client.Inferrer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetIdForOperation_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetIdForOperation*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetIdForOperation_OpenSearch_Client_Inferrer_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetIdForOperation(OpenSearch.Client.Inferrer)">GetIdForOperation(Inferrer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Id GetIdForOperation(Inferrer inferrer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></td>
+        <td><span class="parametername">inferrer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_GetRoutingForOperation_OpenSearch_Client_Inferrer_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.GetRoutingForOperation(OpenSearch.Client.Inferrer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetRoutingForOperation_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetRoutingForOperation*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_GetRoutingForOperation_OpenSearch_Client_Inferrer_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.GetRoutingForOperation(OpenSearch.Client.Inferrer)">GetRoutingForOperation(Inferrer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Routing GetRoutingForOperation(Inferrer inferrer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></td>
+        <td><span class="parametername">inferrer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_Id_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.Id(OpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_Id_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Id*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_Id_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Id(OpenSearch.Client.Id)">Id(Id)</h4>
+  <div class="markdown level1 summary"><p>Manually set the id for the newly created object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor Id(Id id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_Index_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.Index(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L100">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_Index_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Index*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_Index_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Index(OpenSearch.Client.IndexName)">Index(IndexName)</h4>
+  <div class="markdown level1 summary"><p>Manually set the index, default to the default index or the fixed index set on the bulk operation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor Index(IndexName index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_Index__1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.Index%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L102">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_Index_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Index*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_Index__1" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Index``1">Index&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor Index&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_Routing_OpenSearch_Client_Routing_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.Routing(OpenSearch.Client.Routing)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_Routing_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Routing*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_Routing_OpenSearch_Client_Routing_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Routing(OpenSearch.Client.Routing)">Routing(Routing)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor Routing(Routing routing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td><span class="parametername">routing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_Version_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.Version(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L109">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_Version_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Version*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_Version_System_Nullable_System_Int64__" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.Version(System.Nullable{System.Int64})">Version(Nullable&lt;Int64&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor Version(long? version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_VersionType_System_Nullable_OpenSearch_Net_VersionType__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.VersionType(System.Nullable%7BOpenSearch.Net.VersionType%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L111">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_VersionType_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.VersionType*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_VersionType_System_Nullable_OpenSearch_Net_VersionType__" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.VersionType(System.Nullable{OpenSearch.Net.VersionType})">VersionType(Nullable&lt;VersionType&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TDescriptor VersionType(VersionType? versionType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.VersionType.html">VersionType</a>&gt;</td>
+        <td><span class="parametername">versionType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_ClrType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23ClrType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_ClrType_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#ClrType*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_ClrType" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#ClrType">IBulkOperation.ClrType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Type IBulkOperation.ClrType { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetBody.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23GetBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetBody_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetBody*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetBody" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetBody">IBulkOperation.GetBody()</h4>
+  <div class="markdown level1 summary"><p>Only used for bulk update operations but in the future might come in handy for other complex bulk ops.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object IBulkOperation.GetBody()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetIdForOperation_OpenSearch_Client_Inferrer_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23GetIdForOperation(OpenSearch.Client.Inferrer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetIdForOperation_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetIdForOperation*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetIdForOperation_OpenSearch_Client_Inferrer_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetIdForOperation(OpenSearch.Client.Inferrer)">IBulkOperation.GetIdForOperation(Inferrer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Id IBulkOperation.GetIdForOperation(Inferrer inferrer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></td>
+        <td><span class="parametername">inferrer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetRoutingForOperation_OpenSearch_Client_Inferrer_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23GetRoutingForOperation(OpenSearch.Client.Inferrer)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetRoutingForOperation_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetRoutingForOperation*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_GetRoutingForOperation_OpenSearch_Client_Inferrer_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#GetRoutingForOperation(OpenSearch.Client.Inferrer)">IBulkOperation.GetRoutingForOperation(Inferrer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Routing IBulkOperation.GetRoutingForOperation(Inferrer inferrer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></td>
+        <td><span class="parametername">inferrer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Id.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23Id%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L72">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Id_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Id*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Id" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Id">IBulkOperation.Id</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Id IBulkOperation.Id { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Index_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Index*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Index" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Index">IBulkOperation.Index</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IndexName IBulkOperation.Index { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Operation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23Operation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Operation_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Operation*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Operation" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Operation">IBulkOperation.Operation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IBulkOperation.Operation { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_RetriesOnConflict.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23RetriesOnConflict%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_RetriesOnConflict_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#RetriesOnConflict*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_RetriesOnConflict" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#RetriesOnConflict">IBulkOperation.RetriesOnConflict</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? IBulkOperation.RetriesOnConflict { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Routing_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Routing*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Routing" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Routing">IBulkOperation.Routing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Routing IBulkOperation.Routing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Version.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23Version%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L79">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Version_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Version*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_Version" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#Version">IBulkOperation.Version</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long? IBulkOperation.Version { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_VersionType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602.OpenSearch%23Client%23IBulkOperation%23VersionType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_VersionType_" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#VersionType*"></a>
+  <h4 id="OpenSearch_Client_BulkOperationDescriptorBase_2_OpenSearch_Client_IBulkOperation_VersionType" data-uid="OpenSearch.Client.BulkOperationDescriptorBase`2.OpenSearch#Client#IBulkOperation#VersionType">IBulkOperation.VersionType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VersionType? IBulkOperation.VersionType { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.VersionType.html">VersionType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IBulkOperation.html">IBulkOperation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkOperationDescriptorBase_2.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkOperationDescriptorBase%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Bulk/BulkOperation/BulkOperationBase.cs/#L63" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

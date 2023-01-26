@@ -1,0 +1,612 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IApiCallDetails
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IApiCallDetails
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.IApiCallDetails">
+
+
+  <h1 id="OpenSearch_Net_IApiCallDetails" data-uid="OpenSearch.Net.IApiCallDetails" class="text-break">Interface IApiCallDetails
+</h1>
+  <div class="markdown level0 summary"><p>Details about the API call</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_IApiCallDetails_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IApiCallDetails</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_AuditTrail.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.AuditTrail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_AuditTrail_" data-uid="OpenSearch.Net.IApiCallDetails.AuditTrail*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_AuditTrail" data-uid="OpenSearch.Net.IApiCallDetails.AuditTrail">AuditTrail</h4>
+  <div class="markdown level1 summary"><p>An audit trail of requests made to nodes within the cluster</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;Audit&gt; AuditTrail { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="OpenSearch.Net.Audit.html">Audit</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_ConnectionConfiguration.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.ConnectionConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L69">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_ConnectionConfiguration_" data-uid="OpenSearch.Net.IApiCallDetails.ConnectionConfiguration*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_ConnectionConfiguration" data-uid="OpenSearch.Net.IApiCallDetails.ConnectionConfiguration">ConnectionConfiguration</h4>
+  <div class="markdown level1 summary"><p>Reference to the connection configuration that yielded this response</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IConnectionConfigurationValues ConnectionConfiguration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_DebugInformation.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.DebugInformation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_DebugInformation_" data-uid="OpenSearch.Net.IApiCallDetails.DebugInformation*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_DebugInformation" data-uid="OpenSearch.Net.IApiCallDetails.DebugInformation">DebugInformation</h4>
+  <div class="markdown level1 summary"><p>A human readable string representation of what happened during this request for both successful and failed requests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string DebugInformation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_DeprecationWarnings.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.DeprecationWarnings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_DeprecationWarnings_" data-uid="OpenSearch.Net.IApiCallDetails.DeprecationWarnings*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_DeprecationWarnings" data-uid="OpenSearch.Net.IApiCallDetails.DeprecationWarnings">DeprecationWarnings</h4>
+  <div class="markdown level1 summary"><p>A collection of deprecation warnings returned from OpenSearch.</p>
+<p>Used to signal that the request uses an API feature that is marked as deprecated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt; DeprecationWarnings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_HttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.HttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_HttpMethod_" data-uid="OpenSearch.Net.IApiCallDetails.HttpMethod*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_HttpMethod" data-uid="OpenSearch.Net.IApiCallDetails.HttpMethod">HttpMethod</h4>
+  <div class="markdown level1 summary"><p>The HTTP method used by the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HttpMethod HttpMethod { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.HttpMethod.html">HttpMethod</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_HttpStatusCode.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.HttpStatusCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_HttpStatusCode_" data-uid="OpenSearch.Net.IApiCallDetails.HttpStatusCode*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_HttpStatusCode" data-uid="OpenSearch.Net.IApiCallDetails.HttpStatusCode">HttpStatusCode</h4>
+  <div class="markdown level1 summary"><p>The HTTP status code as returned by OpenSearch</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? HttpStatusCode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_OriginalException.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.OriginalException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_OriginalException_" data-uid="OpenSearch.Net.IApiCallDetails.OriginalException*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_OriginalException" data-uid="OpenSearch.Net.IApiCallDetails.OriginalException">OriginalException</h4>
+  <div class="markdown level1 summary"><p>If <a class="xref" href="OpenSearch.Net.IApiCallDetails.html#OpenSearch_Net_IApiCallDetails_Success">Success</a> is <code>false</code>, this will hold the original exception.
+This will be the originating CLR exception in most cases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Exception OriginalException { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_RequestBodyInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.RequestBodyInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L97">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_RequestBodyInBytes_" data-uid="OpenSearch.Net.IApiCallDetails.RequestBodyInBytes*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_RequestBodyInBytes" data-uid="OpenSearch.Net.IApiCallDetails.RequestBodyInBytes">RequestBodyInBytes</h4>
+  <div class="markdown level1 summary"><p>The request body bytes.</p>
+<p>NOTE: Only set when disable direct streaming is set for the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] RequestBodyInBytes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_ResponseBodyInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.ResponseBodyInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_ResponseBodyInBytes_" data-uid="OpenSearch.Net.IApiCallDetails.ResponseBodyInBytes*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_ResponseBodyInBytes" data-uid="OpenSearch.Net.IApiCallDetails.ResponseBodyInBytes">ResponseBodyInBytes</h4>
+  <div class="markdown level1 summary"><p>The response body bytes.</p>
+<p>NOTE: Only set when disable direct streaming is set for the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] ResponseBodyInBytes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_ResponseMimeType.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.ResponseMimeType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_ResponseMimeType_" data-uid="OpenSearch.Net.IApiCallDetails.ResponseMimeType*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_ResponseMimeType" data-uid="OpenSearch.Net.IApiCallDetails.ResponseMimeType">ResponseMimeType</h4>
+  <div class="markdown level1 summary"><p>The response MIME type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ResponseMimeType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_Success.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.Success%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_Success_" data-uid="OpenSearch.Net.IApiCallDetails.Success*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_Success" data-uid="OpenSearch.Net.IApiCallDetails.Success">Success</h4>
+  <div class="markdown level1 summary"><p>The response status code is in the 200 range or is in the allowed list of status codes set on the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool Success { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_SuccessOrKnownError.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.SuccessOrKnownError%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_SuccessOrKnownError_" data-uid="OpenSearch.Net.IApiCallDetails.SuccessOrKnownError*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_SuccessOrKnownError" data-uid="OpenSearch.Net.IApiCallDetails.SuccessOrKnownError">SuccessOrKnownError</h4>
+  <div class="markdown level1 summary"><p>The response is successful or has a response code between 400-599, the call should not be retried.
+Only on 502,503 and 504 will this return false;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool SuccessOrKnownError { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_TcpStats.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.TcpStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_TcpStats_" data-uid="OpenSearch.Net.IApiCallDetails.TcpStats*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_TcpStats" data-uid="OpenSearch.Net.IApiCallDetails.TcpStats">TcpStats</h4>
+  <div class="markdown level1 summary"><p>Active TCP connection statistics collected when making a request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadOnlyDictionary&lt;TcpState, int&gt; TcpStats { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlydictionary-2">ReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.networkinformation.tcpstate">TcpState</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_ThreadPoolStats.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.ThreadPoolStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_ThreadPoolStats_" data-uid="OpenSearch.Net.IApiCallDetails.ThreadPoolStats*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_ThreadPoolStats" data-uid="OpenSearch.Net.IApiCallDetails.ThreadPoolStats">ThreadPoolStats</h4>
+  <div class="markdown level1 summary"><p>Thread pool thread statistics collected when making a request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReadOnlyDictionary&lt;string, ThreadPoolStatistics&gt; ThreadPoolStats { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.readonlydictionary-2">ReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Net.Diagnostics.ThreadPoolStatistics.html">ThreadPoolStatistics</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails_Uri.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails.Uri%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L124">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IApiCallDetails_Uri_" data-uid="OpenSearch.Net.IApiCallDetails.Uri*"></a>
+  <h4 id="OpenSearch_Net_IApiCallDetails_Uri" data-uid="OpenSearch.Net.IApiCallDetails.Uri">Uri</h4>
+  <div class="markdown level1 summary"><p>The url as requested</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Uri Uri { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IApiCallDetails.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IApiCallDetails%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/HttpDetails/IApiCallDetails.cs/#L41" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

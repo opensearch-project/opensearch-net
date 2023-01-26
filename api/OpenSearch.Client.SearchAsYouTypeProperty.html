@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SearchAsYouTypeProperty
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SearchAsYouTypeProperty
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SearchAsYouTypeProperty">
+
+
+  <h1 id="OpenSearch_Client_SearchAsYouTypeProperty" data-uid="OpenSearch.Client.SearchAsYouTypeProperty" class="text-break">Class SearchAsYouTypeProperty
+</h1>
+  <div class="markdown level0 summary"><p>A text-like field that is optimized to provide out-of-the-box support for the &quot;search as you type&quot; completion use case.</p>
+<p></p>
+It creates a series of subfields that are analyzed to index terms that can be efficiently matched by a query that
+partially matches the entire indexed text value. Both prefix completion (i.e matching terms starting at the beginning of the input)
+and infix completion (i.e. matching terms at any position within the input) are supported.
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.PropertyBase.html">PropertyBase</a></div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.CorePropertyBase.html">CorePropertyBase</a></div>
+    <div class="level3"><span class="xref">SearchAsYouTypeProperty</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IPropertyWithClrOrigin.html">IPropertyWithClrOrigin</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ISearchAsYouTypeProperty.html">ISearchAsYouTypeProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ICoreProperty.html">ICoreProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IFieldMapping.html">IFieldMapping</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_CopyTo">CorePropertyBase.CopyTo</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Fields">CorePropertyBase.Fields</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Similarity">CorePropertyBase.Similarity</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.CorePropertyBase.html#OpenSearch_Client_CorePropertyBase_Store">CorePropertyBase.Store</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_LocalMetadata">PropertyBase.LocalMetadata</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_Meta">PropertyBase.Meta</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_Name">PropertyBase.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_DebugDisplay">PropertyBase.DebugDisplay</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_ToString">PropertyBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_TypeOverride">PropertyBase.TypeOverride</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_OpenSearch_Client_IPropertyWithClrOrigin_ClrOrigin">PropertyBase.IPropertyWithClrOrigin.ClrOrigin</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PropertyBase.html#OpenSearch_Client_PropertyBase_OpenSearch_Client_IProperty_Type">PropertyBase.IProperty.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SearchAsYouTypeProperty_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SearchAsYouTypeProperty : CorePropertyBase, IPropertyWithClrOrigin, ISearchAsYouTypeProperty, ICoreProperty, IProperty, IFieldMapping</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L103">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty__ctor_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.#ctor*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty__ctor" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.#ctor">SearchAsYouTypeProperty()</h4>
+  <div class="markdown level1 summary"><p>A text-like field that is optimized to provide out-of-the-box support for the &quot;search as you type&quot; completion use case.</p>
+<p></p>
+It creates a series of subfields that are analyzed to index terms that can be efficiently matched by a query that
+partially matches the entire indexed text value. Both prefix completion (i.e matching terms starting at the beginning of the input)
+and infix completion (i.e. matching terms at any position within the input) are supported.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SearchAsYouTypeProperty()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_Analyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.Analyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L106">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_Analyzer_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Analyzer*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_Analyzer" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Analyzer">Analyzer</h4>
+  <div class="markdown level1 summary"><p>The analyzer which should be used for analyzed string fields, both at index-time and at
+search-time (unless overridden by the search_analyzer).
+Defaults to the default index analyzer, or the standard analyzer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Analyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_Index_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Index*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_Index" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Index">Index</h4>
+  <div class="markdown level1 summary"><p>Should the field be searchable? Accepts <code>true</code> (default) or <code>false</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Index { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_IndexOptions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.IndexOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L110">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_IndexOptions_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.IndexOptions*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_IndexOptions" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.IndexOptions">IndexOptions</h4>
+  <div class="markdown level1 summary"><p>What information should be stored in the index, for search and highlighting purposes. Defaults to <a class="xref" href="OpenSearch.Client.IndexOptions.html#OpenSearch_Client_IndexOptions_Positions">Positions</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexOptions? IndexOptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.IndexOptions.html">IndexOptions</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_MaxShingleSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.MaxShingleSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_MaxShingleSize_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.MaxShingleSize*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_MaxShingleSize" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.MaxShingleSize">MaxShingleSize</h4>
+  <div class="markdown level1 summary"><p>The largest shingle size to index the input with and create subfields for.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxShingleSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_Norms.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.Norms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L114">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_Norms_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Norms*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_Norms" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.Norms">Norms</h4>
+  <div class="markdown level1 summary"><p>Whether field-length should be taken into account when scoring queries. Accepts true or false. This option configures the root field
+and shingle subfields, where its default is true.
+It does not configure the prefix subfield, where it it false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? Norms { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_SearchAnalyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.SearchAnalyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L116">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_SearchAnalyzer_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.SearchAnalyzer*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_SearchAnalyzer" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.SearchAnalyzer">SearchAnalyzer</h4>
+  <div class="markdown level1 summary"><p>The analyzer that should be used at search time on analyzed fields. Defaults to the analyzer setting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SearchAnalyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_SearchQuoteAnalyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.SearchQuoteAnalyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L118">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_SearchQuoteAnalyzer_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.SearchQuoteAnalyzer*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_SearchQuoteAnalyzer" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.SearchQuoteAnalyzer">SearchQuoteAnalyzer</h4>
+  <div class="markdown level1 summary"><p>The analyzer that should be used at search time when a phrase is encountered. Defaults to the search_analyzer setting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SearchQuoteAnalyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty_TermVector.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty.TermVector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L120">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchAsYouTypeProperty_TermVector_" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.TermVector*"></a>
+  <h4 id="OpenSearch_Client_SearchAsYouTypeProperty_TermVector" data-uid="OpenSearch.Client.SearchAsYouTypeProperty.TermVector">TermVector</h4>
+  <div class="markdown level1 summary"><p>Whether term vectors should be stored for an analyzed field. Defaults to no. This option
+configures the root field and shingle subfields, but not the prefix subfield.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermVectorOption? TermVector { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermVectorOption.html">TermVectorOption</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IPropertyWithClrOrigin.html">IPropertyWithClrOrigin</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISearchAsYouTypeProperty.html">ISearchAsYouTypeProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ICoreProperty.html">ICoreProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IFieldMapping.html">IFieldMapping</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchAsYouTypeProperty.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchAsYouTypeProperty%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Types/Core/SearchAsYouType/SearchAsYouTypeProperty.cs/#L100" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

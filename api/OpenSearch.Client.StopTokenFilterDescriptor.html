@@ -1,0 +1,656 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StopTokenFilterDescriptor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StopTokenFilterDescriptor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.StopTokenFilterDescriptor">
+
+
+  <h1 id="OpenSearch_Client_StopTokenFilterDescriptor" data-uid="OpenSearch.Client.StopTokenFilterDescriptor" class="text-break">Class StopTokenFilterDescriptor
+</h1>
+  <div class="markdown level0 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a>, <a class="xref" href="OpenSearch.Client.IStopTokenFilter.html">IStopTokenFilter</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.TokenFilterDescriptorBase-2.html">TokenFilterDescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a>, <a class="xref" href="OpenSearch.Client.IStopTokenFilter.html">IStopTokenFilter</a>&gt;</div>
+    <div class="level3"><span class="xref">StopTokenFilterDescriptor</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IStopTokenFilter.html">IStopTokenFilter</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ITokenFilter.html">ITokenFilter</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterDescriptorBase-2.html#OpenSearch_Client_TokenFilterDescriptorBase_2_Type">TokenFilterDescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterDescriptorBase-2.html#OpenSearch_Client_TokenFilterDescriptorBase_2_OpenSearch_Client_ITokenFilter_Type">TokenFilterDescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.ITokenFilter.Type</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterDescriptorBase-2.html#OpenSearch_Client_TokenFilterDescriptorBase_2_OpenSearch_Client_ITokenFilter_Version">TokenFilterDescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.ITokenFilter.Version</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.TokenFilterDescriptorBase-2.html#OpenSearch_Client_TokenFilterDescriptorBase_2_Version_System_String_">TokenFilterDescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.Version(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;IStopTokenFilter, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_StopTokenFilterDescriptor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class StopTokenFilterDescriptor : TokenFilterDescriptorBase&lt;StopTokenFilterDescriptor, IStopTokenFilter&gt;, IDescriptor, IStopTokenFilter, ITokenFilter</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_Type.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.Type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_Type_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.Type*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_Type" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.Type">Type</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string Type { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">OpenSearch.Client.TokenFilterDescriptorBase&lt;OpenSearch.Client.StopTokenFilterDescriptor, OpenSearch.Client.IStopTokenFilter&gt;.Type</span></div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_IgnoreCase_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.IgnoreCase(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L101">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_IgnoreCase_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.IgnoreCase*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_IgnoreCase_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.IgnoreCase(System.Nullable{System.Boolean})">IgnoreCase(Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor IgnoreCase(bool? ignoreCase = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">ignoreCase</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_RemoveTrailing_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.RemoveTrailing(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_RemoveTrailing_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.RemoveTrailing*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_RemoveTrailing_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.RemoveTrailing(System.Nullable{System.Boolean})">RemoveTrailing(Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor RemoveTrailing(bool? removeTrailing = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">removeTrailing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_StopWords_OpenSearch_Client_StopWords_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.StopWords(OpenSearch.Client.StopWords)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_OpenSearch_Client_StopWords_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords(OpenSearch.Client.StopWords)">StopWords(StopWords)</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor StopWords(StopWords stopWords)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopWords.html">StopWords</a></td>
+        <td><span class="parametername">stopWords</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_StopWords_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.StopWords(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L110">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_System_Collections_Generic_IEnumerable_System_String__" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords(System.Collections.Generic.IEnumerable{System.String})">StopWords(IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor StopWords(IEnumerable&lt;string&gt; stopWords)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">stopWords</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_StopWords_System_String___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.StopWords(System.String%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_StopWords_System_String___" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWords(System.String[])">StopWords(String[])</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor StopWords(params string[] stopWords)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>[]</td>
+        <td><span class="parametername">stopWords</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_StopWordsPath_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.StopWordsPath(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L116">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_StopWordsPath_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWordsPath*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_StopWordsPath_System_String_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.StopWordsPath(System.String)">StopWordsPath(String)</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StopTokenFilterDescriptor StopWordsPath(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopTokenFilterDescriptor.html">StopTokenFilterDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_IgnoreCase.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch%23Client%23IStopTokenFilter%23IgnoreCase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_IgnoreCase_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#IgnoreCase*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_IgnoreCase" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#IgnoreCase">IStopTokenFilter.IgnoreCase</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool? IStopTokenFilter.IgnoreCase { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_RemoveTrailing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch%23Client%23IStopTokenFilter%23RemoveTrailing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L96">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_RemoveTrailing_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#RemoveTrailing*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_RemoveTrailing" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#RemoveTrailing">IStopTokenFilter.RemoveTrailing</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool? IStopTokenFilter.RemoveTrailing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWords.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch%23Client%23IStopTokenFilter%23StopWords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L97">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWords_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#StopWords*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWords" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#StopWords">IStopTokenFilter.StopWords</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StopWords IStopTokenFilter.StopWords { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StopWords.html">StopWords</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWordsPath.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch%23Client%23IStopTokenFilter%23StopWordsPath%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L98">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWordsPath_" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#StopWordsPath*"></a>
+  <h4 id="OpenSearch_Client_StopTokenFilterDescriptor_OpenSearch_Client_IStopTokenFilter_StopWordsPath" data-uid="OpenSearch.Client.StopTokenFilterDescriptor.OpenSearch#Client#IStopTokenFilter#StopWordsPath">IStopTokenFilter.StopWordsPath</h4>
+  <div class="markdown level1 summary"><p>A token filter of type stop that removes stop words from token streams.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IStopTokenFilter.StopWordsPath { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IStopTokenFilter.html">IStopTokenFilter</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ITokenFilter.html">ITokenFilter</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_StopTokenFilterDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.StopTokenFilterDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/TokenFilters/Stop/StopTokenFilter.cs/#L90" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IReindexRequest&lt;TSource, TTarget&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IReindexRequest&lt;TSource, TTarget&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IReindexRequest`2">
+
+
+  <h1 id="OpenSearch_Client_IReindexRequest_2" data-uid="OpenSearch.Client.IReindexRequest`2" class="text-break">Interface IReindexRequest&lt;TSource, TTarget&gt;
+</h1>
+  <div class="markdown level0 summary"><p>A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.</p>
+<p>
+This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
+ then sent back to OpenSearch.
+</p>
+<p>
+This will create the target index if it doesn&apos;t exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
+and the source of the reindex  points to a single index we try and reuse the settings from source.
+You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IReindexRequest_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IReindexRequest&lt;TSource, TTarget&gt;
+    where TSource : class where TTarget : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TSource</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TTarget</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_BackPressureFactor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.BackPressureFactor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L60">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_BackPressureFactor_" data-uid="OpenSearch.Client.IReindexRequest`2.BackPressureFactor*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_BackPressureFactor" data-uid="OpenSearch.Client.IReindexRequest`2.BackPressureFactor">BackPressureFactor</h4>
+  <div class="markdown level1 summary"><p>The scroll typically outperforms the bulk operations by a long shot. If we'd leave things unbounded you'd quickly have way too many pending
+scroll
+requests. What this property allows you to express is that for each bucket in the max concurrency of the minimum max concurrency between
+producer and consumer amply the maximum overal pending of the other side by this factor. Typically the concurrency of the consumer
+(bulkall) will
+be lower and with this factor we can dampen the overall pending scroll requests while we are still processing bulk requests.</p>
+<p>defaults to 4 if not provided</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? BackPressureFactor { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_BulkAll.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.BulkAll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L70">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_BulkAll_" data-uid="OpenSearch.Client.IReindexRequest`2.BulkAll*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_BulkAll" data-uid="OpenSearch.Client.IReindexRequest`2.BulkAll">BulkAll</h4>
+  <div class="markdown level1 summary"><p>Provide a factory for the bulk all request, the first argument is the lazy collection of scroll results which is a mandatory
+argument to create <a class="xref" href="OpenSearch.Client.BulkAllRequest-1.html">BulkAllRequest&lt;T&gt;</a> or <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html">BulkAllDescriptor&lt;T&gt;</a></p>
+<p>
+Note that <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a> is always overriden as well as
+<a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BackPressure">BackPressure</a>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;IHitMetadata&lt;TTarget&gt;&gt;, IBulkAllRequest&lt;IHitMetadata&lt;TTarget&gt;&gt;&gt; BulkAll { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.IHitMetadata-1.html">IHitMetadata</a>&lt;TTarget&gt;&gt;, <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html">IBulkAllRequest</a>&lt;<a class="xref" href="OpenSearch.Client.IHitMetadata-1.html">IHitMetadata</a>&lt;TTarget&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_CreateIndexRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.CreateIndexRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_CreateIndexRequest_" data-uid="OpenSearch.Client.IReindexRequest`2.CreateIndexRequest*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_CreateIndexRequest" data-uid="OpenSearch.Client.IReindexRequest`2.CreateIndexRequest">CreateIndexRequest</h4>
+  <div class="markdown level1 summary"><p>Describe how the newly created index should be created. Remember you can also register Index Templates for more dynamic usecases.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICreateIndexRequest CreateIndexRequest { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ICreateIndexRequest.html">ICreateIndexRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_Map.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.Map%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_Map_" data-uid="OpenSearch.Client.IReindexRequest`2.Map*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_Map" data-uid="OpenSearch.Client.IReindexRequest`2.Map">Map</h4>
+  <div class="markdown level1 summary"><p>A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.</p>
+<p>
+This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
+ then sent back to OpenSearch.
+</p>
+<p>
+This will create the target index if it doesn&apos;t exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
+and the source of the reindex  points to a single index we try and reuse the settings from source.
+You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;TSource, TTarget&gt; Map { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TSource, TTarget&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_OmitIndexCreation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.OmitIndexCreation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L83">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_OmitIndexCreation_" data-uid="OpenSearch.Client.IReindexRequest`2.OmitIndexCreation*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_OmitIndexCreation" data-uid="OpenSearch.Client.IReindexRequest`2.OmitIndexCreation">OmitIndexCreation</h4>
+  <div class="markdown level1 summary"><p>Do not send a create index call on the target index, assume the index has been created outside of the reindex.
+Reindex will never create the index if it already exists however this will also omit the IndexExists call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool OmitIndexCreation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2_ScrollAll.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602.ScrollAll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IReindexRequest_2_ScrollAll_" data-uid="OpenSearch.Client.IReindexRequest`2.ScrollAll*"></a>
+  <h4 id="OpenSearch_Client_IReindexRequest_2_ScrollAll" data-uid="OpenSearch.Client.IReindexRequest`2.ScrollAll">ScrollAll</h4>
+  <div class="markdown level1 summary"><p>Describes the scroll operation where we need to fetch the documents from.</p>
+<p>
+Note that <a class="xref" href="OpenSearch.Client.IScrollAllRequest.html#OpenSearch_Client_IScrollAllRequest_BackPressure">BackPressure</a> can be overriden by our own.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IScrollAllRequest ScrollAll { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScrollAllRequest.html">IScrollAllRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IReindexRequest_2.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IReindexRequest%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/Reindex/ReindexRequest.cs/#L47" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

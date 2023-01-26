@@ -1,0 +1,672 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IConnectionSettingsValues
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IConnectionSettingsValues
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IConnectionSettingsValues">
+
+
+  <h1 id="OpenSearch_Client_IConnectionSettingsValues" data-uid="OpenSearch.Client.IConnectionSettingsValues" class="text-break">Interface IConnectionSettingsValues
+</h1>
+  <div class="markdown level0 summary"><p>Provides the connection settings for <a class="xref" href="OpenSearch.Client.OpenSearchClient.html">OpenSearchClient</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_BasicAuthenticationCredentials">IConnectionConfigurationValues.BasicAuthenticationCredentials</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ApiKeyAuthenticationCredentials">IConnectionConfigurationValues.ApiKeyAuthenticationCredentials</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_BootstrapLock">IConnectionConfigurationValues.BootstrapLock</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ClientCertificates">IConnectionConfigurationValues.ClientCertificates</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_Connection">IConnectionConfigurationValues.Connection</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ConnectionLimit">IConnectionConfigurationValues.ConnectionLimit</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ConnectionPool">IConnectionConfigurationValues.ConnectionPool</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DeadTimeout">IConnectionConfigurationValues.DeadTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DisableAutomaticProxyDetection">IConnectionConfigurationValues.DisableAutomaticProxyDetection</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DisableDirectStreaming">IConnectionConfigurationValues.DisableDirectStreaming</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DisableMetaHeader">IConnectionConfigurationValues.DisableMetaHeader</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DisablePings">IConnectionConfigurationValues.DisablePings</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_EnableHttpCompression">IConnectionConfigurationValues.EnableHttpCompression</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_Headers">IConnectionConfigurationValues.Headers</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_HttpPipeliningEnabled">IConnectionConfigurationValues.HttpPipeliningEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_KeepAliveInterval">IConnectionConfigurationValues.KeepAliveInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_KeepAliveTime">IConnectionConfigurationValues.KeepAliveTime</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_MaxDeadTimeout">IConnectionConfigurationValues.MaxDeadTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_MaxRetries">IConnectionConfigurationValues.MaxRetries</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_MaxRetryTimeout">IConnectionConfigurationValues.MaxRetryTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_MemoryStreamFactory">IConnectionConfigurationValues.MemoryStreamFactory</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_NodePredicate">IConnectionConfigurationValues.NodePredicate</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_OnRequestCompleted">IConnectionConfigurationValues.OnRequestCompleted</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_OnRequestDataCreated">IConnectionConfigurationValues.OnRequestDataCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_PingTimeout">IConnectionConfigurationValues.PingTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_PrettyJson">IConnectionConfigurationValues.PrettyJson</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ProxyAddress">IConnectionConfigurationValues.ProxyAddress</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ProxyPassword">IConnectionConfigurationValues.ProxyPassword</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ProxyUsername">IConnectionConfigurationValues.ProxyUsername</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_QueryStringParameters">IConnectionConfigurationValues.QueryStringParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_RequestResponseSerializer">IConnectionConfigurationValues.RequestResponseSerializer</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_RequestTimeout">IConnectionConfigurationValues.RequestTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ServerCertificateValidationCallback">IConnectionConfigurationValues.ServerCertificateValidationCallback</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_SkipDeserializationForStatusCodes">IConnectionConfigurationValues.SkipDeserializationForStatusCodes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_SniffInformationLifeSpan">IConnectionConfigurationValues.SniffInformationLifeSpan</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_SniffsOnConnectionFault">IConnectionConfigurationValues.SniffsOnConnectionFault</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_SniffsOnStartup">IConnectionConfigurationValues.SniffsOnStartup</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ThrowExceptions">IConnectionConfigurationValues.ThrowExceptions</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_UrlFormatter">IConnectionConfigurationValues.UrlFormatter</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_UserAgent">IConnectionConfigurationValues.UserAgent</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_StatusCodeToResponseSuccess">IConnectionConfigurationValues.StatusCodeToResponseSuccess</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_TransferEncodingChunked">IConnectionConfigurationValues.TransferEncodingChunked</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_DnsRefreshTimeout">IConnectionConfigurationValues.DnsRefreshTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_EnableTcpStats">IConnectionConfigurationValues.EnableTcpStats</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_EnableThreadPoolStats">IConnectionConfigurationValues.EnableThreadPoolStats</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_MetaHeaderProvider">IConnectionConfigurationValues.MetaHeaderProvider</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">IDisposable.Dispose()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IConnectionSettingsValues_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IConnectionSettingsValues : IConnectionConfigurationValues, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DefaultDisableIdInference.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DefaultDisableIdInference%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DefaultDisableIdInference_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultDisableIdInference*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DefaultDisableIdInference" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultDisableIdInference">DefaultDisableIdInference</h4>
+  <div class="markdown level1 summary"><p>Disables automatic Id inference for all CLR types.</p>
+<p></p>
+OpenSearch.Client by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Setting this to <code>true</code>
+will disable this behaviour for all CLR types and cannot be overridden. If Id inference should be disabled only for specific types, use
+<a class="xref" href="OpenSearch.Client.IConnectionSettingsValues.html#OpenSearch_Client_IConnectionSettingsValues_DisableIdInference">DisableIdInference</a>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool DefaultDisableIdInference { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DefaultFieldNameInferrer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DefaultFieldNameInferrer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DefaultFieldNameInferrer_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultFieldNameInferrer*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DefaultFieldNameInferrer" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultFieldNameInferrer">DefaultFieldNameInferrer</h4>
+  <div class="markdown level1 summary"><p>Specifies how field names are inferred from CLR property names.</p>
+<p></p>
+By default, OpenSearch.Client camel cases property names.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;string, string&gt; DefaultFieldNameInferrer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_IConnectionSettingsValues_DefaultFieldNameInferrer_examples">Examples</h5>
+  <p>CLR property EmailAddress will be inferred as &quot;emailAddress&quot; OpenSearch document field name</p>
+
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DefaultIndex.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DefaultIndex%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L55">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DefaultIndex_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultIndex*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DefaultIndex" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultIndex">DefaultIndex</h4>
+  <div class="markdown level1 summary"><p>The default index to use for a request when no index has been explicitly specified
+and no default indices are specified for the given CLR type specified for the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string DefaultIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DefaultIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DefaultIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L60">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DefaultIndices_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultIndices*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DefaultIndices" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultIndices">DefaultIndices</h4>
+  <div class="markdown level1 summary"><p>The default index/indices to use for a request for a given CLR type specified in the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FluentDictionary&lt;Type, string&gt; DefaultIndices { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FluentDictionary-2.html">FluentDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DefaultRelationNames.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DefaultRelationNames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DefaultRelationNames_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultRelationNames*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DefaultRelationNames" data-uid="OpenSearch.Client.IConnectionSettingsValues.DefaultRelationNames">DefaultRelationNames</h4>
+  <div class="markdown level1 summary"><p>The default relation name to use for a request for a given CLR type specified in the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FluentDictionary&lt;Type, string&gt; DefaultRelationNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FluentDictionary-2.html">FluentDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_DisableIdInference.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.DisableIdInference%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L99">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_DisableIdInference_" data-uid="OpenSearch.Client.IConnectionSettingsValues.DisableIdInference*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_DisableIdInference" data-uid="OpenSearch.Client.IConnectionSettingsValues.DisableIdInference">DisableIdInference</h4>
+  <div class="markdown level1 summary"><p>Disables automatic Id inference for given CLR types.</p>
+<p></p>
+OpenSearch.Client by default will use the value of a property named Id on a CLR type as the _id to send to OpenSearch. Adding a type
+will disable this behaviour for that CLR type. If Id inference should be disabled for all CLR types, use
+<a class="xref" href="OpenSearch.Client.IConnectionSettingsValues.html#OpenSearch_Client_IConnectionSettingsValues_DefaultDisableIdInference">DefaultDisableIdInference</a>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HashSet&lt;Type&gt; DisableIdInference { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_IdProperties.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.IdProperties%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L70">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_IdProperties_" data-uid="OpenSearch.Client.IConnectionSettingsValues.IdProperties*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_IdProperties" data-uid="OpenSearch.Client.IConnectionSettingsValues.IdProperties">IdProperties</h4>
+  <div class="markdown level1 summary"><p>Specify a property for a CLR type to use to infer the _id of the document when indexed in OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FluentDictionary&lt;Type, string&gt; IdProperties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FluentDictionary-2.html">FluentDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_Inferrer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.Inferrer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_Inferrer_" data-uid="OpenSearch.Client.IConnectionSettingsValues.Inferrer*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_Inferrer" data-uid="OpenSearch.Client.IConnectionSettingsValues.Inferrer">Inferrer</h4>
+  <div class="markdown level1 summary"><p>Infers index, type, id, relation, routing and field names</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Inferrer Inferrer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_PropertyMappingProvider.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.PropertyMappingProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_PropertyMappingProvider_" data-uid="OpenSearch.Client.IConnectionSettingsValues.PropertyMappingProvider*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_PropertyMappingProvider" data-uid="OpenSearch.Client.IConnectionSettingsValues.PropertyMappingProvider">PropertyMappingProvider</h4>
+  <div class="markdown level1 summary"><p>Provides mappings for CLR types</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IPropertyMappingProvider PropertyMappingProvider { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPropertyMappingProvider.html">IPropertyMappingProvider</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_PropertyMappings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.PropertyMappings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_PropertyMappings_" data-uid="OpenSearch.Client.IConnectionSettingsValues.PropertyMappings*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_PropertyMappings" data-uid="OpenSearch.Client.IConnectionSettingsValues.PropertyMappings">PropertyMappings</h4>
+  <div class="markdown level1 summary"><p>Provides mappings for CLR type members</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FluentDictionary&lt;MemberInfo, IPropertyMapping&gt; PropertyMappings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FluentDictionary-2.html">FluentDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>, <a class="xref" href="OpenSearch.Client.IPropertyMapping.html">IPropertyMapping</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_RouteProperties.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.RouteProperties%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_RouteProperties_" data-uid="OpenSearch.Client.IConnectionSettingsValues.RouteProperties*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_RouteProperties" data-uid="OpenSearch.Client.IConnectionSettingsValues.RouteProperties">RouteProperties</h4>
+  <div class="markdown level1 summary"><p>Specify a property for a CLR type to use to infer the routing for of a document when indexed in OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FluentDictionary&lt;Type, string&gt; RouteProperties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FluentDictionary-2.html">FluentDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues_SourceSerializer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues.SourceSerializer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IConnectionSettingsValues_SourceSerializer_" data-uid="OpenSearch.Client.IConnectionSettingsValues.SourceSerializer*"></a>
+  <h4 id="OpenSearch_Client_IConnectionSettingsValues_SourceSerializer" data-uid="OpenSearch.Client.IConnectionSettingsValues.SourceSerializer">SourceSerializer</h4>
+  <div class="markdown level1 summary"><p>The serializer use to serialize CLR types representing documents and other types related to documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IOpenSearchSerializer SourceSerializer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IOpenSearchSerializer.html">IOpenSearchSerializer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IConnectionSettingsValues.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IConnectionSettingsValues%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/IConnectionSettingsValues.cs/#L39" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Enum IcuCollationStrength
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Enum IcuCollationStrength
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IcuCollationStrength">
+
+
+  <h1 id="OpenSearch_Client_IcuCollationStrength" data-uid="OpenSearch.Client.IcuCollationStrength" class="text-break">Enum IcuCollationStrength
+</h1>
+  <div class="markdown level0 summary"><p>The strength property determines the minimum level of
+difference considered significant during comparison.
+See also: <a href="http://icu-project.org/apiref/icu4j/com/ibm/icu/text/Collator.html">http://icu-project.org/apiref/icu4j/com/ibm/icu/text/Collator.html</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IcuCollationStrength_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum IcuCollationStrength</code></pre>
+  </div>
+  <h5 id="OpenSearch_Client_IcuCollationStrength_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Requires analysis-icu plugin to be installed</p>
+</div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="OpenSearch_Client_IcuCollationStrength_Indentical">Indentical</td>
+        <td><p>When all other strengths are equal, the IDENTICAL strength is used as a tiebreaker.
+The Unicode code point values of the NFD form of each string are compared, just in
+case there is no difference. For example, Hebrew cantellation marks are only
+distinguished at this strength. This strength should be used sparingly, as only code
+point value differences between two strings is an extremely rare occurrence. Using
+this strength substantially decreases the performance for both comparison and collation key
+generation APIs. This strength also increases the size of the collation key.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenSearch_Client_IcuCollationStrength_Primary">Primary</td>
+        <td><p>Typically, this is used to denote differences between base characters (for example, &quot;a&quot; &lt; &quot;b&quot;).
+It is the strongest difference. For example, dictionaries are divided into different sections by
+base character.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenSearch_Client_IcuCollationStrength_Quaternary">Quaternary</td>
+        <td><p>When punctuation is ignored (see Ignoring Punctuations in the User Guide) at PRIMARY to
+TERTIARY strength, an additional strength level can be used to distinguish words with
+and without punctuation (for example, &quot;ab&quot; &lt; &quot;a-b&quot; &lt; &quot;aB&quot;). This difference is ignored
+when there is a PRIMARY, SECONDARY or TERTIARY difference. The QUATERNARY strength should
+only be used if ignoring punctuation is required.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenSearch_Client_IcuCollationStrength_Secondary">Secondary</td>
+        <td><p>Accents in the characters are considered secondary differences (for example, &quot;as&quot; &lt; &quot;às&quot; &lt; &quot;at&quot;).
+Other differences between letters can also be considered secondary differences, depending on
+the language. A secondary difference is ignored when there is a primary difference anywhere
+in the strings.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="OpenSearch_Client_IcuCollationStrength_Tertiary">Tertiary</td>
+        <td><p>Upper and lower case differences in characters are distinguished at tertiary strength
+(for example, &quot;ao&quot; &lt; &quot;Ao&quot; &lt; &quot;aò&quot;). In addition, a variant of a letter differs from the base
+form on the tertiary strength (such as &quot;A&quot; and &quot;Ⓐ&quot;). Another example is the difference between
+large and small Kana. A tertiary difference is ignored when there is a primary or secondary
+difference anywhere in the strings.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.KnownEnums.html#OpenSearch_Net_KnownEnums_GetStringValue_System_Enum_">KnownEnums.GetStringValue()</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IcuCollationStrength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IcuCollationStrength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Analysis/Plugins/Icu/Collation/IcuCollationStrength.cs/#L42" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

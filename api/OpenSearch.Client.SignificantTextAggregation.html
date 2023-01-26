@@ -1,0 +1,749 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SignificantTextAggregation
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SignificantTextAggregation
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SignificantTextAggregation">
+
+
+  <h1 id="OpenSearch_Client_SignificantTextAggregation" data-uid="OpenSearch.Client.SignificantTextAggregation" class="text-break">Class SignificantTextAggregation
+</h1>
+  <div class="markdown level0 summary"><p>An aggregation that returns interesting or unusual occurrences of free-text terms in a set.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.AggregationBase.html">AggregationBase</a></div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.BucketAggregationBase.html">BucketAggregationBase</a></div>
+    <div class="level3"><span class="xref">SignificantTextAggregation</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html">ISignificantTextAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationBase.html#OpenSearch_Client_BucketAggregationBase_Aggregations">BucketAggregationBase.Aggregations</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.AggregationBase.html#OpenSearch_Client_AggregationBase_Meta">AggregationBase.Meta</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.AggregationBase.html#OpenSearch_Client_AggregationBase_OpenSearch_Client_IAggregation_Name">AggregationBase.IAggregation.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SignificantTextAggregation_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SignificantTextAggregation : BucketAggregationBase, ISignificantTextAggregation, IBucketAggregation, IAggregation</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation__ctor_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.%23ctor(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L166">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation__ctor_" data-uid="OpenSearch.Client.SignificantTextAggregation.#ctor*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation__ctor_System_String_" data-uid="OpenSearch.Client.SignificantTextAggregation.#ctor(System.String)">SignificantTextAggregation(String)</h4>
+  <div class="markdown level1 summary"><p>An aggregation that returns interesting or unusual occurrences of free-text terms in a set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignificantTextAggregation(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_BackgroundFilter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.BackgroundFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L169">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_BackgroundFilter_" data-uid="OpenSearch.Client.SignificantTextAggregation.BackgroundFilter*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_BackgroundFilter" data-uid="OpenSearch.Client.SignificantTextAggregation.BackgroundFilter">BackgroundFilter</h4>
+  <div class="markdown level1 summary"><p>The default source of statistical information for background term
+frequencies is the entire index. This scope can be narrowed
+through the use of a background filter to focus in on significant
+terms within a narrower context</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QueryContainer BackgroundFilter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryContainer.html">QueryContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_ChiSquare.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.ChiSquare%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L172">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_ChiSquare_" data-uid="OpenSearch.Client.SignificantTextAggregation.ChiSquare*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_ChiSquare" data-uid="OpenSearch.Client.SignificantTextAggregation.ChiSquare">ChiSquare</h4>
+  <div class="markdown level1 summary"><p>Use chi square to calculate significance score</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IChiSquareHeuristic ChiSquare { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IChiSquareHeuristic.html">IChiSquareHeuristic</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_Exclude.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.Exclude%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L175">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_Exclude_" data-uid="OpenSearch.Client.SignificantTextAggregation.Exclude*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_Exclude" data-uid="OpenSearch.Client.SignificantTextAggregation.Exclude">Exclude</h4>
+  <div class="markdown level1 summary"><p>Exclude term values for which buckets will be created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IncludeExclude Exclude { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IncludeExclude.html">IncludeExclude</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_ExecutionHint.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.ExecutionHint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L178">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_ExecutionHint_" data-uid="OpenSearch.Client.SignificantTextAggregation.ExecutionHint*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_ExecutionHint" data-uid="OpenSearch.Client.SignificantTextAggregation.ExecutionHint">ExecutionHint</h4>
+  <div class="markdown level1 summary"><p>Determines the mechanism by which aggregations are executed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationExecutionHint? ExecutionHint { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationExecutionHint.html">TermsAggregationExecutionHint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_Field.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.Field%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L181">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_Field_" data-uid="OpenSearch.Client.SignificantTextAggregation.Field*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_Field" data-uid="OpenSearch.Client.SignificantTextAggregation.Field">Field</h4>
+  <div class="markdown level1 summary"><p>The field on which to run the aggregation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Field Field { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_FilterDuplicateText.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.FilterDuplicateText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L184">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_FilterDuplicateText_" data-uid="OpenSearch.Client.SignificantTextAggregation.FilterDuplicateText*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_FilterDuplicateText" data-uid="OpenSearch.Client.SignificantTextAggregation.FilterDuplicateText">FilterDuplicateText</h4>
+  <div class="markdown level1 summary"><p>Whether to filter out near-duplicate text</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? FilterDuplicateText { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_GoogleNormalizedDistance.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.GoogleNormalizedDistance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L187">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_GoogleNormalizedDistance_" data-uid="OpenSearch.Client.SignificantTextAggregation.GoogleNormalizedDistance*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_GoogleNormalizedDistance" data-uid="OpenSearch.Client.SignificantTextAggregation.GoogleNormalizedDistance">GoogleNormalizedDistance</h4>
+  <div class="markdown level1 summary"><p>Use Google normalized distance to calculate significance score</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGoogleNormalizedDistanceHeuristic GoogleNormalizedDistance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGoogleNormalizedDistanceHeuristic.html">IGoogleNormalizedDistanceHeuristic</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_Include.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.Include%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L190">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_Include_" data-uid="OpenSearch.Client.SignificantTextAggregation.Include*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_Include" data-uid="OpenSearch.Client.SignificantTextAggregation.Include">Include</h4>
+  <div class="markdown level1 summary"><p>Include term values for which buckets will be created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IncludeExclude Include { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IncludeExclude.html">IncludeExclude</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_MinimumDocumentCount.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.MinimumDocumentCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L193">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_MinimumDocumentCount_" data-uid="OpenSearch.Client.SignificantTextAggregation.MinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_MinimumDocumentCount" data-uid="OpenSearch.Client.SignificantTextAggregation.MinimumDocumentCount">MinimumDocumentCount</h4>
+  <div class="markdown level1 summary"><p>Return only terms that match equal to or more than a configurable
+number of hits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? MinimumDocumentCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_MutualInformation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.MutualInformation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L196">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_MutualInformation_" data-uid="OpenSearch.Client.SignificantTextAggregation.MutualInformation*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_MutualInformation" data-uid="OpenSearch.Client.SignificantTextAggregation.MutualInformation">MutualInformation</h4>
+  <div class="markdown level1 summary"><p>Use mutual information to calculate significance score</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMutualInformationHeuristic MutualInformation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMutualInformationHeuristic.html">IMutualInformationHeuristic</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_PercentageScore.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.PercentageScore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L199">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_PercentageScore_" data-uid="OpenSearch.Client.SignificantTextAggregation.PercentageScore*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_PercentageScore" data-uid="OpenSearch.Client.SignificantTextAggregation.PercentageScore">PercentageScore</h4>
+  <div class="markdown level1 summary"><p>Use percentage to calculate significance score.</p>
+<p>
+A simple calculation of the number of documents in the foreground
+sample with a term divided by the number of documents in the background
+with the term. By default this produces a score greater than zero
+ and less than one.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPercentageScoreHeuristic PercentageScore { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPercentageScoreHeuristic.html">IPercentageScoreHeuristic</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_Script.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.Script%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L202">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_Script_" data-uid="OpenSearch.Client.SignificantTextAggregation.Script*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_Script" data-uid="OpenSearch.Client.SignificantTextAggregation.Script">Script</h4>
+  <div class="markdown level1 summary"><p>Use a script to calculate a custom significance score.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IScriptedHeuristic Script { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScriptedHeuristic.html">IScriptedHeuristic</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_ShardMinimumDocumentCount.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.ShardMinimumDocumentCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L205">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_ShardMinimumDocumentCount_" data-uid="OpenSearch.Client.SignificantTextAggregation.ShardMinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_ShardMinimumDocumentCount" data-uid="OpenSearch.Client.SignificantTextAggregation.ShardMinimumDocumentCount">ShardMinimumDocumentCount</h4>
+  <div class="markdown level1 summary"><p>Regulates the certainty a shard has if the term should actually be added to the candidate
+list or not with respect to the <a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html#OpenSearch_Client_ISignificantTextAggregation_MinimumDocumentCount">MinimumDocumentCount</a>.
+Terms will only be considered if their local shard frequency within
+the set is higher than the <a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html#OpenSearch_Client_ISignificantTextAggregation_ShardMinimumDocumentCount">ShardMinimumDocumentCount</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? ShardMinimumDocumentCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_ShardSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.ShardSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L208">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_ShardSize_" data-uid="OpenSearch.Client.SignificantTextAggregation.ShardSize*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_ShardSize" data-uid="OpenSearch.Client.SignificantTextAggregation.ShardSize">ShardSize</h4>
+  <div class="markdown level1 summary"><p>Controls the number of candidate terms produced by each shard from which
+the <a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html#OpenSearch_Client_ISignificantTextAggregation_Size">Size</a> of terms is selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ShardSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_Size.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L211">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_Size_" data-uid="OpenSearch.Client.SignificantTextAggregation.Size*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_Size" data-uid="OpenSearch.Client.SignificantTextAggregation.Size">Size</h4>
+  <div class="markdown level1 summary"><p>Defines how many term buckets should be returned out of the overall
+terms list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Size { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation_SourceFields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation.SourceFields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L214">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SignificantTextAggregation_SourceFields_" data-uid="OpenSearch.Client.SignificantTextAggregation.SourceFields*"></a>
+  <h4 id="OpenSearch_Client_SignificantTextAggregation_SourceFields" data-uid="OpenSearch.Client.SignificantTextAggregation.SourceFields">SourceFields</h4>
+  <div class="markdown level1 summary"><p>Ordinarily the indexed field name and the original JSON field being
+retrieved share the same name. However with more complex field
+mappings using features like copy_to the source JSON field(s)
+and the indexed field being aggregated can differ.
+In these cases it is possible to list the JSON _source fields
+from which text will be analyzed using <a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html#OpenSearch_Client_ISignificantTextAggregation_SourceFields">SourceFields</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Fields SourceFields { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Fields.html">Fields</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISignificantTextAggregation.html">ISignificantTextAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SignificantTextAggregation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SignificantTextAggregation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/SignificantText/SignificantTextAggregation.cs/#L162" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

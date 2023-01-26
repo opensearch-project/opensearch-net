@@ -1,0 +1,732 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IBulkAllRequest&lt;T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IBulkAllRequest&lt;T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IBulkAllRequest`1">
+
+
+  <h1 id="OpenSearch_Client_IBulkAllRequest_1" data-uid="OpenSearch.Client.IBulkAllRequest`1" class="text-break">Interface IBulkAllRequest&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IBulkAllRequest_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IBulkAllRequest&lt;T&gt;
+    where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_BackOffRetries.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.BackOffRetries%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L39">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_BackOffRetries_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackOffRetries*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_BackOffRetries" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackOffRetries">BackOffRetries</h4>
+  <div class="markdown level1 summary"><p>In case of a HTTP 429 (Too Many Requests) response status code, how many times should we automatically back off before failing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? BackOffRetries { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_BackOffTime.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.BackOffTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L42">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_BackOffTime_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackOffTime*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_BackOffTime" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackOffTime">BackOffTime</h4>
+  <div class="markdown level1 summary"><p>In case of a HTTP 429 (Too Many Requests) response status code, how long should we wait before retrying</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Time BackOffTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_BackPressure.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.BackPressure%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_BackPressure_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackPressure*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_BackPressure" data-uid="OpenSearch.Client.IBulkAllRequest`1.BackPressure">BackPressure</h4>
+  <div class="markdown level1 summary"><p>Simple back pressure implementation that makes sure the minimum max concurrency between producer and consumer
+is not amplified by the greedier of the two by more then a given back pressure factor
+When set each bulk request will call <a class="xref" href="OpenSearch.Client.ProducerConsumerBackPressure.html#OpenSearch_Client_ProducerConsumerBackPressure_Release">Release()</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ProducerConsumerBackPressure BackPressure { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ProducerConsumerBackPressure.html">ProducerConsumerBackPressure</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_BufferToBulk.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.BufferToBulk%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L56">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_BufferToBulk_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BufferToBulk*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_BufferToBulk" data-uid="OpenSearch.Client.IBulkAllRequest`1.BufferToBulk">BufferToBulk</h4>
+  <div class="markdown level1 summary"><p>By default, <a class="xref" href="OpenSearch.Client.BulkAllObservable-1.html">BulkAllObservable&lt;T&gt;</a> calls <a class="xref" href="OpenSearch.Client.BulkDescriptor.html#OpenSearch_Client_BulkDescriptor_IndexMany__1_System_Collections_Generic_IEnumerable___0__System_Func_OpenSearch_Client_BulkIndexDescriptor___0____0_OpenSearch_Client_IBulkIndexOperation___0___">IndexMany&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;BulkIndexDescriptor&lt;T&gt;, T, IBulkIndexOperation&lt;T&gt;&gt;)</a> on the buffer.
+There might be case where you'd like more control over the bulk operation. By setting this callback, you are in complete control
+of describing how the buffer should be translated to a bulk operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Action&lt;BulkDescriptor, IList&lt;T&gt;&gt; BufferToBulk { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="OpenSearch.Client.BulkDescriptor.html">BulkDescriptor</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_BulkResponseCallback.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.BulkResponseCallback%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L126">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_BulkResponseCallback_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BulkResponseCallback*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_BulkResponseCallback" data-uid="OpenSearch.Client.IBulkAllRequest`1.BulkResponseCallback">BulkResponseCallback</h4>
+  <div class="markdown level1 summary"><p>Be notified every time a bulk response returns, this includes retries.
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobserver-1.onnext#system-iobserver-1-onnext(-0)">OnNext(T)</a> is only called for successful batches.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Action&lt;BulkResponse&gt; BulkResponseCallback { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="OpenSearch.Client.BulkResponse.html">BulkResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_ContinueAfterDroppedDocuments.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.ContinueAfterDroppedDocuments%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_ContinueAfterDroppedDocuments_" data-uid="OpenSearch.Client.IBulkAllRequest`1.ContinueAfterDroppedDocuments*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_ContinueAfterDroppedDocuments" data-uid="OpenSearch.Client.IBulkAllRequest`1.ContinueAfterDroppedDocuments">ContinueAfterDroppedDocuments</h4>
+  <div class="markdown level1 summary"><p>Halt the bulk all request if any of the documents returned is a failure that can not be retried.
+When true, will feed dropped documents to <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_DroppedDocumentCallback">DroppedDocumentCallback</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ContinueAfterDroppedDocuments { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Documents.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Documents%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L70">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Documents_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Documents*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Documents" data-uid="OpenSearch.Client.IBulkAllRequest`1.Documents">Documents</h4>
+  <div class="markdown level1 summary"><p>The documents to send to OpenSearch, ideally lazily evaluated by using <span class="xref">langword_csharp_yield</span>
+return to provide each document.
+<a class="xref" href="OpenSearch.Client.BulkAllObservable-1.html">BulkAllObservable&lt;T&gt;</a> will eager evaluate each partitioned page when operating on it, using
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.tolist#system-linq-enumerable-tolist-1(system-collections-generic-ienumerable((-0)))">ToList&lt;TSource&gt;(IEnumerable&lt;TSource&gt;)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;T&gt; Documents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_DroppedDocumentCallback.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.DroppedDocumentCallback%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_DroppedDocumentCallback_" data-uid="OpenSearch.Client.IBulkAllRequest`1.DroppedDocumentCallback*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_DroppedDocumentCallback" data-uid="OpenSearch.Client.IBulkAllRequest`1.DroppedDocumentCallback">DroppedDocumentCallback</h4>
+  <div class="markdown level1 summary"><p>If a bulk operation fails because it receives documents it can not retry they will be fed to this callback.
+If <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_ContinueAfterDroppedDocuments">ContinueAfterDroppedDocuments</a> is set to <code>true</code> processing will continue, so this callback can be used
+to feed into a dead letter queue. Otherwise bulk all indexing will be halted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Action&lt;BulkResponseItemBase, T&gt; DroppedDocumentCallback { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="OpenSearch.Client.BulkResponseItemBase.html">BulkResponseItemBase</a>, T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Index_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Index*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Index" data-uid="OpenSearch.Client.IBulkAllRequest`1.Index">Index</h4>
+  <div class="markdown level1 summary"><p>The index to use for items that don't specify one. By default, will be inferred from <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
+If no default index has been mapped for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>
+using <span class="xref">OpenSearch.Client.ConnectionSettingsBase`1.DefaultMappingFor``1(System.Func{OpenSearch.Client.ClrTypeMappingDescriptor{``0},OpenSearch.Client.IClrTypeMapping{``0}})</span>
+on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IndexName Index { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_MaxDegreeOfParallelism.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.MaxDegreeOfParallelism%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_MaxDegreeOfParallelism_" data-uid="OpenSearch.Client.IBulkAllRequest`1.MaxDegreeOfParallelism*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_MaxDegreeOfParallelism" data-uid="OpenSearch.Client.IBulkAllRequest`1.MaxDegreeOfParallelism">MaxDegreeOfParallelism</h4>
+  <div class="markdown level1 summary"><p>The maximum number of bulk operations we want to have in flight at a time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? MaxDegreeOfParallelism { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Pipeline.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Pipeline%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Pipeline_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Pipeline*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Pipeline" data-uid="OpenSearch.Client.IBulkAllRequest`1.Pipeline">Pipeline</h4>
+  <div class="markdown level1 summary"><p>The pipeline id to preprocess all the incoming documents with</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Pipeline { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_RefreshIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.RefreshIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_RefreshIndices_" data-uid="OpenSearch.Client.IBulkAllRequest`1.RefreshIndices*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_RefreshIndices" data-uid="OpenSearch.Client.IBulkAllRequest`1.RefreshIndices">RefreshIndices</h4>
+  <div class="markdown level1 summary"><p>The indices you wish to refresh after the bulk all completes, defaults to <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Indices RefreshIndices { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Indices.html">Indices</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_RefreshOnCompleted.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.RefreshOnCompleted%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L98">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_RefreshOnCompleted_" data-uid="OpenSearch.Client.IBulkAllRequest`1.RefreshOnCompleted*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_RefreshOnCompleted" data-uid="OpenSearch.Client.IBulkAllRequest`1.RefreshOnCompleted">RefreshOnCompleted</h4>
+  <div class="markdown level1 summary"><p>Refresh the index after performing ALL the bulk operations (NOTE this is an additional request)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool RefreshOnCompleted { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_RetryDocumentPredicate.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.RetryDocumentPredicate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_RetryDocumentPredicate_" data-uid="OpenSearch.Client.IBulkAllRequest`1.RetryDocumentPredicate*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_RetryDocumentPredicate" data-uid="OpenSearch.Client.IBulkAllRequest`1.RetryDocumentPredicate">RetryDocumentPredicate</h4>
+  <div class="markdown level1 summary"><p>A predicate to control which documents should be retried.
+Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response status code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;BulkResponseItemBase, T, bool&gt; RetryDocumentPredicate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-3">Func</a>&lt;<a class="xref" href="OpenSearch.Client.BulkResponseItemBase.html">BulkResponseItemBase</a>, T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Routing_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Routing*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Routing" data-uid="OpenSearch.Client.IBulkAllRequest`1.Routing">Routing</h4>
+  <div class="markdown level1 summary"><p>Specific per bulk operation routing value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Routing Routing { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Routing.html">Routing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Size.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L110">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Size_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Size*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Size" data-uid="OpenSearch.Client.IBulkAllRequest`1.Size">Size</h4>
+  <div class="markdown level1 summary"><p>The number of documents to send per bulk</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? Size { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_Timeout_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Timeout*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_Timeout" data-uid="OpenSearch.Client.IBulkAllRequest`1.Timeout">Timeout</h4>
+  <div class="markdown level1 summary"><p>Explicit per operation timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Time Timeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1_WaitForActiveShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601.WaitForActiveShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L120">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IBulkAllRequest_1_WaitForActiveShards_" data-uid="OpenSearch.Client.IBulkAllRequest`1.WaitForActiveShards*"></a>
+  <h4 id="OpenSearch_Client_IBulkAllRequest_1_WaitForActiveShards" data-uid="OpenSearch.Client.IBulkAllRequest`1.WaitForActiveShards">WaitForActiveShards</h4>
+  <div class="markdown level1 summary"><p>Sets the number of shard copies that must be active before proceeding with the bulk operation.
+Defaults to <code>1</code>, meaning the primary shard only. Set to <code>all</code> for all shard copies, otherwise set to any
+non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? WaitForActiveShards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IBulkAllRequest_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IBulkAllRequest%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/BulkAll/BulkAllRequest.cs/#L36" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

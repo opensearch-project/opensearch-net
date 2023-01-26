@@ -1,0 +1,688 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NumericRangeQueryDescriptor&lt;T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NumericRangeQueryDescriptor&lt;T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1">
+
+
+  <h1 id="OpenSearch_Client_NumericRangeQueryDescriptor_1" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1" class="text-break">Class NumericRangeQueryDescriptor&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html">QueryDescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a>&gt;</div>
+    <div class="level3"><a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html">FieldNameQueryDescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a>, T&gt;</div>
+    <div class="level4"><span class="xref">NumericRangeQueryDescriptor&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IRangeQuery.html">IRangeQuery</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IFieldNameQuery.html">IFieldNameQuery</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html#OpenSearch_Client_FieldNameQueryDescriptorBase_3_OpenSearch_Client_IFieldNameQuery_Field">FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;.IFieldNameQuery.Field</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html#OpenSearch_Client_FieldNameQueryDescriptorBase_3_OpenSearch_Client_IQuery_IsStrict">FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;.IQuery.IsStrict</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html#OpenSearch_Client_FieldNameQueryDescriptorBase_3_OpenSearch_Client_IQuery_IsVerbatim">FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;.IQuery.IsVerbatim</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html#OpenSearch_Client_FieldNameQueryDescriptorBase_3_Field_OpenSearch_Client_Field_">FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;.Field(Field)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.FieldNameQueryDescriptorBase-3.html#OpenSearch_Client_FieldNameQueryDescriptorBase_3_Field__1_System_Linq_Expressions_Expression_System_Func__2___0___">FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;.Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_Conditionless">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Conditionless</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_Boost">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.Boost</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_Conditionless">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.Conditionless</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_IsStrict">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.IsStrict</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_IsVerbatim">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.IsVerbatim</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_IsWritable">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.IsWritable</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_OpenSearch_Client_IQuery_Name">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.IQuery.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_Name_System_String_">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Name(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_Boost_System_Nullable_System_Double__">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Boost(Nullable&lt;Double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_Verbatim_System_Boolean_">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Verbatim(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryDescriptorBase-2.html#OpenSearch_Client_QueryDescriptorBase_2_Strict_System_Boolean_">QueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Strict(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;INumericRangeQuery, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class NumericRangeQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery, T&gt;, IDescriptor, INumericRangeQuery, IRangeQuery, IFieldNameQuery, IQuery where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_Conditionless.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.Conditionless%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_Conditionless_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.Conditionless*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_Conditionless" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.Conditionless">Conditionless</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">OpenSearch.Client.QueryDescriptorBase&lt;OpenSearch.Client.NumericRangeQueryDescriptor&lt;T&gt;, OpenSearch.Client.INumericRangeQuery&gt;.Conditionless</span></div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThan_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.GreaterThan(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L86">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThan_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.GreaterThan*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThan_System_Nullable_System_Double__" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.GreaterThan(System.Nullable{System.Double})">GreaterThan(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NumericRangeQueryDescriptor&lt;T&gt; GreaterThan(double? from)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">from</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThanOrEquals_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.GreaterThanOrEquals(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L88">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThanOrEquals_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.GreaterThanOrEquals*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_GreaterThanOrEquals_System_Nullable_System_Double__" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.GreaterThanOrEquals(System.Nullable{System.Double})">GreaterThanOrEquals(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NumericRangeQueryDescriptor&lt;T&gt; GreaterThanOrEquals(double? from)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">from</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThan_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.LessThan(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThan_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.LessThan*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThan_System_Nullable_System_Double__" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.LessThan(System.Nullable{System.Double})">LessThan(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NumericRangeQueryDescriptor&lt;T&gt; LessThan(double? to)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">to</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThanOrEquals_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.LessThanOrEquals(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L92">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThanOrEquals_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.LessThanOrEquals*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_LessThanOrEquals_System_Nullable_System_Double__" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.LessThanOrEquals(System.Nullable{System.Double})">LessThanOrEquals(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NumericRangeQueryDescriptor&lt;T&gt; LessThanOrEquals(double? to)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">to</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_Relation_System_Nullable_OpenSearch_Client_RangeRelation__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.Relation(System.Nullable%7BOpenSearch.Client.RangeRelation%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_Relation_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.Relation*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_Relation_System_Nullable_OpenSearch_Client_RangeRelation__" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.Relation(System.Nullable{OpenSearch.Client.RangeRelation})">Relation(Nullable&lt;RangeRelation&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NumericRangeQueryDescriptor&lt;T&gt; Relation(RangeRelation? relation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.RangeRelation.html">RangeRelation</a>&gt;</td>
+        <td><span class="parametername">relation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.NumericRangeQueryDescriptor-1.html">NumericRangeQueryDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThan.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.OpenSearch%23Client%23INumericRangeQuery%23GreaterThan%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L79">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThan_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#GreaterThan*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThan" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#GreaterThan">INumericRangeQuery.GreaterThan</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? INumericRangeQuery.GreaterThan { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThanOrEqualTo.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.OpenSearch%23Client%23INumericRangeQuery%23GreaterThanOrEqualTo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThanOrEqualTo_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#GreaterThanOrEqualTo*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_GreaterThanOrEqualTo" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#GreaterThanOrEqualTo">INumericRangeQuery.GreaterThanOrEqualTo</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? INumericRangeQuery.GreaterThanOrEqualTo { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThan.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.OpenSearch%23Client%23INumericRangeQuery%23LessThan%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThan_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#LessThan*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThan" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#LessThan">INumericRangeQuery.LessThan</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? INumericRangeQuery.LessThan { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThanOrEqualTo.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.OpenSearch%23Client%23INumericRangeQuery%23LessThanOrEqualTo%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L82">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThanOrEqualTo_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#LessThanOrEqualTo*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_LessThanOrEqualTo" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#LessThanOrEqualTo">INumericRangeQuery.LessThanOrEqualTo</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? INumericRangeQuery.LessThanOrEqualTo { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_Relation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601.OpenSearch%23Client%23INumericRangeQuery%23Relation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_Relation_" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#Relation*"></a>
+  <h4 id="OpenSearch_Client_NumericRangeQueryDescriptor_1_OpenSearch_Client_INumericRangeQuery_Relation" data-uid="OpenSearch.Client.NumericRangeQueryDescriptor`1.OpenSearch#Client#INumericRangeQuery#Relation">INumericRangeQuery.Relation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RangeRelation? INumericRangeQuery.Relation { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.RangeRelation.html">RangeRelation</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.INumericRangeQuery.html">INumericRangeQuery</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRangeQuery.html">IRangeQuery</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IFieldNameQuery.html">IFieldNameQuery</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_NumericRangeQueryDescriptor_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.NumericRangeQueryDescriptor%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Range/NumericRangeQuery.cs/#L73" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MemberInfoResolver
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MemberInfoResolver
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.MemberInfoResolver">
+
+
+  <h1 id="OpenSearch_Client_MemberInfoResolver" data-uid="OpenSearch.Client.MemberInfoResolver" class="text-break">Class MemberInfoResolver
+</h1>
+  <div class="markdown level0 summary"><p>Resolves member infos in an expression, instance may NOT be shared.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor">ExpressionVisitor</a></div>
+    <div class="level2"><span class="xref">MemberInfoResolver</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visit#system-linq-expressions-expressionvisitor-visit(system-collections-objectmodel-readonlycollection((system-linq-expressions-expression)))">ExpressionVisitor.Visit(ReadOnlyCollection&lt;Expression&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visit#system-linq-expressions-expressionvisitor-visit(system-linq-expressions-expression)">ExpressionVisitor.Visit(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visit#system-linq-expressions-expressionvisitor-visit-1(system-collections-objectmodel-readonlycollection((-0))-system-func((-0-0)))">ExpressionVisitor.Visit&lt;T&gt;(ReadOnlyCollection&lt;T&gt;, Func&lt;T, T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitandconvert#system-linq-expressions-expressionvisitor-visitandconvert-1(-0-system-string)">ExpressionVisitor.VisitAndConvert&lt;T&gt;(T, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitandconvert#system-linq-expressions-expressionvisitor-visitandconvert-1(system-collections-objectmodel-readonlycollection((-0))-system-string)">ExpressionVisitor.VisitAndConvert&lt;T&gt;(ReadOnlyCollection&lt;T&gt;, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitbinary#system-linq-expressions-expressionvisitor-visitbinary(system-linq-expressions-binaryexpression)">ExpressionVisitor.VisitBinary(BinaryExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitblock#system-linq-expressions-expressionvisitor-visitblock(system-linq-expressions-blockexpression)">ExpressionVisitor.VisitBlock(BlockExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitcatchblock#system-linq-expressions-expressionvisitor-visitcatchblock(system-linq-expressions-catchblock)">ExpressionVisitor.VisitCatchBlock(CatchBlock)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitconditional#system-linq-expressions-expressionvisitor-visitconditional(system-linq-expressions-conditionalexpression)">ExpressionVisitor.VisitConditional(ConditionalExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitconstant#system-linq-expressions-expressionvisitor-visitconstant(system-linq-expressions-constantexpression)">ExpressionVisitor.VisitConstant(ConstantExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitdebuginfo#system-linq-expressions-expressionvisitor-visitdebuginfo(system-linq-expressions-debuginfoexpression)">ExpressionVisitor.VisitDebugInfo(DebugInfoExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitdefault#system-linq-expressions-expressionvisitor-visitdefault(system-linq-expressions-defaultexpression)">ExpressionVisitor.VisitDefault(DefaultExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitdynamic#system-linq-expressions-expressionvisitor-visitdynamic(system-linq-expressions-dynamicexpression)">ExpressionVisitor.VisitDynamic(DynamicExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitelementinit#system-linq-expressions-expressionvisitor-visitelementinit(system-linq-expressions-elementinit)">ExpressionVisitor.VisitElementInit(ElementInit)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitextension#system-linq-expressions-expressionvisitor-visitextension(system-linq-expressions-expression)">ExpressionVisitor.VisitExtension(Expression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitgoto#system-linq-expressions-expressionvisitor-visitgoto(system-linq-expressions-gotoexpression)">ExpressionVisitor.VisitGoto(GotoExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitindex#system-linq-expressions-expressionvisitor-visitindex(system-linq-expressions-indexexpression)">ExpressionVisitor.VisitIndex(IndexExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitinvocation#system-linq-expressions-expressionvisitor-visitinvocation(system-linq-expressions-invocationexpression)">ExpressionVisitor.VisitInvocation(InvocationExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitlabel#system-linq-expressions-expressionvisitor-visitlabel(system-linq-expressions-labelexpression)">ExpressionVisitor.VisitLabel(LabelExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitlabeltarget#system-linq-expressions-expressionvisitor-visitlabeltarget(system-linq-expressions-labeltarget)">ExpressionVisitor.VisitLabelTarget(LabelTarget)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitlambda#system-linq-expressions-expressionvisitor-visitlambda-1(system-linq-expressions-expression((-0)))">ExpressionVisitor.VisitLambda&lt;T&gt;(Expression&lt;T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitlistinit#system-linq-expressions-expressionvisitor-visitlistinit(system-linq-expressions-listinitexpression)">ExpressionVisitor.VisitListInit(ListInitExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitloop#system-linq-expressions-expressionvisitor-visitloop(system-linq-expressions-loopexpression)">ExpressionVisitor.VisitLoop(LoopExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmemberassignment#system-linq-expressions-expressionvisitor-visitmemberassignment(system-linq-expressions-memberassignment)">ExpressionVisitor.VisitMemberAssignment(MemberAssignment)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmemberbinding#system-linq-expressions-expressionvisitor-visitmemberbinding(system-linq-expressions-memberbinding)">ExpressionVisitor.VisitMemberBinding(MemberBinding)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmemberinit#system-linq-expressions-expressionvisitor-visitmemberinit(system-linq-expressions-memberinitexpression)">ExpressionVisitor.VisitMemberInit(MemberInitExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmemberlistbinding#system-linq-expressions-expressionvisitor-visitmemberlistbinding(system-linq-expressions-memberlistbinding)">ExpressionVisitor.VisitMemberListBinding(MemberListBinding)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmembermemberbinding#system-linq-expressions-expressionvisitor-visitmembermemberbinding(system-linq-expressions-membermemberbinding)">ExpressionVisitor.VisitMemberMemberBinding(MemberMemberBinding)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmethodcall#system-linq-expressions-expressionvisitor-visitmethodcall(system-linq-expressions-methodcallexpression)">ExpressionVisitor.VisitMethodCall(MethodCallExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitnew#system-linq-expressions-expressionvisitor-visitnew(system-linq-expressions-newexpression)">ExpressionVisitor.VisitNew(NewExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitnewarray#system-linq-expressions-expressionvisitor-visitnewarray(system-linq-expressions-newarrayexpression)">ExpressionVisitor.VisitNewArray(NewArrayExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitparameter#system-linq-expressions-expressionvisitor-visitparameter(system-linq-expressions-parameterexpression)">ExpressionVisitor.VisitParameter(ParameterExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitruntimevariables#system-linq-expressions-expressionvisitor-visitruntimevariables(system-linq-expressions-runtimevariablesexpression)">ExpressionVisitor.VisitRuntimeVariables(RuntimeVariablesExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitswitch#system-linq-expressions-expressionvisitor-visitswitch(system-linq-expressions-switchexpression)">ExpressionVisitor.VisitSwitch(SwitchExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitswitchcase#system-linq-expressions-expressionvisitor-visitswitchcase(system-linq-expressions-switchcase)">ExpressionVisitor.VisitSwitchCase(SwitchCase)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visittry#system-linq-expressions-expressionvisitor-visittry(system-linq-expressions-tryexpression)">ExpressionVisitor.VisitTry(TryExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visittypebinary#system-linq-expressions-expressionvisitor-visittypebinary(system-linq-expressions-typebinaryexpression)">ExpressionVisitor.VisitTypeBinary(TypeBinaryExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitunary#system-linq-expressions-expressionvisitor-visitunary(system-linq-expressions-unaryexpression)">ExpressionVisitor.VisitUnary(UnaryExpression)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_MemberInfoResolver_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MemberInfoResolver : ExpressionVisitor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MemberInfoResolver__ctor_System_Linq_Expressions_Expression_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MemberInfoResolver.%23ctor(System.Linq.Expressions.Expression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/MemberInfoResolver.cs/#L41">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MemberInfoResolver__ctor_" data-uid="OpenSearch.Client.MemberInfoResolver.#ctor*"></a>
+  <h4 id="OpenSearch_Client_MemberInfoResolver__ctor_System_Linq_Expressions_Expression_" data-uid="OpenSearch.Client.MemberInfoResolver.#ctor(System.Linq.Expressions.Expression)">MemberInfoResolver(Expression)</h4>
+  <div class="markdown level1 summary"><p>Resolves member infos in an expression, instance may NOT be shared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MemberInfoResolver(Expression expression)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MemberInfoResolver_Members.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MemberInfoResolver.Members%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/MemberInfoResolver.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MemberInfoResolver_Members_" data-uid="OpenSearch.Client.MemberInfoResolver.Members*"></a>
+  <h4 id="OpenSearch_Client_MemberInfoResolver_Members" data-uid="OpenSearch.Client.MemberInfoResolver.Members">Members</h4>
+  <div class="markdown level1 summary"><p>Resolves member infos in an expression, instance may NOT be shared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList&lt;MemberInfo&gt; Members { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.memberinfo">MemberInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MemberInfoResolver_VisitMember_System_Linq_Expressions_MemberExpression_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MemberInfoResolver.VisitMember(System.Linq.Expressions.MemberExpression)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/MemberInfoResolver.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_MemberInfoResolver_VisitMember_" data-uid="OpenSearch.Client.MemberInfoResolver.VisitMember*"></a>
+  <h4 id="OpenSearch_Client_MemberInfoResolver_VisitMember_System_Linq_Expressions_MemberExpression_" data-uid="OpenSearch.Client.MemberInfoResolver.VisitMember(System.Linq.Expressions.MemberExpression)">VisitMember(MemberExpression)</h4>
+  <div class="markdown level1 summary"><p>Resolves member infos in an expression, instance may NOT be shared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Expression VisitMember(MemberExpression expression)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.memberexpression">MemberExpression</a></td>
+        <td><span class="parametername">expression</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression">Expression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expressionvisitor.visitmember#system-linq-expressions-expressionvisitor-visitmember(system-linq-expressions-memberexpression)">ExpressionVisitor.VisitMember(MemberExpression)</a></div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_MemberInfoResolver.md&amp;value=---%0Auid%3A%20OpenSearch.Client.MemberInfoResolver%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/ConnectionSettings/MemberInfoResolver.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

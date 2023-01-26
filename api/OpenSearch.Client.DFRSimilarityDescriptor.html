@@ -1,0 +1,887 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DFRSimilarityDescriptor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DFRSimilarityDescriptor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.DFRSimilarityDescriptor">
+
+
+  <h1 id="OpenSearch_Client_DFRSimilarityDescriptor" data-uid="OpenSearch.Client.DFRSimilarityDescriptor" class="text-break">Class DFRSimilarityDescriptor
+</h1>
+  <div class="markdown level0 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a>, <a class="xref" href="OpenSearch.Client.IDFRSimilarity.html">IDFRSimilarity</a>&gt;</div>
+    <div class="level2"><span class="xref">DFRSimilarityDescriptor</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IDFRSimilarity.html">IDFRSimilarity</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ISimilarity.html">ISimilarity</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;DFRSimilarityDescriptor, IDFRSimilarity&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;DFRSimilarityDescriptor, IDFRSimilarity&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;IDFRSimilarity, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_DFRSimilarityDescriptor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DFRSimilarityDescriptor : DescriptorBase&lt;DFRSimilarityDescriptor, IDFRSimilarity&gt;, IDescriptor, IDFRSimilarity, ISimilarity</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_AfterEffect_System_Nullable_OpenSearch_Client_DFRAfterEffect__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.AfterEffect(System.Nullable%7BOpenSearch.Client.DFRAfterEffect%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L136">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_AfterEffect_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.AfterEffect*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_AfterEffect_System_Nullable_OpenSearch_Client_DFRAfterEffect__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.AfterEffect(System.Nullable{OpenSearch.Client.DFRAfterEffect})">AfterEffect(Nullable&lt;DFRAfterEffect&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor AfterEffect(DFRAfterEffect? afterEffect)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DFRAfterEffect.html">DFRAfterEffect</a>&gt;</td>
+        <td><span class="parametername">afterEffect</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_BasicModel_System_Nullable_OpenSearch_Client_DFRBasicModel__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.BasicModel(System.Nullable%7BOpenSearch.Client.DFRBasicModel%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_BasicModel_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.BasicModel*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_BasicModel_System_Nullable_OpenSearch_Client_DFRBasicModel__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.BasicModel(System.Nullable{OpenSearch.Client.DFRBasicModel})">BasicModel(Nullable&lt;DFRBasicModel&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor BasicModel(DFRBasicModel? model)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DFRBasicModel.html">DFRBasicModel</a>&gt;</td>
+        <td><span class="parametername">model</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_NoNormalization.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.NoNormalization%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_NoNormalization_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NoNormalization*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_NoNormalization" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NoNormalization">NoNormalization()</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor NoNormalization()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH1_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH1(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L145">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH1_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH1*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH1_System_Nullable_System_Double__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH1(System.Nullable{System.Double})">NormalizationH1(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Normalization model that assumes a uniform distribution of the term frequency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor NormalizationH1(double? c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">c</span></td>
+        <td><p>hyper-parameter that controls the term frequency normalization with respect to the document length.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH2_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH2(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L155">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH2_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH2*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH2_System_Nullable_System_Double__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH2(System.Nullable{System.Double})">NormalizationH2(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Normalization model in which the term frequency is inversely related to the length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor NormalizationH2(double? c)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">c</span></td>
+        <td><p>hyper-parameter that controls the term frequency normalization with respect to the document length.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH3_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH3(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH3_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH3*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationH3_System_Nullable_System_Double__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationH3(System.Nullable{System.Double})">NormalizationH3(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Dirichlet Priors normalization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor NormalizationH3(double? mu)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">mu</span></td>
+        <td><p>smoothing parameter μ.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_NormalizationZ_System_Nullable_System_Double__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.NormalizationZ(System.Nullable%7BSystem.Double%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L173">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationZ_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationZ*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_NormalizationZ_System_Nullable_System_Double__" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.NormalizationZ(System.Nullable{System.Double})">NormalizationZ(Nullable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Pareto-Zipf Normalization</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DFRSimilarityDescriptor NormalizationZ(double? z)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><span class="parametername">z</span></td>
+        <td><p>represents A/(A+1) where A measures the specificity of the language..</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DFRSimilarityDescriptor.html">DFRSimilarityDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_AfterEffect.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23AfterEffect%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_AfterEffect_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#AfterEffect*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_AfterEffect" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#AfterEffect">IDFRSimilarity.AfterEffect</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DFRAfterEffect? IDFRSimilarity.AfterEffect { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DFRAfterEffect.html">DFRAfterEffect</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_BasicModel.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23BasicModel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L124">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_BasicModel_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#BasicModel*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_BasicModel" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#BasicModel">IDFRSimilarity.BasicModel</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DFRBasicModel? IDFRSimilarity.BasicModel { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DFRBasicModel.html">DFRBasicModel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_Normalization.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23Normalization%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_Normalization_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#Normalization*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_Normalization" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#Normalization">IDFRSimilarity.Normalization</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Normalization? IDFRSimilarity.Normalization { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.Normalization.html">Normalization</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH1C.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23NormalizationH1C%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L126">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH1C_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH1C*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH1C" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH1C">IDFRSimilarity.NormalizationH1C</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? IDFRSimilarity.NormalizationH1C { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH2C.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23NormalizationH2C%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L127">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH2C_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH2C*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH2C" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH2C">IDFRSimilarity.NormalizationH2C</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? IDFRSimilarity.NormalizationH2C { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH3C.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23NormalizationH3C%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L128">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH3C_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH3C*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationH3C" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationH3C">IDFRSimilarity.NormalizationH3C</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? IDFRSimilarity.NormalizationH3C { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationZZ.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23IDFRSimilarity%23NormalizationZZ%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L129">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationZZ_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationZZ*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_IDFRSimilarity_NormalizationZZ" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#IDFRSimilarity#NormalizationZZ">IDFRSimilarity.NormalizationZZ</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? IDFRSimilarity.NormalizationZZ { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_ISimilarity_Type.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch%23Client%23ISimilarity%23Type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L130">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_ISimilarity_Type_" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#ISimilarity#Type*"></a>
+  <h4 id="OpenSearch_Client_DFRSimilarityDescriptor_OpenSearch_Client_ISimilarity_Type" data-uid="OpenSearch.Client.DFRSimilarityDescriptor.OpenSearch#Client#ISimilarity#Type">ISimilarity.Type</h4>
+  <div class="markdown level1 summary"><p>Implements the divergence from randomness (DFR) framework introduced in Gianni Amati and Cornelis Joost Van Rijsbergen.
+2002.
+Probabilistic models of information retrieval based on measuring the divergence from randomness. ACM Trans. Inf. Syst.
+20, 4 (October
+2002), 357-389.
+The DFR scoring formula is composed of three separate components: the basic model, the aftereffect and an additional
+normalization
+component,
+represented by the classes BasicModel, AfterEffect and Normalization, respectively.The names of these classes were
+chosen to match the
+names of their counterparts in the Terrier IR engine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ISimilarity.Type { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDFRSimilarity.html">IDFRSimilarity</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISimilarity.html">ISimilarity</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DFRSimilarityDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DFRSimilarityDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/IndexModules/Similarity/DFR/DFRSimilarity.cs/#L120" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

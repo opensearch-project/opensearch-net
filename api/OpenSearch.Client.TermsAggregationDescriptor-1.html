@@ -1,0 +1,1411 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TermsAggregationDescriptor&lt;T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TermsAggregationDescriptor&lt;T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1">
+
+
+  <h1 id="OpenSearch_Client_TermsAggregationDescriptor_1" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1" class="text-break">Class TermsAggregationDescriptor&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html">BucketAggregationDescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.ITermsAggregation.html">ITermsAggregation</a>, T&gt;</div>
+    <div class="level2"><span class="xref">TermsAggregationDescriptor&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ITermsAggregation.html">ITermsAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Self">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IBucketAggregation_Aggregations">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.IBucketAggregation.Aggregations</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IAggregation_Meta">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.IAggregation.Meta</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IAggregation_Name">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.IAggregation.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Assign__1___0_System_Action__1___0__">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;ITermsAggregation, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Aggregations_System_Func_OpenSearch_Client_AggregationContainerDescriptor__2__OpenSearch_Client_IAggregationContainer__">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.Aggregations(Func&lt;AggregationContainerDescriptor&lt;T&gt;, IAggregationContainer&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Aggregations_OpenSearch_Client_AggregationDictionary_">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.Aggregations(AggregationDictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Meta_System_Func_OpenSearch_Client_FluentDictionary_System_String_System_Object__OpenSearch_Client_FluentDictionary_System_String_System_Object___">BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;.Meta(Func&lt;FluentDictionary&lt;String, Object&gt;, FluentDictionary&lt;String, Object&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_TermsAggregationDescriptor_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TermsAggregationDescriptor&lt;T&gt; : BucketAggregationDescriptorBase&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation, T&gt;, IDescriptor, ITermsAggregation, IBucketAggregation, IAggregation where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_CollectMode_System_Nullable_OpenSearch_Client_TermsAggregationCollectMode__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.CollectMode(System.Nullable%7BOpenSearch.Client.TermsAggregationCollectMode%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L164">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_CollectMode_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.CollectMode*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_CollectMode_System_Nullable_OpenSearch_Client_TermsAggregationCollectMode__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.CollectMode(System.Nullable{OpenSearch.Client.TermsAggregationCollectMode})">CollectMode(Nullable&lt;TermsAggregationCollectMode&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; CollectMode(TermsAggregationCollectMode? collectMode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationCollectMode.html">TermsAggregationCollectMode</a>&gt;</td>
+        <td><span class="parametername">collectMode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Exclude(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L161">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Exclude*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_System_Collections_Generic_IEnumerable_System_String__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Exclude(System.Collections.Generic.IEnumerable{System.String})">Exclude(IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Exclude(IEnumerable&lt;string&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Exclude(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L158">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Exclude*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Exclude_System_String_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Exclude(System.String)">Exclude(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Exclude(string excludePattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">excludePattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_ExecutionHint_System_Nullable_OpenSearch_Client_TermsAggregationExecutionHint__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.ExecutionHint(System.Nullable%7BOpenSearch.Client.TermsAggregationExecutionHint%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L143">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_ExecutionHint_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ExecutionHint*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_ExecutionHint_System_Nullable_OpenSearch_Client_TermsAggregationExecutionHint__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ExecutionHint(System.Nullable{OpenSearch.Client.TermsAggregationExecutionHint})">ExecutionHint(Nullable&lt;TermsAggregationExecutionHint&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; ExecutionHint(TermsAggregationExecutionHint? executionHint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationExecutionHint.html">TermsAggregationExecutionHint</a>&gt;</td>
+        <td><span class="parametername">executionHint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Field_OpenSearch_Client_Field_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Field(OpenSearch.Client.Field)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L127">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Field_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Field*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Field_OpenSearch_Client_Field_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Field(OpenSearch.Client.Field)">Field(Field)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Field(Field field)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td><span class="parametername">field</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Field%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L129">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Field_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Field*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0___" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Field``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; field)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TValue&gt;&gt;</td>
+        <td><span class="parametername">field</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_Collections_Generic_IEnumerable_System_String__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Include(System.Collections.Generic.IEnumerable%7BSystem.String%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L155">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_Collections_Generic_IEnumerable_System_String__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include(System.Collections.Generic.IEnumerable{System.String})">Include(IEnumerable&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Include(IEnumerable&lt;string&gt; values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_Int64_System_Int64_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Include(System.Int64%2CSystem.Int64)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L149">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_Int64_System_Int64_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include(System.Int64,System.Int64)">Include(Int64, Int64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Include(long partition, long numberOfPartitions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td><span class="parametername">partition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td><span class="parametername">numberOfPartitions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Include(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L152">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Include_System_String_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Include(System.String)">Include(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Include(string includePattern)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">includePattern</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_MinimumDocumentCount_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.MinimumDocumentCount(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L140">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_MinimumDocumentCount_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.MinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_MinimumDocumentCount_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.MinimumDocumentCount(System.Nullable{System.Int32})">MinimumDocumentCount(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; MinimumDocumentCount(int? minimumDocumentCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">minimumDocumentCount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Missing_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Missing(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L167">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Missing_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Missing*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Missing_System_Object_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Missing(System.Object)">Missing(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Missing(object missing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">missing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Order_System_Func_OpenSearch_Client_TermsOrderDescriptor__0__OpenSearch_Client_IPromise_System_Collections_Generic_IList_OpenSearch_Client_TermsOrder____.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Order(System.Func%7BOpenSearch.Client.TermsOrderDescriptor%7B%600%7D%2COpenSearch.Client.IPromise%7BSystem.Collections.Generic.IList%7BOpenSearch.Client.TermsOrder%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L146">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Order_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Order*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Order_System_Func_OpenSearch_Client_TermsOrderDescriptor__0__OpenSearch_Client_IPromise_System_Collections_Generic_IList_OpenSearch_Client_TermsOrder____" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Order(System.Func{OpenSearch.Client.TermsOrderDescriptor{`0},OpenSearch.Client.IPromise{System.Collections.Generic.IList{OpenSearch.Client.TermsOrder}}})">Order(Func&lt;TermsOrderDescriptor&lt;T&gt;, IPromise&lt;IList&lt;TermsOrder&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Order(Func&lt;TermsOrderDescriptor&lt;T&gt;, IPromise&lt;IList&lt;TermsOrder&gt;&gt;&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.TermsOrderDescriptor-1.html">TermsOrderDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.IPromise-1.html">IPromise</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="OpenSearch.Client.TermsOrder.html">TermsOrder</a>&gt;&gt;&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Script(System.Func%7BOpenSearch.Client.ScriptDescriptor%2COpenSearch.Client.IScript%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L133">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Script_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Script*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Script(System.Func{OpenSearch.Client.ScriptDescriptor,OpenSearch.Client.IScript})">Script(Func&lt;ScriptDescriptor, IScript&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Script(Func&lt;ScriptDescriptor, IScript&gt; scriptSelector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.ScriptDescriptor.html">ScriptDescriptor</a>, <a class="xref" href="OpenSearch.Client.IScript.html">IScript</a>&gt;</td>
+        <td><span class="parametername">scriptSelector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Script_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Script(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L131">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Script_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Script*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Script_System_String_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Script(System.String)">Script(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Script(string script)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">script</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_ShardSize_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.ShardSize(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L138">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_ShardSize_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ShardSize*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_ShardSize_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ShardSize(System.Nullable{System.Int32})">ShardSize(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; ShardSize(int? shardSize)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">shardSize</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_ShowTermDocCountError_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.ShowTermDocCountError(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L169">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_ShowTermDocCountError_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ShowTermDocCountError*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_ShowTermDocCountError_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.ShowTermDocCountError(System.Nullable{System.Boolean})">ShowTermDocCountError(Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; ShowTermDocCountError(bool? showTermDocCountError = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">showTermDocCountError</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_Size_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.Size(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L136">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_Size_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Size*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_Size_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.Size(System.Nullable{System.Int32})">Size(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregationDescriptor&lt;T&gt; Size(int? size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">size</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregationDescriptor-1.html">TermsAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_CollectMode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23CollectMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_CollectMode_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#CollectMode*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_CollectMode" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#CollectMode">ITermsAggregation.CollectMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TermsAggregationCollectMode? ITermsAggregation.CollectMode { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationCollectMode.html">TermsAggregationCollectMode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Exclude.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Exclude%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L106">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Exclude_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Exclude*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Exclude" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Exclude">ITermsAggregation.Exclude</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TermsExclude ITermsAggregation.Exclude { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsExclude.html">TermsExclude</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ExecutionHint.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23ExecutionHint%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ExecutionHint_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ExecutionHint*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ExecutionHint" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ExecutionHint">ITermsAggregation.ExecutionHint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TermsAggregationExecutionHint? ITermsAggregation.ExecutionHint { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TermsAggregationExecutionHint.html">TermsAggregationExecutionHint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Field.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Field%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L109">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Field_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Field*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Field" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Field">ITermsAggregation.Field</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field ITermsAggregation.Field { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Include.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Include%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L111">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Include_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Include*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Include" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Include">ITermsAggregation.Include</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TermsInclude ITermsAggregation.Include { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsInclude.html">TermsInclude</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_MinimumDocumentCount.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23MinimumDocumentCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_MinimumDocumentCount_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#MinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_MinimumDocumentCount" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#MinimumDocumentCount">ITermsAggregation.MinimumDocumentCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? ITermsAggregation.MinimumDocumentCount { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Missing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Missing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L115">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Missing_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Missing*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Missing" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Missing">ITermsAggregation.Missing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ITermsAggregation.Missing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Order.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Order%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L117">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Order_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Order*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Order" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Order">ITermsAggregation.Order</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;TermsOrder&gt; ITermsAggregation.Order { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="OpenSearch.Client.TermsOrder.html">TermsOrder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Script.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Script%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Script_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Script*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Script" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Script">ITermsAggregation.Script</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IScript ITermsAggregation.Script { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScript.html">IScript</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShardSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23ShardSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L121">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShardSize_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ShardSize*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShardSize" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ShardSize">ITermsAggregation.ShardSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? ITermsAggregation.ShardSize { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShowTermDocCountError.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23ShowTermDocCountError%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShowTermDocCountError_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ShowTermDocCountError*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_ShowTermDocCountError" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#ShowTermDocCountError">ITermsAggregation.ShowTermDocCountError</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool? ITermsAggregation.ShowTermDocCountError { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Size.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601.OpenSearch%23Client%23ITermsAggregation%23Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Size_" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Size*"></a>
+  <h4 id="OpenSearch_Client_TermsAggregationDescriptor_1_OpenSearch_Client_ITermsAggregation_Size" data-uid="OpenSearch.Client.TermsAggregationDescriptor`1.OpenSearch#Client#ITermsAggregation#Size">ITermsAggregation.Size</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? ITermsAggregation.Size { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ITermsAggregation.html">ITermsAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsAggregationDescriptor_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsAggregationDescriptor%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/Terms/TermsAggregation.cs/#L100" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

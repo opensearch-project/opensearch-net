@@ -1,0 +1,595 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AwsSigV4HttpConnection
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AwsSigV4HttpConnection
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection">
+
+
+  <h1 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection" class="text-break">Class AwsSigV4HttpConnection
+</h1>
+  <div class="markdown level0 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Net.HttpConnection.html">HttpConnection</a></div>
+    <div class="level2"><span class="xref">AwsSigV4HttpConnection</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_InUseHandlers">HttpConnection.InUseHandlers</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_RemovedHandlers">HttpConnection.RemovedHandlers</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_Request__1_OpenSearch_Net_RequestData_">HttpConnection.Request&lt;TResponse&gt;(RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_RequestAsync__1_OpenSearch_Net_RequestData_System_Threading_CancellationToken_">HttpConnection.RequestAsync&lt;TResponse&gt;(RequestData, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_System_IDisposable_Dispose">HttpConnection.IDisposable.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_CreateHttpRequestMessage_OpenSearch_Net_RequestData_">HttpConnection.CreateHttpRequestMessage(RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_SetAuthenticationIfNeeded_System_Net_Http_HttpRequestMessage_OpenSearch_Net_RequestData_">HttpConnection.SetAuthenticationIfNeeded(HttpRequestMessage, RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_SetApiKeyAuthenticationIfNeeded_System_Net_Http_HttpRequestMessage_OpenSearch_Net_RequestData_">HttpConnection.SetApiKeyAuthenticationIfNeeded(HttpRequestMessage, RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_SetBasicAuthenticationIfNeeded_System_Net_Http_HttpRequestMessage_OpenSearch_Net_RequestData_">HttpConnection.SetBasicAuthenticationIfNeeded(HttpRequestMessage, RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_CreateRequestMessage_OpenSearch_Net_RequestData_">HttpConnection.CreateRequestMessage(RequestData)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_DisposeManagedResources">HttpConnection.DisposeManagedResources()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.Auth.AwsSigV4.html">OpenSearch.Net.Auth.AwsSigV4</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.Auth.AwsSigV4.dll</h6>
+  <h5 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AwsSigV4HttpConnection : HttpConnection, IConnection, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.%23ctor(Amazon.RegionEndpoint%2CSystem.String%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor(Amazon.RegionEndpoint,System.String,OpenSearch.Net.IDateTimeProvider)">AwsSigV4HttpConnection(RegionEndpoint, String, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>Construct a new connection configured with a specified region and using credentials discovered from the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(RegionEndpoint region, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Amazon.RegionEndpoint</span></td>
+        <td><span class="parametername">region</span></td>
+        <td><p>The region to use when signing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">service</span></td>
+        <td><p>The service code to use when signing, defaults to the service code for the Amazon OpenSearch Service (<code>&quot;es&quot;</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td><p>The date time proved to use, safe to pass null to use the default</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.html#OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_">AwsSigV4HttpConnection(AWSCredentials, RegionEndpoint, String, IDateTimeProvider)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.%23ctor(Amazon.Runtime.AWSCredentials%2CAmazon.RegionEndpoint%2CSystem.String%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor(Amazon.Runtime.AWSCredentials,Amazon.RegionEndpoint,System.String,OpenSearch.Net.IDateTimeProvider)">AwsSigV4HttpConnection(AWSCredentials, RegionEndpoint, String, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>Construct a new connection configured with the given credentials and region.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Amazon.Runtime.AWSCredentials</span></td>
+        <td><span class="parametername">credentials</span></td>
+        <td><p>The credentials to use when signing, or null to have them discovered automatically by the AWS SDK.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Amazon.RegionEndpoint</span></td>
+        <td><span class="parametername">region</span></td>
+        <td><p>The region to use when signing, or null to have it discovered automatically by the AWS SDK.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">service</span></td>
+        <td><p>The service code to use when signing, defaults to the service code for the Amazon OpenSearch Service (<code>&quot;es&quot;</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td><p>The date time proved to use, safe to pass null to use the default</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The same logic as the <a href="https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/creds-assign.html">AWS SDK for .NET</a>
+is used to automatically discover the credentials and region to use if not provided explicitly.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if region is null and is unable to be automatically discovered by the AWS SDK.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_System_String_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.%23ctor(Amazon.Runtime.AWSCredentials%2CSystem.String%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L42">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_System_String_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor(Amazon.Runtime.AWSCredentials,System.String,OpenSearch.Net.IDateTimeProvider)">AwsSigV4HttpConnection(AWSCredentials, String, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>Construct a new connection configured with the specified credentials and using the region discovered from the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(AWSCredentials credentials, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Amazon.Runtime.AWSCredentials</span></td>
+        <td><span class="parametername">credentials</span></td>
+        <td><p>The credentials to use when signing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">service</span></td>
+        <td><p>The service code to use when signing, defaults to the service code for the Amazon OpenSearch Service (<code>&quot;es&quot;</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td><p>The date time proved to use, safe to pass null to use the default</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_System_String_OpenSearch_Net_IDateTimeProvider__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.html#OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_">AwsSigV4HttpConnection(AWSCredentials, RegionEndpoint, String, IDateTimeProvider)</a></div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_System_String_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.%23ctor(System.String%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L33">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_System_String_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.#ctor(System.String,OpenSearch.Net.IDateTimeProvider)">AwsSigV4HttpConnection(String, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>Construct a new connection discovering both the credentials and region from the environment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">service</span></td>
+        <td><p>The service code to use when signing, defaults to the service code for the Amazon OpenSearch Service (<code>&quot;es&quot;</code>).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td><p>The date time proved to use, safe to pass null to use the default</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_System_String_OpenSearch_Net_IDateTimeProvider__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.html#OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection__ctor_Amazon_Runtime_AWSCredentials_Amazon_RegionEndpoint_System_String_OpenSearch_Net_IDateTimeProvider_">AwsSigV4HttpConnection(AWSCredentials, RegionEndpoint, String, IDateTimeProvider)</a></div>
+  </div>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_OpenSearchServerlessService.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.OpenSearchServerlessService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L20">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_OpenSearchServerlessService" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.OpenSearchServerlessService">OpenSearchServerlessService</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string OpenSearchServerlessService = &quot;aoss&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_OpenSearchService.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.OpenSearchService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L19">View Source</a>
+  </span>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_OpenSearchService" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.OpenSearchService">OpenSearchService</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string OpenSearchService = &quot;es&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_CreateHttpClientHandler_OpenSearch_Net_RequestData_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.CreateHttpClientHandler(OpenSearch.Net.RequestData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_CreateHttpClientHandler_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.CreateHttpClientHandler*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_CreateHttpClientHandler_OpenSearch_Net_RequestData_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.CreateHttpClientHandler(OpenSearch.Net.RequestData)">CreateHttpClientHandler(RequestData)</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">requestData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Net.HttpConnection.html#OpenSearch_Net_HttpConnection_CreateHttpClientHandler_OpenSearch_Net_RequestData_">HttpConnection.CreateHttpClientHandler(RequestData)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_InnerCreateHttpClientHandler_OpenSearch_Net_RequestData_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.InnerCreateHttpClientHandler(OpenSearch.Net.RequestData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_InnerCreateHttpClientHandler_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.InnerCreateHttpClientHandler*"></a>
+  <h4 id="OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection_InnerCreateHttpClientHandler_OpenSearch_Net_RequestData_" data-uid="OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection.InnerCreateHttpClientHandler(OpenSearch.Net.RequestData)">InnerCreateHttpClientHandler(RequestData)</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation that performs AWS SigV4 request signing, for performing authentication with Amazon Managed OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual HttpMessageHandler InnerCreateHttpClientHandler(RequestData requestData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">requestData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpmessagehandler">HttpMessageHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Auth_AwsSigV4_AwsSigV4HttpConnection.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Auth.AwsSigV4.AwsSigV4HttpConnection%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net.Auth.AwsSigV4/AwsSigV4HttpConnection.cs/#L17" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

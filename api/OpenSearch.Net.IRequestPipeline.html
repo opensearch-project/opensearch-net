@@ -1,0 +1,1191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IRequestPipeline
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IRequestPipeline
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.IRequestPipeline">
+
+
+  <h1 id="OpenSearch_Net_IRequestPipeline" data-uid="OpenSearch.Net.IRequestPipeline" class="text-break">Interface IRequestPipeline
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">IDisposable.Dispose()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_IRequestPipeline_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRequestPipeline : IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_AuditTrail.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.AuditTrail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L38">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_AuditTrail_" data-uid="OpenSearch.Net.IRequestPipeline.AuditTrail*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_AuditTrail" data-uid="OpenSearch.Net.IRequestPipeline.AuditTrail">AuditTrail</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;Audit&gt; AuditTrail { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="OpenSearch.Net.Audit.html">Audit</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_FirstPoolUsageNeedsSniffing.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.FirstPoolUsageNeedsSniffing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L39">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_FirstPoolUsageNeedsSniffing_" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsageNeedsSniffing*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_FirstPoolUsageNeedsSniffing" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsageNeedsSniffing">FirstPoolUsageNeedsSniffing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool FirstPoolUsageNeedsSniffing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_IsTakingTooLong.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.IsTakingTooLong%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L40">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_IsTakingTooLong_" data-uid="OpenSearch.Net.IRequestPipeline.IsTakingTooLong*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_IsTakingTooLong" data-uid="OpenSearch.Net.IRequestPipeline.IsTakingTooLong">IsTakingTooLong</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsTakingTooLong { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_MaxRetries.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.MaxRetries%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L41">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_MaxRetries_" data-uid="OpenSearch.Net.IRequestPipeline.MaxRetries*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_MaxRetries" data-uid="OpenSearch.Net.IRequestPipeline.MaxRetries">MaxRetries</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int MaxRetries { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_Retried.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.Retried%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_Retried_" data-uid="OpenSearch.Net.IRequestPipeline.Retried*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_Retried" data-uid="OpenSearch.Net.IRequestPipeline.Retried">Retried</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int Retried { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffsOnConnectionFailure.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffsOnConnectionFailure%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L44">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffsOnConnectionFailure_" data-uid="OpenSearch.Net.IRequestPipeline.SniffsOnConnectionFailure*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffsOnConnectionFailure" data-uid="OpenSearch.Net.IRequestPipeline.SniffsOnConnectionFailure">SniffsOnConnectionFailure</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool SniffsOnConnectionFailure { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffsOnStaleCluster.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffsOnStaleCluster%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffsOnStaleCluster_" data-uid="OpenSearch.Net.IRequestPipeline.SniffsOnStaleCluster*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffsOnStaleCluster" data-uid="OpenSearch.Net.IRequestPipeline.SniffsOnStaleCluster">SniffsOnStaleCluster</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool SniffsOnStaleCluster { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_StaleClusterState.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.StaleClusterState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L46">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_StaleClusterState_" data-uid="OpenSearch.Net.IRequestPipeline.StaleClusterState*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_StaleClusterState" data-uid="OpenSearch.Net.IRequestPipeline.StaleClusterState">StaleClusterState</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool StaleClusterState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_StartedOn.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.StartedOn%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L48">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_StartedOn_" data-uid="OpenSearch.Net.IRequestPipeline.StartedOn*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_StartedOn" data-uid="OpenSearch.Net.IRequestPipeline.StartedOn">StartedOn</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTime StartedOn { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_AuditCancellationRequested.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.AuditCancellationRequested%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_AuditCancellationRequested_" data-uid="OpenSearch.Net.IRequestPipeline.AuditCancellationRequested*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_AuditCancellationRequested" data-uid="OpenSearch.Net.IRequestPipeline.AuditCancellationRequested">AuditCancellationRequested()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AuditCancellationRequested()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_BadResponse__1___0__OpenSearch_Net_IApiCallDetails_OpenSearch_Net_RequestData_OpenSearch_Net_OpenSearchClientException_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.BadResponse%60%601(%60%600%40%2COpenSearch.Net.IApiCallDetails%2COpenSearch.Net.RequestData%2COpenSearch.Net.OpenSearchClientException)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L82">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_BadResponse_" data-uid="OpenSearch.Net.IRequestPipeline.BadResponse*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_BadResponse__1___0__OpenSearch_Net_IApiCallDetails_OpenSearch_Net_RequestData_OpenSearch_Net_OpenSearchClientException_" data-uid="OpenSearch.Net.IRequestPipeline.BadResponse``1(``0@,OpenSearch.Net.IApiCallDetails,OpenSearch.Net.RequestData,OpenSearch.Net.OpenSearchClientException)">BadResponse&lt;TResponse&gt;(ref TResponse, IApiCallDetails, RequestData, OpenSearchClientException)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BadResponse&lt;TResponse&gt;(ref TResponse response, IApiCallDetails callDetails, RequestData data, OpenSearchClientException exception)
+    where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td><span class="parametername">response</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IApiCallDetails.html">IApiCallDetails</a></td>
+        <td><span class="parametername">callDetails</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.OpenSearchClientException.html">OpenSearchClientException</a></td>
+        <td><span class="parametername">exception</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_CallOpenSearch__1_OpenSearch_Net_RequestData_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.CallOpenSearch%60%601(OpenSearch.Net.RequestData)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L50">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_CallOpenSearch_" data-uid="OpenSearch.Net.IRequestPipeline.CallOpenSearch*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_CallOpenSearch__1_OpenSearch_Net_RequestData_" data-uid="OpenSearch.Net.IRequestPipeline.CallOpenSearch``1(OpenSearch.Net.RequestData)">CallOpenSearch&lt;TResponse&gt;(RequestData)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TResponse CallOpenSearch&lt;TResponse&gt;(RequestData requestData)
+    where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">requestData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_CallOpenSearchAsync__1_OpenSearch_Net_RequestData_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.CallOpenSearchAsync%60%601(OpenSearch.Net.RequestData%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_CallOpenSearchAsync_" data-uid="OpenSearch.Net.IRequestPipeline.CallOpenSearchAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_CallOpenSearchAsync__1_OpenSearch_Net_RequestData_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.CallOpenSearchAsync``1(OpenSearch.Net.RequestData,System.Threading.CancellationToken)">CallOpenSearchAsync&lt;TResponse&gt;(RequestData, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;TResponse&gt; CallOpenSearchAsync&lt;TResponse&gt;(RequestData requestData, CancellationToken cancellationToken)
+    where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">requestData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_CreateClientException__1___0_OpenSearch_Net_IApiCallDetails_OpenSearch_Net_RequestData_System_Collections_Generic_List_OpenSearch_Net_PipelineException__.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.CreateClientException%60%601(%60%600%2COpenSearch.Net.IApiCallDetails%2COpenSearch.Net.RequestData%2CSystem.Collections.Generic.List%7BOpenSearch.Net.PipelineException%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_CreateClientException_" data-uid="OpenSearch.Net.IRequestPipeline.CreateClientException*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_CreateClientException__1___0_OpenSearch_Net_IApiCallDetails_OpenSearch_Net_RequestData_System_Collections_Generic_List_OpenSearch_Net_PipelineException__" data-uid="OpenSearch.Net.IRequestPipeline.CreateClientException``1(``0,OpenSearch.Net.IApiCallDetails,OpenSearch.Net.RequestData,System.Collections.Generic.List{OpenSearch.Net.PipelineException})">CreateClientException&lt;TResponse&gt;(TResponse, IApiCallDetails, RequestData, List&lt;PipelineException&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">OpenSearchClientException CreateClientException&lt;TResponse&gt;(TResponse response, IApiCallDetails callDetails, RequestData data, List&lt;PipelineException&gt; seenExceptions)
+    where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td><span class="parametername">response</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IApiCallDetails.html">IApiCallDetails</a></td>
+        <td><span class="parametername">callDetails</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="OpenSearch.Net.PipelineException.html">PipelineException</a>&gt;</td>
+        <td><span class="parametername">seenExceptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.OpenSearchClientException.html">OpenSearchClientException</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_FirstPoolUsage_System_Threading_SemaphoreSlim_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.FirstPoolUsage(System.Threading.SemaphoreSlim)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_FirstPoolUsage_" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsage*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_FirstPoolUsage_System_Threading_SemaphoreSlim_" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsage(System.Threading.SemaphoreSlim)">FirstPoolUsage(SemaphoreSlim)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void FirstPoolUsage(SemaphoreSlim semaphore)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.semaphoreslim">SemaphoreSlim</a></td>
+        <td><span class="parametername">semaphore</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_FirstPoolUsageAsync_System_Threading_SemaphoreSlim_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.FirstPoolUsageAsync(System.Threading.SemaphoreSlim%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_FirstPoolUsageAsync_" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsageAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_FirstPoolUsageAsync_System_Threading_SemaphoreSlim_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.FirstPoolUsageAsync(System.Threading.SemaphoreSlim,System.Threading.CancellationToken)">FirstPoolUsageAsync(SemaphoreSlim, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task FirstPoolUsageAsync(SemaphoreSlim semaphore, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.semaphoreslim">SemaphoreSlim</a></td>
+        <td><span class="parametername">semaphore</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_MarkAlive_OpenSearch_Net_Node_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.MarkAlive(OpenSearch.Net.Node)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L56">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_MarkAlive_" data-uid="OpenSearch.Net.IRequestPipeline.MarkAlive*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_MarkAlive_OpenSearch_Net_Node_" data-uid="OpenSearch.Net.IRequestPipeline.MarkAlive(OpenSearch.Net.Node)">MarkAlive(Node)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MarkAlive(Node node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Node.html">Node</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_MarkDead_OpenSearch_Net_Node_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.MarkDead(OpenSearch.Net.Node)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L58">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_MarkDead_" data-uid="OpenSearch.Net.IRequestPipeline.MarkDead*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_MarkDead_OpenSearch_Net_Node_" data-uid="OpenSearch.Net.IRequestPipeline.MarkDead(OpenSearch.Net.Node)">MarkDead(Node)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MarkDead(Node node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Node.html">Node</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_NextNode.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.NextNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L60">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_NextNode_" data-uid="OpenSearch.Net.IRequestPipeline.NextNode*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_NextNode" data-uid="OpenSearch.Net.IRequestPipeline.NextNode">NextNode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;Node&gt; NextNode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Net.Node.html">Node</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_Ping_OpenSearch_Net_Node_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.Ping(OpenSearch.Net.Node)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_Ping_" data-uid="OpenSearch.Net.IRequestPipeline.Ping*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_Ping_OpenSearch_Net_Node_" data-uid="OpenSearch.Net.IRequestPipeline.Ping(OpenSearch.Net.Node)">Ping(Node)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Ping(Node node)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Node.html">Node</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_PingAsync_OpenSearch_Net_Node_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.PingAsync(OpenSearch.Net.Node%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_PingAsync_" data-uid="OpenSearch.Net.IRequestPipeline.PingAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_PingAsync_OpenSearch_Net_Node_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.PingAsync(OpenSearch.Net.Node,System.Threading.CancellationToken)">PingAsync(Node, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task PingAsync(Node node, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Node.html">Node</a></td>
+        <td><span class="parametername">node</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_Sniff.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.Sniff%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L70">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_Sniff_" data-uid="OpenSearch.Net.IRequestPipeline.Sniff*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_Sniff" data-uid="OpenSearch.Net.IRequestPipeline.Sniff">Sniff()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Sniff()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L72">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffAsync_" data-uid="OpenSearch.Net.IRequestPipeline.SniffAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffAsync_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.SniffAsync(System.Threading.CancellationToken)">SniffAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SniffAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailure.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailure%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailure_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailure*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailure" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailure">SniffOnConnectionFailure()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SniffOnConnectionFailure()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailureAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailureAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailureAsync_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailureAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffOnConnectionFailureAsync_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnConnectionFailureAsync(System.Threading.CancellationToken)">SniffOnConnectionFailureAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SniffOnConnectionFailureAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffOnStaleCluster.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffOnStaleCluster%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffOnStaleCluster_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnStaleCluster*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffOnStaleCluster" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnStaleCluster">SniffOnStaleCluster()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SniffOnStaleCluster()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_SniffOnStaleClusterAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.SniffOnStaleClusterAsync(System.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L76">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_SniffOnStaleClusterAsync_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnStaleClusterAsync*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_SniffOnStaleClusterAsync_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.IRequestPipeline.SniffOnStaleClusterAsync(System.Threading.CancellationToken)">SniffOnStaleClusterAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SniffOnStaleClusterAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline_ThrowNoNodesAttempted_OpenSearch_Net_RequestData_System_Collections_Generic_List_OpenSearch_Net_PipelineException__.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline.ThrowNoNodesAttempted(OpenSearch.Net.RequestData%2CSystem.Collections.Generic.List%7BOpenSearch.Net.PipelineException%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_IRequestPipeline_ThrowNoNodesAttempted_" data-uid="OpenSearch.Net.IRequestPipeline.ThrowNoNodesAttempted*"></a>
+  <h4 id="OpenSearch_Net_IRequestPipeline_ThrowNoNodesAttempted_OpenSearch_Net_RequestData_System_Collections_Generic_List_OpenSearch_Net_PipelineException__" data-uid="OpenSearch.Net.IRequestPipeline.ThrowNoNodesAttempted(OpenSearch.Net.RequestData,System.Collections.Generic.List{OpenSearch.Net.PipelineException})">ThrowNoNodesAttempted(RequestData, List&lt;PipelineException&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ThrowNoNodesAttempted(RequestData requestData, List&lt;PipelineException&gt; seenExceptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestData.html">RequestData</a></td>
+        <td><span class="parametername">requestData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="OpenSearch.Net.PipelineException.html">PipelineException</a>&gt;</td>
+        <td><span class="parametername">seenExceptions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_IRequestPipeline.md&amp;value=---%0Auid%3A%20OpenSearch.Net.IRequestPipeline%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Transport/Pipeline/IRequestPipeline.cs/#L36" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

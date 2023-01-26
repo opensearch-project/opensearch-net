@@ -1,0 +1,750 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SearchResponse&lt;TDocument&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SearchResponse&lt;TDocument&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SearchResponse`1">
+
+
+  <h1 id="OpenSearch_Client_SearchResponse_1" data-uid="OpenSearch.Client.SearchResponse`1" class="text-break">Class SearchResponse&lt;TDocument&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.ResponseBase.html">ResponseBase</a></div>
+    <div class="level2"><span class="xref">SearchResponse&lt;TDocument&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.ISearchResponse-1.html">ISearchResponse</a>&lt;TDocument&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IResponse.html">IResponse</a></div>
+    <div><a class="xref" href="OpenSearch.Net.IOpenSearchResponse.html">IOpenSearchResponse</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ApiCall">ResponseBase.ApiCall</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_DebugInformation">ResponseBase.DebugInformation</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_IsValid">ResponseBase.IsValid</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_OriginalException">ResponseBase.OriginalException</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ServerError">ResponseBase.ServerError</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_OpenSearch_Net_IOpenSearchResponse_ApiCall">ResponseBase.IOpenSearchResponse.ApiCall</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_OpenSearch_Net_IOpenSearchResponse_TryGetServerErrorReason_System_String__">ResponseBase.IOpenSearchResponse.TryGetServerErrorReason(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_DebugIsValid_System_Text_StringBuilder_">ResponseBase.DebugIsValid(StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ToString">ResponseBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SearchResponse_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SearchResponse&lt;TDocument&gt; : ResponseBase, ISearchResponse&lt;TDocument&gt;, IResponse, IOpenSearchResponse where TDocument : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TDocument</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Aggregations.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Aggregations%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L146">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Aggregations_" data-uid="OpenSearch.Client.SearchResponse`1.Aggregations*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Aggregations" data-uid="OpenSearch.Client.SearchResponse`1.Aggregations">Aggregations</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of aggregations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;aggregations&quot;)]
+public AggregateDictionary Aggregations { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.AggregateDictionary.html">AggregateDictionary</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Clusters.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Clusters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L150">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Clusters_" data-uid="OpenSearch.Client.SearchResponse`1.Clusters*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Clusters" data-uid="OpenSearch.Client.SearchResponse`1.Clusters">Clusters</h4>
+  <div class="markdown level1 summary"><p>Gets the statistics about the clusters on which the search query was executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;_clusters&quot;)]
+public ClusterStatistics Clusters { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ClusterStatistics.html">ClusterStatistics</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Documents.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Documents%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L154">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Documents_" data-uid="OpenSearch.Client.SearchResponse`1.Documents*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Documents" data-uid="OpenSearch.Client.SearchResponse`1.Documents">Documents</h4>
+  <div class="markdown level1 summary"><p>Gets the documents inside the hits, by deserializing <a class="xref" href="OpenSearch.Client.IHitMetadata-1.html#OpenSearch_Client_IHitMetadata_1_Source">Source</a> into <code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code></p>
+<p>
+NOTE: if you use <a class="xref" href="OpenSearch.Client.ISearchRequest.html#OpenSearch_Client_ISearchRequest_StoredFields">StoredFields</a> on the search request,
+<a class="xref" href="OpenSearch.Client.ISearchResponse-1.html#OpenSearch_Client_ISearchResponse_1_Documents">Documents</a> will be empty and you should use <a class="xref" href="OpenSearch.Client.ISearchResponse-1.html#OpenSearch_Client_ISearchResponse_1_Fields">Fields</a>
+instead to get the field values. As an alternative to
+<a class="xref" href="OpenSearch.Client.ISearchResponse-1.html#OpenSearch_Client_ISearchResponse_1_Fields">Fields</a>, try source filtering using <a class="xref" href="OpenSearch.Client.ISearchRequest.html#OpenSearch_Client_ISearchRequest_Source">Source</a> on the
+search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse-1.html#OpenSearch_Client_ISearchResponse_1_Documents">Documents</a> with partial fields selected
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+public IReadOnlyCollection&lt;TDocument&gt; Documents { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;TDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Fields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Fields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L161">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Fields_" data-uid="OpenSearch.Client.SearchResponse`1.Fields*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Fields" data-uid="OpenSearch.Client.SearchResponse`1.Fields">Fields</h4>
+  <div class="markdown level1 summary"><p>Gets the field values inside the hits, when the search request uses
+<a class="xref" href="OpenSearch.Client.SearchRequest.html#OpenSearch_Client_SearchRequest_StoredFields">StoredFields</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+public IReadOnlyCollection&lt;FieldValues&gt; Fields { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="OpenSearch.Client.FieldValues.html">FieldValues</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Hits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Hits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L168">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Hits_" data-uid="OpenSearch.Client.SearchResponse`1.Hits*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Hits" data-uid="OpenSearch.Client.SearchResponse`1.Hits">Hits</h4>
+  <div class="markdown level1 summary"><p>Gets the collection of hits that matched the query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+public IReadOnlyCollection&lt;IHit&lt;TDocument&gt;&gt; Hits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="OpenSearch.Client.IHit-1.html">IHit</a>&lt;TDocument&gt;&gt;</td>
+        <td><p>The hits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_HitsMetadata.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.HitsMetadata%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L173">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_HitsMetadata_" data-uid="OpenSearch.Client.SearchResponse`1.HitsMetadata*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_HitsMetadata" data-uid="OpenSearch.Client.SearchResponse`1.HitsMetadata">HitsMetadata</h4>
+  <div class="markdown level1 summary"><p>Gets the meta data about the hits that match the search query criteria.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;hits&quot;)]
+public IHitsMetadata&lt;TDocument&gt; HitsMetadata { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IHitsMetadata-1.html">IHitsMetadata</a>&lt;TDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_MaxScore.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.MaxScore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L177">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_MaxScore_" data-uid="OpenSearch.Client.SearchResponse`1.MaxScore*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_MaxScore" data-uid="OpenSearch.Client.SearchResponse`1.MaxScore">MaxScore</h4>
+  <div class="markdown level1 summary"><p>Gets the maximum score for documents matching the search query criteria</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+public double MaxScore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_NumberOfReducePhases.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.NumberOfReducePhases%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L181">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_NumberOfReducePhases_" data-uid="OpenSearch.Client.SearchResponse`1.NumberOfReducePhases*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_NumberOfReducePhases" data-uid="OpenSearch.Client.SearchResponse`1.NumberOfReducePhases">NumberOfReducePhases</h4>
+  <div class="markdown level1 summary"><p>Number of times the server performed an incremental reduce phase</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;num_reduce_phases&quot;)]
+public long NumberOfReducePhases { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Profile.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Profile%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L185">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Profile_" data-uid="OpenSearch.Client.SearchResponse`1.Profile*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Profile" data-uid="OpenSearch.Client.SearchResponse`1.Profile">Profile</h4>
+  <div class="markdown level1 summary"><p>Gets the results of profiling the search query. Has a value only when
+<a class="xref" href="OpenSearch.Client.ISearchRequest.html#OpenSearch_Client_ISearchRequest_Profile">Profile</a> is set to <code>true</code> on the search request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;profile&quot;)]
+public Profile Profile { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Profile.html">Profile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_ScrollId.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.ScrollId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L189">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_ScrollId_" data-uid="OpenSearch.Client.SearchResponse`1.ScrollId*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_ScrollId" data-uid="OpenSearch.Client.SearchResponse`1.ScrollId">ScrollId</h4>
+  <div class="markdown level1 summary"><p>Gets the scroll id which can be passed to the Scroll API in order to retrieve the next batch
+of results. Has a value only when <a class="xref" href="OpenSearch.Client.SearchRequest.html#OpenSearch_Client_SearchRequest_Scroll">Scroll</a> is specified on the
+search request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;_scroll_id&quot;)]
+public string ScrollId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Shards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Shards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L193">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Shards_" data-uid="OpenSearch.Client.SearchResponse`1.Shards*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Shards" data-uid="OpenSearch.Client.SearchResponse`1.Shards">Shards</h4>
+  <div class="markdown level1 summary"><p>Gets the statistics about the shards on which the search query was executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;_shards&quot;)]
+public ShardStatistics Shards { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ShardStatistics.html">ShardStatistics</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Suggest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Suggest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L197">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Suggest_" data-uid="OpenSearch.Client.SearchResponse`1.Suggest*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Suggest" data-uid="OpenSearch.Client.SearchResponse`1.Suggest">Suggest</h4>
+  <div class="markdown level1 summary"><p>Gets the suggester results.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;suggest&quot;)]
+public ISuggestDictionary&lt;TDocument&gt; Suggest { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISuggestDictionary-1.html">ISuggestDictionary</a>&lt;TDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_TerminatedEarly.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.TerminatedEarly%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L201">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_TerminatedEarly_" data-uid="OpenSearch.Client.SearchResponse`1.TerminatedEarly*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_TerminatedEarly" data-uid="OpenSearch.Client.SearchResponse`1.TerminatedEarly">TerminatedEarly</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the search was terminated early</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;terminated_early&quot;)]
+public bool TerminatedEarly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_TimedOut.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.TimedOut%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L205">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_TimedOut_" data-uid="OpenSearch.Client.SearchResponse`1.TimedOut*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_TimedOut" data-uid="OpenSearch.Client.SearchResponse`1.TimedOut">TimedOut</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the search timed out or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;timed_out&quot;)]
+public bool TimedOut { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Took.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Took%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L209">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Took_" data-uid="OpenSearch.Client.SearchResponse`1.Took*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Took" data-uid="OpenSearch.Client.SearchResponse`1.Took">Took</h4>
+  <div class="markdown level1 summary"><p>Time in milliseconds for OpenSearch to execute the search</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;took&quot;)]
+public long Took { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1_Total.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601.Total%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L213">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchResponse_1_Total_" data-uid="OpenSearch.Client.SearchResponse`1.Total*"></a>
+  <h4 id="OpenSearch_Client_SearchResponse_1_Total" data-uid="OpenSearch.Client.SearchResponse`1.Total">Total</h4>
+  <div class="markdown level1 summary"><p>Gets the total number of documents matching the search query criteria</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+public long Total { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISearchResponse-1.html">ISearchResponse&lt;TDocument&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IResponse.html">IResponse</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IOpenSearchResponse.html">IOpenSearchResponse</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchResponse_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchResponse%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchResponse.cs/#L137" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

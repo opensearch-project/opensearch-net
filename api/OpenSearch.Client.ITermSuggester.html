@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface ITermSuggester
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface ITermSuggester
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.ITermSuggester">
+
+
+  <h1 id="OpenSearch_Client_ITermSuggester" data-uid="OpenSearch.Client.ITermSuggester" class="text-break">Interface ITermSuggester
+</h1>
+  <div class="markdown level0 summary"><p>The term suggester suggests terms based on edit distance. The provided suggest text is analyzed before terms are suggested.
+The suggested terms are provided per analyzed suggest text token.
+The term suggester doesn’t take the query into account that is part of request.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Analyzer">ISuggester.Analyzer</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Field">ISuggester.Field</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Size">ISuggester.Size</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_ITermSuggester_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITermSuggester : ISuggester</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_LowercaseTerms.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.LowercaseTerms%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_LowercaseTerms_" data-uid="OpenSearch.Client.ITermSuggester.LowercaseTerms*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_LowercaseTerms" data-uid="OpenSearch.Client.ITermSuggester.LowercaseTerms">LowercaseTerms</h4>
+  <div class="markdown level1 summary"><p>Lower cases the suggest text terms after text analysis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;lowercase_terms&quot;)]
+bool? LowercaseTerms { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_MaxEdits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.MaxEdits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L55">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_MaxEdits_" data-uid="OpenSearch.Client.ITermSuggester.MaxEdits*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_MaxEdits" data-uid="OpenSearch.Client.ITermSuggester.MaxEdits">MaxEdits</h4>
+  <div class="markdown level1 summary"><p>The maximum edit distance candidate suggestions can have in order to be considered as a suggestion.
+Can only be a value between 1 and 2. Any other value result in an bad request error being thrown.
+Defaults to 2.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_edits&quot;)]
+int? MaxEdits { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_MaxInspections.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.MaxInspections%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_MaxInspections_" data-uid="OpenSearch.Client.ITermSuggester.MaxInspections*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_MaxInspections" data-uid="OpenSearch.Client.ITermSuggester.MaxInspections">MaxInspections</h4>
+  <div class="markdown level1 summary"><p>A factor that is used to multiply with the shards_size in order to inspect more candidate spell
+corrections on the shard level. Can improve accuracy at the cost of performance. Defaults to 5.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_inspections&quot;)]
+int? MaxInspections { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_MaxTermFrequency.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.MaxTermFrequency%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L72">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_MaxTermFrequency_" data-uid="OpenSearch.Client.ITermSuggester.MaxTermFrequency*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_MaxTermFrequency" data-uid="OpenSearch.Client.ITermSuggester.MaxTermFrequency">MaxTermFrequency</h4>
+  <div class="markdown level1 summary"><p>The maximum threshold in number of documents a suggest text token can exist in order to be included.
+Can be a relative percentage number (e.g 0.4) or an absolute number to represent document frequencies.
+If an value higher than 1 is specified then fractional can not be specified. Defaults to 0.01f. This can be used to
+exclude high frequency terms from being spellchecked. High frequency terms are usually spelled correctly on top of this
+also improves the spellcheck performance. The shard level document frequencies are used for this option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_term_freq&quot;)]
+float? MaxTermFrequency { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_MinDocFrequency.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.MinDocFrequency%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_MinDocFrequency_" data-uid="OpenSearch.Client.ITermSuggester.MinDocFrequency*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_MinDocFrequency" data-uid="OpenSearch.Client.ITermSuggester.MinDocFrequency">MinDocFrequency</h4>
+  <div class="markdown level1 summary"><p>The minimal threshold in number of documents a suggestion should appear in. This can be specified as an
+absolute number or as a relative percentage of number of documents. This can improve quality by only
+suggesting high frequency terms. Defaults to 0f and is not enabled. If a value higher than 1 is specified then the
+number cannot be fractional. The shard level document frequencies are used for this option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;min_doc_freq&quot;)]
+float? MinDocFrequency { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_MinWordLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.MinWordLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_MinWordLength_" data-uid="OpenSearch.Client.ITermSuggester.MinWordLength*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_MinWordLength" data-uid="OpenSearch.Client.ITermSuggester.MinWordLength">MinWordLength</h4>
+  <div class="markdown level1 summary"><p>The minimum length a suggest text term must have in order to be included. Defaults to 4.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;min_word_length&quot;)]
+int? MinWordLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_PrefixLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.PrefixLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L95">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_PrefixLength_" data-uid="OpenSearch.Client.ITermSuggester.PrefixLength*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_PrefixLength" data-uid="OpenSearch.Client.ITermSuggester.PrefixLength">PrefixLength</h4>
+  <div class="markdown level1 summary"><p>The number of minimal prefix characters that must match in order be a candidate suggestions. Defaults to 1.
+Increasing this number improves spellcheck performance. Usually misspellings don’t occur in the
+beginning of terms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;prefix_length&quot;)]
+int? PrefixLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_ShardSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.ShardSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L106">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_ShardSize_" data-uid="OpenSearch.Client.ITermSuggester.ShardSize*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_ShardSize" data-uid="OpenSearch.Client.ITermSuggester.ShardSize">ShardSize</h4>
+  <div class="markdown level1 summary"><p>Sets the maximum number of suggestions to be retrieved from each individual shard.
+During the reduce phase only the top N suggestions are returned based on the size option.
+Defaults to the size option. Setting this to a value higher than the size can be useful in order to
+get a more accurate document frequency for spelling corrections at the cost of performance.
+Due to the fact that terms are partitioned amongst shards, the shard level document frequencies of spelling corrections
+may not be precise. Increasing this will make these document frequencies more precise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;shard_size&quot;)]
+int? ShardSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_Sort.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.Sort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_Sort_" data-uid="OpenSearch.Client.ITermSuggester.Sort*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_Sort" data-uid="OpenSearch.Client.ITermSuggester.Sort">Sort</h4>
+  <div class="markdown level1 summary"><p>Defines how suggestions should be sorted per suggest text term</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;sort&quot;)]
+SuggestSort? Sort { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.SuggestSort.html">SuggestSort</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_StringDistance.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.StringDistance%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L118">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_StringDistance_" data-uid="OpenSearch.Client.ITermSuggester.StringDistance*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_StringDistance" data-uid="OpenSearch.Client.ITermSuggester.StringDistance">StringDistance</h4>
+  <div class="markdown level1 summary"><p>Which string distance implementation to use for comparing how similar suggested terms are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;string_distance&quot;)]
+StringDistance? StringDistance { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.StringDistance.html">StringDistance</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_SuggestMode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.SuggestMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L124">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_SuggestMode_" data-uid="OpenSearch.Client.ITermSuggester.SuggestMode*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_SuggestMode" data-uid="OpenSearch.Client.ITermSuggester.SuggestMode">SuggestMode</h4>
+  <div class="markdown level1 summary"><p>Controls what suggestions are included or controls for what suggest text terms, suggestions should be suggested.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;suggest_mode&quot;)]
+SuggestMode? SuggestMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Net.SuggestMode.html">SuggestMode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester_Text.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester.Text%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L130">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ITermSuggester_Text_" data-uid="OpenSearch.Client.ITermSuggester.Text*"></a>
+  <h4 id="OpenSearch_Client_ITermSuggester_Text" data-uid="OpenSearch.Client.ITermSuggester.Text">Text</h4>
+  <div class="markdown level1 summary"><p>The suggest text</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[IgnoreDataMember]
+string Text { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ITermSuggester.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ITermSuggester%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Suggesters/TermSuggester/TermSuggester.cs/#L40" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

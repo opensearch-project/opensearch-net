@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DeleteByQueryRequest&lt;TDocument&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DeleteByQueryRequest&lt;TDocument&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.DeleteByQueryRequest`1">
+
+
+  <h1 id="OpenSearch_Client_DeleteByQueryRequest_1" data-uid="OpenSearch.Client.DeleteByQueryRequest`1" class="text-break">Class DeleteByQueryRequest&lt;TDocument&gt;
+</h1>
+  <div class="markdown level0 summary"><p>Delete documents that match a given query</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.RequestBase-1.html">RequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.DeleteByQueryRequestParameters.html">DeleteByQueryRequestParameters</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html">PlainRequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.DeleteByQueryRequestParameters.html">DeleteByQueryRequestParameters</a>&gt;</div>
+    <div class="level3"><a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html">DeleteByQueryRequest</a></div>
+    <div class="level4"><span class="xref">DeleteByQueryRequest&lt;TDocument&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest-1.html">IDeleteByQueryRequest</a>&lt;TDocument&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest.html">IDeleteByQueryRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;<a class="xref" href="OpenSearch.Net.DeleteByQueryRequestParameters.html">DeleteByQueryRequestParameters</a>&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Query">DeleteByQueryRequest.Query</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Slice">DeleteByQueryRequest.Slice</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_MaximumDocuments">DeleteByQueryRequest.MaximumDocuments</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Self">DeleteByQueryRequest.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_OpenSearch_Client_IDeleteByQueryRequest_Index">DeleteByQueryRequest.IDeleteByQueryRequest.Index</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_AllowNoIndices">DeleteByQueryRequest.AllowNoIndices</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_AnalyzeWildcard">DeleteByQueryRequest.AnalyzeWildcard</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Analyzer">DeleteByQueryRequest.Analyzer</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Conflicts">DeleteByQueryRequest.Conflicts</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_DefaultOperator">DeleteByQueryRequest.DefaultOperator</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Df">DeleteByQueryRequest.Df</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_ExpandWildcards">DeleteByQueryRequest.ExpandWildcards</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_From">DeleteByQueryRequest.From</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_IgnoreUnavailable">DeleteByQueryRequest.IgnoreUnavailable</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Lenient">DeleteByQueryRequest.Lenient</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Preference">DeleteByQueryRequest.Preference</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_QueryOnQueryString">DeleteByQueryRequest.QueryOnQueryString</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Refresh">DeleteByQueryRequest.Refresh</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_RequestCache">DeleteByQueryRequest.RequestCache</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_RequestsPerSecond">DeleteByQueryRequest.RequestsPerSecond</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Routing">DeleteByQueryRequest.Routing</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Scroll">DeleteByQueryRequest.Scroll</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_ScrollSize">DeleteByQueryRequest.ScrollSize</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_SearchTimeout">DeleteByQueryRequest.SearchTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_SearchType">DeleteByQueryRequest.SearchType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Slices">DeleteByQueryRequest.Slices</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Sort">DeleteByQueryRequest.Sort</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_SourceEnabled">DeleteByQueryRequest.SourceEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_SourceExcludes">DeleteByQueryRequest.SourceExcludes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_SourceIncludes">DeleteByQueryRequest.SourceIncludes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Stats">DeleteByQueryRequest.Stats</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_TerminateAfter">DeleteByQueryRequest.TerminateAfter</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Timeout">DeleteByQueryRequest.Timeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_Version">DeleteByQueryRequest.Version</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_WaitForActiveShards">DeleteByQueryRequest.WaitForActiveShards</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DeleteByQueryRequest.html#OpenSearch_Client_DeleteByQueryRequest_WaitForCompletion">DeleteByQueryRequest.WaitForCompletion</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_RequestConfiguration">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.RequestConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_ErrorTrace">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.ErrorTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_FilterPath">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.FilterPath</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Human">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.Human</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Pretty">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.Pretty</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_SourceQueryString">PlainRequestBase&lt;DeleteByQueryRequestParameters&gt;.SourceQueryString</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_HttpMethod">RequestBase&lt;DeleteByQueryRequestParameters&gt;.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestState">RequestBase&lt;DeleteByQueryRequestParameters&gt;.RequestState</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_HttpMethod">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_ContentType">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ContentType">RequestBase&lt;DeleteByQueryRequestParameters&gt;.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_TParameters__RequestParameters">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest&lt;DeleteByQueryRequestParameters&gt;.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RequestParameters">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest.RequestParameters</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_RouteValues">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest.RouteValues</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_OpenSearch_Client_IRequest_GetUrl_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.IRequest.GetUrl(IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ResolveUrl_OpenSearch_Client_RouteValues_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.ResolveUrl(RouteValues, IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestDefaults__0_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.RequestDefaults(DeleteByQueryRequestParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q__1_System_String_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.Q&lt;TOut&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q_System_String_System_Object_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.Q(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_SetAcceptHeader_System_String_">RequestBase&lt;DeleteByQueryRequestParameters&gt;.SetAcceptHeader(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_DeleteByQueryRequest_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DeleteByQueryRequest&lt;TDocument&gt; : DeleteByQueryRequest, IDeleteByQueryRequest&lt;TDocument&gt;, IDeleteByQueryRequest, IRequest&lt;DeleteByQueryRequestParameters&gt;, IRequest where TDocument : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TDocument</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_1__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L880">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DeleteByQueryRequest_1__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_DeleteByQueryRequest_1__ctor" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.#ctor">DeleteByQueryRequest()</h4>
+  <div class="markdown level1 summary"><p>/{index}/_delete_by_query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeleteByQueryRequest()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_1__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest%601.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L875">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DeleteByQueryRequest_1__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_DeleteByQueryRequest_1__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.#ctor(OpenSearch.Client.Indices)">DeleteByQueryRequest(Indices)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_delete_by_query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeleteByQueryRequest(Indices index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Indices.html">Indices</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>this parameter is required</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_1_TypedSelf.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest%601.TypedSelf%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L872">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DeleteByQueryRequest_1_TypedSelf_" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.TypedSelf*"></a>
+  <h4 id="OpenSearch_Client_DeleteByQueryRequest_1_TypedSelf" data-uid="OpenSearch.Client.DeleteByQueryRequest`1.TypedSelf">TypedSelf</h4>
+  <div class="markdown level1 summary"><p>Delete documents that match a given query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IDeleteByQueryRequest&lt;TDocument&gt; TypedSelf { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest-1.html">IDeleteByQueryRequest</a>&lt;TDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest-1.html">IDeleteByQueryRequest&lt;TDocument&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest.html">IDeleteByQueryRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L870" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

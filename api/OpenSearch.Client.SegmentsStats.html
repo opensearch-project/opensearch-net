@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SegmentsStats
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SegmentsStats
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SegmentsStats">
+
+
+  <h1 id="OpenSearch_Client_SegmentsStats" data-uid="OpenSearch.Client.SegmentsStats" class="text-break">Class SegmentsStats
+</h1>
+  <div class="markdown level0 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">SegmentsStats</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SegmentsStats_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class SegmentsStats</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_Count.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.Count%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L41">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_Count_" data-uid="OpenSearch.Client.SegmentsStats.Count*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_Count" data-uid="OpenSearch.Client.SegmentsStats.Count">Count</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;count&quot;)]
+public long Count { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_DocValuesMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.DocValuesMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L44">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_DocValuesMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.DocValuesMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_DocValuesMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.DocValuesMemoryInBytes">DocValuesMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;doc_values_memory_in_bytes&quot;)]
+public long DocValuesMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_FixedBitSetMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.FixedBitSetMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_FixedBitSetMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.FixedBitSetMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_FixedBitSetMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.FixedBitSetMemoryInBytes">FixedBitSetMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fixed_bit_set_memory_in_bytes&quot;)]
+public long FixedBitSetMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_IndexWriterMaxMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.IndexWriterMaxMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L50">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_IndexWriterMaxMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.IndexWriterMaxMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_IndexWriterMaxMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.IndexWriterMaxMemoryInBytes">IndexWriterMaxMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;index_writer_max_memory_in_bytes&quot;)]
+public long IndexWriterMaxMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_IndexWriterMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.IndexWriterMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_IndexWriterMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.IndexWriterMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_IndexWriterMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.IndexWriterMemoryInBytes">IndexWriterMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;index_writer_memory_in_bytes&quot;)]
+public long IndexWriterMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_MaximumUnsafeAutoIdTimestamp.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.MaximumUnsafeAutoIdTimestamp%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L56">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_MaximumUnsafeAutoIdTimestamp_" data-uid="OpenSearch.Client.SegmentsStats.MaximumUnsafeAutoIdTimestamp*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_MaximumUnsafeAutoIdTimestamp" data-uid="OpenSearch.Client.SegmentsStats.MaximumUnsafeAutoIdTimestamp">MaximumUnsafeAutoIdTimestamp</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_unsafe_auto_id_timestamp&quot;)]
+public long MaximumUnsafeAutoIdTimestamp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_MemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.MemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_MemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.MemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_MemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.MemoryInBytes">MemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;memory_in_bytes&quot;)]
+public long MemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_NormsMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.NormsMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_NormsMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.NormsMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_NormsMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.NormsMemoryInBytes">NormsMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;norms_memory_in_bytes&quot;)]
+public long NormsMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_PointsMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.PointsMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_PointsMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.PointsMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_PointsMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.PointsMemoryInBytes">PointsMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;points_memory_in_bytes&quot;)]
+public long PointsMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_StoredFieldsMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.StoredFieldsMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_StoredFieldsMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.StoredFieldsMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_StoredFieldsMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.StoredFieldsMemoryInBytes">StoredFieldsMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;stored_fields_memory_in_bytes&quot;)]
+public long StoredFieldsMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_TermsMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.TermsMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_TermsMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.TermsMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_TermsMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.TermsMemoryInBytes">TermsMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;terms_memory_in_bytes&quot;)]
+public long TermsMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_TermVectorsMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.TermVectorsMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_TermVectorsMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.TermVectorsMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_TermVectorsMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.TermVectorsMemoryInBytes">TermVectorsMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;term_vectors_memory_in_bytes&quot;)]
+public long TermVectorsMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats_VersionMapMemoryInBytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats.VersionMapMemoryInBytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SegmentsStats_VersionMapMemoryInBytes_" data-uid="OpenSearch.Client.SegmentsStats.VersionMapMemoryInBytes*"></a>
+  <h4 id="OpenSearch_Client_SegmentsStats_VersionMapMemoryInBytes" data-uid="OpenSearch.Client.SegmentsStats.VersionMapMemoryInBytes">VersionMapMemoryInBytes</h4>
+  <div class="markdown level1 summary"><p>OpenSearch 2.0 has Lucene upgraded up to version 9.0 which doesn't provide memory info for segments.
+All fields except <code>count</code> might be zeroed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;version_map_memory_in_bytes&quot;)]
+public long VersionMapMemoryInBytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SegmentsStats.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SegmentsStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonOptions/Stats/SegmentsStats.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

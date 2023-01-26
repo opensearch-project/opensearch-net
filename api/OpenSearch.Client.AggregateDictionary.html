@@ -1,0 +1,3516 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AggregateDictionary
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AggregateDictionary
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.AggregateDictionary">
+
+
+  <h1 id="OpenSearch_Client_AggregateDictionary" data-uid="OpenSearch.Client.AggregateDictionary" class="text-break">Class AggregateDictionary
+</h1>
+  <div class="markdown level0 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html">IsAReadOnlyDictionaryBase</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;</div>
+    <div class="level2"><span class="xref">AggregateDictionary</span></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BucketAggregateBase.html">BucketAggregateBase</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.BucketBase.html">BucketBase</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IIsAReadOnlyDictionary-2.html">IIsAReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IIsAReadOnlyDictionary.html">IIsAReadOnlyDictionary</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_Count">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_Item__0_">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.Item[String]</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_Keys">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_Values">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_BackingDictionary">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.BackingDictionary</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_System_Collections_IEnumerable_GetEnumerator">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.IEnumerable.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_TKey_TValue___GetEnumerator">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.IEnumerable&lt;KeyValuePair&lt;String, IAggregate&gt;&gt;.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_ContainsKey__0_">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.ContainsKey(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_TryGetValue__0__1__">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.TryGetValue(String, IAggregate)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IsAReadOnlyDictionaryBase-2.html#OpenSearch_Client_IsAReadOnlyDictionaryBase_2_Sanitize__0_">IsAReadOnlyDictionaryBase&lt;String, IAggregate&gt;.Sanitize(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_AggregateDictionary_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AggregateDictionary : IsAReadOnlyDictionaryBase&lt;string, IAggregate&gt;, IIsAReadOnlyDictionary&lt;string, IAggregate&gt;, IReadOnlyDictionary&lt;string, IAggregate&gt;, IReadOnlyCollection&lt;KeyValuePair&lt;string, IAggregate&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, IAggregate&gt;&gt;, IEnumerable, IIsAReadOnlyDictionary</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary__ctor_System_Collections_Generic_IReadOnlyDictionary_System_String_OpenSearch_Client_IAggregate__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.%23ctor(System.Collections.Generic.IReadOnlyDictionary%7BSystem.String%2COpenSearch.Client.IAggregate%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L46">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary__ctor_" data-uid="OpenSearch.Client.AggregateDictionary.#ctor*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary__ctor_System_Collections_Generic_IReadOnlyDictionary_System_String_OpenSearch_Client_IAggregate__" data-uid="OpenSearch.Client.AggregateDictionary.#ctor(System.Collections.Generic.IReadOnlyDictionary{System.String,OpenSearch.Client.IAggregate})">AggregateDictionary(IReadOnlyDictionary&lt;String, IAggregate&gt;)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AggregateDictionary(IReadOnlyDictionary&lt;string, IAggregate&gt; backingDictionary)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="OpenSearch.Client.IAggregate.html">IAggregate</a>&gt;</td>
+        <td><span class="parametername">backingDictionary</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Default.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Default%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Default_" data-uid="OpenSearch.Client.AggregateDictionary.Default*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Default" data-uid="OpenSearch.Client.AggregateDictionary.Default">Default</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AggregateDictionary Default { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.AggregateDictionary.html">AggregateDictionary</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_AdjacencyMatrix_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.AdjacencyMatrix(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L213">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_AdjacencyMatrix_" data-uid="OpenSearch.Client.AggregateDictionary.AdjacencyMatrix*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_AdjacencyMatrix_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.AdjacencyMatrix(System.String)">AdjacencyMatrix(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; AdjacencyMatrix(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.KeyedBucket-1.html">KeyedBucket</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_AutoDateHistogram_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.AutoDateHistogram(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L257">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_AutoDateHistogram_" data-uid="OpenSearch.Client.AggregateDictionary.AutoDateHistogram*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_AutoDateHistogram_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.AutoDateHistogram(System.String)">AutoDateHistogram(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AutoDateHistogramAggregate AutoDateHistogram(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.AutoDateHistogramAggregate.html">AutoDateHistogramAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Average_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Average(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L72">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Average_" data-uid="OpenSearch.Client.AggregateDictionary.Average*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Average_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Average(System.String)">Average(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Average(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_AverageBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.AverageBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L76">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_AverageBucket_" data-uid="OpenSearch.Client.AggregateDictionary.AverageBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_AverageBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.AverageBucket(System.String)">AverageBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate AverageBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_BucketScript_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.BucketScript(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L86">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_BucketScript_" data-uid="OpenSearch.Client.AggregateDictionary.BucketScript*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_BucketScript_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.BucketScript(System.String)">BucketScript(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate BucketScript(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Cardinality_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Cardinality(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L70">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Cardinality_" data-uid="OpenSearch.Client.AggregateDictionary.Cardinality*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Cardinality_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Cardinality(System.String)">Cardinality(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Cardinality(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Children_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Children(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L149">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Children_" data-uid="OpenSearch.Client.AggregateDictionary.Children*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Children_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Children(System.String)">Children(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Children(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Composite_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Composite(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L270">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Composite_" data-uid="OpenSearch.Client.AggregateDictionary.Composite*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Composite_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Composite(System.String)">Composite(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompositeBucketAggregate Composite(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.CompositeBucketAggregate.html">CompositeBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_CumulativeSum_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.CumulativeSum(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_CumulativeSum_" data-uid="OpenSearch.Client.AggregateDictionary.CumulativeSum*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_CumulativeSum_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.CumulativeSum(System.String)">CumulativeSum(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate CumulativeSum(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_DateHistogram_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.DateHistogram(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L237">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_DateHistogram_" data-uid="OpenSearch.Client.AggregateDictionary.DateHistogram*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_DateHistogram_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.DateHistogram(System.String)">DateHistogram(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;DateHistogramBucket&gt; DateHistogram(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.DateHistogramBucket.html">DateHistogramBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_DateRange_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.DateRange(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L231">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_DateRange_" data-uid="OpenSearch.Client.AggregateDictionary.DateRange*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_DateRange_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.DateRange(System.String)">DateRange(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; DateRange(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.RangeBucket.html">RangeBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Derivative_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Derivative(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Derivative_" data-uid="OpenSearch.Client.AggregateDictionary.Derivative*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Derivative_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Derivative(System.String)">Derivative(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Derivative(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_DiversifiedSampler_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.DiversifiedSampler(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L155">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_DiversifiedSampler_" data-uid="OpenSearch.Client.AggregateDictionary.DiversifiedSampler*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_DiversifiedSampler_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.DiversifiedSampler(System.String)">DiversifiedSampler(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate DiversifiedSampler(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_ExtendedStats_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.ExtendedStats(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L109">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_ExtendedStats_" data-uid="OpenSearch.Client.AggregateDictionary.ExtendedStats*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_ExtendedStats_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.ExtendedStats(System.String)">ExtendedStats(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedStatsAggregate ExtendedStats(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ExtendedStatsAggregate.html">ExtendedStatsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_ExtendedStatsBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.ExtendedStatsBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L111">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_ExtendedStatsBucket_" data-uid="OpenSearch.Client.AggregateDictionary.ExtendedStatsBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_ExtendedStatsBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.ExtendedStatsBucket(System.String)">ExtendedStatsBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExtendedStatsAggregate ExtendedStatsBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ExtendedStatsAggregate.html">ExtendedStatsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Filter_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Filter(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Filter_" data-uid="OpenSearch.Client.AggregateDictionary.Filter*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Filter_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Filter(System.String)">Filter(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Filter(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Filters_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Filters(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Filters_" data-uid="OpenSearch.Client.AggregateDictionary.Filters*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Filters_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Filters(System.String)">Filters(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FiltersAggregate Filters(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.FiltersAggregate.html">FiltersAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoBounds_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoBounds(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoBounds_" data-uid="OpenSearch.Client.AggregateDictionary.GeoBounds*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoBounds_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoBounds(System.String)">GeoBounds(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeoBoundsAggregate GeoBounds(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoBoundsAggregate.html">GeoBoundsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoCentroid_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoCentroid(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L157">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoCentroid_" data-uid="OpenSearch.Client.AggregateDictionary.GeoCentroid*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoCentroid_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoCentroid(System.String)">GeoCentroid(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeoCentroidAggregate GeoCentroid(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCentroidAggregate.html">GeoCentroidAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoDistance_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoDistance(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L235">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoDistance_" data-uid="OpenSearch.Client.AggregateDictionary.GeoDistance*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoDistance_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoDistance(System.String)">GeoDistance(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; GeoDistance(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.RangeBucket.html">RangeBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoHash_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoHash(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L209">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoHash_" data-uid="OpenSearch.Client.AggregateDictionary.GeoHash*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoHash_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoHash(System.String)">GeoHash(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; GeoHash(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.KeyedBucket-1.html">KeyedBucket</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoLine_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoLine(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L115">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoLine_" data-uid="OpenSearch.Client.AggregateDictionary.GeoLine*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoLine_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoLine(System.String)">GeoLine(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GeoLineAggregate GeoLine(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoLineAggregate.html">GeoLineAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_GeoTile_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.GeoTile(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L211">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_GeoTile_" data-uid="OpenSearch.Client.AggregateDictionary.GeoTile*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_GeoTile_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.GeoTile(System.String)">GeoTile(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; GeoTile(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.KeyedBucket-1.html">KeyedBucket</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Global_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Global(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L137">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Global_" data-uid="OpenSearch.Client.AggregateDictionary.Global*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Global_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Global(System.String)">Global(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Global(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Histogram_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Histogram(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L207">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Histogram_" data-uid="OpenSearch.Client.AggregateDictionary.Histogram*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Histogram_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Histogram(System.String)">Histogram(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;double&gt;&gt; Histogram(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.KeyedBucket-1.html">KeyedBucket</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_IpRange_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.IpRange(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L233">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_IpRange_" data-uid="OpenSearch.Client.AggregateDictionary.IpRange*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_IpRange_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.IpRange(System.String)">IpRange(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;IpRangeBucket&gt; IpRange(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.IpRangeBucket.html">IpRangeBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MatrixStats_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MatrixStats(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L283">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MatrixStats_" data-uid="OpenSearch.Client.AggregateDictionary.MatrixStats*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MatrixStats_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MatrixStats(System.String)">MatrixStats(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MatrixStatsAggregate MatrixStats(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MatrixStatsAggregate.html">MatrixStatsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Max_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Max(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Max_" data-uid="OpenSearch.Client.AggregateDictionary.Max*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Max_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Max(System.String)">Max(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Max(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MaxBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MaxBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L92">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MaxBucket_" data-uid="OpenSearch.Client.AggregateDictionary.MaxBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MaxBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MaxBucket(System.String)">MaxBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyedValueAggregate MaxBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.KeyedValueAggregate.html">KeyedValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MedianAbsoluteDeviation_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MedianAbsoluteDeviation(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L285">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MedianAbsoluteDeviation_" data-uid="OpenSearch.Client.AggregateDictionary.MedianAbsoluteDeviation*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MedianAbsoluteDeviation_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MedianAbsoluteDeviation(System.String)">MedianAbsoluteDeviation(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate MedianAbsoluteDeviation(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Min_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Min(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Min_" data-uid="OpenSearch.Client.AggregateDictionary.Min*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Min_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Min(System.String)">Min(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Min(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MinBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MinBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MinBucket_" data-uid="OpenSearch.Client.AggregateDictionary.MinBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MinBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MinBucket(System.String)">MinBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyedValueAggregate MinBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.KeyedValueAggregate.html">KeyedValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Missing_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Missing(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L141">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Missing_" data-uid="OpenSearch.Client.AggregateDictionary.Missing*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Missing_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Missing(System.String)">Missing(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Missing(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MovingAverage_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MovingAverage(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L82">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MovingAverage_" data-uid="OpenSearch.Client.AggregateDictionary.MovingAverage*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MovingAverage_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MovingAverage(System.String)">MovingAverage(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate MovingAverage(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MultiTerms_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MultiTerms(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L241">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MultiTerms_" data-uid="OpenSearch.Client.AggregateDictionary.MultiTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MultiTerms_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MultiTerms(System.String)">MultiTerms(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiTermsAggregate&lt;string&gt; MultiTerms(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiTermsAggregate-1.html">MultiTermsAggregate</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_MultiTerms__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.MultiTerms%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L243">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_MultiTerms_" data-uid="OpenSearch.Client.AggregateDictionary.MultiTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_MultiTerms__1_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.MultiTerms``1(System.String)">MultiTerms&lt;TKey&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiTermsAggregate&lt;TKey&gt; MultiTerms&lt;TKey&gt;(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiTermsAggregate-1.html">MultiTermsAggregate</a>&lt;TKey&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Nested_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Nested(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L143">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Nested_" data-uid="OpenSearch.Client.AggregateDictionary.Nested*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Nested_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Nested(System.String)">Nested(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Nested(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Normalize_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Normalize(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L145">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Normalize_" data-uid="OpenSearch.Client.AggregateDictionary.Normalize*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Normalize_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Normalize(System.String)">Normalize(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Normalize(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Parent_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Parent(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L151">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Parent_" data-uid="OpenSearch.Client.AggregateDictionary.Parent*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Parent_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Parent(System.String)">Parent(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Parent(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_PercentileRanks_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.PercentileRanks(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L121">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_PercentileRanks_" data-uid="OpenSearch.Client.AggregateDictionary.PercentileRanks*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_PercentileRanks_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.PercentileRanks(System.String)">PercentileRanks(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PercentilesAggregate PercentileRanks(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.PercentilesAggregate.html">PercentilesAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Percentiles_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Percentiles(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L117">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Percentiles_" data-uid="OpenSearch.Client.AggregateDictionary.Percentiles*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Percentiles_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Percentiles(System.String)">Percentiles(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PercentilesAggregate Percentiles(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.PercentilesAggregate.html">PercentilesAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_PercentilesBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.PercentilesBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_PercentilesBucket_" data-uid="OpenSearch.Client.AggregateDictionary.PercentilesBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_PercentilesBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.PercentilesBucket(System.String)">PercentilesBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PercentilesAggregate PercentilesBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.PercentilesAggregate.html">PercentilesAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Range_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Range(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L229">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Range_" data-uid="OpenSearch.Client.AggregateDictionary.Range*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Range_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Range(System.String)">Range(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; Range(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.RangeBucket.html">RangeBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_RareTerms_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.RareTerms(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L227">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_RareTerms_" data-uid="OpenSearch.Client.AggregateDictionary.RareTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_RareTerms_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.RareTerms(System.String)">RareTerms(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RareTermsBucket&lt;string&gt;&gt; RareTerms(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.RareTermsBucket-1.html">RareTermsBucket</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_RareTerms__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.RareTerms%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L215">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_RareTerms_" data-uid="OpenSearch.Client.AggregateDictionary.RareTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_RareTerms__1_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.RareTerms``1(System.String)">RareTerms&lt;TKey&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RareTermsBucket&lt;TKey&gt;&gt; RareTerms&lt;TKey&gt;(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.RareTermsBucket-1.html">RareTermsBucket</a>&lt;TKey&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_ReverseNested_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.ReverseNested(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L147">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_ReverseNested_" data-uid="OpenSearch.Client.AggregateDictionary.ReverseNested*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_ReverseNested_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.ReverseNested(System.String)">ReverseNested(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate ReverseNested(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Sampler_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Sampler(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L153">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Sampler_" data-uid="OpenSearch.Client.AggregateDictionary.Sampler*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Sampler_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Sampler(System.String)">Sampler(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SingleBucketAggregate Sampler(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SingleBucketAggregate.html">SingleBucketAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Sanitize_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Sanitize(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Sanitize_" data-uid="OpenSearch.Client.AggregateDictionary.Sanitize*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Sanitize_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Sanitize(System.String)">Sanitize(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string Sanitize(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">OpenSearch.Client.IsAReadOnlyDictionaryBase&lt;System.String, OpenSearch.Client.IAggregate&gt;.Sanitize(System.String)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_ScriptedMetric_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.ScriptedMetric(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L96">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_ScriptedMetric_" data-uid="OpenSearch.Client.AggregateDictionary.ScriptedMetric*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_ScriptedMetric_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.ScriptedMetric(System.String)">ScriptedMetric(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScriptedMetricAggregate ScriptedMetric(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ScriptedMetricAggregate.html">ScriptedMetricAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SerialDifferencing_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SerialDifferencing(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L88">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SerialDifferencing_" data-uid="OpenSearch.Client.AggregateDictionary.SerialDifferencing*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SerialDifferencing_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SerialDifferencing(System.String)">SerialDifferencing(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate SerialDifferencing(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SignificantTerms_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SignificantTerms(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L173">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SignificantTerms_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SignificantTerms_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantTerms(System.String)">SignificantTerms(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;string&gt; SignificantTerms(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SignificantTermsAggregate-1.html">SignificantTermsAggregate</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SignificantTerms__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SignificantTerms%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L159">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SignificantTerms_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantTerms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SignificantTerms__1_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantTerms``1(System.String)">SignificantTerms&lt;TKey&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;TKey&gt; SignificantTerms&lt;TKey&gt;(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SignificantTermsAggregate-1.html">SignificantTermsAggregate</a>&lt;TKey&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SignificantText_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SignificantText(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L189">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SignificantText_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantText*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SignificantText_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantText(System.String)">SignificantText(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;string&gt; SignificantText(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SignificantTermsAggregate-1.html">SignificantTermsAggregate</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SignificantText__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SignificantText%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L175">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SignificantText_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantText*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SignificantText__1_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SignificantText``1(System.String)">SignificantText&lt;TKey&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;TKey&gt; SignificantText&lt;TKey&gt;(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SignificantTermsAggregate-1.html">SignificantTermsAggregate</a>&lt;TKey&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Stats_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Stats(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Stats_" data-uid="OpenSearch.Client.AggregateDictionary.Stats*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Stats_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Stats(System.String)">Stats(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StatsAggregate Stats(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StatsAggregate.html">StatsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_StatsBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.StatsBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_StatsBucket_" data-uid="OpenSearch.Client.AggregateDictionary.StatsBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_StatsBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.StatsBucket(System.String)">StatsBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StatsAggregate StatsBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.StatsAggregate.html">StatsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Sum_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Sum(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Sum_" data-uid="OpenSearch.Client.AggregateDictionary.Sum*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Sum_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Sum(System.String)">Sum(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate Sum(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_SumBucket_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.SumBucket(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_SumBucket_" data-uid="OpenSearch.Client.AggregateDictionary.SumBucket*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_SumBucket_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.SumBucket(System.String)">SumBucket(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate SumBucket(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Terms_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Terms(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L205">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Terms_" data-uid="OpenSearch.Client.AggregateDictionary.Terms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Terms_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Terms(System.String)">Terms(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregate&lt;string&gt; Terms(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregate-1.html">TermsAggregate</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_Terms__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.Terms%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L191">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_Terms_" data-uid="OpenSearch.Client.AggregateDictionary.Terms*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_Terms__1_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.Terms``1(System.String)">Terms&lt;TKey&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TermsAggregate&lt;TKey&gt; Terms&lt;TKey&gt;(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TermsAggregate-1.html">TermsAggregate</a>&lt;TKey&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_TopHits_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.TopHits(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_TopHits_" data-uid="OpenSearch.Client.AggregateDictionary.TopHits*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_TopHits_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.TopHits(System.String)">TopHits(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TopHitsAggregate TopHits(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.TopHitsAggregate.html">TopHitsAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_ValueCount_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.ValueCount(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_ValueCount_" data-uid="OpenSearch.Client.AggregateDictionary.ValueCount*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_ValueCount_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.ValueCount(System.String)">ValueCount(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate ValueCount(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_VariableWidthHistogram_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.VariableWidthHistogram(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L239">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_VariableWidthHistogram_" data-uid="OpenSearch.Client.AggregateDictionary.VariableWidthHistogram*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_VariableWidthHistogram_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.VariableWidthHistogram(System.String)">VariableWidthHistogram(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;VariableWidthHistogramBucket&gt; VariableWidthHistogram(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiBucketAggregate-1.html">MultiBucketAggregate</a>&lt;<a class="xref" href="OpenSearch.Client.VariableWidthHistogramBucket.html">VariableWidthHistogramBucket</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary_WeightedAverage_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary.WeightedAverage(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_AggregateDictionary_WeightedAverage_" data-uid="OpenSearch.Client.AggregateDictionary.WeightedAverage*"></a>
+  <h4 id="OpenSearch_Client_AggregateDictionary_WeightedAverage_System_String_" data-uid="OpenSearch.Client.AggregateDictionary.WeightedAverage(System.String)">WeightedAverage(String)</h4>
+  <div class="markdown level1 summary"><p>Contains aggregates that are returned by OpenSearch. In OSC, Aggregation always refers to an aggregation
+request to OpenSearch and an Aggregate describes an aggregation response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueAggregate WeightedAverage(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ValueAggregate.html">ValueAggregate</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IIsAReadOnlyDictionary-2.html">IIsAReadOnlyDictionary&lt;TKey, TValue&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">System.Collections.Generic.IReadOnlyDictionary&lt;TKey,TValue&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IIsAReadOnlyDictionary.html">IIsAReadOnlyDictionary</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_AggregateDictionary.md&amp;value=---%0Auid%3A%20OpenSearch.Client.AggregateDictionary%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/AggregateDictionary.cs/#L41" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

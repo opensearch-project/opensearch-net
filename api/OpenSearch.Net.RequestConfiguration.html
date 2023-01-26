@@ -1,0 +1,873 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RequestConfiguration
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RequestConfiguration
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.RequestConfiguration">
+
+
+  <h1 id="OpenSearch_Net_RequestConfiguration" data-uid="OpenSearch.Net.RequestConfiguration" class="text-break">Class RequestConfiguration
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">RequestConfiguration</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IRequestConfiguration.html">IRequestConfiguration</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_RequestConfiguration_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RequestConfiguration : IRequestConfiguration</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_Accept.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.Accept%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L162">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_Accept_" data-uid="OpenSearch.Net.RequestConfiguration.Accept*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_Accept" data-uid="OpenSearch.Net.RequestConfiguration.Accept">Accept</h4>
+  <div class="markdown level1 summary"><p>Force a different Accept header on the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Accept { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_AllowedStatusCodes.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.AllowedStatusCodes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L164">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_AllowedStatusCodes_" data-uid="OpenSearch.Net.RequestConfiguration.AllowedStatusCodes*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_AllowedStatusCodes" data-uid="OpenSearch.Net.RequestConfiguration.AllowedStatusCodes">AllowedStatusCodes</h4>
+  <div class="markdown level1 summary"><p>Treat the following statuses (on top of the 200 range) NOT as error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;int&gt; AllowedStatusCodes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_ApiKeyAuthenticationCredentials.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.ApiKeyAuthenticationCredentials%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L168">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_ApiKeyAuthenticationCredentials_" data-uid="OpenSearch.Net.RequestConfiguration.ApiKeyAuthenticationCredentials*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_ApiKeyAuthenticationCredentials" data-uid="OpenSearch.Net.RequestConfiguration.ApiKeyAuthenticationCredentials">ApiKeyAuthenticationCredentials</h4>
+  <div class="markdown level1 summary"><p>An API-key authorization credentials to specify with this request.
+Overrides any credentials that are set at the global IConnectionSettings level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ApiKeyAuthenticationCredentials ApiKeyAuthenticationCredentials { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.ApiKeyAuthenticationCredentials.html">ApiKeyAuthenticationCredentials</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_RequestConfiguration_ApiKeyAuthenticationCredentials_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Cannot be used in conjunction with <a class="xref" href="OpenSearch.Net.IRequestConfiguration.html#OpenSearch_Net_IRequestConfiguration_BasicAuthenticationCredentials">BasicAuthenticationCredentials</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_BasicAuthenticationCredentials.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.BasicAuthenticationCredentials%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L166">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_BasicAuthenticationCredentials_" data-uid="OpenSearch.Net.RequestConfiguration.BasicAuthenticationCredentials*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_BasicAuthenticationCredentials" data-uid="OpenSearch.Net.RequestConfiguration.BasicAuthenticationCredentials">BasicAuthenticationCredentials</h4>
+  <div class="markdown level1 summary"><p>Basic access authorization credentials to specify with this request.
+Overrides any credentials that are set at the global IConnectionSettings level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BasicAuthenticationCredentials BasicAuthenticationCredentials { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.BasicAuthenticationCredentials.html">BasicAuthenticationCredentials</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_RequestConfiguration_BasicAuthenticationCredentials_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Cannot be used in conjunction with <a class="xref" href="OpenSearch.Net.IRequestConfiguration.html#OpenSearch_Net_IRequestConfiguration_ApiKeyAuthenticationCredentials">ApiKeyAuthenticationCredentials</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_ClientCertificates.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.ClientCertificates%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L170">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_ClientCertificates_" data-uid="OpenSearch.Net.RequestConfiguration.ClientCertificates*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_ClientCertificates" data-uid="OpenSearch.Net.RequestConfiguration.ClientCertificates">ClientCertificates</h4>
+  <div class="markdown level1 summary"><p>Use the following client certificates to authenticate this single request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public X509CertificateCollection ClientCertificates { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.security.cryptography.x509certificates.x509certificatecollection">X509CertificateCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_ContentType.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.ContentType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L172">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_ContentType_" data-uid="OpenSearch.Net.RequestConfiguration.ContentType*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_ContentType" data-uid="OpenSearch.Net.RequestConfiguration.ContentType">ContentType</h4>
+  <div class="markdown level1 summary"><p>Force a different Content-Type header on the request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContentType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_DisableDirectStreaming.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.DisableDirectStreaming%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L174">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_DisableDirectStreaming_" data-uid="OpenSearch.Net.RequestConfiguration.DisableDirectStreaming*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_DisableDirectStreaming" data-uid="OpenSearch.Net.RequestConfiguration.DisableDirectStreaming">DisableDirectStreaming</h4>
+  <div class="markdown level1 summary"><p>Whether to buffer the request and response bytes for the call</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? DisableDirectStreaming { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_DisablePing.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.DisablePing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L176">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_DisablePing_" data-uid="OpenSearch.Net.RequestConfiguration.DisablePing*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_DisablePing" data-uid="OpenSearch.Net.RequestConfiguration.DisablePing">DisablePing</h4>
+  <div class="markdown level1 summary"><p>Under no circumstance do a ping before the actual call. If a node was previously dead a small ping with
+low connect timeout will be tried first in normal circumstances</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? DisablePing { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_DisableSniff.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.DisableSniff%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L178">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_DisableSniff_" data-uid="OpenSearch.Net.RequestConfiguration.DisableSniff*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_DisableSniff" data-uid="OpenSearch.Net.RequestConfiguration.DisableSniff">DisableSniff</h4>
+  <div class="markdown level1 summary"><p>Forces no sniffing to occur on the request no matter what configuration is in place
+globally</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? DisableSniff { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_EnableHttpPipelining.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.EnableHttpPipelining%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L180">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_EnableHttpPipelining_" data-uid="OpenSearch.Net.RequestConfiguration.EnableHttpPipelining*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_EnableHttpPipelining" data-uid="OpenSearch.Net.RequestConfiguration.EnableHttpPipelining">EnableHttpPipelining</h4>
+  <div class="markdown level1 summary"><p>Whether or not this request should be pipelined. <a href="http://en.wikipedia.org/wiki/HTTP_pipelining">http://en.wikipedia.org/wiki/HTTP_pipelining</a> defaults to true</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? EnableHttpPipelining { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_EnableTcpStats.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.EnableTcpStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L200">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_EnableTcpStats_" data-uid="OpenSearch.Net.RequestConfiguration.EnableTcpStats*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_EnableTcpStats" data-uid="OpenSearch.Net.RequestConfiguration.EnableTcpStats">EnableTcpStats</h4>
+  <div class="markdown level1 summary"><p>Enable statistics about TCP connections to be collected when making a request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? EnableTcpStats { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_EnableThreadPoolStats.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.EnableThreadPoolStats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L202">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_EnableThreadPoolStats_" data-uid="OpenSearch.Net.RequestConfiguration.EnableThreadPoolStats*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_EnableThreadPoolStats" data-uid="OpenSearch.Net.RequestConfiguration.EnableThreadPoolStats">EnableThreadPoolStats</h4>
+  <div class="markdown level1 summary"><p>Enable statistics about thread pools to be collected when making a request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? EnableThreadPoolStats { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_ForceNode.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.ForceNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L182">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_ForceNode_" data-uid="OpenSearch.Net.RequestConfiguration.ForceNode*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_ForceNode" data-uid="OpenSearch.Net.RequestConfiguration.ForceNode">ForceNode</h4>
+  <div class="markdown level1 summary"><p>This will force the operation on the specified node, this will bypass any configured connection pool and will no retry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri ForceNode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_Headers.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.Headers%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L198">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_Headers_" data-uid="OpenSearch.Net.RequestConfiguration.Headers*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_Headers" data-uid="OpenSearch.Net.RequestConfiguration.Headers">Headers</h4>
+  <div class="markdown level1 summary"><p>Try to send these headers for this single request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NameValueCollection Headers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.specialized.namevaluecollection">NameValueCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_MaxRetries.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.MaxRetries%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L184">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_MaxRetries_" data-uid="OpenSearch.Net.RequestConfiguration.MaxRetries*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_MaxRetries" data-uid="OpenSearch.Net.RequestConfiguration.MaxRetries">MaxRetries</h4>
+  <div class="markdown level1 summary"><p>This will override whatever is set on the connection configuration or whatever default the connectionpool has.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? MaxRetries { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_OpaqueId.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.OpaqueId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L186">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_OpaqueId_" data-uid="OpenSearch.Net.RequestConfiguration.OpaqueId*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_OpaqueId" data-uid="OpenSearch.Net.RequestConfiguration.OpaqueId">OpaqueId</h4>
+  <div class="markdown level1 summary"><p>Associate an Id with this user-initiated task, such that it can be located in the cluster task list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OpaqueId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_PingTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.PingTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L188">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_PingTimeout_" data-uid="OpenSearch.Net.RequestConfiguration.PingTimeout*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_PingTimeout" data-uid="OpenSearch.Net.RequestConfiguration.PingTimeout">PingTimeout</h4>
+  <div class="markdown level1 summary"><p>The ping timeout for this specific request</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? PingTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_RequestMetaData.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.RequestMetaData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L204">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_RequestMetaData_" data-uid="OpenSearch.Net.RequestConfiguration.RequestMetaData*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_RequestMetaData" data-uid="OpenSearch.Net.RequestConfiguration.RequestMetaData">RequestMetaData</h4>
+  <div class="markdown level1 summary"><p>Holds additional meta data about the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RequestMetaData RequestMetaData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.RequestMetaData.html">RequestMetaData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_RequestTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.RequestTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L190">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_RequestTimeout_" data-uid="OpenSearch.Net.RequestConfiguration.RequestTimeout*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_RequestTimeout" data-uid="OpenSearch.Net.RequestConfiguration.RequestTimeout">RequestTimeout</h4>
+  <div class="markdown level1 summary"><p>The timeout for this specific request, takes precedence over the global timeout settings</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? RequestTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_RunAs.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.RunAs%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L192">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_RunAs_" data-uid="OpenSearch.Net.RequestConfiguration.RunAs*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_RunAs" data-uid="OpenSearch.Net.RequestConfiguration.RunAs">RunAs</h4>
+  <div class="markdown level1 summary"><p>Submit the request on behalf in the context of a different shield user</p>
+<pre></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RunAs { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_ThrowExceptions.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.ThrowExceptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L194">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_ThrowExceptions_" data-uid="OpenSearch.Net.RequestConfiguration.ThrowExceptions*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_ThrowExceptions" data-uid="OpenSearch.Net.RequestConfiguration.ThrowExceptions">ThrowExceptions</h4>
+  <div class="markdown level1 summary"><p>Instead of following a c/go like error checking on response.IsValid do throw an exception (except when <a class="xref" href="OpenSearch.Net.IApiCallDetails.html#OpenSearch_Net_IApiCallDetails_SuccessOrKnownError">SuccessOrKnownError</a> is false)
+on the client when a call resulted in an exception on either the client or the OpenSearch server.</p>
+<p>Reasons for such exceptions could be search parser errors, index missing exceptions, etc...</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? ThrowExceptions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration_TransferEncodingChunked.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration.TransferEncodingChunked%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L196">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestConfiguration_TransferEncodingChunked_" data-uid="OpenSearch.Net.RequestConfiguration.TransferEncodingChunked*"></a>
+  <h4 id="OpenSearch_Net_RequestConfiguration_TransferEncodingChunked" data-uid="OpenSearch.Net.RequestConfiguration.TransferEncodingChunked">TransferEncodingChunked</h4>
+  <div class="markdown level1 summary"><p>Whether the request should be sent with chunked Transfer-Encoding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? TransferEncodingChunked { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IRequestConfiguration.html">IRequestConfiguration</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestConfiguration.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Configuration/RequestConfiguration.cs/#L159" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

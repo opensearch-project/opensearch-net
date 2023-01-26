@@ -1,0 +1,1421 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IPropertyVisitor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IPropertyVisitor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IPropertyVisitor">
+
+
+  <h1 id="OpenSearch_Client_IPropertyVisitor" data-uid="OpenSearch.Client.IPropertyVisitor" class="text-break">Interface IPropertyVisitor
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IPropertyVisitor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPropertyVisitor</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_SkipProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.SkipProperty(System.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_SkipProperty_" data-uid="OpenSearch.Client.IPropertyVisitor.SkipProperty*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_SkipProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.SkipProperty(System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">SkipProperty(PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IBinaryProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IBinaryProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IBinaryProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IBinaryProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IBinaryProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IBinaryProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IBinaryProperty.html">IBinaryProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IBooleanProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IBooleanProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L41">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IBooleanProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IBooleanProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IBooleanProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IBooleanProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IBooleanProperty.html">IBooleanProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ICompletionProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ICompletionProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L57">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ICompletionProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ICompletionProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(ICompletionProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ICompletionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ICompletionProperty.html">ICompletionProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateNanosProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateNanosProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateNanosProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateNanosProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IDateNanosProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDateNanosProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDateNanosProperty.html">IDateNanosProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IDateProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDateProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDateProperty.html">IDateProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDateRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDateRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IDateRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDateRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDateRangeProperty.html">IDateRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDoubleRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDoubleRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L73">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IDoubleRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IDoubleRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IDoubleRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IDoubleRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IDoubleRangeProperty.html">IDoubleRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IFieldAliasProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IFieldAliasProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IFieldAliasProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IFieldAliasProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IFieldAliasProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFieldAliasProperty.html">IFieldAliasProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IFloatRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IFloatRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L69">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IFloatRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IFloatRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IFloatRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IFloatRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IFloatRangeProperty.html">IFloatRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IGeoPointProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IGeoPointProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IGeoPointProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IGeoPointProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IGeoPointProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoPointProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoPointProperty.html">IGeoPointProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IGeoShapeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IGeoShapeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L55">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IGeoShapeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IGeoShapeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IGeoShapeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IGeoShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShapeProperty.html">IGeoShapeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIntegerRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIntegerRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L67">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIntegerRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIntegerRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IIntegerRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IIntegerRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIntegerRangeProperty.html">IIntegerRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIpProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIpProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIpProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIpProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IIpProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IIpProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIpProperty.html">IIpProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIpRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIpRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IIpRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IIpRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IIpRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IIpRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIpRangeProperty.html">IIpRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IJoinProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IJoinProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L79">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IJoinProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IJoinProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IJoinProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IJoinProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IJoinProperty.html">IJoinProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IKeywordProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IKeywordProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L37">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IKeywordProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IKeywordProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IKeywordProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IKeywordProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IKeywordProperty.html">IKeywordProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ILongRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ILongRangeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ILongRangeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ILongRangeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(ILongRangeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ILongRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ILongRangeProperty.html">ILongRangeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IMurmur3HashProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IMurmur3HashProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L61">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IMurmur3HashProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IMurmur3HashProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IMurmur3HashProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IMurmur3HashProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IMurmur3HashProperty.html">IMurmur3HashProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_INestedProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.INestedProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_INestedProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.INestedProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(INestedProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(INestedProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.INestedProperty.html">INestedProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_INumberProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.INumberProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L39">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_INumberProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.INumberProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(INumberProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(INumberProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.INumberProperty.html">INumberProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IObjectProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IObjectProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IObjectProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IObjectProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IObjectProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IObjectProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IObjectProperty.html">IObjectProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IPercolatorProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IPercolatorProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L65">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IPercolatorProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IPercolatorProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IPercolatorProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IPercolatorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPercolatorProperty.html">IPercolatorProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IRankFeatureProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IRankFeatureProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IRankFeatureProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IRankFeatureProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IRankFeatureProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRankFeatureProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRankFeatureProperty.html">IRankFeatureProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IRankFeaturesProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IRankFeaturesProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L83">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_IRankFeaturesProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.IRankFeaturesProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(IRankFeaturesProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(IRankFeaturesProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRankFeaturesProperty.html">IRankFeaturesProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ISearchAsYouTypeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ISearchAsYouTypeProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ISearchAsYouTypeProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ISearchAsYouTypeProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(ISearchAsYouTypeProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ISearchAsYouTypeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ISearchAsYouTypeProperty.html">ISearchAsYouTypeProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ITextProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ITextProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L35">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ITextProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ITextProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(ITextProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITextProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITextProperty.html">ITextProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ITokenCountProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ITokenCountProperty%2CSystem.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L63">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_OpenSearch_Client_ITokenCountProperty_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(OpenSearch.Client.ITokenCountProperty,System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(ITokenCountProperty, PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Visit(ITokenCountProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITokenCountProperty.html">ITokenCountProperty</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor_Visit_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor.Visit(System.Reflection.PropertyInfo%2COpenSearch.Client.OpenSearchPropertyAttributeBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IPropertyVisitor_Visit_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_IPropertyVisitor_Visit_System_Reflection_PropertyInfo_OpenSearch_Client_OpenSearchPropertyAttributeBase_" data-uid="OpenSearch.Client.IPropertyVisitor.Visit(System.Reflection.PropertyInfo,OpenSearch.Client.OpenSearchPropertyAttributeBase)">Visit(PropertyInfo, OpenSearchPropertyAttributeBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.propertyinfo">PropertyInfo</a></td>
+        <td><span class="parametername">propertyInfo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.OpenSearchPropertyAttributeBase.html">OpenSearchPropertyAttributeBase</a></td>
+        <td><span class="parametername">attribute</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IProperty.html">IProperty</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IPropertyVisitor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IPropertyVisitor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Mapping/Visitor/IPropertyVisitor.cs/#L33" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

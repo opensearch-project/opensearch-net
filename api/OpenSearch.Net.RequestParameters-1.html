@@ -1,0 +1,894 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RequestParameters&lt;T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RequestParameters&lt;T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.RequestParameters`1">
+
+
+  <h1 id="OpenSearch_Net_RequestParameters_1" data-uid="OpenSearch.Net.RequestParameters`1" class="text-break">Class RequestParameters&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">RequestParameters&lt;T&gt;</span></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.BulkRequestParameters.html">BulkRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ClearScrollRequestParameters.html">ClearScrollRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.CountRequestParameters.html">CountRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.CreateRequestParameters.html">CreateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.DeleteByQueryRequestParameters.html">DeleteByQueryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.DeleteByQueryRethrottleRequestParameters.html">DeleteByQueryRethrottleRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.DeleteRequestParameters.html">DeleteRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.DeleteScriptRequestParameters.html">DeleteScriptRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.DocumentExistsRequestParameters.html">DocumentExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ExecutePainlessScriptRequestParameters.html">ExecutePainlessScriptRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ExplainRequestParameters.html">ExplainRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.FieldCapabilitiesRequestParameters.html">FieldCapabilitiesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.GetRequestParameters.html">GetRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.GetScriptContextRequestParameters.html">GetScriptContextRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.GetScriptLanguagesRequestParameters.html">GetScriptLanguagesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.GetScriptRequestParameters.html">GetScriptRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.IndexRequestParameters.html">IndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.MultiGetRequestParameters.html">MultiGetRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.MultiSearchRequestParameters.html">MultiSearchRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.MultiSearchTemplateRequestParameters.html">MultiSearchTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.MultiTermVectorsRequestParameters.html">MultiTermVectorsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.PingRequestParameters.html">PingRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.PutScriptRequestParameters.html">PutScriptRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.RankEvalRequestParameters.html">RankEvalRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ReindexOnServerRequestParameters.html">ReindexOnServerRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ReindexRethrottleRequestParameters.html">ReindexRethrottleRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.RenderSearchTemplateRequestParameters.html">RenderSearchTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.RootNodeInfoRequestParameters.html">RootNodeInfoRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.ScrollRequestParameters.html">ScrollRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.SearchRequestParameters.html">SearchRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.SearchShardsRequestParameters.html">SearchShardsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.SearchTemplateRequestParameters.html">SearchTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.SourceExistsRequestParameters.html">SourceExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.SourceRequestParameters.html">SourceRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatAliasesRequestParameters.html">CatAliasesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatAllocationRequestParameters.html">CatAllocationRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatClusterManagerRequestParameters.html">CatClusterManagerRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatCountRequestParameters.html">CatCountRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatFielddataRequestParameters.html">CatFielddataRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatHealthRequestParameters.html">CatHealthRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatHelpRequestParameters.html">CatHelpRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.html">CatIndicesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatMasterRequestParameters.html">CatMasterRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatNodeAttributesRequestParameters.html">CatNodeAttributesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatNodesRequestParameters.html">CatNodesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatPendingTasksRequestParameters.html">CatPendingTasksRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatPluginsRequestParameters.html">CatPluginsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatRecoveryRequestParameters.html">CatRecoveryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatRepositoriesRequestParameters.html">CatRepositoriesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatSegmentsRequestParameters.html">CatSegmentsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatShardsRequestParameters.html">CatShardsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatSnapshotsRequestParameters.html">CatSnapshotsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatTasksRequestParameters.html">CatTasksRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatTemplatesRequestParameters.html">CatTemplatesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.CatApi.CatThreadPoolRequestParameters.html">CatThreadPoolRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterAllocationExplainRequestParameters.html">ClusterAllocationExplainRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterGetSettingsRequestParameters.html">ClusterGetSettingsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.html">ClusterHealthRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterPendingTasksRequestParameters.html">ClusterPendingTasksRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterPutSettingsRequestParameters.html">ClusterPutSettingsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterRerouteRequestParameters.html">ClusterRerouteRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterStateRequestParameters.html">ClusterStateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ClusterStatsRequestParameters.html">ClusterStatsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.DeleteComponentTemplateRequestParameters.html">DeleteComponentTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.DeleteVotingConfigExclusionsRequestParameters.html">DeleteVotingConfigExclusionsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.ExistsComponentTemplateRequestParameters.html">ExistsComponentTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.GetComponentTemplateRequestParameters.html">GetComponentTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.PostVotingConfigExclusionsRequestParameters.html">PostVotingConfigExclusionsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.PutComponentTemplateRequestParameters.html">PutComponentTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.ClusterApi.RemoteInfoRequestParameters.html">RemoteInfoRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.DanglingIndicesApi.DeleteDanglingIndexRequestParameters.html">DeleteDanglingIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.DanglingIndicesApi.ImportDanglingIndexRequestParameters.html">ImportDanglingIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.DanglingIndicesApi.ListDanglingIndicesRequestParameters.html">ListDanglingIndicesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.FeaturesApi.GetFeaturesRequestParameters.html">GetFeaturesRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.AddIndexBlockRequestParameters.html">AddIndexBlockRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.AliasExistsRequestParameters.html">AliasExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.AnalyzeRequestParameters.html">AnalyzeRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.BulkAliasRequestParameters.html">BulkAliasRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.html">ClearCacheRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.CloneIndexRequestParameters.html">CloneIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.CloseIndexRequestParameters.html">CloseIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.CreateIndexRequestParameters.html">CreateIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.DeleteAliasRequestParameters.html">DeleteAliasRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.DeleteIndexRequestParameters.html">DeleteIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.DeleteIndexTemplateRequestParameters.html">DeleteIndexTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.DeleteIndexTemplateV2RequestParameters.html">DeleteIndexTemplateV2RequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ExistsIndexTemplateRequestParameters.html">ExistsIndexTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.html">FlushRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ForceMergeRequestParameters.html">ForceMergeRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetAliasRequestParameters.html">GetAliasRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetFieldMappingRequestParameters.html">GetFieldMappingRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetIndexRequestParameters.html">GetIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetIndexSettingsRequestParameters.html">GetIndexSettingsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetIndexTemplateRequestParameters.html">GetIndexTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetIndexTemplateV2RequestParameters.html">GetIndexTemplateV2RequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.GetMappingRequestParameters.html">GetMappingRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.html">IndexExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.IndexTemplateExistsRequestParameters.html">IndexTemplateExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.IndicesShardStoresRequestParameters.html">IndicesShardStoresRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters.html">IndicesStatsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.OpenIndexRequestParameters.html">OpenIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.PutAliasRequestParameters.html">PutAliasRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateRequestParameters.html">PutIndexTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateV2RequestParameters.html">PutIndexTemplateV2RequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.PutMappingRequestParameters.html">PutMappingRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RecoveryStatusRequestParameters.html">RecoveryStatusRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RefreshRequestParameters.html">RefreshRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ResolveIndexRequestParameters.html">ResolveIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RolloverIndexRequestParameters.html">RolloverIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.SegmentsRequestParameters.html">SegmentsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ShrinkIndexRequestParameters.html">ShrinkIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.SimulateIndexTemplateRequestParameters.html">SimulateIndexTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.SimulateTemplateRequestParameters.html">SimulateTemplateRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.SplitIndexRequestParameters.html">SplitIndexRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.SyncedFlushRequestParameters.html">SyncedFlushRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.TypeExistsRequestParameters.html">TypeExistsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.UpdateIndexSettingsRequestParameters.html">UpdateIndexSettingsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IndicesApi.ValidateQueryRequestParameters.html">ValidateQueryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IngestApi.DeletePipelineRequestParameters.html">DeletePipelineRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IngestApi.GetPipelineRequestParameters.html">GetPipelineRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IngestApi.GrokProcessorPatternsRequestParameters.html">GrokProcessorPatternsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IngestApi.PutPipelineRequestParameters.html">PutPipelineRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.IngestApi.SimulatePipelineRequestParameters.html">SimulatePipelineRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters.html">NodesHotThreadsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.CleanupRepositoryRequestParameters.html">CleanupRepositoryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.CloneSnapshotRequestParameters.html">CloneSnapshotRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.CreateRepositoryRequestParameters.html">CreateRepositoryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.DeleteRepositoryRequestParameters.html">DeleteRepositoryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.DeleteSnapshotRequestParameters.html">DeleteSnapshotRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.GetRepositoryRequestParameters.html">GetRepositoryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.GetSnapshotRequestParameters.html">GetSnapshotRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.RestoreRequestParameters.html">RestoreRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.SnapshotRequestParameters.html">SnapshotRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.SnapshotStatusRequestParameters.html">SnapshotStatusRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.SnapshotApi.VerifyRepositoryRequestParameters.html">VerifyRepositoryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters.html">CancelTasksRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.TasksApi.GetTaskRequestParameters.html">GetTaskRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.Specification.TasksApi.ListTasksRequestParameters.html">ListTasksRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.TermVectorsRequestParameters.html">TermVectorsRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.UpdateByQueryRequestParameters.html">UpdateByQueryRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.UpdateByQueryRethrottleRequestParameters.html">UpdateByQueryRethrottleRequestParameters</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Net.UpdateRequestParameters.html">UpdateRequestParameters</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IRequestParameters.html">IRequestParameters</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_RequestParameters_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RequestParameters&lt;T&gt; : IRequestParameters where T : RequestParameters&lt;T&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_CustomResponseBuilder.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.CustomResponseBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_CustomResponseBuilder_" data-uid="OpenSearch.Net.RequestParameters`1.CustomResponseBuilder*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_CustomResponseBuilder" data-uid="OpenSearch.Net.RequestParameters`1.CustomResponseBuilder">CustomResponseBuilder</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CustomResponseBuilderBase CustomResponseBuilder { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.CustomResponseBuilderBase.html">CustomResponseBuilderBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L42">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_DefaultHttpMethod_" data-uid="OpenSearch.Net.RequestParameters`1.DefaultHttpMethod*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_DefaultHttpMethod" data-uid="OpenSearch.Net.RequestParameters`1.DefaultHttpMethod">DefaultHttpMethod</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract HttpMethod DefaultHttpMethod { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.HttpMethod.html">HttpMethod</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_QueryString.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.QueryString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L46">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_QueryString_" data-uid="OpenSearch.Net.RequestParameters`1.QueryString*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_QueryString" data-uid="OpenSearch.Net.RequestParameters`1.QueryString">QueryString</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, object&gt; QueryString { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_RequestConfiguration.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.RequestConfiguration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_RequestConfiguration_" data-uid="OpenSearch.Net.RequestParameters`1.RequestConfiguration*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_RequestConfiguration" data-uid="OpenSearch.Net.RequestParameters`1.RequestConfiguration">RequestConfiguration</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRequestConfiguration RequestConfiguration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IRequestConfiguration.html">IRequestConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_SupportsBody_" data-uid="OpenSearch.Net.RequestParameters`1.SupportsBody*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_SupportsBody" data-uid="OpenSearch.Net.RequestParameters`1.SupportsBody">SupportsBody</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool SupportsBody { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_AcceptHeaderFromFormat_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.AcceptHeaderFromFormat(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L98">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_AcceptHeaderFromFormat_" data-uid="OpenSearch.Net.RequestParameters`1.AcceptHeaderFromFormat*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_AcceptHeaderFromFormat_System_String_" data-uid="OpenSearch.Net.RequestParameters`1.AcceptHeaderFromFormat(System.String)">AcceptHeaderFromFormat(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the HTTP Accept Header value from the shortened name. If the shortened name is not recognized,
+<code>null</code> is returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AcceptHeaderFromFormat(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_ContainsQueryString_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.ContainsQueryString(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_ContainsQueryString_" data-uid="OpenSearch.Net.RequestParameters`1.ContainsQueryString*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_ContainsQueryString_System_String_" data-uid="OpenSearch.Net.RequestParameters`1.ContainsQueryString(System.String)">ContainsQueryString(String)</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsQueryString(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_GetQueryStringValue__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.GetQueryStringValue%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L54">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_GetQueryStringValue_" data-uid="OpenSearch.Net.RequestParameters`1.GetQueryStringValue*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_GetQueryStringValue__1_System_String_" data-uid="OpenSearch.Net.RequestParameters`1.GetQueryStringValue``1(System.String)">GetQueryStringValue&lt;TOut&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Get's the value as its stored on the querystring using its original type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TOut GetQueryStringValue&lt;TOut&gt;(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_GetResolvedQueryStringValue_System_String_OpenSearch_Net_IConnectionConfigurationValues_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.GetResolvedQueryStringValue(System.String%2COpenSearch.Net.IConnectionConfigurationValues)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L67">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_GetResolvedQueryStringValue_" data-uid="OpenSearch.Net.RequestParameters`1.GetResolvedQueryStringValue*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_GetResolvedQueryStringValue_System_String_OpenSearch_Net_IConnectionConfigurationValues_" data-uid="OpenSearch.Net.RequestParameters`1.GetResolvedQueryStringValue(System.String,OpenSearch.Net.IConnectionConfigurationValues)">GetResolvedQueryStringValue(String, IConnectionConfigurationValues)</h4>
+  <div class="markdown level1 summary"><p>Gets the stringified representation of a query string value as it would be sent to OpenSearch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetResolvedQueryStringValue(string n, IConnectionConfigurationValues s)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">n</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a></td>
+        <td><span class="parametername">s</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_Q_System_String_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.Q(System.String%2CSystem.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_Q_" data-uid="OpenSearch.Net.RequestParameters`1.Q*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_Q_System_String_System_Object_" data-uid="OpenSearch.Net.RequestParameters`1.Q(System.String,System.Object)">Q(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Q(string name, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_Q__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.Q%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_Q_" data-uid="OpenSearch.Net.RequestParameters`1.Q*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_Q__1_System_String_" data-uid="OpenSearch.Net.RequestParameters`1.Q``1(System.String)">Q&lt;TOut&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TOut Q&lt;TOut&gt;(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TOut</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_SetAcceptHeader_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.SetAcceptHeader(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_SetAcceptHeader_" data-uid="OpenSearch.Net.RequestParameters`1.SetAcceptHeader*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_SetAcceptHeader_System_String_" data-uid="OpenSearch.Net.RequestParameters`1.SetAcceptHeader(System.String)">SetAcceptHeader(String)</h4>
+  <div class="markdown level1 summary"><p>Used by the raw client to compose querystring parameters in a matter that still exposes some xmldocs
+You can always pass a simple NameValueCollection if you want.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetAcceptHeader(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1_SetQueryString_System_String_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601.SetQueryString(System.String%2CSystem.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_RequestParameters_1_SetQueryString_" data-uid="OpenSearch.Net.RequestParameters`1.SetQueryString*"></a>
+  <h4 id="OpenSearch_Net_RequestParameters_1_SetQueryString_System_String_System_Object_" data-uid="OpenSearch.Net.RequestParameters`1.SetQueryString(System.String,System.Object)">SetQueryString(String, Object)</h4>
+  <div class="markdown level1 summary"><p>Sets a query string param. If <code data-dev-comment-type="paramref" class="paramref">value</code> is null and the parameter exists it will be removed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetQueryString(string name, object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The query string parameter to add</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to set, if null removes <code data-dev-comment-type="paramref" class="paramref">name</code> from the query string if it exists</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IRequestParameters.html">IRequestParameters</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RequestParameters_1.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RequestParameters%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.cs/#L40" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SortDescriptorBase&lt;TDescriptor, TInterface, T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SortDescriptorBase&lt;TDescriptor, TInterface, T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.SortDescriptorBase`3">
+
+
+  <h1 id="OpenSearch_Client_SortDescriptorBase_3" data-uid="OpenSearch.Client.SortDescriptorBase`3" class="text-break">Class SortDescriptorBase&lt;TDescriptor, TInterface, T&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;TDescriptor, TInterface&gt;</div>
+    <div class="level2"><span class="xref">SortDescriptorBase&lt;TDescriptor, TInterface, T&gt;</span></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.FieldSortDescriptor-1.html">FieldSortDescriptor&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.GeoDistanceSortDescriptor-1.html">GeoDistanceSortDescriptor&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OpenSearch.Client.ScriptSortDescriptor-1.html">ScriptSortDescriptor&lt;T&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ISort.html">ISort</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;TDescriptor, TInterface&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;TDescriptor, TInterface&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;TInterface, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_SortDescriptorBase_3_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SortDescriptorBase&lt;TDescriptor, TInterface, T&gt; : DescriptorBase&lt;TDescriptor, TInterface&gt;, IDescriptor, ISort where TDescriptor : SortDescriptorBase&lt;TDescriptor, TInterface, T&gt;, TInterface, ISort where TInterface : class, ISort where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TDescriptor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TInterface</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_SortKey.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.SortKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_SortKey_" data-uid="OpenSearch.Client.SortDescriptorBase`3.SortKey*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_SortKey" data-uid="OpenSearch.Client.SortDescriptorBase`3.SortKey">SortKey</h4>
+  <div class="markdown level1 summary"><p>The field on which to sort</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Field SortKey { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Ascending.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Ascending%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L124">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Ascending_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Ascending*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Ascending" data-uid="OpenSearch.Client.SortDescriptorBase`3.Ascending">Ascending()</h4>
+  <div class="markdown level1 summary"><p>Sorts by ascending sort order</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Ascending()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Descending.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Descending%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L129">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Descending_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Descending*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Descending" data-uid="OpenSearch.Client.SortDescriptorBase`3.Descending">Descending()</h4>
+  <div class="markdown level1 summary"><p>Sorts by descending sort order</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Descending()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Missing_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Missing(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L151">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Missing_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Missing*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Missing_System_Object_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Missing(System.Object)">Missing(Object)</h4>
+  <div class="markdown level1 summary"><p>Specifies how documents which are missing the sort field should
+be treated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Missing(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_MissingFirst.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.MissingFirst%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L148">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_MissingFirst_" data-uid="OpenSearch.Client.SortDescriptorBase`3.MissingFirst*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_MissingFirst" data-uid="OpenSearch.Client.SortDescriptorBase`3.MissingFirst">MissingFirst()</h4>
+  <div class="markdown level1 summary"><p>Specifies that documents which are missing the sort field should be ordered first</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor MissingFirst()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_MissingLast.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.MissingLast%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L143">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_MissingLast_" data-uid="OpenSearch.Client.SortDescriptorBase`3.MissingLast*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_MissingLast" data-uid="OpenSearch.Client.SortDescriptorBase`3.MissingLast">MissingLast()</h4>
+  <div class="markdown level1 summary"><p>Specifies that documents which are missing the sort field should be ordered last</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor MissingLast()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Mode_System_Nullable_OpenSearch_Client_SortMode__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Mode(System.Nullable%7BOpenSearch.Client.SortMode%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L138">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Mode_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Mode*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Mode_System_Nullable_OpenSearch_Client_SortMode__" data-uid="OpenSearch.Client.SortDescriptorBase`3.Mode(System.Nullable{OpenSearch.Client.SortMode})">Mode(Nullable&lt;SortMode&gt;)</h4>
+  <div class="markdown level1 summary"><p>Controls what collection value is picked for sorting a document
+when the field is a collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Mode(SortMode? mode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.SortMode.html">SortMode</a>&gt;</td>
+        <td><span class="parametername">mode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Nested_System_Func_OpenSearch_Client_NestedSortDescriptor__2__OpenSearch_Client_INestedSort__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Nested(System.Func%7BOpenSearch.Client.NestedSortDescriptor%7B%602%7D%2COpenSearch.Client.INestedSort%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L154">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Nested_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Nested*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Nested_System_Func_OpenSearch_Client_NestedSortDescriptor__2__OpenSearch_Client_INestedSort__" data-uid="OpenSearch.Client.SortDescriptorBase`3.Nested(System.Func{OpenSearch.Client.NestedSortDescriptor{`2},OpenSearch.Client.INestedSort})">Nested(Func&lt;NestedSortDescriptor&lt;T&gt;, INestedSort&gt;)</h4>
+  <div class="markdown level1 summary"><p>Specifies the path and filter to apply when sorting on a nested field</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Nested(Func&lt;NestedSortDescriptor&lt;T&gt;, INestedSort&gt; selector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.NestedSortDescriptor-1.html">NestedSortDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.INestedSort.html">INestedSort</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_NumericType_System_Nullable_OpenSearch_Client_NumericType__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.NumericType(System.Nullable%7BOpenSearch.Client.NumericType%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L135">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_NumericType_" data-uid="OpenSearch.Client.SortDescriptorBase`3.NumericType*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_NumericType_System_Nullable_OpenSearch_Client_NumericType__" data-uid="OpenSearch.Client.SortDescriptorBase`3.NumericType(System.Nullable{OpenSearch.Client.NumericType})">NumericType(Nullable&lt;NumericType&gt;)</h4>
+  <div class="markdown level1 summary"><p>Set a single resolution for the sort</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor NumericType(NumericType? numericType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.NumericType.html">NumericType</a>&gt;</td>
+        <td><span class="parametername">numericType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_Order_System_Nullable_OpenSearch_Client_SortOrder__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.Order(System.Nullable%7BOpenSearch.Client.SortOrder%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L132">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_Order_" data-uid="OpenSearch.Client.SortDescriptorBase`3.Order*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_Order_System_Nullable_OpenSearch_Client_SortOrder__" data-uid="OpenSearch.Client.SortDescriptorBase`3.Order(System.Nullable{OpenSearch.Client.SortOrder})">Order(Nullable&lt;SortOrder&gt;)</h4>
+  <div class="markdown level1 summary"><p>Controls the order of sorting</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TDescriptor Order(SortOrder? order)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.SortOrder.html">SortOrder</a>&gt;</td>
+        <td><span class="parametername">order</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Missing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23Missing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L114">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Missing_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Missing*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Missing" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Missing">ISort.Missing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ISort.Missing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Mode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23Mode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L115">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Mode_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Mode*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Mode" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Mode">ISort.Mode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SortMode? ISort.Mode { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.SortMode.html">SortMode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Nested.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23Nested%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L117">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Nested_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Nested*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Nested" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Nested">ISort.Nested</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">INestedSort ISort.Nested { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.INestedSort.html">INestedSort</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_NumericType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23NumericType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L116">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_NumericType_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#NumericType*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_NumericType" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#NumericType">ISort.NumericType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NumericType? ISort.NumericType { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.NumericType.html">NumericType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Order.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23Order%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L118">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Order_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Order*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_Order" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#Order">ISort.Order</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SortOrder? ISort.Order { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.SortOrder.html">SortOrder</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_SortKey.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603.OpenSearch%23Client%23ISort%23SortKey%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L119">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_SortKey_" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#SortKey*"></a>
+  <h4 id="OpenSearch_Client_SortDescriptorBase_3_OpenSearch_Client_ISort_SortKey" data-uid="OpenSearch.Client.SortDescriptorBase`3.OpenSearch#Client#ISort#SortKey">ISort.SortKey</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field ISort.SortKey { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ISort.html">ISort</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SortDescriptorBase_3.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SortDescriptorBase%603%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Sort/SortBase.cs/#L104" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

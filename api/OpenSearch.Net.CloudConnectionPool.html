@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CloudConnectionPool
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CloudConnectionPool
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Net.CloudConnectionPool">
+
+
+  <h1 id="OpenSearch_Net_CloudConnectionPool" data-uid="OpenSearch.Net.CloudConnectionPool" class="text-break">Class CloudConnectionPool
+</h1>
+  <div class="markdown level0 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id:</p>
+<p></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html">SingleNodeConnectionPool</a></div>
+    <div class="level2"><span class="xref">CloudConnectionPool</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_LastUpdate">SingleNodeConnectionPool.LastUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_MaxRetries">SingleNodeConnectionPool.MaxRetries</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_Nodes">SingleNodeConnectionPool.Nodes</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_SniffedOnStartup">SingleNodeConnectionPool.SniffedOnStartup</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_SupportsPinging">SingleNodeConnectionPool.SupportsPinging</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_SupportsReseeding">SingleNodeConnectionPool.SupportsReseeding</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_UsingSsl">SingleNodeConnectionPool.UsingSsl</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_CreateView_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__">SingleNodeConnectionPool.CreateView(Action&lt;AuditEvent, Node&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_Reseed_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__">SingleNodeConnectionPool.Reseed(IEnumerable&lt;Node&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_System_IDisposable_Dispose">SingleNodeConnectionPool.IDisposable.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Net.html">OpenSearch.Net</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Net.dll</h6>
+  <h5 id="OpenSearch_Net_CloudConnectionPool_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CloudConnectionPool : SingleNodeConnectionPool, IConnectionPool, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool__ctor_System_String_OpenSearch_Net_ApiKeyAuthenticationCredentials_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool.%23ctor(System.String%2COpenSearch.Net.ApiKeyAuthenticationCredentials%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_CloudConnectionPool__ctor_" data-uid="OpenSearch.Net.CloudConnectionPool.#ctor*"></a>
+  <h4 id="OpenSearch_Net_CloudConnectionPool__ctor_System_String_OpenSearch_Net_ApiKeyAuthenticationCredentials_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.CloudConnectionPool.#ctor(System.String,OpenSearch.Net.ApiKeyAuthenticationCredentials,OpenSearch.Net.IDateTimeProvider)">CloudConnectionPool(String, ApiKeyAuthenticationCredentials, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id here</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CloudConnectionPool(string cloudId, ApiKeyAuthenticationCredentials credentials, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cloudId</span></td>
+        <td><p>The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <code>cluster_name:base_64_encoded_string</code></p>
+<p>Base64 encoded string contains the following tokens in order separated by $:</p>
+<p>* Host Name (mandatory)</p>
+<p>* OpenSearch UUID (mandatory)</p>
+<p>* OpenSearchDashboards UUID</p>
+<p>* APM UUID</p>
+<p></p>
+<p> We then use these tokens to create the URI to your OpenSearch Cloud cluster!</p>
+<p></p>
+<p> Read more here: </p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.ApiKeyAuthenticationCredentials.html">ApiKeyAuthenticationCredentials</a></td>
+        <td><span class="parametername">credentials</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool__ctor_System_String_OpenSearch_Net_BasicAuthenticationCredentials_OpenSearch_Net_IDateTimeProvider_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool.%23ctor(System.String%2COpenSearch.Net.BasicAuthenticationCredentials%2COpenSearch.Net.IDateTimeProvider)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_CloudConnectionPool__ctor_" data-uid="OpenSearch.Net.CloudConnectionPool.#ctor*"></a>
+  <h4 id="OpenSearch_Net_CloudConnectionPool__ctor_System_String_OpenSearch_Net_BasicAuthenticationCredentials_OpenSearch_Net_IDateTimeProvider_" data-uid="OpenSearch.Net.CloudConnectionPool.#ctor(System.String,OpenSearch.Net.BasicAuthenticationCredentials,OpenSearch.Net.IDateTimeProvider)">CloudConnectionPool(String, BasicAuthenticationCredentials, IDateTimeProvider)</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id here</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CloudConnectionPool(string cloudId, BasicAuthenticationCredentials credentials, IDateTimeProvider dateTimeProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cloudId</span></td>
+        <td><p>The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <code>cluster_name:base_64_encoded_string</code></p>
+<p>Base64 encoded string contains the following tokens in order separated by $:</p>
+<p>* Host Name (mandatory)</p>
+<p>* OpenSearch UUID (mandatory)</p>
+<p>* OpenSearchDashboards UUID</p>
+<p>* APM UUID</p>
+<p></p>
+<p> We then use these tokens to create the URI to your OpenSearch Cloud cluster!</p>
+<p></p>
+<p> Read more here: </p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.BasicAuthenticationCredentials.html">BasicAuthenticationCredentials</a></td>
+        <td><span class="parametername">credentials</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.IDateTimeProvider.html">IDateTimeProvider</a></td>
+        <td><span class="parametername">dateTimeProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool_ApiKeyCredentials.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool.ApiKeyCredentials%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L96">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_CloudConnectionPool_ApiKeyCredentials_" data-uid="OpenSearch.Net.CloudConnectionPool.ApiKeyCredentials*"></a>
+  <h4 id="OpenSearch_Net_CloudConnectionPool_ApiKeyCredentials" data-uid="OpenSearch.Net.CloudConnectionPool.ApiKeyCredentials">ApiKeyCredentials</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ApiKeyAuthenticationCredentials ApiKeyCredentials { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.ApiKeyAuthenticationCredentials.html">ApiKeyAuthenticationCredentials</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool_BasicCredentials.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool.BasicCredentials%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_CloudConnectionPool_BasicCredentials_" data-uid="OpenSearch.Net.CloudConnectionPool.BasicCredentials*"></a>
+  <h4 id="OpenSearch_Net_CloudConnectionPool_BasicCredentials" data-uid="OpenSearch.Net.CloudConnectionPool.BasicCredentials">BasicCredentials</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BasicAuthenticationCredentials BasicCredentials { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.BasicAuthenticationCredentials.html">BasicAuthenticationCredentials</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool_DisposeManagedResources.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool.DisposeManagedResources%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L141">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_CloudConnectionPool_DisposeManagedResources_" data-uid="OpenSearch.Net.CloudConnectionPool.DisposeManagedResources*"></a>
+  <h4 id="OpenSearch_Net_CloudConnectionPool_DisposeManagedResources" data-uid="OpenSearch.Net.CloudConnectionPool.DisposeManagedResources">DisposeManagedResources()</h4>
+  <div class="markdown level1 summary"><p>An <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a> implementation that can be seeded with a cloud id
+and will signal the right defaults for the client to use for OpenSearch Cloud to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a>.</p>
+<p>Read more about OpenSearch Cloud Id:</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DisposeManagedResources()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Net.SingleNodeConnectionPool.html#OpenSearch_Net_SingleNodeConnectionPool_DisposeManagedResources">SingleNodeConnectionPool.DisposeManagedResources()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IConnectionPool.html">IConnectionPool</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_CloudConnectionPool.md&amp;value=---%0Auid%3A%20OpenSearch.Net.CloudConnectionPool%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/ConnectionPool/CloudConnectionPool.cs/#L41" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

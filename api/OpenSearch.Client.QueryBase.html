@@ -1,0 +1,763 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class QueryBase
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class QueryBase
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.QueryBase">
+
+
+  <h1 id="OpenSearch_Client_QueryBase" data-uid="OpenSearch.Client.QueryBase" class="text-break">Class QueryBase
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">QueryBase</span></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.BoolQuery.html">BoolQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.BoostingQuery.html">BoostingQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.ConstantScoreQuery.html">ConstantScoreQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.DisMaxQuery.html">DisMaxQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.ExistsQuery.html">ExistsQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.FieldNameQueryBase.html">FieldNameQueryBase</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.FunctionScoreQuery.html">FunctionScoreQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.HasChildQuery.html">HasChildQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.HasParentQuery.html">HasParentQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.IdsQuery.html">IdsQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.MatchAllQuery.html">MatchAllQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.MatchNoneQuery.html">MatchNoneQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.MoreLikeThisQuery.html">MoreLikeThisQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.MultiMatchQuery.html">MultiMatchQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.NestedQuery.html">NestedQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.ParentIdQuery.html">ParentIdQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.PercolateQuery.html">PercolateQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.QueryStringQuery.html">QueryStringQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.RawQuery.html">RawQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.ScriptQuery.html">ScriptQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.ScriptScoreQuery.html">ScriptScoreQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SimpleQueryStringQuery.html">SimpleQueryStringQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanContainingQuery.html">SpanContainingQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanFieldMaskingQuery.html">SpanFieldMaskingQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanFirstQuery.html">SpanFirstQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanGapQuery.html">SpanGapQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanMultiTermQuery.html">SpanMultiTermQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanNearQuery.html">SpanNearQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanNotQuery.html">SpanNotQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanOrQuery.html">SpanOrQuery</a></div>
+      <div class="level2"><a class="xref" href="OpenSearch.Client.SpanWithinQuery.html">SpanWithinQuery</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_QueryBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class QueryBase : IQuery</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_Boost.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.Boost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_Boost_" data-uid="OpenSearch.Client.QueryBase.Boost*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_Boost" data-uid="OpenSearch.Client.QueryBase.Boost">Boost</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Boost { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_Conditionless.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.Conditionless%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L92">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_Conditionless_" data-uid="OpenSearch.Client.QueryBase.Conditionless*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_Conditionless" data-uid="OpenSearch.Client.QueryBase.Conditionless">Conditionless</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool Conditionless { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_IsStrict.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.IsStrict%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L85">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_IsStrict_" data-uid="OpenSearch.Client.QueryBase.IsStrict*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_IsStrict" data-uid="OpenSearch.Client.QueryBase.IsStrict">IsStrict</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsStrict { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_IsVerbatim.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.IsVerbatim%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L86">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_IsVerbatim_" data-uid="OpenSearch.Client.QueryBase.IsVerbatim*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_IsVerbatim" data-uid="OpenSearch.Client.QueryBase.IsVerbatim">IsVerbatim</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVerbatim { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_IsWritable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.IsWritable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_IsWritable_" data-uid="OpenSearch.Client.QueryBase.IsWritable*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_IsWritable" data-uid="OpenSearch.Client.QueryBase.IsWritable">IsWritable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsWritable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_Name.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.Name%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_Name_" data-uid="OpenSearch.Client.QueryBase.Name*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_Name" data-uid="OpenSearch.Client.QueryBase.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The name of the query. Allows you to retrieve for each document what part of the query it matched on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_BitwiseAnd_OpenSearch_Client_QueryBase_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_BitwiseAnd(OpenSearch.Client.QueryBase%2COpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L102">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_BitwiseAnd_" data-uid="OpenSearch.Client.QueryBase.op_BitwiseAnd*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_BitwiseAnd_OpenSearch_Client_QueryBase_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_BitwiseAnd(OpenSearch.Client.QueryBase,OpenSearch.Client.QueryBase)">BitwiseAnd(QueryBase, QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryBase operator &amp;(QueryBase leftQuery, QueryBase rightQuery)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">leftQuery</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">rightQuery</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_BitwiseOr_OpenSearch_Client_QueryBase_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_BitwiseOr(OpenSearch.Client.QueryBase%2COpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L104">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_BitwiseOr_" data-uid="OpenSearch.Client.QueryBase.op_BitwiseOr*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_BitwiseOr_OpenSearch_Client_QueryBase_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_BitwiseOr(OpenSearch.Client.QueryBase,OpenSearch.Client.QueryBase)">BitwiseOr(QueryBase, QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryBase operator |(QueryBase leftQuery, QueryBase rightQuery)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">leftQuery</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">rightQuery</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_False_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_False(OpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L97">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_False_" data-uid="OpenSearch.Client.QueryBase.op_False*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_False_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_False(OpenSearch.Client.QueryBase)">False(QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator false (QueryBase a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_Implicit_OpenSearch_Client_QueryBase__OpenSearch_Client_QueryContainer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_Implicit(OpenSearch.Client.QueryBase)~OpenSearch.Client.QueryContainer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L144">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_Implicit_" data-uid="OpenSearch.Client.QueryBase.op_Implicit*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_Implicit_OpenSearch_Client_QueryBase__OpenSearch_Client_QueryContainer" data-uid="OpenSearch.Client.QueryBase.op_Implicit(OpenSearch.Client.QueryBase)~OpenSearch.Client.QueryContainer">Implicit(QueryBase to QueryContainer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator QueryContainer(QueryBase query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryContainer.html">QueryContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_LogicalNot_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_LogicalNot(OpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L106">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_LogicalNot_" data-uid="OpenSearch.Client.QueryBase.op_LogicalNot*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_LogicalNot_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_LogicalNot(OpenSearch.Client.QueryBase)">LogicalNot(QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryBase operator !(QueryBase query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_True_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_True(OpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L100">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_True_" data-uid="OpenSearch.Client.QueryBase.op_True*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_True_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_True(OpenSearch.Client.QueryBase)">True(QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator true (QueryBase a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_op_UnaryPlus_OpenSearch_Client_QueryBase_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.op_UnaryPlus(OpenSearch.Client.QueryBase)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L110">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_op_UnaryPlus_" data-uid="OpenSearch.Client.QueryBase.op_UnaryPlus*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_op_UnaryPlus_OpenSearch_Client_QueryBase_" data-uid="OpenSearch.Client.QueryBase.op_UnaryPlus(OpenSearch.Client.QueryBase)">UnaryPlus(QueryBase)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static QueryBase operator +(QueryBase query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.QueryBase.html">QueryBase</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase_OpenSearch_Client_IQuery_Conditionless.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase.OpenSearch%23Client%23IQuery%23Conditionless%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L94">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_QueryBase_OpenSearch_Client_IQuery_Conditionless_" data-uid="OpenSearch.Client.QueryBase.OpenSearch#Client#IQuery#Conditionless*"></a>
+  <h4 id="OpenSearch_Client_QueryBase_OpenSearch_Client_IQuery_Conditionless" data-uid="OpenSearch.Client.QueryBase.OpenSearch#Client#IQuery#Conditionless">IQuery.Conditionless</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IQuery.Conditionless { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_QueryBase.md&amp;value=---%0Auid%3A%20OpenSearch.Client.QueryBase%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Abstractions/Query/QueryBase.cs/#L82" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

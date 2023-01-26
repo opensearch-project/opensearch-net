@@ -1,0 +1,1446 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DateHistogramAggregationDescriptor&lt;T&gt;
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DateHistogramAggregationDescriptor&lt;T&gt;
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1">
+
+
+  <h1 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1" class="text-break">Class DateHistogramAggregationDescriptor&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html">BucketAggregationDescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;, <a class="xref" href="OpenSearch.Client.IDateHistogramAggregation.html">IDateHistogramAggregation</a>, T&gt;</div>
+    <div class="level2"><span class="xref">DateHistogramAggregationDescriptor&lt;T&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IDateHistogramAggregation.html">IDateHistogramAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Self">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IBucketAggregation_Aggregations">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.IBucketAggregation.Aggregations</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IAggregation_Meta">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.IAggregation.Meta</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_OpenSearch_Client_IAggregation_Name">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.IAggregation.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Assign__1___0_System_Action__1___0__">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;IDateHistogramAggregation, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Aggregations_System_Func_OpenSearch_Client_AggregationContainerDescriptor__2__OpenSearch_Client_IAggregationContainer__">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.Aggregations(Func&lt;AggregationContainerDescriptor&lt;T&gt;, IAggregationContainer&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Aggregations_OpenSearch_Client_AggregationDictionary_">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.Aggregations(AggregationDictionary)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.BucketAggregationDescriptorBase-3.html#OpenSearch_Client_BucketAggregationDescriptorBase_3_Meta_System_Func_OpenSearch_Client_FluentDictionary_System_String_System_Object__OpenSearch_Client_FluentDictionary_System_String_System_Object___">BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;.Meta(Func&lt;FluentDictionary&lt;String, Object&gt;, FluentDictionary&lt;String, Object&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DateHistogramAggregationDescriptor&lt;T&gt; : BucketAggregationDescriptorBase&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation, T&gt;, IDescriptor, IDateHistogramAggregation, IBucketAggregation, IAggregation where T : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_OpenSearch_Client_DateMathTime_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.CalendarInterval(OpenSearch.Client.DateMathTime)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L214">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.CalendarInterval*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_OpenSearch_Client_DateMathTime_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.CalendarInterval(OpenSearch.Client.DateMathTime)">CalendarInterval(DateMathTime)</h4>
+  <div class="markdown level1 summary"><p>The calendar interval to use when bucketing documents</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; CalendarInterval(DateMathTime interval)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateMathTime.html">DateMathTime</a></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_System_Nullable_OpenSearch_Client_DateInterval__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.CalendarInterval(System.Nullable%7BOpenSearch.Client.DateInterval%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L217">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.CalendarInterval*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_CalendarInterval_System_Nullable_OpenSearch_Client_DateInterval__" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.CalendarInterval(System.Nullable{OpenSearch.Client.DateInterval})">CalendarInterval(Nullable&lt;DateInterval&gt;)</h4>
+  <div class="markdown level1 summary"><p>The calendar interval to use when bucketing documents</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; CalendarInterval(DateInterval? interval)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DateInterval.html">DateInterval</a>&gt;</td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_ExtendedBounds_OpenSearch_Client_DateMath_OpenSearch_Client_DateMath_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.ExtendedBounds(OpenSearch.Client.DateMath%2COpenSearch.Client.DateMath)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L247">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_ExtendedBounds_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.ExtendedBounds*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_ExtendedBounds_OpenSearch_Client_DateMath_OpenSearch_Client_DateMath_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.ExtendedBounds(OpenSearch.Client.DateMath,OpenSearch.Client.DateMath)">ExtendedBounds(DateMath, DateMath)</h4>
+  <div class="markdown level1 summary"><p>Extend the bounds of the date histogram beyond the data itself,
+forcing the aggregation to start building buckets on
+a specific min and/or max value.
+Using extended bounds only makes sense when <a class="xref" href="OpenSearch.Client.IDateHistogramAggregation.html#OpenSearch_Client_IDateHistogramAggregation_MinimumDocumentCount">MinimumDocumentCount</a> is 0
+as empty buckets will never be returned if it is greater than 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; ExtendedBounds(DateMath min, DateMath max)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field_OpenSearch_Client_Field_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Field(OpenSearch.Client.Field)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L201">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Field*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field_OpenSearch_Client_Field_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Field(OpenSearch.Client.Field)">Field(Field)</h4>
+  <div class="markdown level1 summary"><p>The field to target</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Field(Field field)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td><span class="parametername">field</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Field%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L204">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Field*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0___" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Field``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>The field to target</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; field)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1">Expression</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, TValue&gt;&gt;</td>
+        <td><span class="parametername">field</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_FixedInterval_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.FixedInterval(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L220">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_FixedInterval_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.FixedInterval*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_FixedInterval_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.FixedInterval(OpenSearch.Client.Time)">FixedInterval(Time)</h4>
+  <div class="markdown level1 summary"><p>The fixed interval to use when bucketing documents</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; FixedInterval(Time interval)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td><span class="parametername">interval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Format_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Format(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L223">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Format_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Format*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Format_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Format(System.String)">Format(String)</h4>
+  <div class="markdown level1 summary"><p>Return a formatted date string as the key instead an epoch long</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Format(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_HardBounds_OpenSearch_Client_DateMath_OpenSearch_Client_DateMath_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.HardBounds(OpenSearch.Client.DateMath%2COpenSearch.Client.DateMath)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L251">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_HardBounds_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.HardBounds*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_HardBounds_OpenSearch_Client_DateMath_OpenSearch_Client_DateMath_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.HardBounds(OpenSearch.Client.DateMath,OpenSearch.Client.DateMath)">HardBounds(DateMath, DateMath)</h4>
+  <div class="markdown level1 summary"><p>The hard_bounds is a counterpart of extended_bounds and can limit the range of buckets in the histogram.
+It is particularly useful in the case of open data ranges that can result in a very large number of buckets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; HardBounds(DateMath min, DateMath max)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_MinimumDocumentCount_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.MinimumDocumentCount(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L226">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_MinimumDocumentCount_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.MinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_MinimumDocumentCount_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.MinimumDocumentCount(System.Nullable{System.Int32})">MinimumDocumentCount(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>The minimum number of documents that a bucket must contain to be returned in the response.
+The default is 0 meaning that buckets with no documents will be returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; MinimumDocumentCount(int? minimumDocumentCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">minimumDocumentCount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Missing_System_Nullable_System_DateTime__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Missing(System.Nullable%7BSystem.DateTime%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L255">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Missing_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Missing*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Missing_System_Nullable_System_DateTime__" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Missing(System.Nullable{System.DateTime})">Missing(Nullable&lt;DateTime&gt;)</h4>
+  <div class="markdown level1 summary"><p>Defines how to treat documents that are missing a value. By default, they are ignored,
+but it is also possible to treat them as if they have a value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Missing(DateTime? missing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>&gt;</td>
+        <td><span class="parametername">missing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Offset_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Offset(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L233">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Offset_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Offset*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Offset_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Offset(System.String)">Offset(String)</h4>
+  <div class="markdown level1 summary"><p>Change the start value of each bucket by the specified positive (+) or negative offset (-) duration,
+such as 1h for an hour, or 1d for a day.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Offset(string offset)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">offset</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Order_OpenSearch_Client_HistogramOrder_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Order(OpenSearch.Client.HistogramOrder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L236">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Order_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Order*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Order_OpenSearch_Client_HistogramOrder_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Order(OpenSearch.Client.HistogramOrder)">Order(HistogramOrder)</h4>
+  <div class="markdown level1 summary"><p>Defines an order in which returned buckets are sorted.
+By default the returned buckets are sorted by their key ascending.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Order(HistogramOrder order)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.HistogramOrder.html">HistogramOrder</a></td>
+        <td><span class="parametername">order</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderAscending_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OrderAscending(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L239">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderAscending_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OrderAscending*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderAscending_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OrderAscending(System.String)">OrderAscending(String)</h4>
+  <div class="markdown level1 summary"><p>Defines an order in which returned buckets are sorted.
+By default the returned buckets are sorted by their key ascending.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; OrderAscending(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderDescending_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OrderDescending(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L243">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderDescending_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OrderDescending*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OrderDescending_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OrderDescending(System.String)">OrderDescending(String)</h4>
+  <div class="markdown level1 summary"><p>Defines an order in which returned buckets are sorted.
+By default the returned buckets are sorted by their key ascending.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; OrderDescending(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Script(System.Func%7BOpenSearch.Client.ScriptDescriptor%2COpenSearch.Client.IScript%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L210">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Script*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_System_Func_OpenSearch_Client_ScriptDescriptor_OpenSearch_Client_IScript__" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Script(System.Func{OpenSearch.Client.ScriptDescriptor,OpenSearch.Client.IScript})">Script(Func&lt;ScriptDescriptor, IScript&gt;)</h4>
+  <div class="markdown level1 summary"><p>A script to execute to provide custom computation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Script(Func&lt;ScriptDescriptor, IScript&gt; scriptSelector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.ScriptDescriptor.html">ScriptDescriptor</a>, <a class="xref" href="OpenSearch.Client.IScript.html">IScript</a>&gt;</td>
+        <td><span class="parametername">scriptSelector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.Script(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L207">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Script*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_Script_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.Script(System.String)">Script(String)</h4>
+  <div class="markdown level1 summary"><p>A script to execute to provide custom computation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; Script(string script)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">script</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_TimeZone_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.TimeZone(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L230">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_TimeZone_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.TimeZone*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_TimeZone_System_String_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.TimeZone(System.String)">TimeZone(String)</h4>
+  <div class="markdown level1 summary"><p>Used to indicate that bucketing should use a different time zone.
+Time zones may either be specified as an ISO 8601 UTC offset (e.g. +01:00 or -08:00)
+or as a timezone id, an identifier used in the TZ database like America/Los_Angeles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateHistogramAggregationDescriptor&lt;T&gt; TimeZone(string timeZone)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">timeZone</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.DateHistogramAggregationDescriptor-1.html">DateHistogramAggregationDescriptor</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_CalendarInterval.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23CalendarInterval%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L191">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_CalendarInterval_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#CalendarInterval*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_CalendarInterval" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#CalendarInterval">IDateHistogramAggregation.CalendarInterval</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Union&lt;DateInterval?, DateMathTime&gt; IDateHistogramAggregation.CalendarInterval { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Union-2.html">Union</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.DateInterval.html">DateInterval</a>&gt;, <a class="xref" href="OpenSearch.Client.DateMathTime.html">DateMathTime</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_ExtendedBounds.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23ExtendedBounds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L176">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_ExtendedBounds_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#ExtendedBounds*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_ExtendedBounds" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#ExtendedBounds">IDateHistogramAggregation.ExtendedBounds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ExtendedBounds&lt;DateMath&gt; IDateHistogramAggregation.ExtendedBounds { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ExtendedBounds-1.html">ExtendedBounds</a>&lt;<a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Field.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Field%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L178">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Field_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Field*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Field" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Field">IDateHistogramAggregation.Field</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Field IDateHistogramAggregation.Field { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Field.html">Field</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_FixedInterval.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23FixedInterval%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L192">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_FixedInterval_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#FixedInterval*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_FixedInterval" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#FixedInterval">IDateHistogramAggregation.FixedInterval</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Time IDateHistogramAggregation.FixedInterval { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Format.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Format%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L181">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Format_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Format*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Format" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Format">IDateHistogramAggregation.Format</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IDateHistogramAggregation.Format { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_HardBounds.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23HardBounds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L177">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_HardBounds_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#HardBounds*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_HardBounds" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#HardBounds">IDateHistogramAggregation.HardBounds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HardBounds&lt;DateMath&gt; IDateHistogramAggregation.HardBounds { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.HardBounds-1.html">HardBounds</a>&lt;<a class="xref" href="OpenSearch.Client.DateMath.html">DateMath</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_MinimumDocumentCount.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23MinimumDocumentCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L193">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_MinimumDocumentCount_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#MinimumDocumentCount*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_MinimumDocumentCount" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#MinimumDocumentCount">IDateHistogramAggregation.MinimumDocumentCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? IDateHistogramAggregation.MinimumDocumentCount { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Missing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Missing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L194">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Missing_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Missing*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Missing" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Missing">IDateHistogramAggregation.Missing</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTime? IDateHistogramAggregation.Missing { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Offset.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Offset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L195">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Offset_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Offset*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Offset" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Offset">IDateHistogramAggregation.Offset</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IDateHistogramAggregation.Offset { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Order.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Order%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L196">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Order_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Order*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Order" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Order">IDateHistogramAggregation.Order</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">HistogramOrder IDateHistogramAggregation.Order { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.HistogramOrder.html">HistogramOrder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Script.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23Script%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L197">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Script_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Script*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_Script" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#Script">IDateHistogramAggregation.Script</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IScript IDateHistogramAggregation.Script { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IScript.html">IScript</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_TimeZone.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601.OpenSearch%23Client%23IDateHistogramAggregation%23TimeZone%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L198">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_TimeZone_" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#TimeZone*"></a>
+  <h4 id="OpenSearch_Client_DateHistogramAggregationDescriptor_1_OpenSearch_Client_IDateHistogramAggregation_TimeZone" data-uid="OpenSearch.Client.DateHistogramAggregationDescriptor`1.OpenSearch#Client#IDateHistogramAggregation#TimeZone">IDateHistogramAggregation.TimeZone</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IDateHistogramAggregation.TimeZone { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDateHistogramAggregation.html">IDateHistogramAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IBucketAggregation.html">IBucketAggregation</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IAggregation.html">IAggregation</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DateHistogramAggregationDescriptor_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DateHistogramAggregationDescriptor%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Aggregations/Bucket/DateHistogram/DateHistogramAggregation.cs/#L169" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

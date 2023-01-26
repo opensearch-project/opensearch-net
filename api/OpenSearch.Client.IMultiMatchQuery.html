@@ -1,0 +1,768 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IMultiMatchQuery
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IMultiMatchQuery
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IMultiMatchQuery">
+
+
+  <h1 id="OpenSearch_Client_IMultiMatchQuery" data-uid="OpenSearch.Client.IMultiMatchQuery" class="text-break">Interface IMultiMatchQuery
+</h1>
+  <div class="markdown level0 summary"><p>A match query across multiple fields.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_Boost">IQuery.Boost</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_Conditionless">IQuery.Conditionless</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_IsStrict">IQuery.IsStrict</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_IsVerbatim">IQuery.IsVerbatim</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_IsWritable">IQuery.IsWritable</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.IQuery.html#OpenSearch_Client_IQuery_Name">IQuery.Name</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_IMultiMatchQuery_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IMultiMatchQuery : IQuery</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Analyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Analyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Analyzer_" data-uid="OpenSearch.Client.IMultiMatchQuery.Analyzer*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Analyzer" data-uid="OpenSearch.Client.IMultiMatchQuery.Analyzer">Analyzer</h4>
+  <div class="markdown level1 summary"><p>The analyzer name used to analyze the query</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;analyzer&quot;)]
+string Analyzer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_AutoGenerateSynonymsPhraseQuery.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.AutoGenerateSynonymsPhraseQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_AutoGenerateSynonymsPhraseQuery_" data-uid="OpenSearch.Client.IMultiMatchQuery.AutoGenerateSynonymsPhraseQuery*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_AutoGenerateSynonymsPhraseQuery" data-uid="OpenSearch.Client.IMultiMatchQuery.AutoGenerateSynonymsPhraseQuery">AutoGenerateSynonymsPhraseQuery</h4>
+  <div class="markdown level1 summary"><p>A match query across multiple fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;auto_generate_synonyms_phrase_query&quot;)]
+bool? AutoGenerateSynonymsPhraseQuery { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_CutoffFrequency.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.CutoffFrequency%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L58">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_CutoffFrequency_" data-uid="OpenSearch.Client.IMultiMatchQuery.CutoffFrequency*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_CutoffFrequency" data-uid="OpenSearch.Client.IMultiMatchQuery.CutoffFrequency">CutoffFrequency</h4>
+  <div class="markdown level1 summary"><p>A cutoff frequency that allows specifying an absolute or relative document frequency where
+high frequency terms are moved into an optional subquery and are only scored if one of the low frequency
+(below the cutoff) terms in the case of <a class="xref" href="OpenSearch.Client.Operator.html#OpenSearch_Client_Operator_Or">Or</a>,
+or all of the low frequency terms in the case of an <a class="xref" href="OpenSearch.Client.Operator.html#OpenSearch_Client_Operator_And">And</a> match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;cutoff_frequency&quot;)]
+double? CutoffFrequency { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Fields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Fields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Fields_" data-uid="OpenSearch.Client.IMultiMatchQuery.Fields*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Fields" data-uid="OpenSearch.Client.IMultiMatchQuery.Fields">Fields</h4>
+  <div class="markdown level1 summary"><p>The fields to perform the query against.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fields&quot;)]
+Fields Fields { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Fields.html">Fields</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Fuzziness.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Fuzziness%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Fuzziness_" data-uid="OpenSearch.Client.IMultiMatchQuery.Fuzziness*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Fuzziness" data-uid="OpenSearch.Client.IMultiMatchQuery.Fuzziness">Fuzziness</h4>
+  <div class="markdown level1 summary"><p>Allows fuzzy matching based on the type of field being queried.
+Cannot be used with the
+<a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_CrossFields">CrossFields</a>,
+<a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_Phrase">Phrase</a> or
+<a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_PhrasePrefix">PhrasePrefix</a> types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fuzziness&quot;)]
+Fuzziness Fuzziness { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Fuzziness.html">Fuzziness</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_FuzzyRewrite.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.FuzzyRewrite%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_FuzzyRewrite_" data-uid="OpenSearch.Client.IMultiMatchQuery.FuzzyRewrite*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_FuzzyRewrite" data-uid="OpenSearch.Client.IMultiMatchQuery.FuzzyRewrite">FuzzyRewrite</h4>
+  <div class="markdown level1 summary"><p>Controls how the query is rewritten if <a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html#OpenSearch_Client_IMultiMatchQuery_Fuzziness">Fuzziness</a> is set.
+In this scenario, the default is <a class="xref" href="OpenSearch.Client.MultiTermQueryRewrite.html#OpenSearch_Client_MultiTermQueryRewrite_TopTermsBlendedFreqs_System_Int32_">TopTermsBlendedFreqs(Int32)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fuzzy_rewrite&quot;)]
+MultiTermQueryRewrite FuzzyRewrite { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MultiTermQueryRewrite.html">MultiTermQueryRewrite</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_FuzzyTranspositions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.FuzzyTranspositions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L92">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_FuzzyTranspositions_" data-uid="OpenSearch.Client.IMultiMatchQuery.FuzzyTranspositions*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_FuzzyTranspositions" data-uid="OpenSearch.Client.IMultiMatchQuery.FuzzyTranspositions">FuzzyTranspositions</h4>
+  <div class="markdown level1 summary"><p>Sets whether transpositions are supported in fuzzy queries.</p>
+<p></p>
+The default metric used by fuzzy queries to determine a match is the Damerau-Levenshtein
+distance formula which supports transpositions. Setting transposition to false will
+switch to classic Levenshtein distance.
+If not set, Damerau-Levenshtein distance metric will be used.
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;fuzzy_transpositions&quot;)]
+bool? FuzzyTranspositions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Lenient.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Lenient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L99">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Lenient_" data-uid="OpenSearch.Client.IMultiMatchQuery.Lenient*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Lenient" data-uid="OpenSearch.Client.IMultiMatchQuery.Lenient">Lenient</h4>
+  <div class="markdown level1 summary"><p>If set to <code>true</code> will cause format based failures (like providing text to a numeric field)
+to be ignored</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;lenient&quot;)]
+bool? Lenient { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_MaxExpansions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.MaxExpansions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_MaxExpansions_" data-uid="OpenSearch.Client.IMultiMatchQuery.MaxExpansions*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_MaxExpansions" data-uid="OpenSearch.Client.IMultiMatchQuery.MaxExpansions">MaxExpansions</h4>
+  <div class="markdown level1 summary"><p>Controls the number of terms fuzzy queries will expand to. Defaults to <code>50</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_expansions&quot;)]
+int? MaxExpansions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_MinimumShouldMatch.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.MinimumShouldMatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L112">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_MinimumShouldMatch_" data-uid="OpenSearch.Client.IMultiMatchQuery.MinimumShouldMatch*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_MinimumShouldMatch" data-uid="OpenSearch.Client.IMultiMatchQuery.MinimumShouldMatch">MinimumShouldMatch</h4>
+  <div class="markdown level1 summary"><p>A value controlling how many &quot;should&quot; clauses in the resulting boolean query should match.
+It can be an absolute value, a percentage or a combination of both.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;minimum_should_match&quot;)]
+MinimumShouldMatch MinimumShouldMatch { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.MinimumShouldMatch.html">MinimumShouldMatch</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Operator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Operator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Operator_" data-uid="OpenSearch.Client.IMultiMatchQuery.Operator*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Operator" data-uid="OpenSearch.Client.IMultiMatchQuery.Operator">Operator</h4>
+  <div class="markdown level1 summary"><p>The operator used if no explicit operator is specified.
+The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#OpenSearch_Client_Operator_Or">Or</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;operator&quot;)]
+Operator? Operator { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.Operator.html">Operator</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_IMultiMatchQuery_Operator_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_BestFields">BestFields</a> and <a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_MostFields">MostFields</a> types are field-centric ;
+they generate a match query per field. This means that <a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html#OpenSearch_Client_IMultiMatchQuery_Operator">Operator</a> and <a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html#OpenSearch_Client_IMultiMatchQuery_MinimumShouldMatch">MinimumShouldMatch</a>
+are applied to each field individually, which is probably not what you want.
+Consider using <a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_CrossFields">CrossFields</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_PrefixLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.PrefixLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L131">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_PrefixLength_" data-uid="OpenSearch.Client.IMultiMatchQuery.PrefixLength*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_PrefixLength" data-uid="OpenSearch.Client.IMultiMatchQuery.PrefixLength">PrefixLength</h4>
+  <div class="markdown level1 summary"><p>Set the prefix length for fuzzy queries. Default is <code>0</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;prefix_length&quot;)]
+int? PrefixLength { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Query.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Query%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L137">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Query_" data-uid="OpenSearch.Client.IMultiMatchQuery.Query*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Query" data-uid="OpenSearch.Client.IMultiMatchQuery.Query">Query</h4>
+  <div class="markdown level1 summary"><p>The query to execute</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;query&quot;)]
+string Query { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Slop.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Slop%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L143">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Slop_" data-uid="OpenSearch.Client.IMultiMatchQuery.Slop*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Slop" data-uid="OpenSearch.Client.IMultiMatchQuery.Slop">Slop</h4>
+  <div class="markdown level1 summary"><p>How far apart terms are allowed to be while still considering the document to be a match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;slop&quot;)]
+int? Slop { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_TieBreaker.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.TieBreaker%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L150">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_TieBreaker_" data-uid="OpenSearch.Client.IMultiMatchQuery.TieBreaker*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_TieBreaker" data-uid="OpenSearch.Client.IMultiMatchQuery.TieBreaker">TieBreaker</h4>
+  <div class="markdown level1 summary"><p>Used to influence how the score is calculated for <a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_BestFields">BestFields</a>. If specified,
+score is calculated using</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;tie_breaker&quot;)]
+double? TieBreaker { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_Type.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.Type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L157">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_Type_" data-uid="OpenSearch.Client.IMultiMatchQuery.Type*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_Type" data-uid="OpenSearch.Client.IMultiMatchQuery.Type">Type</h4>
+  <div class="markdown level1 summary"><p>How the fields should be combined to build the text query.
+Default is <a class="xref" href="OpenSearch.Client.TextQueryType.html#OpenSearch_Client_TextQueryType_BestFields">BestFields</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;type&quot;)]
+TextQueryType? Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.TextQueryType.html">TextQueryType</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_UseDisMax.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.UseDisMax%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_UseDisMax_" data-uid="OpenSearch.Client.IMultiMatchQuery.UseDisMax*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_UseDisMax" data-uid="OpenSearch.Client.IMultiMatchQuery.UseDisMax">UseDisMax</h4>
+  <div class="markdown level1 summary"><p>By default, a <a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html">IMultiMatchQuery</a> generates a match clause per field, then wraps them
+in a <a class="xref" href="OpenSearch.Client.IDisMaxQuery.html">IDisMaxQuery</a>. By setting <a class="xref" href="OpenSearch.Client.IMultiMatchQuery.html#OpenSearch_Client_IMultiMatchQuery_UseDisMax">UseDisMax</a> to <code>false</code>,
+they will be wrapped in a <a class="xref" href="OpenSearch.Client.IBoolQuery.html">IBoolQuery</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;use_dis_max&quot;)]
+bool? UseDisMax { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery_ZeroTermsQuery.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery.ZeroTermsQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L174">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IMultiMatchQuery_ZeroTermsQuery_" data-uid="OpenSearch.Client.IMultiMatchQuery.ZeroTermsQuery*"></a>
+  <h4 id="OpenSearch_Client_IMultiMatchQuery_ZeroTermsQuery" data-uid="OpenSearch.Client.IMultiMatchQuery.ZeroTermsQuery">ZeroTermsQuery</h4>
+  <div class="markdown level1 summary"><p>If the analyzer used removes all tokens in a query like a stop filter does, the default behavior is
+to match no documents at all. In order to change that, <a class="xref" href="OpenSearch.Client.ZeroTermsQuery.html">ZeroTermsQuery</a> can be used,
+which accepts <a class="xref" href="OpenSearch.Client.ZeroTermsQuery.html#OpenSearch_Client_ZeroTermsQuery_None">None</a> (default) and <a class="xref" href="OpenSearch.Client.ZeroTermsQuery.html#OpenSearch_Client_ZeroTermsQuery_All">All</a>
+which corresponds to a match_all query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;zero_terms_query&quot;)]
+ZeroTermsQuery? ZeroTermsQuery { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="OpenSearch.Client.ZeroTermsQuery.html">ZeroTermsQuery</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IMultiMatchQuery.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IMultiMatchQuery%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/FullText/MultiMatch/MultiMatchQuery.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

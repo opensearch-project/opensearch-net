@@ -1,0 +1,964 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GeoShapeDescriptor
+ | OpenSearch.Net </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GeoShapeDescriptor
+ | OpenSearch.Net ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.GeoShapeDescriptor">
+
+
+  <h1 id="OpenSearch_Client_GeoShapeDescriptor" data-uid="OpenSearch.Client.GeoShapeDescriptor" class="text-break">Class GeoShapeDescriptor
+</h1>
+  <div class="markdown level0 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.DescriptorBase-2.html">DescriptorBase</a>&lt;<a class="xref" href="OpenSearch.Client.GeoShapeDescriptor.html">GeoShapeDescriptor</a>, <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>&gt;</div>
+    <div class="level2"><span class="xref">GeoShapeDescriptor</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Self">DescriptorBase&lt;GeoShapeDescriptor, IDescriptor&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.DescriptorBase-2.html#OpenSearch_Client_DescriptorBase_2_Assign__1___0_System_Action__1___0__">DescriptorBase&lt;GeoShapeDescriptor, IDescriptor&gt;.Assign&lt;TValue&gt;(TValue, Action&lt;IDescriptor, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_GeoShapeDescriptor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GeoShapeDescriptor : DescriptorBase&lt;GeoShapeDescriptor, IDescriptor&gt;, IDescriptor</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Circle_OpenSearch_Client_GeoCoordinate_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Circle(OpenSearch.Client.GeoCoordinate%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L147">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Circle_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Circle*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Circle_OpenSearch_Client_GeoCoordinate_System_String_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Circle(OpenSearch.Client.GeoCoordinate,System.String)">Circle(GeoCoordinate, String)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Circle(GeoCoordinate coordinate, string radius)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a></td>
+        <td><span class="parametername">coordinate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">radius</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Envelope_OpenSearch_Client_GeoCoordinate_OpenSearch_Client_GeoCoordinate_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Envelope(OpenSearch.Client.GeoCoordinate%2COpenSearch.Client.GeoCoordinate)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L150">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Envelope_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Envelope*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Envelope_OpenSearch_Client_GeoCoordinate_OpenSearch_Client_GeoCoordinate_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Envelope(OpenSearch.Client.GeoCoordinate,OpenSearch.Client.GeoCoordinate)">Envelope(GeoCoordinate, GeoCoordinate)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Envelope(GeoCoordinate topLeftCoordinate, GeoCoordinate bottomRightCoordinate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a></td>
+        <td><span class="parametername">topLeftCoordinate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a></td>
+        <td><span class="parametername">bottomRightCoordinate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Envelope_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Envelope(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L153">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Envelope_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Envelope*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Envelope_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__" data-uid="OpenSearch.Client.GeoShapeDescriptor.Envelope(System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate})">Envelope(IEnumerable&lt;GeoCoordinate&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Envelope(IEnumerable&lt;GeoCoordinate&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_OpenSearch_Client_IGeoShape___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.GeometryCollection(OpenSearch.Client.IGeoShape%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L159">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_" data-uid="OpenSearch.Client.GeoShapeDescriptor.GeometryCollection*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_OpenSearch_Client_IGeoShape___" data-uid="OpenSearch.Client.GeoShapeDescriptor.GeometryCollection(OpenSearch.Client.IGeoShape[])">GeometryCollection(IGeoShape[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape GeometryCollection(params IGeoShape[] geometries)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a>[]</td>
+        <td><span class="parametername">geometries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_System_Collections_Generic_IEnumerable_OpenSearch_Client_IGeoShape__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.GeometryCollection(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.IGeoShape%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L156">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_" data-uid="OpenSearch.Client.GeoShapeDescriptor.GeometryCollection*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_GeometryCollection_System_Collections_Generic_IEnumerable_OpenSearch_Client_IGeoShape__" data-uid="OpenSearch.Client.GeoShapeDescriptor.GeometryCollection(System.Collections.Generic.IEnumerable{OpenSearch.Client.IGeoShape})">GeometryCollection(IEnumerable&lt;IGeoShape&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape GeometryCollection(IEnumerable&lt;IGeoShape&gt; geometries)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a>&gt;</td>
+        <td><span class="parametername">geometries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_LineString_OpenSearch_Client_GeoCoordinate___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.LineString(OpenSearch.Client.GeoCoordinate%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L165">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_LineString_" data-uid="OpenSearch.Client.GeoShapeDescriptor.LineString*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_LineString_OpenSearch_Client_GeoCoordinate___" data-uid="OpenSearch.Client.GeoShapeDescriptor.LineString(OpenSearch.Client.GeoCoordinate[])">LineString(GeoCoordinate[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape LineString(params GeoCoordinate[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_LineString_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.LineString(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L162">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_LineString_" data-uid="OpenSearch.Client.GeoShapeDescriptor.LineString*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_LineString_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__" data-uid="OpenSearch.Client.GeoShapeDescriptor.LineString(System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate})">LineString(IEnumerable&lt;GeoCoordinate&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape LineString(IEnumerable&lt;GeoCoordinate&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiLineString_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiLineString(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L171">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiLineString_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiLineString*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiLineString_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiLineString(System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}[])">MultiLineString(IEnumerable&lt;GeoCoordinate&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiLineString(params IEnumerable&lt;GeoCoordinate&gt;[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiLineString_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiLineString(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L168">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiLineString_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiLineString*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiLineString_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate___" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiLineString(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}})">MultiLineString(IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiLineString(IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiPoint_OpenSearch_Client_GeoCoordinate___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiPoint(OpenSearch.Client.GeoCoordinate%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L179">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiPoint_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPoint*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiPoint_OpenSearch_Client_GeoCoordinate___" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPoint(OpenSearch.Client.GeoCoordinate[])">MultiPoint(GeoCoordinate[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiPoint(params GeoCoordinate[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiPoint_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiPoint(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L176">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiPoint_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPoint*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiPoint_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate__" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPoint(System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate})">MultiPoint(IEnumerable&lt;GeoCoordinate&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiPoint(IEnumerable&lt;GeoCoordinate&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate_____.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiPolygon(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%7D%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L191">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPolygon*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate_____" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPolygon(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}}[])">MultiPolygon(IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiPolygon(params IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;&gt;[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.MultiPolygon(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L188">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPolygon*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_MultiPolygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____" data-uid="OpenSearch.Client.GeoShapeDescriptor.MultiPolygon(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}}})">MultiPolygon(IEnumerable&lt;IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape MultiPolygon(IEnumerable&lt;IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;&gt;&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Point_OpenSearch_Client_GeoCoordinate_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Point(OpenSearch.Client.GeoCoordinate)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L174">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Point_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Point*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Point_OpenSearch_Client_GeoCoordinate_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Point(OpenSearch.Client.GeoCoordinate)">Point(GeoCoordinate)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Point(GeoCoordinate coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a></td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Polygon_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Polygon(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L185">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Polygon_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Polygon*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Polygon_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate____" data-uid="OpenSearch.Client.GeoShapeDescriptor.Polygon(System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}[])">Polygon(IEnumerable&lt;GeoCoordinate&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Polygon(params IEnumerable&lt;GeoCoordinate&gt;[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor_Polygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor.Polygon(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BOpenSearch.Client.GeoCoordinate%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L182">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_GeoShapeDescriptor_Polygon_" data-uid="OpenSearch.Client.GeoShapeDescriptor.Polygon*"></a>
+  <h4 id="OpenSearch_Client_GeoShapeDescriptor_Polygon_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_OpenSearch_Client_GeoCoordinate___" data-uid="OpenSearch.Client.GeoShapeDescriptor.Polygon(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{OpenSearch.Client.GeoCoordinate}})">Polygon(IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Descriptor for building a <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGeoShape Polygon(IEnumerable&lt;IEnumerable&lt;GeoCoordinate&gt;&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="OpenSearch.Client.GeoCoordinate.html">GeoCoordinate</a>&gt;&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GeoShapeDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GeoShapeDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Geo/Shape/IGeoShapeQuery.cs/#L145" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
