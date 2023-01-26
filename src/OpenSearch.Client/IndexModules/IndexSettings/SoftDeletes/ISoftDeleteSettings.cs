@@ -38,7 +38,7 @@ namespace OpenSearch.Client
 
 	public class SoftDeleteSettings : ISoftDeleteSettings
 	{
-		/// <inheritdoc see cref="ISoftDeleteSettings.Retention"/>
+		/// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
 		public ISoftDeleteRetentionSettings Retention { get; set; }
 	}
 
@@ -46,7 +46,7 @@ namespace OpenSearch.Client
 	{
 		ISoftDeleteRetentionSettings ISoftDeleteSettings.Retention { get; set; }
 
-		/// <inheritdoc see cref="ISoftDeleteSettings.Retention"/>
+		/// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
 		public SoftDeleteSettingsDescriptor Retention(Func<SoftDeleteRetentionSettingsDescriptor, ISoftDeleteRetentionSettings> selector) =>
 			Assign(selector.Invoke(new SoftDeleteRetentionSettingsDescriptor()), (a, v) => a.Retention = v);
 	}

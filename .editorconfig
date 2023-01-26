@@ -1,8 +1,5 @@
 root=true
 
-[*.cs]
-trim_trailing_whitespace=true
-
 [*]
 charset = utf-8
 end_of_line = lf
@@ -10,13 +7,20 @@ indent_style = tab
 indent_size = 4
 insert_final_newline=true
 
+[*.cs]
+trim_trailing_whitespace=true
+
 [*.cshtml]
 indent_style = tab
 indent_size = 4
 
-[*.{fs,fsx,yml}]
+[*.{fs,fsx}]
 indent_style = space
 indent_size = 4
+
+[*.yml]
+indent_style = space
+indent_size = 2
 
 [*.{md,markdown,json,js,csproj,fsproj,targets,targets,props}]
 indent_style = space
@@ -197,14 +201,6 @@ resharper_csharp_accessor_owner_body=expression_body
 
 resharper_redundant_case_label_highlighting=do_not_show
 resharper_redundant_argument_default_value_highlighting=do_not_show
-
-[Jenkinsfile]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
 
 [*.{sh,bat,ps1}]
 trim_trailing_whitespace=true

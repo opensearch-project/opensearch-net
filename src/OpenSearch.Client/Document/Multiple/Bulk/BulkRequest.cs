@@ -77,6 +77,7 @@ namespace OpenSearch.Client
 			where T : class =>
 			AddOperations(@objects, bulkIndexSelector, o => new BulkIndexDescriptor<T>().Document(o));
 
+		/// <summary>
 		/// DeleteMany, convenience method to delete many objects at once.
 		/// </summary>
 		/// <param name="objects">the objects to delete</param>
@@ -125,7 +126,6 @@ namespace OpenSearch.Client
 		/// </summary>
 		/// <param name="objects">the objects to update</param>
 		/// <param name="bulkUpdateSelector">An func called on each object to describe the individual update operation</param>
-		/// </summary>
 		public BulkDescriptor UpdateMany<T>(
 			IEnumerable<T> @objects,
 			Func<BulkUpdateDescriptor<T, T>, T, IBulkUpdateOperation<T, T>> bulkUpdateSelector
@@ -138,7 +138,6 @@ namespace OpenSearch.Client
 		/// </summary>
 		/// <param name="objects">the objects to update</param>
 		/// <param name="bulkUpdateSelector">An func called on each object to describe the individual update operation</param>
-		/// </summary>
 		public BulkDescriptor UpdateMany<T, TPartialDocument>(
 			IEnumerable<T> @objects,
 			Func<BulkUpdateDescriptor<T, TPartialDocument>, T, IBulkUpdateOperation<T, TPartialDocument>> bulkUpdateSelector

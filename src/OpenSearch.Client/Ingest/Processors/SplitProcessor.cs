@@ -71,7 +71,7 @@ namespace OpenSearch.Client
 		bool? PreserveTrailing { get; set; }
 	}
 
-	/// <inheritdoc cref="SplitProcessor" />
+	/// <inheritdoc cref="ISplitProcessor" />
 	public class SplitProcessor : ProcessorBase, ISplitProcessor
 	{
 		/// <inheritdoc />

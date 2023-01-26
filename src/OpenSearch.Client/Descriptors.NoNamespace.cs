@@ -373,7 +373,7 @@ namespace OpenSearch.Client
 		public DeleteByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) => Qs("search_type", searchtype);
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks.</summary>
 		public DeleteByQueryDescriptor<TDocument> Slices(long? slices) => Qs("slices", slices);
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public DeleteByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
 		///<summary>Whether the _source should be included in the response.</summary>
 		public DeleteByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) => Qs("_source", sourceenabled);
@@ -1667,7 +1667,7 @@ namespace OpenSearch.Client
 		public UpdateByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) => Qs("search_type", searchtype);
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
 		public UpdateByQueryDescriptor<TDocument> Slices(long? slices) => Qs("slices", slices);
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public UpdateByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
 		///<summary>Whether the _source should be included in the response.</summary>
 		public UpdateByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) => Qs("_source", sourceenabled);

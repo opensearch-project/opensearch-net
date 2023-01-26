@@ -116,8 +116,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -312,8 +312,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -416,8 +416,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -531,8 +531,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -748,8 +748,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -792,7 +792,7 @@ namespace OpenSearch.Client
 			set => Q("slices", value);
 		}
 
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public string[] Sort
 		{
 			get => Q<string[]>("sort");
@@ -1046,8 +1046,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -1195,8 +1195,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -1372,8 +1372,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -1569,8 +1569,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -1766,8 +1766,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -1946,8 +1946,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -2065,8 +2065,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -2340,8 +2340,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -2823,8 +2823,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -2995,8 +2995,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -3114,8 +3114,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -3261,8 +3261,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -3392,8 +3392,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -3582,8 +3582,8 @@ namespace OpenSearch.Client
 		/// <para> shard_num = hash(_routing) % num_primary_shards</para>
 		/// <para>OpenSearch will use the document id if not provided. </para>
 		/// <para>For requests that are constructed from/for a document OSC will automatically infer the routing key
-		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"
-		////></para>
+		/// if that document has a <see cref = "OpenSearch.Client.JoinField"/> or a routing mapping on for its type exists on <see cref = "OpenSearch.Client.ConnectionSettings"/>
+		/// </para>
 		///</summary>
 		public Routing Routing
 		{
@@ -3626,7 +3626,7 @@ namespace OpenSearch.Client
 			set => Q("slices", value);
 		}
 
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public string[] Sort
 		{
 			get => Q<string[]>("sort");

@@ -80,7 +80,7 @@ namespace OpenSearch.Client
 		Operator? DefaultOperator { get; set; }
 
 		/// <summary>
-		/// Set to <c>true<c> to enable position increments in result queries. Defaults to <c>true<c>.
+		/// Set to <c>true</c> to enable position increments in result queries. Defaults to <c>true</c>.
 		/// </summary>
 		[DataMember(Name = "enable_position_increments")]
 		bool? EnablePositionIncrements { get; set; }

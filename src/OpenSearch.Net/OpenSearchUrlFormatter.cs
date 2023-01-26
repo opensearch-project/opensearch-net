@@ -35,7 +35,7 @@ namespace OpenSearch.Net
 {
 	/// <summary>
 	/// A formatter that can utilize <see cref="IConnectionConfigurationValues" /> to resolve <see cref="IUrlParameter" />'s passed
-	/// as format arguments. It also handles known string representations for e.g bool/Enums/IEnumerable<object>.
+	/// as format arguments. It also handles known string representations for e.g bool/Enums/IEnumerable&lt;object&gt;.
 	/// </summary>
 	public class OpenSearchUrlFormatter : IFormatProvider, ICustomFormatter
 	{
@@ -52,7 +52,7 @@ namespace OpenSearch.Net
 			var value = CreateString(arg, _settings);
 			if (value.IsNullOrEmpty() && !format.IsNullOrEmpty())
 				throw new ArgumentException($"The parameter: {format} to the url is null or empty");
-			
+
 			return value.IsNullOrEmpty() ? string.Empty : Uri.EscapeDataString(value);
 		}
 

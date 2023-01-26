@@ -66,7 +66,7 @@ namespace OpenSearch.Client
 		internal LazyDocument Get { get; set; }
 
 		/// <summary>
-		/// Deserialize the <see cref="Get"/> property as a GetResponse<TDocument> type, where TDocument is the document type.
+		/// Deserialize the <see cref="Get"/> property as a <see cref="GetResponse{TDocument}"/> type, where <typeparamref name="TDocument"/> is the document type.
 		/// </summary>
 		public GetResponse<TDocument> GetResponse<TDocument>() where TDocument : class => Get?.AsUsingRequestResponseSerializer<GetResponse<TDocument>>();
 
