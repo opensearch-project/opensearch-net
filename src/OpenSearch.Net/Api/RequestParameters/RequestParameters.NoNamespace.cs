@@ -1878,9 +1878,9 @@ namespace OpenSearch.Net
 		}
 
 		///<summary>Indicate if the number of documents that match the query should be tracked</summary>
-		public bool? TrackTotalHits
+		public string TrackTotalHits
 		{
-			get => Q<bool? >("track_total_hits");
+			get => Q<string>("track_total_hits");
 			set => Q("track_total_hits", value);
 		}
 
