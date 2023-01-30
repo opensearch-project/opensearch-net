@@ -4,22 +4,22 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IPhraseSuggester
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IPhraseSuggester
  | OpenSearch.Net </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IPhraseSuggester
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IPhraseSuggester
  | OpenSearch.Net ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -99,7 +99,7 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
       <a class="xref" href="OpenSearch.Client.ISuggester.html#OpenSearch_Client_ISuggester_Size">ISuggester.Size</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.Client.html">OpenSearch.Client</a></h6>
+  <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_IPhraseSuggester_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -176,7 +176,7 @@ double? Confidence { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -225,10 +225,7 @@ IEnumerable&lt;IDirectGenerator&gt; DirectGenerator { get; set; }</code></pre>
   </span>
   <a id="OpenSearch_Client_IPhraseSuggester_ForceUnigrams_" data-uid="OpenSearch.Client.IPhraseSuggester.ForceUnigrams*"></a>
   <h4 id="OpenSearch_Client_IPhraseSuggester_ForceUnigrams" data-uid="OpenSearch.Client.IPhraseSuggester.ForceUnigrams">ForceUnigrams</h4>
-  <div class="markdown level1 summary"><p>The phrase suggester adds additional logic on top of the <a class="xref" href="OpenSearch.Client.ITermSuggester.html">term suggester</a> to select entire corrected phrases instead of
-individual tokens weighted based on ngram-language models. In practice this suggester will be able to make better decisions
-about which tokens to pick based on co-occurrence and frequencies.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -245,7 +242,7 @@ bool? ForceUnigrams { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -279,7 +276,7 @@ int? GramSize { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -349,7 +346,7 @@ double? MaxErrors { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -382,7 +379,7 @@ double? RealWordErrorLikelihood { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -415,7 +412,7 @@ char? Separator { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -448,7 +445,7 @@ int? ShardSize { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -513,7 +510,7 @@ string Text { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -527,10 +524,7 @@ string Text { get; set; }</code></pre>
   </span>
   <a id="OpenSearch_Client_IPhraseSuggester_TokenLimit_" data-uid="OpenSearch.Client.IPhraseSuggester.TokenLimit*"></a>
   <h4 id="OpenSearch_Client_IPhraseSuggester_TokenLimit" data-uid="OpenSearch.Client.IPhraseSuggester.TokenLimit">TokenLimit</h4>
-  <div class="markdown level1 summary"><p>The phrase suggester adds additional logic on top of the <a class="xref" href="OpenSearch.Client.ITermSuggester.html">term suggester</a> to select entire corrected phrases instead of
-individual tokens weighted based on ngram-language models. In practice this suggester will be able to make better decisions
-about which tokens to pick based on co-occurrence and frequencies.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -547,14 +541,14 @@ int? TokenLimit { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(Object, String)</a>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
 </article>
           </div>
