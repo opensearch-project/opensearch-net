@@ -44,16 +44,16 @@ namespace OpenSearch.Client
 	{
 		/// <summary>
 		/// Date or point of origin used to calculate distances.
-		// If the field value is a date or date_nanos field, the origin value must be a date. Date Math, such as now-1h, is supported.
-		// If the field value is a geo_point field, the origin value must be a geopoint.
+		/// If the field value is a date or date_nanos field, the origin value must be a date. Date Math, such as now-1h, is supported.
+		/// If the field value is a geo_point field, the origin value must be a geopoint.
 		/// </summary>
 		[DataMember(Name = "origin")]
 		Union<GeoCoordinate, DateMath> Origin { get; set; }
 
 		/// <summary>
 		/// Distance from the origin at which relevance scores receive half of the boost value.
-		// If the field value is a date or date_nanos field, the pivot value must be a time unit, such as 1h or 10d.
-		// If the field value is a geo_point field, the pivot value must be a distance unit, such as 1km or 12m.
+		/// If the field value is a date or date_nanos field, the pivot value must be a time unit, such as 1h or 10d.
+		/// If the field value is a geo_point field, the pivot value must be a distance unit, such as 1km or 12m.
 		/// </summary>
 		[DataMember(Name = "pivot")]
 		Union<Distance, Time> Pivot { get; set; }

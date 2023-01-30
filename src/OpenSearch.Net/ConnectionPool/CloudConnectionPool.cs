@@ -48,7 +48,7 @@ namespace OpenSearch.Net
 		/// <para></para>
 		/// </summary>
 		/// <param name="cloudId">
-		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string<c>
+		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string</c>
 		/// <para>Base64 encoded string contains the following tokens in order separated by $:</para>
 		/// <para>* Host Name (mandatory)</para>
 		/// <para>* OpenSearch UUID (mandatory)</para>
@@ -70,7 +70,7 @@ namespace OpenSearch.Net
 		/// <para></para>
 		/// </summary>
 		/// <param name="cloudId">
-		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string<c>
+		/// The Cloud Id, this is available on your cluster's dashboard and is a string in the form of <c>cluster_name:base_64_encoded_string</c>
 		/// <para>Base64 encoded string contains the following tokens in order separated by $:</para>
 		/// <para>* Host Name (mandatory)</para>
 		/// <para>* OpenSearch UUID (mandatory)</para>

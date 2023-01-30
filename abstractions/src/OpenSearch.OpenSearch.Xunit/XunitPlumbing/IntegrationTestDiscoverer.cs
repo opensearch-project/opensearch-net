@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenSearch.OpenSearch.Xunit.Sdk;
 using OpenSearch.Stack.ArtifactsApi;
-using SemVer;
+using SemanticVersioning;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;

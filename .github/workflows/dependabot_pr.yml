@@ -1,5 +1,12 @@
 name: Dependabot PR actions
-on: pull_request
+on: 
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
   dependabot:
@@ -17,20 +24,31 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           installation_id: 22958780
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ steps.github_app_token.outputs.token }}
 
       - name: Update the changelog
-        uses: dangoslen/dependabot-changelog-helper@v1
+        uses: dangoslen/dependabot-changelog-helper@v2
         with:
           version: 'Unreleased'
+
+      - name: Update packages.lock.json
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'dependabot') }}
+        run: dotnet restore --force-evaluate
 
       - name: Commit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update changelog"
+          commit_message: "Update changelog & packages.lock.json"
           branch: ${{ github.head_ref }}
           commit_user_name: dependabot[bot]
           commit_user_email: support@github.com

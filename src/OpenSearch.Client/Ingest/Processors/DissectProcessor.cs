@@ -65,16 +65,16 @@ namespace OpenSearch.Client
 	{
 		protected override string Name => "dissect";
 
-		/// <inheritdoc cref="IDissectProcessor.Field">
+		/// <inheritdoc cref="IDissectProcessor.Field"/>
 		public Field Field { get; set; }
 
-		/// <inheritdoc cref="IDissectProcessor.Pattern">
+		/// <inheritdoc cref="IDissectProcessor.Pattern"/>
 		public string Pattern { get; set; }
 
-		/// <inheritdoc cref="IDissectProcessor.IgnoreMissing">
+		/// <inheritdoc cref="IDissectProcessor.IgnoreMissing"/>
 		public bool? IgnoreMissing { get; set; }
 
-		/// <inheritdoc cref="IDissectProcessor.AppendSeparator">
+		/// <inheritdoc cref="IDissectProcessor.AppendSeparator"/>
 		public string AppendSeparator { get; set; }
 	}
 
@@ -90,22 +90,22 @@ namespace OpenSearch.Client
 		bool? IDissectProcessor.IgnoreMissing { get; set; }
 		string IDissectProcessor.AppendSeparator { get; set; }
 
-		/// <inheritdoc cref="IDissectProcessor.Field">
+		/// <inheritdoc cref="IDissectProcessor.Field"/>
 		public DissectProcessorDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
 
-		/// <inheritdoc cref="IDissectProcessor.Field">
+		/// <inheritdoc cref="IDissectProcessor.Field"/>
 		public DissectProcessorDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) =>
 			Assign(objectPath, (a, v) => a.Field = v);
 
-		/// <inheritdoc cref="IDissectProcessor.Pattern">
+		/// <inheritdoc cref="IDissectProcessor.Pattern"/>
 		public DissectProcessorDescriptor<T> Pattern(string pattern) =>
 			Assign(pattern, (a, v) => a.Pattern = v);
 
-		/// <inheritdoc cref="IDissectProcessor.IgnoreMissing">
+		/// <inheritdoc cref="IDissectProcessor.IgnoreMissing"/>
 		public DissectProcessorDescriptor<T> IgnoreMissing(bool? traceMatch = true) =>
 			Assign(traceMatch, (a, v) => a.IgnoreMissing = v);
 
-		/// <inheritdoc cref="IDissectProcessor.AppendSeparator">
+		/// <inheritdoc cref="IDissectProcessor.AppendSeparator"/>
 		public DissectProcessorDescriptor<T> AppendSeparator(string appendSeparator) =>
 			Assign(appendSeparator, (a, v) => a.AppendSeparator = v);
 

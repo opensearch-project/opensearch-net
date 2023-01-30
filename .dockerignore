@@ -44,3 +44,6 @@ bin
 obj
  
 .git/objects/*
+
+_site
+_exported_templates

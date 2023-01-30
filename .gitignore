@@ -87,3 +87,6 @@ project.lock.json
 .idea/
 *.sln.iml
 /src/.vs/restore.dg
+
+_site
+_exported_templates

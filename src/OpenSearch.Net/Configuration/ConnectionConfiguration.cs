@@ -82,12 +82,16 @@ namespace OpenSearch.Net
 		/// </summary>
 		public static readonly TimeSpan DefaultDnsRefreshTimeout = TimeSpan.FromMinutes(5);
 
+#if DOTNETCORE
 		/// <summary>
 		/// The default connection limit for both OpenSearch.Net and OpenSearch.Client. Defaults to <c>80</c>
-#if DOTNETCORE
 		/// <para>Except for <see cref="HttpClientHandler"/> implementations based on curl, which defaults to <see cref="Environment.ProcessorCount"/></para>
-#endif
 		/// </summary>
+#else
+		/// <summary>
+		/// The default connection limit for both OpenSearch.Net and OpenSearch.Client. Defaults to <c>80</c>
+		/// </summary>
+#endif
 		public static readonly int DefaultConnectionLimit = UsingCurlHandler ? Environment.ProcessorCount : 80;
 
 		/// <summary>

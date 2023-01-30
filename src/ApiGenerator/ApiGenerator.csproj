@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     
     <NoWarn>CS1591;NU1701</NoWarn>
@@ -16,6 +16,7 @@
     <PackageReference Include="Spectre.Console" Version="0.30.0" />
     <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20371.2" />
     <PackageReference Include="RazorLight" Version="2.1.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RestSpecification\Core" />

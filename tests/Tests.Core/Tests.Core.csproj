@@ -13,11 +13,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Domain\Tests.Domain.csproj" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.4.1" />
     
     <PackageReference Include="xunit" Version="2.4.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj" />
-    <PackageReference Include="JunitXml.TestLogger" Version="2.1.78" />
+    <PackageReference Include="JunitXml.TestLogger" Version="3.0.114" />
     
     <PackageReference Include="Nullean.VsTest.Pretty.TestLogger" Version="0.3.0" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />

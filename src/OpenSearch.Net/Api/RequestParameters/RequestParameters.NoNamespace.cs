@@ -534,7 +534,7 @@ namespace OpenSearch.Net
 			set => Q("slices", value);
 		}
 
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public string[] Sort
 		{
 			get => Q<string[]>("sort");
@@ -2371,7 +2371,7 @@ namespace OpenSearch.Net
 			set => Q("slices", value);
 		}
 
-		///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public string[] Sort
 		{
 			get => Q<string[]>("sort");

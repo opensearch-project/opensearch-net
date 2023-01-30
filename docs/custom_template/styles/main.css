@@ -1,0 +1,8 @@
+#logo {
+	height: 100%;
+	padding: 10px;
+}
+
+#logo:hover path {
+	fill: inherit !important;
+}
