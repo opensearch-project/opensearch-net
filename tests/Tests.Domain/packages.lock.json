@@ -4,9 +4,9 @@
     ".NETStandard,Version=v2.0": {
       "Bogus": {
         "type": "Direct",
-        "requested": "[22.1.2, )",
-        "resolved": "22.1.2",
-        "contentHash": "FnYg++zOsFkN3wQJcPT6U4bmZoW/zDWp474QsZG2KX/ClCiEOwIfUxJ9xuKgwv46K0LvVoicQD09hgPke0FG1A=="
+        "requested": "[34.0.2, )",
+        "resolved": "34.0.2",
+        "contentHash": "2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A=="
       },
       "Microsoft.NETFramework.ReferenceAssemblies": {
         "type": "Direct",
