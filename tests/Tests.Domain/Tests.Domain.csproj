@@ -9,7 +9,7 @@
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Client\OpenSearch.Client.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Bogus" Version="22.1.2" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Configuration\Tests.Configuration.csproj" />
