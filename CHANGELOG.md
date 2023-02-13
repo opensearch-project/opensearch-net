@@ -38,5 +38,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `ConfigureAwaitChecker.Analyzer` from 4.0.0 to 5.0.0.1
 - Bumps `Bogus` from 22.1.2 to 34.0.2
 - Bumps `ShellProgressBar` from 5.0.0 to 5.2.0
+- Bumps `Spectre.Console` from 0.30.0 to 0.46.0
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
