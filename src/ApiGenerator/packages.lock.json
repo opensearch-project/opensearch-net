@@ -74,12 +74,12 @@
       },
       "System.CommandLine.DragonFruit": {
         "type": "Direct",
-        "requested": "[0.3.0-alpha.20371.2, )",
-        "resolved": "0.3.0-alpha.20371.2",
-        "contentHash": "qLGFosjzbv/jzc3AnN5EgI88ODGGgGzcDQ5H9mt8j+boIVk+Sd9QwkGYw017A0lVT6pEgPXq3j/sLg5HmbtdeA==",
+        "requested": "[0.3.0-alpha.21216.1, )",
+        "resolved": "0.3.0-alpha.21216.1",
+        "contentHash": "o6AZB0f+4f1mXhq2Ypz620leo9wwsGq9pYPFo4dMfD9H4qcdk+bEEiHkxaQ/6wtCKwdt7cd68CaNrKLDOQe/7w==",
         "dependencies": {
-          "System.CommandLine": "2.0.0-beta1.20371.2",
-          "System.CommandLine.Rendering": "0.3.0-alpha.20371.2"
+          "System.CommandLine": "2.0.0-beta1.21216.1",
+          "System.CommandLine.Rendering": "0.3.0-alpha.21216.1"
         }
       },
       "System.Text.Encodings.Web": {
@@ -266,8 +266,8 @@
       },
       "System.CommandLine": {
         "type": "Transitive",
-        "resolved": "2.0.0-beta1.20371.2",
-        "contentHash": "L6cnw4QgaLAOpUPSW1TjYGJGKsUvyDYvdQ/Gqv0/EnOSzByEf+IlAK1sRu+bcAhBrdws+eNPcOarg1Qj33oNDA==",
+        "resolved": "2.0.0-beta1.21216.1",
+        "contentHash": "Nbv/tW8sbOKN5T+4SSVBMdk4ADSIpJpY4UHMsj3VkcNtOckIT4iyzagjF+W5FEh2YBRvmvVQijOTIZbUJ1+1aA==",
         "dependencies": {
           "Microsoft.CSharp": "4.4.1",
           "system.memory": "4.5.4"
@@ -275,10 +275,10 @@
       },
       "System.CommandLine.Rendering": {
         "type": "Transitive",
-        "resolved": "0.3.0-alpha.20371.2",
-        "contentHash": "Giz/HUeNkosCnf1vkqHSTlbKGXIpthihn1ZDh2ZbwM3AOYGwv+ZOrgy/z9y3NNh3TCNyutHRf+c2Awg5TO27pA==",
+        "resolved": "0.3.0-alpha.21216.1",
+        "contentHash": "KZFPrPV4/+yRvtZZyDjcdW9oMOpX7+gHO9kNmHmNFgoXIyedc/PNN1fKa3UD1OX61sibMslyBIsV9QUFpcELiA==",
         "dependencies": {
-          "System.CommandLine": "2.0.0-beta1.20371.2"
+          "System.CommandLine": "2.0.0-beta1.21216.1"
         }
       },
       "System.Globalization": {

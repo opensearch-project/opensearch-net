@@ -38,5 +38,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `ConfigureAwaitChecker.Analyzer` from 4.0.0 to 5.0.0.1
 - Bumps `Bogus` from 22.1.2 to 34.0.2
 - Bumps `ShellProgressBar` from 5.0.0 to 5.2.0
+- Bumps `System.CommandLine.DragonFruit` from 0.3.0-alpha.20371.2 to 0.3.0-alpha.21216.1
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
