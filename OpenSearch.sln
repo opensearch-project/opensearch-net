@@ -61,8 +61,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3EA11364-051
 		src\_PublishArtifacts.Build.props = src\_PublishArtifacts.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGenerator", "src\ApiGenerator\ApiGenerator.csproj", "{CA508E92-50AE-4858-BD94-8637E88A8FAC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSearch.Net.VirtualizedCluster", "src\OpenSearch.Net.VirtualizedCluster\OpenSearch.Net.VirtualizedCluster.csproj", "{CFE97627-8DD3-470B-B7CF-78B62E1D305D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{29E53C13-34F7-4F0D-8D28-41EF768793E7}"
