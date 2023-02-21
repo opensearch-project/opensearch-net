@@ -321,9 +321,9 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 			sniffingPipeline.IsTakingTooLong.Should().BeTrue();
 
 			/** request pipeline exposes the DateTime it started; we assert it started 2 hours in the past */
-			(dateTime.Now() - singleNodePipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2));
-			(dateTime.Now() - staticPipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2));
-			(dateTime.Now() - sniffingPipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2));
+			(dateTime.Now() - singleNodePipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2), TimeSpan.FromMilliseconds(100));
+			(dateTime.Now() - staticPipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2), TimeSpan.FromMilliseconds(100));
+			(dateTime.Now() - sniffingPipeline.StartedOn).Should().BePositive().And.BeCloseTo(TimeSpan.FromHours(2), TimeSpan.FromMilliseconds(100));
 		}
 	}
 }

@@ -138,7 +138,7 @@ namespace Tests.ClusterLauncher
 			}
 
 			return types
-				.Where(t => t.Implements(typeof(IEphemeralCluster)))
+				.Where(t => typeof(IEphemeralCluster).IsAssignableFrom(t))
 				.Where(t => !t.IsAbstract)
 				.ToArray();
 		}

@@ -257,13 +257,13 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 			var similarities = settings.Settings.Similarity;
 
 			similarities.Should().NotBeNull();
-			similarities.Should().ContainKey("bm25").WhichValue.Should().BeOfType<BM25Similarity>();
-			similarities.Should().ContainKey("dfi").WhichValue.Should().BeOfType<DFISimilarity>();
-			similarities.Should().ContainKey("dfr").WhichValue.Should().BeOfType<DFRSimilarity>();
-			similarities.Should().ContainKey("ib").WhichValue.Should().BeOfType<IBSimilarity>();
-			similarities.Should().ContainKey("lmd").WhichValue.Should().BeOfType<LMDirichletSimilarity>();
-			similarities.Should().ContainKey("lmj").WhichValue.Should().BeOfType<LMJelinekMercerSimilarity>();
-			similarities.Should().ContainKey("scripted_tfidf").WhichValue.Should().BeOfType<ScriptedSimilarity>();
+			similarities.Should().ContainKey("bm25").WhoseValue.Should().BeOfType<BM25Similarity>();
+			similarities.Should().ContainKey("dfi").WhoseValue.Should().BeOfType<DFISimilarity>();
+			similarities.Should().ContainKey("dfr").WhoseValue.Should().BeOfType<DFRSimilarity>();
+			similarities.Should().ContainKey("ib").WhoseValue.Should().BeOfType<IBSimilarity>();
+			similarities.Should().ContainKey("lmd").WhoseValue.Should().BeOfType<LMDirichletSimilarity>();
+			similarities.Should().ContainKey("lmj").WhoseValue.Should().BeOfType<LMJelinekMercerSimilarity>();
+			similarities.Should().ContainKey("scripted_tfidf").WhoseValue.Should().BeOfType<ScriptedSimilarity>();
 
 			var scriptedSimilarity = (ScriptedSimilarity)similarities["scripted_tfidf"];
 			scriptedSimilarity.Script.Should().NotBeNull();

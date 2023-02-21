@@ -49,7 +49,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		{
 			var dateTimeProvider = DateTimeProvider.Default;
 
-			dateTimeProvider.Now().Should().BeCloseTo(DateTime.UtcNow);
+			dateTimeProvider.Now().Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromMilliseconds(100));
 		}
 
 		/**
