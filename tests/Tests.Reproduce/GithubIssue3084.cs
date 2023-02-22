@@ -45,7 +45,7 @@ namespace Tests.Reproduce
 		protected static string RandomString() => Guid.NewGuid().ToString("N").Substring(0, 8);
 
 		[I]
-		public void DeserializeErrorIsTheSameForAsync()
+		public async Task DeserializeErrorIsTheSameForAsync()
 		{
 			var client = _cluster.Client;
 			var index = $"gh3084-{RandomString()}";
@@ -58,7 +58,7 @@ namespace Tests.Reproduce
 			Func<Task<IGetResponse<ObjectVersion2>>> getDocAsync = async () => await client.GetAsync<ObjectVersion2>(new GetRequest(index, 1));
 
 			getDoc.Should().Throw<Exception>("synchonous code path should throw");
-			getDocAsync.Should().Throw<Exception>("async code path should throw");
+			await getDocAsync.Should().ThrowAsync<Exception>("async code path should throw");
 		}
 
 		public class ObjectVersion1

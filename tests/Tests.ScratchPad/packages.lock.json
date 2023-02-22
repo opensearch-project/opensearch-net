@@ -57,8 +57,8 @@
       },
       "FluentAssertions": {
         "type": "Transitive",
-        "resolved": "5.10.3",
-        "contentHash": "gVPEVp1hLVqcv+7Q2wiDf7kqCNn7+bQcQ0jbJ2mcRT6CeRoZl1tNkqvzSIhvekyldDptk77j1b03MXTTRIqqpg==",
+        "resolved": "6.10.0",
+        "contentHash": "Da3YsiRDnOHKBfxutjnupL1rOX0K/jnG6crn5AgwukeqZ/yi+HNCOFshic01ke0ztZFWzpfQMXH8fO9aAbG0Gw==",
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
         }
@@ -1114,7 +1114,7 @@
         "type": "Project",
         "dependencies": {
           "DiffPlex": "[1.7.1, )",
-          "FluentAssertions": "[5.10.3, )",
+          "FluentAssertions": "[6.10.0, )",
           "JunitXml.TestLogger": "[3.0.114, )",
           "Microsoft.TestPlatform.ObjectModel": "[17.4.1, )",
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",

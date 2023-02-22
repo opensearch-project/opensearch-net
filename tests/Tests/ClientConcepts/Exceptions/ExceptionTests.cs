@@ -97,9 +97,10 @@ namespace Tests.ClientConcepts.Exceptions
 			var client = new OpenSearchClient(settings);
 
 			Action dispatch = () => client.Index(new Project(), p => p.Index(null));
-			var ce = dispatch.Should().Throw<ArgumentException>();
-			ce.Should().NotBeNull();
-			ce.Which.Message.Should().Contain("index=<NULL>");
+			dispatch
+				.Should()
+				.Throw<ArgumentException>()
+				.WithMessage("*index=<NULL>*");
 		}
 	}
 }

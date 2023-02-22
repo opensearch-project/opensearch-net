@@ -27,6 +27,7 @@
 */
 
 using System.Collections.Generic;
+using FluentAssertions;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

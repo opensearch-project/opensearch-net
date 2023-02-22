@@ -27,6 +27,7 @@
 */
 
 using System;
+using FluentAssertions;
 using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

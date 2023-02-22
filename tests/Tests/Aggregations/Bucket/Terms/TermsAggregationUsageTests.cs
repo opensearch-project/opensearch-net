@@ -224,7 +224,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			states.Buckets.Count.Should().BeGreaterThan(0);
 			foreach (var item in states.Buckets)
 			{
-				item.Key.Should().BeOfType<StateOfBeing>();
+				item.Key.Should().BeDefined();
 				item.DocCount.Should().BeGreaterOrEqualTo(1);
 			}
 			states.Meta.Should().NotBeNull().And.HaveCount(1);
