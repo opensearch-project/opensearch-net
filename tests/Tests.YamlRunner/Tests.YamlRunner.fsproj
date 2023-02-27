@@ -36,7 +36,7 @@
     <PackageReference Include="FSharp.Data" Version="5.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="SemanticVersioning" Version="2.0.2" />
-    <PackageReference Include="SharpYaml" Version="1.6.5" />
+    <PackageReference Include="SharpYaml" Version="2.1.0" />
     <PackageReference Include="ShellProgressBar" Version="5.2.0" />
   </ItemGroup>
 
