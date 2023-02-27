@@ -74,8 +74,8 @@
       },
       "JunitXml.TestLogger": {
         "type": "Transitive",
-        "resolved": "3.0.114",
-        "contentHash": "f3MYONfGKol63+Azfm4lRKTvKe7IrJMbNoPCMel+YFD68i+dsipMeCj94IN2XtCbJpKRpB2Dh9S1o0bUF0w6mQ=="
+        "resolved": "3.0.124",
+        "contentHash": "QTZhSNm/xjj24W1yterf6eABv6KO+Y9jBqpau5RzPehdXTXkZcGQaLf/i50nTl+qnSwpbKkrC+bSyvLRE1ZNAg=="
       },
       "Microsoft.CodeCoverage": {
         "type": "Transitive",
@@ -962,7 +962,7 @@
         "dependencies": {
           "DiffPlex": "[1.7.1, )",
           "FluentAssertions": "[6.10.0, )",
-          "JunitXml.TestLogger": "[3.0.114, )",
+          "JunitXml.TestLogger": "[3.0.124, )",
           "Microsoft.TestPlatform.ObjectModel": "[17.4.1, )",
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",
           "OpenSearch.Client.JsonNetSerializer": "[1.2.1, )",
