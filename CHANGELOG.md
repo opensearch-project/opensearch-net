@@ -33,7 +33,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FSharp.Core` from 4.7.0 to 6.0.7
 - Bumps `FSharp.Data` from 3.1.1 to 5.0.2
 - Bumps `AWSSDK.Core` from 3.7.12.11 to 3.7.103.17
-- Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.114
+- Bumps `JunitXml.TestLogger` from 2.1.78 to 3.0.124
 - Bumps `Fake.*` from 5.15.0 to 5.23.1
 - Bumps `ConfigureAwaitChecker.Analyzer` from 4.0.0 to 5.0.0.1
 - Bumps `Bogus` from 22.1.2 to 34.0.2
