@@ -40,5 +40,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `ShellProgressBar` from 5.0.0 to 5.2.0
 - Bumps `FluentAssertions` from 5.10.3 to 6.10.0
 - Bumps `SharpYaml` from 1.6.5 to 2.1.0
+- Bumps `Newtonsoft.Json` from 13.0.1 to 13.0.2
 
 [Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
