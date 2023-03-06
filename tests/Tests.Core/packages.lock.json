@@ -141,8 +141,8 @@
       },
       "Newtonsoft.Json": {
         "type": "Transitive",
-        "resolved": "13.0.1",
-        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
+        "resolved": "13.0.2",
+        "contentHash": "R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg=="
       },
       "NuGet.Frameworks": {
         "type": "Transitive",
@@ -940,7 +940,7 @@
       "opensearch.client.jsonnetserializer": {
         "type": "Project",
         "dependencies": {
-          "Newtonsoft.Json": "[13.0.1, )",
+          "Newtonsoft.Json": "[13.0.2, )",
           "OpenSearch.Client": "[1.2.1, )"
         }
       },
@@ -995,7 +995,7 @@
         "type": "Project",
         "dependencies": {
           "Bogus": "[34.0.2, )",
-          "Newtonsoft.Json": "[13.0.1, )",
+          "Newtonsoft.Json": "[13.0.2, )",
           "OpenSearch.Client": "[1.2.1, )",
           "OpenSearch.OpenSearch.Managed": "[1.2.1, )",
           "Tests.Configuration": "[1.2.1, )"
