@@ -1,0 +1,17 @@
+lib = library(identifier: 'jenkins@2.0.2', retriever: modernSCM([
+    $class: 'GitSCMSource',
+    remote: 'https://github.com/opensearch-project/opensearch-build-libraries.git',
+]))
+
+standardReleasePipelineWithGenericTrigger(
+    overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v2.3',
+    tokenIdCredential: 'jenkins-opensearch-net-generic-webhook-token',
+    causeString: 'A tag was cut on opensearch-project/opensearch-net repository causing this workflow to run',
+    publishRelease: true) {
+        publishToNuget(
+            repository: 'https://github.com/opensearch-project/opensearch-net',
+            tag: "$tag",
+            solutionFilePath: 'OpenSearch.sln',
+            apiKeyCredentialId: 'jenkins-opensearch-net-api-key'
+        )
+    }
