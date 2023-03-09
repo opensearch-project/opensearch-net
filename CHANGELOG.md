@@ -2,17 +2,13 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+
+## [1.3.0]
 ### Added
 - Added support for Amazon OpenSearch Serverless request signing ([#133](https://github.com/opensearch-project/opensearch-net/pull/133))
-- Github workflow for changelog verification ([#111](https://github.com/opensearch-project/opensearch-net/pull/111))
-- Bump version to `1.2.1`([#115](https://github.com/opensearch-project/opensearch-net/pull/115))
-- Added `dependabot_changelog` workflow ([#118](https://github.com/opensearch-project/opensearch-net/pull/118))
-- Onboard to 1-click release process ([#162](https://github.com/opensearch-project/opensearch-net/pull/162))
 
 ### Changed
 - Updated SDK to .NET 6 ([#126](https://github.com/opensearch-project/opensearch-net/pull/126))
-
-### Deprecated
 
 ### Removed
 - Removed `net461` target from internal packages ([#128](https://github.com/opensearch-project/opensearch-net/pull/128))
@@ -44,4 +40,5 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Newtonsoft.Json` from 13.0.1 to 13.0.2
 - Bumps `Fake.Core.SemVer` from 5.23.1 to 6.0.0
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...1.3.0
