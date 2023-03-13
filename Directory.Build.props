@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Include unconditionally due to difference in how dotnet cli and design time builds generate package.lock.json -->
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.0-preview.2"/>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.3"/>
   </ItemGroup>
 
 </Project>
