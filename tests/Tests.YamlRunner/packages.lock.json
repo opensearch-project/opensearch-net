@@ -4,9 +4,9 @@
     "net6.0": {
       "Argu": {
         "type": "Direct",
-        "requested": "[5.5.0, )",
-        "resolved": "5.5.0",
-        "contentHash": "hiPrrKCsLmo0pFNBdGpTyEXNMjZ04tITajfmj7u/LxjMG7tOiVgbFX/Sq7pdrwjwAF8u+oQ+gYfR/wpgnr567Q==",
+        "requested": "[6.1.1, )",
+        "resolved": "6.1.1",
+        "contentHash": "5SBLYihaZ6/YNpRU+0v0QLsCk7ABmOWNOUwkXVUql2w7kJ6Hi4AFhgIv5XLTtxTid5/xrJAL+PglQkNcjANCJg==",
         "dependencies": {
           "FSharp.Core": "4.3.2",
           "System.Configuration.ConfigurationManager": "4.4.0"
