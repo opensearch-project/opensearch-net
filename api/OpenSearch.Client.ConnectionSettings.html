@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -88,8 +88,8 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">OpenSearch.Net.ConnectionConfiguration&lt;T&gt;</span>&lt;<a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>&gt;</div>
-    <div class="level2"><span class="xref">OpenSearch.Client.ConnectionSettingsBase&lt;TConnectionSettings&gt;</span>&lt;<a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>&gt;</div>
+    <div class="level1"><span class="xref">ConnectionConfiguration</span>&lt;<a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>&gt;</div>
+    <div class="level2"><span class="xref">ConnectionSettingsBase</span>&lt;<a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>&gt;</div>
     <div class="level3"><span class="xref">ConnectionSettings</span></div>
   </div>
   <div class="implements">
@@ -146,7 +146,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(IConnectionPool connectionPool, ConnectionSettings.SourceSerializerFactory sourceSerializer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -183,7 +183,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(IConnectionPool connectionPool, IConnection connection, ConnectionSettings.SourceSerializerFactory sourceSerializer, IPropertyMappingProvider propertyMappingProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -230,7 +230,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(IConnectionPool connectionPool, IConnection connection, ConnectionSettings.SourceSerializerFactory sourceSerializer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +272,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(IConnectionPool connectionPool, IConnection connection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -309,7 +309,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(IConnectionPool connectionPool)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -343,7 +343,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(InMemoryConnection connection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -377,7 +377,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(string cloudId, ApiKeyAuthenticationCredentials credentials)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -416,7 +416,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(string cloudId, BasicAuthenticationCredentials credentials)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -454,7 +454,7 @@
     <pre><code class="lang-csharp hljs">public ConnectionSettings(Uri uri = null, IConnection connection = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -493,7 +493,7 @@
     <pre><code class="lang-csharp hljs">public static readonly string DefaultUserAgent</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -559,7 +559,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

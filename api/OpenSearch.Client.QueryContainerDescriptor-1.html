@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -130,7 +130,7 @@
 public class QueryContainerDescriptor&lt;T&gt; : QueryContainer, IQueryContainer, IDescriptor where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -165,7 +165,7 @@ It is built using one or more boolean clauses, each clause with a typed occurren
     <pre><code class="lang-csharp hljs">public QueryContainer Bool(Func&lt;BoolQueryDescriptor&lt;T&gt;, IBoolQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -182,7 +182,7 @@ It is built using one or more boolean clauses, each clause with a typed occurren
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -215,7 +215,7 @@ undesirable terms, but reduces their overall score.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Boosting(Func&lt;BoostingQueryDescriptor&lt;T&gt;, IBoostingQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -232,7 +232,7 @@ undesirable terms, but reduces their overall score.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -264,7 +264,7 @@ if you need to fallback to something other than a match_all query</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Conditionless(Func&lt;ConditionlessQueryDescriptor&lt;T&gt;, IConditionlessQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,7 +281,7 @@ if you need to fallback to something other than a match_all query</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -313,7 +313,7 @@ for every document in the filter. Maps to Lucene ConstantScoreQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer ConstantScore(Func&lt;ConstantScoreQueryDescriptor&lt;T&gt;, IConstantScoreQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -330,7 +330,7 @@ for every document in the filter. Maps to Lucene ConstantScoreQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -361,7 +361,7 @@ for every document in the filter. Maps to Lucene ConstantScoreQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer DateRange(Func&lt;DateRangeQueryDescriptor&lt;T&gt;, IDateRangeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -378,7 +378,7 @@ for every document in the filter. Maps to Lucene ConstantScoreQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -411,7 +411,7 @@ any additional matching subqueries.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer DisMax(Func&lt;DisMaxQueryDescriptor&lt;T&gt;, IDisMaxQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -428,7 +428,7 @@ any additional matching subqueries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -462,7 +462,7 @@ search’s should filter to add boosted relevance scores to the bool query’s s
     <pre><code class="lang-csharp hljs">public QueryContainer DistanceFeature(Func&lt;DistanceFeatureQueryDescriptor&lt;T&gt;, IDistanceFeatureQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -479,7 +479,7 @@ search’s should filter to add boosted relevance scores to the bool query’s s
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -509,7 +509,7 @@ search’s should filter to add boosted relevance scores to the bool query’s s
     <pre><code class="lang-csharp hljs">public QueryContainer Exists(Func&lt;ExistsQueryDescriptor&lt;T&gt;, IExistsQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -526,7 +526,7 @@ search’s should filter to add boosted relevance scores to the bool query’s s
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -559,7 +559,7 @@ sufficient to compute the score on a filtered set of documents.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer FunctionScore(Func&lt;FunctionScoreQueryDescriptor&lt;T&gt;, IFunctionScoreQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -576,7 +576,7 @@ sufficient to compute the score on a filtered set of documents.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -609,7 +609,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     <pre><code class="lang-csharp hljs">public QueryContainer Fuzzy(Func&lt;FuzzyQueryDescriptor&lt;T&gt;, IFuzzyQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -626,7 +626,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -656,7 +656,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     <pre><code class="lang-csharp hljs">public QueryContainer FuzzyDate(Func&lt;FuzzyDateQueryDescriptor&lt;T&gt;, IFuzzyQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -673,7 +673,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -703,7 +703,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     <pre><code class="lang-csharp hljs">public QueryContainer FuzzyNumeric(Func&lt;FuzzyNumericQueryDescriptor&lt;T&gt;, IFuzzyQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -720,7 +720,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -751,7 +751,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     <pre><code class="lang-csharp hljs">public QueryContainer GeoBoundingBox(Func&lt;GeoBoundingBoxQueryDescriptor&lt;T&gt;, IGeoBoundingBoxQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -768,7 +768,7 @@ every term will be enumerated and cause an edit score calculation or max_expansi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -800,7 +800,7 @@ that exist within a specific distance from a given geo_point</p>
     <pre><code class="lang-csharp hljs">public QueryContainer GeoDistance(Func&lt;GeoDistanceQueryDescriptor&lt;T&gt;, IGeoDistanceQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -817,7 +817,7 @@ that exist within a specific distance from a given geo_point</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -848,7 +848,7 @@ that exist within a specific distance from a given geo_point</p>
     <pre><code class="lang-csharp hljs">public QueryContainer GeoPolygon(Func&lt;GeoPolygonQueryDescriptor&lt;T&gt;, IGeoPolygonQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -865,7 +865,7 @@ that exist within a specific distance from a given geo_point</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -897,7 +897,7 @@ that have a geometry that matches for the given spatial relation and input shape
     <pre><code class="lang-csharp hljs">public QueryContainer GeoShape(Func&lt;GeoShapeQueryDescriptor&lt;T&gt;, IGeoShapeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -914,7 +914,7 @@ that have a geometry that matches for the given spatial relation and input shape
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -946,7 +946,7 @@ constant_score.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer HasChild&lt;TChild&gt;(Func&lt;HasChildQueryDescriptor&lt;TChild&gt;, IHasChildQuery&gt; selector) where TChild : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -963,7 +963,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -978,7 +978,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1011,7 +1011,7 @@ constant_score.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer HasParent&lt;TParent&gt;(Func&lt;HasParentQueryDescriptor&lt;TParent&gt;, IHasParentQuery&gt; selector) where TParent : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1028,7 +1028,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1043,7 +1043,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1075,7 +1075,7 @@ constant_score.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer HasRelationName(Expression&lt;Func&lt;T, JoinField&gt;&gt; field, RelationName value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1097,7 +1097,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1128,7 +1128,7 @@ constant_score.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer HasRelationName&lt;TRelation&gt;(Expression&lt;Func&lt;T, JoinField&gt;&gt; field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1145,7 +1145,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1160,7 +1160,7 @@ constant_score.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1193,7 +1193,7 @@ it works using the _uid field.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Ids(Func&lt;IdsQueryDescriptor, IIdsQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1210,7 +1210,7 @@ it works using the _uid field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1245,7 +1245,7 @@ These intervals can be further combined and filtered by parent sources.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Intervals(Func&lt;IntervalsQueryDescriptor&lt;T&gt;, IIntervalsQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1262,7 +1262,7 @@ These intervals can be further combined and filtered by parent sources.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1292,7 +1292,7 @@ These intervals can be further combined and filtered by parent sources.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer LongRange(Func&lt;LongRangeQueryDescriptor&lt;T&gt;, ILongRangeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1309,7 +1309,7 @@ These intervals can be further combined and filtered by parent sources.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1341,7 +1341,7 @@ process constructs a boolean query from the provided text.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Match(Func&lt;MatchQueryDescriptor&lt;T&gt;, IMatchQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1358,7 +1358,7 @@ process constructs a boolean query from the provided text.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1389,7 +1389,7 @@ process constructs a boolean query from the provided text.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer MatchAll(Func&lt;MatchAllQueryDescriptor, IMatchAllQuery&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1406,7 +1406,7 @@ process constructs a boolean query from the provided text.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1438,7 +1438,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     <pre><code class="lang-csharp hljs">public QueryContainer MatchBoolPrefix(Func&lt;MatchBoolPrefixQueryDescriptor&lt;T&gt;, IMatchBoolPrefixQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1455,7 +1455,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1486,7 +1486,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     <pre><code class="lang-csharp hljs">public QueryContainer MatchNone(Func&lt;MatchNoneQueryDescriptor, IMatchNoneQuery&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1503,7 +1503,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1534,7 +1534,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     <pre><code class="lang-csharp hljs">public QueryContainer MatchPhrase(Func&lt;MatchPhraseQueryDescriptor&lt;T&gt;, IMatchPhraseQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1551,7 +1551,7 @@ Each term except the last is used in a term query. The last term is used in a pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1583,7 +1583,7 @@ in the text</p>
     <pre><code class="lang-csharp hljs">public QueryContainer MatchPhrasePrefix(Func&lt;MatchPhrasePrefixQueryDescriptor&lt;T&gt;, IMatchPhrasePrefixQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1600,7 +1600,7 @@ in the text</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1631,7 +1631,7 @@ in the text</p>
     <pre><code class="lang-csharp hljs">public QueryContainer MoreLikeThis(Func&lt;MoreLikeThisQueryDescriptor&lt;T&gt;, IMoreLikeThisQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1648,7 +1648,7 @@ in the text</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1681,7 +1681,7 @@ relatively more expressive query by using multiple match queries within a bool q
     <pre><code class="lang-csharp hljs">public QueryContainer MultiMatch(Func&lt;MultiMatchQueryDescriptor&lt;T&gt;, IMultiMatchQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1698,7 +1698,7 @@ relatively more expressive query by using multiple match queries within a bool q
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1731,7 +1731,7 @@ root parent doc (or parent nested mapping).</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Nested(Func&lt;NestedQueryDescriptor&lt;T&gt;, INestedQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1748,7 +1748,7 @@ root parent doc (or parent nested mapping).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1779,7 +1779,7 @@ root parent doc (or parent nested mapping).</p>
     <pre><code class="lang-csharp hljs">public QueryContainer ParentId(Func&lt;ParentIdQueryDescriptor&lt;T&gt;, IParentIdQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1796,7 +1796,7 @@ root parent doc (or parent nested mapping).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1829,7 +1829,7 @@ to match with the stored queries.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Percolate(Func&lt;PercolateQueryDescriptor&lt;T&gt;, IPercolateQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1846,7 +1846,7 @@ to match with the stored queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1878,7 +1878,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Prefix(Field field, string value, double? boost = null, MultiTermQueryRewrite rewrite = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1915,7 +1915,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1947,7 +1947,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Prefix(Func&lt;PrefixQueryDescriptor&lt;T&gt;, IPrefixQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1964,7 +1964,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1996,7 +1996,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Prefix&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; field, string value, double? boost = null, MultiTermQueryRewrite rewrite = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2033,7 +2033,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2048,7 +2048,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2079,7 +2079,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer QueryString(Func&lt;QueryStringQueryDescriptor&lt;T&gt;, IQueryStringQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2096,7 +2096,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2127,7 +2127,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Range(Func&lt;NumericRangeQueryDescriptor&lt;T&gt;, INumericRangeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2144,7 +2144,7 @@ The prefix query maps to Lucene PrefixQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2179,7 +2179,7 @@ skip non-competitive hits when track_total_hits is not set to true. Speedups may
     <pre><code class="lang-csharp hljs">public QueryContainer RankFeature(Func&lt;RankFeatureQueryDescriptor&lt;T&gt;, IRankFeatureQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2196,7 +2196,7 @@ skip non-competitive hits when track_total_hits is not set to true. Speedups may
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2228,7 +2228,7 @@ skip non-competitive hits when track_total_hits is not set to true. Speedups may
     <pre><code class="lang-csharp hljs">public QueryContainer Raw(string rawJson)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2246,7 +2246,7 @@ skip non-competitive hits when track_total_hits is not set to true. Speedups may
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2279,7 +2279,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Regexp(Func&lt;RegexpQueryDescriptor&lt;T&gt;, IRegexpQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2296,7 +2296,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2326,7 +2326,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Script(Func&lt;ScriptQueryDescriptor&lt;T&gt;, IScriptQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2343,7 +2343,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2373,7 +2373,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer ScriptScore(Func&lt;ScriptScoreQueryDescriptor&lt;T&gt;, IScriptScoreQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2390,7 +2390,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2421,7 +2421,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Shape(Func&lt;ShapeQueryDescriptor&lt;T&gt;, IShapeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2438,7 +2438,7 @@ by the tokenizer for that field, and not to the original text of the field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2471,7 +2471,7 @@ never throw an exception, and discards invalid parts of the query.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SimpleQueryString(Func&lt;SimpleQueryStringQueryDescriptor&lt;T&gt;, ISimpleQueryStringQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2488,7 +2488,7 @@ never throw an exception, and discards invalid parts of the query.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2520,7 +2520,7 @@ The span containing query maps to Lucene SpanContainingQuery</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanContaining(Func&lt;SpanContainingQueryDescriptor&lt;T&gt;, ISpanContainingQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2537,7 +2537,7 @@ The span containing query maps to Lucene SpanContainingQuery</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2571,7 +2571,7 @@ which is not ordinarily permitted.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanFieldMasking(Func&lt;SpanFieldMaskingQueryDescriptor&lt;T&gt;, ISpanFieldMaskingQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2588,7 +2588,7 @@ which is not ordinarily permitted.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2619,7 +2619,7 @@ which is not ordinarily permitted.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanFirst(Func&lt;SpanFirstQueryDescriptor&lt;T&gt;, ISpanFirstQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2636,7 +2636,7 @@ which is not ordinarily permitted.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2668,7 +2668,7 @@ as a span query so it can be nested.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanMultiTerm(Func&lt;SpanMultiTermQueryDescriptor&lt;T&gt;, ISpanMultiTermQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2685,7 +2685,7 @@ as a span query so it can be nested.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2718,7 +2718,7 @@ The span near query maps to Lucene SpanNearQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanNear(Func&lt;SpanNearQueryDescriptor&lt;T&gt;, ISpanNearQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2735,7 +2735,7 @@ The span near query maps to Lucene SpanNearQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2767,7 +2767,7 @@ The span not query maps to Lucene SpanNotQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanNot(Func&lt;SpanNotQueryDescriptor&lt;T&gt;, ISpanNotQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2784,7 +2784,7 @@ The span not query maps to Lucene SpanNotQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2816,7 +2816,7 @@ The span or query maps to Lucene SpanOrQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanOr(Func&lt;SpanOrQueryDescriptor&lt;T&gt;, ISpanOrQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2833,7 +2833,7 @@ The span or query maps to Lucene SpanOrQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2864,7 +2864,7 @@ The span or query maps to Lucene SpanOrQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanTerm(Func&lt;SpanTermQueryDescriptor&lt;T&gt;, ISpanTermQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2881,7 +2881,7 @@ The span or query maps to Lucene SpanOrQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2913,7 +2913,7 @@ The span within query maps to Lucene SpanWithinQuery</p>
     <pre><code class="lang-csharp hljs">public QueryContainer SpanWithin(Func&lt;SpanWithinQueryDescriptor&lt;T&gt;, ISpanWithinQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2930,7 +2930,7 @@ The span within query maps to Lucene SpanWithinQuery</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2962,7 +2962,7 @@ The term query maps to Lucene TermQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Term(Field field, object value, double? boost = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2994,7 +2994,7 @@ The term query maps to Lucene TermQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3026,7 +3026,7 @@ The term query maps to Lucene TermQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Term(Func&lt;TermQueryDescriptor&lt;T&gt;, ITermQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3043,7 +3043,7 @@ The term query maps to Lucene TermQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3075,7 +3075,7 @@ The term query maps to Lucene TermQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Term&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; field, object value, double? boost = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3107,7 +3107,7 @@ The term query maps to Lucene TermQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3122,7 +3122,7 @@ The term query maps to Lucene TermQuery.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3153,7 +3153,7 @@ The term query maps to Lucene TermQuery.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer TermRange(Func&lt;TermRangeQueryDescriptor&lt;T&gt;, ITermRangeQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3170,7 +3170,7 @@ The term query maps to Lucene TermQuery.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3202,7 +3202,7 @@ This is a simpler syntax query for using a bool query with several term queries 
     <pre><code class="lang-csharp hljs">public QueryContainer Terms(Func&lt;TermsQueryDescriptor&lt;T&gt;, ITermsQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3219,7 +3219,7 @@ This is a simpler syntax query for using a bool query with several term queries 
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3253,7 +3253,7 @@ computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer TermsSet(Func&lt;TermsSetQueryDescriptor&lt;T&gt;, ITermsSetQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3270,7 +3270,7 @@ computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3305,7 +3305,7 @@ one of the wildcards * or ?. The wildcard query maps to Lucene WildcardQuery.</p
     <pre><code class="lang-csharp hljs">public QueryContainer Wildcard(Field field, string value, double? boost = null, MultiTermQueryRewrite rewrite = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3342,7 +3342,7 @@ one of the wildcards * or ?. The wildcard query maps to Lucene WildcardQuery.</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3377,7 +3377,7 @@ one of the wildcards * or ?. The wildcard query maps to Lucene WildcardQuery.</p
     <pre><code class="lang-csharp hljs">public QueryContainer Wildcard(Func&lt;WildcardQueryDescriptor&lt;T&gt;, IWildcardQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3394,7 +3394,7 @@ one of the wildcards * or ?. The wildcard query maps to Lucene WildcardQuery.</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3429,7 +3429,7 @@ not start with one of the wildcards * or ?. The wildcard query maps to Lucene Wi
     <pre><code class="lang-csharp hljs">public QueryContainer Wildcard&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; field, string value, double? boost = null, MultiTermQueryRewrite rewrite = null, string name = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3466,7 +3466,7 @@ not start with one of the wildcards * or ?. The wildcard query maps to Lucene Wi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3481,7 +3481,7 @@ not start with one of the wildcards * or ?. The wildcard query maps to Lucene Wi
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3544,7 +3544,7 @@ not start with one of the wildcards * or ?. The wildcard query maps to Lucene Wi
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

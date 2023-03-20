@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -132,7 +132,7 @@
     <pre><code class="lang-csharp hljs">public class TypeMappingDescriptor&lt;T&gt; : DescriptorBase&lt;TypeMappingDescriptor&lt;T&gt;, ITypeMapping&gt;, IDescriptor, ITypeMapping where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -169,7 +169,7 @@ type, as well as inferring mappings from the CLR property types.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; AutoMap(IPropertyVisitor visitor = null, int maxRecursion = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -191,7 +191,7 @@ type, as well as inferring mappings from the CLR property types.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -224,7 +224,7 @@ This overload determines how deep automapping should recurse on a complex CLR ty
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; AutoMap(int maxRecursion)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +241,7 @@ This overload determines how deep automapping should recurse on a complex CLR ty
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -277,7 +277,7 @@ This particular overload is useful for automapping any children</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; AutoMap(Type documentType, IPropertyVisitor visitor = null, int maxRecursion = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -304,7 +304,7 @@ This particular overload is useful for automapping any children</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -340,7 +340,7 @@ This particular overload is useful for automapping any children</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; AutoMap&lt;TDocument&gt;(IPropertyVisitor visitor = null, int maxRecursion = 0) where TDocument : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +362,7 @@ This particular overload is useful for automapping any children</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -377,7 +377,7 @@ This particular overload is useful for automapping any children</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -410,7 +410,7 @@ If a match is found, a new date field is added with the corresponding format.</p
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; DateDetection(bool? detect = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -427,7 +427,7 @@ If a match is found, a new date field is added with the corresponding format.</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -459,7 +459,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; DisableSizeField(bool? disabled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -476,7 +476,7 @@ Requires mapper-size plugin be installed</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -509,7 +509,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Dynamic(Union&lt;bool, DynamicMapping&gt; dynamic)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -526,7 +526,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -559,7 +559,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Dynamic(bool dynamic = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -576,7 +576,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -607,7 +607,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; DynamicDateFormats(IEnumerable&lt;string&gt; dateFormats)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -624,7 +624,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -662,7 +662,7 @@ used in the mapping specification as placeholders.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; DynamicTemplates(Func&lt;DynamicTemplateContainerDescriptor&lt;T&gt;, IPromise&lt;IDynamicTemplateContainer&gt;&gt; dynamicTemplatesSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -679,7 +679,7 @@ used in the mapping specification as placeholders.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -715,7 +715,7 @@ using those fields you might want to disable</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; FieldNamesField(Func&lt;FieldNamesFieldDescriptor&lt;T&gt;, IFieldNamesField&gt; fieldNamesFieldSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -732,7 +732,7 @@ using those fields you might want to disable</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -764,7 +764,7 @@ but can be used to store application-specific metadata.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Meta(Dictionary&lt;string, object&gt; metaDictionary)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -781,7 +781,7 @@ but can be used to store application-specific metadata.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -813,7 +813,7 @@ but can be used to store application-specific metadata.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Meta(Func&lt;FluentDictionary&lt;string, object&gt;, FluentDictionary&lt;string, object&gt;&gt; metaSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -830,7 +830,7 @@ but can be used to store application-specific metadata.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -862,7 +862,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; NumericDetection(bool? detect = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -879,7 +879,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -910,7 +910,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Properties(Func&lt;PropertiesDescriptor&lt;T&gt;, IPromise&lt;IProperties&gt;&gt; propertiesSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -927,7 +927,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -958,7 +958,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; Properties&lt;TDocument&gt;(Func&lt;PropertiesDescriptor&lt;TDocument&gt;, IPromise&lt;IProperties&gt;&gt; propertiesSelector) where TDocument : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -975,7 +975,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -990,7 +990,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1021,7 +1021,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; RoutingField(Func&lt;RoutingFieldDescriptor&lt;T&gt;, IRoutingField&gt; routingFieldSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1038,7 +1038,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1068,7 +1068,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; RuntimeFields(Func&lt;RuntimeFieldsDescriptor&lt;T&gt;, IPromise&lt;IRuntimeFields&gt;&gt; runtimeFieldsSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1085,7 +1085,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1116,7 +1116,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; RuntimeFields&lt;TDocument&gt;(Func&lt;RuntimeFieldsDescriptor&lt;TDocument&gt;, IPromise&lt;IRuntimeFields&gt;&gt; runtimeFieldsSelector) where TDocument : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1133,7 +1133,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1148,7 +1148,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1180,7 +1180,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; SizeField(Func&lt;SizeFieldDescriptor, ISizeField&gt; sizeFieldSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1197,7 +1197,7 @@ Requires mapper-size plugin be installed</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1228,7 +1228,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public TypeMappingDescriptor&lt;T&gt; SourceField(Func&lt;SourceFieldDescriptor, ISourceField&gt; sourceFieldSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1245,7 +1245,7 @@ Requires mapper-size plugin be installed</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1308,7 +1308,7 @@ Requires mapper-size plugin be installed</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

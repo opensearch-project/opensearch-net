@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -132,7 +132,7 @@
     <pre><code class="lang-csharp hljs">public class AggregationContainerDescriptor&lt;T&gt; : DescriptorBase&lt;AggregationContainerDescriptor&lt;T&gt;, IAggregationContainer&gt;, IDescriptor, IAggregationContainer where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -164,7 +164,7 @@
     <pre><code class="lang-csharp hljs">public void Accept(IAggregationVisitor visitor)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -196,7 +196,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; AdjacencyMatrix(string name, Func&lt;AdjacencyMatrixAggregationDescriptor&lt;T&gt;, IAdjacencyMatrixAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -218,7 +218,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -248,7 +248,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; AutoDateHistogram(string name, Func&lt;AutoDateHistogramAggregationDescriptor&lt;T&gt;, IAutoDateHistogramAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -270,7 +270,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -300,7 +300,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Average(string name, Func&lt;AverageAggregationDescriptor&lt;T&gt;, IAverageAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -322,7 +322,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,7 +352,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; AverageBucket(string name, Func&lt;AverageBucketAggregationDescriptor, IAverageBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -374,7 +374,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -404,7 +404,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; BucketScript(string name, Func&lt;BucketScriptAggregationDescriptor, IBucketScriptAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -426,7 +426,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +456,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; BucketSelector(string name, Func&lt;BucketSelectorAggregationDescriptor, IBucketSelectorAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -478,7 +478,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -508,7 +508,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; BucketSort(string name, Func&lt;BucketSortAggregationDescriptor&lt;T&gt;, IBucketSortAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -530,7 +530,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -560,7 +560,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Cardinality(string name, Func&lt;CardinalityAggregationDescriptor&lt;T&gt;, ICardinalityAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -582,7 +582,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -612,7 +612,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Children&lt;TChild&gt;(string name, Func&lt;ChildrenAggregationDescriptor&lt;TChild&gt;, IChildrenAggregation&gt; selector) where TChild : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -634,7 +634,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -649,7 +649,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -679,7 +679,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Composite(string name, Func&lt;CompositeAggregationDescriptor&lt;T&gt;, ICompositeAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -701,7 +701,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -731,7 +731,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; CumulativeSum(string name, Func&lt;CumulativeSumAggregationDescriptor, ICumulativeSumAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -753,7 +753,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -783,7 +783,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; DateHistogram(string name, Func&lt;DateHistogramAggregationDescriptor&lt;T&gt;, IDateHistogramAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -805,7 +805,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -835,7 +835,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; DateRange(string name, Func&lt;DateRangeAggregationDescriptor&lt;T&gt;, IDateRangeAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -857,7 +857,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -887,7 +887,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Derivative(string name, Func&lt;DerivativeAggregationDescriptor, IDerivativeAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -909,7 +909,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -939,7 +939,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; DiversifiedSampler(string name, Func&lt;DiversifiedSamplerAggregationDescriptor&lt;T&gt;, IDiversifiedSamplerAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -961,7 +961,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -991,7 +991,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; ExtendedStats(string name, Func&lt;ExtendedStatsAggregationDescriptor&lt;T&gt;, IExtendedStatsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1013,7 +1013,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1043,7 +1043,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; ExtendedStatsBucket(string name, Func&lt;ExtendedStatsBucketAggregationDescriptor, IExtendedStatsBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1065,7 +1065,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1095,7 +1095,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Filter(string name, Func&lt;FilterAggregationDescriptor&lt;T&gt;, IFilterAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1117,7 +1117,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1147,7 +1147,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Filters(string name, Func&lt;FiltersAggregationDescriptor&lt;T&gt;, IFiltersAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1169,7 +1169,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1199,7 +1199,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoBounds(string name, Func&lt;GeoBoundsAggregationDescriptor&lt;T&gt;, IGeoBoundsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1221,7 +1221,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1251,7 +1251,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoCentroid(string name, Func&lt;GeoCentroidAggregationDescriptor&lt;T&gt;, IGeoCentroidAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1273,7 +1273,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1303,7 +1303,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoDistance(string name, Func&lt;GeoDistanceAggregationDescriptor&lt;T&gt;, IGeoDistanceAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1325,7 +1325,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1355,7 +1355,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoHash(string name, Func&lt;GeoHashGridAggregationDescriptor&lt;T&gt;, IGeoHashGridAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1377,7 +1377,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1407,7 +1407,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoLine(string name, Func&lt;GeoLineAggregationDescriptor&lt;T&gt;, IGeoLineAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1429,7 +1429,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1459,7 +1459,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; GeoTile(string name, Func&lt;GeoTileGridAggregationDescriptor&lt;T&gt;, IGeoTileGridAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1481,7 +1481,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1511,7 +1511,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Global(string name, Func&lt;GlobalAggregationDescriptor&lt;T&gt;, IGlobalAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1533,7 +1533,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1563,7 +1563,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Histogram(string name, Func&lt;HistogramAggregationDescriptor&lt;T&gt;, IHistogramAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1585,7 +1585,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1615,7 +1615,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; IpRange(string name, Func&lt;IpRangeAggregationDescriptor&lt;T&gt;, IIpRangeAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1637,7 +1637,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1667,7 +1667,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MatrixStats(string name, Func&lt;MatrixStatsAggregationDescriptor&lt;T&gt;, IMatrixStatsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1689,7 +1689,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1719,7 +1719,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Max(string name, Func&lt;MaxAggregationDescriptor&lt;T&gt;, IMaxAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1741,7 +1741,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1771,7 +1771,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MaxBucket(string name, Func&lt;MaxBucketAggregationDescriptor, IMaxBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1793,7 +1793,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1823,7 +1823,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MedianAbsoluteDeviation(string name, Func&lt;MedianAbsoluteDeviationAggregationDescriptor&lt;T&gt;, IMedianAbsoluteDeviationAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1845,7 +1845,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1875,7 +1875,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Min(string name, Func&lt;MinAggregationDescriptor&lt;T&gt;, IMinAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1897,7 +1897,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1927,7 +1927,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MinBucket(string name, Func&lt;MinBucketAggregationDescriptor, IMinBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1949,7 +1949,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1979,7 +1979,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Missing(string name, Func&lt;MissingAggregationDescriptor&lt;T&gt;, IMissingAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2001,7 +2001,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2031,7 +2031,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MovingAverage(string name, Func&lt;MovingAverageAggregationDescriptor, IMovingAverageAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2053,7 +2053,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2083,7 +2083,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MovingFunction(string name, Func&lt;MovingFunctionAggregationDescriptor, IMovingFunctionAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2105,7 +2105,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2135,7 +2135,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; MultiTerms(string name, Func&lt;MultiTermsAggregationDescriptor&lt;T&gt;, IMultiTermsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2157,7 +2157,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2187,7 +2187,7 @@
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Nested(string name, Func&lt;NestedAggregationDescriptor&lt;T&gt;, INestedAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2209,7 +2209,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2241,7 +2241,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Parent&lt;TParent&gt;(string name, Func&lt;ParentAggregationDescriptor&lt;T, TParent&gt;, IParentAggregation&gt; selector) where TParent : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2263,7 +2263,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2278,7 +2278,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2308,7 +2308,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; PercentileRanks(string name, Func&lt;PercentileRanksAggregationDescriptor&lt;T&gt;, IPercentileRanksAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2330,7 +2330,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2360,7 +2360,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Percentiles(string name, Func&lt;PercentilesAggregationDescriptor&lt;T&gt;, IPercentilesAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2382,7 +2382,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2412,7 +2412,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; PercentilesBucket(string name, Func&lt;PercentilesBucketAggregationDescriptor, IPercentilesBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2434,7 +2434,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2464,7 +2464,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Range(string name, Func&lt;RangeAggregationDescriptor&lt;T&gt;, IRangeAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2486,7 +2486,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2516,7 +2516,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; RareTerms(string name, Func&lt;RareTermsAggregationDescriptor&lt;T&gt;, IRareTermsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2538,7 +2538,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2568,7 +2568,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; ReverseNested(string name, Func&lt;ReverseNestedAggregationDescriptor&lt;T&gt;, IReverseNestedAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2590,7 +2590,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2620,7 +2620,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Sampler(string name, Func&lt;SamplerAggregationDescriptor&lt;T&gt;, ISamplerAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2642,7 +2642,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2672,7 +2672,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; ScriptedMetric(string name, Func&lt;ScriptedMetricAggregationDescriptor&lt;T&gt;, IScriptedMetricAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2694,7 +2694,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2724,7 +2724,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; SerialDifferencing(string name, Func&lt;SerialDifferencingAggregationDescriptor, ISerialDifferencingAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2746,7 +2746,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2776,7 +2776,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; SignificantTerms(string name, Func&lt;SignificantTermsAggregationDescriptor&lt;T&gt;, ISignificantTermsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2798,7 +2798,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2828,7 +2828,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; SignificantText(string name, Func&lt;SignificantTextAggregationDescriptor&lt;T&gt;, ISignificantTextAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2850,7 +2850,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2880,7 +2880,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Stats(string name, Func&lt;StatsAggregationDescriptor&lt;T&gt;, IStatsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2902,7 +2902,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2932,7 +2932,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; StatsBucket(string name, Func&lt;StatsBucketAggregationDescriptor, IStatsBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2954,7 +2954,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2984,7 +2984,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Sum(string name, Func&lt;SumAggregationDescriptor&lt;T&gt;, ISumAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3006,7 +3006,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3036,7 +3036,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; SumBucket(string name, Func&lt;SumBucketAggregationDescriptor, ISumBucketAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3058,7 +3058,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3088,7 +3088,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; Terms(string name, Func&lt;TermsAggregationDescriptor&lt;T&gt;, ITermsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3110,7 +3110,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3140,7 +3140,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; TopHits(string name, Func&lt;TopHitsAggregationDescriptor&lt;T&gt;, ITopHitsAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3162,7 +3162,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3192,7 +3192,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; ValueCount(string name, Func&lt;ValueCountAggregationDescriptor&lt;T&gt;, IValueCountAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3214,7 +3214,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3244,7 +3244,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; VariableWidthHistogram(string name, Func&lt;VariableWidthHistogramAggregationDescriptor&lt;T&gt;, IVariableWidthHistogramAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3266,7 +3266,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3296,7 +3296,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public AggregationContainerDescriptor&lt;T&gt; WeightedAverage(string name, Func&lt;WeightedAverageAggregationDescriptor&lt;T&gt;, IWeightedAverageAggregation&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3318,7 +3318,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3350,7 +3350,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public static AggregationContainerDescriptor&lt;T&gt; operator &amp;(AggregationContainerDescriptor&lt;T&gt; left, AggregationContainerDescriptor&lt;T&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3372,7 +3372,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3402,7 +3402,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public static bool operator false(AggregationContainerDescriptor&lt;T&gt; a)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3419,7 +3419,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3449,7 +3449,7 @@ have the specified type, as defined in a join field.</p>
     <pre><code class="lang-csharp hljs">public static bool operator true(AggregationContainerDescriptor&lt;T&gt; a)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3466,7 +3466,7 @@ have the specified type, as defined in a join field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3529,7 +3529,7 @@ have the specified type, as defined in a join field.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

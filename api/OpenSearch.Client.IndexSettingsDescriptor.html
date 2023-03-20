@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -240,7 +240,7 @@
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor FileSystemStorageImplementation(FileSystemStorageImplementation? fs)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -257,7 +257,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +289,7 @@ Hidden indices are not returned by default when using a wildcard expression.</p>
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor Hidden(bool? hidden = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -306,7 +306,7 @@ Hidden indices are not returned by default when using a wildcard expression.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -338,7 +338,7 @@ greater than or equal to <a class="xref" href="OpenSearch.Client.IIndexSettings.
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor NumberOfRoutingShards(int? numberOfRoutingShards)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -355,7 +355,7 @@ greater than or equal to <a class="xref" href="OpenSearch.Client.IIndexSettings.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -387,7 +387,7 @@ This setting can only be set at index creation time. It cannot be changed on a c
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor NumberOfShards(int? numberOfShards)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -404,7 +404,7 @@ This setting can only be set at index creation time. It cannot be changed on a c
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -435,7 +435,7 @@ This setting can only be set at index creation time. It cannot be changed on a c
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor Queries(Func&lt;QueriesSettingsDescriptor, IQueriesSettings&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -452,7 +452,7 @@ This setting can only be set at index creation time. It cannot be changed on a c
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -484,7 +484,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor RoutingPartitionSize(int? routingPartitionSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -501,7 +501,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -532,7 +532,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor SoftDeletes(Func&lt;SoftDeleteSettingsDescriptor, ISoftDeleteSettings&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -549,7 +549,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -580,7 +580,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     <pre><code class="lang-csharp hljs">public IndexSettingsDescriptor Sorting&lt;T&gt;(Func&lt;SortingSettingsDescriptor&lt;T&gt;, ISortingSettings&gt; selector) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -597,7 +597,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -612,7 +612,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -675,7 +675,7 @@ This mitigates creating hotspots and very large shards if you have a few routing
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

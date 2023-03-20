@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -155,7 +155,7 @@
     <pre><code class="lang-csharp hljs">public class DateProcessorDescriptor&lt;T&gt; : ProcessorDescriptorBase&lt;DateProcessorDescriptor&lt;T&gt;, IDateProcessor&gt;, IDescriptor, IDateProcessor, IProcessor where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -187,7 +187,7 @@
     <pre><code class="lang-csharp hljs">protected override string Name { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -222,7 +222,7 @@
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; Field(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -239,7 +239,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -270,7 +270,7 @@
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -287,7 +287,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -302,7 +302,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -334,7 +334,7 @@ the following formats: ISO8601, UNIX, UNIX_MS, or TAI64N.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; Formats(IEnumerable&lt;string&gt; matchFormats)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -351,7 +351,7 @@ the following formats: ISO8601, UNIX, UNIX_MS, or TAI64N.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -383,7 +383,7 @@ the following formats: ISO8601, UNIX, UNIX_MS, or TAI64N.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; Formats(params string[] matchFormats)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -400,7 +400,7 @@ the following formats: ISO8601, UNIX, UNIX_MS, or TAI64N.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -432,7 +432,7 @@ Supports template snippets.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; Locale(string locale)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -449,7 +449,7 @@ Supports template snippets.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -480,7 +480,7 @@ Supports template snippets.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; TargetField(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -497,7 +497,7 @@ Supports template snippets.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -528,7 +528,7 @@ Supports template snippets.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; TargetField&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -545,7 +545,7 @@ Supports template snippets.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -560,7 +560,7 @@ Supports template snippets.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -591,7 +591,7 @@ Supports template snippets.</p>
     <pre><code class="lang-csharp hljs">public DateProcessorDescriptor&lt;T&gt; TimeZone(string timezone)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -608,7 +608,7 @@ Supports template snippets.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -674,7 +674,7 @@ Supports template snippets.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

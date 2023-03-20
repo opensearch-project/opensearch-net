@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -168,7 +168,7 @@
 public class BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; : BulkOperationDescriptorBase&lt;BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt;, IBulkUpdateOperation&lt;TDocument, TPartialDocument&gt;&gt;, IDescriptor, IBulkUpdateOperation&lt;TDocument, TPartialDocument&gt;, IBulkOperation where TDocument : class where TPartialDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -204,7 +204,7 @@ public class BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; : BulkOpera
     <pre><code class="lang-csharp hljs">protected override Type BulkOperationClrType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -236,7 +236,7 @@ public class BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; : BulkOpera
     <pre><code class="lang-csharp hljs">protected override string BulkOperationType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -271,7 +271,7 @@ public class BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; : BulkOpera
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; Doc(TPartialDocument @object)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -288,7 +288,7 @@ public class BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; : BulkOpera
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -321,7 +321,7 @@ use the contents of doc as the upsert value.</p>
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; DocAsUpsert(bool? partialDocumentAsUpsert = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -338,7 +338,7 @@ use the contents of doc as the upsert value.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -368,7 +368,7 @@ use the contents of doc as the upsert value.</p>
     <pre><code class="lang-csharp hljs">protected override object GetBulkOperationBody()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -400,7 +400,7 @@ use the contents of doc as the upsert value.</p>
     <pre><code class="lang-csharp hljs">protected override Id GetIdForOperation(Inferrer inferrer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -417,7 +417,7 @@ use the contents of doc as the upsert value.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -449,7 +449,7 @@ use the contents of doc as the upsert value.</p>
     <pre><code class="lang-csharp hljs">protected override Routing GetRoutingForOperation(Inferrer inferrer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@ use the contents of doc as the upsert value.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -502,7 +502,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; IdFrom(TDocument @object, bool useAsUpsert = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -524,7 +524,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -555,7 +555,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; IfPrimaryTerm(long? primaryTerm)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -572,7 +572,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -603,7 +603,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; IfSequenceNumber(long? seqNo)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -620,7 +620,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -651,7 +651,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; RetriesOnConflict(int? retriesOnConflict)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -668,7 +668,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -699,7 +699,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; Script(Func&lt;ScriptDescriptor, IScript&gt; scriptSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -716,7 +716,7 @@ See <a class="xref" href="OpenSearch.Client.BulkUpdateDescriptor-2.html#OpenSear
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -748,7 +748,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; ScriptedUpsert(bool? scriptedUpsert = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -765,7 +765,7 @@ initializing the document instead of the upsert element — then set scripte
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -796,7 +796,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; Source(Union&lt;bool, ISourceFilter&gt; source)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -813,7 +813,7 @@ initializing the document instead of the upsert element — then set scripte
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -844,7 +844,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public BulkUpdateDescriptor&lt;TDocument, TPartialDocument&gt; Upsert(TDocument @object)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -861,7 +861,7 @@ initializing the document instead of the upsert element — then set scripte
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -927,7 +927,7 @@ initializing the document instead of the upsert element — then set scripte
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

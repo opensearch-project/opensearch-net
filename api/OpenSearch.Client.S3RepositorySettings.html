@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -143,7 +143,7 @@
     <pre><code class="lang-csharp hljs">public S3RepositorySettings(string bucket)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -179,7 +179,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     <pre><code class="lang-csharp hljs">public string BasePath { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -210,7 +210,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     <pre><code class="lang-csharp hljs">public string Bucket { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -246,7 +246,7 @@ size allowed by S3. Defaults to the minimum between 100mb and 5% of the heap siz
     <pre><code class="lang-csharp hljs">public string BufferSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,7 +279,7 @@ log-delivery-write, bucket-owner-read, bucket-owner-full-control. Defaults to pr
     <pre><code class="lang-csharp hljs">public string CannedAcl { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -312,7 +312,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     <pre><code class="lang-csharp hljs">public string ChunkSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -343,7 +343,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     <pre><code class="lang-csharp hljs">public string Client { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -376,7 +376,7 @@ Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public bool? Compress { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -410,7 +410,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public bool? DisableChunkedEncoding { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -441,7 +441,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public string MaxRestoreBytesPerSecond { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -472,7 +472,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public string MaxSnapshotBytesPerSecond { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -505,7 +505,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     <pre><code class="lang-csharp hljs">public bool? PathStyleAccess { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -536,7 +536,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     <pre><code class="lang-csharp hljs">public bool? ReadOnly { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -568,7 +568,7 @@ Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public bool? ServerSideEncryption { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -600,7 +600,7 @@ Defaults to standard.</p>
     <pre><code class="lang-csharp hljs">public string StorageClass { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -663,7 +663,7 @@ Defaults to standard.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

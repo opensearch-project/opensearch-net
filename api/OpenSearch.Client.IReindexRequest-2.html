@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -101,7 +101,7 @@ You can completely opt out of all of this using <a class="xref" href="OpenSearch
     <pre><code class="lang-csharp hljs">public interface IReindexRequest&lt;TSource, TTarget&gt; where TSource : class where TTarget : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -144,7 +144,7 @@ be lower and with this factor we can dampen the overall pending scroll requests 
     <pre><code class="lang-csharp hljs">int? BackPressureFactor { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -180,7 +180,7 @@ Note that <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSea
     <pre><code class="lang-csharp hljs">Func&lt;IEnumerable&lt;IHitMetadata&lt;TTarget&gt;&gt;, IBulkAllRequest&lt;IHitMetadata&lt;TTarget&gt;&gt;&gt; BulkAll { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -211,7 +211,7 @@ Note that <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSea
     <pre><code class="lang-csharp hljs">ICreateIndexRequest CreateIndexRequest { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +241,7 @@ Note that <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSea
     <pre><code class="lang-csharp hljs">Func&lt;TSource, TTarget&gt; Map { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -273,7 +273,7 @@ Reindex will never create the index if it already exists however this will also 
     <pre><code class="lang-csharp hljs">bool OmitIndexCreation { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -307,7 +307,7 @@ Note that <a class="xref" href="OpenSearch.Client.IScrollAllRequest.html#OpenSea
     <pre><code class="lang-csharp hljs">IScrollAllRequest ScrollAll { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -363,7 +363,7 @@ Note that <a class="xref" href="OpenSearch.Client.IScrollAllRequest.html#OpenSea
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

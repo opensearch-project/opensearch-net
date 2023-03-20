@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -178,7 +178,7 @@
 public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;SearchDescriptor&lt;TInferDocument&gt;, SearchRequestParameters, ISearchRequest&lt;TInferDocument&gt;&gt;, IDescriptor, ISearchRequest&lt;TInferDocument&gt;, ISearchRequest, IRequest&lt;SearchRequestParameters&gt;, IRequest, ITypedSearchRequest where TInferDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -227,7 +227,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor(Indices index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -262,7 +262,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">protected override HttpMethod HttpMethod { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -297,7 +297,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Aggregations(AggregationDictionary aggregations)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -314,7 +314,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -345,7 +345,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Aggregations(Func&lt;AggregationContainerDescriptor&lt;TInferDocument&gt;, IAggregationContainer&gt; aggregationsSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +362,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -393,7 +393,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; AllIndices()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -424,7 +424,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; AllowNoIndices(bool? allownoindices = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -441,7 +441,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -472,7 +472,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; AllowPartialSearchResults(bool? allowpartialsearchresults = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -489,7 +489,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -520,7 +520,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Analyzer(string analyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -537,7 +537,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -568,7 +568,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; AnalyzeWildcard(bool? analyzewildcard = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -585,7 +585,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -616,7 +616,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; BatchedReduceSize(long? batchedreducesize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -633,7 +633,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -664,7 +664,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; CcsMinimizeRoundtrips(bool? ccsminimizeroundtrips = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -681,7 +681,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -718,7 +718,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Collapse(Func&lt;FieldCollapseDescriptor&lt;TInferDocument&gt;, IFieldCollapse&gt; collapseSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -735,7 +735,7 @@ You can only collapse to a depth of 2.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -766,7 +766,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; DefaultOperator(DefaultOperator? defaultoperator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -783,7 +783,7 @@ You can only collapse to a depth of 2.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -814,7 +814,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Df(string df)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -831,7 +831,7 @@ You can only collapse to a depth of 2.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -861,7 +861,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; DocValueFields(Fields fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -878,7 +878,7 @@ You can only collapse to a depth of 2.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -909,7 +909,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; DocValueFields(Func&lt;FieldsDescriptor&lt;TInferDocument&gt;, IPromise&lt;Fields&gt;&gt; fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -926,7 +926,7 @@ You can only collapse to a depth of 2.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -963,7 +963,7 @@ The operation will prefer to be executed on a local allocated shard is possible.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; ExecuteOnLocalShard()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1000,7 +1000,7 @@ Restricts the search to execute only on a node with the provided node id
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; ExecuteOnNode(string node)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1017,7 +1017,7 @@ Restricts the search to execute only on a node with the provided node id
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1054,7 +1054,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; ExecuteOnPreferredNode(string node)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1071,7 +1071,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1102,7 +1102,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; ExpandWildcards(ExpandWildcards? expandwildcards)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1119,7 +1119,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1150,7 +1150,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Explain(bool? explain = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1167,7 +1167,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1199,7 +1199,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Fields(Fields fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1216,7 +1216,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1248,7 +1248,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Fields(Func&lt;FieldsDescriptor&lt;TInferDocument&gt;, IPromise&lt;Fields&gt;&gt; fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1265,7 +1265,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1297,7 +1297,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Fields&lt;TSource&gt;(Func&lt;FieldsDescriptor&lt;TSource&gt;, IPromise&lt;Fields&gt;&gt; fields) where TSource : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1314,7 +1314,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1329,7 +1329,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1360,7 +1360,7 @@ Prefers execution on the node with the provided node id if applicable.
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; From(int? from)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1377,7 +1377,7 @@ Prefers execution on the node with the provided node id if applicable.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1409,7 +1409,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Highlight(Func&lt;HighlightDescriptor&lt;TInferDocument&gt;, IHighlight&gt; highlightSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1426,7 +1426,7 @@ fast-vector-highlighter or highlighter.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1457,7 +1457,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; IgnoreThrottled(bool? ignorethrottled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1474,7 +1474,7 @@ fast-vector-highlighter or highlighter.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1505,7 +1505,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; IgnoreUnavailable(bool? ignoreunavailable = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1522,7 +1522,7 @@ fast-vector-highlighter or highlighter.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1553,7 +1553,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Index(Indices index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1570,7 +1570,7 @@ fast-vector-highlighter or highlighter.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1601,7 +1601,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Index&lt;TOther&gt;() where TOther : class</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1616,7 +1616,7 @@ fast-vector-highlighter or highlighter.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1649,7 +1649,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; IndicesBoost(Func&lt;FluentDictionary&lt;IndexName, double&gt;, FluentDictionary&lt;IndexName, double&gt;&gt; boost)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1666,7 +1666,7 @@ matter more than hits coming from another index (think social graph where each u
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1697,7 +1697,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Lenient(bool? lenient = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1714,7 +1714,7 @@ matter more than hits coming from another index (think social graph where each u
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1745,7 +1745,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; MatchAll(Func&lt;MatchAllQueryDescriptor, IMatchAllQuery&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1762,7 +1762,7 @@ matter more than hits coming from another index (think social graph where each u
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1793,7 +1793,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; MaxConcurrentShardRequests(long? maxconcurrentshardrequests)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1810,7 +1810,7 @@ matter more than hits coming from another index (think social graph where each u
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1841,7 +1841,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; MinScore(double? minScore)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1858,7 +1858,7 @@ matter more than hits coming from another index (think social graph where each u
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1891,7 +1891,7 @@ will be returned in the response, and a filter should only be applied to the sea
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; PostFilter(Func&lt;QueryContainerDescriptor&lt;TInferDocument&gt;, QueryContainer&gt; filter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1908,7 +1908,7 @@ will be returned in the response, and a filter should only be applied to the sea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1939,7 +1939,7 @@ will be returned in the response, and a filter should only be applied to the sea
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Preference(string preference)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1956,7 +1956,7 @@ will be returned in the response, and a filter should only be applied to the sea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1987,7 +1987,7 @@ will be returned in the response, and a filter should only be applied to the sea
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; PreFilterShardSize(long? prefiltershardsize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2004,7 +2004,7 @@ will be returned in the response, and a filter should only be applied to the sea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2037,7 +2037,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Profile(bool? profile = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2054,7 +2054,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2085,7 +2085,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Query(Func&lt;QueryContainerDescriptor&lt;TInferDocument&gt;, QueryContainer&gt; query)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2102,7 +2102,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2133,7 +2133,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; QueryOnQueryString(string queryonquerystring)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2150,7 +2150,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2181,7 +2181,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; RequestCache(bool? requestcache = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2198,7 +2198,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2228,7 +2228,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">protected override sealed void RequestDefaults(SearchRequestParameters parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2263,7 +2263,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Rescore(Func&lt;RescoringDescriptor&lt;TInferDocument&gt;, IPromise&lt;IList&lt;IRescore&gt;&gt;&gt; rescoreSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2280,7 +2280,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2310,7 +2310,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2332,7 +2332,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2369,7 +2369,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Routing(Routing routing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2386,7 +2386,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2417,7 +2417,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; RuntimeFields(Func&lt;RuntimeFieldsDescriptor&lt;TInferDocument&gt;, IPromise&lt;IRuntimeFields&gt;&gt; runtimeFieldsSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2434,7 +2434,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2465,7 +2465,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; RuntimeFields&lt;TSource&gt;(Func&lt;RuntimeFieldsDescriptor&lt;TSource&gt;, IPromise&lt;IRuntimeFields&gt;&gt; runtimeFieldsSelector) where TSource : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2482,7 +2482,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2497,7 +2497,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2528,7 +2528,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; ScriptFields(Func&lt;ScriptFieldsDescriptor, IPromise&lt;IScriptFields&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2545,7 +2545,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2576,7 +2576,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Scroll(Time scroll)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2593,7 +2593,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2624,7 +2624,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SearchAfter(IEnumerable&lt;object&gt; searchAfter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2641,7 +2641,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2672,7 +2672,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SearchAfter(IList&lt;object&gt; searchAfter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2689,7 +2689,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2720,7 +2720,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SearchAfter(params object[] searchAfter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2737,7 +2737,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2768,7 +2768,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SearchType(SearchType? searchtype)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2785,7 +2785,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2816,7 +2816,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SequenceNumberPrimaryTerm(bool? sequencenumberprimaryterm = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2833,7 +2833,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2864,7 +2864,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Size(int? size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2881,7 +2881,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2912,7 +2912,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Skip(int? skip)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2929,7 +2929,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2961,7 +2961,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Slice(Func&lt;SlicedScrollDescriptor&lt;TInferDocument&gt;, ISlicedScroll&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2978,7 +2978,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3009,7 +3009,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Sort(Func&lt;SortDescriptor&lt;TInferDocument&gt;, IPromise&lt;IList&lt;ISort&gt;&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3026,7 +3026,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3060,7 +3060,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Source(bool enabled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3077,7 +3077,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3111,7 +3111,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Source(Func&lt;SourceFilterDescriptor&lt;TInferDocument&gt;, ISourceFilter&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3128,7 +3128,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3159,7 +3159,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Stats(params string[] stats)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3176,7 +3176,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3206,7 +3206,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; StoredFields(Fields fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3223,7 +3223,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3253,7 +3253,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; StoredFields(Func&lt;FieldsDescriptor&lt;TInferDocument&gt;, IPromise&lt;Fields&gt;&gt; fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3270,7 +3270,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3301,7 +3301,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Suggest(Func&lt;SuggestContainerDescriptor&lt;TInferDocument&gt;, IPromise&lt;ISuggestContainer&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3318,7 +3318,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3349,7 +3349,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SuggestField(Field suggestfield)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3366,7 +3366,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3397,7 +3397,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SuggestField(Expression&lt;Func&lt;TInferDocument, object&gt;&gt; field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3414,7 +3414,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3445,7 +3445,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SuggestMode(SuggestMode? suggestmode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3462,7 +3462,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3493,7 +3493,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SuggestSize(long? suggestsize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3510,7 +3510,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3541,7 +3541,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; SuggestText(string suggesttext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3558,7 +3558,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3589,7 +3589,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Take(int? take)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3606,7 +3606,7 @@ consumed independently</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3640,7 +3640,7 @@ terminated_early.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TerminateAfter(long? terminateAfter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3657,7 +3657,7 @@ terminated_early.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3690,7 +3690,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Timeout(string timeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3707,7 +3707,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3738,7 +3738,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TotalHitsAsInteger(bool? totalhitsasinteger = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3755,7 +3755,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3786,7 +3786,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TrackScores(bool? trackscores = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3803,7 +3803,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3833,7 +3833,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TrackTotalHits()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3863,7 +3863,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TrackTotalHits(TrackTotalHits trackTotalHits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3880,7 +3880,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3911,7 +3911,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; TypedKeys(bool? typedkeys = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3928,7 +3928,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3959,7 +3959,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; Version(bool? version = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3976,7 +3976,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4051,7 +4051,7 @@ to that point, when expired. Defaults to no timeout.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

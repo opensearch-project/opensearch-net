@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -156,7 +156,7 @@
     <pre><code class="lang-csharp hljs">public class GrokProcessorDescriptor&lt;T&gt; : ProcessorDescriptorBase&lt;GrokProcessorDescriptor&lt;T&gt;, IGrokProcessor&gt;, IDescriptor, IGrokProcessor, IProcessor where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -188,7 +188,7 @@
     <pre><code class="lang-csharp hljs">protected override string Name { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -223,7 +223,7 @@
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; Field(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -240,7 +240,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -271,7 +271,7 @@
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -288,7 +288,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -303,7 +303,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -335,7 +335,7 @@ the processor quietly exits without modifying the document. Default is <code>fal
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; IgnoreMissing(bool? ignoreMissing = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,7 +352,7 @@ the processor quietly exits without modifying the document. Default is <code>fal
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -385,7 +385,7 @@ names will override the pre-existing definition.</p>
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; PatternDefinitions(Func&lt;FluentDictionary&lt;string, string&gt;, FluentDictionary&lt;string, string&gt;&gt; patternDefinitions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -402,7 +402,7 @@ names will override the pre-existing definition.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -434,7 +434,7 @@ Returns on the first expression in the list that matches.</p>
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; Patterns(IEnumerable&lt;string&gt; patterns)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -451,7 +451,7 @@ Returns on the first expression in the list that matches.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +483,7 @@ Returns on the first expression in the list that matches.</p>
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; Patterns(params string[] patterns)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -500,7 +500,7 @@ Returns on the first expression in the list that matches.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -532,7 +532,7 @@ metadata with the index into the pattern found in patterns that matched.</p>
     <pre><code class="lang-csharp hljs">public GrokProcessorDescriptor&lt;T&gt; TraceMatch(bool? traceMatch = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -549,7 +549,7 @@ metadata with the index into the pattern found in patterns that matched.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -615,7 +615,7 @@ metadata with the index into the pattern found in patterns that matched.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

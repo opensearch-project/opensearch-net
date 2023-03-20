@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -160,7 +160,7 @@ so using this overload might fail if you are using it to test high level bits th
     <pre><code class="lang-csharp hljs">public InMemoryConnection(byte[] responseBody, int statusCode = 200, Exception exception = null, string contentType = &quot;application/json&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -224,7 +224,7 @@ so using this overload might fail if you are using it to test high level bits th
     <pre><code class="lang-csharp hljs">public virtual TResponse Request&lt;TResponse&gt;(RequestData requestData) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +241,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -256,7 +256,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -286,7 +286,7 @@ so using this overload might fail if you are using it to test high level bits th
     <pre><code class="lang-csharp hljs">public virtual Task&lt;TResponse&gt; RequestAsync&lt;TResponse&gt;(RequestData requestData, CancellationToken cancellationToken) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -308,7 +308,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -323,7 +323,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -353,7 +353,7 @@ so using this overload might fail if you are using it to test high level bits th
     <pre><code class="lang-csharp hljs">protected TResponse ReturnConnectionStatus&lt;TResponse&gt;(RequestData requestData, byte[] responseBody = null, int? statusCode = null, string contentType = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -385,7 +385,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -400,7 +400,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -430,7 +430,7 @@ so using this overload might fail if you are using it to test high level bits th
     <pre><code class="lang-csharp hljs">protected Task&lt;TResponse&gt; ReturnConnectionStatusAsync&lt;TResponse&gt;(RequestData requestData, CancellationToken cancellationToken, byte[] responseBody = null, int? statusCode = null, string contentType = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -467,7 +467,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -482,7 +482,7 @@ so using this overload might fail if you are using it to test high level bits th
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -545,7 +545,7 @@ so using this overload might fail if you are using it to test high level bits th
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -163,7 +163,7 @@ false otherwise. The default value for prune is false.</p>
     <pre><code class="lang-csharp hljs">public IPhraseSuggestCollate Collate { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -197,7 +197,7 @@ If set to 0.0 the top N candidates are returned. The default is 1.0.</p>
     <pre><code class="lang-csharp hljs">public double? Confidence { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -231,7 +231,7 @@ Each of the generators is called per term in the original text.</p>
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;IDirectGenerator&gt; DirectGenerator { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -261,7 +261,7 @@ Each of the generators is called per term in the original text.</p>
     <pre><code class="lang-csharp hljs">public bool? ForceUnigrams { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -294,7 +294,7 @@ the gram_size is set to the max_shingle_size if not explicitly set.</p>
     <pre><code class="lang-csharp hljs">public int? GramSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -327,7 +327,7 @@ If multiple tokens in a row are changed the entire phrase of changed tokens is w
     <pre><code class="lang-csharp hljs">public IPhraseSuggestHighlight Highlight { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +362,7 @@ in suggest calls might exceed the time spend in query execution.</p>
     <pre><code class="lang-csharp hljs">public double? MaxErrors { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -394,7 +394,7 @@ The default is 0.95, meaning 5% of the real words are misspelled.</p>
     <pre><code class="lang-csharp hljs">public double? RealWordErrorLikelihood { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -426,7 +426,7 @@ If not set the whitespace character is used as a separator.</p>
     <pre><code class="lang-csharp hljs">public char? Separator { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -458,7 +458,7 @@ During the reduce phase, only the top N suggestions are returned based on the si
     <pre><code class="lang-csharp hljs">public int? ShardSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -490,7 +490,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public SmoothingModelContainer Smoothing { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -521,7 +521,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public string Text { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -551,7 +551,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public int? TokenLimit { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -614,7 +614,7 @@ and frequent grams (appear at least once in the index).</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

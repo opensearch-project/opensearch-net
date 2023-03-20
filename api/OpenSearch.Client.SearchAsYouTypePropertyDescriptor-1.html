@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -172,7 +172,7 @@ and infix completion (i.e. matching terms at any position within the input) are 
     <pre><code class="lang-csharp hljs">public class SearchAsYouTypePropertyDescriptor&lt;T&gt; : CorePropertyDescriptorBase&lt;SearchAsYouTypePropertyDescriptor&lt;T&gt;, ISearchAsYouTypeProperty, T&gt;, IDescriptor, ISearchAsYouTypeProperty, ICoreProperty, IProperty, IFieldMapping where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -224,7 +224,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; Analyzer(string analyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +241,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +272,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; Index(bool? index = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +289,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -320,7 +320,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; IndexOptions(IndexOptions? indexOptions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -337,7 +337,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -368,7 +368,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; MaxShingleSize(int? maxShingleSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -385,7 +385,7 @@ Defaults to the default index analyzer, or the standard analyzer.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -418,7 +418,7 @@ It does not configure the prefix subfield, where it it false.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; Norms(bool? enabled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -435,7 +435,7 @@ It does not configure the prefix subfield, where it it false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@ It does not configure the prefix subfield, where it it false.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; SearchAnalyzer(string searchAnalyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +483,7 @@ It does not configure the prefix subfield, where it it false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -514,7 +514,7 @@ It does not configure the prefix subfield, where it it false.</p>
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; SearchQuoteAnalyzer(string searchQuoteAnalyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -531,7 +531,7 @@ It does not configure the prefix subfield, where it it false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -563,7 +563,7 @@ configures the root field and shingle subfields, but not the prefix subfield.</p
     <pre><code class="lang-csharp hljs">public SearchAsYouTypePropertyDescriptor&lt;T&gt; TermVector(TermVectorOption? termVector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -580,7 +580,7 @@ configures the root field and shingle subfields, but not the prefix subfield.</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -652,7 +652,7 @@ configures the root field and shingle subfields, but not the prefix subfield.</p
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

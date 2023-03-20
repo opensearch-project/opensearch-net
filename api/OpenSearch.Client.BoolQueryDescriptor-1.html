@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -149,7 +149,7 @@
     <pre><code class="lang-csharp hljs">public class BoolQueryDescriptor&lt;T&gt; : QueryDescriptorBase&lt;BoolQueryDescriptor&lt;T&gt;, IBoolQuery&gt;, IDescriptor, IBoolQuery, IQuery where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -181,7 +181,7 @@
     <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -216,7 +216,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Filter(params QueryContainer[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -233,7 +233,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -264,7 +264,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Filter(IEnumerable&lt;Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;&gt; queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,7 +281,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -312,7 +312,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Filter(params Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -329,7 +329,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +360,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; MinimumShouldMatch(MinimumShouldMatch minimumShouldMatches)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -377,7 +377,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -408,7 +408,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Must(params QueryContainer[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -425,7 +425,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +456,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Must(IEnumerable&lt;Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;&gt; queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -473,7 +473,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -504,7 +504,7 @@
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Must(params Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -521,7 +521,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -553,7 +553,7 @@ must_not clauses.</p>
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; MustNot(params QueryContainer[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -570,7 +570,7 @@ must_not clauses.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -602,7 +602,7 @@ must_not clauses.</p>
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; MustNot(IEnumerable&lt;Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;&gt; queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -619,7 +619,7 @@ must_not clauses.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -651,7 +651,7 @@ must_not clauses.</p>
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; MustNot(params Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -668,7 +668,7 @@ must_not clauses.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -701,7 +701,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Should(params QueryContainer[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -718,7 +718,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -751,7 +751,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Should(IEnumerable&lt;Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;&gt; queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -768,7 +768,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -801,7 +801,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     <pre><code class="lang-csharp hljs">public BoolQueryDescriptor&lt;T&gt; Should(params Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt;[] queries)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -818,7 +818,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -884,7 +884,7 @@ The minimum number of should clauses to match can be set using <a class="xref" h
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

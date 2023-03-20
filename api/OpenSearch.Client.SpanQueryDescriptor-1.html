@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -149,7 +149,7 @@
     <pre><code class="lang-csharp hljs">public class SpanQueryDescriptor&lt;T&gt; : QueryDescriptorBase&lt;SpanQueryDescriptor&lt;T&gt;, ISpanQuery&gt;, IDescriptor, ISpanQuery, IQuery where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -181,7 +181,7 @@
     <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -215,7 +215,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanContaining(Func&lt;SpanContainingQueryDescriptor&lt;T&gt;, ISpanContainingQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -232,7 +232,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -262,7 +262,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanFieldMasking(Func&lt;SpanFieldMaskingQueryDescriptor&lt;T&gt;, ISpanFieldMaskingQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,7 +279,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -309,7 +309,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanFirst(Func&lt;SpanFirstQueryDescriptor&lt;T&gt;, ISpanFirstQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -326,7 +326,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -356,7 +356,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanGap(Func&lt;SpanGapQueryDescriptor&lt;T&gt;, ISpanGapQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +373,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -403,7 +403,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanMultiTerm(Func&lt;SpanMultiTermQueryDescriptor&lt;T&gt;, ISpanMultiTermQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -420,7 +420,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -450,7 +450,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanNear(Func&lt;SpanNearQueryDescriptor&lt;T&gt;, ISpanNearQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -467,7 +467,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -497,7 +497,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanNot(Func&lt;SpanNotQueryDescriptor&lt;T&gt;, ISpanNotQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -514,7 +514,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -544,7 +544,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanOr(Func&lt;SpanOrQueryDescriptor&lt;T&gt;, ISpanOrQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -561,7 +561,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -591,7 +591,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanTerm(Func&lt;SpanTermQueryDescriptor&lt;T&gt;, ISpanTermQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -608,7 +608,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -638,7 +638,7 @@
     <pre><code class="lang-csharp hljs">public SpanQueryDescriptor&lt;T&gt; SpanWithin(Func&lt;SpanWithinQueryDescriptor&lt;T&gt;, ISpanWithinQuery&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -655,7 +655,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -721,7 +721,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

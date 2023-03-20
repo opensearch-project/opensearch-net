@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -171,7 +171,7 @@
     <pre><code class="lang-csharp hljs">public class UpdateRequest&lt;TDocument, TPartialDocument&gt; : PlainRequestBase&lt;UpdateRequestParameters&gt;, IUpdateRequest&lt;TDocument, TPartialDocument&gt;, IRequest&lt;UpdateRequestParameters&gt;, IRequest where TDocument : class where TPartialDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -224,7 +224,7 @@
     <pre><code class="lang-csharp hljs">public UpdateRequest(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -268,7 +268,7 @@
     <pre><code class="lang-csharp hljs">public UpdateRequest(Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -302,7 +302,7 @@
     <pre><code class="lang-csharp hljs">public UpdateRequest(IndexName index, Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -343,7 +343,7 @@
     <pre><code class="lang-csharp hljs">public bool? DetectNoop { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +373,7 @@
     <pre><code class="lang-csharp hljs">public TPartialDocument Doc { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -403,7 +403,7 @@
     <pre><code class="lang-csharp hljs">public bool? DocAsUpsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -434,7 +434,7 @@
     <pre><code class="lang-csharp hljs">public long? IfPrimaryTerm { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -465,7 +465,7 @@
     <pre><code class="lang-csharp hljs">public long? IfSequenceNumber { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -496,7 +496,7 @@
     <pre><code class="lang-csharp hljs">public string Lang { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -528,7 +528,7 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <pre><code class="lang-csharp hljs">public Refresh? Refresh { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -559,7 +559,7 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <pre><code class="lang-csharp hljs">public bool? RequireAlias { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -590,7 +590,7 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <pre><code class="lang-csharp hljs">public long? RetryOnConflict { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -626,7 +626,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -656,7 +656,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public IScript Script { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -688,7 +688,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public bool? ScriptedUpsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -718,7 +718,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">protected IUpdateRequest&lt;TDocument, TPartialDocument&gt; Self { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -748,7 +748,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public Union&lt;bool, ISourceFilter&gt; Source { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -779,7 +779,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public bool? SourceEnabled { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -810,7 +810,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public Time Timeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -840,7 +840,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">public TDocument Upsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -873,7 +873,7 @@ shard (number of replicas + 1)</p>
     <pre><code class="lang-csharp hljs">public string WaitForActiveShards { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -939,7 +939,7 @@ shard (number of replicas + 1)</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

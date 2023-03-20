@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -126,7 +126,7 @@ term vectors when using Multi termvectors API</p>
     <pre><code class="lang-csharp hljs">public class MultiTermVectorOperation&lt;T&gt; : IMultiTermVectorOperation where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -158,7 +158,7 @@ term vectors when using Multi termvectors API</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperation(Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -194,7 +194,7 @@ to generate term vectors for</p>
     <pre><code class="lang-csharp hljs">public object Document { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -226,7 +226,7 @@ vectors for</p>
     <pre><code class="lang-csharp hljs">public Fields Fields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -265,7 +265,7 @@ will be omitted. Default is <code>true</code>.
     <pre><code class="lang-csharp hljs">public bool? FieldStatistics { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -298,7 +298,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public ITermVectorFilter Filter { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -329,7 +329,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public Id Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +360,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public IndexName Index { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -392,7 +392,7 @@ Default is <code>true</code>.</p>
     <pre><code class="lang-csharp hljs">public bool? Offsets { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -424,7 +424,7 @@ base64 encoded bytes. Default is <code>true</code></p>
     <pre><code class="lang-csharp hljs">public bool? Payloads { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +456,7 @@ Default is <code>true</code></p>
     <pre><code class="lang-csharp hljs">public bool? Positions { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -489,7 +489,7 @@ Use <a class="xref" href="OpenSearch.Client.IMultiTermVectorOperation.html#OpenS
     <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -527,7 +527,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public bool? TermStatistics { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -558,7 +558,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public long? Version { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -589,7 +589,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public VersionType? VersionType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -649,7 +649,7 @@ term statistics can have a large performance impact.
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -127,7 +127,7 @@
     <pre><code class="lang-csharp hljs">public interface IBulkUpdateOperation&lt;TDocument, TPartialDocument&gt; : IBulkOperation where TDocument : class where TPartialDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -164,7 +164,7 @@
     <pre><code class="lang-csharp hljs">TPartialDocument Doc { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -197,7 +197,7 @@ use the contents of doc as the upsert value.</p>
     <pre><code class="lang-csharp hljs">bool? DocAsUpsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -229,7 +229,7 @@ See <a class="xref" href="OpenSearch.Client.IBulkUpdateOperation-2.html#OpenSear
     <pre><code class="lang-csharp hljs">TDocument IdFrom { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -259,7 +259,7 @@ See <a class="xref" href="OpenSearch.Client.IBulkUpdateOperation-2.html#OpenSear
     <pre><code class="lang-csharp hljs">long? IfPrimaryTerm { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +289,7 @@ See <a class="xref" href="OpenSearch.Client.IBulkUpdateOperation-2.html#OpenSear
     <pre><code class="lang-csharp hljs">long? IfSequenceNumber { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -320,7 +320,7 @@ See <a class="xref" href="OpenSearch.Client.IBulkUpdateOperation-2.html#OpenSear
     <pre><code class="lang-csharp hljs">IScript Script { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,7 +352,7 @@ initializing the document instead of the upsert element — then set scripte
     <pre><code class="lang-csharp hljs">bool? ScriptedUpsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -384,7 +384,7 @@ initializing the document instead of the upsert element — then set scripte
 Union&lt;bool, ISourceFilter&gt; Source { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -415,7 +415,7 @@ Union&lt;bool, ISourceFilter&gt; Source { get; set; }</code></pre>
     <pre><code class="lang-csharp hljs">TDocument Upsert { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -471,7 +471,7 @@ Union&lt;bool, ISourceFilter&gt; Source { get; set; }</code></pre>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

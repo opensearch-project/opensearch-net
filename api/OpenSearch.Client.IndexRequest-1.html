@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -170,7 +170,7 @@
     <pre><code class="lang-csharp hljs">public class IndexRequest&lt;TDocument&gt; : PlainRequestBase&lt;IndexRequestParameters&gt;, IIndexRequest&lt;TDocument&gt;, IProxyRequest, IDocumentRequest, IRequest&lt;IndexRequestParameters&gt;, IRequest where TDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -219,7 +219,7 @@
     <pre><code class="lang-csharp hljs">public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -263,7 +263,7 @@
     <pre><code class="lang-csharp hljs">public IndexRequest(Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -297,7 +297,7 @@
     <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index, Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -337,7 +337,7 @@
     <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -372,7 +372,7 @@
     <pre><code class="lang-csharp hljs">public TDocument Document { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -402,7 +402,7 @@
     <pre><code class="lang-csharp hljs">protected override HttpMethod HttpMethod { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -435,7 +435,7 @@
     <pre><code class="lang-csharp hljs">public long? IfPrimaryTerm { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@
     <pre><code class="lang-csharp hljs">public long? IfSequenceNumber { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -498,7 +498,7 @@ document ID</p>
     <pre><code class="lang-csharp hljs">public OpType? OpType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -529,7 +529,7 @@ document ID</p>
     <pre><code class="lang-csharp hljs">public string Pipeline { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -561,7 +561,7 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <pre><code class="lang-csharp hljs">public Refresh? Refresh { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -592,7 +592,7 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <pre><code class="lang-csharp hljs">public bool? RequireAlias { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -628,7 +628,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -658,7 +658,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">protected IIndexRequest&lt;TDocument&gt; Self { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -689,7 +689,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public Time Timeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -720,7 +720,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public long? Version { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -751,7 +751,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public VersionType? VersionType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -784,7 +784,7 @@ shard (number of replicas + 1)</p>
     <pre><code class="lang-csharp hljs">public string WaitForActiveShards { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -856,7 +856,7 @@ shard (number of replicas + 1)</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

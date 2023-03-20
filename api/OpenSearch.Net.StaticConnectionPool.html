@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -144,7 +144,7 @@
     <pre><code class="lang-csharp hljs">public StaticConnectionPool(IEnumerable&lt;Node&gt; nodes, bool randomize = true, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -186,7 +186,7 @@
     <pre><code class="lang-csharp hljs">protected StaticConnectionPool(IEnumerable&lt;Node&gt; nodes, bool randomize, int? randomizeSeed = null, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -233,7 +233,7 @@
     <pre><code class="lang-csharp hljs">protected StaticConnectionPool(IEnumerable&lt;Node&gt; nodes, Func&lt;Node, float&gt; nodeScorer, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -275,7 +275,7 @@
     <pre><code class="lang-csharp hljs">public StaticConnectionPool(IEnumerable&lt;Uri&gt; uris, bool randomize = true, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -318,7 +318,7 @@
     <pre><code class="lang-csharp hljs">protected int GlobalCursor</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -350,7 +350,7 @@
     <pre><code class="lang-csharp hljs">protected List&lt;Node&gt; AliveNodes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -380,7 +380,7 @@
     <pre><code class="lang-csharp hljs">protected IDateTimeProvider DateTimeProvider { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -410,7 +410,7 @@
     <pre><code class="lang-csharp hljs">protected List&lt;Node&gt; InternalNodes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -441,7 +441,7 @@
     <pre><code class="lang-csharp hljs">public DateTime LastUpdate { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -474,7 +474,7 @@ in the connection settings</p>
     <pre><code class="lang-csharp hljs">public int MaxRetries { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -507,7 +507,7 @@ If you do not need an isolated copy of the nodes, please read <a class="xref" hr
     <pre><code class="lang-csharp hljs">public virtual IReadOnlyCollection&lt;Node&gt; Nodes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -537,7 +537,7 @@ If you do not need an isolated copy of the nodes, please read <a class="xref" hr
     <pre><code class="lang-csharp hljs">protected Random Random { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -567,7 +567,7 @@ If you do not need an isolated copy of the nodes, please read <a class="xref" hr
     <pre><code class="lang-csharp hljs">protected bool Randomize { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -599,7 +599,7 @@ responsible for setting this in a thread safe fashion.</p>
     <pre><code class="lang-csharp hljs">public bool SniffedOnStartup { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -630,7 +630,7 @@ responsible for setting this in a thread safe fashion.</p>
     <pre><code class="lang-csharp hljs">public virtual bool SupportsPinging { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -661,7 +661,7 @@ responsible for setting this in a thread safe fashion.</p>
     <pre><code class="lang-csharp hljs">public virtual bool SupportsReseeding { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -692,7 +692,7 @@ responsible for setting this in a thread safe fashion.</p>
     <pre><code class="lang-csharp hljs">public bool UsingSsl { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -727,7 +727,7 @@ if there are no live nodes yields a different dead node to try once</p>
     <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;Node&gt; CreateView(Action&lt;AuditEvent, Node&gt; audit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -744,7 +744,7 @@ if there are no live nodes yields a different dead node to try once</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -790,7 +790,7 @@ if there are no live nodes yields a different dead node to try once</p>
     <pre><code class="lang-csharp hljs">public virtual void Reseed(IEnumerable&lt;Node&gt; nodes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -822,7 +822,7 @@ if there are no live nodes yields a different dead node to try once</p>
     <pre><code class="lang-csharp hljs">protected virtual Node RetryInternalNodes(int globalCursor, Action&lt;AuditEvent, Node&gt; audit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -844,7 +844,7 @@ if there are no live nodes yields a different dead node to try once</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -874,7 +874,7 @@ if there are no live nodes yields a different dead node to try once</p>
     <pre><code class="lang-csharp hljs">protected virtual IEnumerable&lt;Node&gt; SelectAliveNodes(int cursor, List&lt;Node&gt; aliveNodes, Action&lt;AuditEvent, Node&gt; audit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -901,7 +901,7 @@ if there are no live nodes yields a different dead node to try once</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -931,7 +931,7 @@ if there are no live nodes yields a different dead node to try once</p>
     <pre><code class="lang-csharp hljs">protected IOrderedEnumerable&lt;Node&gt; SortNodes(IEnumerable&lt;Node&gt; nodes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -948,7 +948,7 @@ if there are no live nodes yields a different dead node to try once</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1011,7 +1011,7 @@ if there are no live nodes yields a different dead node to try once</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

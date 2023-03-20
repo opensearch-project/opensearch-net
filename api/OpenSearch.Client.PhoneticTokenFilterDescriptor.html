@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -162,7 +162,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">protected override string Type { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -178,9 +178,6 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">OpenSearch.Client.TokenFilterDescriptorBase&lt;OpenSearch.Client.PhoneticTokenFilterDescriptor, OpenSearch.Client.IPhoneticTokenFilter&gt;.Type</span></div>
-  <h5 id="OpenSearch_Client_PhoneticTokenFilterDescriptor_Type_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the Phonetic Analysis plugin be installed (analysis-phonetic)</p>
-</div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -200,7 +197,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor Encoder(PhoneticEncoder? encoder)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -217,7 +214,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -231,9 +228,6 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_PhoneticTokenFilterDescriptor_Encoder_System_Nullable_OpenSearch_Client_PhoneticEncoder___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the Phonetic Analysis plugin be installed (analysis-phonetic)</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PhoneticTokenFilterDescriptor_LanguageSet_OpenSearch_Client_PhoneticLanguage___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PhoneticTokenFilterDescriptor.LanguageSet(OpenSearch.Client.PhoneticLanguage%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -251,7 +245,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor LanguageSet(params PhoneticLanguage[] languageSet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -268,7 +262,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -302,7 +296,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor LanguageSet(IEnumerable&lt;PhoneticLanguage&gt; languageSet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -319,7 +313,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -353,7 +347,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor MaxCodeLength(int? maxCodeLength)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -370,7 +364,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -404,7 +398,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor NameType(PhoneticNameType? nameType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -421,7 +415,7 @@ representation using Soundex, Metaphone, and a variety of other algorithms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +450,7 @@ with the encoded one (set it to true), or added (set it to false).</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor Replace(bool? replace = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -473,7 +467,7 @@ with the encoded one (set it to true), or added (set it to false).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -487,9 +481,6 @@ with the encoded one (set it to true), or added (set it to false).</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_PhoneticTokenFilterDescriptor_Replace_System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the Phonetic Analysis plugin be installed (analysis-phonetic)</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PhoneticTokenFilterDescriptor_RuleType_System_Nullable_OpenSearch_Client_PhoneticRuleType__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PhoneticTokenFilterDescriptor.RuleType(System.Nullable%7BOpenSearch.Client.PhoneticRuleType%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -507,7 +498,7 @@ with the encoded one (set it to true), or added (set it to false).</p>
     <pre><code class="lang-csharp hljs">public PhoneticTokenFilterDescriptor RuleType(PhoneticRuleType? ruleType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -524,7 +515,7 @@ with the encoded one (set it to true), or added (set it to false).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -593,7 +584,7 @@ with the encoded one (set it to true), or added (set it to false).</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -143,7 +143,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void AlterServicePoint(ServicePoint requestServicePoint, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -180,7 +180,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual HttpWebRequest CreateHttpWebRequest(RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -197,7 +197,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -227,7 +227,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual HttpWebRequest CreateWebRequest(RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -244,7 +244,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +289,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">public virtual TResponse Request&lt;TResponse&gt;(RequestData requestData) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -306,7 +306,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -321,7 +321,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -351,7 +351,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">public virtual Task&lt;TResponse&gt; RequestAsync&lt;TResponse&gt;(RequestData requestData, CancellationToken cancellationToken) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +373,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -388,7 +388,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -418,7 +418,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual bool SetApiKeyAuthenticationIfNeeded(HttpWebRequest request, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -440,7 +440,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -470,7 +470,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void SetAuthenticationIfNeeded(RequestData requestData, HttpWebRequest request)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -507,7 +507,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void SetBasicAuthenticationIfNeeded(HttpWebRequest request, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -544,7 +544,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void SetClientCertificates(HttpWebRequest request, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -581,7 +581,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void SetProxyIfNeeded(HttpWebRequest request, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -618,7 +618,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
     <pre><code class="lang-csharp hljs">protected virtual void SetServerCertificateValidationCallBackIfNeeded(HttpWebRequest request, RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -688,7 +688,7 @@ public class HttpWebRequestConnection : IConnection, IDisposable</code></pre>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -139,7 +139,7 @@
     <pre><code class="lang-csharp hljs">public static bool AllowAll(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -171,7 +171,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -206,7 +206,7 @@ the CA in the certificate chain.</p>
     <pre><code class="lang-csharp hljs">public static Func&lt;object, X509Certificate, X509Chain, SslPolicyErrors, bool&gt; AuthorityIsRoot(X509Certificate caCertificate, bool trustRoot = true, X509RevocationMode revocationMode = X509RevocationMode.NoCheck)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -237,7 +237,7 @@ if you've added the CA to the machines trusted store. In which case UntrustedRoo
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -269,7 +269,7 @@ generate the nodes certificates with. This callback expects the CA to be part of
     <pre><code class="lang-csharp hljs">public static Func&lt;object, X509Certificate, X509Chain, SslPolicyErrors, bool&gt; AuthorityPartOfChain(X509Certificate caCertificate, bool trustRoot = true, X509RevocationMode revocationMode = X509RevocationMode.NoCheck)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -300,7 +300,7 @@ if you've added the CA to the machines trusted store. In which case UntrustedRoo
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -331,7 +331,7 @@ if you've added the CA to the machines trusted store. In which case UntrustedRoo
     <pre><code class="lang-csharp hljs">public static bool DenyAll(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -363,7 +363,7 @@ if you've added the CA to the machines trusted store. In which case UntrustedRoo
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -416,7 +416,7 @@ if you've added the CA to the machines trusted store. In which case UntrustedRoo
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -161,7 +161,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse AddBlock&lt;TResponse&gt;(string index, string block, AddIndexBlockRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -191,7 +191,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -206,7 +206,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -237,7 +237,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; AddBlockAsync&lt;TResponse&gt;(string index, string block, AddIndexBlockRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +272,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -287,7 +287,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -318,7 +318,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse AliasExists&lt;TResponse&gt;(string index, string name, AliasExistsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -348,7 +348,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -363,7 +363,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -394,7 +394,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; AliasExistsAsync&lt;TResponse&gt;(string index, string name, AliasExistsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -429,7 +429,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -444,7 +444,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -475,7 +475,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse AliasExistsForAll&lt;TResponse&gt;(string name, AliasExistsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -499,7 +499,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -514,7 +514,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -545,7 +545,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; AliasExistsForAllAsync&lt;TResponse&gt;(string name, AliasExistsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -574,7 +574,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -589,7 +589,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -620,7 +620,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Analyze&lt;TResponse&gt;(string index, PostData body, AnalyzeRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -650,7 +650,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -665,7 +665,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -696,7 +696,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; AnalyzeAsync&lt;TResponse&gt;(string index, PostData body, AnalyzeRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -731,7 +731,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -746,7 +746,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -777,7 +777,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse AnalyzeForAll&lt;TResponse&gt;(PostData body, AnalyzeRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -801,7 +801,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -816,7 +816,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -847,7 +847,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; AnalyzeForAllAsync&lt;TResponse&gt;(PostData body, AnalyzeRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -876,7 +876,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -891,7 +891,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -922,7 +922,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse BulkAliasForAll&lt;TResponse&gt;(PostData body, BulkAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -946,7 +946,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -961,7 +961,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -992,7 +992,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; BulkAliasForAllAsync&lt;TResponse&gt;(PostData body, BulkAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1021,7 +1021,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1036,7 +1036,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1067,7 +1067,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ClearCache&lt;TResponse&gt;(string index, ClearCacheRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1091,7 +1091,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1106,7 +1106,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1137,7 +1137,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ClearCacheAsync&lt;TResponse&gt;(string index, ClearCacheRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1166,7 +1166,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1181,7 +1181,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1212,7 +1212,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ClearCacheForAll&lt;TResponse&gt;(ClearCacheRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1230,7 +1230,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1245,7 +1245,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1276,7 +1276,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ClearCacheForAllAsync&lt;TResponse&gt;(ClearCacheRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1299,7 +1299,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1314,7 +1314,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1345,7 +1345,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Clone&lt;TResponse&gt;(string index, string target, PostData body, CloneIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1381,7 +1381,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1396,7 +1396,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1427,7 +1427,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; CloneAsync&lt;TResponse&gt;(string index, string target, PostData body, CloneIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1468,7 +1468,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1483,7 +1483,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1514,7 +1514,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Close&lt;TResponse&gt;(string index, CloseIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1538,7 +1538,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1553,7 +1553,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1584,7 +1584,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; CloseAsync&lt;TResponse&gt;(string index, CloseIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1613,7 +1613,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1628,7 +1628,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1659,7 +1659,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Create&lt;TResponse&gt;(string index, PostData body, CreateIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1689,7 +1689,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1704,7 +1704,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1735,7 +1735,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; CreateAsync&lt;TResponse&gt;(string index, PostData body, CreateIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1770,7 +1770,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1785,7 +1785,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1816,7 +1816,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Delete&lt;TResponse&gt;(string index, DeleteIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1840,7 +1840,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1855,7 +1855,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1886,7 +1886,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse DeleteAlias&lt;TResponse&gt;(string index, string name, DeleteAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1916,7 +1916,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1931,7 +1931,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1962,7 +1962,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteAliasAsync&lt;TResponse&gt;(string index, string name, DeleteAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1997,7 +1997,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2012,7 +2012,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2043,7 +2043,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteAsync&lt;TResponse&gt;(string index, DeleteIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2072,7 +2072,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2087,7 +2087,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2118,7 +2118,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse DeleteTemplateForAll&lt;TResponse&gt;(string name, DeleteIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2142,7 +2142,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2157,7 +2157,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2188,7 +2188,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteTemplateForAllAsync&lt;TResponse&gt;(string name, DeleteIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2217,7 +2217,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2232,7 +2232,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2263,7 +2263,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse DeleteTemplateV2ForAll&lt;TResponse&gt;(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2287,7 +2287,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2302,7 +2302,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2333,7 +2333,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteTemplateV2ForAllAsync&lt;TResponse&gt;(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2362,7 +2362,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2377,7 +2377,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2408,7 +2408,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Exists&lt;TResponse&gt;(string index, IndexExistsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2432,7 +2432,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2447,7 +2447,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2478,7 +2478,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ExistsAsync&lt;TResponse&gt;(string index, IndexExistsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2507,7 +2507,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2522,7 +2522,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2553,7 +2553,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ExistsTemplateForAll&lt;TResponse&gt;(string name, ExistsIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2577,7 +2577,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2592,7 +2592,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2623,7 +2623,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ExistsTemplateForAllAsync&lt;TResponse&gt;(string name, ExistsIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2652,7 +2652,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2667,7 +2667,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2698,7 +2698,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Flush&lt;TResponse&gt;(string index, FlushRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2722,7 +2722,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2737,7 +2737,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2768,7 +2768,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; FlushAsync&lt;TResponse&gt;(string index, FlushRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2797,7 +2797,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2812,7 +2812,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2843,7 +2843,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse FlushForAll&lt;TResponse&gt;(FlushRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2861,7 +2861,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2876,7 +2876,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2907,7 +2907,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; FlushForAllAsync&lt;TResponse&gt;(FlushRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2930,7 +2930,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2945,7 +2945,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2976,7 +2976,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ForceMerge&lt;TResponse&gt;(string index, ForceMergeRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3000,7 +3000,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3015,7 +3015,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3046,7 +3046,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ForceMergeAsync&lt;TResponse&gt;(string index, ForceMergeRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3075,7 +3075,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3090,7 +3090,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3121,7 +3121,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ForceMergeForAll&lt;TResponse&gt;(ForceMergeRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3139,7 +3139,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3154,7 +3154,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3185,7 +3185,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ForceMergeForAllAsync&lt;TResponse&gt;(ForceMergeRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3208,7 +3208,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3223,7 +3223,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3254,7 +3254,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Get&lt;TResponse&gt;(string index, GetIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3278,7 +3278,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3293,7 +3293,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3324,7 +3324,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetAlias&lt;TResponse&gt;(string index, GetAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3348,7 +3348,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3363,7 +3363,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3394,7 +3394,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetAlias&lt;TResponse&gt;(string index, string name, GetAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3424,7 +3424,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3439,7 +3439,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3470,7 +3470,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAliasAsync&lt;TResponse&gt;(string index, GetAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3499,7 +3499,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3514,7 +3514,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3545,7 +3545,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAliasAsync&lt;TResponse&gt;(string index, string name, GetAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3580,7 +3580,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3595,7 +3595,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3626,7 +3626,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetAliasForAll&lt;TResponse&gt;(GetAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3644,7 +3644,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3659,7 +3659,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3690,7 +3690,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetAliasForAll&lt;TResponse&gt;(string name, GetAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3714,7 +3714,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3729,7 +3729,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3760,7 +3760,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAliasForAllAsync&lt;TResponse&gt;(GetAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3783,7 +3783,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3798,7 +3798,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3829,7 +3829,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAliasForAllAsync&lt;TResponse&gt;(string name, GetAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3858,7 +3858,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3873,7 +3873,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3904,7 +3904,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAsync&lt;TResponse&gt;(string index, GetIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3933,7 +3933,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3948,7 +3948,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3979,7 +3979,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetFieldMapping&lt;TResponse&gt;(string index, string fields, GetFieldMappingRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4009,7 +4009,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4024,7 +4024,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4055,7 +4055,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetFieldMappingAsync&lt;TResponse&gt;(string index, string fields, GetFieldMappingRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4090,7 +4090,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4105,7 +4105,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4136,7 +4136,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetFieldMappingForAll&lt;TResponse&gt;(string fields, GetFieldMappingRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4160,7 +4160,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4175,7 +4175,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4206,7 +4206,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetFieldMappingForAllAsync&lt;TResponse&gt;(string fields, GetFieldMappingRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4235,7 +4235,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4250,7 +4250,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4281,7 +4281,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetMapping&lt;TResponse&gt;(string index, GetMappingRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4305,7 +4305,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4320,7 +4320,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4351,7 +4351,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetMappingAsync&lt;TResponse&gt;(string index, GetMappingRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4380,7 +4380,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4395,7 +4395,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4426,7 +4426,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetMappingForAll&lt;TResponse&gt;(GetMappingRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4444,7 +4444,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4459,7 +4459,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4490,7 +4490,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetMappingForAllAsync&lt;TResponse&gt;(GetMappingRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4513,7 +4513,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4528,7 +4528,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4559,7 +4559,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetSettings&lt;TResponse&gt;(string index, GetIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4583,7 +4583,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4598,7 +4598,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4629,7 +4629,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetSettings&lt;TResponse&gt;(string index, string name, GetIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4659,7 +4659,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4674,7 +4674,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4705,7 +4705,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetSettingsAsync&lt;TResponse&gt;(string index, GetIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4734,7 +4734,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4749,7 +4749,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4780,7 +4780,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetSettingsAsync&lt;TResponse&gt;(string index, string name, GetIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4815,7 +4815,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4830,7 +4830,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4861,7 +4861,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetSettingsForAll&lt;TResponse&gt;(GetIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4879,7 +4879,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4894,7 +4894,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4925,7 +4925,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetSettingsForAll&lt;TResponse&gt;(string name, GetIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4949,7 +4949,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4964,7 +4964,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -4995,7 +4995,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetSettingsForAllAsync&lt;TResponse&gt;(GetIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5018,7 +5018,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5033,7 +5033,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5064,7 +5064,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetSettingsForAllAsync&lt;TResponse&gt;(string name, GetIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5093,7 +5093,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5108,7 +5108,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5139,7 +5139,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetTemplateForAll&lt;TResponse&gt;(GetIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5157,7 +5157,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5172,7 +5172,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5203,7 +5203,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetTemplateForAll&lt;TResponse&gt;(string name, GetIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5227,7 +5227,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5242,7 +5242,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5273,7 +5273,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetTemplateForAllAsync&lt;TResponse&gt;(GetIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5296,7 +5296,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5311,7 +5311,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5342,7 +5342,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetTemplateForAllAsync&lt;TResponse&gt;(string name, GetIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5371,7 +5371,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5386,7 +5386,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5417,7 +5417,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetTemplateV2ForAll&lt;TResponse&gt;(GetIndexTemplateV2RequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5435,7 +5435,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5450,7 +5450,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5481,7 +5481,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse GetTemplateV2ForAll&lt;TResponse&gt;(string name, GetIndexTemplateV2RequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5505,7 +5505,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5520,7 +5520,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5551,7 +5551,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetTemplateV2ForAllAsync&lt;TResponse&gt;(GetIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5574,7 +5574,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5589,7 +5589,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5620,7 +5620,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetTemplateV2ForAllAsync&lt;TResponse&gt;(string name, GetIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5649,7 +5649,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5664,7 +5664,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5695,7 +5695,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Open&lt;TResponse&gt;(string index, OpenIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5719,7 +5719,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5734,7 +5734,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5765,7 +5765,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; OpenAsync&lt;TResponse&gt;(string index, OpenIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5794,7 +5794,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5809,7 +5809,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5840,7 +5840,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse PutAlias&lt;TResponse&gt;(string index, string name, PostData body, PutAliasRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5876,7 +5876,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5891,7 +5891,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -5922,7 +5922,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutAliasAsync&lt;TResponse&gt;(string index, string name, PostData body, PutAliasRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5963,7 +5963,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5978,7 +5978,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6009,7 +6009,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse PutMapping&lt;TResponse&gt;(string index, PostData body, PutMappingRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6039,7 +6039,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6054,7 +6054,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6085,7 +6085,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutMappingAsync&lt;TResponse&gt;(string index, PostData body, PutMappingRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6120,7 +6120,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6135,7 +6135,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6166,7 +6166,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse PutTemplateForAll&lt;TResponse&gt;(string name, PostData body, PutIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6196,7 +6196,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6211,7 +6211,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6242,7 +6242,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutTemplateForAllAsync&lt;TResponse&gt;(string name, PostData body, PutIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6277,7 +6277,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6292,7 +6292,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6323,7 +6323,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse PutTemplateV2ForAll&lt;TResponse&gt;(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6353,7 +6353,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6368,7 +6368,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6399,7 +6399,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutTemplateV2ForAllAsync&lt;TResponse&gt;(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6434,7 +6434,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6449,7 +6449,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6480,7 +6480,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse RecoveryStatus&lt;TResponse&gt;(string index, RecoveryStatusRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6504,7 +6504,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6519,7 +6519,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6550,7 +6550,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RecoveryStatusAsync&lt;TResponse&gt;(string index, RecoveryStatusRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6579,7 +6579,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6594,7 +6594,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6625,7 +6625,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse RecoveryStatusForAll&lt;TResponse&gt;(RecoveryStatusRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6643,7 +6643,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6658,7 +6658,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6689,7 +6689,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RecoveryStatusForAllAsync&lt;TResponse&gt;(RecoveryStatusRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6712,7 +6712,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6727,7 +6727,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6758,7 +6758,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Refresh&lt;TResponse&gt;(string index, RefreshRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6782,7 +6782,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6797,7 +6797,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6828,7 +6828,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RefreshAsync&lt;TResponse&gt;(string index, RefreshRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6857,7 +6857,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6872,7 +6872,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6903,7 +6903,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse RefreshForAll&lt;TResponse&gt;(RefreshRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6921,7 +6921,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6936,7 +6936,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -6967,7 +6967,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RefreshForAllAsync&lt;TResponse&gt;(RefreshRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -6990,7 +6990,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7005,7 +7005,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7036,7 +7036,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ResolveForAll&lt;TResponse&gt;(string name, ResolveIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7060,7 +7060,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7075,7 +7075,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7109,7 +7109,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ResolveForAllAsync&lt;TResponse&gt;(string name, ResolveIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7138,7 +7138,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7153,7 +7153,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7187,7 +7187,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse RolloverForAll&lt;TResponse&gt;(string alias, PostData body, RolloverIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7217,7 +7217,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7232,7 +7232,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7263,7 +7263,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse RolloverForAll&lt;TResponse&gt;(string alias, string newIndex, PostData body, RolloverIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7299,7 +7299,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7314,7 +7314,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7345,7 +7345,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RolloverForAllAsync&lt;TResponse&gt;(string alias, PostData body, RolloverIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7380,7 +7380,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7395,7 +7395,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7426,7 +7426,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RolloverForAllAsync&lt;TResponse&gt;(string alias, string newIndex, PostData body, RolloverIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7467,7 +7467,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7482,7 +7482,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7513,7 +7513,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Segments&lt;TResponse&gt;(string index, SegmentsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7537,7 +7537,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7552,7 +7552,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7583,7 +7583,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SegmentsAsync&lt;TResponse&gt;(string index, SegmentsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7612,7 +7612,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7627,7 +7627,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7658,7 +7658,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse SegmentsForAll&lt;TResponse&gt;(SegmentsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7676,7 +7676,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7691,7 +7691,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7722,7 +7722,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SegmentsForAllAsync&lt;TResponse&gt;(SegmentsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7745,7 +7745,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7760,7 +7760,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7791,7 +7791,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ShardStores&lt;TResponse&gt;(string index, IndicesShardStoresRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7815,7 +7815,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7830,7 +7830,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7861,7 +7861,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ShardStoresAsync&lt;TResponse&gt;(string index, IndicesShardStoresRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7890,7 +7890,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7905,7 +7905,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -7936,7 +7936,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ShardStoresForAll&lt;TResponse&gt;(IndicesShardStoresRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7954,7 +7954,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -7969,7 +7969,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8000,7 +8000,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ShardStoresForAllAsync&lt;TResponse&gt;(IndicesShardStoresRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8023,7 +8023,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8038,7 +8038,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8069,7 +8069,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Shrink&lt;TResponse&gt;(string index, string target, PostData body, ShrinkIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8105,7 +8105,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8120,7 +8120,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8151,7 +8151,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ShrinkAsync&lt;TResponse&gt;(string index, string target, PostData body, ShrinkIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8192,7 +8192,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8207,7 +8207,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8238,7 +8238,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse SimulateIndexTemplateForAll&lt;TResponse&gt;(string name, PostData body, SimulateIndexTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8268,7 +8268,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8283,7 +8283,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8314,7 +8314,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SimulateIndexTemplateForAllAsync&lt;TResponse&gt;(string name, PostData body, SimulateIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8349,7 +8349,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8364,7 +8364,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8395,7 +8395,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse SimulateTemplateForAll&lt;TResponse&gt;(PostData body, SimulateTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8419,7 +8419,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8434,7 +8434,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8465,7 +8465,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse SimulateTemplateForAll&lt;TResponse&gt;(string name, PostData body, SimulateTemplateRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8495,7 +8495,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8510,7 +8510,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8541,7 +8541,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SimulateTemplateForAllAsync&lt;TResponse&gt;(PostData body, SimulateTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8570,7 +8570,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8585,7 +8585,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8616,7 +8616,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SimulateTemplateForAllAsync&lt;TResponse&gt;(string name, PostData body, SimulateTemplateRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8651,7 +8651,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8666,7 +8666,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8697,7 +8697,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Split&lt;TResponse&gt;(string index, string target, PostData body, SplitIndexRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8733,7 +8733,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8748,7 +8748,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8779,7 +8779,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; SplitAsync&lt;TResponse&gt;(string index, string target, PostData body, SplitIndexRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8820,7 +8820,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8835,7 +8835,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8866,7 +8866,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string index, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8890,7 +8890,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8905,7 +8905,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -8936,7 +8936,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string index, string metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8966,7 +8966,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -8981,7 +8981,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9012,7 +9012,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string index, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9041,7 +9041,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9056,7 +9056,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9087,7 +9087,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string index, string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9122,7 +9122,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9137,7 +9137,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9168,7 +9168,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9186,7 +9186,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9201,7 +9201,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9232,7 +9232,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9256,7 +9256,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9271,7 +9271,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9302,7 +9302,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9325,7 +9325,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9340,7 +9340,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9371,7 +9371,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9400,7 +9400,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9415,7 +9415,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9446,7 +9446,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse TemplateExistsForAll&lt;TResponse&gt;(string name, IndexTemplateExistsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9470,7 +9470,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9485,7 +9485,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9516,7 +9516,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; TemplateExistsForAllAsync&lt;TResponse&gt;(string name, IndexTemplateExistsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9545,7 +9545,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9560,7 +9560,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9591,7 +9591,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse TypeExists&lt;TResponse&gt;(string index, string type, TypeExistsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9621,7 +9621,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9636,7 +9636,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9670,7 +9670,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; TypeExistsAsync&lt;TResponse&gt;(string index, string type, TypeExistsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9705,7 +9705,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9720,7 +9720,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9754,7 +9754,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse UpdateSettings&lt;TResponse&gt;(string index, PostData body, UpdateIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9784,7 +9784,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9799,7 +9799,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9830,7 +9830,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UpdateSettingsAsync&lt;TResponse&gt;(string index, PostData body, UpdateIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9865,7 +9865,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9880,7 +9880,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9911,7 +9911,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse UpdateSettingsForAll&lt;TResponse&gt;(PostData body, UpdateIndexSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9935,7 +9935,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -9950,7 +9950,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -9981,7 +9981,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UpdateSettingsForAllAsync&lt;TResponse&gt;(PostData body, UpdateIndexSettingsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10010,7 +10010,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10025,7 +10025,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -10056,7 +10056,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ValidateQuery&lt;TResponse&gt;(string index, PostData body, ValidateQueryRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10086,7 +10086,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10101,7 +10101,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -10132,7 +10132,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ValidateQueryAsync&lt;TResponse&gt;(string index, PostData body, ValidateQueryRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10167,7 +10167,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10182,7 +10182,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -10213,7 +10213,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public TResponse ValidateQueryForAll&lt;TResponse&gt;(PostData body, ValidateQueryRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10237,7 +10237,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10252,7 +10252,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -10283,7 +10283,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ValidateQueryForAllAsync&lt;TResponse&gt;(PostData body, ValidateQueryRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10312,7 +10312,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -10327,7 +10327,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -10383,7 +10383,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

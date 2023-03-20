@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -175,7 +175,7 @@
     <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(RegionEndpoint region, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -185,7 +185,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Amazon.RegionEndpoint</span></td>
+        <td><span class="xref">RegionEndpoint</span></td>
         <td><span class="parametername">region</span></td>
         <td><p>The region to use when signing.</p>
 </td>
@@ -225,7 +225,7 @@
     <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -235,13 +235,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Amazon.Runtime.AWSCredentials</span></td>
+        <td><span class="xref">AWSCredentials</span></td>
         <td><span class="parametername">credentials</span></td>
         <td><p>The credentials to use when signing, or null to have them discovered automatically by the AWS SDK.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Amazon.RegionEndpoint</span></td>
+        <td><span class="xref">RegionEndpoint</span></td>
         <td><span class="parametername">region</span></td>
         <td><p>The region to use when signing, or null to have it discovered automatically by the AWS SDK.</p>
 </td>
@@ -265,7 +265,7 @@
 is used to automatically discover the credentials and region to use if not provided explicitly.</p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -297,7 +297,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(AWSCredentials credentials, string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -307,7 +307,7 @@ is used to automatically discover the credentials and region to use if not provi
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Amazon.Runtime.AWSCredentials</span></td>
+        <td><span class="xref">AWSCredentials</span></td>
         <td><span class="parametername">credentials</span></td>
         <td><p>The credentials to use when signing.</p>
 </td>
@@ -347,7 +347,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">public AwsSigV4HttpConnection(string service = &quot;es&quot;, IDateTimeProvider dateTimeProvider = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -391,7 +391,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">public const string OpenSearchServerlessService = &quot;aoss&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -420,7 +420,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">public const string OpenSearchService = &quot;es&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -452,7 +452,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -469,7 +469,7 @@ is used to automatically discover the credentials and region to use if not provi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -501,7 +501,7 @@ is used to automatically discover the credentials and region to use if not provi
     <pre><code class="lang-csharp hljs">protected virtual HttpMessageHandler InnerCreateHttpClientHandler(RequestData requestData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -518,7 +518,7 @@ is used to automatically discover the credentials and region to use if not provi
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -581,7 +581,7 @@ is used to automatically discover the credentials and region to use if not provi
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

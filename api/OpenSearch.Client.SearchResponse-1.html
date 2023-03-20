@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -145,7 +145,7 @@
     <pre><code class="lang-csharp hljs">public class SearchResponse&lt;TDocument&gt; : ResponseBase, ISearchResponse&lt;TDocument&gt;, IResponse, IOpenSearchResponse where TDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -179,7 +179,7 @@
 public AggregateDictionary Aggregations { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -211,7 +211,7 @@ public AggregateDictionary Aggregations { get; }</code></pre>
 public ClusterStatistics Clusters { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -250,7 +250,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
 public IReadOnlyCollection&lt;TDocument&gt; Documents { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -283,7 +283,7 @@ public IReadOnlyCollection&lt;TDocument&gt; Documents { get; }</code></pre>
 public IReadOnlyCollection&lt;FieldValues&gt; Fields { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -315,7 +315,7 @@ public IReadOnlyCollection&lt;FieldValues&gt; Fields { get; }</code></pre>
 public IReadOnlyCollection&lt;IHit&lt;TDocument&gt;&gt; Hits { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -348,7 +348,7 @@ public IReadOnlyCollection&lt;IHit&lt;TDocument&gt;&gt; Hits { get; }</code></pr
 public IHitsMetadata&lt;TDocument&gt; HitsMetadata { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -380,7 +380,7 @@ public IHitsMetadata&lt;TDocument&gt; HitsMetadata { get; }</code></pre>
 public double MaxScore { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -412,7 +412,7 @@ public double MaxScore { get; }</code></pre>
 public long NumberOfReducePhases { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -445,7 +445,7 @@ public long NumberOfReducePhases { get; }</code></pre>
 public Profile Profile { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -479,7 +479,7 @@ search request</p>
 public string ScrollId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -511,7 +511,7 @@ public string ScrollId { get; }</code></pre>
 public ShardStatistics Shards { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -543,7 +543,7 @@ public ShardStatistics Shards { get; }</code></pre>
 public ISuggestDictionary&lt;TDocument&gt; Suggest { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -575,7 +575,7 @@ public ISuggestDictionary&lt;TDocument&gt; Suggest { get; }</code></pre>
 public bool TerminatedEarly { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -607,7 +607,7 @@ public bool TerminatedEarly { get; }</code></pre>
 public bool TimedOut { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -639,7 +639,7 @@ public bool TimedOut { get; }</code></pre>
 public long Took { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -671,7 +671,7 @@ public long Took { get; }</code></pre>
 public long Total { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -737,7 +737,7 @@ public long Total { get; }</code></pre>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

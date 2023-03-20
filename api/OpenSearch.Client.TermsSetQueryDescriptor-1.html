@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -161,7 +161,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public class TermsSetQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;TermsSetQueryDescriptor&lt;T&gt;, ITermsSetQuery, T&gt;, IDescriptor, ITermsSetQuery, IFieldNameQuery, IQuery where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -194,7 +194,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -229,7 +229,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public TermsSetQueryDescriptor&lt;T&gt; MinimumShouldMatchField(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -246,7 +246,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -277,7 +277,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public TermsSetQueryDescriptor&lt;T&gt; MinimumShouldMatchField&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -294,7 +294,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -309,7 +309,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -340,7 +340,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public TermsSetQueryDescriptor&lt;T&gt; MinimumShouldMatchScript(Func&lt;ScriptDescriptor, IScript&gt; scriptSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -357,7 +357,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -388,7 +388,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public TermsSetQueryDescriptor&lt;T&gt; Terms&lt;TValue&gt;(params TValue[] terms)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,7 +405,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -420,7 +420,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -451,7 +451,7 @@ field or computed per document in a minimum should match script.</p>
     <pre><code class="lang-csharp hljs">public TermsSetQueryDescriptor&lt;T&gt; Terms&lt;TValue&gt;(IEnumerable&lt;TValue&gt; terms)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -468,7 +468,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +483,7 @@ field or computed per document in a minimum should match script.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -552,7 +552,7 @@ field or computed per document in a minimum should match script.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

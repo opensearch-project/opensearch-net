@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -132,7 +132,7 @@
     <pre><code class="lang-csharp hljs">public class BulkAllDescriptor&lt;T&gt; : DescriptorBase&lt;BulkAllDescriptor&lt;T&gt;, IBulkAllRequest&lt;T&gt;&gt;, IDescriptor, IBulkAllRequest&lt;T&gt; where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -164,7 +164,7 @@
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor(IEnumerable&lt;T&gt; documents)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -199,7 +199,7 @@
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; BackOffRetries(int? backoffs)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -216,7 +216,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -247,7 +247,7 @@
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; BackOffTime(Time time)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -264,7 +264,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -299,7 +299,7 @@ on the same instance every time it is done.</p>
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; BackPressure(int maxConcurrency, int? backPressureFactor = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -323,7 +323,7 @@ on the same instance every time it is done.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -356,7 +356,7 @@ of describing how the buffer should be translated to a bulk operation.</p>
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt; modifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +373,7 @@ of describing how the buffer should be translated to a bulk operation.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,7 +405,7 @@ of describing how the buffer should be translated to a bulk operation.</p>
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; BulkResponseCallback(Action&lt;BulkResponse&gt; callback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -422,7 +422,7 @@ of describing how the buffer should be translated to a bulk operation.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -454,7 +454,7 @@ When true, will feed dropped documents to <a class="xref" href="OpenSearch.Clien
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; ContinueAfterDroppedDocuments(bool proceed = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -471,7 +471,7 @@ When true, will feed dropped documents to <a class="xref" href="OpenSearch.Clien
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -504,7 +504,7 @@ to feed into a dead letter queue. Otherwise bulk all indexing will be halted.</p
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; DroppedDocumentCallback(Action&lt;BulkResponseItemBase, T&gt; callback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -521,7 +521,7 @@ to feed into a dead letter queue. Otherwise bulk all indexing will be halted.</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -555,7 +555,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Index(IndexName index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -572,7 +572,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -606,7 +606,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Index&lt;TOther&gt;() where TOther : class</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -621,7 +621,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -652,7 +652,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; MaxDegreeOfParallelism(int? parallelism)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -669,7 +669,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -700,7 +700,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Pipeline(string pipeline)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -717,7 +717,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -748,7 +748,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; RefreshIndices(Indices indicesToRefresh)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -765,7 +765,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -796,7 +796,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; RefreshOnCompleted(bool refresh = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -813,7 +813,7 @@ on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -845,7 +845,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; RetryDocumentPredicate(Func&lt;BulkResponseItemBase, T, bool&gt; predicate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -862,7 +862,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -893,7 +893,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Routing(Routing routing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -910,7 +910,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -941,7 +941,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Size(int? size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -958,7 +958,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -989,7 +989,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     <pre><code class="lang-csharp hljs">public BulkAllDescriptor&lt;T&gt; Timeout(Time timeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1006,7 +1006,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1069,7 +1069,7 @@ Defaults to failed bulk items with a HTTP 429 (Too Many Requests) response statu
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

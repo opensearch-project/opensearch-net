@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -135,7 +135,7 @@
     <pre><code class="lang-csharp hljs">public class ScoreFunctionsDescriptor&lt;T&gt; : DescriptorPromiseBase&lt;ScoreFunctionsDescriptor&lt;T&gt;, IList&lt;IScoreFunction&gt;&gt;, IDescriptor, IPromise&lt;IList&lt;IScoreFunction&gt;&gt; where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -184,7 +184,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; Exponential(Func&lt;ExponentialDecayFunctionDescriptor&lt;double?, double?, T&gt;, IDecayFunction&lt;double?, double?&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -201,7 +201,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -231,7 +231,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; ExponentialDate(Func&lt;ExponentialDecayFunctionDescriptor&lt;DateMath, Time, T&gt;, IDecayFunction&lt;DateMath, Time&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -248,7 +248,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -278,7 +278,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; ExponentialGeoLocation(Func&lt;ExponentialDecayFunctionDescriptor&lt;GeoLocation, Distance, T&gt;, IDecayFunction&lt;GeoLocation, Distance&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -295,7 +295,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -325,7 +325,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; FieldValueFactor(Func&lt;FieldValueFactorFunctionDescriptor&lt;T&gt;, IFieldValueFactorFunction&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -342,7 +342,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -372,7 +372,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; Gauss(Func&lt;GaussDecayFunctionDescriptor&lt;double?, double?, T&gt;, IDecayFunction&lt;double?, double?&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -389,7 +389,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -419,7 +419,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; GaussDate(Func&lt;GaussDecayFunctionDescriptor&lt;DateMath, Time, T&gt;, IDecayFunction&lt;DateMath, Time&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -436,7 +436,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; GaussGeoLocation(Func&lt;GaussDecayFunctionDescriptor&lt;GeoLocation, Distance, T&gt;, IDecayFunction&lt;GeoLocation, Distance&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +483,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -513,7 +513,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; Linear(Func&lt;LinearDecayFunctionDescriptor&lt;double?, double?, T&gt;, IDecayFunction&lt;double?, double?&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -530,7 +530,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -560,7 +560,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; LinearDate(Func&lt;LinearDecayFunctionDescriptor&lt;DateMath, Time, T&gt;, IDecayFunction&lt;DateMath, Time&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -577,7 +577,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -607,7 +607,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; LinearGeoLocation(Func&lt;LinearDecayFunctionDescriptor&lt;GeoLocation, Distance, T&gt;, IDecayFunction&lt;GeoLocation, Distance&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -624,7 +624,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -654,7 +654,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; RandomScore(Func&lt;RandomScoreFunctionDescriptor&lt;T&gt;, IRandomScoreFunction&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -671,7 +671,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -701,7 +701,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; ScriptScore(Func&lt;ScriptScoreFunctionDescriptor&lt;T&gt;, IScriptScoreFunction&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -718,7 +718,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -748,7 +748,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; Weight(double weight)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -765,7 +765,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -795,7 +795,7 @@
     <pre><code class="lang-csharp hljs">public ScoreFunctionsDescriptor&lt;T&gt; Weight(Func&lt;WeightFunctionDescriptor&lt;T&gt;, IWeightFunction&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -812,7 +812,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -875,7 +875,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

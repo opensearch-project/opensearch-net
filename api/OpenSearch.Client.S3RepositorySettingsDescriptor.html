@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -151,7 +151,7 @@
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor(string bucket)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -187,7 +187,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor BasePath(string basePath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -204,7 +204,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -235,7 +235,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor Bucket(string bucket)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -252,7 +252,7 @@ Defaults to value of repositories.s3.base_path or to root directory if not set.<
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -288,7 +288,7 @@ size allowed by S3. Defaults to the minimum between 100mb and 5% of the heap siz
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor BufferSize(string bufferSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -305,7 +305,7 @@ size allowed by S3. Defaults to the minimum between 100mb and 5% of the heap siz
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -338,7 +338,7 @@ log-delivery-write, bucket-owner-read, bucket-owner-full-control. Defaults to pr
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor CannedAcl(string cannedAcl)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -355,7 +355,7 @@ log-delivery-write, bucket-owner-read, bucket-owner-full-control. Defaults to pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -388,7 +388,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor ChunkSize(string chunkSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,7 +405,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -436,7 +436,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor Client(string client)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -453,7 +453,7 @@ i.e. 1gb, 10mb, 5kb. Defaults to 1gb.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -486,7 +486,7 @@ Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor Compress(bool? compress = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -503,7 +503,7 @@ Defaults to false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -537,7 +537,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor DisableChunkedEncoding(bool? disableChunkedEncoding = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -554,7 +554,7 @@ encoding. Defaults to false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -585,7 +585,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor MaxRestoreBytesPerSecond(string maxRestoreBytesPerSecond)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -602,7 +602,7 @@ encoding. Defaults to false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -633,7 +633,7 @@ encoding. Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor MaxSnapshotBytesPerSecond(string maxSnapshotBytesPerSecond)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -650,7 +650,7 @@ encoding. Defaults to false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -683,7 +683,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor PathStyleAccess(bool? pathStyleAccess = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -700,7 +700,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -731,7 +731,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor ReadOnly(bool? readOnly = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -748,7 +748,7 @@ be automatically determined by the AWS Java SDK used internally by OpenSearch</p
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -780,7 +780,7 @@ Defaults to false.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor ServerSideEncryption(bool? serverSideEncryption = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -797,7 +797,7 @@ Defaults to false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -829,7 +829,7 @@ Defaults to standard.</p>
     <pre><code class="lang-csharp hljs">public S3RepositorySettingsDescriptor StorageClass(string storageClass)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -846,7 +846,7 @@ Defaults to standard.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -912,7 +912,7 @@ Defaults to standard.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

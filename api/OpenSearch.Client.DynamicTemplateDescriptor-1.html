@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -140,7 +140,7 @@ to dynamically added fields based on:</p>
     <pre><code class="lang-csharp hljs">public class DynamicTemplateDescriptor&lt;T&gt; : DescriptorBase&lt;DynamicTemplateDescriptor&lt;T&gt;, IDynamicTemplate&gt;, IDescriptor, IDynamicTemplate where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -173,7 +173,7 @@ to dynamically added fields based on:</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; Mapping(Func&lt;SingleMappingSelector&lt;T&gt;, IProperty&gt; mappingSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -190,7 +190,7 @@ to dynamically added fields based on:</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -221,7 +221,7 @@ to dynamically added fields based on:</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; Match(string match)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -238,7 +238,7 @@ to dynamically added fields based on:</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +272,7 @@ long, object, string. It also accepts * to match all datatypes.</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; MatchMappingType(string matchMappingType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +289,7 @@ long, object, string. It also accepts * to match all datatypes.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -321,7 +321,7 @@ Java regular expression matching on the field name instead of simple wildcards</
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; MatchPattern(MatchType? matchPattern)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -338,7 +338,7 @@ Java regular expression matching on the field name instead of simple wildcards</
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -370,7 +370,7 @@ to the field name</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; PathMatch(string pathMatch)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -387,7 +387,7 @@ to the field name</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -418,7 +418,7 @@ to the field name</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; PathUnmatch(string pathUnmatch)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -435,7 +435,7 @@ to the field name</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@ to the field name</p>
     <pre><code class="lang-csharp hljs">public DynamicTemplateDescriptor&lt;T&gt; Unmatch(string unMatch)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +483,7 @@ to the field name</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -546,7 +546,7 @@ to the field name</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

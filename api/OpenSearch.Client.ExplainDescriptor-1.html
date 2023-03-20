@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -182,7 +182,7 @@
     <pre><code class="lang-csharp hljs">public class ExplainDescriptor&lt;TDocument&gt; : RequestDescriptorBase&lt;ExplainDescriptor&lt;TDocument&gt;, ExplainRequestParameters, IExplainRequest&lt;TDocument&gt;&gt;, IDescriptor, IExplainRequest&lt;TDocument&gt;, IExplainRequest, IRequest&lt;ExplainRequestParameters&gt;, IRequest where TDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -231,7 +231,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -275,7 +275,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor(Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -309,7 +309,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor(IndexName index, Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -350,7 +350,7 @@
     <pre><code class="lang-csharp hljs">protected override HttpMethod HttpMethod { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -385,7 +385,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Analyzer(string analyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -402,7 +402,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -433,7 +433,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; AnalyzeWildcard(bool? analyzewildcard = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -450,7 +450,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -481,7 +481,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; DefaultOperator(DefaultOperator? defaultoperator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -498,7 +498,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -529,7 +529,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Df(string df)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -546,7 +546,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -577,7 +577,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Index(IndexName index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -594,7 +594,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -625,7 +625,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Index&lt;TOther&gt;() where TOther : class</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -640,7 +640,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -671,7 +671,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Lenient(bool? lenient = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -688,7 +688,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -719,7 +719,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Preference(string preference)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -736,7 +736,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -766,7 +766,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Query(Func&lt;QueryContainerDescriptor&lt;TDocument&gt;, QueryContainer&gt; querySelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -783,7 +783,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -814,7 +814,7 @@
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; QueryOnQueryString(string queryonquerystring)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -831,7 +831,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -866,7 +866,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; Routing(Routing routing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -883,7 +883,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -914,7 +914,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; SourceEnabled(bool? sourceenabled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -931,7 +931,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -962,7 +962,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; SourceExcludes(Fields sourceexcludes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -979,7 +979,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1010,7 +1010,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; SourceExcludes(params Expression&lt;Func&lt;TDocument, object&gt;&gt;[] fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1027,7 +1027,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1058,7 +1058,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; SourceIncludes(Fields sourceincludes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1075,7 +1075,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1106,7 +1106,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; SourceIncludes(params Expression&lt;Func&lt;TDocument, object&gt;&gt;[] fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1123,7 +1123,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1153,7 +1153,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; StoredFields(Fields fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1170,7 +1170,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1202,7 +1202,7 @@ represented by a search hit. Defaults to load the internal _source field.</p>
     <pre><code class="lang-csharp hljs">public ExplainDescriptor&lt;TDocument&gt; StoredFields(Func&lt;FieldsDescriptor&lt;TDocument&gt;, IPromise&lt;Fields&gt;&gt; fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1219,7 +1219,7 @@ represented by a search hit. Defaults to load the internal _source field.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1291,7 +1291,7 @@ represented by a search hit. Defaults to load the internal _source field.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

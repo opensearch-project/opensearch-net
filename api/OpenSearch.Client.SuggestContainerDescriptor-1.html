@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -139,7 +139,7 @@
     <pre><code class="lang-csharp hljs">public class SuggestContainerDescriptor&lt;T&gt; : IsADictionaryDescriptorBase&lt;SuggestContainerDescriptor&lt;T&gt;, ISuggestContainer, string, ISuggestBucket&gt;, IDescriptor, IPromise&lt;ISuggestContainer&gt; where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -190,7 +190,7 @@ It does not do spell correction like the term or phrase suggesters but allows ba
     <pre><code class="lang-csharp hljs">public SuggestContainerDescriptor&lt;T&gt; Completion(string name, Func&lt;CompletionSuggesterDescriptor&lt;T&gt;, ICompletionSuggester&gt; suggest)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -212,7 +212,7 @@ It does not do spell correction like the term or phrase suggesters but allows ba
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -245,7 +245,7 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
     <pre><code class="lang-csharp hljs">public SuggestContainerDescriptor&lt;T&gt; Phrase(string name, Func&lt;PhraseSuggesterDescriptor&lt;T&gt;, IPhraseSuggester&gt; suggest)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -267,7 +267,7 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -300,7 +300,7 @@ The term suggester doesn’t take the query into account that is part of request
     <pre><code class="lang-csharp hljs">public SuggestContainerDescriptor&lt;T&gt; Term(string name, Func&lt;TermSuggesterDescriptor&lt;T&gt;, ITermSuggester&gt; suggest)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -322,7 +322,7 @@ The term suggester doesn’t take the query into account that is part of request
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -385,7 +385,7 @@ The term suggester doesn’t take the query into account that is part of request
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

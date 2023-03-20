@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -208,7 +208,7 @@ public class PutMappingRequest : PlainRequestBase&lt;PutMappingRequestParameters
     <pre><code class="lang-csharp hljs">public PutMappingRequest(Indices index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -245,7 +245,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public bool? AllowNoIndices { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -276,7 +276,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public Time ClusterManagerTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -312,7 +312,7 @@ If a match is found, a new date field is added with the corresponding format.</p
     <pre><code class="lang-csharp hljs">public bool? DateDetection { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -345,7 +345,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     <pre><code class="lang-csharp hljs">public Union&lt;bool, DynamicMapping&gt; Dynamic { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -376,7 +376,7 @@ will result in an error if an unknown field is encountered in a document.</p>
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;string&gt; DynamicDateFormats { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -414,7 +414,7 @@ used in the mapping specification as placeholders.</p>
     <pre><code class="lang-csharp hljs">public IDynamicTemplateContainer DynamicTemplates { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -445,7 +445,7 @@ used in the mapping specification as placeholders.</p>
     <pre><code class="lang-csharp hljs">public ExpandWildcards? ExpandWildcards { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -481,7 +481,7 @@ using those fields you might want to disable</p>
     <pre><code class="lang-csharp hljs">public IFieldNamesField FieldNamesField { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -512,7 +512,7 @@ using those fields you might want to disable</p>
     <pre><code class="lang-csharp hljs">public bool? IgnoreUnavailable { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -543,7 +543,7 @@ using those fields you might want to disable</p>
     <pre><code class="lang-csharp hljs">public bool? IncludeTypeName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -577,7 +577,7 @@ using those fields you might want to disable</p>
     <pre><code class="lang-csharp hljs">public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -612,7 +612,7 @@ but can be used to store application-specific metadata.</p>
     <pre><code class="lang-csharp hljs">public IDictionary&lt;string, object&gt; Meta { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -644,7 +644,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public bool? NumericDetection { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -675,7 +675,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public IProperties Properties { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -706,7 +706,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public IRoutingField RoutingField { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -737,7 +737,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">public IRuntimeFields RuntimeFields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -767,7 +767,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <pre><code class="lang-csharp hljs">protected IPutMappingRequest Self { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -799,7 +799,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public ISizeField SizeField { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -830,7 +830,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public ISourceField SourceField { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -861,7 +861,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public Time Timeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -892,7 +892,7 @@ Requires mapper-size plugin be installed</p>
     <pre><code class="lang-csharp hljs">public bool? WriteIndexOnly { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -961,7 +961,7 @@ Requires mapper-size plugin be installed</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

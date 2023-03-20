@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -172,7 +172,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public class TextPropertyDescriptor&lt;T&gt; : CorePropertyDescriptorBase&lt;TextPropertyDescriptor&lt;T&gt;, ITextProperty, T&gt;, IDescriptor, ITextProperty, ICoreProperty, IProperty, IFieldMapping where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -221,7 +221,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; Analyzer(string analyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -238,7 +238,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -268,7 +268,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; Boost(double? boost)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -285,7 +285,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -315,7 +315,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; EagerGlobalOrdinals(bool? eagerGlobalOrdinals = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -332,7 +332,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +362,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; Fielddata(bool? fielddata = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -379,7 +379,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -409,7 +409,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; FielddataFrequencyFilter(Func&lt;FielddataFrequencyFilterDescriptor, IFielddataFrequencyFilter&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -426,7 +426,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +456,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; Index(bool? index = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -473,7 +473,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -503,7 +503,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; IndexOptions(IndexOptions? indexOptions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -520,7 +520,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -550,7 +550,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; IndexPhrases(bool? indexPhrases = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -567,7 +567,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -597,7 +597,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; IndexPrefixes(Func&lt;TextIndexPrefixesDescriptor, ITextIndexPrefixes&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -614,7 +614,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -644,7 +644,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; Norms(bool? enabled = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -661,7 +661,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -691,7 +691,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; PositionIncrementGap(int? positionIncrementGap)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -708,7 +708,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -738,7 +738,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; SearchAnalyzer(string searchAnalyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -755,7 +755,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -785,7 +785,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; SearchQuoteAnalyzer(string searchQuoteAnalyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -802,7 +802,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -832,7 +832,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public TextPropertyDescriptor&lt;T&gt; TermVector(TermVectorOption? termVector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -849,7 +849,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -921,7 +921,7 @@ Text fields are not used for sorting and seldom used for aggregations
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

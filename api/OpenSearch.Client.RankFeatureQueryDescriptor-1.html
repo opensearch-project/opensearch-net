@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -157,7 +157,7 @@
     <pre><code class="lang-csharp hljs">public class RankFeatureQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;RankFeatureQueryDescriptor&lt;T&gt;, IRankFeatureQuery, T&gt;, IDescriptor, IRankFeatureQuery, IFieldNameQuery, IQuery where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -189,7 +189,7 @@
     <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -228,7 +228,7 @@ preserve only 9 significant bits for the precision.</p>
     <pre><code class="lang-csharp hljs">public RankFeatureQueryDescriptor&lt;T&gt; Linear()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -261,7 +261,7 @@ This function only supports rank features that have a positive score impact.</p>
     <pre><code class="lang-csharp hljs">public RankFeatureQueryDescriptor&lt;T&gt; Logarithm(Func&lt;RankFeatureLogarithmFunctionDescriptor, IRankFeatureLogarithmFunction&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -278,7 +278,7 @@ This function only supports rank features that have a positive score impact.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -311,7 +311,7 @@ If the rank feature has a negative score impact then the function will be comput
     <pre><code class="lang-csharp hljs">public RankFeatureQueryDescriptor&lt;T&gt; Saturation(Func&lt;RankFeatureSaturationFunctionDescriptor, IRankFeatureSaturationFunction&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -328,7 +328,7 @@ If the rank feature has a negative score impact then the function will be comput
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +362,7 @@ to do so, we recommend that you stick to the saturation function instead.</p>
     <pre><code class="lang-csharp hljs">public RankFeatureQueryDescriptor&lt;T&gt; Sigmoid(Func&lt;RankFeatureSigmoidFunctionDescriptor, IRankFeatureSigmoidFunction&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -379,7 +379,7 @@ to do so, we recommend that you stick to the saturation function instead.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -448,7 +448,7 @@ to do so, we recommend that you stick to the saturation function instead.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

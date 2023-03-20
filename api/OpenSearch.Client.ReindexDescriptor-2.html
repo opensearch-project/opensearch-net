@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -132,7 +132,7 @@
     <pre><code class="lang-csharp hljs">public class ReindexDescriptor&lt;TSource, TTarget&gt; : DescriptorBase&lt;ReindexDescriptor&lt;TSource, TTarget&gt;, IReindexRequest&lt;TSource, TTarget&gt;&gt;, IDescriptor, IReindexRequest&lt;TSource, TTarget&gt; where TSource : class where TTarget : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -168,7 +168,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor(Func&lt;TSource, TTarget&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -202,7 +202,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor&lt;TSource, TTarget&gt; BackPressureFactor(int? maximum)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -219,7 +219,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -249,7 +249,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor&lt;TSource, TTarget&gt; BulkAll(Func&lt;BulkAllDescriptor&lt;IHitMetadata&lt;TTarget&gt;&gt;, IBulkAllRequest&lt;IHitMetadata&lt;TTarget&gt;&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -266,7 +266,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -296,7 +296,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor&lt;TSource, TTarget&gt; CreateIndex(Func&lt;CreateIndexDescriptor, ICreateIndexRequest&gt; createIndexSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -313,7 +313,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -343,7 +343,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor&lt;TSource, TTarget&gt; OmitIndexCreation(bool omit = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +360,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -390,7 +390,7 @@
     <pre><code class="lang-csharp hljs">public ReindexDescriptor&lt;TSource, TTarget&gt; ScrollAll(Time scrollTime, int slices, Func&lt;ScrollAllDescriptor&lt;TSource&gt;, IScrollAllRequest&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -417,7 +417,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -480,7 +480,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -132,7 +132,7 @@
     <pre><code class="lang-csharp hljs">public class HighlightDescriptor&lt;T&gt; : DescriptorBase&lt;HighlightDescriptor&lt;T&gt;, IHighlight&gt;, IDescriptor, IHighlight where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -166,7 +166,7 @@ It's a single string with each boundary character defined in it. It defaults to 
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; BoundaryChars(string boundaryChars)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -183,7 +183,7 @@ It's a single string with each boundary character defined in it. It defaults to 
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -214,7 +214,7 @@ It's a single string with each boundary character defined in it. It defaults to 
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; BoundaryMaxScan(int? boundaryMaxScan)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -231,7 +231,7 @@ It's a single string with each boundary character defined in it. It defaults to 
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -263,7 +263,7 @@ fragments using boundary_scanner</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; BoundaryScanner(BoundaryScanner? boundaryScanner)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -280,7 +280,7 @@ fragments using boundary_scanner</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -311,7 +311,7 @@ fragments using boundary_scanner</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; BoundaryScannerLocale(string locale)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -328,7 +328,7 @@ fragments using boundary_scanner</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +360,7 @@ It can be either default (no encoding) or html (will escape html, if you use htm
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; Encoder(HighlighterEncoder? encoder)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -377,7 +377,7 @@ It can be either default (no encoding) or html (will escape html, if you use htm
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -407,7 +407,7 @@ It can be either default (no encoding) or html (will escape html, if you use htm
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; Fields(params Func&lt;HighlightFieldDescriptor&lt;T&gt;, IHighlightField&gt;[] fieldHighlighters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -424,7 +424,7 @@ It can be either default (no encoding) or html (will escape html, if you use htm
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -456,7 +456,7 @@ applicable only for the Plain Highlighter</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; Fragmenter(HighlighterFragmenter? fragmenter)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -473,7 +473,7 @@ applicable only for the Plain Highlighter</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -504,7 +504,7 @@ applicable only for the Plain Highlighter</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; FragmentOffset(int? fragmentOffset)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -521,7 +521,7 @@ applicable only for the Plain Highlighter</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -552,7 +552,7 @@ applicable only for the Plain Highlighter</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; FragmentSize(int? fragmentSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -569,7 +569,7 @@ applicable only for the Plain Highlighter</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -600,7 +600,7 @@ applicable only for the Plain Highlighter</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; HighlightQuery(Func&lt;QueryContainerDescriptor&lt;T&gt;, QueryContainer&gt; query)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -617,7 +617,7 @@ applicable only for the Plain Highlighter</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -649,7 +649,7 @@ rest of the text is not processed, thus not highlighted and no error is returned
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; MaxAnalyzedOffset(int? maxAnalyzedOffset)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -666,7 +666,7 @@ rest of the text is not processed, thus not highlighted and no error is returned
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -696,7 +696,7 @@ rest of the text is not processed, thus not highlighted and no error is returned
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; MaxFragmentLength(int? maxFragmentLength)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -713,7 +713,7 @@ rest of the text is not processed, thus not highlighted and no error is returned
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -747,7 +747,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; NoMatchSize(int? noMatchSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -764,7 +764,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -795,7 +795,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; NumberOfFragments(int? numberOfFragments)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -812,7 +812,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -843,7 +843,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; Order(HighlighterOrder? order)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -860,7 +860,7 @@ shorter or longer than specified as it tries to break on a word boundary.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -893,7 +893,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; PostTags(IEnumerable&lt;string&gt; postTags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -910,7 +910,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -943,7 +943,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; PostTags(params string[] postTags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -960,7 +960,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -993,7 +993,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; PreTags(IEnumerable&lt;string&gt; preTags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1010,7 +1010,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1043,7 +1043,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; PreTags(params string[] preTags)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1060,7 +1060,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1091,7 +1091,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; RequireFieldMatch(bool? requireFieldMatch = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1108,7 +1108,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1146,7 +1146,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     <pre><code class="lang-csharp hljs">public HighlightDescriptor&lt;T&gt; TagsSchema(HighlighterTagsSchema? schema)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1163,7 +1163,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1233,7 +1233,7 @@ Using the fast vector highlighter, there can be more tags, and the importance is
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

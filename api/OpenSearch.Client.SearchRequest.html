@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -199,7 +199,7 @@ public class SearchRequest : PlainRequestBase&lt;SearchRequestParameters&gt;, IS
     <pre><code class="lang-csharp hljs">public SearchRequest(Indices index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -235,7 +235,7 @@ public class SearchRequest : PlainRequestBase&lt;SearchRequestParameters&gt;, IS
     <pre><code class="lang-csharp hljs">public AggregationDictionary Aggregations { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -267,7 +267,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public bool? AllowNoIndices { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -298,7 +298,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public bool? AllowPartialSearchResults { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -329,7 +329,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public string Analyzer { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +360,7 @@ been specified)</p>
     <pre><code class="lang-csharp hljs">public bool? AnalyzeWildcard { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -392,7 +392,7 @@ to reduce the memory overhead per search request if the potential number of shar
     <pre><code class="lang-csharp hljs">public long? BatchedReduceSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -423,7 +423,7 @@ to reduce the memory overhead per search request if the potential number of shar
     <pre><code class="lang-csharp hljs">public bool? CcsMinimizeRoundtrips { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -460,7 +460,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public IFieldCollapse Collapse { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -491,7 +491,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public DefaultOperator? DefaultOperator { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -522,7 +522,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public string Df { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -552,7 +552,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public Fields DocValueFields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -583,7 +583,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public ExpandWildcards? ExpandWildcards { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -614,7 +614,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public bool? Explain { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -646,7 +646,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public Fields Fields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -677,7 +677,7 @@ You can only collapse to a depth of 2.
     <pre><code class="lang-csharp hljs">public int? From { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -709,7 +709,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public IHighlight Highlight { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -739,7 +739,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">protected override HttpMethod HttpMethod { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -772,7 +772,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public bool? IgnoreThrottled { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -803,7 +803,7 @@ fast-vector-highlighter or highlighter.</p>
     <pre><code class="lang-csharp hljs">public bool? IgnoreUnavailable { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -836,7 +836,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public IDictionary&lt;IndexName, double&gt; IndicesBoost { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -867,7 +867,7 @@ matter more than hits coming from another index (think social graph where each u
     <pre><code class="lang-csharp hljs">public bool? Lenient { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -899,7 +899,7 @@ search on the cluster in order to limit the number of concurrent shard requests<
     <pre><code class="lang-csharp hljs">public long? MaxConcurrentShardRequests { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -930,7 +930,7 @@ search on the cluster in order to limit the number of concurrent shard requests<
     <pre><code class="lang-csharp hljs">public double? MinScore { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -963,7 +963,7 @@ will be returned in the response, and a filter should only be applied to the sea
     <pre><code class="lang-csharp hljs">public QueryContainer PostFilter { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -994,7 +994,7 @@ will be returned in the response, and a filter should only be applied to the sea
     <pre><code class="lang-csharp hljs">public string Preference { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1028,7 +1028,7 @@ disjoint.</p>
     <pre><code class="lang-csharp hljs">public long? PreFilterShardSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1061,7 +1061,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public bool? Profile { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1092,7 +1092,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public QueryContainer Query { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1123,7 +1123,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public string QueryOnQueryString { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1154,7 +1154,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public bool? RequestCache { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1185,7 +1185,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
     <pre><code class="lang-csharp hljs">public IList&lt;IRescore&gt; Rescore { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1221,7 +1221,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public Routing Routing { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1252,7 +1252,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public IRuntimeFields RuntimeFields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1283,7 +1283,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public IScriptFields ScriptFields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1314,7 +1314,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public Time Scroll { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1345,7 +1345,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public IList&lt;object&gt; SearchAfter { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1376,7 +1376,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public SearchType? SearchType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1406,7 +1406,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">protected ISearchRequest Self { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1437,7 +1437,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public bool? SequenceNumberPrimaryTerm { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1468,7 +1468,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <pre><code class="lang-csharp hljs">public int? Size { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1500,7 +1500,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public ISlicedScroll Slice { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1531,7 +1531,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public IList&lt;ISort&gt; Sort { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1565,7 +1565,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public Union&lt;bool, ISourceFilter&gt; Source { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1596,7 +1596,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public string[] Stats { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1626,7 +1626,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public Fields StoredFields { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1657,7 +1657,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public ISuggestContainer Suggest { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1688,7 +1688,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public Field SuggestField { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1719,7 +1719,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public SuggestMode? SuggestMode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1750,7 +1750,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public long? SuggestSize { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1781,7 +1781,7 @@ consumed independently</p>
     <pre><code class="lang-csharp hljs">public string SuggestText { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1815,7 +1815,7 @@ terminated_early.</p>
     <pre><code class="lang-csharp hljs">public long? TerminateAfter { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1848,7 +1848,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public string Timeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1879,7 +1879,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public bool? TotalHitsAsInteger { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1910,7 +1910,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public bool? TrackScores { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1940,7 +1940,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public TrackTotalHits TrackTotalHits { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1971,7 +1971,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public bool? TypedKeys { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2002,7 +2002,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">public bool? Version { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2034,7 +2034,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">protected override sealed void RequestDefaults(SearchRequestParameters parameters)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2068,7 +2068,7 @@ to that point, when expired. Defaults to no timeout.</p>
     <pre><code class="lang-csharp hljs">protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2090,7 +2090,7 @@ to that point, when expired. Defaults to no timeout.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2161,7 +2161,7 @@ to that point, when expired. Defaults to no timeout.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

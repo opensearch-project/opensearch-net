@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -126,7 +126,7 @@
     <pre><code class="lang-csharp hljs">public class SingleMappingSelector&lt;T&gt; : SelectorBase, ISelector, IPropertiesDescriptor&lt;T, IProperty&gt; where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -160,7 +160,7 @@ The field is not stored by default and is not searchable</p>
     <pre><code class="lang-csharp hljs">public IProperty Binary(Func&lt;BinaryPropertyDescriptor&lt;T&gt;, IBinaryProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -177,7 +177,7 @@ The field is not stored by default and is not searchable</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -208,7 +208,7 @@ The field is not stored by default and is not searchable</p>
     <pre><code class="lang-csharp hljs">public IProperty Boolean(Func&lt;BooleanPropertyDescriptor&lt;T&gt;, IBooleanProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -225,7 +225,7 @@ The field is not stored by default and is not searchable</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -255,7 +255,7 @@ The field is not stored by default and is not searchable</p>
     <pre><code class="lang-csharp hljs">public IProperty Completion(Func&lt;CompletionPropertyDescriptor&lt;T&gt;, ICompletionProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -272,7 +272,7 @@ The field is not stored by default and is not searchable</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -303,7 +303,7 @@ The field is not stored by default and is not searchable</p>
     <pre><code class="lang-csharp hljs">public IProperty Date(Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -320,7 +320,7 @@ The field is not stored by default and is not searchable</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -353,7 +353,7 @@ dates from roughly 1970 to 2262.</p>
     <pre><code class="lang-csharp hljs">public IProperty DateNanos(Func&lt;DateNanosPropertyDescriptor&lt;T&gt;, IDateNanosProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -370,7 +370,7 @@ dates from roughly 1970 to 2262.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -401,7 +401,7 @@ dates from roughly 1970 to 2262.</p>
     <pre><code class="lang-csharp hljs">public IProperty DateRange(Func&lt;DateRangePropertyDescriptor&lt;T&gt;, IDateRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -418,7 +418,7 @@ dates from roughly 1970 to 2262.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -449,7 +449,7 @@ dates from roughly 1970 to 2262.</p>
     <pre><code class="lang-csharp hljs">public IProperty DoubleRange(Func&lt;DoubleRangePropertyDescriptor&lt;T&gt;, IDoubleRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,7 +466,7 @@ dates from roughly 1970 to 2262.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -498,7 +498,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty FieldAlias(Func&lt;FieldAliasPropertyDescriptor&lt;T&gt;, IFieldAliasProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -515,7 +515,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -546,7 +546,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty FloatRange(Func&lt;FloatRangePropertyDescriptor&lt;T&gt;, IFloatRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -563,7 +563,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -593,7 +593,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty Generic(Func&lt;GenericPropertyDescriptor&lt;T&gt;, IGenericProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -610,7 +610,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -641,7 +641,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty GeoPoint(Func&lt;GeoPointPropertyDescriptor&lt;T&gt;, IGeoPointProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -658,7 +658,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -689,7 +689,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty GeoShape(Func&lt;GeoShapePropertyDescriptor&lt;T&gt;, IGeoShapeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -706,7 +706,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -737,7 +737,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty IntegerRange(Func&lt;IntegerRangePropertyDescriptor&lt;T&gt;, IIntegerRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -754,7 +754,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -785,7 +785,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty Ip(Func&lt;IpPropertyDescriptor&lt;T&gt;, IIpProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -802,7 +802,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -833,7 +833,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty IpRange(Func&lt;IpRangePropertyDescriptor&lt;T&gt;, IIpRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -850,7 +850,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -881,7 +881,7 @@ of the target field in search requests, and selected other APIs like field capab
     <pre><code class="lang-csharp hljs">public IProperty Join(Func&lt;JoinPropertyDescriptor&lt;T&gt;, IJoinProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -898,7 +898,7 @@ of the target field in search requests, and selected other APIs like field capab
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -932,7 +932,7 @@ Keyword fields are only searchable by their exact value.
     <pre><code class="lang-csharp hljs">public IProperty Keyword(Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -949,7 +949,7 @@ Keyword fields are only searchable by their exact value.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -980,7 +980,7 @@ Keyword fields are only searchable by their exact value.
     <pre><code class="lang-csharp hljs">public IProperty LongRange(Func&lt;LongRangePropertyDescriptor&lt;T&gt;, ILongRangeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -997,7 +997,7 @@ Keyword fields are only searchable by their exact value.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1027,7 +1027,7 @@ Keyword fields are only searchable by their exact value.
     <pre><code class="lang-csharp hljs">public IProperty Murmur3Hash(Func&lt;Murmur3HashPropertyDescriptor&lt;T&gt;, IMurmur3HashProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1044,7 +1044,7 @@ Keyword fields are only searchable by their exact value.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1077,7 +1077,7 @@ and aggregations.</p>
     <pre><code class="lang-csharp hljs">public IProperty Nested&lt;TChild&gt;(Func&lt;NestedPropertyDescriptor&lt;T, TChild&gt;, INestedProperty&gt; selector) where TChild : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1094,7 +1094,7 @@ and aggregations.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1109,7 +1109,7 @@ and aggregations.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1141,7 +1141,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     <pre><code class="lang-csharp hljs">public IProperty Number(Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1158,7 +1158,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1189,7 +1189,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     <pre><code class="lang-csharp hljs">public IProperty Object&lt;TChild&gt;(Func&lt;ObjectTypeDescriptor&lt;T, TChild&gt;, IObjectProperty&gt; selector) where TChild : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1206,7 +1206,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1221,7 +1221,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1253,7 +1253,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     <pre><code class="lang-csharp hljs">public IProperty Percolator(Func&lt;PercolatorPropertyDescriptor&lt;T&gt;, IPercolatorProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1270,7 +1270,7 @@ Scalar instead of <a class="xref" href="OpenSearch.Client.SingleMappingSelector-
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1302,7 +1302,7 @@ to boost documents in queries with a rank_feature query.</p>
     <pre><code class="lang-csharp hljs">public IProperty RankFeature(Func&lt;RankFeaturePropertyDescriptor&lt;T&gt;, IRankFeatureProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1319,7 +1319,7 @@ to boost documents in queries with a rank_feature query.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1352,7 +1352,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty RankFeatures(Func&lt;RankFeaturesPropertyDescriptor&lt;T&gt;, IRankFeaturesProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1369,7 +1369,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1399,7 +1399,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DateRange&gt;&gt; field, Func&lt;DateRangePropertyDescriptor&lt;T&gt;, IDateRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1421,7 +1421,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1451,7 +1451,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DoubleRange&gt;&gt; field, Func&lt;DoubleRangePropertyDescriptor&lt;T&gt;, IDoubleRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1473,7 +1473,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1503,7 +1503,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, FloatRange&gt;&gt; field, Func&lt;FloatRangePropertyDescriptor&lt;T&gt;, IFloatRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1525,7 +1525,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1555,7 +1555,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IntegerRange&gt;&gt; field, Func&lt;IntegerRangePropertyDescriptor&lt;T&gt;, IIntegerRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1577,7 +1577,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1607,7 +1607,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IpAddressRange&gt;&gt; field, Func&lt;IpRangePropertyDescriptor&lt;T&gt;, IIpRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1629,7 +1629,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1659,7 +1659,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, LongRange&gt;&gt; field, Func&lt;LongRangePropertyDescriptor&lt;T&gt;, ILongRangeProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1681,7 +1681,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1711,7 +1711,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, bool&gt;&gt; field, Func&lt;BooleanPropertyDescriptor&lt;T&gt;, IBooleanProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1733,7 +1733,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1763,7 +1763,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, byte&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1785,7 +1785,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1815,7 +1815,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, char&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1837,7 +1837,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1867,7 +1867,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;bool&gt;&gt;&gt; field, Func&lt;BooleanPropertyDescriptor&lt;T&gt;, IBooleanProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1889,7 +1889,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1919,7 +1919,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;byte&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1941,7 +1941,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1971,7 +1971,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;char&gt;&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1993,7 +1993,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2023,7 +2023,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;DateTime&gt;&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2045,7 +2045,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2075,7 +2075,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;DateTimeOffset&gt;&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2097,7 +2097,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2127,7 +2127,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;decimal&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2149,7 +2149,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2179,7 +2179,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;double&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2201,7 +2201,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2231,7 +2231,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;Guid&gt;&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2253,7 +2253,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2283,7 +2283,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;short&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2305,7 +2305,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2335,7 +2335,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;int&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2357,7 +2357,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2387,7 +2387,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;long&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2409,7 +2409,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2439,7 +2439,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;bool?&gt;&gt;&gt; field, Func&lt;BooleanPropertyDescriptor&lt;T&gt;, IBooleanProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2461,7 +2461,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2491,7 +2491,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;byte?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2513,7 +2513,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2543,7 +2543,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;char?&gt;&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2565,7 +2565,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2595,7 +2595,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;DateTime?&gt;&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2617,7 +2617,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2647,7 +2647,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;DateTimeOffset?&gt;&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2669,7 +2669,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2699,7 +2699,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;decimal?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2721,7 +2721,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2751,7 +2751,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;double?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2773,7 +2773,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2803,7 +2803,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;Guid?&gt;&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2825,7 +2825,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2855,7 +2855,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;short?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2877,7 +2877,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2907,7 +2907,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;int?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2929,7 +2929,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2959,7 +2959,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;long?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2981,7 +2981,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3011,7 +3011,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;sbyte?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3033,7 +3033,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3063,7 +3063,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;float?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3085,7 +3085,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3115,7 +3115,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;TimeSpan?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3137,7 +3137,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3167,7 +3167,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;uint?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3189,7 +3189,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3219,7 +3219,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;ulong?&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3241,7 +3241,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3271,7 +3271,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;sbyte&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3293,7 +3293,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3323,7 +3323,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;float&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3345,7 +3345,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3375,7 +3375,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;string&gt;&gt;&gt; field, Func&lt;TextPropertyDescriptor&lt;T&gt;, ITextProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3397,7 +3397,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3427,7 +3427,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;TimeSpan&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3449,7 +3449,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3479,7 +3479,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;uint&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3501,7 +3501,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3531,7 +3531,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, IEnumerable&lt;ulong&gt;&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3553,7 +3553,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3583,7 +3583,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DateTime&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3605,7 +3605,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3635,7 +3635,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DateTimeOffset&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3657,7 +3657,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3687,7 +3687,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, decimal&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3709,7 +3709,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3739,7 +3739,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, double&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3761,7 +3761,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3791,7 +3791,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, Enum&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3813,7 +3813,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3843,7 +3843,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, Guid&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3865,7 +3865,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3895,7 +3895,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, short&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3917,7 +3917,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3947,7 +3947,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, int&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3969,7 +3969,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3999,7 +3999,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, long&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4021,7 +4021,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4051,7 +4051,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, bool?&gt;&gt; field, Func&lt;BooleanPropertyDescriptor&lt;T&gt;, IBooleanProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4073,7 +4073,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4103,7 +4103,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, byte?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4125,7 +4125,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4155,7 +4155,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, char?&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4177,7 +4177,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4207,7 +4207,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DateTime?&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4229,7 +4229,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4259,7 +4259,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, DateTimeOffset?&gt;&gt; field, Func&lt;DatePropertyDescriptor&lt;T&gt;, IDateProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4281,7 +4281,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4311,7 +4311,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, decimal?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4333,7 +4333,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4363,7 +4363,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, double?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4385,7 +4385,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4415,7 +4415,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, Guid?&gt;&gt; field, Func&lt;KeywordPropertyDescriptor&lt;T&gt;, IKeywordProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4437,7 +4437,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4467,7 +4467,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, short?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4489,7 +4489,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4519,7 +4519,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, int?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4541,7 +4541,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4571,7 +4571,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, long?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4593,7 +4593,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4623,7 +4623,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, sbyte?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4645,7 +4645,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4675,7 +4675,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, float?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4697,7 +4697,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4727,7 +4727,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, TimeSpan?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4749,7 +4749,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4779,7 +4779,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, uint?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4801,7 +4801,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4831,7 +4831,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, ulong?&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4853,7 +4853,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4883,7 +4883,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, sbyte&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4905,7 +4905,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4935,7 +4935,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, float&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4957,7 +4957,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -4987,7 +4987,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, string&gt;&gt; field, Func&lt;TextPropertyDescriptor&lt;T&gt;, ITextProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5009,7 +5009,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5039,7 +5039,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, TimeSpan&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5061,7 +5061,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5091,7 +5091,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, uint&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5113,7 +5113,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5143,7 +5143,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     <pre><code class="lang-csharp hljs">public IProperty Scalar(Expression&lt;Func&lt;T, ulong&gt;&gt; field, Func&lt;NumberPropertyDescriptor&lt;T&gt;, INumberProperty&gt; selector = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5165,7 +5165,7 @@ wouldn't be reasonable to add one field to the mappings for each of them.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5200,7 +5200,7 @@ and infix completion (i.e. matching terms at any position within the input) are 
     <pre><code class="lang-csharp hljs">public IProperty SearchAsYouType(Func&lt;SearchAsYouTypePropertyDescriptor&lt;T&gt;, ISearchAsYouTypeProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5217,7 +5217,7 @@ and infix completion (i.e. matching terms at any position within the input) are 
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5252,7 +5252,7 @@ Text fields are not used for sorting and seldom used for aggregations
     <pre><code class="lang-csharp hljs">public IProperty Text(Func&lt;TextPropertyDescriptor&lt;T&gt;, ITextProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5269,7 +5269,7 @@ Text fields are not used for sorting and seldom used for aggregations
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5301,7 +5301,7 @@ analyzes them, then indexes the number of tokens in the string.</p>
     <pre><code class="lang-csharp hljs">public IProperty TokenCount(Func&lt;TokenCountPropertyDescriptor&lt;T&gt;, ITokenCountProperty&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5318,7 +5318,7 @@ analyzes them, then indexes the number of tokens in the string.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -5381,7 +5381,7 @@ analyzes them, then indexes the number of tokens in the string.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

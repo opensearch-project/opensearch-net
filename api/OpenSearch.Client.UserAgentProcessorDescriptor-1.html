@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -156,7 +156,7 @@
     <pre><code class="lang-csharp hljs">public class UserAgentProcessorDescriptor&lt;T&gt; : ProcessorDescriptorBase&lt;UserAgentProcessorDescriptor&lt;T&gt;, IUserAgentProcessor&gt;, IDescriptor, IUserAgentProcessor, IProcessor where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -191,7 +191,7 @@
     <pre><code class="lang-csharp hljs">protected override string Name { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -207,9 +207,6 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">OpenSearch.Client.ProcessorDescriptorBase&lt;OpenSearch.Client.UserAgentProcessorDescriptor&lt;T&gt;, OpenSearch.Client.IUserAgentProcessor&gt;.Name</span></div>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_Name_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -228,7 +225,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; Field(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -245,7 +242,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -259,9 +256,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_Field_OpenSearch_Client_Field__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.Field%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -278,7 +272,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; Field&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -295,7 +289,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -310,7 +304,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -324,9 +318,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_Field__1_System_Linq_Expressions_Expression_System_Func__0___0____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_IgnoreMissing_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.IgnoreMissing(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -343,7 +334,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; IgnoreMissing(bool? ignoreMissing = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -360,7 +351,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -374,9 +365,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_IgnoreMissing_System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_Properties_OpenSearch_Client_UserAgentProperty___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.Properties(OpenSearch.Client.UserAgentProperty%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -393,7 +381,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; Properties(params UserAgentProperty[] properties)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -410,7 +398,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -424,9 +412,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_Properties_OpenSearch_Client_UserAgentProperty____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_Properties_System_Collections_Generic_IEnumerable_OpenSearch_Client_UserAgentProperty__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.Properties(System.Collections.Generic.IEnumerable%7BOpenSearch.Client.UserAgentProperty%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -443,7 +428,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; Properties(IEnumerable&lt;UserAgentProperty&gt; properties)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -460,7 +445,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -474,9 +459,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_Properties_System_Collections_Generic_IEnumerable_OpenSearch_Client_UserAgentProperty___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_RegexFile_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.RegexFile(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -493,7 +475,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; RegexFile(string file)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -510,7 +492,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -524,9 +506,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_RegexFile_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_TargetField_OpenSearch_Client_Field_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.TargetField(OpenSearch.Client.Field)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -543,7 +522,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; TargetField(Field field)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -560,7 +539,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -574,9 +553,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_TargetField_OpenSearch_Client_Field__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UserAgentProcessorDescriptor_1_TargetField__1_System_Linq_Expressions_Expression_System_Func__0___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UserAgentProcessorDescriptor%601.TargetField%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%600%2C%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -593,7 +569,7 @@
     <pre><code class="lang-csharp hljs">public UserAgentProcessorDescriptor&lt;T&gt; TargetField&lt;TValue&gt;(Expression&lt;Func&lt;T, TValue&gt;&gt; objectPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -610,7 +586,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -625,7 +601,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -639,9 +615,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UserAgentProcessorDescriptor_1_TargetField__1_System_Linq_Expressions_Expression_System_Func__0___0____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Requires the UserAgent Processor Plugin to be installed on the cluster.</p>
-</div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
@@ -694,7 +667,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

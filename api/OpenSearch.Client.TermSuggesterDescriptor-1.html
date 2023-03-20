@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -149,7 +149,7 @@ The term suggester doesn’t take the query into account that is part of request
     <pre><code class="lang-csharp hljs">public class TermSuggesterDescriptor&lt;T&gt; : SuggestDescriptorBase&lt;TermSuggesterDescriptor&lt;T&gt;, ITermSuggester, T&gt;, IDescriptor, ITermSuggester, ISuggester where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -182,7 +182,7 @@ The term suggester doesn’t take the query into account that is part of request
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; LowercaseTerms(bool? lowercaseTerms = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -199,7 +199,7 @@ The term suggester doesn’t take the query into account that is part of request
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -232,7 +232,7 @@ Defaults to 2.</p>
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; MaxEdits(int? maxEdits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -249,7 +249,7 @@ Defaults to 2.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,7 +281,7 @@ corrections on the shard level. Can improve accuracy at the cost of performance.
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; MaxInspections(int? maxInspections)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -298,7 +298,7 @@ corrections on the shard level. Can improve accuracy at the cost of performance.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -333,7 +333,7 @@ also improves the spellcheck performance. The shard level document frequencies a
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; MaxTermFrequency(float? frequency)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -350,7 +350,7 @@ also improves the spellcheck performance. The shard level document frequencies a
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -384,7 +384,7 @@ number cannot be fractional. The shard level document frequencies are used for t
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; MinDocFrequency(float? frequency)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -401,7 +401,7 @@ number cannot be fractional. The shard level document frequencies are used for t
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -432,7 +432,7 @@ number cannot be fractional. The shard level document frequencies are used for t
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; MinWordLength(int? length)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -449,7 +449,7 @@ number cannot be fractional. The shard level document frequencies are used for t
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -482,7 +482,7 @@ beginning of terms.</p>
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; PrefixLength(int? length)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -499,7 +499,7 @@ beginning of terms.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -535,7 +535,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; ShardSize(int? shardSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -552,7 +552,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -583,7 +583,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; Sort(SuggestSort? sort)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -600,7 +600,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -631,7 +631,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; StringDistance(StringDistance? distance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -648,7 +648,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -679,7 +679,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; SuggestMode(SuggestMode? mode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -696,7 +696,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -727,7 +727,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     <pre><code class="lang-csharp hljs">public TermSuggesterDescriptor&lt;T&gt; Text(string text)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -744,7 +744,7 @@ may not be precise. Increasing this will make these document frequencies more pr
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -810,7 +810,7 @@ may not be precise. Increasing this will make these document frequencies more pr
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

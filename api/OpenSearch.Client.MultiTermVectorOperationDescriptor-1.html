@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -134,7 +134,7 @@ term vectors when using Multi termvectors API</p>
     <pre><code class="lang-csharp hljs">public class MultiTermVectorOperationDescriptor&lt;T&gt; : DescriptorBase&lt;MultiTermVectorOperationDescriptor&lt;T&gt;, IMultiTermVectorOperation&gt;, IDescriptor, IMultiTermVectorOperation where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -168,7 +168,7 @@ to generate term vectors for</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Document(T document)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -185,7 +185,7 @@ to generate term vectors for</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -217,7 +217,7 @@ vectors for</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Fields(Fields fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -234,7 +234,7 @@ vectors for</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -266,7 +266,7 @@ vectors for</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Fields(Func&lt;FieldsDescriptor&lt;T&gt;, IPromise&lt;Fields&gt;&gt; fields)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -283,7 +283,7 @@ vectors for</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -322,7 +322,7 @@ will be omitted. Default is <code>true</code>.
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; FieldStatistics(bool? fieldStatistics = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -339,7 +339,7 @@ will be omitted. Default is <code>true</code>.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -372,7 +372,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Filter(Func&lt;TermVectorFilterDescriptor, ITermVectorFilter&gt; filterSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -389,7 +389,7 @@ vector of a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -420,7 +420,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Id(Id id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -437,7 +437,7 @@ vector of a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -468,7 +468,7 @@ vector of a document.</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Index(IndexName index)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -485,7 +485,7 @@ vector of a document.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -517,7 +517,7 @@ Default is <code>true</code>.</p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Offsets(bool? offsets = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -534,7 +534,7 @@ Default is <code>true</code>.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -566,7 +566,7 @@ base64 encoded bytes. Default is <code>true</code></p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Payloads(bool? payloads = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -583,7 +583,7 @@ base64 encoded bytes. Default is <code>true</code></p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -615,7 +615,7 @@ Default is <code>true</code></p>
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Positions(bool? positions = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -632,7 +632,7 @@ Default is <code>true</code></p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -665,7 +665,7 @@ Use <a class="xref" href="OpenSearch.Client.IMultiTermVectorOperation.html#OpenS
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Routing(Routing routing)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -682,7 +682,7 @@ Use <a class="xref" href="OpenSearch.Client.IMultiTermVectorOperation.html#OpenS
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -720,7 +720,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; TermStatistics(bool? termStatistics = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -737,7 +737,7 @@ term statistics can have a large performance impact.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -768,7 +768,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; Version(long? version)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -785,7 +785,7 @@ term statistics can have a large performance impact.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -816,7 +816,7 @@ term statistics can have a large performance impact.
     <pre><code class="lang-csharp hljs">public MultiTermVectorOperationDescriptor&lt;T&gt; VersionType(VersionType? versionType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -833,7 +833,7 @@ term statistics can have a large performance impact.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -896,7 +896,7 @@ term statistics can have a large performance impact.
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

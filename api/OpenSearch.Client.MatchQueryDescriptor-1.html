@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -159,7 +159,7 @@
 public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;MatchQueryDescriptor&lt;T&gt;, IMatchQuery, T&gt;, IDescriptor, IMatchQuery, IFieldNameQuery, IQuery where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -191,7 +191,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     <pre><code class="lang-csharp hljs">protected override bool Conditionless { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -223,7 +223,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     <pre><code class="lang-csharp hljs">protected virtual string MatchQueryType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -256,7 +256,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; Analyzer(string analyzer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -273,7 +273,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -303,7 +303,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; AutoGenerateSynonymsPhraseQuery(bool? autoGenerateSynonymsPhraseQuery = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -320,7 +320,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -351,7 +351,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; Fuzziness(Fuzziness fuzziness)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -368,7 +368,7 @@ public class MatchQueryDescriptor&lt;T&gt; : FieldNameQueryDescriptorBase&lt;Mat
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -400,7 +400,7 @@ In this scenario, the default is <a class="xref" href="OpenSearch.Client.MultiTe
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; FuzzyRewrite(MultiTermQueryRewrite rewrite)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -417,7 +417,7 @@ In this scenario, the default is <a class="xref" href="OpenSearch.Client.MultiTe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -453,7 +453,7 @@ If not set, Damerau-Levenshtein distance metric will be used.
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; FuzzyTranspositions(bool? fuzzyTranspositions = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -470,7 +470,7 @@ If not set, Damerau-Levenshtein distance metric will be used.
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -502,7 +502,7 @@ to be ignored</p>
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; Lenient(bool? lenient = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -519,7 +519,7 @@ to be ignored</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -550,7 +550,7 @@ to be ignored</p>
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; MaxExpansions(int? maxExpansions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -567,7 +567,7 @@ to be ignored</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -599,7 +599,7 @@ It can be an absolute value, a percentage or a combination of both.</p>
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; MinimumShouldMatch(MinimumShouldMatch minimumShouldMatch)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -616,7 +616,7 @@ It can be an absolute value, a percentage or a combination of both.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -648,7 +648,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; Operator(Operator? op)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -665,7 +665,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -696,7 +696,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; PrefixLength(int? prefixLength)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -713,7 +713,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -744,7 +744,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; Query(string query)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -761,7 +761,7 @@ The default operator is <a class="xref" href="OpenSearch.Client.Operator.html#Op
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -795,7 +795,7 @@ which corresponds to a match_all query.</p>
     <pre><code class="lang-csharp hljs">public MatchQueryDescriptor&lt;T&gt; ZeroTermsQuery(ZeroTermsQuery? zeroTermsQuery)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -812,7 +812,7 @@ which corresponds to a match_all query.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -881,7 +881,7 @@ which corresponds to a match_all query.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

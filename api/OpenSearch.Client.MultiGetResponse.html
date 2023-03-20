@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -159,7 +159,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public IReadOnlyCollection&lt;IMultiGetHit&lt;object&gt;&gt; Hits { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -189,7 +189,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public override bool IsValid { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -223,7 +223,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public MultiGetHit&lt;T&gt; Get&lt;T&gt;(long id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -240,7 +240,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -255,7 +255,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -285,7 +285,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public MultiGetHit&lt;T&gt; Get&lt;T&gt;(string id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -302,7 +302,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -317,7 +317,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -347,7 +347,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public FieldValues GetFieldSelection&lt;T&gt;(long id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -364,7 +364,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -379,7 +379,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -409,7 +409,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public FieldValues GetFieldValues&lt;T&gt;(string id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -426,7 +426,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -441,7 +441,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -471,7 +471,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;IMultiGetHit&lt;T&gt;&gt; GetMany&lt;T&gt;(IEnumerable&lt;long&gt; ids) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -488,7 +488,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -503,7 +503,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -534,7 +534,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;IMultiGetHit&lt;T&gt;&gt; GetMany&lt;T&gt;(IEnumerable&lt;string&gt; ids) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -552,7 +552,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -568,7 +568,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -599,7 +599,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public T Source&lt;T&gt;(long id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -616,7 +616,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -631,7 +631,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -661,7 +661,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public T Source&lt;T&gt;(string id) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -678,7 +678,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -693,7 +693,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -723,7 +723,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(IEnumerable&lt;long&gt; ids) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -740,7 +740,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -755,7 +755,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -786,7 +786,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(IEnumerable&lt;string&gt; ids) where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -804,7 +804,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -820,7 +820,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -884,7 +884,7 @@ public class MultiGetResponse : ResponseBase, IResponse, IOpenSearchResponse</co
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

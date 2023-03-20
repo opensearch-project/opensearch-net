@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -175,7 +175,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public AggregateDictionary(IReadOnlyDictionary&lt;string, IAggregate&gt; backingDictionary)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -209,7 +209,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public static AggregateDictionary Default { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +241,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; AdjacencyMatrix(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -258,7 +258,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -288,7 +288,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public AutoDateHistogramAggregate AutoDateHistogram(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -305,7 +305,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -335,7 +335,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Average(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -352,7 +352,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -382,7 +382,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate AverageBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -399,7 +399,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -429,7 +429,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate BucketScript(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -446,7 +446,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -476,7 +476,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Cardinality(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -493,7 +493,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -523,7 +523,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Children(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -540,7 +540,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -570,7 +570,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public CompositeBucketAggregate Composite(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -587,7 +587,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -617,7 +617,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate CumulativeSum(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -634,7 +634,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -664,7 +664,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;DateHistogramBucket&gt; DateHistogram(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -681,7 +681,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -711,7 +711,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; DateRange(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -728,7 +728,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -758,7 +758,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Derivative(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -775,7 +775,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -805,7 +805,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate DiversifiedSampler(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -822,7 +822,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -852,7 +852,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ExtendedStatsAggregate ExtendedStats(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -869,7 +869,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -899,7 +899,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ExtendedStatsAggregate ExtendedStatsBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -916,7 +916,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -946,7 +946,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Filter(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -963,7 +963,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -993,7 +993,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public FiltersAggregate Filters(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1010,7 +1010,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1040,7 +1040,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public GeoBoundsAggregate GeoBounds(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1057,7 +1057,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1087,7 +1087,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public GeoCentroidAggregate GeoCentroid(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1104,7 +1104,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1134,7 +1134,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; GeoDistance(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1151,7 +1151,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1181,7 +1181,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; GeoHash(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1198,7 +1198,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1228,7 +1228,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public GeoLineAggregate GeoLine(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1245,7 +1245,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1275,7 +1275,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;string&gt;&gt; GeoTile(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1292,7 +1292,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1322,7 +1322,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Global(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1339,7 +1339,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1369,7 +1369,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;KeyedBucket&lt;double&gt;&gt; Histogram(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1386,7 +1386,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1416,7 +1416,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;IpRangeBucket&gt; IpRange(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1433,7 +1433,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1463,7 +1463,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MatrixStatsAggregate MatrixStats(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1480,7 +1480,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1510,7 +1510,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Max(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1527,7 +1527,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1557,7 +1557,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public KeyedValueAggregate MaxBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1574,7 +1574,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1604,7 +1604,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate MedianAbsoluteDeviation(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1621,7 +1621,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1651,7 +1651,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Min(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1668,7 +1668,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1698,7 +1698,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public KeyedValueAggregate MinBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1715,7 +1715,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1745,7 +1745,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Missing(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1762,7 +1762,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1792,7 +1792,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate MovingAverage(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1809,7 +1809,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1839,7 +1839,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiTermsAggregate&lt;string&gt; MultiTerms(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1856,7 +1856,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1886,7 +1886,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiTermsAggregate&lt;TKey&gt; MultiTerms&lt;TKey&gt;(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1903,7 +1903,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1918,7 +1918,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1948,7 +1948,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Nested(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1965,7 +1965,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1995,7 +1995,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Normalize(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2012,7 +2012,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2042,7 +2042,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Parent(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2059,7 +2059,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2089,7 +2089,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public PercentilesAggregate PercentileRanks(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2106,7 +2106,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2136,7 +2136,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public PercentilesAggregate Percentiles(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2153,7 +2153,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2183,7 +2183,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public PercentilesAggregate PercentilesBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2200,7 +2200,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2230,7 +2230,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RangeBucket&gt; Range(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2247,7 +2247,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2277,7 +2277,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RareTermsBucket&lt;string&gt;&gt; RareTerms(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2294,7 +2294,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2324,7 +2324,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;RareTermsBucket&lt;TKey&gt;&gt; RareTerms&lt;TKey&gt;(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2341,7 +2341,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2356,7 +2356,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2386,7 +2386,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate ReverseNested(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2403,7 +2403,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2433,7 +2433,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SingleBucketAggregate Sampler(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2450,7 +2450,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2480,7 +2480,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">protected override string Sanitize(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2497,7 +2497,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2529,7 +2529,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ScriptedMetricAggregate ScriptedMetric(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2546,7 +2546,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2576,7 +2576,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate SerialDifferencing(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2593,7 +2593,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2623,7 +2623,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;string&gt; SignificantTerms(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2640,7 +2640,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2670,7 +2670,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;TKey&gt; SignificantTerms&lt;TKey&gt;(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2687,7 +2687,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2702,7 +2702,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2732,7 +2732,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;string&gt; SignificantText(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2749,7 +2749,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2779,7 +2779,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public SignificantTermsAggregate&lt;TKey&gt; SignificantText&lt;TKey&gt;(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2796,7 +2796,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2811,7 +2811,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2841,7 +2841,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public StatsAggregate Stats(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2858,7 +2858,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2888,7 +2888,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public StatsAggregate StatsBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2905,7 +2905,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2935,7 +2935,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate Sum(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2952,7 +2952,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2982,7 +2982,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate SumBucket(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2999,7 +2999,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3029,7 +3029,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public TermsAggregate&lt;string&gt; Terms(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3046,7 +3046,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3076,7 +3076,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public TermsAggregate&lt;TKey&gt; Terms&lt;TKey&gt;(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3093,7 +3093,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3108,7 +3108,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -3138,7 +3138,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public TopHitsAggregate TopHits(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3155,7 +3155,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3185,7 +3185,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate ValueCount(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3202,7 +3202,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3232,7 +3232,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public MultiBucketAggregate&lt;VariableWidthHistogramBucket&gt; VariableWidthHistogram(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3249,7 +3249,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3279,7 +3279,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     <pre><code class="lang-csharp hljs">public ValueAggregate WeightedAverage(string key)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3296,7 +3296,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -3371,7 +3371,7 @@ request to OpenSearch and an Aggregate describes an aggregation response.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

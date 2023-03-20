@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -149,7 +149,7 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
     <pre><code class="lang-csharp hljs">public class PhraseSuggesterDescriptor&lt;T&gt; : SuggestDescriptorBase&lt;PhraseSuggesterDescriptor&lt;T&gt;, IPhraseSuggester, T&gt;, IDescriptor, IPhraseSuggester, ISuggester where T : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -189,7 +189,7 @@ false otherwise. The default value for prune is false.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Collate(Func&lt;PhraseSuggestCollateDescriptor&lt;T&gt;, IPhraseSuggestCollate&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -206,7 +206,7 @@ false otherwise. The default value for prune is false.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -240,7 +240,7 @@ If set to 0.0 the top N candidates are returned. The default is 1.0.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Confidence(double? confidence)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -257,7 +257,7 @@ If set to 0.0 the top N candidates are returned. The default is 1.0.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -291,7 +291,7 @@ Each of the generators is called per term in the original text.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; DirectGenerator(params Func&lt;DirectGeneratorDescriptor&lt;T&gt;, IDirectGenerator&gt;[] generators)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -308,7 +308,7 @@ Each of the generators is called per term in the original text.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -338,7 +338,7 @@ Each of the generators is called per term in the original text.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; ForceUnigrams(bool? forceUnigrams = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -355,7 +355,7 @@ Each of the generators is called per term in the original text.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -388,7 +388,7 @@ the gram_size is set to the max_shingle_size if not explicitly set.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; GramSize(int? gramSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,7 +405,7 @@ the gram_size is set to the max_shingle_size if not explicitly set.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -438,7 +438,7 @@ If multiple tokens in a row are changed the entire phrase of changed tokens is w
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Highlight(Func&lt;PhraseSuggestHighlightDescriptor, IPhraseSuggestHighlight&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -455,7 +455,7 @@ If multiple tokens in a row are changed the entire phrase of changed tokens is w
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -490,7 +490,7 @@ in suggest calls might exceed the time spend in query execution.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; MaxErrors(double? maxErrors)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -507,7 +507,7 @@ in suggest calls might exceed the time spend in query execution.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -539,7 +539,7 @@ The default is 0.95, meaning 5% of the real words are misspelled.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; RealWordErrorLikelihood(double? realWordErrorLikelihood)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -556,7 +556,7 @@ The default is 0.95, meaning 5% of the real words are misspelled.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -588,7 +588,7 @@ If not set the whitespace character is used as a separator.</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Separator(char? separator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -605,7 +605,7 @@ If not set the whitespace character is used as a separator.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -637,7 +637,7 @@ During the reduce phase, only the top N suggestions are returned based on the si
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; ShardSize(int? shardSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -654,7 +654,7 @@ During the reduce phase, only the top N suggestions are returned based on the si
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -686,7 +686,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Smoothing(Func&lt;SmoothingModelContainerDescriptor, SmoothingModelContainer&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -703,7 +703,7 @@ and frequent grams (appear at least once in the index).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -734,7 +734,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; Text(string text)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -751,7 +751,7 @@ and frequent grams (appear at least once in the index).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -781,7 +781,7 @@ and frequent grams (appear at least once in the index).</p>
     <pre><code class="lang-csharp hljs">public PhraseSuggesterDescriptor&lt;T&gt; TokenLimit(int? tokenLimit)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -798,7 +798,7 @@ and frequent grams (appear at least once in the index).</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -864,7 +864,7 @@ and frequent grams (appear at least once in the index).</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

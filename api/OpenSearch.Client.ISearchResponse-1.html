@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -113,7 +113,7 @@
     <pre><code class="lang-csharp hljs">public interface ISearchResponse&lt;out TDocument&gt; : IResponse, IOpenSearchResponse where TDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -147,7 +147,7 @@
     <pre><code class="lang-csharp hljs">AggregateDictionary Aggregations { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -178,7 +178,7 @@
     <pre><code class="lang-csharp hljs">ClusterStatistics Clusters { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -216,7 +216,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">IReadOnlyCollection&lt;out TDocument&gt; Documents { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -248,7 +248,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">IReadOnlyCollection&lt;FieldValues&gt; Fields { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,7 +279,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">IReadOnlyCollection&lt;IHit&lt;out TDocument&gt;&gt; Hits { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -311,7 +311,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">IHitsMetadata&lt;out TDocument&gt; HitsMetadata { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -342,7 +342,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">double MaxScore { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +373,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">long NumberOfReducePhases { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -405,7 +405,7 @@ search request to return <a class="xref" href="OpenSearch.Client.ISearchResponse
     <pre><code class="lang-csharp hljs">Profile Profile { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -438,7 +438,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">string ScrollId { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -469,7 +469,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">ShardStatistics Shards { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -500,7 +500,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">ISuggestDictionary&lt;out TDocument&gt; Suggest { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -531,7 +531,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">bool TerminatedEarly { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -562,7 +562,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">bool TimedOut { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -593,7 +593,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">long Took { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -624,7 +624,7 @@ search request</p>
     <pre><code class="lang-csharp hljs">long Total { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -680,7 +680,7 @@ search request</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

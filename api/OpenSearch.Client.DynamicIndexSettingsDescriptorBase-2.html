@@ -12,7 +12,7 @@
  | OpenSearch.Net ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -142,7 +142,7 @@
     <pre><code class="lang-csharp hljs">public abstract class DynamicIndexSettingsDescriptorBase&lt;TDescriptor, TIndexSettings&gt; : IsADictionaryDescriptorBase&lt;TDescriptor, TIndexSettings, string, object&gt;, IDescriptor, IPromise&lt;TIndexSettings&gt; where TDescriptor : DynamicIndexSettingsDescriptorBase&lt;TDescriptor, TIndexSettings&gt; where TIndexSettings : class, IDynamicIndexSettings</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -178,7 +178,7 @@
     <pre><code class="lang-csharp hljs">protected DynamicIndexSettingsDescriptorBase(TIndexSettings instance)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -213,7 +213,7 @@
     <pre><code class="lang-csharp hljs">public TDescriptor Analysis(Func&lt;AnalysisDescriptor, IAnalysis&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -230,7 +230,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -262,7 +262,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor AutoExpandReplicas(AutoExpandReplicas autoExpandReplicas)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,7 +279,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -310,7 +310,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor BlocksMetadata(bool? blocksMetadata = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -327,7 +327,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -358,7 +358,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor BlocksRead(bool? blocksRead = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -375,7 +375,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -406,7 +406,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor BlocksReadOnly(bool? blocksReadOnly = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -423,7 +423,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -454,7 +454,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor BlocksReadOnlyAllowDelete(bool? blocksReadOnlyAllowDelete = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -471,7 +471,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -502,7 +502,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     <pre><code class="lang-csharp hljs">public TDescriptor BlocksWrite(bool? blocksWrite = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -519,7 +519,7 @@ Set to a dash delimited lower and upper bound (e.g. 0-5) or use all for the uppe
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -552,7 +552,7 @@ The special pipeline name _none indicates no ingest pipeline should be run.`</p>
     <pre><code class="lang-csharp hljs">public TDescriptor DefaultPipeline(string defaultPipeline)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -569,7 +569,7 @@ The special pipeline name _none indicates no ingest pipeline should be run.`</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -602,7 +602,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor FinalPipeline(string finalPipeline)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -619,7 +619,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -650,7 +650,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor Merge(Func&lt;MergeSettingsDescriptor, IMergeSettings&gt; merge)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -667,7 +667,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -698,7 +698,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor NumberOfReplicas(int? numberOfReplicas)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -715,7 +715,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -746,7 +746,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor Priority(int? priority)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -763,7 +763,7 @@ name <code>_none</code> indicates no ingest pipeline will run.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -795,7 +795,7 @@ enough nodes available to allocate sufficient replicas to form a quorum.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor RecoveryInitialShards(Union&lt;int, RecoveryInitialShards&gt; initialShards)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -812,7 +812,7 @@ enough nodes available to allocate sufficient replicas to form a quorum.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -844,7 +844,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor RefreshInterval(Time time)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -861,7 +861,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -892,7 +892,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor RequestsCacheEnabled(bool? enable = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -909,7 +909,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -940,7 +940,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor RoutingAllocationTotalShardsPerNode(int? totalShardsPerNode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -957,7 +957,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -988,7 +988,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor Setting(string setting, object value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1010,7 +1010,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1041,7 +1041,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor Similarity(Func&lt;SimilaritiesDescriptor, IPromise&lt;ISimilarities&gt;&gt; selector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1058,7 +1058,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1089,7 +1089,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor SlowLog(Func&lt;SlowLogDescriptor, ISlowLog&gt; slowLogSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1106,7 +1106,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1137,7 +1137,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor Translog(Func&lt;TranslogSettingsDescriptor, ITranslogSettings&gt; translogSelector)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1154,7 +1154,7 @@ Defaults to 1s. Can be set to -1 to disable refresh.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1186,7 +1186,7 @@ delayed with this dynamic setting, which defaults to 1m.</p>
     <pre><code class="lang-csharp hljs">public TDescriptor UnassignedNodeLeftDelayedTimeout(Time time)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1203,7 +1203,7 @@ delayed with this dynamic setting, which defaults to 1m.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1266,7 +1266,7 @@ delayed with this dynamic setting, which defaults to 1m.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
