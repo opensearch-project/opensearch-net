@@ -4,11 +4,11 @@
     "net6.0": {
       "Ben.Demystifier": {
         "type": "Direct",
-        "requested": "[0.1.4, )",
-        "resolved": "0.1.4",
-        "contentHash": "+t5j6MizCTkWh1oZm9RdLIJfEWYRIPFBDe7E+H0pqjAzHbRm6oyhm5Rsf8kPGQZXNdDur9YwkSyXUe7eAIRbLw==",
+        "requested": "[0.4.1, )",
+        "resolved": "0.4.1",
+        "contentHash": "axFeEMfmEORy3ipAzOXG/lE+KcNptRbei3F0C4kQCdeiQtW+qJW90K5iIovITGrdLt8AjhNCwk5qLSX9/rFpoA==",
         "dependencies": {
-          "System.Reflection.Metadata": "1.5.0"
+          "System.Reflection.Metadata": "5.0.0"
         }
       },
       "FSharp.Core": {
@@ -521,8 +521,8 @@
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
-        "resolved": "1.6.0",
-        "contentHash": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ=="
+        "resolved": "5.0.0",
+        "contentHash": "5NecZgXktdGg34rh1OenY1rFNDCI8xSjFr+Z4OU4cU06AQHUdRnIIEeWENu3Wl4YowbzkymAIMvi3WyK9U53pQ=="
       },
       "System.Reflection.Primitives": {
         "type": "Transitive",

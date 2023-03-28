@@ -5,6 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `System.Reflection.Emit` from 4.3.0 to 4.7.0
 - Bumps `Argu` from 5.5.0 to 6.1.1
+- Bumps `Ben.Demystifier` from 0.1.4 to 0.4.1
 
 ## [1.3.0]
 ### Added
