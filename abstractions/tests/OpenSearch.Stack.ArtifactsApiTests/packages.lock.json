@@ -776,8 +776,8 @@
       },
       "System.Text.Json": {
         "type": "Transitive",
-        "resolved": "7.0.1",
-        "contentHash": "OtDEmCCiNl8JAduFKZ/r0Sw6XZNHwIicUYy/mXgMDGeOsZLshH37qi3oPRzFYiryVktiMoQLByMGPtRCEMYbeQ==",
+        "resolved": "7.0.2",
+        "contentHash": "/LZf/JrGyilojqwpaywb+sSz8Tew7ij4K/Sk+UW8AKfAK7KRhR6mKpKtTm06cYA7bCpGTWfYksIW+mVsdxPegQ==",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "7.0.0"
@@ -923,7 +923,7 @@
           "SemanticVersioning": "[2.0.2, )",
           "System.Net.Http": "[4.3.4, )",
           "System.Runtime.InteropServices.RuntimeInformation": "[4.3.0, )",
-          "System.Text.Json": "[7.0.1, )"
+          "System.Text.Json": "[7.0.2, )"
         }
       },
       "tests.configuration": {
