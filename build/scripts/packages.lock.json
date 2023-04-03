@@ -85,9 +85,9 @@
       },
       "Octokit": {
         "type": "Direct",
-        "requested": "[4.0.3, )",
-        "resolved": "4.0.3",
-        "contentHash": "KhRtKMEJfjwGKwpha1JalVlRrUP4WfhqG6b0VCiQ2w8JTa1LwhoRPWH9EpZ01Q8I9Qshu2kJu/1lMUOaR4yc3Q=="
+        "requested": "[5.0.2, )",
+        "resolved": "5.0.2",
+        "contentHash": "W2dSerUsobOoBIGfTOVlA1o7/N/Rcdg4vHvx8pNp0QgZUGZyMX9KVVmyRDuOySSCixgxccL+x6RM4QFEcbbe/w=="
       },
       "Proc": {
         "type": "Direct",
