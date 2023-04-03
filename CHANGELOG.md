@@ -7,6 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Argu` from 5.5.0 to 6.1.1
 - Bumps `Ben.Demystifier` from 0.1.4 to 0.4.1
 - Bumps `System.Text.Json` from 7.0.1 to 7.0.2
+- Bumps `Octokit` from 4.0.3 to 5.0.2
 
 ## [1.3.0]
 ### Added
