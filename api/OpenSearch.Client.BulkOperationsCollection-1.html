@@ -80,10 +80,11 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Client.BulkOperationsCollection`1">
 
 
+
   <h1 id="OpenSearch_Client_BulkOperationsCollection_1" data-uid="OpenSearch.Client.BulkOperationsCollection`1" class="text-break">Class BulkOperationsCollection&lt;TOperation&gt;
 </h1>
-  <div class="markdown level0 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
-an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+  <div class="markdown level0 summary"><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
 System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
 is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
 </div>
@@ -111,16 +112,16 @@ is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">object.ReferenceEquals(object, object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <span class="xref">OpenSearch</span>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
@@ -682,27 +683,28 @@ public sealed class BulkOperationsCollection&lt;TOperation&gt; : IList&lt;TOpera
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">System.Collections.Generic.IList&lt;T&gt;</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList&lt;T&gt;</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">System.Collections.Generic.ICollection&lt;T&gt;</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">System.Collections.IList</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">System.Collections.ICollection</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.icollection">ICollection</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 

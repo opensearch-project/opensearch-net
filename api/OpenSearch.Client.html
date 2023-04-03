@@ -425,8 +425,8 @@ In addition, parameters from and size may be set in order to truncate the result
       <h4><a class="xref" href="OpenSearch.Client.BulkOperationDescriptorBase-2.html">BulkOperationDescriptorBase&lt;TDescriptor, TInterface&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.BulkOperationsCollection-1.html">BulkOperationsCollection&lt;TOperation&gt;</a></h4>
-      <section><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add#system-collections-generic-icollection-1-add(-0)">Add(T)</a> as well as expose
-an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange#system-collections-generic-list-1-addrange(system-collections-generic-ienumerable((-0)))">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
+      <section><p>This class is used by <a class="xref" href="OpenSearch.Client.IBulkRequest.html#OpenSearch_Client_IBulkRequest_Operations">Operations</a> which needs thread safe adding <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">Add(T)</a> as well as expose
+an equivalent of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1.addrange">AddRange(IEnumerable&lt;T&gt;)</a>. Because operations from OpenSearch are executed in order none of the types in
 System.Collection.Concurrent can't be used for this. We need to preserve insert order and exposed indexed index because <a class="xref" href="OpenSearch.Client.BulkResponse.html#OpenSearch_Client_BulkResponse_Items">Items</a>
 is ordered and lines up with <a class="xref" href="OpenSearch.Client.BulkRequest.html#OpenSearch_Client_BulkRequest_Operations">Operations</a> allowing one to zip the two together.</p>
 </section>
@@ -7105,6 +7105,8 @@ sorting the document it belongs to.</p>
 documents.
 By default, the internal serializer will be used to serializer all types.</p>
 </section>
+
+
 </article>
           </div>
 

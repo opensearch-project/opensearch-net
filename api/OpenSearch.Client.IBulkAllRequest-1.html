@@ -80,6 +80,7 @@
             <article class="content wrap" id="_content" data-uid="OpenSearch.Client.IBulkAllRequest`1">
 
 
+
   <h1 id="OpenSearch_Client_IBulkAllRequest_1" data-uid="OpenSearch.Client.IBulkAllRequest`1" class="text-break">Interface IBulkAllRequest&lt;T&gt;
 </h1>
   <div class="markdown level0 summary"></div>
@@ -245,7 +246,7 @@ of describing how the buffer should be translated to a bulk operation.</p>
   <a id="OpenSearch_Client_IBulkAllRequest_1_BulkResponseCallback_" data-uid="OpenSearch.Client.IBulkAllRequest`1.BulkResponseCallback*"></a>
   <h4 id="OpenSearch_Client_IBulkAllRequest_1_BulkResponseCallback" data-uid="OpenSearch.Client.IBulkAllRequest`1.BulkResponseCallback">BulkResponseCallback</h4>
   <div class="markdown level1 summary"><p>Be notified every time a bulk response returns, this includes retries.
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobserver-1.onnext#system-iobserver-1-onnext(-0)">OnNext(T)</a> is only called for successful batches.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobserver-1.onnext">OnNext(T)</a> is only called for successful batches.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -308,10 +309,10 @@ When true, will feed dropped documents to <a class="xref" href="OpenSearch.Clien
   </span>
   <a id="OpenSearch_Client_IBulkAllRequest_1_Documents_" data-uid="OpenSearch.Client.IBulkAllRequest`1.Documents*"></a>
   <h4 id="OpenSearch_Client_IBulkAllRequest_1_Documents" data-uid="OpenSearch.Client.IBulkAllRequest`1.Documents">Documents</h4>
-  <div class="markdown level1 summary"><p>The documents to send to OpenSearch, ideally lazily evaluated by using <span class="xref">yield</span>
+  <div class="markdown level1 summary"><p>The documents to send to OpenSearch, ideally lazily evaluated by using <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/statements/yield">yield</a>
 return to provide each document.
 <a class="xref" href="OpenSearch.Client.BulkAllObservable-1.html">BulkAllObservable&lt;T&gt;</a> will eager evaluate each partitioned page when operating on it, using
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.tolist#system-linq-enumerable-tolist-1(system-collections-generic-ienumerable((-0)))">ToList&lt;TSource&gt;(IEnumerable&lt;TSource&gt;)</a>.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.enumerable.tolist">ToList&lt;TSource&gt;(IEnumerable&lt;TSource&gt;)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -377,7 +378,7 @@ to feed into a dead letter queue. Otherwise bulk all indexing will be halted.</p
   <h4 id="OpenSearch_Client_IBulkAllRequest_1_Index" data-uid="OpenSearch.Client.IBulkAllRequest`1.Index">Index</h4>
   <div class="markdown level1 summary"><p>The index to use for items that don't specify one. By default, will be inferred from <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.
 If no default index has been mapped for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>
-using <span class="xref">OpenSearch.Client.ConnectionSettingsBase`1.DefaultMappingFor``1(System.Func{OpenSearch.Client.ClrTypeMappingDescriptor{``0},OpenSearch.Client.IClrTypeMapping{``0}})</span>
+using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a>
 on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -686,6 +687,7 @@ non-negative value less than or equal to the total number of copies for the shar
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
   </div>
+
 </article>
           </div>
 
