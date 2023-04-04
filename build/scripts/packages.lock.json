@@ -10,11 +10,11 @@
       },
       "Fake.Core.Environment": {
         "type": "Direct",
-        "requested": "[5.23.1, )",
-        "resolved": "5.23.1",
-        "contentHash": "/5qUib/W0CL1o98aRQjHL3lzaWmdDZrGDL1XhxUKfBsuWxHwcqY9PItk1jXSxAARHr4aleUO6K06AXYAcHNp0Q==",
+        "requested": "[6.0.0, )",
+        "resolved": "6.0.0",
+        "contentHash": "fbarOWC6HMgrn5dVZddsHOSRayRME0T9PWuy5sAhun4SI8eQOBuYYPTalcceF8KJcEWbxy1OY9XU2LLcUfd/Ew==",
         "dependencies": {
-          "FSharp.Core": "6.0.0"
+          "FSharp.Core": "6.0.3"
         }
       },
       "Fake.Core.SemVer": {
