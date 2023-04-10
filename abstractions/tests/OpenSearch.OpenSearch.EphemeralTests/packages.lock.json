@@ -77,8 +77,8 @@
       },
       "Microsoft.TestPlatform.ObjectModel": {
         "type": "Transitive",
-        "resolved": "17.4.1",
-        "contentHash": "v2CwoejusooZa/DZYt7UXo+CJOvwAmqg6ZyFJeIBu+DCRDqpEtf7WYhZ/AWii0EKzANPPLU9+m148aipYQkTuA==",
+        "resolved": "17.5.0",
+        "contentHash": "QwiBJcC/oEA1kojOaB0uPWOIo4i6BYuTBBYJVhUvmXkyYqZ2Ut/VZfgi+enf8LF8J4sjO98oRRFt39MiRorcIw==",
         "dependencies": {
           "NuGet.Frameworks": "5.11.0",
           "System.Reflection.Metadata": "1.6.0"
@@ -938,7 +938,7 @@
           "DiffPlex": "[1.7.1, )",
           "FluentAssertions": "[6.10.0, )",
           "JunitXml.TestLogger": "[3.0.124, )",
-          "Microsoft.TestPlatform.ObjectModel": "[17.4.1, )",
+          "Microsoft.TestPlatform.ObjectModel": "[17.5.0, )",
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",
           "OpenSearch.Client.JsonNetSerializer": "[1.3.0, )",
           "OpenSearch.OpenSearch.Xunit": "[1.3.0, )",
