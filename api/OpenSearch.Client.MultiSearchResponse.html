@@ -197,7 +197,16 @@ public class MultiSearchResponse : ResponseBase, IResponse, IOpenSearchResponse<
   </span>
   <a id="OpenSearch_Client_MultiSearchResponse_IsValid_" data-uid="OpenSearch.Client.MultiSearchResponse.IsValid*"></a>
   <h4 id="OpenSearch_Client_MultiSearchResponse_IsValid" data-uid="OpenSearch.Client.MultiSearchResponse.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Checks if a response is functionally valid or not.
+This is a OpenSearch.Client abstraction to have a single property to check whether there was something wrong with a request.</p>
+<p>
+For instance, an OpenSearch bulk response always returns 200 and individual bulk items may fail,
+<a class="xref" href="OpenSearch.Client.IResponse.html#OpenSearch_Client_IResponse_IsValid">IsValid</a> will be false in that case.
+</p><p>
+You can also configure the client to always throw an <a class="xref" href="OpenSearch.Net.OpenSearchClientException.html">OpenSearchClientException</a> using
+<a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_ThrowExceptions">ThrowExceptions</a> if the response is not valid
+</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -291,7 +300,8 @@ public class MultiSearchResponse : ResponseBase, IResponse, IOpenSearchResponse<
   </span>
   <a id="OpenSearch_Client_MultiSearchResponse_DebugIsValid_" data-uid="OpenSearch.Client.MultiSearchResponse.DebugIsValid*"></a>
   <h4 id="OpenSearch_Client_MultiSearchResponse_DebugIsValid_System_Text_StringBuilder_" data-uid="OpenSearch.Client.MultiSearchResponse.DebugIsValid(System.Text.StringBuilder)">DebugIsValid(StringBuilder)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Subclasses can override this to provide more information on why a call is not valid.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

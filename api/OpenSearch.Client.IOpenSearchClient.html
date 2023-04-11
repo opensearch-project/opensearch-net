@@ -613,7 +613,7 @@ Out of the box <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#Op
   <h4 id="OpenSearch_Client_IOpenSearchClient_BulkAll__1_OpenSearch_Client_IBulkAllRequest___0__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.IOpenSearchClient.BulkAll``1(OpenSearch.Client.IBulkAllRequest{``0},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IBulkAllRequest&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests</p>
 <p></p>
-The index to target will be inferred from <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>. If no default index has been mapped for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>
+The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.
@@ -686,7 +686,7 @@ an index can be specified for each document using <a class="xref" href="OpenSear
   <h4 id="OpenSearch_Client_IOpenSearchClient_BulkAll__1_System_Collections_Generic_IEnumerable___0__System_Func_OpenSearch_Client_BulkAllDescriptor___0__OpenSearch_Client_IBulkAllRequest___0___System_Threading_CancellationToken_" data-uid="OpenSearch.Client.IOpenSearchClient.BulkAll``1(System.Collections.Generic.IEnumerable{``0},System.Func{OpenSearch.Client.BulkAllDescriptor{``0},OpenSearch.Client.IBulkAllRequest{``0}},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;BulkAllDescriptor&lt;T&gt;, IBulkAllRequest&lt;T&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.</p>
 <p></p>
-The index to target will be inferred from <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>. If no default index has been mapped for <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>
+The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_Index_OpenSearch_Client_IndexName_">Index(IndexName)</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.
@@ -1625,12 +1625,12 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be created. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code></p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p>
 <p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code>
+<code class="typeparamref">TDocument</code>
 </p>
-<p>3. A property named Id on <code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code></p>
+<p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
     </tbody>
@@ -1696,7 +1696,11 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
       <tr>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
-        <td></td>
+        <td><p>The document to be created. Id will be inferred from (in order):</p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
+<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
@@ -4499,12 +4503,12 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be indexed. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code></p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p>
 <p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code>
+<code class="typeparamref">TDocument</code>
 </p>
-<p>3. A property named Id on <code data-dev-comment-type="typeparamref" class="typeparamref">TDocument</code></p>
+<p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
     </tbody>
@@ -4550,8 +4554,7 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
   <a id="OpenSearch_Client_IOpenSearchClient_IndexDocumentAsync_" data-uid="OpenSearch.Client.IOpenSearchClient.IndexDocumentAsync*"></a>
   <h4 id="OpenSearch_Client_IOpenSearchClient_IndexDocumentAsync__1___0_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.IOpenSearchClient.IndexDocumentAsync``1(``0,System.Threading.CancellationToken)">IndexDocumentAsync&lt;T&gt;(T, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Adds or updates a typed JSON document in a specific index, making it searchable.</p>
-<p> </p>
-<a href="https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/">
+<p> </p><a href="https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/">
 https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</a>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -4572,7 +4575,11 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
       <tr>
         <td><span class="xref">T</span></td>
         <td><span class="parametername">document</span></td>
-        <td></td>
+        <td><p>The document to be indexed. Id will be inferred from (in order):</p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
+<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
@@ -6144,8 +6151,8 @@ https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/
   <a id="OpenSearch_Client_IOpenSearchClient_Reindex_" data-uid="OpenSearch.Client.IOpenSearchClient.Reindex*"></a>
   <h4 id="OpenSearch_Client_IOpenSearchClient_Reindex__1_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_System_Func_OpenSearch_Client_QueryContainerDescriptor___0__OpenSearch_Client_QueryContainer__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.IOpenSearchClient.Reindex``1(OpenSearch.Client.IndexName,OpenSearch.Client.IndexName,System.Func{OpenSearch.Client.QueryContainerDescriptor{``0},OpenSearch.Client.QueryContainer},System.Threading.CancellationToken)">Reindex&lt;TSource&gt;(IndexName, IndexName, Func&lt;QueryContainerDescriptor&lt;TSource&gt;, QueryContainer&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simplified form for reindex which will cover 80% of its use cases. Allows you to index all documents of type T from
-<code data-dev-comment-type="paramref" class="paramref">fromIndex</code> to <code data-dev-comment-type="paramref" class="paramref">toIndex</code>
-optionally limiting the documents found in <code data-dev-comment-type="paramref" class="paramref">fromIndex</code> by using <code data-dev-comment-type="paramref" class="paramref">selector</code>.</p>
+<code class="paramref">fromIndex</code> to <code class="paramref">toIndex</code>
+optionally limiting the documents found in <code class="paramref">fromIndex</code> by using <code class="paramref">selector</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -6172,13 +6179,13 @@ optionally limiting the documents found in <code data-dev-comment-type="paramref
         <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
         <td><span class="parametername">toIndex</span></td>
         <td><p>The target index, if it does not exist already will be created using the same settings of
-<code data-dev-comment-type="paramref" class="paramref">fromIndex</code></p>
+<code class="paramref">fromIndex</code></p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.QueryContainerDescriptor-1.html">QueryContainerDescriptor</a>&lt;TSource&gt;, <a class="xref" href="OpenSearch.Client.QueryContainer.html">QueryContainer</a>&gt;</td>
         <td><span class="parametername">selector</span></td>
-        <td><p>an optional query limiting the documents found in <code data-dev-comment-type="paramref" class="paramref">fromIndex</code></p>
+        <td><p>an optional query limiting the documents found in <code class="paramref">fromIndex</code></p>
 </td>
       </tr>
       <tr>
@@ -6367,8 +6374,8 @@ optionally limiting the documents found in <code data-dev-comment-type="paramref
   <a id="OpenSearch_Client_IOpenSearchClient_Reindex_" data-uid="OpenSearch.Client.IOpenSearchClient.Reindex*"></a>
   <h4 id="OpenSearch_Client_IOpenSearchClient_Reindex__2_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_System_Func___0___1__System_Func_OpenSearch_Client_QueryContainerDescriptor___0__OpenSearch_Client_QueryContainer__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.IOpenSearchClient.Reindex``2(OpenSearch.Client.IndexName,OpenSearch.Client.IndexName,System.Func{``0,``1},System.Func{OpenSearch.Client.QueryContainerDescriptor{``0},OpenSearch.Client.QueryContainer},System.Threading.CancellationToken)">Reindex&lt;TSource, TTarget&gt;(IndexName, IndexName, Func&lt;TSource, TTarget&gt;, Func&lt;QueryContainerDescriptor&lt;TSource&gt;, QueryContainer&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simplified form for reindex which will cover 80% of its usecases. Allows you to index all documents of type T from
-<code data-dev-comment-type="paramref" class="paramref">fromIndex</code> to <code data-dev-comment-type="paramref" class="paramref">toIndex</code>
-optionally limiting the documents found in <code data-dev-comment-type="paramref" class="paramref">fromIndex</code> by using <code data-dev-comment-type="paramref" class="paramref">selector</code>.</p>
+<code class="paramref">fromIndex</code> to <code class="paramref">toIndex</code>
+optionally limiting the documents found in <code class="paramref">fromIndex</code> by using <code class="paramref">selector</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -6395,7 +6402,7 @@ optionally limiting the documents found in <code data-dev-comment-type="paramref
         <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
         <td><span class="parametername">toIndex</span></td>
         <td><p>The target index, if it does not exist already will be created using the same settings of
-<code data-dev-comment-type="paramref" class="paramref">fromIndex</code></p>
+<code class="paramref">fromIndex</code></p>
 </td>
       </tr>
       <tr>
@@ -6406,7 +6413,7 @@ optionally limiting the documents found in <code data-dev-comment-type="paramref
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.QueryContainerDescriptor-1.html">QueryContainerDescriptor</a>&lt;TSource&gt;, <a class="xref" href="OpenSearch.Client.QueryContainer.html">QueryContainer</a>&gt;</td>
         <td><span class="parametername">selector</span></td>
-        <td><p>an optional query limiting the documents found in <code data-dev-comment-type="paramref" class="paramref">fromIndex</code></p>
+        <td><p>an optional query limiting the documents found in <code class="paramref">fromIndex</code></p>
 </td>
       </tr>
       <tr>

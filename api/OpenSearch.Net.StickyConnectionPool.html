@@ -264,7 +264,10 @@
   </span>
   <a id="OpenSearch_Net_StickyConnectionPool_CreateView_" data-uid="OpenSearch.Net.StickyConnectionPool.CreateView*"></a>
   <h4 id="OpenSearch_Net_StickyConnectionPool_CreateView_System_Action_OpenSearch_Net_AuditEvent_OpenSearch_Net_Node__" data-uid="OpenSearch.Net.StickyConnectionPool.CreateView(System.Action{OpenSearch.Net.AuditEvent,OpenSearch.Net.Node})">CreateView(Action&lt;AuditEvent, Node&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a view of all the live nodes with changing starting positions that wraps over on each call
+e.g Thread A might get 1,2,3,4,5 and thread B will get 2,3,4,5,1.
+if there are no live nodes yields a different dead node to try once</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -313,7 +316,8 @@
   </span>
   <a id="OpenSearch_Net_StickyConnectionPool_Reseed_" data-uid="OpenSearch.Net.StickyConnectionPool.Reseed*"></a>
   <h4 id="OpenSearch_Net_StickyConnectionPool_Reseed_System_Collections_Generic_IEnumerable_OpenSearch_Net_Node__" data-uid="OpenSearch.Net.StickyConnectionPool.Reseed(System.Collections.Generic.IEnumerable{OpenSearch.Net.Node})">Reseed(IEnumerable&lt;Node&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Reseeds the nodes. The implementation is responsible for thread safety</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
