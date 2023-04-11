@@ -22,9 +22,9 @@
       },
       "SharpZipLib": {
         "type": "Direct",
-        "requested": "[1.4.1, )",
-        "resolved": "1.4.1",
-        "contentHash": "X8QiHZS7+bbZy85LfpKCAL9oh0yZkiiecWhQL5F1Yn1AKFDYiOzR3UG5vI+9bDYGRGyseVdMW5sTH8mv8LXF1g==",
+        "requested": "[1.4.2, )",
+        "resolved": "1.4.2",
+        "contentHash": "yjj+3zgz8zgXpiiC3ZdF/iyTBbz2fFvMxZFEBPUcwZjIvXOf37Ylm+K58hqMfIBt5JgU/Z2uoUS67JmTLe973A==",
         "dependencies": {
           "System.Memory": "4.5.4",
           "System.Threading.Tasks.Extensions": "4.5.2"

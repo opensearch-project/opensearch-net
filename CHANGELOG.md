@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 4.0.3 to 5.0.2
 - Bumps `Fake.Core.Environment` from 5.23.1 to 6.0.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.4.1 to 17.5.0
+- Bumps `SharpZipLib` from 1.4.1 to 1.4.2
 
 ## [1.3.0]
 ### Added
