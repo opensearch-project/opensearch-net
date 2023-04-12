@@ -9,6 +9,6 @@
 	var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : string.Empty;
 	var cancellationToken = !Model.Async ? string.Empty : ", ct";
 }
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", syntax); }
-public @(asyncKeyword)@{ await IncludeAsync("HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml", Model);} @Raw("=>")
+@{ await IncludeAsync("HighLevel.Client.MethodXmlDocs", syntax); }
+public @(asyncKeyword)@{ await IncludeAsync("HighLevel.Client.FluentSyntax.FluentMethodHeader", Model);} @Raw("=>")
 	@(awaitKeyWord)@(method)@(Raw(syntax.RequestMethodGenerics))(selector.InvokeOrDefault(new @(Raw(syntax.DescriptorName))(@Raw(syntax.SelectorArguments()))@syntax.SelectorChainedDefaults())@cancellationToken)@Raw(configureAwait);

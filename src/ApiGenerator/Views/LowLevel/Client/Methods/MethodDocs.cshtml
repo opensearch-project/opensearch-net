@@ -1,7 +1,7 @@
 @using ApiGenerator.Domain.Code.LowLevel
 @using ApiGenerator.Domain.Specification
 @inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
-///<summary>@Model.HttpMethod on @Model.Path@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
+///<summary>@Model.HttpMethod on @Model.Path@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
 @foreach (var part in Model.Parts)
 {
 <text>		///@Raw($"<param name=\"{part.NameAsArgument}\">")@part.Description@Raw("</param>")

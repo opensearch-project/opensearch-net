@@ -4,7 +4,7 @@
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 @{
 	var (ns, endpoints) = Model;
 }
@@ -42,7 +42,7 @@ namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNames
 		var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
 		foreach (var method in methods)
 		{
-			await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", method);
+			await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
 		}
 	}
 	}

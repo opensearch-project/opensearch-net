@@ -30,8 +30,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Generator;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ApiGenerator.Domain.Specification;
 
@@ -197,20 +195,4 @@ public class QueryParameterDeprecation
 	public string Version { get; set; }
 
 	public string Description { get; set; }
-}
-
-internal class QueryParameterDeprecationConverter : JsonConverter
-{
-	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
-
-	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-	{
-		if (reader.TokenType == JsonToken.Boolean)
-			return new QueryParameterDeprecation();
-
-		var jObject = JObject.Load(reader);
-		return jObject.ToObject<QueryParameterDeprecation>(JsonSerializer.CreateDefault());
-	}
-
-	public override bool CanConvert(Type objectType) => typeof(QueryParameterDeprecation).IsAssignableFrom(objectType);
 }

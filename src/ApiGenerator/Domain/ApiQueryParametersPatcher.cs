@@ -39,8 +39,7 @@ public static class ApiQueryParametersPatcher
 	public static SortedDictionary<string, QueryParameters> Patch(
 		string endpointName,
 		IDictionary<string, QueryParameters> source,
-		IEndpointOverrides overrides,
-		bool checkCommon = true
+		IEndpointOverrides overrides
 	)
 	{
 		if (source == null) return null;
@@ -54,16 +53,9 @@ public static class ApiQueryParametersPatcher
 		var obsoleteLookup = CreateObsoleteLookup(globalOverrides, overrides, declaredKeys);
 
 		var patchedParams = new SortedDictionary<string, QueryParameters>();
-		var name = overrides?.GetType().Name ?? endpointName ?? "unknown";
 		foreach (var (key, value) in source)
 		{
 			value.QueryStringKey = key;
-
-			if (checkCommon && RestApiSpec.CommonApiQueryParameters.ContainsKey(key))
-			{
-				Generator.ApiGenerator.Warnings.Add($"key '{key}' in {name} is already declared in _common.json");
-				continue;
-			}
 
 			if (!renameLookup.TryGetValue(key, out var preferredName)) preferredName = key;
 			value.ClsName = CreateCSharpName(preferredName, endpointName);

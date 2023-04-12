@@ -7,7 +7,7 @@
 	var (ns, endpoints) = Model;
 	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
@@ -31,6 +31,6 @@ namespace OpenSearch.Client
 {
 @foreach (var endpoint in endpoints)
 {
-	await IncludeAsync("HighLevel/Descriptors/Descriptor.cshtml", endpoint.DescriptorPartialImplementation);
+	await IncludeAsync("HighLevel.Descriptors.Descriptor", endpoint.DescriptorPartialImplementation);
 }
 }

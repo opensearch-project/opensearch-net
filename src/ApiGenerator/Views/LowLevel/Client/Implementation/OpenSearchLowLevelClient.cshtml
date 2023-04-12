@@ -3,7 +3,7 @@
 @using ApiGenerator 
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
-@{ await IncludeAsync("LowLevel/Client/Usings.cshtml", Model);}
+@{ await IncludeAsync("LowLevel.Client.Usings", Model);}
 using static OpenSearch.Net.HttpMethod;
 
 @{
@@ -59,7 +59,7 @@ namespace OpenSearch.Net
 		var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
 		foreach (var method in methods)
 		{
-			await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", method);
+			await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
 		}
 	}
 	<text>

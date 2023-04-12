@@ -29,7 +29,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace ApiGenerator.Domain.Specification;
 
@@ -38,14 +37,11 @@ public class UrlInformation
 {
 	public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-	[JsonProperty("paths")]
-	private IReadOnlyCollection<string> OriginalPaths { get; set; }
+	public IList<string> OriginalPaths { get; set; } = new List<string>();
 
-	[JsonProperty("parts")]
-	public IDictionary<string, UrlPart> OriginalParts { get; set; }
+	public IDictionary<string, UrlPart> OriginalParts { get; set; } = new SortedDictionary<string, UrlPart>();
 
-	[JsonProperty("deprecated_paths")]
-	private IReadOnlyCollection<DeprecatedPath> DeprecatedPaths { get; set; }
+	public IList<DeprecatedPath> DeprecatedPaths { get; set; } = new List<DeprecatedPath>();
 
 	private List<UrlPath> _paths;
 

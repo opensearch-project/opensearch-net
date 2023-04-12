@@ -44,7 +44,6 @@ public static class Program
 	/// <summary>
 	/// A main function can also take <see cref="CancellationToken"/> which is hooked up to support termination (e.g CTRL+C)
 	/// </summary>
-	/// <param name="branch">The stack's branch we are targeting the generation for</param>
 	/// <param name="interactive">Run the generation interactively, this will ignore all flags</param>
 	/// <param name="download">Whether to download the specs or use an already downloaded copy</param>
 	/// <param name="includeHighLevel">Also generate the high level client (OpenSearch.Client)</param>
@@ -52,16 +51,14 @@ public static class Program
 	/// <param name="token"></param>
 	/// <returns></returns>
 	private static async Task<int> Main(
-		string branch, bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
+		bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
 		, CancellationToken token = default
 	)
 	{
 		Interactive = interactive;
 		try
 		{
-			if (string.IsNullOrEmpty(branch)) throw new ArgumentException("--branch can not be null");
-
-			await Generate(download, branch, includeHighLevel, skipGenerate, token);
+			await Generate(download, includeHighLevel, skipGenerate, token);
 		}
 		catch (OperationCanceledException)
 		{
@@ -81,7 +78,7 @@ public static class Program
 		return 0;
 	}
 
-	private static async Task Generate(bool download, string branch, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
+	private static async Task Generate(bool download, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
 	{
 		var generateCode = Ask("Generate code from the specification files on disk?", !skipGenerate);
 		var lowLevelOnly = generateCode && Ask("Generate low level client only?", !includeHighLevel);
@@ -111,10 +108,10 @@ public static class Program
 		AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
 		Console.WriteLine();
 
-		var spec = Generator.ApiGenerator.CreateRestApiSpecModel("Core");
+		var spec = await Generator.ApiGenerator.CreateRestApiSpecModel("/Users/tsfarr/Development/opensearch-api-specification/build/smithyprojections/opensearch-api-specification/full/openapi/OpenSearch.openapi.json");
 		if (!lowLevelOnly)
 		{
-			foreach (var endpoint in spec.Endpoints.Select(e => e.Value.FileName))
+			foreach (var endpoint in spec.Endpoints.Keys)
 			{
 				if (CodeConfiguration.IsNewHighLevelApi(endpoint)
 				    && Ask($"Generate highlevel code for new api {endpoint}", false))

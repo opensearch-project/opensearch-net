@@ -36,30 +36,6 @@ namespace ApiGenerator.Configuration;
 
 public static class CodeConfiguration
 {
-	/// <summary> These APIs are not implemented yet in the low and high level client</summary>
-	public static string[] IgnoredApis { get; } =
-	{
-		// To be removed
-		"indices.upgrade.json", "indices.get_upgrade.json"
-	};
-
-	private static string[] IgnoredApisHighLevel { get; } =
-	{
-		"indices.delete_index_template.json", "indices.exists_index_template.json", "indices.get_index_template.json",
-		"indices.put_index_template.json", "indices.simulate_index_template.json", "indices.simulate_template.json",
-		"get_script_context.json", // 7.7 experimental
-		"get_script_languages.json", // 7.7 experimental
-
-		"indices.exist_type.json", // already removed on client
-
-		"rank_eval.json", // 7.7 experimental
-		"scripts_painless_context.json", // 7.7 experimental
-		"cluster.delete_component_template.json", // 7.8 experimental
-		"cluster.get_component_template.json", // 7.8 experimental
-		"cluster.put_component_template.json", // 7.8 experimental
-		"cluster.exists_component_template.json" // 7.8 experimental
-	};
-
 	/// <summary>
 	/// Map API default names for API's we are only supporting on the low level client first
 	/// </summary>
@@ -107,23 +83,16 @@ public static class CodeConfiguration
 
 	public static readonly HashSet<string> EnableHighLevelCodeGen = new();
 
-	public static bool IsNewHighLevelApi(string apiFileName) =>
-		// if its explicitly ignored we know about it.
-		!IgnoredApis.Contains(apiFileName)
-		&& !IgnoredApisHighLevel.Contains(apiFileName)
-		// no requests with [MapsApi("filename.json")] found
-		&& !HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""));
+	public static bool IsNewHighLevelApi(string endpoint) =>
+		!HighLevelApiNameMapping.ContainsKey(endpoint);
 
-	public static bool IgnoreHighLevelApi(string apiFileName)
+	public static bool IgnoreHighLevelApi(string endpoint)
 	{
-		//explicitly ignored
-		if (IgnoredApis.Contains(apiFileName) || IgnoredApisHighLevel.Contains(apiFileName)) return true;
-
 		//always generate already mapped requests
 
-		if (HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""))) return false;
+		if (HighLevelApiNameMapping.ContainsKey(endpoint)) return false;
 
-		return !EnableHighLevelCodeGen.Contains(apiFileName);
+		return !EnableHighLevelCodeGen.Contains(endpoint);
 	}
 
 	public static readonly Dictionary<string, string> ApiNameMapping =
@@ -230,7 +199,7 @@ public static class CodeConfiguration
 		{ "ScrollResponse", ("SearchResponse", "<TDocument>") },
 		{ "SearchTemplateResponse", ("SearchResponse", "<TDocument>") }
 	};
-	
+
 	/// <summary> Create a dictionary lookup of all responses and their generics </summary>
 	public static readonly IDictionary<string, (string, string)> ResponseLookup =
 		ClientResponseCsharpFiles

@@ -40,9 +40,9 @@ public class EnumsGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		var view = ViewLocations.LowLevel("Enums.Generated.cshtml");
+		var view = ViewLocations.LowLevel("Enums.Generated");
 		var target = GeneratorLocations.LowLevel("Api", "Enums.Generated.cs");
 
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 	}
 }

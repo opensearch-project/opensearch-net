@@ -4,7 +4,7 @@
 @using ApiGenerator
 @using ApiGenerator.Configuration.Overrides
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 @functions {
 	private const string RawSize = "Raw";
 	private const string SizeEnum = "Size";

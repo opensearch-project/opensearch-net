@@ -47,12 +47,12 @@ public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "OpenSearchLowLevelClient.*.cs"))
 			File.Delete(file);
 
-		var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
+		var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient");
 		var target = GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs");
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 
 		var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-		var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace.cshtml");
+		var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace");
 		await DoRazorDependantFiles(progressBar, namespaced, namespacedView, kv => kv.Key,
 			id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.cs"), token);
 	}

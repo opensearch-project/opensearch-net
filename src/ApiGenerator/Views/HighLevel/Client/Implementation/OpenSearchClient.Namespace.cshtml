@@ -6,7 +6,7 @@
 @{
 	var (ns, endpoints) = Model;
 }
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
@@ -28,7 +28,7 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNa
 		internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
 		@foreach(var e in endpoints)
 		{
-			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", e.HighLevelModel);
+			await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
 		}
 	}
 }

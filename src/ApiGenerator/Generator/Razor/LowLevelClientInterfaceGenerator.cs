@@ -40,9 +40,9 @@ public class LowLevelClientInterfaceGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		var view = ViewLocations.LowLevel("Client", "Interface", "IOpenSearchLowLevelClient.cshtml");
+		var view = ViewLocations.LowLevel("Client", "Interface", "IOpenSearchLowLevelClient");
 		var target = GeneratorLocations.LowLevel("IOpenSearchLowLevelClient.Generated.cs");
 
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 	}
 }

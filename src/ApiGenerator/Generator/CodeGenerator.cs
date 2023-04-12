@@ -58,12 +58,12 @@ public static class CodeGenerator
 	public static string Constructor(Constructor c)
 	{
 		var components = new List<string>();
-		if (!c.Description.IsNullOrEmpty()) components.Add(c.Description);
+		if (!string.IsNullOrEmpty(c.Description)) components.Add(c.Description);
 		var generated = c.Generated;
-		if (c.Body.IsNullOrEmpty()) generated += "{}";
+		if (string.IsNullOrEmpty(c.Body)) generated += "{}";
 		components.Add(generated);
-		if (!c.Body.IsNullOrEmpty()) components.Add(c.Body);
-		if (!c.AdditionalCode.IsNullOrEmpty()) components.Add(c.AdditionalCode);
+		if (!string.IsNullOrEmpty(c.Body)) components.Add(c.Body);
+		if (!string.IsNullOrEmpty(c.AdditionalCode)) components.Add(c.AdditionalCode);
 		return string.Join($"{Environment.NewLine}\t\t", components);
 	}
 

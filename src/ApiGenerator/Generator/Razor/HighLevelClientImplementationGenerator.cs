@@ -47,9 +47,9 @@ public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "OpenSearchClient.*.cs"))
 			File.Delete(file);
 
-		var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
+		var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient");
 		var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 
 		string Target(string id)
 		{
@@ -57,7 +57,7 @@ public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 		}
 
 		var namespaced = spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-		var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace.cshtml");
+		var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace");
 		await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, Target, token);
 	}
 }

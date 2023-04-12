@@ -46,7 +46,7 @@ public class RequestParametersGenerator : RazorGeneratorBase
 		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "RequestParameters.*.cs"))
 			File.Delete(file);
 
-		var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters.cshtml");
+		var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters");
 
 		string Target(string id)
 		{

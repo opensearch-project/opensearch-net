@@ -13,8 +13,8 @@
 		dispatchParameters += ", ct";
 	}
 }
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", syntax); }
-public @Raw(asyncKeyword)@{ await IncludeAsync("HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml", Model); } @Raw("=>")
+@{ await IncludeAsync("HighLevel.Client.MethodXmlDocs", syntax); }
+public @Raw(asyncKeyword)@{ await IncludeAsync("HighLevel.Client.InitializerSyntax.InitializerMethodHeader", Model); } @Raw("=>")
 	@(awaitKeyWord)@(dispatchMethod)@(Raw(syntax.DispatchGenerics))(@Raw(dispatchParameters))@Raw(configureAwait);
 
 

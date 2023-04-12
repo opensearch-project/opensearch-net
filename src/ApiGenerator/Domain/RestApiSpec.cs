@@ -30,7 +30,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
-using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
 
 namespace ApiGenerator.Domain;
@@ -43,8 +42,6 @@ public class EnumDescription
 
 public class RestApiSpec
 {
-	public static SortedDictionary<string, QueryParameters> CommonApiQueryParameters { get; set; }
-
 	public IDictionary<string, ApiEndpoint> Endpoints { get; set; }
 
 	public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
@@ -53,7 +50,6 @@ public class RestApiSpec
 
 	public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceHighLevel =>
 		Endpoints.Values
-			.Where(v => !CodeConfiguration.IgnoreHighLevelApi(v.FileName))
 			.GroupBy(e => e.CsharpNames.Namespace)
 			.ToImmutableSortedDictionary(kv => kv.Key, kv => kv.ToList().AsReadOnly());
 

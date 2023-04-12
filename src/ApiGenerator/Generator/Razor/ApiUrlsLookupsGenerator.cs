@@ -40,9 +40,9 @@ public class ApiUrlsLookupsGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup.cshtml");
+		var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup");
 		var target = GeneratorLocations.HighLevel("_Generated", "ApiUrlsLookup.generated.cs");
 
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 	}
 }

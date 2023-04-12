@@ -3,7 +3,7 @@
 @using ApiGenerator
 @using ApiGenerator.Configuration
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 namespace OpenSearch.Client
 {
 	internal static class ApiUrlsLookups 

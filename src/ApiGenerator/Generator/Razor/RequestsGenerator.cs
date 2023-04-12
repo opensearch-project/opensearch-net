@@ -46,11 +46,11 @@ public class RequestsGenerator : RazorGeneratorBase
 		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Requests.*.cs"))
 			File.Delete(file);
 
-		var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
+		var view = ViewLocations.HighLevel("Requests", "PlainRequestBase");
 		var target = GeneratorLocations.HighLevel("Requests.cs");
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 
-		var dependantView = ViewLocations.HighLevel("Requests", "Requests.cshtml");
+		var dependantView = ViewLocations.HighLevel("Requests", "Requests");
 
 		string Target(string id)
 		{

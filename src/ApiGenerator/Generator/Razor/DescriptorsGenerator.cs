@@ -46,11 +46,11 @@ public class DescriptorsGenerator : RazorGeneratorBase
 		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Descriptors.*.cs"))
 			File.Delete(file);
 
-		var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase.cshtml");
+		var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase");
 		var target = GeneratorLocations.HighLevel("Descriptors.cs");
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 
-		var dependantView = ViewLocations.HighLevel("Descriptors", "Descriptors.cshtml");
+		var dependantView = ViewLocations.HighLevel("Descriptors", "Descriptors");
 
 		string Target(string id)
 		{

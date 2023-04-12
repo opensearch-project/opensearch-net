@@ -31,13 +31,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using RazorLight;
 using RazorLight.Generation;
-using RazorLight.Razor;
 using ShellProgressBar;
 
 namespace ApiGenerator.Generator.Razor;
@@ -45,18 +43,18 @@ namespace ApiGenerator.Generator.Razor;
 public abstract class RazorGeneratorBase
 {
 	private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
-		.UseProject(new FileSystemRazorProject(Path.GetFullPath(ViewLocations.Root)))
+		.UseEmbeddedResourcesProject(typeof(RazorGeneratorBase).Assembly, "ApiGenerator.Views")
+		.SetOperatingAssembly(typeof(RazorGeneratorBase).Assembly)
 		.UseMemoryCachingProvider()
+		.EnableDebugMode()
 		.Build();
 
-	protected async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, string cacheNameSuffix, CancellationToken token)
+	protected async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
 	{
 		try
 		{
-			var name = GetType().Name + cacheNameSuffix;
-			var sourceFileContents = await File.ReadAllTextAsync(viewLocation, token);
 			token.ThrowIfCancellationRequested();
-			var generated = await Engine.CompileRenderStringAsync(name, sourceFileContents, model);
+			var generated = await Engine.CompileRenderAsync(viewLocation, model);
 			WriteFormattedCsharpFile(targetLocation, generated);
 		}
 		catch (TemplateGenerationException e)
@@ -78,7 +76,7 @@ public abstract class RazorGeneratorBase
 		{
 			var id = identifier(item);
 			var targetLocation = target(id);
-			await DoRazor(item, viewLocation, targetLocation, id, token);
+			await DoRazor(item, viewLocation, targetLocation, token);
 			c.Tick($"{Title}: {id}");
 		}
 	}

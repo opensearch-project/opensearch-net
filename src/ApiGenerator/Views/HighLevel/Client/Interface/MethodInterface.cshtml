@@ -3,9 +3,9 @@
 @using HighLevelModel = ApiGenerator.Domain.Code.HighLevel.Methods.HighLevelModel
 @inherits CodeTemplatePage<HighLevelModel>
 @{
-	const string xmlDocsPath = "HighLevel/Client/MethodXmlDocs.cshtml";
-	const string fluentPath = "HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml";
-	const string initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml";
+	const string xmlDocsPath = "HighLevel.Client.MethodXmlDocs";
+	const string fluentPath = "HighLevel.Client.FluentSyntax.FluentMethodHeader";
+	const string initializerPath = "HighLevel.Client.InitializerSyntax.InitializerMethodHeader";
 }
 
 @{ await IncludeAsync(xmlDocsPath, Model.Fluent); }

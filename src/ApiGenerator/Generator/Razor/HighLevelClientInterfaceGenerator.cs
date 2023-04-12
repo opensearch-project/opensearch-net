@@ -40,9 +40,9 @@ public class HighLevelClientInterfaceGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient.cshtml");
+		var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient");
 		var target = GeneratorLocations.HighLevel("IOpenSearchClient.Generated.cs");
 
-		await DoRazor(spec, view, target, null, token);
+		await DoRazor(spec, view, target, token);
 	}
 }

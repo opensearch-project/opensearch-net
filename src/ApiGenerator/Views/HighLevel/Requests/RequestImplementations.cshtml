@@ -6,7 +6,7 @@
 @{
 	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-///<summary>Request for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
+///<summary>Request for @Model.CsharpNames.MethodName@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
 @if (Model.Stability != Stability.Stable)
 {
 	var warningMessage = Model.Stability switch

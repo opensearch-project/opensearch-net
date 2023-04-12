@@ -8,7 +8,7 @@
 	var baseInterface = Model.CsharpNames.GenericOrNonGenericInterfacePreference;
 	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-	///<summary>Descriptor for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
+	///<summary>Descriptor for @Model.CsharpNames.MethodName@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
 	public partial class @Raw(type) @Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,Model.CsharpNames.ParametersName, concreteInterface))
 { 
 		internal override ApiUrls ApiUrls => @apiLookup;
@@ -49,7 +49,7 @@
 	var g = typed ? Model.CsharpNames.GenericsDeclaredOnDescriptor.Replace("<", "").Replace(">", "") : "T";
 	var desc = param.DescriptionHighLevel.ToList();
 	
-	await IncludeAsync("HighLevel/Descriptors/XmlDocs.cshtml", desc);
+	await IncludeAsync("HighLevel.Descriptors.XmlDocs", desc);
 	if(!string.IsNullOrWhiteSpace(param.Obsolete))
 	{
 		<text>

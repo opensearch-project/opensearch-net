@@ -3,13 +3,13 @@
 @using ApiGenerator 
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Client;
-@{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
+@{ await IncludeAsync("HighLevel.Client.Usings", Model);}
 
 @{
 	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
@@ -47,7 +47,7 @@ namespace OpenSearch.Client
 	{
 		foreach (var e in endpoints)
 		{
-			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", e.HighLevelModel);
+			await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
 		}
 	}
 	<text>

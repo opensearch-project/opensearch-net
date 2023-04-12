@@ -28,15 +28,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
-using ApiGenerator.Domain.Specification;
 using ApiGenerator.Generator.Razor;
-using Newtonsoft.Json.Linq;
+using NSwag;
 using ShellProgressBar;
 
 namespace ApiGenerator.Generator;
@@ -82,64 +80,18 @@ public class ApiGenerator
 			await DoGenerate(highLevelGenerators, spec, true, token);
 	}
 
-	public static RestApiSpec CreateRestApiSpecModel(params string[] folders)
+	public static async Task<RestApiSpec> CreateRestApiSpecModel(string file)
 	{
-		var directories = Directory.GetDirectories(GeneratorLocations.RestSpecificationFolder, "*", SearchOption.AllDirectories)
-			.Where(f => folders == null || folders.Length == 0 || folders.Contains(new DirectoryInfo(f).Name))
-			.OrderBy(f => new FileInfo(f).Name)
-			.ToList();
+		var document = await OpenApiYamlDocument.FromFileAsync(file);
 
-		var endpoints = new SortedDictionary<string, ApiEndpoint>();
-		var seenFiles = new HashSet<string>();
-		using (var pbar = new ProgressBar(directories.Count, $"Listing {directories.Count} directories",
-				   new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.DarkGray, CollapseWhenFinished = false }))
-		{
-			var folderFiles = directories.Select(dir =>
-				Directory.GetFiles(dir)
-					.Where(f => f.EndsWith(".json") && !CodeConfiguration.IgnoredApis.Contains(new FileInfo(f).Name))
-					.ToList()
-			);
-			var commonFile = Path.Combine(GeneratorLocations.RestSpecificationFolder, "Core", "_common.json");
-			if (!File.Exists(commonFile)) throw new Exception($"Expected to find {commonFile}");
-
-			RestApiSpec.CommonApiQueryParameters = CreateCommonApiQueryParameters(commonFile);
-
-			foreach (var jsonFiles in folderFiles)
-			{
-				using (var fileProgress = pbar.Spawn(jsonFiles.Count, $"Listing {jsonFiles.Count} files",
-						   new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.DarkGray }))
-				{
-					foreach (var file in jsonFiles)
-					{
-						if (file.EndsWith("_common.json")) continue;
-						if (file.EndsWith(".patch.json")) continue;
-
-						var endpoint = ApiEndpointFactory.FromFile(file);
-						seenFiles.Add(Path.GetFileNameWithoutExtension(file));
-						endpoints.Add(endpoint.Name, endpoint);
-
-						fileProgress.Tick();
-					}
-				}
-				pbar.Tick();
-			}
-		}
-		var wrongMapsApi = CodeConfiguration.ApiNameMapping.Where(k => !string.IsNullOrWhiteSpace(k.Key) && !seenFiles.Contains(k.Key));
-		foreach (var (key, value) in wrongMapsApi)
-		{
-			Warnings.Add(CodeConfiguration.IgnoredApis.Contains($"{value}.json")
-				? $"{value} uses MapsApi: {key} ignored in ${nameof(CodeConfiguration)}.{nameof(CodeConfiguration.IgnoredApis)}"
-				: $"{value} uses MapsApi: {key} which does not exist");
-		}
+		var endpoints = document.Paths
+			.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
+			.SelectMany(p => p.PathItem.Select(kv => new { p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value }))
+			.GroupBy(o => o.Operation.ExtensionData["x-operation-group"].ToString())
+			.ToImmutableSortedDictionary(o => o.Key,
+				o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()));
 
 		return new RestApiSpec { Endpoints = endpoints };
 	}
 
-	private static SortedDictionary<string, QueryParameters> CreateCommonApiQueryParameters(string jsonFile)
-	{
-		var json = File.ReadAllText(jsonFile);
-		var jobject = JObject.Parse(json);
-		var commonParameters = jobject.Property("params").Value.ToObject<Dictionary<string, QueryParameters>>();
-		return ApiQueryParametersPatcher.Patch(null, commonParameters, null, false);
-	}
 }

@@ -70,7 +70,7 @@ public class CsharpNames
 	public string RestSpecName { get; }
 
 	/// <summary>
-	/// The pascal cased method name as loaded by <see cref="ApiEndpointFactory.FromFile"/>
+	/// The pascal cased method name as loaded by <see cref="ApiEndpointFactory.From"/>
 	/// <pre>Uses <see cref="CodeConfiguration.ApiNameMapping"/> mapping of request implementations in the OSC code base</pre>
 	/// </summary>
 	public string MethodName { get; }
@@ -171,10 +171,10 @@ public class CsharpNames
 
 	public bool DescriptorNotFoundInCodebase => !CodeConfiguration.DescriptorGenericsLookup.TryGetValue(DescriptorName, out _);
 
-	public string GenericDescriptorName => GenericsDeclaredOnDescriptor.IsNullOrEmpty() ? null : $"{DescriptorName}{GenericsDeclaredOnDescriptor}";
-	public string GenericRequestName => GenericsDeclaredOnRequest.IsNullOrEmpty() ? null : $"{RequestName}{GenericsDeclaredOnRequest}";
-	public string GenericInterfaceName => GenericsDeclaredOnRequest.IsNullOrEmpty() ? null : $"I{GenericRequestName}";
-	public string GenericResponseName => GenericsDeclaredOnResponse.IsNullOrEmpty() ? null : $"{ResponseName}{GenericsDeclaredOnResponse}";
+	public string GenericDescriptorName => string.IsNullOrEmpty(GenericsDeclaredOnDescriptor) ? null : $"{DescriptorName}{GenericsDeclaredOnDescriptor}";
+	public string GenericRequestName => string.IsNullOrEmpty(GenericsDeclaredOnRequest) ? null : $"{RequestName}{GenericsDeclaredOnRequest}";
+	public string GenericInterfaceName => string.IsNullOrEmpty(GenericsDeclaredOnRequest) ? null : $"I{GenericRequestName}";
+	public string GenericResponseName => string.IsNullOrEmpty(GenericsDeclaredOnResponse) ? null : $"{ResponseName}{GenericsDeclaredOnResponse}";
 
 	public string GenericOrNonGenericDescriptorName => GenericDescriptorName ?? DescriptorName;
 	public string GenericOrNonGenericInterfaceName => GenericInterfaceName ?? RequestInterfaceName;

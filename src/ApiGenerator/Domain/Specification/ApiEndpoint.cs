@@ -33,16 +33,11 @@ using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Code.HighLevel.Methods;
 using ApiGenerator.Domain.Code.HighLevel.Requests;
 using ApiGenerator.Domain.Code.LowLevel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace ApiGenerator.Domain.Specification;
 
 public class ApiEndpoint
 {
-	/// <summary> The filename of the spec describing the api endpoint </summary>
-	public string FileName { get; set; }
-
 	/// <summary> The original name as declared in the spec </summary>
 	public string Name { get; set; }
 
@@ -55,18 +50,14 @@ public class ApiEndpoint
 	/// <summary> Computed Csharp identifier names </summary>
 	public CsharpNames CsharpNames { get; set; }
 
-	[JsonConverter(typeof(StringEnumConverter))]
-	[JsonProperty("stability")]
 	public Stability Stability { get; set; }
 
-	[JsonProperty("documentation")]
 	public Documentation OfficialDocumentationLink { get; set; }
 
 	public UrlInformation Url { get; set; }
 
 	public Body Body { get; set; }
 
-	[JsonProperty("methods")]
 	public IReadOnlyCollection<string> HttpMethods { get; set; }
 
 	public IEndpointOverrides Overrides { get; internal set; }

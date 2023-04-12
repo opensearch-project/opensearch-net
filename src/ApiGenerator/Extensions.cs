@@ -64,8 +64,6 @@ public static class Extensions
 	public static string SplitPascalCase(this string s) =>
 		Regex.Replace(s, "([A-Z]+[a-z]*)", " $1").Trim();
 
-	public static bool IsNullOrEmpty(this string s) => string.IsNullOrEmpty(s);
-
 	public static TDictionary OverrideWith<TKey, TValue, TDictionary>(this TDictionary original, IDictionary<TKey, TValue> overrides)
 		where TDictionary: IDictionary<TKey, TValue>
 	{
