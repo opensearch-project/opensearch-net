@@ -38,11 +38,10 @@ public class ApiUrlsLookupsGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Client static url lookups";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup");
-		var target = GeneratorLocations.HighLevel("_Generated", "ApiUrlsLookup.generated.cs");
-
-		await DoRazor(spec, view, target, token);
-	}
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
+		await DoRazor(
+			spec,
+			ViewLocations.HighLevel("Requests", "ApiUrlsLookup"),
+			GeneratorLocations.HighLevel("_Generated", "ApiUrlsLookup.generated.cs"),
+			token);
 }

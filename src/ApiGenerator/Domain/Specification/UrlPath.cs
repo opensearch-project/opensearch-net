@@ -62,13 +62,10 @@ public class UrlPath
 			Parts = new List<UrlPart>();
 			return;
 		}
-		var parts =
-			from p in allParts
-			//so deliciously side effect-y but at least its more isolated then in ApiEndpoint.CsharpMethods
-			let name = p.Value.Name = p.Key
-			where path.Contains($"{{{name}}}")
-			orderby path.IndexOf($"{{{name}}}", StringComparison.Ordinal)
-			select p.Value;
+		var parts = allParts.Select(p => new { p, name = p.Value.Name = p.Key })
+			.Where(t => path.Contains($"{{{t.name}}}"))
+			.OrderBy(t => path.IndexOf($"{{{t.name}}}", StringComparison.Ordinal))
+			.Select(t => t.p.Value);
 		Parts = parts.ToList();
 	}
 
@@ -105,20 +102,11 @@ public class UrlPath
 		if (!parts.Any()) return doc;
 
 		doc += indent;
-		doc += string.Join(indent, parts.Select(ParamDoc));
+		doc += string.Join(indent, parts.Select(p => P(p.NameAsArgument, documentConstructor
+			? "The document used to resolve the path from"
+			: p.Required
+				? "this parameter is required" : "Optional, accepts null")));
 		return doc;
-
-		string ParamDoc(UrlPart p)
-		{
-			return P(p.NameAsArgument, GetDescription(p));
-		}
-
-		string GetDescription(UrlPart p)
-		{
-			if (documentConstructor) return "The document used to resolve the path from";
-
-			return p.Required ? "this parameter is required" : "Optional, accepts null";
-		}
 	}
 
 	private static string P(string name, string description) => $"///<param name=\"{name}\">{description}</param>";

@@ -71,21 +71,20 @@ public class RestApiSpec
 				return methodName.StartsWith(@namespace) ? methodName + name : @namespace + methodName + name;
 			}
 
-			var urlParameterEnums = (
-				from e in Endpoints.Values
-				from para in e.Url.Params.Values
-				where para.Options != null && para.Options.Any()
-				let name = CreateName(para.ClsName, e.CsharpNames.MethodName, e.CsharpNames.Namespace)
-				where name != "Time"
-				select new EnumDescription { Name = name, Options = para.Options }).ToList();
+			var urlParameterEnums = Endpoints.Values
+				.SelectMany(e => e.Url.Params.Values, (e, param) => new { e, param })
+				.Where(t => t.param.Options?.Any() ?? false)
+				.Select(t => new { t.param, name = CreateName(t.param.ClsName, t.e.CsharpNames.MethodName, t.e.CsharpNames.Namespace) })
+				.Where(t => t.name != "Time")
+				.Select(t => new EnumDescription { Name = t.name, Options = t.param.Options }).ToList();
 
-			var urlPartEnums = (
-				from e in Endpoints.Values
-				from part in e.Url.Parts
-				where part.Options != null && part.Options.Any()
-				select new EnumDescription
+			var urlPartEnums = Endpoints.Values
+				.SelectMany(e => e.Url.Parts, (e, part) => new { e, part })
+				.Where(t => t.part.Options?.Any() ?? false)
+				.Select(t => new EnumDescription
 				{
-					Name = CreateName(part.Name.ToPascalCase(), e.CsharpNames.MethodName, e.CsharpNames.Namespace), Options = part.Options
+					Name = CreateName(t.part.Name.ToPascalCase(), t.e.CsharpNames.MethodName, t.e.CsharpNames.Namespace),
+					Options = t.part.Options
 				}).ToList();
 
 			_enumDescriptions = urlPartEnums

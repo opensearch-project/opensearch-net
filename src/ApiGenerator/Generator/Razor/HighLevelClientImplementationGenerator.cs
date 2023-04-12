@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,21 +42,18 @@ public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		// Delete existing files
-		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "OpenSearchClient.*.cs"))
-			File.Delete(file);
+		await DoRazor(
+			spec,
+			ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient"),
+			GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs"),
+			token);
 
-		var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient");
-		var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
-		await DoRazor(spec, view, target, token);
-
-		string Target(string id)
-		{
-			return GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs");
-		}
-
-		var namespaced = spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-		var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace");
-		await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, Target, token);
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+			ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace"),
+			kv => kv.Key,
+			id => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs"),
+			token);
 	}
 }

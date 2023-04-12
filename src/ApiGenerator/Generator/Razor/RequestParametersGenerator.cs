@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,20 +39,12 @@ public class RequestParametersGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Net request parameters";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		// Delete existing files
-		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "RequestParameters.*.cs"))
-			File.Delete(file);
-
-		var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters");
-
-		string Target(string id)
-		{
-			return GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs");
-		}
-
-		var namespaced = spec.EndpointsPerNamespaceLowLevel.ToList();
-		await DoRazorDependantFiles(progressBar, namespaced, view, kv => kv.Key, Target, token);
-	}
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceLowLevel.ToList(),
+			ViewLocations.LowLevel("RequestParameters", "RequestParameters"),
+			kv => kv.Key,
+			id => GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs"),
+			token);
 }

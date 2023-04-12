@@ -36,20 +36,14 @@ namespace ApiGenerator.Generator;
 //TODO this should be in views and models
 public static class CodeGenerator
 {
-	public static string CatFormatPropertyGenerator(string type, string name, string key, string setter) =>
-		$"public {type} {name} {{ 	get => Q<{type}>(\"{key}\");	set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}}}";
-
-	public static string PropertyGenerator(string type, string name, string key, string setter) =>
-		$"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
-
 	public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, params string[] doc)
 	{
 		var components = RenderDocumentation(doc).ToList();
 		if (!string.IsNullOrWhiteSpace(obsolete)) components.Add($"[Obsolete(\"Scheduled to be removed in 8.0, {obsolete}\")]");
 
 		var generated = @namespace is "Cat" && name == "Format"
-			? CatFormatPropertyGenerator(type, name, key, setter)
-			: PropertyGenerator(type, name, key, setter);
+			? $"public {type} {name} {{ 	get => Q<{type}>(\"{key}\");	set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}}}"
+			: $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
 
 		components.Add(generated);
 		return string.Join($"{Environment.NewLine}\t\t", components);
@@ -93,12 +87,15 @@ public static class CodeGenerator
 		if (string.IsNullOrWhiteSpace(documentation)) return Array.Empty<string>();
 
 		const int max = 140;
-		var lines = documentation.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 		var charCount = 0;
-		return lines.GroupBy(w =>
-		{
-			var increase = charCount % max + w.Length + 1 >= max ? max - charCount % max : 0;
-			return (charCount += increase + w.Length + 1) / max;
-		}).Select(l => string.Join(" ", l.ToArray())).ToArray();
+		return documentation
+			.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+			.GroupBy(w =>
+			{
+				var increase = charCount % max + w.Length + 1 >= max ? max - charCount % max : 0;
+				return (charCount += increase + w.Length + 1) / max;
+			})
+			.Select(l => string.Join(" ", l))
+			.ToArray();
 	}
 }

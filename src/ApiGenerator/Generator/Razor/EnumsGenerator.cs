@@ -38,11 +38,10 @@ public class EnumsGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Net enums";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		var view = ViewLocations.LowLevel("Enums.Generated");
-		var target = GeneratorLocations.LowLevel("Api", "Enums.Generated.cs");
-
-		await DoRazor(spec, view, target, token);
-	}
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
+		await DoRazor(
+			spec,
+			ViewLocations.LowLevel("Enums.Generated"),
+			GeneratorLocations.LowLevel("Api", "Enums.Generated.cs"),
+			token);
 }

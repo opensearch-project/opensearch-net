@@ -49,13 +49,13 @@ public abstract class RazorGeneratorBase
 		.EnableDebugMode()
 		.Build();
 
-	protected async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
+	protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
 	{
 		try
 		{
 			token.ThrowIfCancellationRequested();
 			var generated = await Engine.CompileRenderAsync(viewLocation, model);
-			WriteFormattedCsharpFile(targetLocation, generated);
+			await WriteFormattedCsharpFile(targetLocation, generated, token);
 		}
 		catch (TemplateGenerationException e)
 		{
@@ -70,23 +70,24 @@ public abstract class RazorGeneratorBase
 		CancellationToken token
 	)
 	{
-		using var c = pbar.Spawn(items.Count, "Generating namespaces",
-			new ProgressBarOptions { ProgressCharacter = '─', ForegroundColor = ConsoleColor.Yellow });
+		using var c = pbar.Spawn(
+			items.Count,
+			"Generating namespaces",
+			new ProgressBarOptions { ProgressCharacter = '─', ForegroundColor = ConsoleColor.Yellow }
+		);
+
 		foreach (var item in items)
 		{
 			var id = identifier(item);
-			var targetLocation = target(id);
-			await DoRazor(item, viewLocation, targetLocation, token);
+			await DoRazor(item, viewLocation, target(id), token);
 			c.Tick($"{Title}: {id}");
 		}
 	}
 
-	private static void WriteFormattedCsharpFile(string path, string contents)
+	private static async Task WriteFormattedCsharpFile(string path, string contents, CancellationToken token)
 	{
-		var tree = CSharpSyntaxTree.ParseText(contents);
-		var root = tree.GetRoot().NormalizeWhitespace("\t", "\n");
-		contents = root.ToFullString();
-		File.WriteAllText(path, contents);
+		var root = await CSharpSyntaxTree.ParseText(contents, cancellationToken: token).GetRootAsync(token);
+		await File.WriteAllTextAsync(path, root.NormalizeWhitespace("\t", "\n").ToFullString(), token);
 	}
 
 	public abstract string Title { get; }

@@ -45,39 +45,39 @@ public class ApiGenerator
 
 	public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
 	{
-		static async Task DoGenerate(ICollection<RazorGeneratorBase> generators, RestApiSpec restApiSpec, bool highLevel, CancellationToken token)
+		async Task DoGenerate(bool highLevel, params RazorGeneratorBase[] generators)
 		{
-			var pbarOpts = new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.Yellow };
-			var message = $"Generating {(highLevel ? "high" : "low")} level code";
-			using var pbar = new ProgressBar(generators.Count, message, pbarOpts);
+			using var pbar = new ProgressBar(
+				generators.Length,
+				$"Generating {(highLevel ? "high" : "low")} level code",
+				new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.Yellow }
+			);
 			foreach (var generator in generators)
 			{
 				pbar.Message = $"Generating {generator.Title}";
-				await generator.Generate(restApiSpec, pbar, token);
+				await generator.Generate(spec, pbar, token);
 				pbar.Tick($"Generated {generator.Title}");
 			}
 		}
 
-
-		var lowLevelGenerators = new List<RazorGeneratorBase>
-		{
-			//low level client
+		// low level client
+		await DoGenerate(
+			false,
 			new LowLevelClientInterfaceGenerator(),
 			new LowLevelClientImplementationGenerator(),
 			new RequestParametersGenerator(),
 			new EnumsGenerator(),
-			new ApiUrlsLookupsGenerator()
-		};
+			new ApiUrlsLookupsGenerator());
 
-		var highLevelGenerators = new List<RazorGeneratorBase>
-		{
-			//high level client
-			new HighLevelClientInterfaceGenerator(), new HighLevelClientImplementationGenerator(), new DescriptorsGenerator(), new RequestsGenerator()
-		};
+		if (lowLevelOnly) return;
 
-		await DoGenerate(lowLevelGenerators, spec, false, token);
-		if (!lowLevelOnly)
-			await DoGenerate(highLevelGenerators, spec, true, token);
+		// high level client
+		await DoGenerate(
+			true,
+			new HighLevelClientInterfaceGenerator(),
+			new HighLevelClientImplementationGenerator(),
+			new DescriptorsGenerator(),
+			new RequestsGenerator());
 	}
 
 	public static async Task<RestApiSpec> CreateRestApiSpecModel(string file)

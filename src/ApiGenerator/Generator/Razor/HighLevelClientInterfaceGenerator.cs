@@ -38,11 +38,10 @@ public class HighLevelClientInterfaceGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Client client interface";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient");
-		var target = GeneratorLocations.HighLevel("IOpenSearchClient.Generated.cs");
-
-		await DoRazor(spec, view, target, token);
-	}
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
+		await DoRazor(
+			spec,
+			ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient"),
+			GeneratorLocations.HighLevel("IOpenSearchClient.Generated.cs"),
+			token);
 }

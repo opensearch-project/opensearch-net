@@ -38,11 +38,10 @@ public class LowLevelClientInterfaceGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Net client interface";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		var view = ViewLocations.LowLevel("Client", "Interface", "IOpenSearchLowLevelClient");
-		var target = GeneratorLocations.LowLevel("IOpenSearchLowLevelClient.Generated.cs");
-
-		await DoRazor(spec, view, target, token);
-	}
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
+		await DoRazor(
+			spec,
+			ViewLocations.LowLevel("Client", "Interface", "IOpenSearchLowLevelClient"),
+			GeneratorLocations.LowLevel("IOpenSearchLowLevelClient.Generated.cs"),
+			token);
 }

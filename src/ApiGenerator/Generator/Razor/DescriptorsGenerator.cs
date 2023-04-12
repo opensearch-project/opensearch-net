@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,22 +41,17 @@ public class DescriptorsGenerator : RazorGeneratorBase
 
 	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		// Delete existing files
-		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Descriptors.*.cs"))
-			File.Delete(file);
+		await DoRazor(spec,
+			ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase"),
+			GeneratorLocations.HighLevel("Descriptors.cs"),
+			token);
 
-		var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase");
-		var target = GeneratorLocations.HighLevel("Descriptors.cs");
-		await DoRazor(spec, view, target, token);
-
-		var dependantView = ViewLocations.HighLevel("Descriptors", "Descriptors");
-
-		string Target(string id)
-		{
-			return GeneratorLocations.HighLevel($"Descriptors.{id}.cs");
-		}
-
-		var namespaced = spec.EndpointsPerNamespaceHighLevel.ToList();
-		await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, Target, token);
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceHighLevel.ToList(),
+			ViewLocations.HighLevel("Descriptors", "Descriptors"),
+			kv => kv.Key,
+			id => GeneratorLocations.HighLevel($"Descriptors.{id}.cs"),
+			token);
 	}
 }
