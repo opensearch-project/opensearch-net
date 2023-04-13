@@ -4,10 +4,10 @@
 @using ApiGenerator.Configuration
 @inherits CodeTemplatePage<RestApiSpec>
 @{ await IncludeAsync("GeneratorNotice", Model); }
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class ApiUrlsLookups 
 {
-	internal static class ApiUrlsLookups 
-	{
 @foreach (var endpoint in Model.Endpoints.Values)
 {
 	if (CodeConfiguration.IgnoreHighLevelApi(endpoint.Name))
@@ -17,8 +17,8 @@ namespace OpenSearch.Client
 	var propertyName = $"{endpoint.CsharpNames.Namespace}{endpoint.CsharpNames.MethodName}";
 	var paths = endpoint.Url.Paths.Count == 0 ? endpoint.Url.PathsWithDeprecations : endpoint.Url.Paths;
 	<text>
-		internal static ApiUrls @(Raw(propertyName)) = new ApiUrls(new [] {@Raw(string.Join(", ", paths.Select(p=>$"\"{p.Path.TrimStart('/')}\"")))});
+	internal static ApiUrls @(Raw(propertyName)) = new ApiUrls(new [] {@Raw(string.Join(", ", paths.Select(p=>$"\"{p.Path.TrimStart('/')}\"")))});
 	</text>
 }
-	}
 }
+

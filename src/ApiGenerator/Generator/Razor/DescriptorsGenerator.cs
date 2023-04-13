@@ -39,13 +39,7 @@ public class DescriptorsGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Client descriptors";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(spec,
-			ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase"),
-			GeneratorLocations.HighLevel("Descriptors.cs"),
-			token);
-
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
 		await DoRazorDependantFiles(
 			progressBar,
 			spec.EndpointsPerNamespaceHighLevel.ToList(),
@@ -53,5 +47,4 @@ public class DescriptorsGenerator : RazorGeneratorBase
 			kv => kv.Key,
 			id => GeneratorLocations.HighLevel($"Descriptors.{id}.cs"),
 			token);
-	}
 }

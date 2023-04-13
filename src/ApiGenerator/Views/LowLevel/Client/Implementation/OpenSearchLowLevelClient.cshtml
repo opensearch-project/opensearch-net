@@ -22,30 +22,30 @@ using static OpenSearch.Net.HttpMethod;
 <text>
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+///<summary>
+///OpenSearch low level client
+///</summary>
+public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
 {
-	///<summary>
-	///OpenSearch low level client
-	///</summary>
-	public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
-	{
 </text>
-	foreach (var ns in namespaces)
-	{
-<text>		public @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) @ns { get; private set; } 
+foreach (var ns in namespaces)
+{
+<text>	public @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) @ns { get; private set; } 
 </text>
-	}
+}
 <text>
-		partial void SetupNamespaces()
-		{
-</text>
-	foreach (var ns in namespaces)
+	partial void SetupNamespaces()
 	{
-<text>		@ns = new @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
 </text>
-	}
+foreach (var ns in namespaces)
+{
+<text>	@ns = new @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
+</text>
+}
 <text>
-		}
+}
 </text>
 	
 
@@ -63,7 +63,6 @@ namespace OpenSearch.Net
 		}
 	}
 	<text>
-	}
 	}
 	</text>
 }

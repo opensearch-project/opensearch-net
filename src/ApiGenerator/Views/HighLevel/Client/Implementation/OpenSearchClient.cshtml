@@ -15,43 +15,41 @@ using OpenSearch.Client;
 	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
 <text>
 // ReSharper disable RedundantTypeArgumentsOfMethod
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+///<summary>
+///OpenSearch high level client
+///</summary>
+public partial class OpenSearchClient : IOpenSearchClient
 {
-	///<summary>
-	///OpenSearch high level client
-	///</summary>
-	public partial class OpenSearchClient : IOpenSearchClient
-	{
 </text>
-	foreach (var ns in namespaces)
-	{
-<text>		///<summary>@(ns.SplitPascalCase()) APIs</summary>
-			public @CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; private set; }
+foreach (var ns in namespaces)
+{
+<text>	///<summary>@(ns.SplitPascalCase()) APIs</summary>
+		public @CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; private set; }
 </text>
-	}
+}
 <text>
-		partial void SetupNamespaces()
-		{
-</text>
-	foreach (var ns in namespaces)
+	partial void SetupNamespaces()
 	{
-<text>		@ns = new @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
 </text>
-	}
+foreach (var ns in namespaces)
+{
+<text>	@ns = new @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
+</text>
+}
 <text>
-		}
+	}
 </text>
 	
-
-	foreach (var (_, endpoints) in Model.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key == CsharpNames.RootNamespace))
+foreach (var (_, endpoints) in Model.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key == CsharpNames.RootNamespace))
+{
+	foreach (var e in endpoints)
 	{
-		foreach (var e in endpoints)
-		{
-			await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
-		}
+		await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
 	}
-	<text>
-	}
-	}
-	</text>
+}
+<text>
+}
+</text>
 }

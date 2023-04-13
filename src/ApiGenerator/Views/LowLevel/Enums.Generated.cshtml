@@ -48,8 +48,8 @@ using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Net
-{
+namespace OpenSearch.Net;
+
 @foreach (var e in Model.EnumsInTheSpec)
 {
 	var isFlag = IsFlag(e.Name);
@@ -60,110 +60,110 @@ namespace OpenSearch.Net
 	}</text>
 }
 
-	public static class KnownEnums
+public static class KnownEnums
+{
+	private static readonly @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>")) EnumStringResolvers = new @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>"))();
+
+	static KnownEnums()
 	{
-		private static readonly @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>")) EnumStringResolvers = new @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>"))();
-
-		static KnownEnums()
-		{
-		@foreach (var e in Model.EnumsInTheSpec)
-		{
-<text>			EnumStringResolvers.TryAdd(typeof(@(e.Name)), (e) => GetStringValue((@(e.Name))e));
-</text>
-		}
-		}
-
-		private class EnumDictionary : @(Raw("Dictionary<Enum, string>"))
-		{	
-			public EnumDictionary(int capacity) : base(capacity) {}
-			public @(Raw("Func<Enum, string>")) Resolver { get; set; }
-		}	
-
 	@foreach (var e in Model.EnumsInTheSpec)
 	{
-		var isFlag = IsFlag(e.Name);
-		<text>
-		public static string GetStringValue(this @(e.Name) enumValue)
+<text>		EnumStringResolvers.TryAdd(typeof(@(e.Name)), (e) => GetStringValue((@(e.Name))e));
+</text>
+	}
+	}
+
+	private class EnumDictionary : @(Raw("Dictionary<Enum, string>"))
+	{	
+		public EnumDictionary(int capacity) : base(capacity) {}
+		public @(Raw("Func<Enum, string>")) Resolver { get; set; }
+	}	
+
+@foreach (var e in Model.EnumsInTheSpec)
+{
+	var isFlag = IsFlag(e.Name);
+	<text>
+	public static string GetStringValue(this @(e.Name) enumValue)
+	{
+	</text>
+	if (isFlag)
+	{
+		var allOption = e.Options.FirstOrDefault(o => o == "_all");
+		if (allOption != null)
 		{
-		</text>
-		if (isFlag)
-		{
-			var allOption = e.Options.FirstOrDefault(o => o == "_all");
-			if (allOption != null)
-			{
 <text>	if ((enumValue & @(e.Name).All) != 0) return "_all";
 </text>
-			}
-<text>			var list = new @(Raw("List<string>()"));
+		}
+<text>		var list = new @(Raw("List<string>()"));
 </text>
-			var g = GlobalOverrides.ObsoleteEnumMembers.TryGetValue(e.Name, out var d);
-			foreach (var option in e.Options.Where(o => o != "_all"))
-			{
-				var value = GetEnumValue(e.Name, option);
-				if (g && d.TryGetValue(option, out _)) {
+		var g = GlobalOverrides.ObsoleteEnumMembers.TryGetValue(e.Name, out var d);
+		foreach (var option in e.Options.Where(o => o != "_all"))
+		{
+			var value = GetEnumValue(e.Name, option);
+			if (g && d.TryGetValue(option, out _)) {
 <text>#pragma warning disable 618
-			if ((enumValue & @(e.Name).@(value)) != 0) list.Add("@(option)");
+		if ((enumValue & @(e.Name).@(value)) != 0) list.Add("@(option)");
 #pragma warning restore 618
 </text>									
-				}
-				else {
-<text>			if ((enumValue & @(e.Name).@(value)) != 0) list.Add("@(option)");
+			}
+			else {
+<text>		if ((enumValue & @(e.Name).@(value)) != 0) list.Add("@(option)");
 </text>
-			    }                                                                                          
-			}
-<text>			return string.Join(",", list);
-		}</text>
+		    }                                                                                          
 		}
-		else
-		{
-			<text>	switch (enumValue)
-			{
-			@Raw(string.Join($"{Environment.NewLine}\t\t\t\t", e.Options.Select(o => CreateCase(e.Name, o))))
-			}
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum '@(e.Name)'");
-		}</text>
-		}
+<text>		return string.Join(",", list);
+	}</text>
 	}
-
-		public static string GetStringValue(this Enum e)
+	else
+	{
+		<text>	switch (enumValue)
 		{
-			var type = e.GetType();		
-			var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
-			return resolver(e);
+		@Raw(string.Join($"{Environment.NewLine}\t\t\t\t", e.Options.Select(o => CreateCase(e.Name, o))))
 		}
-
-		private static @Raw("Func<Enum, string>") GetEnumStringResolver(Type type)
-		{
-			var values = Enum.GetValues(type);
-			var dictionary = new EnumDictionary(values.Length);
-
-			for (int index = 0; index < values.Length; index++)
-			{
-				var value = values.GetValue(index);
-				var info = type.GetField(value.ToString());
-				var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-				var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
-				dictionary.Add((Enum)value, stringValue);
-			}
-
-			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-
-			return (e) => 
-			{
-				if (isFlag)
-				{
-					var list = new @(Raw("List<string>()"));
-					foreach(var kv in dictionary)
-					{
-						if (e.HasFlag(kv.Key)) list.Add(kv.Value);
-					}
-					return string.Join(",", list);
-				}
-				else
-				{
-					return dictionary[e];
-				}
-			};
-		}
+		throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum '@(e.Name)'");
+	}</text>
 	}
 }
+
+	public static string GetStringValue(this Enum e)
+	{
+		var type = e.GetType();		
+		var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
+		return resolver(e);
+	}
+
+	private static @Raw("Func<Enum, string>") GetEnumStringResolver(Type type)
+	{
+		var values = Enum.GetValues(type);
+		var dictionary = new EnumDictionary(values.Length);
+
+		for (int index = 0; index < values.Length; index++)
+		{
+			var value = values.GetValue(index);
+			var info = type.GetField(value.ToString());
+			var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
+			var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
+			dictionary.Add((Enum)value, stringValue);
+		}
+
+		var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
+
+		return (e) => 
+		{
+			if (isFlag)
+			{
+				var list = new @(Raw("List<string>()"));
+				foreach(var kv in dictionary)
+				{
+					if (e.HasFlag(kv.Key)) list.Add(kv.Value);
+				}
+				return string.Join(",", list);
+			}
+			else
+			{
+				return dictionary[e];
+			}
+		};
+	}
+}
+

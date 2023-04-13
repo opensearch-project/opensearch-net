@@ -23,27 +23,27 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable once CheckNamespace
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
-namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix)
+namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix);
+
+///<summary>
+/// @(ns.SplitPascalCase()) APIs.
+/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
+/// on <see cref="IOpenSearchLowLevelClient"/>.
+///</para>
+///</summary>
+public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 {
-	///<summary>
-	/// @(ns.SplitPascalCase()) APIs.
-	/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
-	/// on <see cref="IOpenSearchLowLevelClient"/>.
-	///</para>
-	///</summary>
-	public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
-	{
-		internal @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+	internal @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
 	<text>protected override string ContentType { get; } = "text/plain";</text>
 }
- 	@{	
-		var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
-		foreach (var method in methods)
-		{
-			await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
-		}
-	}
+@{	
+	var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
+	foreach (var method in methods)
+	{
+		await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
 	}
 }
+}
+

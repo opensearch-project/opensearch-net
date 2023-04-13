@@ -8,29 +8,29 @@
 	var baseInterface = Model.CsharpNames.GenericOrNonGenericInterfacePreference;
 	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-	///<summary>Descriptor for @Model.CsharpNames.MethodName@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
-	public partial class @Raw(type) @Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,Model.CsharpNames.ParametersName, concreteInterface))
+///<summary>Descriptor for @Model.CsharpNames.MethodName@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
+public partial class @Raw(type) @Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,Model.CsharpNames.ParametersName, concreteInterface))
 { 
-		internal override ApiUrls ApiUrls => @apiLookup;
+	internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)
 {
-<text>		@(Raw(CodeGenerator.Constructor(c)))
+<text>	@(Raw(CodeGenerator.Constructor(c)))
 </text>
 }
-		// values part of the url path
+	// values part of the url path
 @foreach (var part in Model.Parts)
 {
-<text>		@(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
+<text>	@(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
 </text>
 }
 @foreach (var c in Model.GetFluentRouteSetters())
 {
 <text>
-		@(Raw(c.XmlDoc))
-		@(Raw(c.Code))
+	@(Raw(c.XmlDoc))
+	@(Raw(c.Code))
 </text>
 }
-		// Request parameters
+	// Request parameters
 @foreach (var param in Model.Params)
 {
 	var original = param.QueryStringKey;
@@ -53,33 +53,33 @@
 	if(!string.IsNullOrWhiteSpace(param.Obsolete))
 	{
 		<text>
-		[Obsolete("Scheduled to be removed in 8.0, @param.Obsolete")]
+	[Obsolete("Scheduled to be removed in 8.0, @param.Obsolete")]
 		</text>
 	}
 <text>
-		public @Raw(type) @(param.ClsName)(@param.DescriptorArgumentType @param.ClsArgumentName@tSuffix) => Qs("@original", @(param.ClsArgumentName));
+	public @Raw(type) @(param.ClsName)(@param.DescriptorArgumentType @param.ClsArgumentName@tSuffix) => Qs("@original", @(param.ClsArgumentName));
 </text>
 	if (param.IsFieldsParam)
 	{
 <text>
-		///<summary>@param.Description</summary>
-		public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(params @Raw($"Expression<Func<{g}, object>>[]") fields) @Raw(typed ? "" : $"where {g} : class") => Qs("@original", fields?@Raw(".Select(e=>(Field)e)"));
+	///<summary>@param.Description</summary>
+	public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(params @Raw($"Expression<Func<{g}, object>>[]") fields) @Raw(typed ? "" : $"where {g} : class") => Qs("@original", fields?@Raw(".Select(e=>(Field)e)"));
 </text>
 	}
 	else if (param.IsFieldParam)
 	{
 <text>
-		///<summary>@param.Description</summary>
-		public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(@Raw($"Expression<Func<{g}, object>>") field) @Raw(typed ? "" : $"where {g} : class") => Qs("@original", (Field)field);
+	///<summary>@param.Description</summary>
+	public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(@Raw($"Expression<Func<{g}, object>>") field) @Raw(typed ? "" : $"where {g} : class") => Qs("@original", (Field)field);
 </text>
 	}
 }
-	@if (Model.CsharpNames.DescriptorNotFoundInCodebase)
-	{<text>
-		[Obsolete("Unmapped, blacklist this API in CodeConfiguration.cs or implement @Model.CsharpNames.DescriptorName and @Model.CsharpNames.RequestName in a file called @(Model.CsharpNames.RequestName).cs in OSC's codebase", true)]
-		public bool IsUnmapped => true;
-		public bool UseIsUnmapped => IsUnmapped;
-	 </text>
-	}	
-	}
+@if (Model.CsharpNames.DescriptorNotFoundInCodebase)
+{<text>
+	[Obsolete("Unmapped, blacklist this API in CodeConfiguration.cs or implement @Model.CsharpNames.DescriptorName and @Model.CsharpNames.RequestName in a file called @(Model.CsharpNames.RequestName).cs in OSC's codebase", true)]
+	public bool IsUnmapped => true;
+	public bool UseIsUnmapped => IsUnmapped;
+ </text>
+}	
+}
 

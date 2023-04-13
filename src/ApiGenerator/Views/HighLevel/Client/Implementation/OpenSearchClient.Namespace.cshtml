@@ -15,20 +15,19 @@ using OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespace
 
 // ReSharper disable once CheckNamespace
 // ReSharper disable RedundantTypeArgumentsOfMethod
-namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix)
+namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix);
+
+///<summary>
+/// @(ns.SplitPascalCase()) APIs.
+/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.@ns"/> property
+/// on <see cref="IOpenSearchClient"/>.
+///</para>
+///</summary>
+public class @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 {
-	///<summary>
-	/// @(ns.SplitPascalCase()) APIs.
-	/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.@ns"/> property
-	/// on <see cref="IOpenSearchClient"/>.
-	///</para>
-	///</summary>
-	public class @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+	internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
+	@foreach(var e in endpoints)
 	{
-		internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
-		@foreach(var e in endpoints)
-		{
-			await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
-		}
+		await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
 	}
 }

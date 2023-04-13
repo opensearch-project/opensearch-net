@@ -39,14 +39,7 @@ public class RequestsGenerator : RazorGeneratorBase
 {
 	public override string Title => "OpenSearch.Client requests";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(
-			spec,
-			ViewLocations.HighLevel("Requests", "PlainRequestBase"),
-			GeneratorLocations.HighLevel("Requests.cs"),
-			token);
-
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token) =>
 		await DoRazorDependantFiles(
 			progressBar,
 			spec.EndpointsPerNamespaceHighLevel.ToList(),
@@ -54,5 +47,4 @@ public class RequestsGenerator : RazorGeneratorBase
 			kv => kv.Key,
 			id => GeneratorLocations.HighLevel($"Requests.{id}.cs"),
 			token);
-	}
 }
