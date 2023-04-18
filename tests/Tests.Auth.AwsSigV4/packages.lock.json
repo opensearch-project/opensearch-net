@@ -29,8 +29,8 @@
       },
       "AWSSDK.Core": {
         "type": "Transitive",
-        "resolved": "3.7.103.17",
-        "contentHash": "DLi8jzlIeifLB5sXs2NpFkvffVy2wqKfhMi9qQ32VO0HGU8M24Y9D7YmRGQ35jaXy+S7fpIUlu+xp7hp5zJLVA=="
+        "resolved": "3.7.106.20",
+        "contentHash": "0dA8hxej6qUGR5r+D96kckj6R3f5d7n9QRqoZDMbgOlgc/CllSCSMmjrme2rm8O/7KxmRkEKHNkKJGdMJeQTPA=="
       },
       "Bogus": {
         "type": "Transitive",
@@ -903,7 +903,7 @@
       "opensearch.net.auth.awssigv4": {
         "type": "Project",
         "dependencies": {
-          "AWSSDK.Core": "[3.7.103.17, )",
+          "AWSSDK.Core": "[3.7.106.20, )",
           "OpenSearch.Net": "[1.3.0, )"
         }
       },
