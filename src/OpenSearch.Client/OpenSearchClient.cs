@@ -126,9 +126,12 @@ namespace OpenSearch.Client
 			Transport = transport;
 			LowLevel = new OpenSearchLowLevelClient(Transport);
 			SetupNamespaces();
+			SetupNamespacesGenerated();
 		}
 
 		partial void SetupNamespaces();
+
+		partial void SetupNamespacesGenerated();
 
 		public IConnectionSettingsValues ConnectionSettings => Transport.Settings;
 		public Inferrer Infer => Transport.Settings.Inferrer;

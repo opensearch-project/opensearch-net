@@ -92,10 +92,6 @@ public class RestApiSpec
 				.DistinctBy(e => e.Name)
 				.ToList();
 
-			//TODO can be removed in 8.x
-			var versionType = _enumDescriptions.FirstOrDefault(f => f.Name == "VersionType");
-			if (versionType != null) versionType.Options = new List<string>(versionType.Options) { "force" };
-
 			return _enumDescriptions;
 		}
 	}

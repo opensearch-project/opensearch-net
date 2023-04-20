@@ -17,7 +17,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
-@if (ns != CsharpNames.RootNamespace)
+@if (ns != null)
 {
 	<text>using OpenSearch.Net@(ns);
 </text>

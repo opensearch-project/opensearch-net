@@ -44,7 +44,6 @@ public static class ApiEndpointFactory
 {
 	public static ApiEndpoint From(string name, List<(string HttpPath, OpenApiPathItem Path, string HttpMethod, OpenApiOperation Operation)> variants)
 	{
-		var op = variants.First();
 		var tokens = name.Split(".");
 		var methodName = tokens[^1];
 		var ns = tokens.Length > 1 ? tokens[0] : null;
@@ -77,7 +76,7 @@ public static class ApiEndpointFactory
 				Name = p.Name,
 				Required = requiredPathParams?.Contains(p.Name) ?? false,
 				Type = GetOpenSearchType(p.Schema),
-				Options = p.Schema.Enumeration?.Select(e => e.ToString()).ToList() ?? Enumerable.Empty<string>(),
+				Options = GetEnumOptions(p.Schema),
 			})
 			.ToImmutableSortedDictionary(p => p.Name, p => p);
 
@@ -89,7 +88,7 @@ public static class ApiEndpointFactory
 				{
 					Type = GetOpenSearchType(p.Schema),
 					Description = p.Description,
-					Options = p.Enumeration?.Select(e => e.ToString()).ToList() ?? Enumerable.Empty<string>(),
+					Options = GetEnumOptions(p.Schema),
 					Deprecated = p.IsDeprecated ? new QueryParameterDeprecation { Description = p.DeprecatedMessage } : null
 				});
 
@@ -102,15 +101,15 @@ public static class ApiEndpointFactory
 			Stability = Stability.Stable, // TODO: for realsies
 			OfficialDocumentationLink = new Documentation
 			{
-				Description = op.Operation.ExternalDocumentation?.Description ?? op.Operation.Description,
-				Url = op.Operation.ExternalDocumentation?.Url,
+				Description = variants[0].Operation.ExternalDocumentation?.Description ?? variants[0].Operation.Description,
+				Url = variants[0].Operation.ExternalDocumentation?.Url,
 			},
 			Url = urlInfo,
-			Body = new Body
+			Body = variants.Select(v => v.Operation.RequestBody).FirstOrDefault(b => b != null) is {} reqBody ? new Body
 			{
-				Description = op.Operation.RequestBody?.Description,
-				Required = op.Operation.RequestBody?.IsRequired ?? false
-			},
+				Description = reqBody.Description,
+				Required = reqBody.IsRequired
+			} : null,
 			HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
 		};
 
@@ -137,10 +136,28 @@ public static class ApiEndpointFactory
 		endpoint.Url.Params = ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)
 			?? throw new ArgumentNullException("ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)");
 
-	private static string GetOpenSearchType(JsonSchema schema) =>
-		schema.Type switch
+	private static string GetOpenSearchType(JsonSchema schema)
+	{
+		while (schema.HasReference) schema = schema.Reference;
+
+		return schema.Type switch
 		{
 			JsonObjectType.String when schema.Enumeration is { Count: > 0 } => "enum",
+			JsonObjectType.String when schema.Pattern is "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
+			JsonObjectType.String when schema.GetExtension("x-comma-separated-list") is "true" => "list",
+			JsonObjectType.Integer => "number",
+			JsonObjectType.Array => "list",
 			var t => t.ToString().ToLowerInvariant()
 		};
+	}
+
+	private static IEnumerable<string> GetEnumOptions(JsonSchema schema)
+	{
+		while (schema.HasReference) schema = schema.Reference;
+
+		return schema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
+	}
+
+	private static object GetExtension(this IJsonExtensionObject schema, string key) =>
+		schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
 }

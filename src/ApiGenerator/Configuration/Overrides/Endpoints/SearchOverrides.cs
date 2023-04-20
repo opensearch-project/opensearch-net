@@ -36,8 +36,7 @@ public class SearchOverrides : EndpointOverridesBase
 	public override IEnumerable<string> SkipQueryStringParams => new[]
 	{
 		"size", "from", "timeout", "explain", "version", "sort", "_source", "_source_includes", "_source_excludes", "track_scores",
-		"terminate_after"
+		"terminate_after", "track_total_hits"
 	};
 
-	public override IEnumerable<string> RenderPartial => new[] { "track_total_hits" };
 }

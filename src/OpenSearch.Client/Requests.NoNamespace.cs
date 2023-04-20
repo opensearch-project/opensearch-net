@@ -2637,13 +2637,6 @@ namespace OpenSearch.Client
 			get;
 			set;
 		}
-
-		[DataMember(Name = "track_total_hits")]
-		TrackTotalHits TrackTotalHits
-		{
-			get;
-			set;
-		}
 	}
 
 	public partial interface ISearchRequest<TInferDocument> : ISearchRequest

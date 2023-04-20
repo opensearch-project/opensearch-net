@@ -45,6 +45,6 @@ public class RequestsGenerator : RazorGeneratorBase
 			spec.EndpointsPerNamespaceHighLevel.ToList(),
 			ViewLocations.HighLevel("Requests", "Requests"),
 			kv => kv.Key,
-			id => GeneratorLocations.HighLevel($"Requests.{id}.cs"),
+			id => GeneratorLocations.HighLevel($"Requests.{id}.Generated.cs"),
 			token);
 }

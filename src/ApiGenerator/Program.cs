@@ -109,15 +109,6 @@ public static class Program
 		Console.WriteLine();
 
 		var spec = await Generator.ApiGenerator.CreateRestApiSpecModel("/Users/tsfarr/Development/opensearch-api-specification/build/smithyprojections/opensearch-api-specification/full/openapi/OpenSearch.openapi.json");
-		if (!lowLevelOnly)
-		{
-			foreach (var endpoint in spec.Endpoints.Keys)
-			{
-				if (CodeConfiguration.IsNewHighLevelApi(endpoint)
-				    && Ask($"Generate highlevel code for new api {endpoint}", false))
-					CodeConfiguration.EnableHighLevelCodeGen.Add(endpoint);
-			}
-		}
 
 		Console.WriteLine();
 		AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());

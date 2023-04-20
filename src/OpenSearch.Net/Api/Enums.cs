@@ -433,11 +433,12 @@ namespace OpenSearch.Net
 		None
 	}
 
-	public static class KnownEnums
+	public static partial class KnownEnums
 	{
 		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new ConcurrentDictionary<Type, Func<Enum, string>>();
 		static KnownEnums()
 		{
+			InitializeStringResolvers();
 			EnumStringResolvers.TryAdd(typeof(ClusterStateMetric), (e) => GetStringValue((ClusterStateMetric)e));
 			EnumStringResolvers.TryAdd(typeof(IndicesStatsMetric), (e) => GetStringValue((IndicesStatsMetric)e));
 			EnumStringResolvers.TryAdd(typeof(NodesInfoMetric), (e) => GetStringValue((NodesInfoMetric)e));
@@ -463,6 +464,8 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(ThreadType), (e) => GetStringValue((ThreadType)e));
 			EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
 		}
+
+		static partial void InitializeStringResolvers();
 
 		private class EnumDictionary : Dictionary<Enum, string>
 		{

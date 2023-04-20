@@ -60,11 +60,11 @@ namespace OpenSearch.Net;
 	}</text>
 }
 
-public static class KnownEnums
+public static partial class KnownEnums
 {
 	private static readonly @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>")) EnumStringResolvers = new @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>"))();
 
-	static KnownEnums()
+	private static partial void InitializeStringResolvers()
 	{
 	@foreach (var e in Model.EnumsInTheSpec)
 	{

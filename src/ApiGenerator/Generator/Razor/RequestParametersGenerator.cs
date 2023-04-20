@@ -45,6 +45,6 @@ public class RequestParametersGenerator : RazorGeneratorBase
 			spec.EndpointsPerNamespaceLowLevel.ToList(),
 			ViewLocations.LowLevel("RequestParameters", "RequestParameters"),
 			kv => kv.Key,
-			id => GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs"),
+			id => GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.Generated.cs"),
 			token);
 }

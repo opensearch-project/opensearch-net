@@ -77,9 +77,11 @@ namespace OpenSearch.Net
 			Transport = transport;
 			UrlFormatter = Transport.Settings.UrlFormatter;
 			SetupNamespaces();
+			SetupNamespacesGenerated();
 		}
 
 		partial void SetupNamespaces();
+		partial void SetupNamespacesGenerated();
 
 		public IOpenSearchSerializer Serializer => Transport.Settings.RequestResponseSerializer;
 

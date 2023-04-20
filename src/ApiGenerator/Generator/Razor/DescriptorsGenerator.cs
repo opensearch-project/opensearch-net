@@ -45,6 +45,6 @@ public class DescriptorsGenerator : RazorGeneratorBase
 			spec.EndpointsPerNamespaceHighLevel.ToList(),
 			ViewLocations.HighLevel("Descriptors", "Descriptors"),
 			kv => kv.Key,
-			id => GeneratorLocations.HighLevel($"Descriptors.{id}.cs"),
+			id => GeneratorLocations.HighLevel($"Descriptors.{id}.Generated.cs"),
 			token);
 }

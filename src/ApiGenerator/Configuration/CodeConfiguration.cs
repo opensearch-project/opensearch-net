@@ -81,23 +81,8 @@ public static class CodeConfiguration
 			.DistinctBy(v => v.MappedApi)
 			.ToDictionary(k => k.MappedApi, v => v.ApiName);
 
-	public static readonly HashSet<string> EnableHighLevelCodeGen = new();
-
-	public static bool IsNewHighLevelApi(string endpoint) =>
-		!HighLevelApiNameMapping.ContainsKey(endpoint);
-
-	public static bool IgnoreHighLevelApi(string endpoint)
-	{
-		//always generate already mapped requests
-
-		if (HighLevelApiNameMapping.ContainsKey(endpoint)) return false;
-
-		return !EnableHighLevelCodeGen.Contains(endpoint);
-	}
-
 	public static readonly Dictionary<string, string> ApiNameMapping =
 		new Dictionary<string, string>(HighLevelApiNameMapping).OverrideWith(LowLevelApiNameMapping);
-
 
 	/// <summary>
 	/// Scan all OSC source code files for Requests and look for the [MapsApi(filename)] attribute.

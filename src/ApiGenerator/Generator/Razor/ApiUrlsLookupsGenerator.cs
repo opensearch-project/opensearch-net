@@ -42,6 +42,6 @@ public class ApiUrlsLookupsGenerator : RazorGeneratorBase
 		await DoRazor(
 			spec,
 			ViewLocations.HighLevel("Requests", "ApiUrlsLookup"),
-			GeneratorLocations.HighLevel("_Generated", "ApiUrlsLookup.generated.cs"),
+			GeneratorLocations.HighLevel("ApiUrlsLookup.Generated.cs"),
 			token);
 }

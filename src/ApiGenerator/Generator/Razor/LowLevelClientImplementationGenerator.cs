@@ -45,7 +45,7 @@ public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 		await DoRazor(
 			spec,
 			ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient"),
-			GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs"),
+			GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.Generated.cs"),
 			token);
 
 		await DoRazorDependantFiles(
@@ -53,7 +53,7 @@ public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 			spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
 			ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace"),
 			kv => kv.Key,
-			id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.cs"),
+			id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.Generated.cs"),
 			token);
 	}
 }
