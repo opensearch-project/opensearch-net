@@ -6,14 +6,14 @@ In this guide, you'll learn how to use the OpenSearch Ruby Client API to perform
 
 First, create a client instance with the following code:
 
-```c#
+```cs
 var nodeAddress = new Uri("http://myserver:9200");
 var client = new OpenSearchClient(nodeAddress);
 ```
 
 Next, create an index named `movies` and another named `books` with the default settings:
 
-```c#
+```cs
 movies = 'movies'
 books = 'books'
 if(!await client.Indices.ExistsAsync(movies)) {
@@ -33,7 +33,7 @@ The `bulk` API action allows you to perform document operations in a single requ
 
 The following code creates two documents in the `movies` index and one document in the `books` index:
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[]
   {
@@ -51,7 +51,7 @@ As you can see, each bulk operation is comprised of two objects. The first objec
 
 Alternatively, the `bulk` method can accept an array of hashes where each hash represents a single operation. The following code is equivalent to the previous example:
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[]
   {
@@ -68,7 +68,7 @@ We will use this format for the rest of the examples in this guide.
 
 Similarly, instead of calling the `create` method for each document, you can use the `bulk` API to create multiple documents in a single request. The following code creates three documents in the `movies` index and one in the `books` index:
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[] {
     new { create = new { data = new { title = "Beauty and the Beast 2", year = 2030 }}},
@@ -84,7 +84,7 @@ Note that we specified only the `_index` for the last document in the request bo
 
 ### Updating multiple documents
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[] {
     new { update = new { _id = 1, data = new { doc = new { year = 1992 } } } },
@@ -97,7 +97,7 @@ Note that the updated data is specified in the `doc` field of the `data` object.
 
 ### Deleting multiple documents
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[] {
     new { delete = new { _id = 1 } },
@@ -110,7 +110,7 @@ client.Bulk<StringResponse>(PostData.MultiJson(
 
 You can mix and match the different operations in a single request. The following code creates two documents, updates one document, and deletes another document:
 
-```c#
+```cs
 client.Bulk<StringResponse>(PostData.MultiJson(
   new object[] {
     new { create = new { data = new { title = "Beauty and the Beast 5", year = 2050 } } },
@@ -127,7 +127,7 @@ The `bulk` API returns an array of responses for each operation in the request b
 
 The following code shows how to look for errors in the response:
 
-```c#
+```cs
 response = client.Bulk<StringResponse>(PostData.MultiJson(
     new object[] {
       new { create = new { _id = 1, data = new { title = "Beauty and the Beast", year = 1991 } } },
@@ -148,6 +148,6 @@ foreach (var item in response.body["items"]) {
 
 To clean up the resources created in this guide, delete the `movies` and `books` indices:
 
-```c#
+```cs
 await client.Indices().DeleteAsync([movies, books])
 ```
