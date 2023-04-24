@@ -4,9 +4,9 @@
     ".NETFramework,Version=v4.6.1": {
       "AWSSDK.Core": {
         "type": "Direct",
-        "requested": "[3.7.106.20, )",
-        "resolved": "3.7.106.20",
-        "contentHash": "0dA8hxej6qUGR5r+D96kckj6R3f5d7n9QRqoZDMbgOlgc/CllSCSMmjrme2rm8O/7KxmRkEKHNkKJGdMJeQTPA=="
+        "requested": "[3.7.106.24, )",
+        "resolved": "3.7.106.24",
+        "contentHash": "Je4DemiO6Cl6LnIsCvHXH2uCgP3TldVR026mKZto4+n43v+M0u7ouQBJy2oSdNxJ4yXmhdXYEyOBEdHa+Rsi4g=="
       },
       "ConfigureAwaitChecker.Analyzer": {
         "type": "Direct",
@@ -99,9 +99,9 @@
     ".NETStandard,Version=v2.0": {
       "AWSSDK.Core": {
         "type": "Direct",
-        "requested": "[3.7.106.20, )",
-        "resolved": "3.7.106.20",
-        "contentHash": "0dA8hxej6qUGR5r+D96kckj6R3f5d7n9QRqoZDMbgOlgc/CllSCSMmjrme2rm8O/7KxmRkEKHNkKJGdMJeQTPA==",
+        "requested": "[3.7.106.24, )",
+        "resolved": "3.7.106.24",
+        "contentHash": "Je4DemiO6Cl6LnIsCvHXH2uCgP3TldVR026mKZto4+n43v+M0u7ouQBJy2oSdNxJ4yXmhdXYEyOBEdHa+Rsi4g==",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.0"
         }
