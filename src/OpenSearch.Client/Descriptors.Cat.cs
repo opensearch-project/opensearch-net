@@ -40,7 +40,7 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	///<summary>Descriptor for Aliases <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</para></summary>
 	public partial class CatAliasesDescriptor : RequestDescriptorBase<CatAliasesDescriptor, CatAliasesRequestParameters, ICatAliasesRequest>, ICatAliasesRequest

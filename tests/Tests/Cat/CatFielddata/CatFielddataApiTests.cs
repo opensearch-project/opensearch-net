@@ -31,6 +31,7 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.CatApi;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Xunit;
 using Tests.Domain;
