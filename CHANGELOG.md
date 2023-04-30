@@ -2,7 +2,7 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
-### Changed
+### ⚠️ Breaking Changes ⚠️
 - Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200))
 
 ### Dependencies
