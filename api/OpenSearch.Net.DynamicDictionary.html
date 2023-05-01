@@ -760,76 +760,6 @@
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_DynamicDictionary_Get__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.DynamicDictionary.Get%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/Dynamic/DynamicDictionary.cs/#L102">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_DynamicDictionary_Get_" data-uid="OpenSearch.Net.DynamicDictionary.Get*"></a>
-  <h4 id="OpenSearch_Net_DynamicDictionary_Get__1_System_String_" data-uid="OpenSearch.Net.DynamicDictionary.Get``1(System.String)">Get&lt;T&gt;(string)</h4>
-  <div class="markdown level1 summary"><p>Traverses data using path notation.</p>
-<p><code>e.g some.deep.nested.json.path</code></p>
-<p></p>
-<p> A special lookup is available for ANY key <code>_arbitrary_key_</code> <code>e.g some.deep._arbitrary_key_.json.path</code> which will traverse into the first key</p>
-<p> If <code>_arbitrary_key_</code> is the last value it will return the key name</p>
-<p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(string path)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>path into the stored object, keys are separated with a dot and the last key is returned as T</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>T or default</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_DynamicDictionary_GetDynamicMemberNames.md&amp;value=---%0Auid%3A%20OpenSearch.Net.DynamicDictionary.GetDynamicMemberNames%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -955,6 +885,76 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="OpenSearch.Net.DynamicValue.html">DynamicValue</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_DynamicDictionary_Get__1_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.DynamicDictionary.Get%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Responses/Dynamic/DynamicDictionary.cs/#L102">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_DynamicDictionary_Get_" data-uid="OpenSearch.Net.DynamicDictionary.Get*"></a>
+  <h4 id="OpenSearch_Net_DynamicDictionary_Get__1_System_String_" data-uid="OpenSearch.Net.DynamicDictionary.Get``1(System.String)">Get&lt;T&gt;(string)</h4>
+  <div class="markdown level1 summary"><p>Traverses data using path notation.</p>
+<p><code>e.g some.deep.nested.json.path</code></p>
+<p></p>
+<p> A special lookup is available for ANY key <code>_arbitrary_key_</code> <code>e.g some.deep._arbitrary_key_.json.path</code> which will traverse into the first key</p>
+<p> If <code>_arbitrary_key_</code> is the last value it will return the key name</p>
+<p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Get&lt;T&gt;(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>path into the stored object, keys are separated with a dot and the last key is returned as T</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>T or default</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>

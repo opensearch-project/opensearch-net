@@ -147,76 +147,6 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L70">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters)">HotThreads&lt;TResponse&gt;(string, NodesHotThreadsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/hot_threads <p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse HotThreads&lt;TResponse&gt;(string nodeId, NodesHotThreadsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters.html">NodesHotThreadsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsAsync__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsAsync%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -247,6 +177,75 @@
         <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters.html">NodesHotThreadsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync``1(OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters,System.Threading.CancellationToken)">HotThreadsForAllAsync&lt;TResponse&gt;(NodesHotThreadsRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/hot_threads <p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; HotThreadsForAllAsync&lt;TResponse&gt;(NodesHotThreadsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters.html">NodesHotThreadsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
@@ -356,19 +355,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L64">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L70">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreadsForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreadsForAllAsync``1(OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters,System.Threading.CancellationToken)">HotThreadsForAllAsync&lt;TResponse&gt;(NodesHotThreadsRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/hot_threads <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_HotThreads__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesHotThreadsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.HotThreads``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters)">HotThreads&lt;TResponse&gt;(string, NodesHotThreadsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/hot_threads <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; HotThreadsForAllAsync&lt;TResponse&gt;(NodesHotThreadsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse HotThreads&lt;TResponse&gt;(string nodeId, NodesHotThreadsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -380,159 +379,14 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesHotThreadsRequestParameters.html">NodesHotThreadsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">ctx</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L90">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">Info&lt;TResponse&gt;(string, NodesInfoRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Info&lt;TResponse&gt;(string nodeId, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L113">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">Info&lt;TResponse&gt;(string, string, NodesInfoRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/{metric} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Info&lt;TResponse&gt;(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>A comma-separated list of metrics you wish returned. Leave empty to return all.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -727,140 +581,6 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll%60%601(OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L80">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll``1(OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">InfoForAll&lt;TResponse&gt;(NodesInfoRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse InfoForAll&lt;TResponse&gt;(NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L101">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">InfoForAll&lt;TResponse&gt;(string, NodesInfoRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{metric} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse InfoForAll&lt;TResponse&gt;(string metric, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>A comma-separated list of metrics you wish returned. Leave empty to return all.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1005,19 +725,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings%60%601(System.String%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll%60%601(OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L137">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L80">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettings&lt;TResponse&gt;(string, PostData, ReloadSecureSettingsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_nodes/{node_id}/reload_secure_settings <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll``1(OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">InfoForAll&lt;TResponse&gt;(NodesInfoRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettings&lt;TResponse&gt;(string nodeId, PostData body, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse InfoForAll&lt;TResponse&gt;(NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1030,19 +750,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
-        <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -1081,19 +789,89 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Patch.OpenSearchLowLevelClient.Nodes.cs/#L50">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L101">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings``1(System.String,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettings&lt;TResponse&gt;(string, ReloadSecureSettingsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_nodes/{node_id}/reload_secure_settings <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_InfoForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.InfoForAll``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">InfoForAll&lt;TResponse&gt;(string, NodesInfoRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{metric} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettings&lt;TResponse&gt;(string nodeId, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse InfoForAll&lt;TResponse&gt;(string metric, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>A comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">Info&lt;TResponse&gt;(string, NodesInfoRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse Info&lt;TResponse&gt;(string nodeId, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1108,11 +886,87 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L113">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Info__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesInfoRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Info``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters)">Info&lt;TResponse&gt;(string, string, NodesInfoRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/{metric} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse Info&lt;TResponse&gt;(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>A comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesInfoRequestParameters.html">NodesInfoRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -1307,140 +1161,6 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L125">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettingsForAll&lt;TResponse&gt;(PostData, ReloadSecureSettingsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_nodes/reload_secure_settings <p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettingsForAll&lt;TResponse&gt;(PostData body, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
-        <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll%60%601(OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Patch.OpenSearchLowLevelClient.Nodes.cs/#L40">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll``1(OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettingsForAll&lt;TResponse&gt;(ReloadSecureSettingsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_nodes/reload_secure_settings <p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettingsForAll&lt;TResponse&gt;(ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAllAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAllAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1585,19 +1305,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L158">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L125">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettingsForAll&lt;TResponse&gt;(PostData, ReloadSecureSettingsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_nodes/reload_secure_settings <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettingsForAll&lt;TResponse&gt;(PostData body, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1610,13 +1330,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>An object containing the password for the opensearch keystore</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -1655,19 +1375,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll%60%601(OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L181">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Patch.OpenSearchLowLevelClient.Nodes.cs/#L40">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats/{metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettingsForAll__1_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettingsForAll``1(OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettingsForAll&lt;TResponse&gt;(ReloadSecureSettingsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_nodes/reload_secure_settings <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, string metric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettingsForAll&lt;TResponse&gt;(ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1680,19 +1400,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -1731,19 +1439,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2CSystem.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings%60%601(System.String%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L208">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L137">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, string, NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettings&lt;TResponse&gt;(string, PostData, ReloadSecureSettingsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_nodes/{node_id}/reload_secure_settings <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, string metric, string indexMetric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettings&lt;TResponse&gt;(string nodeId, PostData body, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1758,23 +1466,87 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+        <td><p>A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>An object containing the password for the opensearch keystore</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Patch.OpenSearchLowLevelClient.Nodes.cs/#L50">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_ReloadSecureSettings__1_System_String_OpenSearch_Net_Specification_NodesApi_ReloadSecureSettingsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.ReloadSecureSettings``1(System.String,OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters)">ReloadSecureSettings&lt;TResponse&gt;(string, ReloadSecureSettingsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_nodes/{node_id}/reload_secure_settings <p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse ReloadSecureSettings&lt;TResponse&gt;(string nodeId, ReloadSecureSettingsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics</p>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.ReloadSecureSettingsRequestParameters.html">ReloadSecureSettingsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -2056,216 +1828,6 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L148">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/stats <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L169">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/stats/{metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L194">View Source</a>
-  </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, string, NodesStatsRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/stats/{metric}/{index_metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, string indexMetric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
-        <td><span class="parametername">requestParameters</span></td>
-        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TResponse</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -2491,19 +2053,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L230">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L148">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)">Usage&lt;TResponse&gt;(string, NodesUsageRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/usage <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/stats <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Usage&lt;TResponse&gt;(string nodeId, NodesUsageRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2516,13 +2078,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">nodeId</span></td>
-        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -2561,19 +2117,235 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L253">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L169">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)">Usage&lt;TResponse&gt;(string, string, NodesUsageRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/usage/{metric} <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/stats/{metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Usage&lt;TResponse&gt;(string nodeId, string metric, NodesUsageRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>Limit the information returned to the specified metrics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L194">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_StatsForAll__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.StatsForAll``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, string, NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/stats/{metric}/{index_metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, string indexMetric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>Limit the information returned to the specified metrics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">indexMetric</span></td>
+        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L158">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L181">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats/{metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, string metric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2598,7 +2370,89 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></td>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats%60%601(System.String%2CSystem.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L208">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Stats__1_System_String_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Stats``1(System.String,System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, string, NodesStatsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <p>https://opensearch.org/docs/latest/opensearch/stats-api/</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, string metric, string indexMetric, NodesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>Limit the information returned to the specified metrics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">indexMetric</span></td>
+        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.html">NodesStatsRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
@@ -2793,6 +2647,150 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L224">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync``1(OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters,System.Threading.CancellationToken)">UsageForAllAsync&lt;TResponse&gt;(NodesUsageRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/usage <p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UsageForAllAsync&lt;TResponse&gt;(NodesUsageRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L246">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters,System.Threading.CancellationToken)">UsageForAllAsync&lt;TResponse&gt;(string, NodesUsageRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/usage/{metric} <p></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UsageForAllAsync&lt;TResponse&gt;(string metric, NodesUsageRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">metric</span></td>
+        <td><p>Limit the information returned to the specified metrics</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAll__1_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAll%60%601(OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -2927,19 +2925,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync%60%601(OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L224">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L230">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync``1(OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters,System.Threading.CancellationToken)">UsageForAllAsync&lt;TResponse&gt;(NodesUsageRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/usage <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)">Usage&lt;TResponse&gt;(string, NodesUsageRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/usage <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UsageForAllAsync&lt;TResponse&gt;(NodesUsageRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse Usage&lt;TResponse&gt;(string nodeId, NodesUsageRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2952,15 +2950,16 @@
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters.html">NodesUsageRequestParameters</a></td>
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">ctx</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -2974,7 +2973,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td><span class="xref">TResponse</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -2996,19 +2995,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync%60%601(System.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L246">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Nodes.cs/#L253">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_UsageForAllAsync__1_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.UsageForAllAsync``1(System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters,System.Threading.CancellationToken)">UsageForAllAsync&lt;TResponse&gt;(string, NodesUsageRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>GET on /_nodes/usage/{metric} <p></p>
+  <a id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_LowLevelNodesNamespace_Usage__1_System_String_System_String_OpenSearch_Net_Specification_NodesApi_NodesUsageRequestParameters_" data-uid="OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.Usage``1(System.String,System.String,OpenSearch.Net.Specification.NodesApi.NodesUsageRequestParameters)">Usage&lt;TResponse&gt;(string, string, NodesUsageRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_nodes/{node_id}/usage/{metric} <p></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; UsageForAllAsync&lt;TResponse&gt;(string metric, NodesUsageRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse Usage&lt;TResponse&gt;(string nodeId, string metric, NodesUsageRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3022,6 +3021,12 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">nodeId</span></td>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
         <td><p>Limit the information returned to the specified metrics</p>
 </td>
@@ -3031,11 +3036,6 @@
         <td><span class="parametername">requestParameters</span></td>
         <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
 </td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">ctx</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -3049,7 +3049,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td><span class="xref">TResponse</span></td>
         <td></td>
       </tr>
     </tbody>

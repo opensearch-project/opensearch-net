@@ -205,50 +205,6 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(%600%2COpenSearch.Client.IndexName%2COpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1873">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
-  <h4 id="OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(`0,OpenSearch.Client.IndexName,OpenSearch.Client.Id)">IndexRequest(TDocument, IndexName, Id)</h4>
-  <div class="markdown level1 summary"><p>/{index}/_doc/{id}</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TDocument</span></td>
-        <td><span class="parametername">documentWithId</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
-        <td><span class="parametername">index</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The document used to resolve the path from</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -277,6 +233,40 @@
         <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
         <td><span class="parametername">id</span></td>
         <td><p>Optional, accepts null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1856">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(OpenSearch.Client.IndexName)">IndexRequest(IndexName)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>this parameter is required</p>
 </td>
       </tr>
     </tbody>
@@ -323,19 +313,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IndexRequest%601.%23ctor(%600%2COpenSearch.Client.IndexName%2COpenSearch.Client.Id)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1856">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L1873">View Source</a>
   </span>
   <a id="OpenSearch_Client_IndexRequest_1__ctor_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor*"></a>
-  <h4 id="OpenSearch_Client_IndexRequest_1__ctor_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(OpenSearch.Client.IndexName)">IndexRequest(IndexName)</h4>
-  <div class="markdown level1 summary"><p>/{index}/_doc</p>
+  <h4 id="OpenSearch_Client_IndexRequest_1__ctor__0_OpenSearch_Client_IndexName_OpenSearch_Client_Id_" data-uid="OpenSearch.Client.IndexRequest`1.#ctor(`0,OpenSearch.Client.IndexName,OpenSearch.Client.Id)">IndexRequest(TDocument, IndexName, Id)</h4>
+  <div class="markdown level1 summary"><p>/{index}/_doc/{id}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IndexRequest(IndexName index)</code></pre>
+    <pre><code class="lang-csharp hljs">public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -348,9 +338,19 @@
     </thead>
     <tbody>
       <tr>
+        <td><span class="xref">TDocument</span></td>
+        <td><span class="parametername">documentWithId</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>this parameter is required</p>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Id.html">Id</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The document used to resolve the path from</p>
 </td>
       </tr>
     </tbody>

@@ -125,172 +125,6 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceManyExtensions.SourceMany%60%601(OpenSearch.Client.IOpenSearchClient%2CSystem.Collections.Generic.IEnumerable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/MultiGet/OpenSearchClient-SourceMany.cs/#L91">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_SourceManyExtensions_SourceMany_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany*"></a>
-  <h4 id="OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany``1(OpenSearch.Client.IOpenSearchClient,System.Collections.Generic.IEnumerable{System.Int64},System.String)">SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, string)</h4>
-  <div class="markdown level1 summary"><p>SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()</p>
-<p>
-Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
-The response includes a docs array with all the fetched documents, each element similar in structure to a document
-provided by the get API.
-</p>
-<p> </p>
-https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(this IOpenSearchClient client, IEnumerable&lt;long&gt; ids, string index = null) where T : class</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a></td>
-        <td><span class="parametername">client</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</td>
-        <td><span class="parametername">ids</span></td>
-        <td><p>A list of ids as int</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>Optionally override the default inferred indexname for T</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The type used to infer the default index and typename</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceManyExtensions.SourceMany%60%601(OpenSearch.Client.IOpenSearchClient%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/MultiGet/OpenSearchClient-SourceMany.cs/#L66">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_SourceManyExtensions_SourceMany_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany*"></a>
-  <h4 id="OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany``1(OpenSearch.Client.IOpenSearchClient,System.Collections.Generic.IEnumerable{System.String},System.String)">SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, string)</h4>
-  <div class="markdown level1 summary"><p>SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()</p>
-<p>
-Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
-The response includes a docs array with all the fetched documents, each element similar in structure to a document
-provided by the get API.
-</p>
-<p> </p>
-https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(this IOpenSearchClient client, IEnumerable&lt;string&gt; ids, string index = null) where T : class</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a></td>
-        <td><span class="parametername">client</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
-        <td><span class="parametername">ids</span></td>
-        <td><p>A list of ids as string</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>Optionally override the default inferred indexname for T</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The type used to infer the default index and typename</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceManyExtensions_SourceManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceManyExtensions.SourceManyAsync%60%601(OpenSearch.Client.IOpenSearchClient%2CSystem.Collections.Generic.IEnumerable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -445,6 +279,172 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type used to infer the default index and typename</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceManyExtensions.SourceMany%60%601(OpenSearch.Client.IOpenSearchClient%2CSystem.Collections.Generic.IEnumerable%7BSystem.Int64%7D%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/MultiGet/OpenSearchClient-SourceMany.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SourceManyExtensions_SourceMany_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany*"></a>
+  <h4 id="OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany``1(OpenSearch.Client.IOpenSearchClient,System.Collections.Generic.IEnumerable{System.Int64},System.String)">SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, string)</h4>
+  <div class="markdown level1 summary"><p>SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()</p>
+<p>
+Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
+The response includes a docs array with all the fetched documents, each element similar in structure to a document
+provided by the get API.
+</p>
+<p> </p>
+https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(this IOpenSearchClient client, IEnumerable&lt;long&gt; ids, string index = null) where T : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</td>
+        <td><span class="parametername">ids</span></td>
+        <td><p>A list of ids as int</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Optionally override the default inferred indexname for T</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type used to infer the default index and typename</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceManyExtensions.SourceMany%60%601(OpenSearch.Client.IOpenSearchClient%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/MultiGet/OpenSearchClient-SourceMany.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SourceManyExtensions_SourceMany_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany*"></a>
+  <h4 id="OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="OpenSearch.Client.SourceManyExtensions.SourceMany``1(OpenSearch.Client.IOpenSearchClient,System.Collections.Generic.IEnumerable{System.String},System.String)">SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, string)</h4>
+  <div class="markdown level1 summary"><p>SourceMany allows you to get a list of T documents out of OpenSearch, internally it calls into MultiGet()</p>
+<p>
+Multi GET API allows to get multiple documents based on an index, type (optional) and id (and possibly routing).
+The response includes a docs array with all the fetched documents, each element similar in structure to a document
+provided by the get API.
+</p>
+<p> </p>
+https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; SourceMany&lt;T&gt;(this IOpenSearchClient client, IEnumerable&lt;string&gt; ids, string index = null) where T : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><span class="parametername">ids</span></td>
+        <td><p>A list of ids as string</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Optionally override the default inferred indexname for T</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>

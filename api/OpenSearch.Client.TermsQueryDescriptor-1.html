@@ -216,18 +216,18 @@ sent to OpenSearch.</p>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsQueryDescriptor_1_Terms__1___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsQueryDescriptor%601.Terms%60%601(%60%600%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup__1_System_Func_OpenSearch_Client_FieldLookupDescriptor___0__OpenSearch_Client_IFieldLookup__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsQueryDescriptor%601.TermsLookup%60%601(System.Func%7BOpenSearch.Client.FieldLookupDescriptor%7B%60%600%7D%2COpenSearch.Client.IFieldLookup%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Terms/TermsQuery.cs/#L88">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Terms/TermsQuery.cs/#L83">View Source</a>
   </span>
-  <a id="OpenSearch_Client_TermsQueryDescriptor_1_Terms_" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.Terms*"></a>
-  <h4 id="OpenSearch_Client_TermsQueryDescriptor_1_Terms__1___0___" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.Terms``1(``0[])">Terms&lt;TValue&gt;(params TValue[])</h4>
+  <a id="OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup_" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.TermsLookup*"></a>
+  <h4 id="OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup__1_System_Func_OpenSearch_Client_FieldLookupDescriptor___0__OpenSearch_Client_IFieldLookup__" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.TermsLookup``1(System.Func{OpenSearch.Client.FieldLookupDescriptor{``0},OpenSearch.Client.IFieldLookup})">TermsLookup&lt;TOther&gt;(Func&lt;FieldLookupDescriptor&lt;TOther&gt;, IFieldLookup&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TermsQueryDescriptor&lt;T&gt; Terms&lt;TValue&gt;(params TValue[] terms)</code></pre>
+    <pre><code class="lang-csharp hljs">public TermsQueryDescriptor&lt;T&gt; TermsLookup&lt;TOther&gt;(Func&lt;FieldLookupDescriptor&lt;TOther&gt;, IFieldLookup&gt; selector) where TOther : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -240,8 +240,8 @@ sent to OpenSearch.</p>
     </thead>
     <tbody>
       <tr>
-        <td>TValue[]</td>
-        <td><span class="parametername">terms</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.FieldLookupDescriptor-1.html">FieldLookupDescriptor</a>&lt;TOther&gt;, <a class="xref" href="OpenSearch.Client.IFieldLookup.html">IFieldLookup</a>&gt;</td>
+        <td><span class="parametername">selector</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -271,7 +271,7 @@ sent to OpenSearch.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TValue</span></td>
+        <td><span class="parametername">TOther</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -340,18 +340,18 @@ sent to OpenSearch.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup__1_System_Func_OpenSearch_Client_FieldLookupDescriptor___0__OpenSearch_Client_IFieldLookup__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsQueryDescriptor%601.TermsLookup%60%601(System.Func%7BOpenSearch.Client.FieldLookupDescriptor%7B%60%600%7D%2COpenSearch.Client.IFieldLookup%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TermsQueryDescriptor_1_Terms__1___0___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TermsQueryDescriptor%601.Terms%60%601(%60%600%5B%5D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Terms/TermsQuery.cs/#L83">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/TermLevel/Terms/TermsQuery.cs/#L88">View Source</a>
   </span>
-  <a id="OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup_" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.TermsLookup*"></a>
-  <h4 id="OpenSearch_Client_TermsQueryDescriptor_1_TermsLookup__1_System_Func_OpenSearch_Client_FieldLookupDescriptor___0__OpenSearch_Client_IFieldLookup__" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.TermsLookup``1(System.Func{OpenSearch.Client.FieldLookupDescriptor{``0},OpenSearch.Client.IFieldLookup})">TermsLookup&lt;TOther&gt;(Func&lt;FieldLookupDescriptor&lt;TOther&gt;, IFieldLookup&gt;)</h4>
+  <a id="OpenSearch_Client_TermsQueryDescriptor_1_Terms_" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.Terms*"></a>
+  <h4 id="OpenSearch_Client_TermsQueryDescriptor_1_Terms__1___0___" data-uid="OpenSearch.Client.TermsQueryDescriptor`1.Terms``1(``0[])">Terms&lt;TValue&gt;(params TValue[])</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TermsQueryDescriptor&lt;T&gt; TermsLookup&lt;TOther&gt;(Func&lt;FieldLookupDescriptor&lt;TOther&gt;, IFieldLookup&gt; selector) where TOther : class</code></pre>
+    <pre><code class="lang-csharp hljs">public TermsQueryDescriptor&lt;T&gt; Terms&lt;TValue&gt;(params TValue[] terms)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -364,8 +364,8 @@ sent to OpenSearch.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.FieldLookupDescriptor-1.html">FieldLookupDescriptor</a>&lt;TOther&gt;, <a class="xref" href="OpenSearch.Client.IFieldLookup.html">IFieldLookup</a>&gt;</td>
-        <td><span class="parametername">selector</span></td>
+        <td>TValue[]</td>
+        <td><span class="parametername">terms</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -395,7 +395,7 @@ sent to OpenSearch.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TOther</span></td>
+        <td><span class="parametername">TValue</span></td>
         <td></td>
       </tr>
     </tbody>
