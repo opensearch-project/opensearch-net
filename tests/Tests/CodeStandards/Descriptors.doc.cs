@@ -33,6 +33,7 @@ using FluentAssertions;
 using OpenSearch.Client;
 using Tests.Framework;
 using System.Reflection;
+using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.CodeStandards

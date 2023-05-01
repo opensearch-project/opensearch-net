@@ -28,6 +28,7 @@
 
 using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.ClusterApi;
 
 namespace Tests.Core.Extensions
 {

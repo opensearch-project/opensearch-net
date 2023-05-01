@@ -44,4 +44,7 @@
       <DependentUpon>OpenSearchClient.cs</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tasks\" />
+  </ItemGroup>
 </Project>
