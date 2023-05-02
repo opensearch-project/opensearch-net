@@ -28,7 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	public class AnalyzeTokenizersSelector : SelectorBase
 	{

@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 
 namespace Tests.IndexModules.IndexSettings.Translog
 {
@@ -37,7 +38,7 @@ namespace Tests.IndexModules.IndexSettings.Translog
 		/**
 		 */
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.Specification.IndicesApi.IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -63,8 +64,8 @@ namespace Tests.IndexModules.IndexSettings.Translog
 
 			/**
 			 */
-			protected override OpenSearch.Client.IndexSettings Initializer =>
-				new OpenSearch.Client.IndexSettings
+			protected override OpenSearch.Client.Specification.IndicesApi.IndexSettings Initializer =>
+				new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 				{
 					Translog = new TranslogSettings
 					{

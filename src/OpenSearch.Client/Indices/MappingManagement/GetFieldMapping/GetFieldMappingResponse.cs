@@ -34,7 +34,7 @@ using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 using static OpenSearch.Client.Infer;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetFieldMappingResponse, IndexName, TypeFieldMappings>))]
 	public class GetFieldMappingResponse : DictionaryResponseBase<IndexName, TypeFieldMappings>

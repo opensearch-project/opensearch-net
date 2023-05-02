@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -103,7 +104,7 @@ namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
 			Version = 2,
 			IndexPatterns = new[] { "oscx-*" },
 			Create = false,
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 			{
 				NumberOfShards = 1
 			},

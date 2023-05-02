@@ -32,6 +32,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -157,7 +158,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 			{
 				NumberOfReplicas = 1,
 				NumberOfShards = 1,
@@ -308,7 +309,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,
@@ -388,7 +389,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,

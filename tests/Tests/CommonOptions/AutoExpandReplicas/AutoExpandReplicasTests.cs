@@ -39,7 +39,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromNullString()
 		{
 			string nullString = null;
-			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = nullString;
+			OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas autoExpandReplicas = nullString;
 			autoExpandReplicas.Should().BeNull();
 		}
 
@@ -47,7 +47,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromMinAndMaxString()
 		{
 			var minAndMax = "0-5";
-			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = minAndMax;
+			OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas autoExpandReplicas = minAndMax;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -62,7 +62,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		public void ImplicitConversionFromMinAndAllString()
 		{
 			var minAndMax = "0-all";
-			OpenSearch.Client.AutoExpandReplicas autoExpandReplicas = minAndMax;
+			OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas autoExpandReplicas = minAndMax;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -76,7 +76,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithMinAndMax()
 		{
-			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create(2, 3);
+			var autoExpandReplicas = OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create(2, 3);
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(2);
@@ -90,7 +90,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithMinAndAll()
 		{
-			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create(0);
+			var autoExpandReplicas = OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create(0);
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
@@ -104,7 +104,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void CreateWithFalse()
 		{
-			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Create("false");
+			var autoExpandReplicas = OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create("false");
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeFalse();
 			autoExpandReplicas.MinReplicas.Should().BeNull();
@@ -115,7 +115,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 		[U]
 		public void Disabled()
 		{
-			var autoExpandReplicas = OpenSearch.Client.AutoExpandReplicas.Disabled;
+			var autoExpandReplicas = OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Disabled;
 			autoExpandReplicas.Should().NotBeNull();
 			autoExpandReplicas.Enabled.Should().BeFalse();
 			autoExpandReplicas.MinReplicas.Should().NotHaveValue();
@@ -126,18 +126,18 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 
 		[U]
 		public void MinMustBeEqualOrLessThanMax() =>
-			Assert.Throws<ArgumentException>(() => OpenSearch.Client.AutoExpandReplicas.Create(2, 1));
+			Assert.Throws<ArgumentException>(() => OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create(2, 1));
 
 		[U]
 		public void MinMustBeGreaterThanOrEqualToZero() =>
-			Assert.Throws<ArgumentException>(() => OpenSearch.Client.AutoExpandReplicas.Create(-1));
+			Assert.Throws<ArgumentException>(() => OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create(-1));
 
 		[U]
 		public void MinMustBeAnInteger() =>
-			Assert.Throws<FormatException>(() => OpenSearch.Client.AutoExpandReplicas.Create("all-all"));
+			Assert.Throws<FormatException>(() => OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create("all-all"));
 
 		[U]
 		public void MaxMustBeAllOrAnInteger() =>
-			Assert.Throws<FormatException>(() => OpenSearch.Client.AutoExpandReplicas.Create("2-boo"));
+			Assert.Throws<FormatException>(() => OpenSearch.Client.Specification.IndicesApi.AutoExpandReplicas.Create("2-boo"));
 	}
 }

@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -64,7 +65,7 @@ namespace Tests.Indices.IndexManagement.ShrinkIndex
 
 		protected override ShrinkIndexRequest Initializer => new ShrinkIndexRequest(CallIsolatedValue, CallIsolatedValue + "-target")
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 			{
 				NumberOfShards = 4
 			}

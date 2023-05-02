@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 
 namespace Tests.IndexModules.IndexSettings.SlowLog
 {
@@ -37,7 +38,7 @@ namespace Tests.IndexModules.IndexSettings.SlowLog
 		/**
 		 */
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.Specification.IndicesApi.IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -90,10 +91,10 @@ namespace Tests.IndexModules.IndexSettings.SlowLog
 
 			/**
 			 */
-			protected override OpenSearch.Client.IndexSettings Initializer =>
-				new OpenSearch.Client.IndexSettings
+			protected override OpenSearch.Client.Specification.IndicesApi.IndexSettings Initializer =>
+				new OpenSearch.Client.Specification.IndicesApi.IndexSettings
 				{
-					SlowLog = new OpenSearch.Client.SlowLog
+					SlowLog = new OpenSearch.Client.Specification.IndicesApi.SlowLog
 					{
 						Indexing = new SlowLogIndexing
 						{
