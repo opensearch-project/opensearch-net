@@ -26,25 +26,56 @@
 *  under the License.
 */
 
-using System.Collections.Generic;
+using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public class NodesHotThreadsResponse : ResponseBase
+	[StringEnum]
+	public enum NodeRole
 	{
-		public NodesHotThreadsResponse() { }
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager"/> instead</remarks>
+		[EnumMember(Value = "master")]
+		Master,
 
-		internal NodesHotThreadsResponse(IReadOnlyCollection<HotThreadInformation> threadInfo) => HotThreads = threadInfo;
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master"/></remarks>
+		[EnumMember(Value = "cluster_manager")]
+		ClusterManager,
 
-		public IReadOnlyCollection<HotThreadInformation> HotThreads { get; internal set; } = EmptyReadOnly<HotThreadInformation>.Collection;
-	}
+		[EnumMember(Value = "data")]
+		Data,
 
-	public class HotThreadInformation
-	{
-		public IReadOnlyCollection<string> Hosts { get; internal set; } = EmptyReadOnly<string>.Collection;
-		public string NodeId { get; internal set; }
-		public string NodeName { get; internal set; }
-		public IReadOnlyCollection<string> Threads { get; internal set; } = EmptyReadOnly<string>.Collection;
+		[EnumMember(Value = "data_cold")]
+		DataCold,
+
+		[EnumMember(Value = "data_frozen")]
+		DataFrozen,
+
+		[EnumMember(Value = "data_content")]
+		DataContent,
+
+		[EnumMember(Value = "data_hot")]
+		DataHot,
+
+		[EnumMember(Value = "data_warm")]
+		DataWarm,
+
+		[EnumMember(Value = "client")]
+		Client,
+
+		[EnumMember(Value = "ingest")]
+		Ingest,
+
+		[EnumMember(Value = "voting_only")]
+		VotingOnly,
+
+		[EnumMember(Value = "transform")]
+		Transform,
+
+		[EnumMember(Value = "remote_cluster_client")]
+		RemoteClusterClient,
+
+		[EnumMember(Value = "coordinating_only")]
+		CoordinatingOnly,
 	}
 }

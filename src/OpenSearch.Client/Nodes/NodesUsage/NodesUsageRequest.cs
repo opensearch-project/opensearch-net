@@ -26,27 +26,12 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
-using OpenSearch.Net.Specification.NodesApi;
-
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	[MapsApi("nodes.hot_threads.json")]
-	public partial interface INodesHotThreadsRequest { }
+	[MapsApi("nodes.usage.json")]
+	public partial interface INodesUsageRequest { }
 
-	public partial class NodesHotThreadsRequest
-	{
-		protected override string ContentType => RequestData.MimeTypeTextPlain;
+	public partial class NodesUsageRequest { }
 
-		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
-	}
-
-	public partial class NodesHotThreadsDescriptor
-	{
-		protected override string ContentType => RequestData.MimeTypeTextPlain;
-
-		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
-	}
+	public partial class NodesUsageDescriptor { }
 }

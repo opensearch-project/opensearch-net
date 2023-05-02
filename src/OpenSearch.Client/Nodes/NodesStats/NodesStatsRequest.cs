@@ -26,12 +26,12 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	[MapsApi("nodes.usage.json")]
-	public partial interface INodesUsageRequest { }
+	[MapsApi("nodes.stats.json")]
+	public partial interface INodesStatsRequest { }
 
-	public partial class NodesUsageRequest { }
+	public partial class NodesStatsRequest { }
 
-	public partial class NodesUsageDescriptor { }
+	public partial class NodesStatsDescriptor { }
 }

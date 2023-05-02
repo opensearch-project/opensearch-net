@@ -26,20 +26,12 @@
 *  under the License.
 */
 
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
-
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public class ReloadSecureSettingsResponse : NodesResponseBase
-	{
-		[DataMember(Name = "cluster_name")]
-		public string ClusterName { get; internal set; }
+	[MapsApi("nodes.reload_secure_settings.json")]
+	public partial interface IReloadSecureSettingsRequest { }
 
-		[DataMember(Name = "nodes")]
-		[JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, NodeStats>))]
-		public IReadOnlyDictionary<string, NodeStats> Nodes { get; internal set; } = EmptyReadOnly<string, NodeStats>.Dictionary;
-	}
+	public partial class ReloadSecureSettingsRequest { }
+
+	public partial class ReloadSecureSettingsDescriptor { }
 }

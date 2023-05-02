@@ -27,22 +27,24 @@
 */
 
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public class NodeIngestStats
+	public class NodesHotThreadsResponse : ResponseBase
 	{
-		/// <summary> Per pipeline ingest statistics </summary>
-		[DataMember(Name = "pipelines")]
-		[JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, IngestStats>))]
-		public IReadOnlyDictionary<string, IngestStats> Pipelines { get; internal set; }
-			= EmptyReadOnly<string, IngestStats>.Dictionary;
+		public NodesHotThreadsResponse() { }
 
-		/// <summary> Overall global ingest statistics </summary>
-		[DataMember(Name = "total")]
-		public IngestStats Total { get; set; }
+		internal NodesHotThreadsResponse(IReadOnlyCollection<HotThreadInformation> threadInfo) => HotThreads = threadInfo;
+
+		public IReadOnlyCollection<HotThreadInformation> HotThreads { get; internal set; } = EmptyReadOnly<HotThreadInformation>.Collection;
+	}
+
+	public class HotThreadInformation
+	{
+		public IReadOnlyCollection<string> Hosts { get; internal set; } = EmptyReadOnly<string>.Collection;
+		public string NodeId { get; internal set; }
+		public string NodeName { get; internal set; }
+		public IReadOnlyCollection<string> Threads { get; internal set; } = EmptyReadOnly<string>.Collection;
 	}
 }

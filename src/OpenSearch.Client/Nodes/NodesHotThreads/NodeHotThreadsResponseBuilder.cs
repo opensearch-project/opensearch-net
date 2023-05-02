@@ -35,7 +35,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
 	internal class NodeHotThreadsResponseBuilder : CustomResponseBuilderBase
 	{

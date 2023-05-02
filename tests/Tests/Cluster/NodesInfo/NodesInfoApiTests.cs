@@ -32,6 +32,7 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.NodesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -81,7 +82,7 @@ namespace Tests.Cluster.NodesInfo
 			nodesMetada.Successful.Should().BeGreaterThan(0);
 		}
 
-		protected void Assert(OpenSearch.Client.NodeInfo node)
+		protected void Assert(OpenSearch.Client.Specification.NodesApi.NodeInfo node)
 		{
 			node.Should().NotBeNull();
 			node.Name.Should().NotBeNullOrWhiteSpace();
@@ -159,7 +160,7 @@ namespace Tests.Cluster.NodesInfo
 			transport.PublishAddress.Should().NotBeNullOrWhiteSpace();
 		}
 
-		protected void Assert(OpenSearch.Client.NodeInfoHttp http)
+		protected void Assert(OpenSearch.Client.Specification.NodesApi.NodeInfoHttp http)
 		{
 			http.Should().NotBeNull();
 			http.BoundAddress.Should().NotBeEmpty();
