@@ -30,7 +30,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -38,6 +37,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.IndexTemplates
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class IndexTemplateCrudTests
 		: CrudTestBase<WritableCluster, PutIndexTemplateResponse, GetIndexTemplateResponse, PutIndexTemplateResponse, DeleteIndexTemplateResponse,
 			ExistsResponse>
@@ -64,10 +65,10 @@ namespace Tests.Indices.IndexSettings.IndexTemplates
 				(s, c, r) => c.Indices.PutTemplateAsync(r)
 			);
 
-		private PutIndexTemplateRequest CreateInitializer(string name) => new PutIndexTemplateRequest(name)
+		private PutIndexTemplateRequest CreateInitializer(string name) => new(name)
 		{
 			IndexPatterns = new[] { "startingwiththis-*" },
-			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 2
 			}
@@ -108,10 +109,10 @@ namespace Tests.Indices.IndexSettings.IndexTemplates
 				(s, c, r) => c.Indices.PutTemplateAsync(r)
 			);
 
-		private PutIndexTemplateRequest PutInitializer(string name) => new PutIndexTemplateRequest(name)
+		private PutIndexTemplateRequest PutInitializer(string name) => new(name)
 		{
 			IndexPatterns = new[] { "startingwiththis-*" },
-			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 1
 			}

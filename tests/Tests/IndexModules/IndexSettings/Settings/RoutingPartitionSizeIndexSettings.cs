@@ -30,11 +30,12 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 
 namespace Tests.IndexModules.IndexSettings.Settings
 {
-	public class RoutingPartitionSizeIndexSettingsUsage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.Specification.IndicesApi.IndexSettings>
+	using OpenSearch.Client.Specification.IndicesApi;
+
+	public class RoutingPartitionSizeIndexSettingsUsage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, IndexSettings>
 	{
 		protected override object ExpectJson => new Dictionary<string, object>
 		{
@@ -49,8 +50,8 @@ namespace Tests.IndexModules.IndexSettings.Settings
 
 		/**
 		 */
-		protected override OpenSearch.Client.Specification.IndicesApi.IndexSettings Initializer =>
-			new OpenSearch.Client.Specification.IndicesApi.IndexSettings
+		protected override IndexSettings Initializer =>
+			new()
 			{
 				RoutingPartitionSize = 6,
 			};

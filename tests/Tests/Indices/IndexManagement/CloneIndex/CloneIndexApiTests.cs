@@ -32,7 +32,6 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -40,6 +39,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.CloneIndex
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class CloneIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, CloneIndexResponse, ICloneIndexRequest, CloneIndexDescriptor, CloneIndexRequest>
 	{
@@ -108,9 +109,9 @@ namespace Tests.Indices.IndexManagement.CloneIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override CloneIndexRequest Initializer => new CloneIndexRequest(CallIsolatedValue, CallIsolatedValue + CloneSuffix)
+		protected override CloneIndexRequest Initializer => new(CallIsolatedValue, CallIsolatedValue + CloneSuffix)
 		{
-			Settings = new OpenSearch.Client.Specification.IndicesApi.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,
@@ -137,7 +138,7 @@ namespace Tests.Indices.IndexManagement.CloneIndex
 			(client, r) => client.Indices.CloneAsync(r)
 		);
 
-		protected override CloneIndexDescriptor NewDescriptor() => new CloneIndexDescriptor(CallIsolatedValue, CallIsolatedValue + CloneSuffix);
+		protected override CloneIndexDescriptor NewDescriptor() => new(CallIsolatedValue, CallIsolatedValue + CloneSuffix);
 
 		protected override void ExpectResponse(CloneIndexResponse response)
 		{
