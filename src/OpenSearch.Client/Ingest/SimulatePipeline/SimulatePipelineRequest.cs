@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	[MapsApi("ingest.simulate.json")]
 	public partial interface ISimulatePipelineRequest

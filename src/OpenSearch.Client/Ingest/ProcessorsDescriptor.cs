@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	public class ProcessorsDescriptor : DescriptorPromiseBase<ProcessorsDescriptor, IList<IProcessor>>
 	{

@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	[MapsApi("ingest.get_pipeline.json")]
 	public partial interface IGetPipelineRequest { }

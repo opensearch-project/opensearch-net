@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	[StringEnum]
 	public enum UserAgentProperty

@@ -32,7 +32,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	/// <summary>
 	/// The user_agent processor extracts details from the user agent string a browser sends with its web requests.
