@@ -32,6 +32,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.SnapshotApi;
 
 namespace Tests.Reproduce
 {
@@ -66,7 +67,7 @@ namespace Tests.Reproduce
 			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
 			var client = new OpenSearchClient(connectionSettings);
 
-			Func<GetRepositoryResponse> responseAction = () =>  client.Snapshot.GetRepository();
+			var responseAction = () =>  client.Snapshot.GetRepository();
 			responseAction.Should().NotThrow();
 
 			var response = responseAction();

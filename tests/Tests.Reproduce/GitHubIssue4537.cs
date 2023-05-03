@@ -32,6 +32,7 @@ using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.SnapshotApi;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce
@@ -91,7 +92,7 @@ namespace Tests.Reproduce
 
 			var client = TestClient.FixedInMemoryClient(Encoding.UTF8.GetBytes(json));
 
-			Func<GetSnapshotResponse> action = () => client.Snapshot.Get("repo", "snapshot_2020-03-31t00:02:18z");
+			var action = () => client.Snapshot.Get("repo", "snapshot_2020-03-31t00:02:18z");
 
 			action.Should().NotThrow();
 
