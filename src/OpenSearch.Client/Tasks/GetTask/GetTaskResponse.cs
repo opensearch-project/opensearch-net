@@ -26,12 +26,27 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client.Specification.TasksApi
 {
-	[MapsApi("tasks.list.json")]
-	public partial interface IListTasksRequest { }
+	public class GetTaskResponse : ResponseBase
+	{
+		[DataMember(Name = "completed")]
+		public bool Completed { get; internal set; }
 
-	public partial class ListTasksRequest { }
+		[DataMember(Name = "task")]
+		public TaskInfo Task { get; internal set; }
 
-	public partial class ListTasksDescriptor { }
+		[DataMember(Name = "response")]
+		internal LazyDocument Response { get; set; }
+
+		/// <summary>
+		/// Gets the response for the request that the task represents, if available.
+		/// Because the response will have no associated <see cref="ApiCallDetails"/>, the value
+		/// of <see cref="IResponse.IsValid"/> should not be used.
+		/// </summary>
+		public TResponse GetResponse<TResponse>() where TResponse : class, IResponse => Response?.AsUsingRequestResponseSerializer<TResponse>();
+	}
 }
