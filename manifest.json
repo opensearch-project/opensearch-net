@@ -1643,646 +1643,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAliasesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAliasesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAliasesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAliasesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAliasesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAliasesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllocationDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAllocationDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllocationRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAllocationRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllocationRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatAllocationRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatClusterManagerDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatClusterManagerDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatClusterManagerRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatClusterManagerRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatClusterManagerRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatClusterManagerRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatCountDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatCountDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatCountRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatCountRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatCountRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatCountRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatFielddataDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatFielddataDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatFielddataRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatFielddataRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatFielddataRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatFielddataRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHealthDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHealthDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHealthRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHealthRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHealthRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHealthRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHelpDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHelpDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHelpRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHelpRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatHelpRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatHelpRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatIndicesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatIndicesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatIndicesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatIndicesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatIndicesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatIndicesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatMasterDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatMasterDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatMasterRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatMasterRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatMasterRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatMasterRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodeAttributesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodeAttributesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodeAttributesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodeAttributesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodeAttributesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodeAttributesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatNodesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatNodesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPendingTasksDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPendingTasksDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPendingTasksRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPendingTasksRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPendingTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPendingTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPluginsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPluginsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPluginsRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPluginsRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPluginsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatPluginsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRecoveryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRecoveryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRecoveryRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRecoveryRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRecoveryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRecoveryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRepositoriesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRepositoriesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRepositoriesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRepositoriesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatRepositoriesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatRepositoriesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatResponse-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatResponse-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSegmentsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentsRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSegmentsRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSegmentsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatShardsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatShardsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatShardsRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatShardsRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatShardsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatShardsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSnapshotsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSnapshotsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSnapshotsRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSnapshotsRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSnapshotsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatSnapshotsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTasksDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTasksDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTasksRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTasksRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTemplatesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTemplatesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTemplatesRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTemplatesRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatTemplatesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatTemplatesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatThreadPoolDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatThreadPoolDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatThreadPoolRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatThreadPoolRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatThreadPoolRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CatThreadPoolRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CategorySuggestContext.yml",
       "output": {
         ".html": {
@@ -8707,226 +8067,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ICardinalityAggregation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatAliasesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatAliasesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatAllocationRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatAllocationRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatClusterManagerRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatClusterManagerRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatCountRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatCountRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatFielddataRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatFielddataRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatHealthRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatHealthRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatHelpRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatHelpRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatIndicesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatIndicesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatMasterRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatMasterRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatNodeAttributesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatNodeAttributesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatNodesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatNodesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatPendingTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatPendingTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatPluginsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatPluginsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatRecord.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatRecord.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatRecoveryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatRecoveryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatRepositoriesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatRepositoriesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatSegmentsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatSegmentsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatShardsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatShardsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatSnapshotsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatSnapshotsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatTemplatesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatTemplatesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatThreadPoolRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICatThreadPoolRequest.html"
         }
       },
       "version": ""
@@ -24123,10 +23263,870 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAliasesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAliasesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAliasesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAliasesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAliasesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAliasesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAllocationDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAllocationDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAllocationRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAllocationRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatAllocationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatAllocationRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatClusterManagerDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatClusterManagerDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatClusterManagerRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatClusterManagerRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatClusterManagerRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatClusterManagerRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatCountDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatCountDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatCountRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatCountRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatCountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatCountRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatFielddataDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatFielddataDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatFielddataRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatFielddataRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatFielddataRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatFielddataRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHealthDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHealthDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHealthRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHealthRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHealthRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHealthRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHelpDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHelpDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHelpRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHelpRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatHelpRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatHelpRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatIndicesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatIndicesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatIndicesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatIndicesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatIndicesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatIndicesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatMasterDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatMasterDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatMasterRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatMasterRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatMasterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatMasterRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNamespace.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodeAttributesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodeAttributesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodeAttributesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodeAttributesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodeAttributesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodeAttributesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatNodesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatNodesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPendingTasksDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPendingTasksDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPendingTasksRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPendingTasksRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPendingTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPendingTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPluginsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPluginsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPluginsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPluginsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatPluginsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatPluginsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRecoveryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRecoveryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRecoveryRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRecoveryRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRecoveryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRecoveryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRepositoriesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRepositoriesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRepositoriesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRepositoriesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatRepositoriesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatRepositoriesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatResponse-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSegmentsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSegmentsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSegmentsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSegmentsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatShardsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatShardsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatShardsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatShardsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatShardsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatShardsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSnapshotsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSnapshotsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSnapshotsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSnapshotsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatSnapshotsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatSnapshotsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTasksDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTasksDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTasksRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTasksRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTemplatesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTemplatesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTemplatesRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTemplatesRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatTemplatesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatTemplatesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatThreadPoolDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatThreadPoolDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatThreadPoolRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatThreadPoolRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.CatThreadPoolRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.CatThreadPoolRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatAliasesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatAliasesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatAllocationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatAllocationRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatClusterManagerRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatClusterManagerRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatCountRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatCountRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatFielddataRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatFielddataRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatHealthRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatHealthRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatHelpRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatHelpRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatIndicesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatIndicesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatMasterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatMasterRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatNodeAttributesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatNodeAttributesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatNodesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatNodesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatPendingTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatPendingTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatPluginsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatPluginsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatRecoveryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatRecoveryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatRepositoriesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatRepositoriesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatShardsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatShardsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatSnapshotsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatSnapshotsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatTemplatesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatTemplatesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatThreadPoolRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatThreadPoolRequest.html"
         }
       },
       "version": ""
