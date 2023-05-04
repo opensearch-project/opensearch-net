@@ -31,7 +31,7 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	internal class CatFielddataRecordFormatter : IJsonFormatter<CatFielddataRecord>
 	{

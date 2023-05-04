@@ -28,7 +28,7 @@
 
 #pragma warning disable 612, 618
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	[MapsApi("cat.nodeattrs.json")]
 	public partial interface ICatNodeAttributesRequest { }

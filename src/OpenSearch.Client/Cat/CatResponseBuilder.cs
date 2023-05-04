@@ -32,7 +32,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	internal class CatResponseBuilder<TCatRecord> : CustomResponseBuilderBase where TCatRecord : ICatRecord
 	{
