@@ -1,6 +1,6 @@
 # Bulk
 
-In this guide, you'll learn how to use the OpenSearch Ruby Client API to perform bulk operations. You'll learn how to index, update, and delete multiple documents in a single request.
+In this guide, you'll learn how to use the OpenSearch .NET Client API to perform bulk operations. You'll learn how to index, update, and delete multiple documents in a single request.
 
 ## Setup
 
@@ -14,14 +14,14 @@ var client = new OpenSearchClient(nodeAddress);
 Next, create an index named `movies` and another named `books` with the default settings:
 
 ```cs
-movies = 'movies'
-books = 'books'
-if(!await client.Indices.ExistsAsync(movies)) {
-    await client.Indices.CreateAsync(movies);
+var movies = 'movies';
+var books = 'books';
+if (!(await client.Indices.ExistsAsync(movies)).Exists) {
+  await client.Indices.CreateAsync(movies);
 }
 
-if(!await client.Indices.ExistsAsync(books)) {
-    await client.Indices.CreateAsync(books);
+if (!(await client.Indices.ExistsAsync(books)).Exists) {
+  await client.Indices.CreateAsync(books);
 }
 ```
 
@@ -34,17 +34,22 @@ The `bulk` API action allows you to perform document operations in a single requ
 The following code creates two documents in the `movies` index and one document in the `books` index:
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[]
-  {
-    new { index = new {_index = movies, _id = 1}},
-    new { title = "Beauty and the Beast", year = 1991 },
-    new { index = new { _index = movies, _id = 2 }},
-    new { title = "Beauty and the Beast - Live Action", year = 2017 },
-    new { index = new { _index = books, _id = 1 }},
-    new { title = 'The Lion King', year = 1994 }
-  }
-));
+var response = await client.BulkAsync(b => b
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(1)
+        .Document(new { Title = "Beauty and the Beast", Year = 1991 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(2)
+        .Document(new { Title = "Beauty and the Beast - Live Action", Year = 2017 })
+    )
+    .Index<object>(i => i
+        .Index(books)
+        .Id(1)
+        .Document(new { Title = "The Lion King", Year = 1994 })
+    ));
 ```
 
 As you can see, each bulk operation is comprised of two objects. The first object contains the operation type and the target document's `_index` and `_id`. The second object contains the document's data. As a result, the body of the request above contains six objects for three index actions.
@@ -52,14 +57,22 @@ As you can see, each bulk operation is comprised of two objects. The first objec
 Alternatively, the `bulk` method can accept an array of hashes where each hash represents a single operation. The following code is equivalent to the previous example:
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[]
-  {
-    new { index = new { _index = movies, _id = 1, data = new { title = "Beauty and the Beast", year = 1991 }}},
-    new { index = new { _index = movies, _id = 2, data = new { title = "Beauty and the Beast - Live Action", year = 2017 }}},
-    new { index = new { _index = books, _id = 1, data = new { title = "The Lion King", year = 1994 }}}
-  }
-));
+var response = await client.BulkAsync(b => b
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(1)
+        .Document(new { Title = "Beauty and the Beast", Year = 1991 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(2)
+        .Document(new { Title = "Beauty and the Beast - Live Action", Year = 2017 })
+    )
+    .Index<object>(i => i
+        .Index(books)
+        .Id(1)
+        .Document(new { Title = "The Lion King", Year = 1994 })
+    ));
 ```
 
 We will use this format for the rest of the examples in this guide.
@@ -69,15 +82,27 @@ We will use this format for the rest of the examples in this guide.
 Similarly, instead of calling the `create` method for each document, you can use the `bulk` API to create multiple documents in a single request. The following code creates three documents in the `movies` index and one in the `books` index:
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[] {
-    new { create = new { data = new { title = "Beauty and the Beast 2", year = 2030 }}},
-    new { create = new { data = new { title = "Beauty and the Beast 3", year = 2031 }}},
-    new { create = new { data = new { title: "Beauty and the Beast 4", year = 2049 }}},
-    new { create = new { _index = books, data = new { title = "The Lion King 2", year = 1998 }}},
-    new { create = new { _index = books, data = new { title: "The Lion King 2", year = 1998 }}}
-  }
-)).Index(movies);
+var response = await client.BulkAsync(b => b
+    .Index<object>(i => i
+        .Index(movies)
+        .Document(new { Title = "Beauty and the Beast 2", Year = 2030 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Document(new { Title = "Beauty and the Beast 3", Year = 2031 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Document(new { Title = "Beauty and the Beast 4", Year = 2049 })
+    )
+    .Index<object>(i => i
+        .Index(books)
+        .Document(new { Title = "The Lion King 2", Year = 1998 })
+    )
+    .Index<object>(i => i
+        .Index(books)
+        .Document(new { Title = "The Lion King 2", Year = 1998 })
+    ));
 ```
 
 Note that we specified only the `_index` for the last document in the request body. This is because the `bulk` method accepts an `index` parameter that specifies the default `_index` for all bulk operations in the request body. Moreover, we omit the `_id` for each document and let OpenSearch generate them for us in this example, just like we can with the `create` method.
@@ -85,12 +110,17 @@ Note that we specified only the `_index` for the last document in the request bo
 ### Updating multiple documents
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[] {
-    new { update = new { _id = 1, data = new { doc = new { year = 1992 } } } },
-    new { update = new { _id = 2, data = new { doc = new { year = 2018 } } } }
-  }
-)).Index(movies);
+var response = await client.BulkAsync(b => b
+    .Update<object>(i => i
+        .Index(movies)
+        .Id(1)
+        .Document(new { Year = 1992 })
+    )
+    .Update<object>(i => i
+        .Index(movies)
+        .Id(2)
+        .Document(new { Year = 2018 })
+    ));
 ```
 
 Note that the updated data is specified in the `doc` field of the `data` object.
@@ -98,12 +128,15 @@ Note that the updated data is specified in the `doc` field of the `data` object.
 ### Deleting multiple documents
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[] {
-    new { delete = new { _id = 1 } },
-    new { delete = new { _id = 2 } }
-  }
-)).Index(movies);
+var response = await client.BulkAsync(b => b
+    .Delete<object>(i => i
+        .Index(movies)
+        .Id(1)
+    )
+    .Delete<object>(i => i
+        .Index(movies)
+        .Id(2)
+    ));
 ```
 
 ### Mix and match operations
@@ -111,14 +144,24 @@ client.Bulk<StringResponse>(PostData.MultiJson(
 You can mix and match the different operations in a single request. The following code creates two documents, updates one document, and deletes another document:
 
 ```cs
-client.Bulk<StringResponse>(PostData.MultiJson(
-  new object[] {
-    new { create = new { data = new { title = "Beauty and the Beast 5", year = 2050 } } },
-    new { create = new { data = new { title = "Beauty and the Beast 6", year = 2051 } } },
-    new { update = new { _id = 3, data = new { doc = new { year = 2052 } } } },
-    new { delete = new { _id = 4 } }
-  }
-)).Index(movies);
+var response = await client.BulkAsync(b => b
+    .Index<object>(i => i
+        .Index(movies)
+        .Document(new { Title = "Beauty and the Beast 5", Year = 2050 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Document(new { Title = "Beauty and the Beast 6", Year = 2051 })
+    )
+    .Update<object>(i => i
+        .Index(movies)
+        .Id(3)
+        .Document(new { Year = 2052 })
+    )
+    .Delete<object>(i => i
+        .Index(movies)
+        .Id(4)
+    ));
 ```
 
 ### Handling errors
@@ -128,14 +171,27 @@ The `bulk` API returns an array of responses for each operation in the request b
 The following code shows how to look for errors in the response:
 
 ```cs
-response = client.Bulk<StringResponse>(PostData.MultiJson(
-    new object[] {
-      new { create = new { _id = 1, data = new { title = "Beauty and the Beast", year = 1991 } } },
-      new { create = new { _id = 2, data = new { title = "Beauty and the Beast 2", year = 2030 } } },
-      new { create = new { _id = 1, data = new { title = "Beauty and the Beast 3", year = 2031 } } }, // document already exists error
-      new { create = new { _id = 2, data = new { title = "Beauty and the Beast 4", year = 2049 } } }  // document already exists error
-    }
-)).Index(movies);
+var response = await client.BulkAsync(b => b
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(1)
+        .Document(new { Title = "Beauty and the Beast", Year = 1991 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(2)
+        .Document(new { Title = "Beauty and the Beast 2", Year = 2030 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(1)
+        .Document(new { Title = "Beauty and the Beast 3", Year = 2031 })
+    )
+    .Index<object>(i => i
+        .Index(movies)
+        .Id(2)
+        .Document(new { Title = "Beauty and the Beast 4", Year = 2049 })
+    ));
 
 foreach (var item in response.body["items"]) {
   if(!Enumerable.Range(200,299).Contains(item["create"]["status"])) {
