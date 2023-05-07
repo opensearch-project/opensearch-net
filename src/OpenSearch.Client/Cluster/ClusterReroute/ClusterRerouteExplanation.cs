@@ -29,7 +29,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[DataContract]
 	public class ClusterRerouteExplanation
