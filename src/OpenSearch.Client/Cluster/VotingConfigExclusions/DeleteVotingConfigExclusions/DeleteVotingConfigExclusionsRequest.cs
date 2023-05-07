@@ -32,7 +32,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[MapsApi("cluster.delete_voting_config_exclusions")]
 	public partial interface IDeleteVotingConfigExclusionsRequest { }

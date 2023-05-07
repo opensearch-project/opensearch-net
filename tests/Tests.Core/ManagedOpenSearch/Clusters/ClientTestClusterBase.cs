@@ -33,6 +33,7 @@ using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.ClusterApi;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
