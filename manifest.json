@@ -413,86 +413,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateClusterRerouteCommandBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateClusterRerouteCommandBase.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateClusterRerouteCommandDescriptorBase-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateClusterRerouteCommandDescriptorBase-2.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateEmptyPrimaryRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateEmptyPrimaryRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateEmptyPrimaryRerouteCommandDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateEmptyPrimaryRerouteCommandDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateReplicaClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateReplicaClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateReplicaClusterRerouteCommandDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateReplicaClusterRerouteCommandDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateStalePrimaryRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateStalePrimaryRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateStalePrimaryRerouteCommandDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocateStalePrimaryRerouteCommandDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocationAttributes.yml",
       "output": {
         ".html": {
@@ -533,30 +453,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocationDecision.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocationDecision.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocationEnable.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.AllocationEnable.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocationExplainDecision.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocationExplainDecision.html"
         }
       },
       "version": ""
@@ -577,16 +477,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.AllocationFilteringSettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocationStore.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AllocationStore.html"
         }
       },
       "version": ""
@@ -787,16 +677,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.AppendProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArchitectureStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ArchitectureStats.html"
         }
       },
       "version": ""
@@ -1563,26 +1443,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CancelClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CancelClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CancelClusterRerouteCommandDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CancelClusterRerouteCommandDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CancelTasksDescriptor.yml",
       "output": {
         ".html": {
@@ -2083,176 +1943,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterAllocationExplainDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterAllocationExplainDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterAllocationExplainRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterAllocationExplainRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterAllocationExplainResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterAllocationExplainResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterFileSystem.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterFileSystem.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterGetSettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterGetSettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterGetSettingsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterGetSettingsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterGetSettingsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterGetSettingsResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterHealthDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterHealthDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterHealthRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterHealthRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterHealthResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterHealthResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterIndicesShardsIndexStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterIndicesShardsIndexStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterIndicesShardsStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterIndicesShardsStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterIndicesStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterIndicesStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterIngestStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterIngestStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterJvm.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterJvm.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterJvmMemory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterJvmMemory.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterJvmVersion.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterJvmVersion.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterModuleSettings.yml",
       "output": {
         ".html": {
@@ -2273,310 +1963,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterNetworkTypes.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterNetworkTypes.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterNodeCount.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterNodeCount.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterNodesStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterNodesStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterOperatingSystemName.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterOperatingSystemName.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterOperatingSystemPrettyNane.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterOperatingSystemPrettyNane.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterOperatingSystemStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterOperatingSystemStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPendingTasksDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPendingTasksDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPendingTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPendingTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPendingTasksResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPendingTasksResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterProcess.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterProcess.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterProcessCpu.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterProcessCpu.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterProcessOpenFileDescriptors.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterProcessOpenFileDescriptors.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterProcessorStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterProcessorStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPutSettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPutSettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPutSettingsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPutSettingsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterPutSettingsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterPutSettingsResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteDecision.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteDecision.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteExplanation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteExplanation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterRerouteResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterRerouteResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterShardMetrics.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterShardMetrics.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStateDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStateDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStateRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStateRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStateResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStateResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStatistics.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ClusterStatistics.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStatsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStatsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStatsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStatsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStatsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStatsResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClusterStatus.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ClusterStatus.html"
         }
       },
       "version": ""
@@ -3113,16 +2503,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CurrentNode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CurrentNode.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CustomAnalyzer.yml",
       "output": {
         ".html": {
@@ -3623,16 +3003,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Decision.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.Decision.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteAliasDescriptor.yml",
       "output": {
         ".html": {
@@ -3977,36 +3347,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteSnapshotResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteVotingConfigExclusionsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteVotingConfigExclusionsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteVotingConfigExclusionsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteVotingConfigExclusionsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteVotingConfigExclusionsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteVotingConfigExclusionsResponse.html"
         }
       },
       "version": ""
@@ -7603,46 +6943,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAllocateClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAllocateClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAllocateEmptyPrimaryRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAllocateEmptyPrimaryRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAllocateReplicaClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAllocateReplicaClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAllocateStalePrimaryRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAllocateStalePrimaryRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAllocationAttributes.yml",
       "output": {
         ".html": {
@@ -8043,16 +7343,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICancelClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICancelClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICancelTasksRequest.yml",
       "output": {
         ".html": {
@@ -8243,100 +7533,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterAllocationExplainRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterAllocationExplainRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterGetSettingsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterGetSettingsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterHealthRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterHealthRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterModuleSettings.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IClusterModuleSettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterPendingTasksRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterPendingTasksRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterPutSettingsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterPutSettingsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterRerouteRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterRerouteRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterStateRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterStateRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClusterStatsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IClusterStatsRequest.html"
         }
       },
       "version": ""
@@ -8837,16 +8037,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteSnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteVotingConfigExclusionsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDeleteVotingConfigExclusionsRequest.html"
         }
       },
       "version": ""
@@ -11093,16 +10283,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IMoveClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IMoveClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IMovingAverageAggregation.yml",
       "output": {
         ".html": {
@@ -11823,16 +11003,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPostVotingConfigExclusionsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IPostVotingConfigExclusionsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPredicateTokenFilter.yml",
       "output": {
         ".html": {
@@ -12327,16 +11497,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IReloadSecureSettingsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRemoteInfoRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRemoteInfoRequest.html"
         }
       },
       "version": ""
@@ -14577,16 +13737,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IndexExistsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndexHealthStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IndexHealthStats.html"
         }
       },
       "version": ""
@@ -17053,26 +16203,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.MoveClusterRerouteCommand.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.MoveClusterRerouteCommand.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.MoveClusterRerouteCommandDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.MoveClusterRerouteCommandDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.MovingAverageAggregation.yml",
       "output": {
         ".html": {
@@ -17743,16 +16873,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NodeAllocationExplanation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NodeAllocationExplanation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NodeIds.yml",
       "output": {
         ".html": {
@@ -17947,16 +17067,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.NodeOperatingSystemInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NodePackagingType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NodePackagingType.html"
         }
       },
       "version": ""
@@ -18553,16 +17663,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.OperatingSystemMemoryInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.OperatingSystemMemoryInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.OperatingSystemStats.CPUStats.LoadAverageStats.yml",
       "output": {
         ".html": {
@@ -18807,16 +17907,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PatternTokenizerDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PendingTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PendingTask.html"
         }
       },
       "version": ""
@@ -19307,36 +18397,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PorterStemTokenFilterDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PostVotingConfigExclusionsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PostVotingConfigExclusionsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PostVotingConfigExclusionsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PostVotingConfigExclusionsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PostVotingConfigExclusionsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PostVotingConfigExclusionsResponse.html"
         }
       },
       "version": ""
@@ -20613,56 +19673,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteClusterConfiguration.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoteClusterConfiguration.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoteInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteInfoDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoteInfoDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteInfoRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoteInfoRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteInfoResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoteInfoResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoteSource.yml",
       "output": {
         ".html": {
@@ -21933,16 +20943,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardAllocationExplanation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ShardAllocationExplanation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardAllocationSettings.yml",
       "output": {
         ".html": {
@@ -21977,16 +20977,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ShardBalancingHeuristicsSettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardHealthStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ShardHealthStats.html"
         }
       },
       "version": ""
@@ -24143,10 +23133,1050 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateClusterRerouteCommandBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateClusterRerouteCommandBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateClusterRerouteCommandDescriptorBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateClusterRerouteCommandDescriptorBase-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateEmptyPrimaryRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateEmptyPrimaryRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateEmptyPrimaryRerouteCommandDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateEmptyPrimaryRerouteCommandDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateReplicaClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateReplicaClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateReplicaClusterRerouteCommandDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateReplicaClusterRerouteCommandDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateStalePrimaryRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateStalePrimaryRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocateStalePrimaryRerouteCommandDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocateStalePrimaryRerouteCommandDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocationDecision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocationDecision.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocationExplainDecision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocationExplainDecision.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.AllocationStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.AllocationStore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ArchitectureStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ArchitectureStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.CancelClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.CancelClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.CancelClusterRerouteCommandDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.CancelClusterRerouteCommandDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterAllocationExplainResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterFileSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterFileSystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterHealthDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterHealthDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterHealthRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterHealthRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterHealthResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterHealthResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesShardsIndexStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesShardsIndexStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesShardsStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesShardsStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterIndicesStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterIngestStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterIngestStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterJvm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterJvm.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterJvmMemory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterJvmMemory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterJvmVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterJvmVersion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterNamespace.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterNetworkTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterNetworkTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterNodeCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterNodeCount.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterNodesStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterNodesStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemName.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemPrettyName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemPrettyName.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterOperatingSystemStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPendingTasksResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterProcess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterProcess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterProcessCpu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterProcessCpu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterProcessOpenFileDescriptors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterProcessOpenFileDescriptors.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterProcessorStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterProcessorStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterPutSettingsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteDecision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteDecision.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteExplanation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteExplanation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterRerouteResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterShardMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterShardMetrics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStateResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStatsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStatsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStatsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStatsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStatsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStatsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ClusterStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.CurrentNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.CurrentNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.Decision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.Decision.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.DeleteVotingConfigExclusionsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IAllocateClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IAllocateClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IAllocateEmptyPrimaryRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IAllocateEmptyPrimaryRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IAllocateReplicaClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IAllocateReplicaClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IAllocateStalePrimaryRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IAllocateStalePrimaryRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ICancelClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ICancelClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterAllocationExplainRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterAllocationExplainRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterGetSettingsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterGetSettingsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterHealthRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterHealthRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterPendingTasksRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterPendingTasksRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterPutSettingsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterPutSettingsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterRerouteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterRerouteRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterStateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterStateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterStatsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterStatsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IDeleteVotingConfigExclusionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IDeleteVotingConfigExclusionsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IMoveClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IMoveClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IPostVotingConfigExclusionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IPostVotingConfigExclusionsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IRemoteInfoRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IRemoteInfoRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IndexHealthStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IndexHealthStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.MoveClusterRerouteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.MoveClusterRerouteCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.MoveClusterRerouteCommandDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.MoveClusterRerouteCommandDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.NodeAllocationExplanation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.NodeAllocationExplanation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.NodePackagingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.NodePackagingType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.OperatingSystemMemoryInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.OperatingSystemMemoryInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.PendingTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.PendingTask.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.PostVotingConfigExclusionsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.RemoteClusterConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.RemoteClusterConfiguration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.RemoteInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.RemoteInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.RemoteInfoDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.RemoteInfoDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.RemoteInfoRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.RemoteInfoRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.RemoteInfoResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.RemoteInfoResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ShardAllocationExplanation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ShardAllocationExplanation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.ShardHealthStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ShardHealthStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.StoreCopy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.StoreCopy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.UnassignedInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.UnassignedInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.UnassignedInformationReason.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.UnassignedInformationReason.html"
         }
       },
       "version": ""
@@ -24517,16 +24547,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.StopWords.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.StoreCopy.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.StoreCopy.html"
         }
       },
       "version": ""
@@ -25837,26 +25857,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.UaxEmailUrlTokenizerDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UnassignedInformation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UnassignedInformation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UnassignedInformationReason.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UnassignedInformationReason.html"
         }
       },
       "version": ""
