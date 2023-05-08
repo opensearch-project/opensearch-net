@@ -123,16 +123,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AggregatedDanglingIndexInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AggregatedDanglingIndexInfo.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AggregationBase.yml",
       "output": {
         ".html": {
@@ -3087,36 +3077,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteByQueryRethrottleRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteDanglingIndexDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteDanglingIndexDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteDanglingIndexRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteDanglingIndexRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteDanglingIndexResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteDanglingIndexResponse.html"
         }
       },
       "version": ""
@@ -7953,16 +7913,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteDanglingIndexRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDeleteDanglingIndexRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteIndexRequest.yml",
       "output": {
         ".html": {
@@ -9383,16 +9333,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IImportDanglingIndexRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IImportDanglingIndexRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IIndexExistsRequest.yml",
       "output": {
         ".html": {
@@ -9997,16 +9937,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ILinearModel.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IListDanglingIndicesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IListDanglingIndicesRequest.html"
         }
       },
       "version": ""
@@ -13653,36 +13583,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ImportDanglingIndexDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ImportDanglingIndexDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ImportDanglingIndexRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ImportDanglingIndexRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ImportDanglingIndexResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ImportDanglingIndexResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IncludeExclude.yml",
       "output": {
         ".html": {
@@ -15457,36 +15357,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.LinearModelDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ListDanglingIndicesDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ListDanglingIndicesDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ListDanglingIndicesRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ListDanglingIndicesRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ListDanglingIndicesResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ListDanglingIndicesResponse.html"
         }
       },
       "version": ""
@@ -24193,10 +24063,140 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.AggregatedDanglingIndexInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.AggregatedDanglingIndexInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.DeleteDanglingIndexResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.IDeleteDanglingIndexRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.IDeleteDanglingIndexRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.IImportDanglingIndexRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.IImportDanglingIndexRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.IListDanglingIndicesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.IListDanglingIndicesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ImportDanglingIndexResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.ListDanglingIndicesResponse.html"
         }
       },
       "version": ""
