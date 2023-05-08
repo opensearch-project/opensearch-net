@@ -3,7 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
-- Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202))
+- Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202), [#203](https://github.com/opensearch-project/opensearch-net/pull/203))
 
 ### Dependencies
 - Bumps `System.Reflection.Emit` from 4.3.0 to 4.7.0

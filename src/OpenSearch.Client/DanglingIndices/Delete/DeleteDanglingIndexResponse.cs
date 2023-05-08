@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.DanglingIndicesApi
 {
 	[DataContract]
 	public class DeleteDanglingIndexResponse : AcknowledgedResponseBase
