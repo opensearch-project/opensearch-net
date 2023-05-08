@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	/// <summary>
 	/// See docs <see href="https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">here</see>

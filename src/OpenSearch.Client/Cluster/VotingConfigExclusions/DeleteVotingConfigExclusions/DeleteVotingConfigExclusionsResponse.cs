@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	public class DeleteVotingConfigExclusionsResponse : ResponseBase
 	{

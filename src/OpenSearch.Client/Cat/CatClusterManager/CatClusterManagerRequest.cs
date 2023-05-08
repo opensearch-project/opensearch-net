@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.CatApi
 {
 	[MapsApi("cat.cluster_manager.json")]
 	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="ICatMasterRequest"/></remarks>

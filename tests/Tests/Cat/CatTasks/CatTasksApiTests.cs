@@ -28,6 +28,7 @@
 
 using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.CatApi;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;

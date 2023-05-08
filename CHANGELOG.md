@@ -3,7 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
-- Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#205](https://github.com/opensearch-project/opensearch-net/pull/205))
+- Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202), [#203](https://github.com/opensearch-project/opensearch-net/pull/203), [#205](https://github.com/opensearch-project/opensearch-net/pull/205))
 
 ### Dependencies
 - Bumps `System.Reflection.Emit` from 4.3.0 to 4.7.0
@@ -14,7 +14,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Core.Environment` from 5.23.1 to 6.0.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.4.1 to 17.5.0
 - Bumps `SharpZipLib` from 1.4.1 to 1.4.2
-- Bumps `AWSSDK.Core` from 3.7.103.17 to 3.7.106.24
+- Bumps `AWSSDK.Core` from 3.7.103.17 to 3.7.106.29
+- Bumps `Newtonsoft.Json` from 13.0.2 to 13.0.3
 
 ## [1.3.0]
 ### Added

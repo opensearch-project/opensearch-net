@@ -29,7 +29,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[DataContract]
 	public class ClusterNodesStats
@@ -200,7 +200,7 @@ namespace OpenSearch.Client
 		public IReadOnlyCollection<ClusterOperatingSystemName> Names { get; internal set; }
 
 		[DataMember(Name = "pretty_names")]
-		public IReadOnlyCollection<ClusterOperatingSystemPrettyNane> PrettyNames { get; internal set; }
+		public IReadOnlyCollection<ClusterOperatingSystemPrettyName> PrettyNames { get; internal set; }
 
 		[DataMember(Name = "architectures")]
 		public IReadOnlyCollection<ArchitectureStats> Architectures { get; internal set; }
@@ -233,6 +233,16 @@ namespace OpenSearch.Client
 
 		[DataMember(Name = "name")]
 		public string Name { get; internal set; }
+	}
+
+	[DataContract]
+	public class ClusterOperatingSystemPrettyName
+	{
+		[DataMember(Name = "count")]
+		public int Count { get; internal set; }
+
+		[DataMember(Name = "pretty_name")]
+		public string PrettyName { get; internal set; }
 	}
 
 	[DataContract]

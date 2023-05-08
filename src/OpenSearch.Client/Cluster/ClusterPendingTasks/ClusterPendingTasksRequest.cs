@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[MapsApi("cluster.pending_tasks.json")]
 	public partial interface IClusterPendingTasksRequest { }

@@ -131,16 +131,6 @@ namespace OpenSearch.Client
 	}
 
 	[DataContract]
-	public class ClusterOperatingSystemPrettyNane
-	{
-		[DataMember(Name = "count")]
-		public int Count { get; internal set; }
-
-		[DataMember(Name = "pretty_name")]
-		public string PrettyName { get; internal set; }
-	}
-
-	[DataContract]
 	public class NodeInfoOSCPU
 	{
 		[DataMember(Name = "cache_size")]
