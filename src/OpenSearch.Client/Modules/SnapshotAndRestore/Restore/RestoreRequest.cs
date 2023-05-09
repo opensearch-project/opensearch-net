@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using OpenSearch.Client.Specification.IndicesApi;
 
 namespace OpenSearch.Client
 {

@@ -30,6 +30,7 @@ using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;

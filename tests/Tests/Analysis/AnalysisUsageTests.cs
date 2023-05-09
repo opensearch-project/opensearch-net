@@ -33,6 +33,7 @@ using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Analysis.Analyzers;
 using Tests.Analysis.CharFilters;
 using Tests.Analysis.Normalizers;

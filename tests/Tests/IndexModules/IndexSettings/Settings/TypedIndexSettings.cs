@@ -32,12 +32,14 @@ using OpenSearch.Client;
 
 namespace Tests.IndexModules.IndexSettings.Settings
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class TypedIndexSettings
 	{
 		/**
 		 */
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -94,8 +96,8 @@ namespace Tests.IndexModules.IndexSettings.Settings
 
 			/**
 			 */
-			protected override OpenSearch.Client.IndexSettings Initializer =>
-				new OpenSearch.Client.IndexSettings(new Dictionary<string, object>
+			protected override IndexSettings Initializer =>
+				new(new Dictionary<string, object>
 				{
 					{ "any.setting", "can be set" },
 					{ "doubles", 1.1 },

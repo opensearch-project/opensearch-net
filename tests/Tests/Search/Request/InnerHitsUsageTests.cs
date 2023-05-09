@@ -33,6 +33,7 @@ using Bogus;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

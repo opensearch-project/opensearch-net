@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 
 namespace Tests.IndexModules.Similarity
 {

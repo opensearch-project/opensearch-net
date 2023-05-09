@@ -40,6 +40,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.RolloverIndex
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class RolloverIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, RolloverIndexResponse, IRolloverIndexRequest, RolloverIndexDescriptor, RolloverIndexRequest>
 	{
@@ -115,14 +117,14 @@ namespace Tests.Indices.IndexManagement.RolloverIndex
 				.Alias(CallIsolatedValue + "-new_projects")
 			);
 
-		protected override RolloverIndexRequest Initializer => new RolloverIndexRequest(CallIsolatedValue + "-alias", CallIsolatedValue + "-new")
+		protected override RolloverIndexRequest Initializer => new(CallIsolatedValue + "-alias", CallIsolatedValue + "-new")
 		{
 			Conditions = new RolloverConditions
 			{
 				MaxAge = "7d",
 				MaxDocs = 1000
 			},
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 1,
 				NumberOfReplicas = 1
@@ -177,7 +179,7 @@ namespace Tests.Indices.IndexManagement.RolloverIndex
 			(client, r) => client.Indices.RolloverAsync(r)
 		);
 
-		protected override RolloverIndexDescriptor NewDescriptor() => new RolloverIndexDescriptor(CallIsolatedValue + "-alias");
+		protected override RolloverIndexDescriptor NewDescriptor() => new(CallIsolatedValue + "-alias");
 
 		protected override void ExpectResponse(RolloverIndexResponse response)
 		{

@@ -32,12 +32,14 @@ using OpenSearch.Client;
 
 namespace Tests.IndexModules.IndexSettings.Merge
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class IndexMergeSettings
 	{
 		/**
 		 */
 
-		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, OpenSearch.Client.IndexSettings>
+		public class Usage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, IndexSettings>
 		{
 			protected override object ExpectJson => new Dictionary<string, object>
 			{
@@ -53,7 +55,7 @@ namespace Tests.IndexModules.IndexSettings.Merge
 			};
 
 			/**
-			 * 
+			 *
 			 */
 			protected override Func<IndexSettingsDescriptor, IPromise<IIndexSettings>> Fluent => s => s
 				.Merge(merge => merge
@@ -74,8 +76,8 @@ namespace Tests.IndexModules.IndexSettings.Merge
 
 			/**
 			 */
-			protected override OpenSearch.Client.IndexSettings Initializer =>
-				new OpenSearch.Client.IndexSettings
+			protected override IndexSettings Initializer =>
+				new()
 				{
 					Merge = new MergeSettings
 					{

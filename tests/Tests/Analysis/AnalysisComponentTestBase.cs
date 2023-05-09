@@ -32,6 +32,7 @@ using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Serialization;

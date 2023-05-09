@@ -30,6 +30,7 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Serialization;
 
 namespace Tests.Analysis.CharFilters

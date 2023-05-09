@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetMappingResponse, IndexName, IndexMappings>))]
 	public class GetMappingResponse : DictionaryResponseBase<IndexName, IndexMappings>

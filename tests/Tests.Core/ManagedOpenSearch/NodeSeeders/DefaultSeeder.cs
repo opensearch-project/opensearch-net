@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenSearch.Client;
 using OpenSearch.Client.Specification.ClusterApi;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

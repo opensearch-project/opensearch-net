@@ -39,6 +39,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.CreateIndex
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class CreateIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
 	{
@@ -155,9 +157,9 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
+		protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfReplicas = 1,
 				NumberOfShards = 1,
@@ -234,7 +236,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 			(client, r) => client.Indices.CreateAsync(r)
 		);
 
-		protected override CreateIndexDescriptor NewDescriptor() => new CreateIndexDescriptor(CallIsolatedValue);
+		protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
 
 		protected override void ExpectResponse(CreateIndexResponse response)
 		{
@@ -306,9 +308,9 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
+		protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,
@@ -328,7 +330,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 			(client, r) => client.Indices.CreateAsync(r)
 		);
 
-		protected override CreateIndexDescriptor NewDescriptor() => new CreateIndexDescriptor(CallIsolatedValue);
+		protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
 
 		protected override void ExpectResponse(CreateIndexResponse response)
 		{
@@ -386,9 +388,9 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override CreateIndexRequest Initializer => new CreateIndexRequest(CallIsolatedValue)
+		protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfReplicas = 0,
 				NumberOfShards = 1,
@@ -409,7 +411,7 @@ namespace Tests.Indices.IndexManagement.CreateIndex
 			(client, r) => client.Indices.CreateAsync(r)
 		);
 
-		protected override CreateIndexDescriptor NewDescriptor() => new CreateIndexDescriptor(CallIsolatedValue);
+		protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
 
 		protected override void ExpectResponse(CreateIndexResponse response)
 		{

@@ -28,6 +28,7 @@
 
 using System;
 using System.Collections.Generic;
+using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Net;
 
 namespace OpenSearch.Client
