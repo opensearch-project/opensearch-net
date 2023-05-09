@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IMergePolicySettings
+ | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IMergePolicySettings
+ | OpenSearch.Net ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings">
+
+
+
+  <h1 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings" class="text-break">Interface IMergePolicySettings
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a>.<a class="xref" href="OpenSearch.Client.Specification.html">Specification</a>.<a class="xref" href="OpenSearch.Client.Specification.IndicesApi.html">IndicesApi</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IMergePolicySettings</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ExpungeDeletesAllowed.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ExpungeDeletesAllowed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L37">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ExpungeDeletesAllowed_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ExpungeDeletesAllowed*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ExpungeDeletesAllowed" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ExpungeDeletesAllowed">ExpungeDeletesAllowed</h4>
+  <div class="markdown level1 summary"><p>When expungeDeletes is called, we only merge away a segment if its delete percentage
+is over this threshold. Default is 10.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? ExpungeDeletesAllowed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_FloorSegment.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.FloorSegment%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L43">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_FloorSegment_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.FloorSegment*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_FloorSegment" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.FloorSegment">FloorSegment</h4>
+  <div class="markdown level1 summary"><p>Segments smaller than this are &quot;rounded up&quot; to this size, i.e. treated as equal (floor) size for merge selection.
+This is to prevent frequent flushing of tiny segments, thus preventing a long tail in the index. Default is 2mb.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string FloorSegment { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnce.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnce%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L48">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnce_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnce*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnce" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnce">MaxMergeAtOnce</h4>
+  <div class="markdown level1 summary"><p>Maximum number of segments to be merged at a time during &quot;normal&quot; merging. Default is 10.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? MaxMergeAtOnce { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnceExplicit.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnceExplicit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnceExplicit_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnceExplicit*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergeAtOnceExplicit" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergeAtOnceExplicit">MaxMergeAtOnceExplicit</h4>
+  <div class="markdown level1 summary"><p>Maximum number of segments to be merged at a time, during optimize or expungeDeletes. Default is 30.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? MaxMergeAtOnceExplicit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergedSegment.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergedSegment%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L60">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergedSegment_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergedSegment*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_MaxMergedSegment" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.MaxMergedSegment">MaxMergedSegment</h4>
+  <div class="markdown level1 summary"><p>Maximum sized segment to produce during normal merging (not explicit optimize).
+This setting is approximate: the estimate of the merged segment size is made by summing
+sizes of to-be-merged segments (compensating for percent deleted docs). Default is 5gb.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string MaxMergedSegment { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ReclaimDeletesWeight.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ReclaimDeletesWeight%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L67">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ReclaimDeletesWeight_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ReclaimDeletesWeight*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_ReclaimDeletesWeight" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.ReclaimDeletesWeight">ReclaimDeletesWeight</h4>
+  <div class="markdown level1 summary"><p>Controls how aggressively merges that reclaim more deletions are favored. Higher values
+favor selecting merges that reclaim deletions. A value of 0.0 means deletions don’t
+impact merge selection. Defaults to 2.0</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double? ReclaimDeletesWeight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_SegmentsPerTier.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.SegmentsPerTier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_SegmentsPerTier_" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.SegmentsPerTier*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings_SegmentsPerTier" data-uid="OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings.SegmentsPerTier">SegmentsPerTier</h4>
+  <div class="markdown level1 summary"><p>Sets the allowed number of segments per tier. Smaller values mean more merging but fewer segments.
+Default is 10. Note, this value needs to be &gt;= than the max_merge_at_once otherwise you’ll force too
+many merges to occur.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? SegmentsPerTier { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IMergePolicySettings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IMergePolicySettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Merge/MergePolicySettings.cs/#L31" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

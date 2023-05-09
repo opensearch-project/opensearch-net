@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IIndexSettings
+ | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IIndexSettings
+ | OpenSearch.Net ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings">
+
+
+
+  <h1 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings" class="text-break">Interface IIndexSettings
+</h1>
+  <div class="markdown level0 summary"><p>The settings for an index</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_Analysis">IDynamicIndexSettings.Analysis</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_AutoExpandReplicas">IDynamicIndexSettings.AutoExpandReplicas</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_BlocksMetadata">IDynamicIndexSettings.BlocksMetadata</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_BlocksRead">IDynamicIndexSettings.BlocksRead</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_BlocksReadOnly">IDynamicIndexSettings.BlocksReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_BlocksWrite">IDynamicIndexSettings.BlocksWrite</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_BlocksReadOnlyAllowDelete">IDynamicIndexSettings.BlocksReadOnlyAllowDelete</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_Merge">IDynamicIndexSettings.Merge</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_NumberOfReplicas">IDynamicIndexSettings.NumberOfReplicas</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_Priority">IDynamicIndexSettings.Priority</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_RecoveryInitialShards">IDynamicIndexSettings.RecoveryInitialShards</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_RefreshInterval">IDynamicIndexSettings.RefreshInterval</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_RequestsCacheEnabled">IDynamicIndexSettings.RequestsCacheEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_RoutingAllocationTotalShardsPerNode">IDynamicIndexSettings.RoutingAllocationTotalShardsPerNode</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_Similarity">IDynamicIndexSettings.Similarity</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_SlowLog">IDynamicIndexSettings.SlowLog</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_Translog">IDynamicIndexSettings.Translog</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_UnassignedNodeLeftDelayedTimeout">IDynamicIndexSettings.UnassignedNodeLeftDelayedTimeout</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_DefaultPipeline">IDynamicIndexSettings.DefaultPipeline</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IDynamicIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IDynamicIndexSettings_FinalPipeline">IDynamicIndexSettings.FinalPipeline</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.add">IDictionary&lt;string, object&gt;.Add(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.containskey">IDictionary&lt;string, object&gt;.ContainsKey(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.remove">IDictionary&lt;string, object&gt;.Remove(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.trygetvalue">IDictionary&lt;string, object&gt;.TryGetValue(string, out object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.item">IDictionary&lt;string, object&gt;.this[string]</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.keys">IDictionary&lt;string, object&gt;.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2.values">IDictionary&lt;string, object&gt;.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.Add(KeyValuePair&lt;string, object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.Contains(KeyValuePair&lt;string, object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.CopyTo(KeyValuePair&lt;string, object&gt;[], int)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.Remove(KeyValuePair&lt;string, object&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;.IsReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt;.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable.getenumerator">IEnumerable.GetEnumerator()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a>.<a class="xref" href="OpenSearch.Client.Specification.html">Specification</a>.<a class="xref" href="OpenSearch.Client.Specification.IndicesApi.html">IndicesApi</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IIndexSettings : IDynamicIndexSettings, IIsADictionary&lt;string, object&gt;, IDictionary&lt;string, object&gt;, ICollection&lt;KeyValuePair&lt;string, object&gt;&gt;, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt;, IEnumerable, IIsADictionary</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_FileSystemStorageImplementation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.FileSystemStorageImplementation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L46">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_FileSystemStorageImplementation_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.FileSystemStorageImplementation*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_FileSystemStorageImplementation" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.FileSystemStorageImplementation">FileSystemStorageImplementation</h4>
+  <div class="markdown level1 summary"><p>The store module allows you to control how index data is stored and accessed on disk.</p>
+<p>EXPERT MODE toggle</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FileSystemStorageImplementation? FileSystemStorageImplementation { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Specification.IndicesApi.FileSystemStorageImplementation.html">FileSystemStorageImplementation</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Hidden.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Hidden%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Hidden_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Hidden*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Hidden" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Hidden">Hidden</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the index should be hidden by default.
+Hidden indices are not returned by default when using a wildcard expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool? Hidden { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfRoutingShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfRoutingShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L53">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfRoutingShards_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfRoutingShards*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfRoutingShards" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfRoutingShards">NumberOfRoutingShards</h4>
+  <div class="markdown level1 summary"><p>The number of routing shards. Used in conjunction with the Split Index API. If specified, must be
+greater than or equal to <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.html#OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfShards">NumberOfShards</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? NumberOfRoutingShards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L59">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfShards_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfShards*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_NumberOfShards" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.NumberOfShards">NumberOfShards</h4>
+  <div class="markdown level1 summary"><p>The number of primary shards that an index should have. Defaults to 1.
+This setting can only be set at index creation time. It cannot be changed on a closed index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? NumberOfShards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Queries.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Queries%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L62">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Queries_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Queries*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Queries" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Queries">Queries</h4>
+  <div class="markdown level1 summary"><p>Settings associated with queries.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IQueriesSettings Queries { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Specification.IndicesApi.IQueriesSettings.html">IQueriesSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_RoutingPartitionSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.RoutingPartitionSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_RoutingPartitionSize_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.RoutingPartitionSize*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_RoutingPartitionSize" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.RoutingPartitionSize">RoutingPartitionSize</h4>
+  <div class="markdown level1 summary"><p>By defaulting, routing resolves to a single shard. Use this settings to have it resolve to a set of shards instead.
+This mitigates creating hotspots and very large shards if you have a few routing keys generating the significant data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int? RoutingPartitionSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_SoftDeletes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.SoftDeletes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L83">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_SoftDeletes_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.SoftDeletes*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_SoftDeletes" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.SoftDeletes">SoftDeletes</h4>
+  <div class="markdown level1 summary"><p>Soft delete settings for the index</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISoftDeleteSettings SoftDeletes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Specification.IndicesApi.ISoftDeleteSettings.html">ISoftDeleteSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Sorting.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Sorting%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Sorting_" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Sorting*"></a>
+  <h4 id="OpenSearch_Client_Specification_IndicesApi_IIndexSettings_Sorting" data-uid="OpenSearch.Client.Specification.IndicesApi.IIndexSettings.Sorting">Sorting</h4>
+  <div class="markdown level1 summary"><p>Settings associated with index sorting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISortingSettings Sorting { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Specification.IndicesApi.ISortingSettings.html">ISortingSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_IndicesApi_IIndexSettings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.IndicesApi.IIndexSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexSettings/Settings/IndexSettings.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
