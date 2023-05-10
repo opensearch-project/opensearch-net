@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	[MapsApi("ingest.put_pipeline.json")]
 	public partial interface IPutPipelineRequest : IPipeline { }

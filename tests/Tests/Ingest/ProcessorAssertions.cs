@@ -32,6 +32,7 @@ using System.Linq;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IngestApi;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.Xunit;
@@ -82,7 +83,7 @@ namespace Tests.Ingest
 			foreach (var a in All) a.Fluent(d);
 			return d;
 		}
-		
+
 		public class Append : ProcessorAssertion
 		{
 			public override Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>> Fluent =>

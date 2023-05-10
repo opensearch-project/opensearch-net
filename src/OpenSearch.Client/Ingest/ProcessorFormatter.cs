@@ -31,7 +31,7 @@ using OpenSearch.Net.Utf8Json.Internal;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IngestApi
 {
 	internal class ProcessorFormatter : IJsonFormatter<IProcessor>
 	{
