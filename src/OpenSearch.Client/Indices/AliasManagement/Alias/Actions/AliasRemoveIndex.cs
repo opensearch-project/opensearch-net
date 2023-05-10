@@ -30,7 +30,7 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	[InterfaceDataContract]
 	public interface IAliasRemoveIndexAction : IAliasAction

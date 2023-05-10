@@ -32,7 +32,7 @@
 
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	/// <summary>
 	/// Block type for an index.

@@ -28,7 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	[MapsApi("indices.create.json")]
 	[ReadAs(typeof(CreateIndexRequest))]

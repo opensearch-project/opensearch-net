@@ -36,6 +36,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class UpdateIndexSettingsApiTests
 		: ApiIntegrationTestBase<WritableCluster, UpdateIndexSettingsResponse, IUpdateIndexSettingsRequest, UpdateIndexSettingsDescriptor,
 			UpdateIndexSettingsRequest>
@@ -63,9 +65,9 @@ namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override UpdateIndexSettingsRequest Initializer => new UpdateIndexSettingsRequest(CallIsolatedValue)
+		protected override UpdateIndexSettingsRequest Initializer => new(CallIsolatedValue)
 		{
-			IndexSettings = new OpenSearch.Client.IndexSettings(new Dictionary<string, object>
+			IndexSettings = new IndexSettings(new Dictionary<string, object>
 			{
 				{ "index.number_of_replicas", 3 },
 				{ "index.priority", 2 }
@@ -121,9 +123,9 @@ namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override UpdateIndexSettingsRequest Initializer => new UpdateIndexSettingsRequest(CallIsolatedValue)
+		protected override UpdateIndexSettingsRequest Initializer => new(CallIsolatedValue)
 		{
-			IndexSettings = new OpenSearch.Client.IndexSettings
+			IndexSettings = new IndexSettings
 			{
 				RefreshInterval = null
 			}

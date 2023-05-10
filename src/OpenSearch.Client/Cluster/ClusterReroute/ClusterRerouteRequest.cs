@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[MapsApi("cluster.reroute.json")]
 	[ReadAs(typeof(ClusterRerouteRequest))]

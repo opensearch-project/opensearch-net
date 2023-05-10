@@ -41,7 +41,7 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.IndicesApi
 {
 	[InterfaceDataContract]
 	public partial interface IAddIndexBlockRequest : IRequest<AddIndexBlockRequestParameters>

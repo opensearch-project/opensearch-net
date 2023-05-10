@@ -38,6 +38,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.SplitIndex
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class SplitIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, SplitIndexResponse, ISplitIndexRequest, SplitIndexDescriptor, SplitIndexRequest>
 	{
@@ -62,9 +64,9 @@ namespace Tests.Indices.IndexManagement.SplitIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override SplitIndexRequest Initializer => new SplitIndexRequest(CallIsolatedValue, CallIsolatedValue + "-target")
+		protected override SplitIndexRequest Initializer => new(CallIsolatedValue, CallIsolatedValue + "-target")
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 8
 			}
@@ -97,7 +99,7 @@ namespace Tests.Indices.IndexManagement.SplitIndex
 			update.ShouldBeValid();
 		}
 
-		protected override SplitIndexDescriptor NewDescriptor() => new SplitIndexDescriptor(CallIsolatedValue, CallIsolatedValue + "-target");
+		protected override SplitIndexDescriptor NewDescriptor() => new(CallIsolatedValue, CallIsolatedValue + "-target");
 
 		protected override void ExpectResponse(SplitIndexResponse response)
 		{

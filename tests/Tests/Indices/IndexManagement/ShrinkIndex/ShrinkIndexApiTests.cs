@@ -38,6 +38,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.ShrinkIndex
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class ShrinkIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, ShrinkIndexResponse, IShrinkIndexRequest, ShrinkIndexDescriptor, ShrinkIndexRequest>
 	{
@@ -62,9 +64,9 @@ namespace Tests.Indices.IndexManagement.ShrinkIndex
 
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override ShrinkIndexRequest Initializer => new ShrinkIndexRequest(CallIsolatedValue, CallIsolatedValue + "-target")
+		protected override ShrinkIndexRequest Initializer => new(CallIsolatedValue, CallIsolatedValue + "-target")
 		{
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 4
 			}
@@ -96,7 +98,7 @@ namespace Tests.Indices.IndexManagement.ShrinkIndex
 			update.ShouldBeValid();
 		}
 
-		protected override ShrinkIndexDescriptor NewDescriptor() => new ShrinkIndexDescriptor(CallIsolatedValue, CallIsolatedValue + "-target");
+		protected override ShrinkIndexDescriptor NewDescriptor() => new(CallIsolatedValue, CallIsolatedValue + "-target");
 
 		protected override void ExpectResponse(ShrinkIndexResponse response)
 		{

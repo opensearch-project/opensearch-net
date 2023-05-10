@@ -27,6 +27,7 @@
 */
 
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters

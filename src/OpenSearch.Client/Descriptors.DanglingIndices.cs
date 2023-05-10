@@ -40,7 +40,7 @@ using OpenSearch.Net.Specification.DanglingIndicesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.DanglingIndicesApi
 {
 	///<summary>Descriptor for DeleteDanglingIndex <para></para></summary>
 	public partial class DeleteDanglingIndexDescriptor : RequestDescriptorBase<DeleteDanglingIndexDescriptor, DeleteDanglingIndexRequestParameters, IDeleteDanglingIndexRequest>, IDeleteDanglingIndexRequest

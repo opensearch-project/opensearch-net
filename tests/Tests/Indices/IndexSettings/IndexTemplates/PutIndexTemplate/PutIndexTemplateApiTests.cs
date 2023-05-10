@@ -38,6 +38,8 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
 {
+	using OpenSearch.Client.Specification.IndicesApi;
+
 	public class PutIndexTemplateApiTests
 		: ApiIntegrationTestBase<WritableCluster, PutIndexTemplateResponse, IPutIndexTemplateRequest, PutIndexTemplateDescriptor,
 			PutIndexTemplateRequest>
@@ -97,13 +99,13 @@ namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
 		protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
 
-		protected override PutIndexTemplateRequest Initializer => new PutIndexTemplateRequest(CallIsolatedValue)
+		protected override PutIndexTemplateRequest Initializer => new(CallIsolatedValue)
 		{
 			Order = 1,
 			Version = 2,
 			IndexPatterns = new[] { "oscx-*" },
 			Create = false,
-			Settings = new OpenSearch.Client.IndexSettings
+			Settings = new IndexSettings
 			{
 				NumberOfShards = 1
 			},
@@ -131,7 +133,7 @@ namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
 			(client, r) => client.Indices.PutTemplateAsync(r)
 		);
 
-		protected override PutIndexTemplateDescriptor NewDescriptor() => new PutIndexTemplateDescriptor(CallIsolatedValue);
+		protected override PutIndexTemplateDescriptor NewDescriptor() => new(CallIsolatedValue);
 
 		protected override void ExpectResponse(PutIndexTemplateResponse response)
 		{
