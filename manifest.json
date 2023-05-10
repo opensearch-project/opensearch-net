@@ -353,26 +353,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AppendProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AppendProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AppendProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AppendProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AsciiFoldingTokenFilter.yml",
       "output": {
         ".html": {
@@ -397,26 +377,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Attachment.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AttachmentProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AttachmentProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AttachmentProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AttachmentProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -1037,26 +997,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.BulkUpdateResponseItem.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.BytesProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.BytesProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.BytesProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.BytesProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -1773,36 +1713,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ConvertProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ConvertProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ConvertProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ConvertProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ConvertProcessorType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ConvertProcessorType.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CoordinatedRequestObserverBase-1.yml",
       "output": {
         ".html": {
@@ -1927,26 +1837,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.CreateResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CsvProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CsvProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CsvProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CsvProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -2083,26 +1973,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateIndexNameProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DateIndexNameProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateIndexNameProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DateIndexNameProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateInterval.yml",
       "output": {
         ".html": {
@@ -2207,26 +2077,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DateNanosPropertyDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DateProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DateProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -2353,16 +2203,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateRounding.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DateRounding.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DecayFunctionBase-2.yml",
       "output": {
         ".html": {
@@ -2457,36 +2297,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteManyExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePipelineDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeletePipelineDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeletePipelineRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePipelineResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeletePipelineResponse.html"
         }
       },
       "version": ""
@@ -2773,26 +2583,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DissectProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DissectProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DissectProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DissectProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Distance.yml",
       "output": {
         ".html": {
@@ -2933,36 +2723,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DocumentSimulation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DocumentSimulation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DotExpanderProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DotExpanderProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DotExpanderProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DotExpanderProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DoubleRange.yml",
       "output": {
         ".html": {
@@ -2997,26 +2757,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DoubleRangePropertyDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DropProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DropProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DropProcessorDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DropProcessorDescriptor.html"
         }
       },
       "version": ""
@@ -3427,26 +3167,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ExtendedStatsBucketAggregationDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FailProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FailProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FailProcessorDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FailProcessorDescriptor.html"
         }
       },
       "version": ""
@@ -4003,26 +3723,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FingerprintProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FingerprintProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FingerprintProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FingerprintProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FingerprintTokenFilter.yml",
       "output": {
         ".html": {
@@ -4097,26 +3797,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.FlushStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ForeachProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ForeachProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ForeachProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ForeachProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -4613,26 +4293,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GeoIpProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GeoIpProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GeoIpProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GeoIpProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GeoLineAggregate.yml",
       "output": {
         ".html": {
@@ -5033,36 +4693,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetPipelineDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetPipelineDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetPipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetPipelineRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetPipelineResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetPipelineResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetRepositoryDescriptor.yml",
       "output": {
         ".html": {
@@ -5257,76 +4887,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.GoogleNormalizedDistanceHeuristicDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GrokProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GrokProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GrokProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GrokProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GrokProcessorPatternsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GrokProcessorPatternsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GrokProcessorPatternsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GrokProcessorPatternsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GrokProcessorPatternsResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GrokProcessorPatternsResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GsubProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GsubProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GsubProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GsubProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -5853,30 +5413,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAppendProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAppendProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAsciiFoldingTokenFilter.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IAsciiFoldingTokenFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAttachmentProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAttachmentProcessor.html"
         }
       },
       "version": ""
@@ -6107,16 +5647,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IBulkUpdateOperation-2.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IBytesProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IBytesProcessor.html"
         }
       },
       "version": ""
@@ -6393,16 +5923,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IConvertProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IConvertProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICoreProperty.yml",
       "output": {
         ".html": {
@@ -6447,16 +5967,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ICreateRequest-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICsvProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICsvProcessor.html"
         }
       },
       "version": ""
@@ -6513,16 +6023,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDateIndexNameProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDateIndexNameProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDateMath.yml",
       "output": {
         ".html": {
@@ -6537,16 +6037,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDateNanosProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDateProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDateProcessor.html"
         }
       },
       "version": ""
@@ -6647,16 +6137,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteByQueryRethrottleRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeletePipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDeletePipelineRequest.html"
         }
       },
       "version": ""
@@ -6793,16 +6273,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDissectProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDissectProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDistanceFeatureQuery.yml",
       "output": {
         ".html": {
@@ -6873,30 +6343,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDotExpanderProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDotExpanderProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDoubleRangeProperty.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDoubleRangeProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDropProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDropProcessor.html"
         }
       },
       "version": ""
@@ -7057,16 +6507,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IExtendedStatsBucketAggregation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFailProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IFailProcessor.html"
         }
       },
       "version": ""
@@ -7253,16 +6693,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFingerprintProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IFingerprintProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFingerprintTokenFilter.yml",
       "output": {
         ".html": {
@@ -7277,16 +6707,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IFloatRangeProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IForeachProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IForeachProcessor.html"
         }
       },
       "version": ""
@@ -7453,16 +6873,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGeoIpProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGeoIpProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGeoLineAggregation.yml",
       "output": {
         ".html": {
@@ -7573,16 +6983,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetPipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGetPipelineRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetRepositoryRequest.yml",
       "output": {
         ".html": {
@@ -7667,36 +7067,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IGoogleNormalizedDistanceHeuristic.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGrokProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGrokProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGrokProcessorPatternsRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGrokProcessorPatternsRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGsubProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGsubProcessor.html"
         }
       },
       "version": ""
@@ -8223,30 +7593,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IJoinProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IJoinProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IJoinProperty.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IJoinProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IJsonProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IJsonProcessor.html"
         }
       },
       "version": ""
@@ -8277,16 +7627,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IKeepWordsTokenFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKeyValueProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IKeyValueProcessor.html"
         }
       },
       "version": ""
@@ -8517,16 +7857,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ILongRangeQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ILowercaseProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ILowercaseProcessor.html"
         }
       },
       "version": ""
@@ -8993,26 +8323,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.INetworkCommunityIdProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.INetworkCommunityIdProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.INetworkDirectionProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.INetworkDirectionProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.INodesHotThreadsRequest.yml",
       "output": {
         ".html": {
@@ -9383,30 +8693,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPipeline.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IPipeline.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPipelineAggregation.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IPipelineAggregation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPipelineProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IPipelineProcessor.html"
         }
       },
       "version": ""
@@ -9457,16 +8747,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IPrefixQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IProcessor.html"
         }
       },
       "version": ""
@@ -9557,16 +8837,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IProxyRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPutPipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IPutPipelineRequest.html"
         }
       },
       "version": ""
@@ -9893,26 +9163,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRemoveProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRemoveProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRenameProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRenameProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRenderSearchTemplateRequest.yml",
       "output": {
         ".html": {
@@ -10143,16 +9393,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IScriptProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IScriptProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IScriptQuery.yml",
       "output": {
         ".html": {
@@ -10333,16 +9573,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISetProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISetProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IShapeQuery.yml",
       "output": {
         ".html": {
@@ -10437,26 +9667,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ISimpleQueryStringQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISimulatePipelineDocument.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISimulatePipelineDocument.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISimulatePipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISimulatePipelineRequest.html"
         }
       },
       "version": ""
@@ -10567,16 +9777,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ISortOrder.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISortProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISortProcessor.html"
         }
       },
       "version": ""
@@ -10777,16 +9977,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ISpanWithinQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISplitProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISplitProcessor.html"
         }
       },
       "version": ""
@@ -11233,16 +10423,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITrimProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ITrimProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITrimTokenFilter.yml",
       "output": {
         ".html": {
@@ -11353,50 +10533,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IUppercaseProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IUppercaseProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IUppercaseTokenFilter.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IUppercaseTokenFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IUriPartsProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IUriPartsProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IUrlDecodeProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IUrlDecodeProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IUserAgentProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IUserAgentProcessor.html"
         }
       },
       "version": ""
@@ -12083,16 +11223,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Ingest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.Ingest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IngestStats.yml",
       "output": {
         ".html": {
@@ -12623,26 +11753,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.JoinProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.JoinProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.JoinProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.JoinProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.JoinProperty.yml",
       "output": {
         ".html": {
@@ -12723,26 +11833,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.JsonProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.JsonProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.JsonProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.JsonProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KStemTokenFilter.yml",
       "output": {
         ".html": {
@@ -12807,26 +11897,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.KeepWordsTokenFilterDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KeyValueProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KeyValueProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KeyValueProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KeyValueProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -13457,26 +12527,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.LongRangeQueryDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.LowercaseProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.LowercaseProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.LowercaseProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.LowercaseProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -14627,46 +13677,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.NestedSortDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NetworkCommunityIdProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NetworkCommunityIdProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NetworkCommunityIdProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NetworkCommunityIdProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NetworkDirectionProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NetworkDirectionProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NetworkDirectionProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.NetworkDirectionProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -16033,16 +15043,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Pipeline.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.Pipeline.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PipelineAggregationBase.yml",
       "output": {
         ".html": {
@@ -16057,46 +15057,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PipelineAggregationDescriptorBase-3.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PipelineDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PipelineDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PipelineProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PipelineProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PipelineProcessorDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PipelineProcessorDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PipelineSimulation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PipelineSimulation.html"
         }
       },
       "version": ""
@@ -16243,40 +15203,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ProcessorBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ProcessorBase.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ProcessorDescriptorBase-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ProcessorDescriptorBase-2.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ProcessorStats.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ProcessorStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ProcessorsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ProcessorsDescriptor.html"
         }
       },
       "version": ""
@@ -16407,36 +15337,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PropertyWalker.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutPipelineDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PutPipelineDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutPipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PutPipelineRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutPipelineResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.PutPipelineResponse.html"
         }
       },
       "version": ""
@@ -17293,50 +16193,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoveProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoveProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RemoveProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RemoveProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RenameClrPropertyMapping-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.RenameClrPropertyMapping-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RenameProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RenameProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RenameProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RenameProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -17893,26 +16753,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ScriptProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ScriptProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ScriptProcessorDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ScriptProcessorDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ScriptQuery.yml",
       "output": {
         ".html": {
@@ -18343,26 +17183,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SetProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SetProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SetProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SetProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShapeOrientation.yml",
       "output": {
         ".html": {
@@ -18637,66 +17457,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.SimpleQueryStringQueryDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineDocument.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineDocument.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineDocumentDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineDocumentDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineDocumentsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineDocumentsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SimulatePipelineResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SimulatePipelineResponse.html"
         }
       },
       "version": ""
@@ -19097,26 +17857,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.SortOrder.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SortProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SortProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SortProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SortProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -24453,10 +23193,1400 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.AppendProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.AppendProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.AppendProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.AppendProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.AttachmentProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.AttachmentProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.AttachmentProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.AttachmentProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.BytesProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.BytesProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.BytesProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.BytesProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ConvertProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ConvertProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ConvertProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ConvertProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ConvertProcessorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ConvertProcessorType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.CsvProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.CsvProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.CsvProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.CsvProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DateIndexNameProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DateIndexNameProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DateIndexNameProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DateIndexNameProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DateProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DateProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DateProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DateProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DateRounding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DateRounding.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DeletePipelineDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DeletePipelineDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DeletePipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DeletePipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DeletePipelineResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DeletePipelineResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DissectProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DissectProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DissectProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DissectProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DocumentSimulation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DocumentSimulation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DotExpanderProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DotExpanderProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DotExpanderProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DotExpanderProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DropProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DropProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.DropProcessorDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.DropProcessorDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.FailProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.FailProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.FailProcessorDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.FailProcessorDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.FingerprintProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.FingerprintProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.FingerprintProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.FingerprintProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ForeachProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ForeachProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ForeachProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ForeachProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GeoIpProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GeoIpProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GeoIpProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GeoIpProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GetPipelineDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GetPipelineDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GetPipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GetPipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GetPipelineResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GetPipelineResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GrokProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GrokProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GrokProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GrokProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GrokProcessorPatternsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GsubProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GsubProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.GsubProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.GsubProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IAppendProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IAppendProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IAttachmentProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IAttachmentProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IBytesProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IBytesProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IConvertProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IConvertProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ICsvProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ICsvProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDateIndexNameProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDateIndexNameProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDateProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDateProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDeletePipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDeletePipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDissectProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDissectProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDotExpanderProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDotExpanderProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IDropProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IDropProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IFailProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IFailProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IFingerprintProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IFingerprintProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IForeachProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IForeachProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IGeoIpProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IGeoIpProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IGetPipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IGetPipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IGrokProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IGrokProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IGrokProcessorPatternsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IGrokProcessorPatternsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IGsubProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IGsubProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IJoinProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IJoinProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IJsonProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IJsonProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IKeyValueProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IKeyValueProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ILowercaseProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ILowercaseProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.INetworkCommunityIdProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.INetworkCommunityIdProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.INetworkDirectionProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.INetworkDirectionProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IPipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IPipeline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IPipelineProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IPipelineProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IPutPipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IPutPipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IRemoveProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IRemoveProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IRenameProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IRenameProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IScriptProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IScriptProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ISetProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ISetProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ISimulatePipelineDocument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ISimulatePipelineDocument.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ISimulatePipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ISimulatePipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ISortProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ISortProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ISplitProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ISplitProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ITrimProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ITrimProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IUppercaseProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IUppercaseProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IUriPartsProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IUriPartsProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IUrlDecodeProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IUrlDecodeProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IUserAgentProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IUserAgentProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.Ingest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.Ingest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IngestNamespace.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IngestNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.JoinProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.JoinProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.JoinProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.JoinProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.JsonProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.JsonProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.JsonProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.JsonProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.KeyValueProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.KeyValueProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.KeyValueProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.KeyValueProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.LowercaseProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.LowercaseProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.LowercaseProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.LowercaseProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.NetworkCommunityIdProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.NetworkCommunityIdProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.NetworkCommunityIdProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.NetworkCommunityIdProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.NetworkDirectionProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.NetworkDirectionProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.NetworkDirectionProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.NetworkDirectionProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.Pipeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.Pipeline.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PipelineDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PipelineDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PipelineProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PipelineProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PipelineProcessorDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PipelineProcessorDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PipelineSimulation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PipelineSimulation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ProcessorBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ProcessorBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ProcessorDescriptorBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ProcessorDescriptorBase-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ProcessorsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ProcessorsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PutPipelineDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PutPipelineDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PutPipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PutPipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.PutPipelineResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.PutPipelineResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.RemoveProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.RemoveProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.RemoveProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.RemoveProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.RenameProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.RenameProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.RenameProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.RenameProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ScriptProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ScriptProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.ScriptProcessorDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.ScriptProcessorDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SetProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SetProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SetProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SetProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocument.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocumentDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocumentDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocumentsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineDocumentsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SimulatePipelineResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SimulatePipelineResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SortProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SortProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SortProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SortProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SplitProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SplitProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.SplitProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.SplitProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.TrimProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.TrimProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.TrimProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.TrimProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UppercaseProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UppercaseProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UppercaseProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UppercaseProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UriPartsProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UriPartsProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UriPartsProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UriPartsProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UrlDecodeProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UrlDecodeProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UrlDecodeProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UrlDecodeProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UserAgentProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UserAgentProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UserAgentProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UserAgentProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.UserAgentProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.UserAgentProperty.html"
         }
       },
       "version": ""
@@ -24527,26 +24657,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.TasksApi.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SplitProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SplitProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SplitProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SplitProcessorDescriptor-1.html"
         }
       },
       "version": ""
@@ -25853,26 +25963,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TrimProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.TrimProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TrimProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.TrimProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TrimTokenFilter.yml",
       "output": {
         ".html": {
@@ -26073,26 +26163,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UppercaseProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UppercaseProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UppercaseProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UppercaseProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UppercaseTokenFilter.yml",
       "output": {
         ".html": {
@@ -26107,76 +26177,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.UppercaseTokenFilterDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UriPartsProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UriPartsProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UriPartsProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UriPartsProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UrlDecodeProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UrlDecodeProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UrlDecodeProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UrlDecodeProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UserAgentProcessor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UserAgentProcessor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UserAgentProcessorDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UserAgentProcessorDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.UserAgentProperty.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.UserAgentProperty.html"
         }
       },
       "version": ""
