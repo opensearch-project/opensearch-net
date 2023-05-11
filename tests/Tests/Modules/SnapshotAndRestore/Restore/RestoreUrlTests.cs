@@ -29,6 +29,7 @@
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.SnapshotApi;
 using Tests.Framework.EndpointTests;
 
 namespace Tests.Modules.SnapshotAndRestore.Restore
