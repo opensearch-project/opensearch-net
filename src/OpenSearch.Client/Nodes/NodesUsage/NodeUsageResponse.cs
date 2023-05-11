@@ -30,27 +30,15 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public abstract class NodesResponseBase : ResponseBase
+	public class NodesUsageResponse : NodesResponseBase
 	{
-		[DataMember(Name = "_nodes")]
-		public NodeStatistics NodeStatistics { get; internal set; }
-	}
+		[DataMember(Name ="cluster_name")]
+		public string ClusterName { get; internal set; }
 
-	[DataContract]
-	public class NodeStatistics
-	{
-		[DataMember(Name = "failed")]
-		public int Failed { get; internal set; }
-
-		[DataMember(Name = "successful")]
-		public int Successful { get; internal set; }
-
-		[DataMember(Name = "total")]
-		public int Total { get; internal set; }
-
-		[DataMember(Name = "failures")]
-		public IReadOnlyCollection<ErrorCause> Failures { get; internal set; } = EmptyReadOnly<ErrorCause>.Collection;
+		[DataMember(Name ="nodes")]
+		public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
+			EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
 	}
 }

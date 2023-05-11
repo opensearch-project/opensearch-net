@@ -26,19 +26,12 @@
 *  under the License.
 */
 
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using OpenSearch.Net;
-
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public class NodesUsageResponse : NodesResponseBase
-	{
-		[DataMember(Name ="cluster_name")]
-		public string ClusterName { get; internal set; }
+	[MapsApi("nodes.info.json")]
+	public partial interface INodesInfoRequest { }
 
-		[DataMember(Name ="nodes")]
-		public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
-			EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
-	}
+	public partial class NodesInfoRequest { }
+
+	public partial class NodesInfoDescriptor { }
 }

@@ -41,7 +41,7 @@ using OpenSearch.Net.Specification.NodesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
 	[InterfaceDataContract]
 	public partial interface INodesHotThreadsRequest : IRequest<NodesHotThreadsRequestParameters>

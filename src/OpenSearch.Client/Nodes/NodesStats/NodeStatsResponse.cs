@@ -26,30 +26,20 @@
 *  under the License.
 */
 
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	public class NodeUsageInformation
+	public class NodesStatsResponse : NodesResponseBase
 	{
-		/// <summary>
-		/// Aggregation usage.
-		/// </summary>
-		[DataMember(Name ="aggregations")]
-		public IReadOnlyDictionary<string, IReadOnlyDictionary<string, long>> Aggregations { get; internal set; }
+		[DataMember(Name = "cluster_name")]
+		public string ClusterName { get; internal set; }
 
-		[DataMember(Name ="rest_actions")]
-		public IReadOnlyDictionary<string, int> RestActions { get; internal set; }
-
-		[DataMember(Name ="since")]
-		[JsonFormatter(typeof(DateTimeOffsetEpochMillisecondsFormatter))]
-		public DateTimeOffset Since { get; internal set; }
-
-		[DataMember(Name ="timestamp")]
-		[JsonFormatter(typeof(DateTimeOffsetEpochMillisecondsFormatter))]
-		public DateTimeOffset Timestamp { get; internal set; }
+		[DataMember(Name = "nodes")]
+		[JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, NodeStats>))]
+		public IReadOnlyDictionary<string, NodeStats> Nodes { get; internal set; } = EmptyReadOnly<string, NodeStats>.Dictionary;
 	}
 }

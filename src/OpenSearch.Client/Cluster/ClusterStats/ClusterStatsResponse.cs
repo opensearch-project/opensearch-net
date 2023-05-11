@@ -27,6 +27,7 @@
 */
 
 using System.Runtime.Serialization;
+using OpenSearch.Client.Specification.NodesApi;
 
 namespace OpenSearch.Client.Specification.ClusterApi
 {

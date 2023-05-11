@@ -26,56 +26,27 @@
 *  under the License.
 */
 
-using System.Runtime.Serialization;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.NodesApi;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.NodesApi
 {
-	[StringEnum]
-	public enum NodeRole
+	[MapsApi("nodes.hot_threads.json")]
+	public partial interface INodesHotThreadsRequest { }
+
+	public partial class NodesHotThreadsRequest
 	{
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager"/> instead</remarks>
-		[EnumMember(Value = "master")]
-		Master,
+		protected override string ContentType => RequestData.MimeTypeTextPlain;
 
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master"/></remarks>
-		[EnumMember(Value = "cluster_manager")]
-		ClusterManager,
+		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
+			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
+	}
 
-		[EnumMember(Value = "data")]
-		Data,
+	public partial class NodesHotThreadsDescriptor
+	{
+		protected override string ContentType => RequestData.MimeTypeTextPlain;
 
-		[EnumMember(Value = "data_cold")]
-		DataCold,
-
-		[EnumMember(Value = "data_frozen")]
-		DataFrozen,
-
-		[EnumMember(Value = "data_content")]
-		DataContent,
-
-		[EnumMember(Value = "data_hot")]
-		DataHot,
-
-		[EnumMember(Value = "data_warm")]
-		DataWarm,
-
-		[EnumMember(Value = "client")]
-		Client,
-
-		[EnumMember(Value = "ingest")]
-		Ingest,
-
-		[EnumMember(Value = "voting_only")]
-		VotingOnly,
-
-		[EnumMember(Value = "transform")]
-		Transform,
-
-		[EnumMember(Value = "remote_cluster_client")]
-		RemoteClusterClient,
-
-		[EnumMember(Value = "coordinating_only")]
-		CoordinatingOnly,
+		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
+			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
 	}
 }
