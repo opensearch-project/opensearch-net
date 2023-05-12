@@ -443,46 +443,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AzureRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AzureRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AzureRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AzureRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AzureRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AzureRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AzureRepositorySettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.AzureRepositorySettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.BinaryAttribute.yml",
       "output": {
         ".html": {
@@ -1213,46 +1173,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CleanupRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CleanupRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CleanupRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CleanupRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CleanupRepositoryResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CleanupRepositoryResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CleanupRepositoryResults.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CleanupRepositoryResults.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ClearScrollDescriptor.yml",
       "output": {
         ".html": {
@@ -1277,36 +1197,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ClearScrollResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CloneSnapshotDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CloneSnapshotDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CloneSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CloneSnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CloneSnapshotResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CloneSnapshotResponse.html"
         }
       },
       "version": ""
@@ -1417,16 +1307,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.CommonGramsTokenFilterDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CompactNodeInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CompactNodeInfo.html"
         }
       },
       "version": ""
@@ -1757,36 +1637,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.CreateDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreateRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CreateRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreateRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CreateRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreateRepositoryResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.CreateRepositoryResponse.html"
         }
       },
       "version": ""
@@ -2273,36 +2123,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteRepositoryResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteRepositoryResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteRequest-1.yml",
       "output": {
         ".html": {
@@ -2357,36 +2177,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteScriptResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteSnapshotDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteSnapshotDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteSnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteSnapshotResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.DeleteSnapshotResponse.html"
         }
       },
       "version": ""
@@ -3533,56 +3323,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FileCountSnapshotStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FileCountSnapshotStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FileSystemRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FileSystemRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FileSystemRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FileSystemRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FileSystemRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FileSystemRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FileSystemRepositorySettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.FileSystemRepositorySettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.FilterAggregation.yml",
       "output": {
         ".html": {
@@ -4633,36 +4373,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetRepositoryResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetRepositoryResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetRequest-1.yml",
       "output": {
         ".html": {
@@ -4717,36 +4427,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.GetScriptResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetSnapshotDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetSnapshotDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetSnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetSnapshotResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.GetSnapshotResponse.html"
         }
       },
       "version": ""
@@ -4897,46 +4577,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.HasParentQueryDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HdfsRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.HdfsRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HdfsRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.HdfsRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HdfsRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.HdfsRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HdfsRepositorySettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.HdfsRepositorySettingsDescriptor.html"
         }
       },
       "version": ""
@@ -5373,26 +5013,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAzureRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAzureRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IAzureRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IAzureRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IBinaryProperty.yml",
       "output": {
         ".html": {
@@ -5673,30 +5293,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICleanupRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICleanupRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IClearScrollRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IClearScrollRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICloneSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICloneSnapshotRequest.html"
         }
       },
       "version": ""
@@ -5867,16 +5467,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ICountRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICreateRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ICreateRepositoryRequest.html"
         }
       },
       "version": ""
@@ -6063,16 +5653,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDeleteRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteRequest-1.yml",
       "output": {
         ".html": {
@@ -6097,16 +5677,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteScriptRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IDeleteSnapshotRequest.html"
         }
       },
       "version": ""
@@ -6563,26 +6133,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFileSystemRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IFileSystemRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFileSystemRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IFileSystemRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IFilterAggregation.yml",
       "output": {
         ".html": {
@@ -6903,16 +6453,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGetRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetRequest-1.yml",
       "output": {
         ".html": {
@@ -6947,16 +6487,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IGetScriptRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetSnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IGetSnapshotRequest.html"
         }
       },
       "version": ""
@@ -7017,26 +6547,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IHasParentQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHdfsRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IHdfsRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHdfsRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IHdfsRepositorySettings.html"
         }
       },
       "version": ""
@@ -8913,26 +8423,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IReadOnlyUrlRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IReadOnlyUrlRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IReadOnlyUrlRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IReadOnlyUrlRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRegexpQuery.yml",
       "output": {
         ".html": {
@@ -9043,36 +8533,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRepository-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRepository-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRepositoryWithSettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRepositoryWithSettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRequest-1.yml",
       "output": {
         ".html": {
@@ -9117,16 +8577,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IRestoreRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IRestoreRequest.html"
         }
       },
       "version": ""
@@ -9187,26 +8637,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IRuntimeFields.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IS3Repository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IS3Repository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IS3RepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IS3RepositorySettings.html"
         }
       },
       "version": ""
@@ -9583,36 +9013,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISnapshotRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISnapshotRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISnapshotStatusRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISnapshotStatusRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISnowballAnalyzer.yml",
       "output": {
         ".html": {
@@ -9687,16 +9087,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ISourceFilter.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ISourceOnlyRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ISourceOnlyRepository.html"
         }
       },
       "version": ""
@@ -10427,16 +9817,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IVariableWidthHistogramAggregation.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IVerifyRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IVerifyRepositoryRequest.html"
         }
       },
       "version": ""
@@ -15143,46 +14523,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ReadOnlyUrlRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ReadOnlyUrlRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ReadOnlyUrlRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ReadOnlyUrlRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ReadOnlyUrlRepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ReadOnlyUrlRepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ReadOnlyUrlRepositorySettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.ReadOnlyUrlRepositorySettingsDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RebalanceEnable.yml",
       "output": {
         ".html": {
@@ -15653,56 +14993,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RestoreDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RestoreDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RestoreErrorEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RestoreErrorEventArgs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RestoreRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RestoreRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RestoreResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RestoreResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.RestoreStatusHumbleObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.RestoreStatusHumbleObject.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Result.yml",
       "output": {
         ".html": {
@@ -15887,46 +15177,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.RuntimeFieldsDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.S3Repository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.S3Repository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.S3RepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.S3RepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.S3RepositorySettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.S3RepositorySettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.S3RepositorySettingsDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.S3RepositorySettingsDescriptor.html"
         }
       },
       "version": ""
@@ -16863,206 +16113,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Snapshot.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.Snapshot.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotCompletedEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotCompletedEventArgs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotErrorEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotErrorEventArgs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotIndexShardStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotIndexShardStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotIndexStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotIndexStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotNextEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotNextEventArgs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotObservable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotObservable.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotObserver.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotObserver.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotRestore.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotRestore.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotShardFailure.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotShardFailure.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotShardsStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotShardsStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStats.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStats.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStatus.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStatus.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStatusDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStatusDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStatusHumbleObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStatusHumbleObject.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStatusRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStatusRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnapshotStatusResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SnapshotStatusResponse.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SnowballAnalyzer.yml",
       "output": {
         ".html": {
@@ -17257,26 +16307,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.SourceManyExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SourceOnlyRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SourceOnlyRepository.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SourceOnlyRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SourceOnlyRepositoryDescriptor.html"
         }
       },
       "version": ""
@@ -24653,10 +23683,1010 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.AzureRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.AzureRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.AzureRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.AzureRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.AzureRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.AzureRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.AzureRepositorySettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.AzureRepositorySettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryResults.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CleanupRepositoryResults.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CloneSnapshotResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CompactNodeInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CompactNodeInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.CreateRepositoryResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteRepositoryResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.DeleteSnapshotResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.FileCountSnapshotStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.FileCountSnapshotStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositorySettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.FileSystemRepositorySettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetRepositoryResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.GetSnapshotResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.HdfsRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.HdfsRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositorySettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.HdfsRepositorySettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IAzureRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IAzureRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IAzureRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IAzureRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ICleanupRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ICleanupRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ICloneSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ICloneSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ICreateRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ICreateRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IDeleteRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IDeleteRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IDeleteSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IDeleteSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IFileSystemRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IFileSystemRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IFileSystemRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IFileSystemRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IGetRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IGetRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IGetSnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IGetSnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IHdfsRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IHdfsRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IHdfsRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IHdfsRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IReadOnlyUrlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IReadOnlyUrlRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IReadOnlyUrlRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IReadOnlyUrlRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IRepository-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IRepositoryWithSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IRepositoryWithSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IRestoreRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IRestoreRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IS3Repository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IS3Repository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IS3RepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IS3RepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ISnapshotRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ISnapshotRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ISnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ISnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ISnapshotStatusRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ISnapshotStatusRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ISourceOnlyRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ISourceOnlyRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.IVerifyRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.IVerifyRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositorySettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ReadOnlyUrlRepositorySettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.RestoreDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.RestoreDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.RestoreErrorEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.RestoreErrorEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.RestoreRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.RestoreRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.RestoreResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.RestoreResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.RestoreStatusHumbleObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.RestoreStatusHumbleObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.S3Repository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.S3Repository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.S3RepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.S3RepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.S3RepositorySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.S3RepositorySettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.S3RepositorySettingsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.S3RepositorySettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.Snapshot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.Snapshot.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotCompletedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotCompletedEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotErrorEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotErrorEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotIndexShardStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotIndexShardStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotIndexStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotIndexStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotNextEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotNextEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotObservable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotObservable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotObserver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotObserver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotRestore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotRestore.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotShardFailure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotShardFailure.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotShardsStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotShardsStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusHumbleObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusHumbleObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SnapshotStatusResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SourceOnlyRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SourceOnlyRepository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SourceOnlyRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.SourceOnlyRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryResponse.html"
         }
       },
       "version": ""
@@ -26247,36 +26277,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.VariableWidthHistogramBucket.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.VerifyRepositoryDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.VerifyRepositoryDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.VerifyRepositoryRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.VerifyRepositoryRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.VerifyRepositoryResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.VerifyRepositoryResponse.html"
         }
       },
       "version": ""
