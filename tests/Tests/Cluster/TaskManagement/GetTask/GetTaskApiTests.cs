@@ -31,6 +31,7 @@ using System.Threading;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.TasksApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;

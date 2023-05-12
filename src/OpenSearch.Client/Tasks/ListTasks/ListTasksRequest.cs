@@ -26,12 +26,12 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.TasksApi
 {
-	[MapsApi("tasks.cancel.json")]
-	public partial interface ICancelTasksRequest { }
+	[MapsApi("tasks.list.json")]
+	public partial interface IListTasksRequest { }
 
-	public partial class CancelTasksRequest { }
+	public partial class ListTasksRequest { }
 
-	public partial class CancelTasksDescriptor { }
+	public partial class ListTasksDescriptor { }
 }

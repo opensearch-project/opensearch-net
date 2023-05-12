@@ -26,12 +26,21 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client.Specification.TasksApi
 {
-	[MapsApi("tasks.get.json")]
-	public partial interface IGetTaskRequest { }
+	public class CancelTasksResponse : ResponseBase
+	{
+		public override bool IsValid => base.IsValid && !NodeFailures.HasAny();
 
-	public partial class GetTaskRequest { }
+		[DataMember(Name = "node_failures")]
+		public IReadOnlyCollection<ErrorCause> NodeFailures { get; internal set; } = EmptyReadOnly<ErrorCause>.Collection;
 
-	public partial class GetTaskDescriptor { }
+		[DataMember(Name = "nodes")]
+		public IReadOnlyDictionary<string, TaskExecutingNode> Nodes { get; internal set; } = EmptyReadOnly<string, TaskExecutingNode>.Dictionary;
+	}
+
 }

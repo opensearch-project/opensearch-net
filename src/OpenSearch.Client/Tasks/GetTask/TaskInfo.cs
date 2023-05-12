@@ -30,17 +30,42 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client.Specification.TasksApi
 {
-	public class CancelTasksResponse : ResponseBase
+	[DataContract]
+	public class TaskInfo
 	{
-		public override bool IsValid => base.IsValid && !NodeFailures.HasAny();
+		[DataMember(Name ="action")]
+		public string Action { get; internal set; }
 
-		[DataMember(Name = "node_failures")]
-		public IReadOnlyCollection<ErrorCause> NodeFailures { get; internal set; } = EmptyReadOnly<ErrorCause>.Collection;
+		[DataMember(Name ="cancellable")]
+		public bool Cancellable { get; internal set; }
 
-		[DataMember(Name = "nodes")]
-		public IReadOnlyDictionary<string, TaskExecutingNode> Nodes { get; internal set; } = EmptyReadOnly<string, TaskExecutingNode>.Dictionary;
+		[DataMember(Name ="children")]
+		public IReadOnlyCollection<TaskInfo> Children { get; internal set; } = EmptyReadOnly<TaskInfo>.Collection;
+
+		[DataMember(Name ="description")]
+		public string Description { get; internal set; }
+
+		[DataMember(Name ="headers")]
+		public IReadOnlyDictionary<string, string> Headers { get; internal set; } = EmptyReadOnly<string, string>.Dictionary;
+
+		[DataMember(Name ="id")]
+		public long Id { get; internal set; }
+
+		[DataMember(Name ="node")]
+		public string Node { get; internal set; }
+
+		[DataMember(Name ="running_time_in_nanos")]
+		public long RunningTimeInNanoseconds { get; internal set; }
+
+		[DataMember(Name ="start_time_in_millis")]
+		public long StartTimeInMilliseconds { get; internal set; }
+
+		[DataMember(Name ="status")]
+		public TaskStatus Status { get; internal set; }
+
+		[DataMember(Name ="type")]
+		public string Type { get; internal set; }
 	}
-
 }
