@@ -200,6 +200,9 @@ namespace OpenSearch.Client
 		[DataMember(Name = "distance_feature")]
 		IDistanceFeatureQuery DistanceFeature { get; set; }
 
+		[DataMember(Name = "knn")]
+		IKnnQuery Knn { get; set; }
+
 		void Accept(IQueryVisitor visitor);
 	}
 }

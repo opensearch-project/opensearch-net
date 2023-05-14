@@ -29,6 +29,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading;
 using OpenSearch.OpenSearch.Managed.Configuration;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
@@ -93,7 +95,23 @@ namespace OpenSearch.OpenSearch.Managed
 			if (!string.IsNullOrWhiteSpace(config.FileSystem.OpenSearchHome))
 				environmentVariables.Add("OPENSEARCH_HOME", config.FileSystem.OpenSearchHome);
 
+			var knnLibDir = Path.Combine(config.FileSystem.OpenSearchHome, "plugins", "opensearch-knn", config.Version.Major >= 2 ? "lib" : "knnlib");
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+				AppendPathEnvVar("JAVA_LIBRARY_PATH", knnLibDir);
+			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+				AppendPathEnvVar("LD_LIBRARY_PATH", knnLibDir);
+
 			return environmentVariables;
+		}
+
+		private static void AppendPathEnvVar(string name, string value)
+		{
+			var previous = Environment.GetEnvironmentVariable(name);
+			Environment.SetEnvironmentVariable(name,
+				string.IsNullOrWhiteSpace(previous)
+					? value
+					: $"{previous}{Path.PathSeparator}{value}"
+				);
 		}
 
 		private bool AssumedStartedStateChecker(string section, string message)

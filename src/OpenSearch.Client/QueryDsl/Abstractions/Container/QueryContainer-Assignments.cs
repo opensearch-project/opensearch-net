@@ -51,6 +51,7 @@ namespace OpenSearch.Client
 		private IHasParentQuery _hasParent;
 		private IIdsQuery _ids;
 		private IIntervalsQuery _intervals;
+		private IKnnQuery _knn;
 		private IMatchQuery _match;
 		private IMatchAllQuery _matchAllQuery;
 		private IMatchBoolPrefixQuery _matchBoolPrefixQuery;
@@ -191,6 +192,12 @@ namespace OpenSearch.Client
 		{
 			get => _intervals;
 			set => _intervals = Set(value);
+		}
+
+		IKnnQuery IQueryContainer.Knn
+		{
+			get => _knn;
+			set => _knn = Set(value);
 		}
 
 		IMatchQuery IQueryContainer.Match
