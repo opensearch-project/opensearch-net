@@ -101,7 +101,7 @@ public static class ApiEndpointFactory
 			Stability = Stability.Stable, // TODO: for realsies
 			OfficialDocumentationLink = new Documentation
 			{
-				Description = variants[0].Operation.ExternalDocumentation?.Description ?? variants[0].Operation.Description,
+				Description = variants[0].Operation.Description,
 				Url = variants[0].Operation.ExternalDocumentation?.Url,
 			},
 			Url = urlInfo,
