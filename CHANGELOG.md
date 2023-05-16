@@ -17,6 +17,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `SharpZipLib` from 1.4.1 to 1.4.2
 - Bumps `AWSSDK.Core` from 3.7.103.17 to 3.7.106.29
 - Bumps `Newtonsoft.Json` from 13.0.2 to 13.0.3
+- Bumps `FSharp.Data` from 5.0.2 to 6.2.0
 - Bumps `Microsoft.SourceLink.GitHub` from 1.0.0 to 1.1.1
 
 ## [1.3.0]
