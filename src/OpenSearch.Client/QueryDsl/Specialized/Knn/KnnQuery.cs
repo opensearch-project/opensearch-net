@@ -11,16 +11,28 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client;
 
+/// <summary>
+/// An approximate k-NN query.
+/// </summary>
 [InterfaceDataContract]
 [JsonFormatter(typeof(FieldNameQueryFormatter<KnnQuery, IKnnQuery>))]
 public interface IKnnQuery : IFieldNameQuery
 {
+	/// <summary>
+	/// The vector to search for.
+	/// </summary>
 	[DataMember(Name = "vector")]
 	float[] Vector { get; set; }
 
+	/// <summary>
+	/// The number of neighbors the search of each graph will return.
+	/// </summary>
 	[DataMember(Name = "k")]
 	int? K { get; set; }
 
+	/// <summary>
+	/// The result restriction filter query.
+	/// </summary>
 	[DataMember(Name = "filter")]
 	IQueryContainer Filter { get; set; }
 }
