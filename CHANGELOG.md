@@ -5,6 +5,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 - Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202), [#203](https://github.com/opensearch-project/opensearch-net/pull/203), [#205](https://github.com/opensearch-project/opensearch-net/pull/205), [#206](https://github.com/opensearch-project/opensearch-net/pull/206), [#207](https://github.com/opensearch-project/opensearch-net/pull/207), [#208](https://github.com/opensearch-project/opensearch-net/pull/208))
 
+### Added
+- Added support for approximate k-NN search queries and k-NN vector index properties ([#215](https://github.com/opensearch-project/opensearch-net/pull/215))
+
 ### Dependencies
 - Bumps `System.Reflection.Emit` from 4.3.0 to 4.7.0
 - Bumps `Argu` from 5.5.0 to 6.1.1
