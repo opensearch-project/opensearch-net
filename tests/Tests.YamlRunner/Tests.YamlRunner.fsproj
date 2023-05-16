@@ -33,7 +33,7 @@
     <PackageReference Update="FSharp.Core" Version="6.0.7" />
     
     <PackageReference Include="Argu" Version="6.1.1" />
-    <PackageReference Include="FSharp.Data" Version="5.0.2" />
+    <PackageReference Include="FSharp.Data" Version="6.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SemanticVersioning" Version="2.0.2" />
     <PackageReference Include="SharpYaml" Version="2.1.0" />
