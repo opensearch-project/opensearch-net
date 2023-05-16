@@ -80,7 +80,7 @@ public class ApiGenerator
 			new RequestsGenerator());
 	}
 
-	public static async Task<RestApiSpec> CreateRestApiSpecModel(string file)
+	public static async Task<RestApiSpec> CreateRestApiSpecModel(string file, ISet<string> namespaces)
 	{
 		var document = await OpenApiYamlDocument.FromFileAsync(file);
 
@@ -88,8 +88,9 @@ public class ApiGenerator
 			.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
 			.SelectMany(p => p.PathItem.Select(kv => new { p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value }))
 			.GroupBy(o => o.Operation.ExtensionData["x-operation-group"].ToString())
-			.ToImmutableSortedDictionary(o => o.Key,
-				o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()));
+			.Select(o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
+			.Where(e => namespaces.Contains(e.Namespace))
+			.ToImmutableSortedDictionary(e => e.Name, e => e);
 
 		return new RestApiSpec { Endpoints = endpoints };
 	}

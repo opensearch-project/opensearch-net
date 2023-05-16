@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -48,17 +49,18 @@ public static class Program
 	/// <param name="download">Whether to download the specs or use an already downloaded copy</param>
 	/// <param name="includeHighLevel">Also generate the high level client (OpenSearch.Client)</param>
 	/// <param name="skipGenerate">Only download the specs, skip all code generation</param>
+	/// <param name="namespaces">Namespaces to generate</param>
 	/// <param name="token"></param>
 	/// <returns></returns>
 	private static async Task<int> Main(
-		bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
-		, CancellationToken token = default
+		bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false,
+		string[] namespaces = null, CancellationToken token = default
 	)
 	{
 		Interactive = interactive;
 		try
 		{
-			await Generate(download, includeHighLevel, skipGenerate, token);
+			await Generate(download, includeHighLevel, skipGenerate, namespaces ?? Array.Empty<string>(), token);
 		}
 		catch (OperationCanceledException)
 		{
@@ -78,7 +80,7 @@ public static class Program
 		return 0;
 	}
 
-	private static async Task Generate(bool download, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
+	private static async Task Generate(bool download, bool includeHighLevel, bool skipGenerate, string[] namespaces, CancellationToken token = default)
 	{
 		var generateCode = Ask("Generate code from the specification files on disk?", !skipGenerate);
 		var lowLevelOnly = generateCode && Ask("Generate low level client only?", !includeHighLevel);
@@ -108,7 +110,7 @@ public static class Program
 		AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
 		Console.WriteLine();
 
-		var spec = await Generator.ApiGenerator.CreateRestApiSpecModel("/Users/tsfarr/Development/opensearch-api-specification/build/smithyprojections/opensearch-api-specification/full/openapi/OpenSearch.openapi.json");
+		var spec = await Generator.ApiGenerator.CreateRestApiSpecModel("/Users/tsfarr/Development/opensearch-api-specification/build/smithyprojections/opensearch-api-specification/full/openapi/OpenSearch.openapi.json", namespaces.ToImmutableHashSet());
 
 		Console.WriteLine();
 		AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());
