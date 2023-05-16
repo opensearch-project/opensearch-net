@@ -50,7 +50,7 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Net;
 
-@foreach (var e in Model.EnumsInTheSpec)
+@foreach (var e in Model.EnumsInTheSpec.OrderBy(e => e.Name))
 {
 	var isFlag = IsFlag(e.Name);
 	<text>
@@ -64,7 +64,7 @@ public static partial class KnownEnums
 {
 	private static readonly @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>")) EnumStringResolvers = new @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>"))();
 
-	private static partial void InitializeStringResolvers()
+	static partial void InitializeStringResolvers()
 	{
 	@foreach (var e in Model.EnumsInTheSpec)
 	{

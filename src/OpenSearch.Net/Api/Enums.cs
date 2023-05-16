@@ -435,7 +435,6 @@ namespace OpenSearch.Net
 
 	public static partial class KnownEnums
 	{
-		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new ConcurrentDictionary<Type, Func<Enum, string>>();
 		static KnownEnums()
 		{
 			InitializeStringResolvers();
@@ -466,19 +465,6 @@ namespace OpenSearch.Net
 		}
 
 		static partial void InitializeStringResolvers();
-
-		private class EnumDictionary : Dictionary<Enum, string>
-		{
-			public EnumDictionary(int capacity): base(capacity)
-			{
-			}
-
-			public Func<Enum, string> Resolver
-			{
-				get;
-				set;
-			}
-		}
 
 		public static string GetStringValue(this ClusterStateMetric enumValue)
 		{
@@ -947,49 +933,6 @@ namespace OpenSearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'GroupBy'");
-		}
-
-		public static string GetStringValue(this Enum e)
-		{
-			var type = e.GetType();
-			var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
-			return resolver(e);
-		}
-
-		private static Func<Enum, string> GetEnumStringResolver(Type type)
-		{
-			var values = Enum.GetValues(type);
-			var dictionary = new EnumDictionary(values.Length);
-			for (int index = 0; index < values.Length; index++)
-			{
-				var value = values.GetValue(index);
-				var info = type.GetField(value.ToString());
-				var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-				var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
-				dictionary.Add((Enum)value, stringValue);
-			}
-
-			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-			return (e) =>
-			{
-				if (isFlag)
-				{
-					var list = new List<string>();
-					foreach (var kv in dictionary)
-					{
-						if (e.HasFlag(kv.Key))
-							list.Add(kv.Value);
-					}
-
-					return string.Join(",", list);
-				}
-				else
-				{
-					return dictionary[e];
-				}
-			}
-
-			;
 		}
 	}
 }
