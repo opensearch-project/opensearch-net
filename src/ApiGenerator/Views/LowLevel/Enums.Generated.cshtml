@@ -1,4 +1,3 @@
-@using System
 @using System.Linq
 @using System.Text
 @using ApiGenerator.Domain
@@ -9,39 +8,36 @@
 @functions {
 	private const string RawSize = "Raw";
 	private const string SizeEnum = "Size";
-	private static GlobalOverrides GlobalOverrides = new GlobalOverrides();
+	private static readonly GlobalOverrides GlobalOverrides = new();
 
-	private string CreateEnum(string enumName, string value, int? i)
+	private static string CreateEnum(string enumName, string value, int? i)
 	{
-		var enumValue = (enumName == SizeEnum && value == string.Empty) ? RawSize : value.ToPascalCase(true);
-		var enumCsharp = string.Format("[EnumMember(Value = \"{0}\")] {1}{2}", value, enumValue, i.HasValue ? " = 1 << " + i.Value : null);
+		var enumValue = enumName == SizeEnum && value == string.Empty ? RawSize : value.ToPascalCase(true);
+		var enumCsharp = $"[EnumMember(Value = \"{value}\")] {enumValue}{(i.HasValue ? $" = 1 << {i.Value}" : null)}";
 		if (GlobalOverrides.ObsoleteEnumMembers.TryGetValue(enumName, out var d) && d.TryGetValue(value, out var obsolete))
 		{
-			return string.Format("[Obsolete(\"{0}\")]{2}\t\t{1}", obsolete, enumCsharp, Environment.NewLine);
+			return $"[Obsolete(\"{obsolete}\")]{Environment.NewLine}\t\t{enumCsharp}";
 		}
 		return enumCsharp;
 	}
+	
 	private string CreateCase(string e, string o)
 	{
 		var enumValue = GetEnumValue(e, o);
 		var isObsolete = GlobalOverrides.ObsoleteEnumMembers.TryGetValue(e, out var d) && d.TryGetValue(o, out _);
 		var sb = new StringBuilder();
 		if (isObsolete) sb.AppendLine("#pragma warning disable 618");
-		sb.Append(string.Format("case {0}.{1}: return \"{2}\";", e, enumValue, o));
-		if (isObsolete) sb.AppendLine(Environment.NewLine + "#pragma warning disable 618");
+		sb.Append($"case {e}.{enumValue}: return \"{o}\";");
+		if (isObsolete) sb.AppendLine($"{Environment.NewLine}#pragma warning disable 618");
 		return sb.ToString();
 	}
-	private bool IsFlag(string name)
-	{
-		return name.EndsWith("Metric") || name.EndsWith("Feature");
-	}
+	
+	private static bool IsFlag(string name) => name.EndsWith("Metric") || name.EndsWith("Feature");
 
-	private string GetEnumValue(string enumName, string value)
-	{
-		return enumName == SizeEnum && value == string.Empty 
-			? RawSize 
+	private static string GetEnumValue(string enumName, string value) => 
+		enumName == SizeEnum && value == string.Empty 
+			? RawSize
 			: value.ToPascalCase(true);
-	}
 }
 // ReSharper disable RedundantUsingDirective
 using System;
@@ -54,13 +50,13 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Net
 {
-@foreach (EnumDescription e in Model.EnumsInTheSpec)
+@foreach (var e in Model.EnumsInTheSpec)
 {
 	var isFlag = IsFlag(e.Name);
 	<text>
 	@(isFlag ? "[Flags, StringEnum]" : "[StringEnum]")public enum @e.Name
 	{
-		@Raw(string.Join(","+ Environment.NewLine + "\t\t", e.Options.OrderBy(s => s == "_all" ? 1 : 0).Select((s, i) => CreateEnum(e.Name, s, isFlag ? (int?)i : null))))
+	@Raw(string.Join($",{Environment.NewLine}\t\t", e.Options.OrderBy(s => s == "_all" ? 1 : 0).Select((s, i) => CreateEnum(e.Name, s, isFlag ? i : null))))
 	}</text>
 }
 
@@ -70,7 +66,7 @@ namespace OpenSearch.Net
 
 		static KnownEnums()
 		{
-		@foreach (EnumDescription e in Model.EnumsInTheSpec)
+		@foreach (var e in Model.EnumsInTheSpec)
 		{
 <text>			EnumStringResolvers.TryAdd(typeof(@(e.Name)), (e) => GetStringValue((@(e.Name))e));
 </text>
@@ -83,7 +79,7 @@ namespace OpenSearch.Net
 			public @(Raw("Func<Enum, string>")) Resolver { get; set; }
 		}	
 
-	@foreach (EnumDescription e in Model.EnumsInTheSpec)
+	@foreach (var e in Model.EnumsInTheSpec)
 	{
 		var isFlag = IsFlag(e.Name);
 		<text>
@@ -104,7 +100,7 @@ namespace OpenSearch.Net
 			foreach (var option in e.Options.Where(o => o != "_all"))
 			{
 				var value = GetEnumValue(e.Name, option);
-				if (g && d.TryGetValue(option, out var _)) {
+				if (g && d.TryGetValue(option, out _)) {
 <text>#pragma warning disable 618
 			if ((enumValue & @(e.Name).@(value)) != 0) list.Add("@(option)");
 #pragma warning restore 618
@@ -122,7 +118,7 @@ namespace OpenSearch.Net
 		{
 			<text>	switch (enumValue)
 			{
-				@Raw(string.Join(Environment.NewLine + "\t\t\t\t", e.Options.Select(o => CreateCase(e.Name, o))))
+			@Raw(string.Join($"{Environment.NewLine}\t\t\t\t", e.Options.Select(o => CreateCase(e.Name, o))))
 			}
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum '@(e.Name)'");
 		}</text>

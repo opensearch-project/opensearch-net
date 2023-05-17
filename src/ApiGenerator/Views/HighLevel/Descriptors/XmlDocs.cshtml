@@ -1,11 +1,8 @@
-@using System
 @using System.Linq
-@using System.Collections.Generic
 @inherits ApiGenerator.CodeTemplatePage<List<string>>
 @{
-	List<string> summary = Model;
-	var description = summary.Count == 1 ? summary.First() : string.Join($"{Environment.NewLine}\t\t", summary.Select(d => "/// " + d));
-	if (summary.Count == 1)
+	var description = Model.Count == 1 ? Model.First() : string.Join($"{Environment.NewLine}\t\t", Model.Select(d => $"/// {d}"));
+	if (Model.Count == 1)
 	{
 <text>		///<summary>@Raw(description)</summary></text>
 	}

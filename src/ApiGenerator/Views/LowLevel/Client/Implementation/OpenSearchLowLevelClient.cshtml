@@ -17,7 +17,7 @@ using OpenSearch.Net;
 using static OpenSearch.Net.HttpMethod;
 
 @{
-	RestApiSpec model = Model;
+	var model = Model;
 	var namespaces = model.EndpointsPerNamespaceLowLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
 <text>
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable

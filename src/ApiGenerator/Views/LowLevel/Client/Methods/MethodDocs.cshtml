@@ -1,21 +1,17 @@
 @using ApiGenerator.Domain.Code.LowLevel
 @using ApiGenerator.Domain.Specification
-@using CsQuery.ExtensionMethods.Internal
 @inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
-@{
-	LowLevelClientMethod method = Model;
-}
-		///<summary>@method.HttpMethod on @method.Path@Raw(method.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + method.OfficialDocumentationLink + "</para>")</summary>
-@foreach (var part in method.Parts)
+///<summary>@Model.HttpMethod on @Model.Path@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
+@foreach (var part in Model.Parts)
 {
-<text>		///@Raw("<param name=\""+part.NameAsArgument+"\">")@part.Description@Raw("</param>")
+<text>		///@Raw($"<param name=\"{part.NameAsArgument}\">")@part.Description@Raw("</param>")
 </text>
 }
 		///@Raw(@"<param name=""requestParameters"">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>")
-		@if (method.Stability != Stability.Stable)
+		@if (Model.Stability != Stability.Stable)
 		{
-			string warningMessage = "";
-			switch (method.Stability)
+			var warningMessage = "";
+			switch (Model.Stability)
 			{
 				case Stability.Experimental:
 					warningMessage = "this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.";
@@ -27,10 +23,10 @@
 
 			warningMessage += " This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.";
 			
-<text>		///@Raw("<remarks>Note: " + method.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
-			</text>
-		}
-		@if (method.DeprecatedPath != null)
+<text>		///@Raw($"<remarks>Note: {Model.Stability} within the OpenSearch server, {warningMessage}</remarks>")
+
+</text>}
+		@if (Model.DeprecatedPath != null)
 		{
-<text>		[Obsolete("Deprecated in version @(method.DeprecatedPath.Version): @Raw(method.DeprecatedPath.Description)")]
+<text>		[Obsolete("Deprecated in version @Model.DeprecatedPath.Version: @Raw(Model.DeprecatedPath.Description)")]
 </text>}

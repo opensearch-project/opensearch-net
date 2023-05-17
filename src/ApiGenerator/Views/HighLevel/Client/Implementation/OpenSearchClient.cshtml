@@ -12,8 +12,7 @@ using OpenSearch.Client;
 @{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
 
 @{
-	RestApiSpec model = Model;
-	var namespaces = model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
+	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
 <text>
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client
@@ -44,17 +43,11 @@ namespace OpenSearch.Client
 </text>
 	
 
-	foreach (var kv in model.EndpointsPerNamespaceHighLevel)
+	foreach (var (_, endpoints) in Model.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key == CsharpNames.RootNamespace))
 	{
-		if (kv.Key != CsharpNames.RootNamespace)
+		foreach (var e in endpoints)
 		{
-			continue;
-		}
-		var endpoints = kv.Value;
-		var models = endpoints.Select(e=>e.HighLevelModel).ToList();
-		foreach (var m in models)
-		{
-			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", m);
+			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", e.HighLevelModel);
 		}
 	}
 	<text>

@@ -26,223 +26,223 @@
 *  under the License.
 */
 
-using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ApiGenerator.Configuration
+namespace ApiGenerator.Configuration;
+
+public static class CodeConfiguration
 {
-	public static class CodeConfiguration
+	/// <summary> These APIs are not implemented yet in the low and high level client</summary>
+	public static string[] IgnoredApis { get; } =
 	{
-		/// <summary> These APIs are not implemented yet in the low and high level client</summary>
-		public static string[] IgnoredApis { get; } =
-		{
-			// To be removed
-			"indices.upgrade.json",
-			"indices.get_upgrade.json",
-		};
+		// To be removed
+		"indices.upgrade.json", "indices.get_upgrade.json"
+	};
 
-		private static string[] IgnoredApisHighLevel { get; } =
-		{
-			"indices.delete_index_template.json",
-			"indices.exists_index_template.json",
-			"indices.get_index_template.json",
-			"indices.put_index_template.json",
-			"indices.simulate_index_template.json",
-			"indices.simulate_template.json",
+	private static string[] IgnoredApisHighLevel { get; } =
+	{
+		"indices.delete_index_template.json", "indices.exists_index_template.json", "indices.get_index_template.json",
+		"indices.put_index_template.json", "indices.simulate_index_template.json", "indices.simulate_template.json",
+		"get_script_context.json", // 7.7 experimental
+		"get_script_languages.json", // 7.7 experimental
 
-			"get_script_context.json", // 7.7 experimental
-			"get_script_languages.json", // 7.7 experimental
+		"indices.exist_type.json", // already removed on client
 
-			"indices.exist_type.json", // already removed on client
+		"rank_eval.json", // 7.7 experimental
+		"scripts_painless_context.json", // 7.7 experimental
+		"cluster.delete_component_template.json", // 7.8 experimental
+		"cluster.get_component_template.json", // 7.8 experimental
+		"cluster.put_component_template.json", // 7.8 experimental
+		"cluster.exists_component_template.json" // 7.8 experimental
+	};
 
-			"rank_eval.json", // 7.7 experimental
-			"scripts_painless_context.json", // 7.7 experimental
-			"cluster.delete_component_template.json", // 7.8 experimental
-			"cluster.get_component_template.json", // 7.8 experimental
-			"cluster.put_component_template.json", // 7.8 experimental
-			"cluster.exists_component_template.json", // 7.8 experimental
-		};
+	/// <summary>
+	/// Map API default names for API's we are only supporting on the low level client first
+	/// </summary>
+	private static readonly Dictionary<string, string> LowLevelApiNameMapping = new()
+	{
+		{ "indices.delete_index_template", "DeleteIndexTemplateV2" },
+		{ "indices.get_index_template", "GetIndexTemplateV2" },
+		{ "indices.put_index_template", "PutIndexTemplateV2" }
+	};
 
-		/// <summary>
-		/// Map API default names for API's we are only supporting on the low level client first
-		/// </summary>
-		private static readonly Dictionary<string, string> LowLevelApiNameMapping = new Dictionary<string, string>
-		{
-			{ "indices.delete_index_template", "DeleteIndexTemplateV2" },
-			{ "indices.get_index_template", "GetIndexTemplateV2" },
-			{ "indices.put_index_template", "PutIndexTemplateV2" }
-		};
+	private static readonly FileInfo[] ClientCsharpFiles = new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder)
+		.GetFiles("*.cs", SearchOption.AllDirectories);
+	private static readonly FileInfo[] ClientRequestCsharpFiles = ClientCsharpFiles.Where(f => f.Name.EndsWith("Request.cs")).ToArray();
+	private static readonly FileInfo[] ClientResponseCsharpFiles = ClientCsharpFiles.Where(f => f.Name.EndsWith("Response.cs")).ToArray();
 
-		/// <summary>
-		/// Scan all OSC source code files for Requests and look for the [MapsApi(filename)] attribute.
-		/// The class name minus Request is used as the canonical .NET name for the API.
-		/// </summary>
-		public static readonly Dictionary<string, string> HighLevelApiNameMapping =
-			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*.cs", SearchOption.AllDirectories)
-				let contents = File.ReadAllText(f.FullName)
-				let c = Regex.Replace(contents, @"^.+\[MapsApi\(""([^ \r\n]+)""\)\].*$", "$1", RegexOptions.Singleline)
-				where !c.Contains(" ") //filter results that did not match
-				select new { Value = f.Name.Replace("Request", ""), Key = c.Replace(".json", "") })
-			.DistinctBy(v => v.Key)
-			.ToDictionary(k => k.Key, v => v.Value.Replace(".cs", ""));
+	private static readonly Regex ResponseBuilderAttributeRegex = new(@"^.+\[ResponseBuilderWithGeneric\(""([^ \r\n]+)""\)\].*$", RegexOptions.Singleline);
+	private static readonly Regex GenericsRegex = new(@"^.*?(?:(\<.+>).*?)?$");
+	private static readonly Regex GenericsRemovalRegex = new(@"<.*$");
+	private static readonly Regex RequestInterfaceRegex = new(@"^.+interface ([^ \r\n]+Request(?:<[^>\r\n]+>)?[^ \r\n]*).*$", RegexOptions.Singleline);
+	private static readonly Regex ResponseClassRegex = new(@"^.+public class ([^ \r\n]+Response(?:<[^>\r\n]+>)?[^ \r\n]*).*$", RegexOptions.Singleline);
 
-		public static readonly HashSet<string> EnableHighLevelCodeGen = new HashSet<string>();
-
-		public static bool IsNewHighLevelApi(string apiFileName) =>
-			// if its explicitly ignored we know about it.
-			!IgnoredApis.Contains(apiFileName)
-			&& !IgnoredApisHighLevel.Contains(apiFileName)
-			// no requests with [MapsApi("filename.json")] found
-			&& !HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""));
-
-		public static bool IgnoreHighLevelApi(string apiFileName)
-		{
-			//explicitly ignored
-			if (IgnoredApis.Contains(apiFileName) || IgnoredApisHighLevel.Contains(apiFileName)) return true;
-
-			//always generate already mapped requests
-
-			if (HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""))) return false;
-
-			return !EnableHighLevelCodeGen.Contains(apiFileName);
-		}
-
-		private static Dictionary<string, string> _apiNameMapping;
-
-		public static Dictionary<string, string> ApiNameMapping
-		{
-			get
+	/// <summary>
+	/// Scan all OSC source code files for Requests and look for the [MapsApi(filename)] attribute.
+	/// The class name minus Request is used as the canonical .NET name for the API.
+	/// </summary>
+	public static readonly Dictionary<string, string> HighLevelApiNameMapping =
+		ClientCsharpFiles.Select(f => new
 			{
-				if (_apiNameMapping != null) return _apiNameMapping;
-				lock (LowLevelApiNameMapping)
+				File = f,
+				MappedApi = Regex.Replace(
+					File.ReadAllText(f.FullName),
+					@"^.+\[MapsApi\(""([^ \r\n]+)""\)\].*$",
+					"$1",
+					RegexOptions.Singleline
+				)
+			})
+			.Where(f => !f.MappedApi.Contains(' '))
+			.Select(f => new
+			{
+				MappedApi = f.MappedApi.Replace(".json", ""),
+				ApiName = f.File.Name.Replace("Request", "").Replace(".cs", "")
+			})
+			.DistinctBy(v => v.MappedApi)
+			.ToDictionary(k => k.MappedApi, v => v.ApiName);
+
+	public static readonly HashSet<string> EnableHighLevelCodeGen = new();
+
+	public static bool IsNewHighLevelApi(string apiFileName) =>
+		// if its explicitly ignored we know about it.
+		!IgnoredApis.Contains(apiFileName)
+		&& !IgnoredApisHighLevel.Contains(apiFileName)
+		// no requests with [MapsApi("filename.json")] found
+		&& !HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""));
+
+	public static bool IgnoreHighLevelApi(string apiFileName)
+	{
+		//explicitly ignored
+		if (IgnoredApis.Contains(apiFileName) || IgnoredApisHighLevel.Contains(apiFileName)) return true;
+
+		//always generate already mapped requests
+
+		if (HighLevelApiNameMapping.ContainsKey(apiFileName.Replace(".json", ""))) return false;
+
+		return !EnableHighLevelCodeGen.Contains(apiFileName);
+	}
+
+	public static readonly Dictionary<string, string> ApiNameMapping =
+		new Dictionary<string, string>(HighLevelApiNameMapping).OverrideWith(LowLevelApiNameMapping);
+
+
+	/// <summary>
+	/// Scan all OSC source code files for Requests and look for the [MapsApi(filename)] attribute.
+	/// The class name minus Request is used as the canonical .NET name for the API.
+	/// </summary>
+	public static readonly Dictionary<string, string> ResponseBuilderInClientCalls =
+		ClientCsharpFiles
+			.SelectMany(f => File.ReadLines(f.FullName)
+				.Where(l => ResponseBuilderAttributeRegex.IsMatch(l))
+				.Select(l => new
 				{
-					if (_apiNameMapping == null)
-					{
-						var mapping = new Dictionary<string, string>(HighLevelApiNameMapping);
-						foreach (var (k, v) in LowLevelApiNameMapping)
-							mapping[k] = v;
-						_apiNameMapping = mapping;
-					}
-					return _apiNameMapping;
-				}
-			}
-		}
-
-		private static readonly string ResponseBuilderAttributeRegex = @"^.+\[ResponseBuilderWithGeneric\(""([^ \r\n]+)""\)\].*$";
-		/// <summary>
-		/// Scan all OSC source code files for Requests and look for the [MapsApi(filename)] attribute.
-		/// The class name minus Request is used as the canonical .NET name for the API.
-		/// </summary>
-		public static readonly Dictionary<string, string> ResponseBuilderInClientCalls =
-			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*.cs", SearchOption.AllDirectories)
-				from l in File.ReadLines(f.FullName)
-				where Regex.IsMatch(l, ResponseBuilderAttributeRegex)
-				let c = Regex.Replace(l, @"^.+\[ResponseBuilderWithGeneric\(""([^ \r\n]+)""\)\].*$", "$1", RegexOptions.Singleline)
-				select new { Key = f.Name.Replace(".cs", ""), Value = c })
+					Key = f.Name.Replace(".cs", ""),
+					Value = ResponseBuilderAttributeRegex.Replace(l, "$1")
+				}))
 			.DistinctBy(v => v.Key)
-			.ToDictionary(k => k.Key, v => v.Value);
+			.ToDictionary(v => v.Key, v => v.Value);
 
-		public static readonly Dictionary<string, string> DescriptorGenericsLookup =
-			(from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
-				let name = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "")
-				let contents = File.ReadAllText(f.FullName)
-				let c = Regex.Replace(contents, $@"^.+class ({name}Descriptor(?:<[^>\r\n]+>)?[^ \r\n]*).*$", "$1", RegexOptions.Singleline)
-				let key = $"{name}Descriptor"
-				select new { Key = key, Value = Regex.Replace(c, @"^.*?(?:(\<.+>).*?)?$", "$1") })
+
+	public static readonly IDictionary<string, string> DescriptorGenericsLookup =
+		ClientRequestCsharpFiles
+			.Select(f =>
+			{
+				var descriptor = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "Descriptor");
+				var c = Regex.Replace(
+					File.ReadAllText(f.FullName),
+					$@"^.+class ({descriptor}(?:<[^>\r\n]+>)?[^ \r\n]*).*$",
+					"$1",
+					RegexOptions.Singleline
+				);
+				return new { Key = descriptor, Value = GenericsRegex.Replace(c, "$1") };
+			})
 			.DistinctBy(v => v.Key)
-			.OrderBy(v => v.Key)
-			.ToDictionary(k => k.Key, v => v.Value);
+			.ToImmutableSortedDictionary(v => v.Key, v => v.Value);
 
-		/// <summary> Scan all OSC files for request interfaces and note any generics declared on them </summary>
-		private static readonly List<Tuple<string, string>> AllKnownRequestInterfaces = (
-			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
-			from l in File.ReadLines(f.FullName)
-			// attempt to locate all Request interfaces lines
-			where Regex.IsMatch(l, @"^.+interface [^ \r\n]+Request")
-			//grab the interface name including any generics declared on it
-			let c = Regex.Replace(l, @"^.+interface ([^ \r\n]+Request(?:<[^>\r\n]+>)?[^ \r\n]*).*$", "$1", RegexOptions.Singleline)
-			where c.StartsWith("I") && c.Contains("Request")
-			let request = Regex.Replace(c, "<.*$", "")
-			let generics = Regex.Replace(c, @"^.*?(?:(\<.+>).*?)?$", "$1")
-			select Tuple.Create(request,  generics)
-			)
-			.OrderBy(v=>v.Item1)
+
+	private static readonly List<string> RequestInterfaceDeclarations =
+		ClientRequestCsharpFiles
+			.SelectMany(f => File.ReadLines(f.FullName))
+			.Where(l => RequestInterfaceRegex.IsMatch(l))
 			.ToList();
 
-		public static readonly HashSet<string> GenericOnlyInterfaces = new HashSet<string>(AllKnownRequestInterfaces
-			.GroupBy(v => v.Item1)
-			.Where(g => g.All(v => !string.IsNullOrEmpty(v.Item2)))
-			.Select(g => g.Key)
-			.ToList());
+	/// <summary> Scan all OSC files for request interfaces and note any generics declared on them </summary>
+	private static readonly List<(string Request, string Generics)> AllKnownRequestInterfaces =
+		RequestInterfaceDeclarations
+			.Select(l => RequestInterfaceRegex.Replace(l, "$1"))
+			.Where(c => c.StartsWith("I") && c.Contains("Request"))
+			.Select(c => (
+				Request: GenericsRemovalRegex.Replace(c, ""),
+				Generics: GenericsRegex.Replace(c, "$1")
+			))
+			.OrderBy(v => v.Request)
+			.ToList();
 
-		public static readonly HashSet<string> DocumentRequests = new HashSet<string>((
-			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
-			from l in File.ReadLines(f.FullName)
-			// attempt to locate all Request interfaces lines
-			where Regex.IsMatch(l, @"^.+interface [^ \r\n]+Request")
-			where l.Contains("IDocumentRequest")
-			let c = Regex.Replace(l, @"^.+interface ([^ \r\n]+Request(?:<[^>\r\n]+>)?[^ \r\n]*).*$", "$1", RegexOptions.Singleline)
-			//grab the interface name including any generics declared on it
-			let request = Regex.Replace(c, "<.*$", "")
-			select request
-			)
-			.ToList());
+	public static readonly HashSet<string> GenericOnlyInterfaces = AllKnownRequestInterfaces
+		.GroupBy(v => v.Item1)
+		.Where(g => g.All(v => !string.IsNullOrEmpty(v.Item2)))
+		.Select(g => g.Key)
+		.ToHashSet();
 
-		public static readonly Dictionary<string, string> DescriptorConstructors = (
-			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Request.cs", SearchOption.AllDirectories)
-			let descriptor = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "Descriptor")
-			let re = $@"^.+public {descriptor}\(([^\r\n\)]+?)\).*$"
-			from l in File.ReadLines(f.FullName)
-			where Regex.IsMatch(l, re)
-			let args = Regex.Replace(l, re, "$1", RegexOptions.Singleline)
-			where !string.IsNullOrWhiteSpace(args) && !args.Contains(": base")
-			select (Descriptor: descriptor, Args: args)
-			)
+	public static readonly HashSet<string> DocumentRequests =
+		RequestInterfaceDeclarations
+			.Where(l => l.Contains("IDocumentRequest"))
+			.Select(l => RequestInterfaceRegex.Replace(l, "$1"))
+			.Select(c => GenericsRemovalRegex.Replace(c, ""))
+			.ToHashSet();
+
+	public static readonly Dictionary<string, string> DescriptorConstructors =
+		ClientRequestCsharpFiles
+			.SelectMany(f =>
+			{
+				var descriptor = Path.GetFileNameWithoutExtension(f.Name).Replace("Request", "Descriptor");
+				var re = new Regex($@"^.+public {descriptor}\(([^\r\n\)]+?)\).*$", RegexOptions.Singleline);
+				return File.ReadLines(f.FullName)
+					.Where(l => re.IsMatch(l))
+					.Select(l => re.Replace(l, "$1"))
+					.Where(args => !string.IsNullOrWhiteSpace(args) && !args.Contains(": base"))
+					.Select(args => new
+					{
+						Descriptor = descriptor,
+						Args = args
+					});
+			})
 			.ToDictionary(r => r.Descriptor, r => r.Args);
 
-		public static readonly Dictionary<string, string> RequestInterfaceGenericsLookup =
-			AllKnownRequestInterfaces
-			.GroupBy(v=>v.Item1)
-			.Select(g=>g.Last())
-			.ToDictionary(k => k.Item1, v => v.Item2);
+	public static readonly Dictionary<string, string> RequestInterfaceGenericsLookup =
+		AllKnownRequestInterfaces
+			.GroupBy(v => v.Request)
+			.Select(g => g.Last())
+			.ToDictionary(k => k.Request, v => v.Generics);
 
-		/// <summary>
-		/// Some API's reuse response this is a hardcoded map of these cases
-		/// </summary>
-		private static Dictionary<string, (string, string)> ResponseReroute = new Dictionary<string, (string, string)>
-		{
-			{"UpdateByQueryRethrottleResponse", ("ListTasksResponse", "")},
-			{"DeleteByQueryRethrottleResponse", ("ListTasksResponse", "")},
-			{"MultiSearchTemplateResponse", ("MultiSearchResponse", "")},
-			{"ScrollResponse", ("SearchResponse", "<TDocument>")},
-			{"SearchTemplateResponse", ("SearchResponse", "<TDocument>")},
-
-		};
-
-
-		/// <summary> Create a dictionary lookup of all responses and their generics </summary>
-		public static readonly SortedDictionary<string, (string, string)> ResponseLookup = new SortedDictionary<string, (string, string)>(
-		(
-			// find all files in OSC ending with Request.cs
-			from f in new DirectoryInfo(GeneratorLocations.OpenSearchClientFolder).GetFiles("*Response.cs", SearchOption.AllDirectories)
-			from l in File.ReadLines(f.FullName)
-			// attempt to locate all Response class lines
-			where Regex.IsMatch(l, @"^.+public class [^ \r\n]+Response")
-			//grab the response name including any generics declared on it
-			let c = Regex.Replace(l, @"^.+public class ([^ \r\n]+Response(?:<[^>\r\n]+>)?[^ \r\n]*).*$", "$1", RegexOptions.Singleline)
-			where c.Contains("Response")
-			let response = Regex.Replace(c, "<.*$", "")
-			let generics = Regex.Replace(c, @"^.*?(?:(\<.+>).*?)?$", "$1")
-			select (response,  (response, generics))
-		)
-			.Concat(ResponseReroute.Select(kv=>(kv.Key, (kv.Value.Item1, kv.Value.Item2))))
-			.ToDictionary(t=>t.Item1, t=>t.Item2));
-
-	}
+	/// <summary>
+	/// Some API's reuse response this is a hardcoded map of these cases
+	/// </summary>
+	private static readonly Dictionary<string, (string, string)> ResponseReroute = new()
+	{
+		{ "UpdateByQueryRethrottleResponse", ("ListTasksResponse", "") },
+		{ "DeleteByQueryRethrottleResponse", ("ListTasksResponse", "") },
+		{ "MultiSearchTemplateResponse", ("MultiSearchResponse", "") },
+		{ "ScrollResponse", ("SearchResponse", "<TDocument>") },
+		{ "SearchTemplateResponse", ("SearchResponse", "<TDocument>") }
+	};
+	
+	/// <summary> Create a dictionary lookup of all responses and their generics </summary>
+	public static readonly IDictionary<string, (string, string)> ResponseLookup =
+		ClientResponseCsharpFiles
+			.SelectMany(f => File.ReadLines(f.FullName))
+			.Where(l => ResponseClassRegex.IsMatch(l))
+			.Select(l =>
+			{
+				var c = ResponseClassRegex.Replace(l, "$1");
+				var response = GenericsRemovalRegex.Replace(c, "");
+				var generics = GenericsRegex.Replace(c, "$1");
+				return (response, (response, generics));
+			})
+			.Concat(ResponseReroute.Select(kv => (kv.Key, (kv.Value.Item1, kv.Value.Item2))))
+			.ToImmutableSortedDictionary(t => t.Item1, t => t.Item2);
 }

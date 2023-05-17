@@ -1,4 +1,3 @@
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using System.Linq
 @using ApiGenerator 
@@ -7,9 +6,7 @@
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
 @{
-	KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-	string ns = model.Key;
-	var endpoints = model.Value;
+	var (ns, endpoints) = Model;
 }
 // ReSharper disable RedundantUsingDirective
 using System;
@@ -34,9 +31,9 @@ namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNames
 	/// on <see cref="IOpenSearchLowLevelClient"/>.
 	///</para>
 	///</summary>
-	public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+	public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 	{
-		internal @(CsharpNames.LowLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+		internal @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
 	<text>protected override string ContentType { get; } = "text/plain";</text>

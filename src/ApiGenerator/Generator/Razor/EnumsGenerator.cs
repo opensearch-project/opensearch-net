@@ -32,18 +32,17 @@ using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class EnumsGenerator : RazorGeneratorBase
 {
-	public class EnumsGenerator : RazorGeneratorBase
+	public override string Title => "OpenSearch.Net enums";
+
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		public override string Title => "OpenSearch.Net enums";
+		var view = ViewLocations.LowLevel("Enums.Generated.cshtml");
+		var target = GeneratorLocations.LowLevel("Api", "Enums.Generated.cs");
 
-		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-		{
-			var view = ViewLocations.LowLevel("Enums.Generated.cshtml");
-			var target = GeneratorLocations.LowLevel("Api", "Enums.Generated.cs");
-
-			await DoRazor(spec, view, target, null, token);
-		}
+		await DoRazor(spec, view, target, null, token);
 	}
 }

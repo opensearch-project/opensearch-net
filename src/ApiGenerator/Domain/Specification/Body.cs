@@ -26,11 +26,10 @@
 *  under the License.
 */
 
-namespace ApiGenerator.Domain.Specification 
+namespace ApiGenerator.Domain.Specification;
+
+public class Body
 {
-	public class Body
-	{
-		public string Description { get; set; }
-		public bool Required { get; set; }
-	}
+	public string Description { get; set; }
+	public bool Required { get; set; }
 }

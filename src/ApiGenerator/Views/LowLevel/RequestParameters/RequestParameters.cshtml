@@ -1,15 +1,12 @@
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using ApiGenerator
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
-@using CsQuery.ExtensionMethods.Internal
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
 @{
-	KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-	string ns = model.Key != CsharpNames.RootNamespace ? "."+CsharpNames.ApiNamespace+"." + model.Key + CsharpNames.ApiNamespaceSuffix : null;
-	var endpoints = model.Value;
+	var (ns, endpoints) = Model;
+	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
 
 // ReSharper disable RedundantUsingDirective
@@ -28,7 +25,7 @@ namespace OpenSearch.Net@(ns)
 		var supportsBody = endpoint.Body != null;
 		var names = r.CsharpNames;
 <text>
-	///<summary>Request options for @names.MethodName@Raw(r.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + r.OfficialDocumentationLink + "</para>")</summary>
+	///<summary>Request options for @names.MethodName@(Raw(r.OfficialDocumentationLink.IsNullOrEmpty() ? "" : $" <para>{r.OfficialDocumentationLink}</para>"))</summary>
 	public class @names.ParametersName : RequestParameters<@names.ParametersName> 
 	{
 		public override HttpMethod DefaultHttpMethod => HttpMethod.@r.HttpMethod;

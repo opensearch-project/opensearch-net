@@ -28,20 +28,12 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Configuration.Overrides.Endpoints
+namespace ApiGenerator.Configuration.Overrides.Endpoints;
+
+public class GetAnomalyRecordsOverrides : EndpointOverridesBase
 {
-	public class GetAnomalyRecordsOverrides : EndpointOverridesBase
+	public override IEnumerable<string> SkipQueryStringParams => new[]
 	{
-		public override IEnumerable<string> SkipQueryStringParams => new[]
-		{
-			"exclude_interim",
-			"from",
-			"size",
-			"start",
-			"end",
-			"record_score",
-			"sort",
-			"desc"
-		};
-	}
+		"exclude_interim", "from", "size", "start", "end", "record_score", "sort", "desc"
+	};
 }

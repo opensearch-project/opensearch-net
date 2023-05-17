@@ -3,18 +3,17 @@
 @using HighLevelModel = ApiGenerator.Domain.Code.HighLevel.Methods.HighLevelModel
 @inherits CodeTemplatePage<HighLevelModel>
 @{
-	HighLevelModel model = Model;
-	var fluentPath = "HighLevel/Client/FluentSyntax/FluentMethod.cshtml";
-	var initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethod.cshtml";
+	const string fluentPath = "HighLevel/Client/FluentSyntax/FluentMethod.cshtml";
+	const string initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethod.cshtml";
 }
-@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.Fluent, async: false)); }
-@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.Fluent, async: true)); }
-@if (model.FluentBound != null)
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: false)); }
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: true)); }
+@if (Model.FluentBound != null)
 {
 <text>
-	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.FluentBound, async: false)); }
-	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.FluentBound, async: true)); }
+	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: false)); }
+	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: true)); }
 </text>
 }
-@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(model.Initializer, async: false)); }
-@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(model.Initializer, async: true)); }
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: false)); }
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: true)); }

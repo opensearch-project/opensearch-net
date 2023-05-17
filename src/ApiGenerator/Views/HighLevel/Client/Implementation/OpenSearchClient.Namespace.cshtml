@@ -1,15 +1,12 @@
 @using ApiGenerator
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits ApiGenerator.CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
-	KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-	string ns = model.Key;
-	var endpoints = model.Value;
+	var (ns, endpoints) = Model;
 }
-@{ await IncludeAsync("GeneratorNotice.cshtml", model); }
+@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
@@ -26,9 +23,9 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNa
 	/// on <see cref="IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class @(CsharpNames.HighLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+	public class @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 	{
-		internal @(CsharpNames.HighLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
+		internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
 		@foreach(var e in endpoints)
 		{
 			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", e.HighLevelModel);

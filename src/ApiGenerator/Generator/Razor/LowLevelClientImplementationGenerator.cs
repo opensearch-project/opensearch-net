@@ -35,26 +35,25 @@ using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 {
-	public class LowLevelClientImplementationGenerator : RazorGeneratorBase
+	public override string Title => "OpenSearch.Net client implementation";
+
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		public override string Title { get; } = "OpenSearch.Net client implementation";
+		// Delete existing files
+		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "OpenSearchLowLevelClient.*.cs"))
+			File.Delete(file);
 
-		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-		{
-			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "OpenSearchLowLevelClient.*.cs"))
-				File.Delete(file);
+		var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
+		var target = GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs");
+		await DoRazor(spec, view, target, null, token);
 
-			var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
-			var target = GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs");
-			await DoRazor(spec, view, target, null, token);
-
-			var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-			var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace.cshtml");
-			await DoRazorDependantFiles(progressBar, namespaced, namespacedView, kv => kv.Key,
-				id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.cs"), token);
-		}
+		var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
+		var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace.cshtml");
+		await DoRazorDependantFiles(progressBar, namespaced, namespacedView, kv => kv.Key,
+			id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.cs"), token);
 	}
 }

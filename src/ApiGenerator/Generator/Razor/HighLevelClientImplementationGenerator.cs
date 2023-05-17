@@ -35,28 +35,29 @@ using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 {
-	public class HighLevelClientImplementationGenerator : RazorGeneratorBase
+	public override string Title => "OpenSearch.Client client implementation";
+
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		public override string Title => "OpenSearch.Client client implementation";
+		// Delete existing files
+		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "OpenSearchClient.*.cs"))
+			File.Delete(file);
 
-		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+		var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
+		var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
+		await DoRazor(spec, view, target, null, token);
+
+		string Target(string id)
 		{
-			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "OpenSearchClient.*.cs"))
-				File.Delete(file);
-
-			var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
-			var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
-			await DoRazor(spec, view, target, null, token);
-
-			string Target(string id) => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs");
-
-			var namespaced = spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-			var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace.cshtml");
-			await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, id => Target(id), token);
-
+			return GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs");
 		}
+
+		var namespaced = spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
+		var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace.cshtml");
+		await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, Target, token);
 	}
 }

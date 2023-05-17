@@ -34,26 +34,30 @@ using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class RequestsGenerator : RazorGeneratorBase
 {
-	public class RequestsGenerator : RazorGeneratorBase
+	public override string Title => "OpenSearch.Client requests";
+
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		public override string Title => "OpenSearch.Client requests";
+		// Delete existing files
+		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Requests.*.cs"))
+			File.Delete(file);
 
-		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+		var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
+		var target = GeneratorLocations.HighLevel("Requests.cs");
+		await DoRazor(spec, view, target, null, token);
+
+		var dependantView = ViewLocations.HighLevel("Requests", "Requests.cshtml");
+
+		string Target(string id)
 		{
-			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "Requests.*.cs"))
-				File.Delete(file);
-
-			var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
-			var target = GeneratorLocations.HighLevel("Requests.cs");
-			await DoRazor(spec, view, target, null, token);
-
-			var dependantView = ViewLocations.HighLevel("Requests", "Requests.cshtml");
-			string Target(string id) => GeneratorLocations.HighLevel($"Requests.{id}.cs");
-			var namespaced = spec.EndpointsPerNamespaceHighLevel.ToList();
-			await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, id => Target(id), token);
+			return GeneratorLocations.HighLevel($"Requests.{id}.cs");
 		}
+
+		var namespaced = spec.EndpointsPerNamespaceHighLevel.ToList();
+		await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, Target, token);
 	}
 }

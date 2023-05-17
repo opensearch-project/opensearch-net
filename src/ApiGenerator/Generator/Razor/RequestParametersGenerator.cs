@@ -34,23 +34,26 @@ using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class RequestParametersGenerator : RazorGeneratorBase
 {
-	public class RequestParametersGenerator : RazorGeneratorBase
+	public override string Title => "OpenSearch.Net request parameters";
+
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
 	{
-		public override string Title { get; } = "OpenSearch.Net request parameters";
+		// Delete existing files
+		foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "RequestParameters.*.cs"))
+			File.Delete(file);
 
-		public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+		var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters.cshtml");
+
+		string Target(string id)
 		{
-			// Delete existing files
-			foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "RequestParameters.*.cs"))
-				File.Delete(file);
-
-			var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters.cshtml");
-			string Target(string id) => GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs");
-
-			var namespaced = spec.EndpointsPerNamespaceLowLevel.ToList();
-			await DoRazorDependantFiles(progressBar, namespaced, view, kv => kv.Key, id => Target(id), token);
+			return GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs");
 		}
+
+		var namespaced = spec.EndpointsPerNamespaceLowLevel.ToList();
+		await DoRazorDependantFiles(progressBar, namespaced, view, kv => kv.Key, Target, token);
 	}
 }

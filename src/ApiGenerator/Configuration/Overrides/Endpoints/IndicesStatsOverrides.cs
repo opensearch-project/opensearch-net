@@ -28,14 +28,10 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Configuration.Overrides.Endpoints
+namespace ApiGenerator.Configuration.Overrides.Endpoints;
+
+// ReSharper disable once UnusedMember.Global
+public class IndicesStatsOverrides : EndpointOverridesBase
 {
-	// ReSharper disable once UnusedMember.Global
-	public class IndicesStatsOverrides : EndpointOverridesBase
-	{
-		public override IEnumerable<string> SkipQueryStringParams => new[]
-		{
-			"types"
-		};
-	}
+	public override IEnumerable<string> SkipQueryStringParams => new[] { "types" };
 }

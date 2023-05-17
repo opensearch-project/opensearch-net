@@ -1,11 +1,7 @@
 @using ApiGenerator.Domain
 @using ApiGenerator.Domain.Code
 @inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
-@foreach(var kv in Model.EndpointsPerNamespaceLowLevel)
+@foreach (var kv in Model.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace))
 {
-	if (kv.Key != CsharpNames.RootNamespace)
-	{
-<text>using OpenSearch.Net.@(CsharpNames.ApiNamespace).@(kv.Key)@(CsharpNames.ApiNamespaceSuffix);
-</text>
-	}
+	@:using OpenSearch.Net.@(CsharpNames.ApiNamespace).@kv.Key@(CsharpNames.ApiNamespaceSuffix);
 }

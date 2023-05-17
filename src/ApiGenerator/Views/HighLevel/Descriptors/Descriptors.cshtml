@@ -1,13 +1,11 @@
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using ApiGenerator
 @using ApiGenerator.Domain.Specification
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
-	KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-	string ns = model.Key != CsharpNames.RootNamespace ? "."+CsharpNames.ApiNamespace+"." + model.Key + CsharpNames.ApiNamespaceSuffix : null;
-	var endpoints = model.Value;
+	var (ns, endpoints) = Model;
+	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
 @{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
 // ReSharper disable RedundantUsingDirective
@@ -19,7 +17,7 @@ using System.Linq.Expressions;
 
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
-@if (model.Key != CsharpNames.RootNamespace)
+@if (ns != null)
 {
 	<text>using OpenSearch.Net@(ns);
 </text>

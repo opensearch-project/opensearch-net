@@ -29,41 +29,34 @@
 using System.IO;
 using System.Reflection;
 
-namespace ApiGenerator.Configuration
+namespace ApiGenerator.Configuration;
+
+public static class GeneratorLocations
 {
-	public static class GeneratorLocations
+	public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
+	public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
+	public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
+
+	public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);
+
+	public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
+
+	public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
+
+	private static string _root;
+
+	public static string Root
 	{
-		// @formatter:off — disable formatter after this line
-		public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
-		public static string LastDownloadedRef { get; } = Path.Combine(Root, "last_downloaded_version.txt");
-
-		public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
-		public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
-		// @formatter:on — enable formatter after this line
-
-		public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);
-		public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
-
-		public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
-
-		private static string _root;
-		public static string Root
+		get
 		{
-			get
-			{
-				if (_root != null) return _root;
+			if (_root != null) return _root;
 
-				var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+			var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
 
-				var dotnetRun =
-					directoryInfo.Name == "ApiGenerator" &&
-					directoryInfo.Parent != null &&
-					directoryInfo.Parent.Name == "src";
-
-				_root = dotnetRun ? "" : @"../../../";
-				return _root;
-			}
+			_root = directoryInfo.Name == "ApiGenerator" && directoryInfo.Parent is { Name: "src" }
+				? ""
+				: @"../../../";
+			return _root;
 		}
-
 	}
 }
