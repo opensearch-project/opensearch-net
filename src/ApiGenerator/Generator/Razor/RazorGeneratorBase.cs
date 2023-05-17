@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -42,55 +42,55 @@ namespace ApiGenerator.Generator.Razor;
 
 public abstract class RazorGeneratorBase
 {
-	private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
-		.UseEmbeddedResourcesProject(typeof(RazorGeneratorBase).Assembly, "ApiGenerator.Views")
-		.SetOperatingAssembly(typeof(RazorGeneratorBase).Assembly)
-		.UseMemoryCachingProvider()
-		.EnableDebugMode()
-		.Build();
+    private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
+        .UseEmbeddedResourcesProject(typeof(RazorGeneratorBase).Assembly, "ApiGenerator.Views")
+        .SetOperatingAssembly(typeof(RazorGeneratorBase).Assembly)
+        .UseMemoryCachingProvider()
+        .EnableDebugMode()
+        .Build();
 
-	protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
-	{
-		try
-		{
-			token.ThrowIfCancellationRequested();
-			var generated = await Engine.CompileRenderAsync(viewLocation, model);
-			await WriteFormattedCsharpFile(targetLocation, generated, token);
-		}
-		catch (TemplateGenerationException e)
-		{
-			foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
-			throw;
-		}
-	}
+    protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
+    {
+        try
+        {
+            token.ThrowIfCancellationRequested();
+            var generated = await Engine.CompileRenderAsync(viewLocation, model);
+            await WriteFormattedCsharpFile(targetLocation, generated, token);
+        }
+        catch (TemplateGenerationException e)
+        {
+            foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
+            throw;
+        }
+    }
 
-	protected async Task DoRazorDependantFiles<TModel>(
-		ProgressBar pbar, IReadOnlyCollection<TModel> items, string viewLocation,
-		Func<TModel, string> identifier, Func<string, string> target,
-		CancellationToken token
-	)
-	{
-		using var c = pbar.Spawn(
-			items.Count,
-			"Generating namespaces",
-			new ProgressBarOptions { ProgressCharacter = '─', ForegroundColor = ConsoleColor.Yellow }
-		);
+    protected async Task DoRazorDependantFiles<TModel>(
+        ProgressBar pbar, IReadOnlyCollection<TModel> items, string viewLocation,
+        Func<TModel, string> identifier, Func<string, string> target,
+        CancellationToken token
+    )
+    {
+        using var c = pbar.Spawn(
+            items.Count,
+            "Generating namespaces",
+            new ProgressBarOptions { ProgressCharacter = '─', ForegroundColor = ConsoleColor.Yellow }
+        );
 
-		foreach (var item in items)
-		{
-			var id = identifier(item);
-			await DoRazor(item, viewLocation, target(id), token);
-			c.Tick($"{Title}: {id}");
-		}
-	}
+        foreach (var item in items)
+        {
+            var id = identifier(item);
+            await DoRazor(item, viewLocation, target(id), token);
+            c.Tick($"{Title}: {id}");
+        }
+    }
 
-	private static async Task WriteFormattedCsharpFile(string path, string contents, CancellationToken token)
-	{
-		var root = await CSharpSyntaxTree.ParseText(contents, cancellationToken: token).GetRootAsync(token);
-		await File.WriteAllTextAsync(path, root.NormalizeWhitespace("\t", "\n").ToFullString(), token);
-	}
+    private static async Task WriteFormattedCsharpFile(string path, string contents, CancellationToken token)
+    {
+        var root = await CSharpSyntaxTree.ParseText(contents, cancellationToken: token).GetRootAsync(token);
+        await File.WriteAllTextAsync(path, root.NormalizeWhitespace("\t", "\n").ToFullString(), token);
+    }
 
-	public abstract string Title { get; }
+    public abstract string Title { get; }
 
-	public abstract Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token);
+    public abstract Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token);
 }

@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -34,21 +34,21 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests;
 
 public class RequestPartialImplementation
 {
-	public CsharpNames CsharpNames { get; set; }
-	public string OfficialDocumentationLink { get; set; }
-	public Stability Stability { get; set; }
-	public IReadOnlyCollection<UrlPart> Parts { get; set; }
-	public IReadOnlyCollection<UrlPath> Paths { get; set; }
-	public IReadOnlyCollection<QueryParameters> Params { get; set; }
-	public IReadOnlyCollection<Constructor> Constructors { get; set; }
-	public IReadOnlyCollection<Constructor> GenericConstructors { get; set; }
-	public bool HasBody { get; set; }
+    public CsharpNames CsharpNames { get; set; }
+    public string OfficialDocumentationLink { get; set; }
+    public Stability Stability { get; set; }
+    public IReadOnlyCollection<UrlPart> Parts { get; set; }
+    public IReadOnlyCollection<UrlPath> Paths { get; set; }
+    public IReadOnlyCollection<QueryParameters> Params { get; set; }
+    public IReadOnlyCollection<Constructor> Constructors { get; set; }
+    public IReadOnlyCollection<Constructor> GenericConstructors { get; set; }
+    public bool HasBody { get; set; }
 
-	private bool GenerateOnlyGenericInterface => CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName);
+    private bool GenerateOnlyGenericInterface => CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName);
 
-	public bool NeedsGenericImplementation => !GenerateOnlyGenericInterface && !string.IsNullOrWhiteSpace(CsharpNames.GenericsDeclaredOnRequest);
+    public bool NeedsGenericImplementation => !GenerateOnlyGenericInterface && !string.IsNullOrWhiteSpace(CsharpNames.GenericsDeclaredOnRequest);
 
-	public string Name => CsharpNames.GenericOrNonGenericRequestPreference;
+    public string Name => CsharpNames.GenericOrNonGenericRequestPreference;
 
-	public string InterfaceName => CsharpNames.GenericOrNonGenericInterfacePreference;
+    public string InterfaceName => CsharpNames.GenericOrNonGenericInterfacePreference;
 }

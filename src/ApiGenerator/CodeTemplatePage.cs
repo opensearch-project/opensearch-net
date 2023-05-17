@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -35,5 +35,5 @@ namespace ApiGenerator;
 /// <summary> This only exists to make the IDE tooling happy, not actually used to render the templates </summary>
 public class CodeTemplatePage<TModel> : TemplatePage<TModel>
 {
-	public override Task ExecuteAsync() => throw new NotImplementedException();
+    public override Task ExecuteAsync() => throw new NotImplementedException();
 }

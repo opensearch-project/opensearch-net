@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -36,114 +36,114 @@ namespace ApiGenerator.Domain;
 
 public static class ApiQueryParametersPatcher
 {
-	public static SortedDictionary<string, QueryParameters> Patch(
-		string endpointName,
-		IDictionary<string, QueryParameters> source,
-		IEndpointOverrides overrides
-	)
-	{
-		if (source == null) return null;
+    public static SortedDictionary<string, QueryParameters> Patch(
+        string endpointName,
+        IDictionary<string, QueryParameters> source,
+        IEndpointOverrides overrides
+    )
+    {
+        if (source == null) return null;
 
-		var globalOverrides = new GlobalOverrides();
-		var declaredKeys = source.Keys;
-		var skipList = CreateSkipList(globalOverrides, overrides, declaredKeys);
-		var partialList = CreatePartialList(globalOverrides, overrides, declaredKeys);
+        var globalOverrides = new GlobalOverrides();
+        var declaredKeys = source.Keys;
+        var skipList = CreateSkipList(globalOverrides, overrides, declaredKeys);
+        var partialList = CreatePartialList(globalOverrides, overrides, declaredKeys);
 
-		var renameLookup = CreateRenameLookup(globalOverrides, overrides, declaredKeys);
-		var obsoleteLookup = CreateObsoleteLookup(globalOverrides, overrides, declaredKeys);
+        var renameLookup = CreateRenameLookup(globalOverrides, overrides, declaredKeys);
+        var obsoleteLookup = CreateObsoleteLookup(globalOverrides, overrides, declaredKeys);
 
-		var patchedParams = new SortedDictionary<string, QueryParameters>();
-		foreach (var (key, value) in source)
-		{
-			value.QueryStringKey = key;
+        var patchedParams = new SortedDictionary<string, QueryParameters>();
+        foreach (var (key, value) in source)
+        {
+            value.QueryStringKey = key;
 
-			if (!renameLookup.TryGetValue(key, out var preferredName)) preferredName = key;
-			value.ClsName = CreateCSharpName(preferredName, endpointName);
+            if (!renameLookup.TryGetValue(key, out var preferredName)) preferredName = key;
+            value.ClsName = CreateCSharpName(preferredName, endpointName);
 
-			if (skipList.Contains(key)) value.Skip = true;
+            if (skipList.Contains(key)) value.Skip = true;
 
-			if (partialList.Contains(key)) value.RenderPartial = true;
+            if (partialList.Contains(key)) value.RenderPartial = true;
 
-			if (obsoleteLookup.TryGetValue(key, out var obsolete)) value.Obsolete = obsolete;
+            if (obsoleteLookup.TryGetValue(key, out var obsolete)) value.Obsolete = obsolete;
 
-			//make sure source_enabled takes a boolean only
-			if (preferredName == "source_enabled") value.Type = "boolean";
+            //make sure source_enabled takes a boolean only
+            if (preferredName == "source_enabled") value.Type = "boolean";
 
-			patchedParams[preferredName] = value;
-		}
+            patchedParams[preferredName] = value;
+        }
 
-		return patchedParams;
-	}
+        return patchedParams;
+    }
 
-	private static string CreateCSharpName(string queryStringKey, string endpointName)
-	{
-		if (string.IsNullOrWhiteSpace(queryStringKey)) return "UNKNOWN";
+    private static string CreateCSharpName(string queryStringKey, string endpointName)
+    {
+        if (string.IsNullOrWhiteSpace(queryStringKey)) return "UNKNOWN";
 
-		if (queryStringKey == "format" && endpointName == "text_structure.find_structure")
-			return "TextStructureFindStructureFormat";
+        if (queryStringKey == "format" && endpointName == "text_structure.find_structure")
+            return "TextStructureFindStructureFormat";
 
-		var cased = queryStringKey.ToPascalCase();
-		switch (cased)
-		{
-			case "Type":
-			case "Index":
-			case "Source":
-			case "Script":
-				return $"{cased}QueryString";
-			default:
-				return cased;
-		}
-	}
+        var cased = queryStringKey.ToPascalCase();
+        switch (cased)
+        {
+            case "Type":
+            case "Index":
+            case "Source":
+            case "Script":
+                return $"{cased}QueryString";
+            default:
+                return cased;
+        }
+    }
 
-	private static IList<string> CreateSkipList(IEndpointOverrides global, IEndpointOverrides local, ICollection<string> declaredKeys) =>
-		CreateList(global, local, "skip", e => e.SkipQueryStringParams, declaredKeys);
+    private static IList<string> CreateSkipList(IEndpointOverrides global, IEndpointOverrides local, ICollection<string> declaredKeys) =>
+        CreateList(global, local, "skip", e => e.SkipQueryStringParams, declaredKeys);
 
-	private static IList<string> CreatePartialList(IEndpointOverrides global, IEndpointOverrides local, ICollection<string> declaredKeys) =>
-		CreateList(global, local, "partial", e => e.RenderPartial, declaredKeys);
+    private static IList<string> CreatePartialList(IEndpointOverrides global, IEndpointOverrides local, ICollection<string> declaredKeys) =>
+        CreateList(global, local, "partial", e => e.RenderPartial, declaredKeys);
 
-	private static IDictionary<string, string> CreateLookup(IEndpointOverrides global, IEndpointOverrides local, string type,
-		Func<IEndpointOverrides, IDictionary<string, string>> from, ICollection<string> declaredKeys
-	)
-	{
-		var d = new SortedDictionary<string, string>();
-		foreach (var kv in from(global)) d[kv.Key] = kv.Value;
+    private static IDictionary<string, string> CreateLookup(IEndpointOverrides global, IEndpointOverrides local, string type,
+        Func<IEndpointOverrides, IDictionary<string, string>> from, ICollection<string> declaredKeys
+    )
+    {
+        var d = new SortedDictionary<string, string>();
+        foreach (var kv in from(global)) d[kv.Key] = kv.Value;
 
-		if (local == null) return d;
+        if (local == null) return d;
 
-		var localDictionary = from(local);
-		foreach (var kv in localDictionary) d[kv.Key] = kv.Value;
+        var localDictionary = from(local);
+        foreach (var kv in localDictionary) d[kv.Key] = kv.Value;
 
-		var name = local.GetType().Name;
-		foreach (var p in localDictionary.Keys.Except(declaredKeys))
-			Generator.ApiGenerator.Warnings.Add($"On {name} {type} key '{p}' is not found in spec");
+        var name = local.GetType().Name;
+        foreach (var p in localDictionary.Keys.Except(declaredKeys))
+            Generator.ApiGenerator.Warnings.Add($"On {name} {type} key '{p}' is not found in spec");
 
-		return d;
-	}
+        return d;
+    }
 
-	private static IList<string> CreateList(IEndpointOverrides global, IEndpointOverrides local, string type,
-		Func<IEndpointOverrides, IEnumerable<string>> from, IEnumerable<string> declaredKeys
-	)
-	{
-		var list = new List<string>();
-		if (global != null) list.AddRange(from(global));
-		if (local != null)
-		{
-			var localList = from(local).ToList();
-			list.AddRange(localList);
-			var name = local.GetType().Name;
-			foreach (var p in localList.Except(declaredKeys))
-				Generator.ApiGenerator.Warnings.Add($"On {name} {type} key '{p}' is not found in spec");
-		}
-		return list.Distinct().ToList();
-	}
+    private static IList<string> CreateList(IEndpointOverrides global, IEndpointOverrides local, string type,
+        Func<IEndpointOverrides, IEnumerable<string>> from, IEnumerable<string> declaredKeys
+    )
+    {
+        var list = new List<string>();
+        if (global != null) list.AddRange(from(global));
+        if (local != null)
+        {
+            var localList = from(local).ToList();
+            list.AddRange(localList);
+            var name = local.GetType().Name;
+            foreach (var p in localList.Except(declaredKeys))
+                Generator.ApiGenerator.Warnings.Add($"On {name} {type} key '{p}' is not found in spec");
+        }
+        return list.Distinct().ToList();
+    }
 
-	private static IDictionary<string, string> CreateRenameLookup(IEndpointOverrides global, IEndpointOverrides local,
-		ICollection<string> declaredKeys
-	) =>
-		CreateLookup(global, local, "rename", e => e.RenameQueryStringParams, declaredKeys);
+    private static IDictionary<string, string> CreateRenameLookup(IEndpointOverrides global, IEndpointOverrides local,
+        ICollection<string> declaredKeys
+    ) =>
+        CreateLookup(global, local, "rename", e => e.RenameQueryStringParams, declaredKeys);
 
-	private static IDictionary<string, string> CreateObsoleteLookup(IEndpointOverrides global, IEndpointOverrides local,
-		ICollection<string> declaredKeys
-	) =>
-		CreateLookup(global, local, "obsolete", e => e.ObsoleteQueryStringParams, declaredKeys);
+    private static IDictionary<string, string> CreateObsoleteLookup(IEndpointOverrides global, IEndpointOverrides local,
+        ICollection<string> declaredKeys
+    ) =>
+        CreateLookup(global, local, "obsolete", e => e.ObsoleteQueryStringParams, declaredKeys);
 }

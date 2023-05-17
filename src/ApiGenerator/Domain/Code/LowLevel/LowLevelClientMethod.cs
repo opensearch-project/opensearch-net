@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -35,42 +35,42 @@ namespace ApiGenerator.Domain.Code.LowLevel;
 
 public class LowLevelClientMethod
 {
-	public CsharpNames CsharpNames { get; set; }
+    public CsharpNames CsharpNames { get; set; }
 
-	public string Arguments { get; set; }
-	public string OfficialDocumentationLink { get; set; }
+    public string Arguments { get; set; }
+    public string OfficialDocumentationLink { get; set; }
 
-	public Stability Stability { get; set; }
-	public string PerPathMethodName { get; set; }
-	public string HttpMethod { get; set; }
+    public Stability Stability { get; set; }
+    public string PerPathMethodName { get; set; }
+    public string HttpMethod { get; set; }
 
-	public DeprecatedPath DeprecatedPath { get; set; }
-	public UrlInformation Url { get; set; }
-	public bool HasBody { get; set; }
-	public IEnumerable<UrlPart> Parts { get; set; }
-	public string Path { get; set; }
+    public DeprecatedPath DeprecatedPath { get; set; }
+    public UrlInformation Url { get; set; }
+    public bool HasBody { get; set; }
+    public IEnumerable<UrlPart> Parts { get; set; }
+    public string Path { get; set; }
 
 
-	public string UrlInCode
-	{
-		get
-		{
-			string Evaluator(Match m)
-			{
-				var arg = m.Groups[^1].Value.ToCamelCase();
-				return $"{{{arg}:{arg}}}";
-			}
+    public string UrlInCode
+    {
+        get
+        {
+            string Evaluator(Match m)
+            {
+                var arg = m.Groups[^1].Value.ToCamelCase();
+                return $"{{{arg}:{arg}}}";
+            }
 
-			var url = Path.TrimStart('/');
-			var options = Url.OriginalParts?.Select(p => p.Key) ?? Enumerable.Empty<string>();
+            var url = Path.TrimStart('/');
+            var options = Url.OriginalParts?.Select(p => p.Key) ?? Enumerable.Empty<string>();
 
-			if (!Path.Contains('{')) return $"\"{url}\"";
+            if (!Path.Contains('{')) return $"\"{url}\"";
 
-			var patchedUrl = Regex.Replace(url, $"{{({string.Join("|", options)})}}", Evaluator);
+            var patchedUrl = Regex.Replace(url, $"{{({string.Join("|", options)})}}", Evaluator);
 
-			return $"Url($\"{patchedUrl}\")";
-		}
-	}
+            return $"Url($\"{patchedUrl}\")";
+        }
+    }
 
-	public string MapsApiArguments { get; set; }
+    public string MapsApiArguments { get; set; }
 }

@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -33,30 +33,30 @@ namespace ApiGenerator.Configuration;
 
 public static class GeneratorLocations
 {
-	public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
-	public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
-	public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
+    public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
+    public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
+    public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
 
-	public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);
+    public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);
 
-	public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
+    public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
 
-	public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
+    public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
 
-	private static string _root;
+    private static string _root;
 
-	public static string Root
-	{
-		get
-		{
-			if (_root != null) return _root;
+    public static string Root
+    {
+        get
+        {
+            if (_root != null) return _root;
 
-			var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+            var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
 
-			_root = directoryInfo.Name == "ApiGenerator" && directoryInfo.Parent is { Name: "src" }
-				? ""
-				: @"../../../";
-			return _root;
-		}
-	}
+            _root = directoryInfo.Name == "ApiGenerator" && directoryInfo.Parent is { Name: "src" }
+                ? ""
+                : @"../../../";
+            return _root;
+        }
+    }
 }

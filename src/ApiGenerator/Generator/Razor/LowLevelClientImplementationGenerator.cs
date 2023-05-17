@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -38,22 +38,22 @@ namespace ApiGenerator.Generator.Razor;
 
 public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 {
-	public override string Title => "OpenSearch.Net client implementation";
+    public override string Title => "OpenSearch.Net client implementation";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(
-			spec,
-			ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient"),
-			GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.Generated.cs"),
-			token);
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+    {
+        await DoRazor(
+            spec,
+            ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient"),
+            GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.Generated.cs"),
+            token);
 
-		await DoRazorDependantFiles(
-			progressBar,
-			spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
-			ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace"),
-			kv => kv.Key,
-			id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.Generated.cs"),
-			token);
-	}
+        await DoRazorDependantFiles(
+            progressBar,
+            spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+            ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace"),
+            kv => kv.Key,
+            id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.Generated.cs"),
+            token);
+    }
 }

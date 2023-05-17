@@ -22,20 +22,20 @@ namespace OpenSearch.Net;
 ///</summary>
 public partial interface IOpenSearchLowLevelClient 
 {
-	@foreach(var (ns, endpoints) in Model.EndpointsPerNamespaceLowLevel)
-	{
-	if (ns != CsharpNames.RootNamespace)
-	{
+    @foreach(var (ns, endpoints) in Model.EndpointsPerNamespaceLowLevel)
+    {
+    if (ns != CsharpNames.RootNamespace)
+    {
 <text>
-		///<summary>@ns.SplitPascalCase() APIs</summary>
-	    @CsharpNames.LowLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
+        ///<summary>@ns.SplitPascalCase() APIs</summary>
+        @CsharpNames.LowLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
 </text>
-		continue;
-	}
-		var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
-		foreach(var method in methods)
-		{
-			await IncludeAsync("LowLevel.Client.Methods.MethodInterface", method);
-		}
-	}
+        continue;
+    }
+        var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
+        foreach(var method in methods)
+        {
+            await IncludeAsync("LowLevel.Client.Methods.MethodInterface", method);
+        }
+    }
 }

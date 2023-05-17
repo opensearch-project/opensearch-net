@@ -4,7 +4,7 @@
 @using ApiGenerator.Domain.Specification
 @inherits ApiGenerator.CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
-	var (ns, endpoints) = Model;
+    var (ns, endpoints) = Model;
 }
 @{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
@@ -25,9 +25,9 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNa
 ///</summary>
 public partial class @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 {
-	internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
-	@foreach(var e in endpoints)
-	{
-		await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
-	}
+    internal @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
+    @foreach(var e in endpoints)
+    {
+        await IncludeAsync("HighLevel.Client.Implementation.MethodImplementation", e.HighLevelModel);
+    }
 }

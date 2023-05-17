@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -36,66 +36,66 @@ namespace ApiGenerator.Generator;
 //TODO this should be in views and models
 public static class CodeGenerator
 {
-	public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, params string[] doc)
-	{
-		var components = RenderDocumentation(doc).ToList();
-		if (!string.IsNullOrWhiteSpace(obsolete)) components.Add($"[Obsolete(\"Scheduled to be removed in 8.0, {obsolete}\")]");
+    public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, params string[] doc)
+    {
+        var components = RenderDocumentation(doc).ToList();
+        if (!string.IsNullOrWhiteSpace(obsolete)) components.Add($"[Obsolete(\"Scheduled to be removed in 8.0, {obsolete}\")]");
 
-		var generated = @namespace is "Cat" && name == "Format"
-			? $"public {type} {name} {{ 	get => Q<{type}>(\"{key}\");	set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}}}"
-			: $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
+        var generated = @namespace is "Cat" && name == "Format"
+            ? $"public {type} {name} {{     get => Q<{type}>(\"{key}\");    set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}}}"
+            : $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
 
-		components.Add(generated);
-		return string.Join($"{Environment.NewLine}\t\t", components);
-	}
+        components.Add(generated);
+        return string.Join($"{Environment.NewLine}\t\t", components);
+    }
 
-	public static string Constructor(Constructor c)
-	{
-		var components = new List<string>();
-		if (!string.IsNullOrEmpty(c.Description)) components.Add(c.Description);
-		var generated = c.Generated;
-		if (string.IsNullOrEmpty(c.Body)) generated += "{}";
-		components.Add(generated);
-		if (!string.IsNullOrEmpty(c.Body)) components.Add(c.Body);
-		if (!string.IsNullOrEmpty(c.AdditionalCode)) components.Add(c.AdditionalCode);
-		return string.Join($"{Environment.NewLine}\t\t", components);
-	}
+    public static string Constructor(Constructor c)
+    {
+        var components = new List<string>();
+        if (!string.IsNullOrEmpty(c.Description)) components.Add(c.Description);
+        var generated = c.Generated;
+        if (string.IsNullOrEmpty(c.Body)) generated += "{}";
+        components.Add(generated);
+        if (!string.IsNullOrEmpty(c.Body)) components.Add(c.Body);
+        if (!string.IsNullOrEmpty(c.AdditionalCode)) components.Add(c.AdditionalCode);
+        return string.Join($"{Environment.NewLine}\t\t", components);
+    }
 
-	private static IEnumerable<string> RenderDocumentation(params string[] doc)
-	{
-		doc = (doc?.SelectMany(WrapDocumentation) ?? Enumerable.Empty<string>()).ToArray();
-		switch (doc.Length)
-		{
-			case 0: yield break;
-			case 1:
-				yield return $"///<summary>{doc[0]}</summary>";
+    private static IEnumerable<string> RenderDocumentation(params string[] doc)
+    {
+        doc = (doc?.SelectMany(WrapDocumentation) ?? Enumerable.Empty<string>()).ToArray();
+        switch (doc.Length)
+        {
+            case 0: yield break;
+            case 1:
+                yield return $"///<summary>{doc[0]}</summary>";
 
-				yield break;
-			default:
-				yield return "///<summary>";
+                yield break;
+            default:
+                yield return "///<summary>";
 
-				foreach (var d in doc) yield return $"/// {d}";
+                foreach (var d in doc) yield return $"/// {d}";
 
-				yield return "///</summary>";
+                yield return "///</summary>";
 
-				yield break;
-		}
-	}
+                yield break;
+        }
+    }
 
-	private static string[] WrapDocumentation(string documentation)
-	{
-		if (string.IsNullOrWhiteSpace(documentation)) return Array.Empty<string>();
+    private static string[] WrapDocumentation(string documentation)
+    {
+        if (string.IsNullOrWhiteSpace(documentation)) return Array.Empty<string>();
 
-		const int max = 140;
-		var charCount = 0;
-		return documentation
-			.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-			.GroupBy(w =>
-			{
-				var increase = charCount % max + w.Length + 1 >= max ? max - charCount % max : 0;
-				return (charCount += increase + w.Length + 1) / max;
-			})
-			.Select(l => string.Join(" ", l))
-			.ToArray();
-	}
+        const int max = 140;
+        var charCount = 0;
+        return documentation
+            .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+            .GroupBy(w =>
+            {
+                var increase = charCount % max + w.Length + 1 >= max ? max - charCount % max : 0;
+                return (charCount += increase + w.Length + 1) / max;
+            })
+            .Select(l => string.Join(" ", l))
+            .ToArray();
+    }
 }

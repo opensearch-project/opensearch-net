@@ -10,11 +10,11 @@ internal static partial class ApiUrlsLookups
 {
 @foreach (var endpoint in Model.Endpoints.Values)
 {
-	var propertyName = $"{endpoint.CsharpNames.Namespace}{endpoint.CsharpNames.MethodName}";
-	var paths = endpoint.Url.Paths.Count == 0 ? endpoint.Url.PathsWithDeprecations : endpoint.Url.Paths;
-	<text>
-	internal static ApiUrls @(Raw(propertyName)) = new(new [] {@Raw(string.Join(", ", paths.Select(p=>$"\"{p.Path.TrimStart('/')}\"")))});
-	</text>
+    var propertyName = $"{endpoint.CsharpNames.Namespace}{endpoint.CsharpNames.MethodName}";
+    var paths = endpoint.Url.Paths.Count == 0 ? endpoint.Url.PathsWithDeprecations : endpoint.Url.Paths;
+    <text>
+    internal static ApiUrls @(Raw(propertyName)) = new(new [] {@Raw(string.Join(", ", paths.Select(p=>$"\"{p.Path.TrimStart('/')}\"")))});
+    </text>
 }
 }
 

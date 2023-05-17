@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -38,22 +38,22 @@ namespace ApiGenerator.Generator.Razor;
 
 public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 {
-	public override string Title => "OpenSearch.Client client implementation";
+    public override string Title => "OpenSearch.Client client implementation";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(
-			spec,
-			ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient"),
-			GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.Generated.cs"),
-			token);
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+    {
+        await DoRazor(
+            spec,
+            ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient"),
+            GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.Generated.cs"),
+            token);
 
-		await DoRazorDependantFiles(
-			progressBar,
-			spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
-			ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace"),
-			kv => kv.Key,
-			id => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.Generated.cs"),
-			token);
-	}
+        await DoRazorDependantFiles(
+            progressBar,
+            spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+            ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace"),
+            kv => kv.Key,
+            id => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.Generated.cs"),
+            token);
+    }
 }

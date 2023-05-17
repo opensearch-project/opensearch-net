@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -41,58 +41,58 @@ namespace ApiGenerator.Generator;
 
 public class ApiGenerator
 {
-	public static List<string> Warnings { get; } = new();
+    public static List<string> Warnings { get; } = new();
 
-	public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
-	{
-		async Task DoGenerate(bool highLevel, params RazorGeneratorBase[] generators)
-		{
-			using var pbar = new ProgressBar(
-				generators.Length,
-				$"Generating {(highLevel ? "high" : "low")} level code",
-				new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.Yellow }
-			);
-			foreach (var generator in generators)
-			{
-				pbar.Message = $"Generating {generator.Title}";
-				await generator.Generate(spec, pbar, token);
-				pbar.Tick($"Generated {generator.Title}");
-			}
-		}
+    public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
+    {
+        async Task DoGenerate(bool highLevel, params RazorGeneratorBase[] generators)
+        {
+            using var pbar = new ProgressBar(
+                generators.Length,
+                $"Generating {(highLevel ? "high" : "low")} level code",
+                new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.Yellow }
+            );
+            foreach (var generator in generators)
+            {
+                pbar.Message = $"Generating {generator.Title}";
+                await generator.Generate(spec, pbar, token);
+                pbar.Tick($"Generated {generator.Title}");
+            }
+        }
 
-		// low level client
-		await DoGenerate(
-			false,
-			new LowLevelClientInterfaceGenerator(),
-			new LowLevelClientImplementationGenerator(),
-			new RequestParametersGenerator(),
-			new EnumsGenerator(),
-			new ApiUrlsLookupsGenerator());
+        // low level client
+        await DoGenerate(
+            false,
+            new LowLevelClientInterfaceGenerator(),
+            new LowLevelClientImplementationGenerator(),
+            new RequestParametersGenerator(),
+            new EnumsGenerator(),
+            new ApiUrlsLookupsGenerator());
 
-		if (lowLevelOnly) return;
+        if (lowLevelOnly) return;
 
-		// high level client
-		await DoGenerate(
-			true,
-			new HighLevelClientInterfaceGenerator(),
-			new HighLevelClientImplementationGenerator(),
-			new DescriptorsGenerator(),
-			new RequestsGenerator());
-	}
+        // high level client
+        await DoGenerate(
+            true,
+            new HighLevelClientInterfaceGenerator(),
+            new HighLevelClientImplementationGenerator(),
+            new DescriptorsGenerator(),
+            new RequestsGenerator());
+    }
 
-	public static async Task<RestApiSpec> CreateRestApiSpecModel(string file, ISet<string> namespaces)
-	{
-		var document = await OpenApiYamlDocument.FromFileAsync(file);
+    public static async Task<RestApiSpec> CreateRestApiSpecModel(string file, ISet<string> namespaces)
+    {
+        var document = await OpenApiYamlDocument.FromFileAsync(file);
 
-		var endpoints = document.Paths
-			.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
-			.SelectMany(p => p.PathItem.Select(kv => new { p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value }))
-			.GroupBy(o => o.Operation.ExtensionData["x-operation-group"].ToString())
-			.Select(o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
-			.Where(e => namespaces.Contains(e.Namespace))
-			.ToImmutableSortedDictionary(e => e.Name, e => e);
+        var endpoints = document.Paths
+            .Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
+            .SelectMany(p => p.PathItem.Select(kv => new { p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value }))
+            .GroupBy(o => o.Operation.ExtensionData["x-operation-group"].ToString())
+            .Select(o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
+            .Where(e => namespaces.Contains(e.Namespace))
+            .ToImmutableSortedDictionary(e => e.Name, e => e);
 
-		return new RestApiSpec { Endpoints = endpoints };
-	}
+        return new RestApiSpec { Endpoints = endpoints };
+    }
 
 }

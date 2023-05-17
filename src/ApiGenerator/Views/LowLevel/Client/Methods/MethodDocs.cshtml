@@ -4,29 +4,29 @@
 ///<summary>@Model.HttpMethod on @Model.Path@(Raw(string.IsNullOrEmpty(Model.OfficialDocumentationLink) ? "" : $" <para>{Model.OfficialDocumentationLink}</para>"))</summary>
 @foreach (var part in Model.Parts)
 {
-<text>		///@Raw($"<param name=\"{part.NameAsArgument}\">")@part.Description@Raw("</param>")
+<text>      ///@Raw($"<param name=\"{part.NameAsArgument}\">")@part.Description@Raw("</param>")
 </text>
 }
-		///@Raw(@"<param name=""requestParameters"">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>")
-		@if (Model.Stability != Stability.Stable)
-		{
-			var warningMessage = "";
-			switch (Model.Stability)
-			{
-				case Stability.Experimental:
-					warningMessage = "this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.";
-					break;
-				case Stability.Beta:
-					warningMessage = "this functionality is in Beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.";
-					break;
-			}
+        ///@Raw(@"<param name=""requestParameters"">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>")
+        @if (Model.Stability != Stability.Stable)
+        {
+            var warningMessage = "";
+            switch (Model.Stability)
+            {
+                case Stability.Experimental:
+                    warningMessage = "this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.";
+                    break;
+                case Stability.Beta:
+                    warningMessage = "this functionality is in Beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.";
+                    break;
+            }
 
-			warningMessage += " This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.";
-			
-<text>		///@Raw($"<remarks>Note: {Model.Stability} within the OpenSearch server, {warningMessage}</remarks>")
+            warningMessage += " This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.";
+            
+<text>      ///@Raw($"<remarks>Note: {Model.Stability} within the OpenSearch server, {warningMessage}</remarks>")
 
 </text>}
-		@if (Model.DeprecatedPath != null)
-		{
-<text>		[Obsolete("Deprecated in version @Model.DeprecatedPath.Version: @Raw(Model.DeprecatedPath.Description)")]
+        @if (Model.DeprecatedPath != null)
+        {
+<text>      [Obsolete("Deprecated in version @Model.DeprecatedPath.Version: @Raw(Model.DeprecatedPath.Description)")]
 </text>}

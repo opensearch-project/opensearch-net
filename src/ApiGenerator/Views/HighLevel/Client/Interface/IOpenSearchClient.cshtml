@@ -19,18 +19,18 @@ namespace OpenSearch.Client;
 ///</summary>
 public partial interface IOpenSearchClient 
 {
-	@foreach(var (ns, endpoints) in Model.EndpointsPerNamespaceHighLevel)
-	{
-	if (ns != CsharpNames.RootNamespace)
-	{
-<text>	///<summary>@ns.SplitPascalCase() APIs</summary>
-		@CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
+    @foreach(var (ns, endpoints) in Model.EndpointsPerNamespaceHighLevel)
+    {
+    if (ns != CsharpNames.RootNamespace)
+    {
+<text>  ///<summary>@ns.SplitPascalCase() APIs</summary>
+        @CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
 </text>
-		continue;
-	}
-		foreach(var e in endpoints)
-		{
-			await IncludeAsync("HighLevel.Client.Interface.MethodInterface", e.HighLevelModel);
-		}
-	}
+        continue;
+    }
+        foreach(var e in endpoints)
+        {
+            await IncludeAsync("HighLevel.Client.Interface.MethodInterface", e.HighLevelModel);
+        }
+    }
 }

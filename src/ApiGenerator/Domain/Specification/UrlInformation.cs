@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -35,99 +35,99 @@ namespace ApiGenerator.Domain.Specification;
 // ReSharper disable once ClassNeverInstantiated.Global
 public class UrlInformation
 {
-	public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
+    public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-	public IList<string> OriginalPaths { get; set; } = new List<string>();
+    public IList<string> OriginalPaths { get; set; } = new List<string>();
 
-	public IDictionary<string, UrlPart> OriginalParts { get; set; } = new SortedDictionary<string, UrlPart>();
+    public IDictionary<string, UrlPart> OriginalParts { get; set; } = new SortedDictionary<string, UrlPart>();
 
-	public IList<DeprecatedPath> DeprecatedPaths { get; set; } = new List<DeprecatedPath>();
+    public IList<DeprecatedPath> DeprecatedPaths { get; set; } = new List<DeprecatedPath>();
 
-	private List<UrlPath> _paths;
+    private List<UrlPath> _paths;
 
-	public IReadOnlyCollection<UrlPath> Paths
-	{
-		get
-		{
-			if (_paths is { Count: > 0 }) return _paths;
+    public IReadOnlyCollection<UrlPath> Paths
+    {
+        get
+        {
+            if (_paths is { Count: > 0 }) return _paths;
 
-			_paths = OriginalPaths.Select(p => new UrlPath(p, OriginalParts)).ToList();
-			return _paths;
-		}
-	}
+            _paths = OriginalPaths.Select(p => new UrlPath(p, OriginalParts)).ToList();
+            return _paths;
+        }
+    }
 
-	private List<UrlPath> _pathsWithDeprecation;
+    private List<UrlPath> _pathsWithDeprecation;
 
-	public IEnumerable<UrlPath> PathsWithDeprecations
-	{
-		get
-		{
-			if (_pathsWithDeprecation is { Count: > 0 }) return _pathsWithDeprecation;
+    public IEnumerable<UrlPath> PathsWithDeprecations
+    {
+        get
+        {
+            if (_pathsWithDeprecation is { Count: > 0 }) return _pathsWithDeprecation;
 
-			var paths = Paths ?? Array.Empty<UrlPath>();
-			if (DeprecatedPaths == null || DeprecatedPaths.Count == 0) return Paths;
-			if (OriginalParts == null) return Paths;
+            var paths = Paths ?? Array.Empty<UrlPath>();
+            if (DeprecatedPaths == null || DeprecatedPaths.Count == 0) return Paths;
+            if (OriginalParts == null) return Paths;
 
-			//some deprecated paths describe aliases to the canonical using the same path e.g
-			// PUT /{index}/_mapping/{type}
-			// PUT /{index}/{type}/_mappings
-			//
-			//The following routine dedups these occasions and prefers either the canonical path
-			//or the first duplicate deprecated path
+            //some deprecated paths describe aliases to the canonical using the same path e.g
+            // PUT /{index}/_mapping/{type}
+            // PUT /{index}/{type}/_mappings
+            //
+            //The following routine dedups these occasions and prefers either the canonical path
+            //or the first duplicate deprecated path
 
-			var canonicalPartNameLookup = paths.Select(path => new HashSet<string>(path.Parts.Select(p => p.Name))).ToList();
-			var withoutDeprecatedAliases = DeprecatedPaths
-				.Select(deprecatedPath => new
-				{
-					deprecatedPath, parts = new HashSet<string>(OriginalParts.Keys.Where(k => deprecatedPath.Path.Contains($"{{{k}}}")))
-				})
-				.GroupBy(t => t.parts, HashSet<string>.CreateSetComparer())
-				.Where(grouped => !canonicalPartNameLookup.Any(set => set.SetEquals(grouped.Key)))
-				.Select(grouped => grouped.First().deprecatedPath);
+            var canonicalPartNameLookup = paths.Select(path => new HashSet<string>(path.Parts.Select(p => p.Name))).ToList();
+            var withoutDeprecatedAliases = DeprecatedPaths
+                .Select(deprecatedPath => new
+                {
+                    deprecatedPath, parts = new HashSet<string>(OriginalParts.Keys.Where(k => deprecatedPath.Path.Contains($"{{{k}}}")))
+                })
+                .GroupBy(t => t.parts, HashSet<string>.CreateSetComparer())
+                .Where(grouped => !canonicalPartNameLookup.Any(set => set.SetEquals(grouped.Key)))
+                .Select(grouped => grouped.First().deprecatedPath);
 
-			_pathsWithDeprecation = paths
-				.Concat(withoutDeprecatedAliases.Select(p => new UrlPath(p, OriginalParts, Paths)))
-				.ToList();
+            _pathsWithDeprecation = paths
+                .Concat(withoutDeprecatedAliases.Select(p => new UrlPath(p, OriginalParts, Paths)))
+                .ToList();
 
-			// now, check for and prefer deprecated URLs
+            // now, check for and prefer deprecated URLs
 
-			var finalPathsWithDeprecations = new List<UrlPath>(_pathsWithDeprecation.Count);
+            var finalPathsWithDeprecations = new List<UrlPath>(_pathsWithDeprecation.Count);
 
-			foreach (var path in _pathsWithDeprecation)
-			{
-				if (path.Deprecation is null &&
-				    DeprecatedPaths.SingleOrDefault(p => p.Path.Equals(path.Path, StringComparison.OrdinalIgnoreCase)) is { } match)
-					finalPathsWithDeprecations.Add(new UrlPath(match, OriginalParts, Paths));
-				else
-					finalPathsWithDeprecations.Add(path);
-			}
+            foreach (var path in _pathsWithDeprecation)
+            {
+                if (path.Deprecation is null &&
+                    DeprecatedPaths.SingleOrDefault(p => p.Path.Equals(path.Path, StringComparison.OrdinalIgnoreCase)) is { } match)
+                    finalPathsWithDeprecations.Add(new UrlPath(match, OriginalParts, Paths));
+                else
+                    finalPathsWithDeprecations.Add(path);
+            }
 
-			_pathsWithDeprecation = finalPathsWithDeprecations;
+            _pathsWithDeprecation = finalPathsWithDeprecations;
 
-			return _pathsWithDeprecation;
-		}
-	}
+            return _pathsWithDeprecation;
+        }
+    }
 
-	public IReadOnlyCollection<UrlPart> Parts => Paths.SelectMany(p => p.Parts).DistinctBy(p => p.Name).ToList();
+    public IReadOnlyCollection<UrlPart> Parts => Paths.SelectMany(p => p.Parts).DistinctBy(p => p.Name).ToList();
 
-	public bool IsPartless => !Parts.Any();
+    public bool IsPartless => !Parts.Any();
 
-	private static readonly string[] DocumentApiParts = { "index", "id" };
+    private static readonly string[] DocumentApiParts = { "index", "id" };
 
-	public bool IsDocumentApi => IsADocumentRoute(Parts);
+    public bool IsDocumentApi => IsADocumentRoute(Parts);
 
-	public static bool IsADocumentRoute(IReadOnlyCollection<UrlPart> parts) =>
-		parts.Count == DocumentApiParts.Length
-		&& parts.All(p => DocumentApiParts.Contains(p.Name));
+    public static bool IsADocumentRoute(IReadOnlyCollection<UrlPart> parts) =>
+        parts.Count == DocumentApiParts.Length
+        && parts.All(p => DocumentApiParts.Contains(p.Name));
 
 
-	public bool TryGetDocumentApiPath(out UrlPath path)
-	{
-		path = null;
-		if (!IsDocumentApi) return false;
+    public bool TryGetDocumentApiPath(out UrlPath path)
+    {
+        path = null;
+        if (!IsDocumentApi) return false;
 
-		var mostVerbosePath = _paths.OrderByDescending(p => p.Parts.Count).First();
-		path = new UrlPath(mostVerbosePath.Path, OriginalParts, mostVerbosePath.Parts);
-		return true;
-	}
+        var mostVerbosePath = _paths.OrderByDescending(p => p.Parts.Count).First();
+        path = new UrlPath(mostVerbosePath.Path, OriginalParts, mostVerbosePath.Parts);
+        return true;
+    }
 }

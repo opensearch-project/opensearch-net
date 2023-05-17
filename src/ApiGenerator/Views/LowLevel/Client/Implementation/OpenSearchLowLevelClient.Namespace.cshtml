@@ -6,7 +6,7 @@
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{ await IncludeAsync("GeneratorNotice", Model); }
 @{
-	var (ns, endpoints) = Model;
+    var (ns, endpoints) = Model;
 }
 // ReSharper disable RedundantUsingDirective
 using System;
@@ -33,17 +33,17 @@ namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNames
 ///</summary>
 public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
 {
-	internal @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+    internal @(CsharpNames.LowLevelClientNamespacePrefix)@Model.Key@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
-	<text>protected override string ContentType { get; } = "text/plain";</text>
+    <text>protected override string ContentType { get; } = "text/plain";</text>
 }
-@{	
-	var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
-	foreach (var method in methods)
-	{
-		await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
-	}
+@{  
+    var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
+    foreach (var method in methods)
+    {
+        await IncludeAsync("LowLevel.Client.Methods.MethodImplementation", method);
+    }
 }
 }
 

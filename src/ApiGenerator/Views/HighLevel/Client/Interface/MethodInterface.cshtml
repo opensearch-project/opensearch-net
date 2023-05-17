@@ -3,9 +3,9 @@
 @using HighLevelModel = ApiGenerator.Domain.Code.HighLevel.Methods.HighLevelModel
 @inherits CodeTemplatePage<HighLevelModel>
 @{
-	const string xmlDocsPath = "HighLevel.Client.MethodXmlDocs";
-	const string fluentPath = "HighLevel.Client.FluentSyntax.FluentMethodHeader";
-	const string initializerPath = "HighLevel.Client.InitializerSyntax.InitializerMethodHeader";
+    const string xmlDocsPath = "HighLevel.Client.MethodXmlDocs";
+    const string fluentPath = "HighLevel.Client.FluentSyntax.FluentMethodHeader";
+    const string initializerPath = "HighLevel.Client.InitializerSyntax.InitializerMethodHeader";
 }
 
 @{ await IncludeAsync(xmlDocsPath, Model.Fluent); }
@@ -16,10 +16,10 @@
 @if (Model.FluentBound != null)
 {
 <text>
-	@{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
-	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: false)); };
-	@{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
-	@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: true)); };
+    @{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: false)); };
+    @{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: true)); };
 </text>
 }
 @{ await IncludeAsync(xmlDocsPath, Model.Initializer); }

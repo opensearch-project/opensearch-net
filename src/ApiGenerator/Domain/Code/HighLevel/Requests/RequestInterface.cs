@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -34,22 +34,22 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests;
 
 public class RequestInterface
 {
-	public IReadOnlyCollection<UrlPart> UrlParts { get; set; }
+    public IReadOnlyCollection<UrlPart> UrlParts { get; set; }
 
-	/// <summary>
-	/// Partial parameters are query string parameters we prefer to send over the body of a request.
-	/// We declare these on the generated interfaces so that we don't forget to implement them in our request
-	/// implementations
-	/// </summary>
-	public IReadOnlyCollection<QueryParameters> PartialParameters { get; set; }
+    /// <summary>
+    /// Partial parameters are query string parameters we prefer to send over the body of a request.
+    /// We declare these on the generated interfaces so that we don't forget to implement them in our request
+    /// implementations
+    /// </summary>
+    public IReadOnlyCollection<QueryParameters> PartialParameters { get; set; }
 
-	public string OfficialDocumentationLink { get; set; }
+    public string OfficialDocumentationLink { get; set; }
 
-	public CsharpNames CsharpNames { get; set; }
+    public CsharpNames CsharpNames { get; set; }
 
-	private bool GenerateOnlyGenericInterface => CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName);
+    private bool GenerateOnlyGenericInterface => CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName);
 
-	public bool NeedsGenericInterface => !GenerateOnlyGenericInterface && !string.IsNullOrWhiteSpace(CsharpNames.GenericsDeclaredOnRequest);
+    public bool NeedsGenericInterface => !GenerateOnlyGenericInterface && !string.IsNullOrWhiteSpace(CsharpNames.GenericsDeclaredOnRequest);
 
-	public string Name => CsharpNames.GenericOrNonGenericInterfacePreference;
+    public string Name => CsharpNames.GenericOrNonGenericInterfacePreference;
 }

@@ -16,7 +16,7 @@
 *  not use this file except in compliance with the License.
 *  You may obtain a copy of the License at
 *
-* 	http://www.apache.org/licenses/LICENSE-2.0
+*   http://www.apache.org/licenses/LICENSE-2.0
 *
 *  Unless required by applicable law or agreed to in writing,
 *  software distributed under the License is distributed on an
@@ -34,41 +34,41 @@ namespace ApiGenerator;
 
 public static class Extensions
 {
-	/// <summary>
-	/// Removes _ . but not an underscore at the start of the string, unless the string is _all or removeLeadingUnderscore == true.
-	/// </summary>
-	private static readonly Regex RemovePunctuationExceptFirstUnderScore = new(@"(?!^_(?!All$))[_\.]");
+    /// <summary>
+    /// Removes _ . but not an underscore at the start of the string, unless the string is _all or removeLeadingUnderscore == true.
+    /// </summary>
+    private static readonly Regex RemovePunctuationExceptFirstUnderScore = new(@"(?!^_(?!All$))[_\.]");
 
-	public static string ToPascalCase(this string s, bool removeLeadingUnderscore = false)
-	{
-		if (string.IsNullOrEmpty(s)) return s;
+    public static string ToPascalCase(this string s, bool removeLeadingUnderscore = false)
+    {
+        if (string.IsNullOrEmpty(s)) return s;
 
-		var textInfo = new CultureInfo("en-US").TextInfo;
-		var titleCased = textInfo.ToTitleCase(s.ToLowerInvariant());
-		var result = RemovePunctuationExceptFirstUnderScore.Replace(titleCased, "");
-		if (removeLeadingUnderscore)
-			result = result.TrimStart('_');
-		return result;
-	}
+        var textInfo = new CultureInfo("en-US").TextInfo;
+        var titleCased = textInfo.ToTitleCase(s.ToLowerInvariant());
+        var result = RemovePunctuationExceptFirstUnderScore.Replace(titleCased, "");
+        if (removeLeadingUnderscore)
+            result = result.TrimStart('_');
+        return result;
+    }
 
-	public static string ToCamelCase(this string s)
-	{
-		if (string.IsNullOrEmpty(s)) return s;
+    public static string ToCamelCase(this string s)
+    {
+        if (string.IsNullOrEmpty(s)) return s;
 
-		var pascal = s.ToPascalCase(true);
-		if (pascal.Length <= 1) return pascal;
+        var pascal = s.ToPascalCase(true);
+        if (pascal.Length <= 1) return pascal;
 
-		return char.ToLower(pascal[0]) + pascal[1..];
-	}
+        return char.ToLower(pascal[0]) + pascal[1..];
+    }
 
-	public static string SplitPascalCase(this string s) =>
-		Regex.Replace(s, "([A-Z]+[a-z]*)", " $1").Trim();
+    public static string SplitPascalCase(this string s) =>
+        Regex.Replace(s, "([A-Z]+[a-z]*)", " $1").Trim();
 
-	public static TDictionary OverrideWith<TKey, TValue, TDictionary>(this TDictionary original, IDictionary<TKey, TValue> overrides)
-		where TDictionary: IDictionary<TKey, TValue>
-	{
-		foreach (var (key, value) in overrides)
-			original[key] = value;
-		return original;
-	}
+    public static TDictionary OverrideWith<TKey, TValue, TDictionary>(this TDictionary original, IDictionary<TKey, TValue> overrides)
+        where TDictionary: IDictionary<TKey, TValue>
+    {
+        foreach (var (key, value) in overrides)
+            original[key] = value;
+        return original;
+    }
 }

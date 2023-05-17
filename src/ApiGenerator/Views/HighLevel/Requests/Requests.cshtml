@@ -4,8 +4,8 @@
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
-	var (ns, endpoints) = Model;
-	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
+    var (ns, endpoints) = Model;
+    ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
 @{ await IncludeAsync("GeneratorNotice", Model); }
 // ReSharper disable RedundantUsingDirective
@@ -19,7 +19,7 @@ using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 @if (ns != null)
 {
-	<text>using OpenSearch.Net@(ns);
+    <text>using OpenSearch.Net@(ns);
 </text>
 }
 
@@ -32,7 +32,7 @@ namespace OpenSearch.Client@(ns);
 
 @foreach (var endpoint in endpoints)
 {
-	await IncludeAsync("HighLevel.Requests.RequestInterface", endpoint.RequestInterface);
-	await IncludeAsync("HighLevel.Requests.RequestImplementations", endpoint.RequestPartialImplementation);
+    await IncludeAsync("HighLevel.Requests.RequestInterface", endpoint.RequestInterface);
+    await IncludeAsync("HighLevel.Requests.RequestImplementations", endpoint.RequestPartialImplementation);
 }
 
