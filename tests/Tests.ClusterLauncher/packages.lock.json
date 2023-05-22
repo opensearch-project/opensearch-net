@@ -41,8 +41,8 @@
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
-        "resolved": "4.6.0",
-        "contentHash": "kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow=="
+        "resolved": "4.7.0",
+        "contentHash": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA=="
       },
       "Microsoft.NETCore.Platforms": {
         "type": "Transitive",
@@ -865,7 +865,7 @@
       "opensearch.net": {
         "type": "Project",
         "dependencies": {
-          "Microsoft.CSharp": "[4.6.0, )",
+          "Microsoft.CSharp": "[4.7.0, )",
           "System.Buffers": "[4.5.1, )",
           "System.Diagnostics.DiagnosticSource": "[6.0.0, )"
         }
