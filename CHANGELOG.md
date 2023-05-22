@@ -17,6 +17,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `AWSSDK.Core` from 3.7.103.17 to 3.7.106.29
 - Bumps `Newtonsoft.Json` from 13.0.2 to 13.0.3
 - Bumps `FSharp.Data` from 5.0.2 to 6.2.0
+- Bumps `Microsoft.CSharp` from 4.6.0 to 4.7.0
 
 ## [1.3.0]
 ### Added
