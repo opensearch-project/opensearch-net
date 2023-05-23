@@ -80,9 +80,9 @@ public class ApiGenerator
             new RequestsGenerator());
     }
 
-    public static async Task<RestApiSpec> CreateRestApiSpecModel(string file, ISet<string> namespaces)
+    public static async Task<RestApiSpec> CreateRestApiSpecModel(ISet<string> namespaces)
     {
-        var document = await OpenApiYamlDocument.FromFileAsync(file);
+        var document = await OpenApiYamlDocument.FromUrlAsync("https://opensearch-project.github.io/opensearch-api-specification/OpenSearch.openapi.json");
 
         var endpoints = document.Paths
             .Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })

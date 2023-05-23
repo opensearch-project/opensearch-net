@@ -110,7 +110,7 @@ public static class Program
         AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
         Console.WriteLine();
 
-        var spec = await Generator.ApiGenerator.CreateRestApiSpecModel("/Users/tsfarr/Development/opensearch-api-specification/build/smithyprojections/opensearch-api-specification/full/openapi/OpenSearch.openapi.json", namespaces.ToImmutableHashSet());
+        var spec = await Generator.ApiGenerator.CreateRestApiSpecModel(namespaces.ToImmutableHashSet());
 
         Console.WriteLine();
         AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());
