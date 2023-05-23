@@ -140,11 +140,12 @@ public static class ApiEndpointFactory
     {
         while (schema.HasReference) schema = schema.Reference;
 
+		if (schema.GetExtension("x-data-type") is string dataType)
+			return dataType;
+
         return schema.Type switch
         {
             JsonObjectType.String when schema.Enumeration is { Count: > 0 } => "enum",
-            JsonObjectType.String when schema.Pattern is "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
-            JsonObjectType.String when schema.GetExtension("x-comma-separated-list") is "true" => "list",
             JsonObjectType.Integer => "number",
             JsonObjectType.Array => "list",
             var t => t.ToString().ToLowerInvariant()
