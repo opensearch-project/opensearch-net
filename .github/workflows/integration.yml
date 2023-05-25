@@ -1,63 +1,179 @@
 name: Integration tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+  pull_request: {}
+
+env:
+  OPENSEARCH_PLUGINS_DIRECTORY: /tmp/opensearch-plugins
 
 jobs:
   integration-opensearch:
     name: Integration OpenSearch
     runs-on: ubuntu-latest
-    env:
-      plugins-directory: /tmp/opensearch-plugins
     strategy:
       fail-fast: false
       matrix:
         # 1.0.1 is skipped because it doesn't have a tag in OpenSearch repo, we can't check out to compile plugins
-        version: [2.2.0, 2.1.0, 2.0.0, 1.3.1, 1.3.0, 1.2.4, 1.2.3, 1.2.2, 1.2.1, 1.2.0, 1.1.0, 1.0.0]
+        version: 
+          - 2.7.0
+          - 2.6.0
+          - 2.5.0
+          - 2.4.1
+          - 2.3.0
+          - 2.2.1
+          - 2.1.0
+          - 2.0.1
+          - 1.3.10
+          - 1.2.4
+          - 1.1.0
+          - 1.0.0
 
     steps:
-        # Due to https://github.com/opensearch-project/project-website/issues/737
-        # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
-        # Compiled plugins are copied to ${plugins-directory} where picked up by the test framework
-        # Versions of OpenSearch starting 1.1.0 are able to download plugins from the Internet
-      - name: Clone OpenSearch repository at tag ${{ matrix.version }}
-        if: ${{ matrix.version == '1.0.0' }}
+      - name: Checkout Client
         uses: actions/checkout@v3
         with:
-          repository: opensearch-project/OpenSearch
-          ref: ${{ matrix.version }}
-          path: opensearch
-      - name: Make plugins directory
-        if: ${{ matrix.version == '1.0.0' }}
-        run: mkdir ${{ env.plugins-directory }}
-      - name: Build plugins
-        if: ${{ matrix.version == '1.0.0' }}
-        run: |
-          cd opensearch
-          PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
-          for plugin in ${PluginList[*]}; do
-            ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=false
-            cp plugins/$plugin/build/distributions/$plugin-${{ matrix.version }}.zip ${{ env.plugins-directory }}
-          done
-      - name: Checkout
-        uses: actions/checkout@v2
+          path: client
+
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: |
             5.0.x
             6.0.x
+
       - uses: actions/cache@v2
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
+
       - run: dotnet nuget locals all --clear
         name: Clear nuget cache
+        working-directory: client
+      
+        # Due to https://github.com/opensearch-project/project-website/issues/737
+        # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
+        # Compiled plugins are copied to ${OPENSEARCH_PLUGINS_DIRECTORY} where picked up by the test framework
+        # Versions of OpenSearch starting 1.1.0 are able to download plugins from the Internet
+      - name: Restore or Build OpenSearch Plugins
+        uses: ./client/.github/actions/cached-git-build
+        if: matrix.version == '1.0.0'
+        with:
+          repository: opensearch-project/OpenSearch
+          ref: ${{ matrix.version }}
+          path: opensearch
+          cached_paths: |
+            ./opensearch/plugins/*/build/distributions/*.zip
+          build_script: |
+            PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
+            for plugin in ${PluginList[*]}; do
+              ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=false
+            done
+      
+      - name: Copy OpenSearch Plugins
+        if: matrix.version == '1.0.0'
+        run: |
+          mkdir -p ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
+          cp opensearch/plugins/*/build/distributions/*-${{ matrix.version }}.zip ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
+      
       - run: "./build.sh integrate ${{ matrix.version }} readonly,writable random:test_only_one --report"
         name: Integration Tests
+        working-directory: client
+        
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: report-${{ matrix.version }}
-          path: build/output/*
+          path: client/build/output/*
+
+  integration-opensearch-unreleased:
+    name: Integration OpenSearch Unreleased
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        opensearch_ref: 
+          - '1.x'
+          - '2.x'
+          - 'main'
+
+    steps:
+      - name: Checkout Client
+        uses: actions/checkout@v3
+        with:
+          path: client
+          
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+            
+      - uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - run: dotnet nuget locals all --clear
+        name: Clear nuget cache
+        working-directory: client
+        
+      - name: Restore or Build OpenSearch
+        uses: ./client/.github/actions/cached-git-build
+        with:
+          repository: opensearch-project/OpenSearch
+          ref: ${{ matrix.opensearch_ref }}
+          path: opensearch
+          cached_paths: |
+            ./opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz
+            ./opensearch/plugins/*/build/distributions/*.zip
+          build_script: |
+            ./gradlew :distribution:archives:linux-tar:assemble
+          
+            PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
+            for plugin in ${PluginList[*]}; do
+              ./gradlew :plugins:$plugin:assemble
+            done
+        
+      - name: Restore or Build OpenSearch Security
+        uses: ./client/.github/actions/cached-git-build
+        if: matrix.opensearch_ref == '1.x'
+        with:
+          repository: opensearch-project/security
+          ref: ${{ matrix.opensearch_ref }}
+          path: opensearch-security
+          cached_paths: |
+            ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip
+          build_script: ./gradlew assemble
+        
+      - name: Determine OpenSearch distribution path
+        shell: bash -eo pipefail {0}
+        run: |
+          distribution=`ls -1 $PWD/opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz | head -1`
+          version=`basename $distribution | cut -d'-' -f3,4`
+          echo "OPENSEARCH_DISTRIBUTION=$distribution" >> $GITHUB_ENV
+          echo "OPENSEARCH_VERSION=$version" >> $GITHUB_ENV
+          
+          mkdir -p $OPENSEARCH_PLUGINS_DIRECTORY
+          cp ./opensearch/plugins/*/build/distributions/*-$version.zip $OPENSEARCH_PLUGINS_DIRECTORY/
+          
+          if [[ -d "./opensearch-security" ]]; then 
+            cp ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip $OPENSEARCH_PLUGINS_DIRECTORY/
+          fi
+      
+      - run: "./build.sh integrate ${{ env.OPENSEARCH_VERSION }} readonly,writable random:test_only_one --report"
+        name: Integration Tests
+        working-directory: client
+        
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-unreleased-${{ matrix.opensearch_ref }}
+          path: client/build/output/*

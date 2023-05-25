@@ -26,6 +26,7 @@
 *  under the License.
 */
 
+using System;
 using System.IO;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi.Products;
@@ -47,6 +48,16 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 			{
 				cluster.Writer?.WriteDiagnostic(
 					$"{{{nameof(DownloadOpenSearchVersion)}}} {v} was already downloaded");
+				return;
+			}
+
+			if (Environment.GetEnvironmentVariable("OPENSEARCH_DISTRIBUTION") is {} distributionPath)
+			{
+				cluster.Writer?.WriteDiagnostic(
+					$"{{{nameof(DownloadOpenSearchVersion)}}} copying OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
+				File.Copy(distributionPath, to);
+				cluster.Writer?.WriteDiagnostic(
+					$"{{{nameof(DownloadOpenSearchVersion)}}} copied OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
 				return;
 			}
 
