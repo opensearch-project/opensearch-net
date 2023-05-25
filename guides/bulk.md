@@ -14,8 +14,8 @@ var client = new OpenSearchClient(nodeAddress);
 Next, create an index named `movies` and another named `books` with the default settings:
 
 ```cs
-var movies = 'movies';
-var books = 'books';
+var movies = "movies";
+var books = "books";
 if (!(await client.Indices.ExistsAsync(movies)).Exists) {
   await client.Indices.CreateAsync(movies);
 }
@@ -52,54 +52,20 @@ var response = await client.BulkAsync(b => b
     ));
 ```
 
-As you can see, each bulk operation is comprised of two objects. The first object contains the operation type and the target document's `_index` and `_id`. The second object contains the document's data. As a result, the body of the request above contains six objects for three index actions.
-
-Alternatively, the `bulk` method can accept an array of hashes where each hash represents a single operation. The following code is equivalent to the previous example:
-
-```cs
-var response = await client.BulkAsync(b => b
-    .Index<object>(i => i
-        .Index(movies)
-        .Id(1)
-        .Document(new { Title = "Beauty and the Beast", Year = 1991 })
-    )
-    .Index<object>(i => i
-        .Index(movies)
-        .Id(2)
-        .Document(new { Title = "Beauty and the Beast - Live Action", Year = 2017 })
-    )
-    .Index<object>(i => i
-        .Index(books)
-        .Id(1)
-        .Document(new { Title = "The Lion King", Year = 1994 })
-    ));
-```
-
-We will use this format for the rest of the examples in this guide.
-
 ### Creating multiple documents
 
 Similarly, instead of calling the `create` method for each document, you can use the `bulk` API to create multiple documents in a single request. The following code creates three documents in the `movies` index and one in the `books` index:
 
 ```cs
 var response = await client.BulkAsync(b => b
-    .Index<object>(i => i
-        .Index(movies)
-        .Document(new { Title = "Beauty and the Beast 2", Year = 2030 })
-    )
-    .Index<object>(i => i
-        .Index(movies)
-        .Document(new { Title = "Beauty and the Beast 3", Year = 2031 })
-    )
-    .Index<object>(i => i
-        .Index(movies)
-        .Document(new { Title = "Beauty and the Beast 4", Year = 2049 })
-    )
-    .Index<object>(i => i
-        .Index(books)
-        .Document(new { Title = "The Lion King 2", Year = 1998 })
-    )
-    .Index<object>(i => i
+    .Index(movies)
+    .CreateMany(new[]
+    {
+        new { Title = "Beauty and the Beast 2", Year = 2030 },
+        new { Title = "Beauty and the Beast 3", Year = 2031 },
+        new { Title = "Beauty and the Beast 4", Year = 2049 }
+    })
+    .Create<object>(i => i
         .Index(books)
         .Document(new { Title = "The Lion King 2", Year = 1998 })
     ));
@@ -111,32 +77,23 @@ Note that we specified only the `_index` for the last document in the request bo
 
 ```cs
 var response = await client.BulkAsync(b => b
+    .Index(movies)
     .Update<object>(i => i
-        .Index(movies)
         .Id(1)
-        .Document(new { Year = 1992 })
+        .Doc(new { Year = 1992 })
     )
     .Update<object>(i => i
-        .Index(movies)
         .Id(2)
-        .Document(new { Year = 2018 })
+        .Doc(new { Year = 2018 })
     ));
 ```
-
-Note that the updated data is specified in the `doc` field of the `data` object.
 
 ### Deleting multiple documents
 
 ```cs
 var response = await client.BulkAsync(b => b
-    .Delete<object>(i => i
-        .Index(movies)
-        .Id(1)
-    )
-    .Delete<object>(i => i
-        .Index(movies)
-        .Id(2)
-    ));
+    .Index(movies)
+    .DeleteMany<object>(new long[] { 1, 2 }));
 ```
 
 ### Mix and match operations
@@ -145,23 +102,17 @@ You can mix and match the different operations in a single request. The followin
 
 ```cs
 var response = await client.BulkAsync(b => b
-    .Index<object>(i => i
-        .Index(movies)
-        .Document(new { Title = "Beauty and the Beast 5", Year = 2050 })
-    )
-    .Index<object>(i => i
-        .Index(movies)
-        .Document(new { Title = "Beauty and the Beast 6", Year = 2051 })
-    )
+    .Index(movies)
+    .CreateMany(new[]
+    {
+        new { Title = "Beauty and the Beast 5", Year = 2050 },
+        new { Title = "Beauty and the Beast 6", Year = 2051 }
+    })
     .Update<object>(i => i
-        .Index(movies)
         .Id(3)
-        .Document(new { Year = 2052 })
+        .Doc(new { Year = 2052 })
     )
-    .Delete<object>(i => i
-        .Index(movies)
-        .Id(4)
-    ));
+    .Delete<object>(i => i.Id(4)));
 ```
 
 ### Handling errors
@@ -172,31 +123,26 @@ The following code shows how to look for errors in the response:
 
 ```cs
 var response = await client.BulkAsync(b => b
-    .Index<object>(i => i
-        .Index(movies)
+    .Index(movies)
+    .Create<object>(i => i
         .Id(1)
         .Document(new { Title = "Beauty and the Beast", Year = 1991 })
     )
-    .Index<object>(i => i
-        .Index(movies)
+    .Create<object>(i => i
         .Id(2)
         .Document(new { Title = "Beauty and the Beast 2", Year = 2030 })
     )
-    .Index<object>(i => i
-        .Index(movies)
+    .Create<object>(i => i // document already exists error
         .Id(1)
         .Document(new { Title = "Beauty and the Beast 3", Year = 2031 })
     )
-    .Index<object>(i => i
-        .Index(movies)
+    .Create<object>(i => i // document already exists error
         .Id(2)
         .Document(new { Title = "Beauty and the Beast 4", Year = 2049 })
     ));
 
-foreach (var item in response.body["items"]) {
-  if(!Enumerable.Range(200,299).Contains(item["create"]["status"])) {
-    Console.WriteLine(item["create"]["error"]["reason"]);
-  }
+foreach (var item in response.ItemsWithErrors) {
+    Console.WriteLine(item.Error.Reason);
 }
 ```
 
@@ -205,5 +151,5 @@ foreach (var item in response.body["items"]) {
 To clean up the resources created in this guide, delete the `movies` and `books` indices:
 
 ```cs
-await client.Indices().DeleteAsync([movies, books])
+await client.Indices.DeleteAsync(new[] { movies, books });
 ```
