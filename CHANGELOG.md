@@ -18,6 +18,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Newtonsoft.Json` from 13.0.2 to 13.0.3
 - Bumps `FSharp.Data` from 5.0.2 to 6.2.0
 - Bumps `Microsoft.CSharp` from 4.6.0 to 4.7.0
+- Bumps `BenchMarkDotNet` from 0.13.4 to 0.13.5
 
 ## [1.3.0]
 ### Added
