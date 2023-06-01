@@ -1,0 +1,24 @@
+{
+  "dangling_indices.list_dangling_indices": {
+    "documentation": {
+      "url": "",
+      "description": "Returns all dangling indices."
+    },
+    "stability": "stable",
+    "visibility":"public",
+    "headers":{
+      "accept": [ "application/json"]
+    },
+    "url": {
+      "paths": [
+        {
+          "path": "/_dangling",
+          "methods": [
+            "GET"
+          ]
+        }
+      ]
+    },
+    "params": {}
+  }
+}

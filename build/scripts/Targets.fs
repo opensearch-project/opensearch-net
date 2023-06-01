@@ -130,6 +130,8 @@ module Main =
         command "cluster" [ "restore"; "full-build" ] <| fun _ ->
             ReposTooling.LaunchCluster parsed
         
+        command "codegen" [ ] ReposTooling.GenerateApi
+        
         command "rest-spec-tests" [ ] <| fun _ ->
             ReposTooling.RestSpecTests parsed.RemainingArguments
 
