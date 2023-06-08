@@ -34,11 +34,11 @@ namespace ApiGenerator.Configuration
     public static class GeneratorLocations
     {
         // @formatter:off — disable formatter after this line
+		public static string OpenApiSpecFile { get; } = $@"{Root}OpenSearch.openapi.json";
+
         public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
-        public static string LastDownloadedRef { get; } = Path.Combine(Root, "last_downloaded_version.txt");
 
         public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
-        public static string RestSpecificationFolder { get; } = $@"{Root}RestSpecification/";
         // @formatter:on — enable formatter after this line
 
         public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);

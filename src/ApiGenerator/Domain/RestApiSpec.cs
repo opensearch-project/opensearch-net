@@ -43,11 +43,7 @@ namespace ApiGenerator.Domain
 
     public class RestApiSpec
     {
-        public string Commit { get; set; }
-
-        public static SortedDictionary<string, QueryParameters> CommonApiQueryParameters { get; set; }
-
-        public IDictionary<string, ApiEndpoint> Endpoints { get; set; }
+		public IDictionary<string, ApiEndpoint> Endpoints { get; set; }
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
             Endpoints.Values.GroupBy(e=>e.CsharpNames.Namespace)
@@ -55,7 +51,7 @@ namespace ApiGenerator.Domain
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceHighLevel =>
             Endpoints.Values
-                .Where(v => !CodeConfiguration.IgnoreHighLevelApi(v.FileName))
+                .Where(v => !CodeConfiguration.IgnoreHighLevelApi(v.Name))
                 .GroupBy(e => e.CsharpNames.Namespace)
                 .ToImmutableSortedDictionary(kv => kv.Key, kv => kv.ToList().AsReadOnly());
 
@@ -111,16 +107,7 @@ namespace ApiGenerator.Domain
                     .DistinctBy(e => e.Name)
                     .ToList();
 
-                //TODO can be removed in 8.x
-                var versionType = _enumDescriptions.FirstOrDefault(f => f.Name == "VersionType");
-                if (versionType != null)
-                {
-                    var options = new List<string>(versionType.Options);
-                    options.Add("force");
-                    versionType.Options = options;
-                }
-
-                return _enumDescriptions;
+				return _enumDescriptions;
             }
         }
     }

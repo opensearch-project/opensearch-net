@@ -39,8 +39,8 @@ namespace ApiGenerator.Domain.Specification
     {
         public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-        [JsonProperty("paths")]
-        private IReadOnlyCollection<string> OriginalPaths { get; set; }
+		[JsonProperty("paths")]
+		public IList<string> OriginalPaths { get; set; } = new List<string>();
 
         [JsonProperty("parts")]
         public IDictionary<string, UrlPart> OriginalParts { get; set; }

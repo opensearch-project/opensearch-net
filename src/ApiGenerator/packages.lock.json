@@ -2,16 +2,6 @@
   "version": 1,
   "dependencies": {
     "net6.0": {
-      "CsQuery.Core": {
-        "type": "Direct",
-        "requested": "[2.0.1, )",
-        "resolved": "2.0.1",
-        "contentHash": "JQvgD0jBnO6M3r7SGrDfdpCak6E9ZP1hQb3T8iegkXiCs3A1JawE5TWD6q49MPY4arqVegtsB3th6J+lOXZkxA==",
-        "dependencies": {
-          "Microsoft.CSharp": "4.4.1",
-          "Newtonsoft.Json": "11.0.2"
-        }
-      },
       "Microsoft.CodeAnalysis.CSharp": {
         "type": "Direct",
         "requested": "[4.2.0, )",
@@ -35,6 +25,17 @@
         "requested": "[13.0.1, )",
         "resolved": "13.0.1",
         "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
+      },
+      "NSwag.Core.Yaml": {
+        "type": "Direct",
+        "requested": "[13.19.0, )",
+        "resolved": "13.19.0",
+        "contentHash": "F97HsEclpnydInq1Wrd74WDQePHQ7S+e4yKi4BiYi/hLy6s88YlpRFB3R5Bx64iRkGKesU/uGiovKtFevpW2Bw==",
+        "dependencies": {
+          "NJsonSchema.Yaml": "10.9.0",
+          "NSwag.Core": "13.19.0",
+          "YamlDotNet": "11.2.1"
+        }
       },
       "RazorLight": {
         "type": "Direct",
@@ -244,6 +245,42 @@
         "type": "Transitive",
         "resolved": "1.0.3",
         "contentHash": "AmOJZwCqnOCNp6PPcf9joyogScWLtwy0M1WkqfEQ0M9nYwyDD7EX9ZjscKS5iYnyvteX7kzSKFCKt9I9dXA6mA=="
+      },
+      "Namotion.Reflection": {
+        "type": "Transitive",
+        "resolved": "2.1.2",
+        "contentHash": "7tSHAzX8GWKy0qrW6OgQWD7kAZiqzhq+m1503qczuwuK6ZYhOGCQUxw+F3F4KkRM70aB6RMslsRVSCFeouIehw==",
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0"
+        }
+      },
+      "NJsonSchema": {
+        "type": "Transitive",
+        "resolved": "10.9.0",
+        "contentHash": "IBPo6Srxn2MEcIFM3HdM4QImrJbsIeujENQyzHL2Pv6wLsKSYAyAEilecRqaLOhoy3snEiPLx7hhv7opbhOxKQ==",
+        "dependencies": {
+          "Namotion.Reflection": "2.1.2",
+          "Newtonsoft.Json": "9.0.1"
+        }
+      },
+      "NJsonSchema.Yaml": {
+        "type": "Transitive",
+        "resolved": "10.9.0",
+        "contentHash": "lGOtsydEnX1mVLT2Cyre7mST7K7crveYtai9FGC2i7COKEMEFjsfbnUtgXSHKxS/bzxVEIjLa49tR6xw34WkEw==",
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.1",
+          "NJsonSchema": "10.9.0",
+          "YamlDotNet": "11.2.1"
+        }
+      },
+      "NSwag.Core": {
+        "type": "Transitive",
+        "resolved": "13.19.0",
+        "contentHash": "UkPCsEJ5WaE6mcEjarZZfMPyyRPHOWK9YuFvxNjrSHclCxVUZ7jgFtNGMX0wy0WvXkmA5b6H9IoaAJECMxcu/g==",
+        "dependencies": {
+          "NJsonSchema": "10.9.0",
+          "Newtonsoft.Json": "10.0.1"
+        }
       },
       "runtime.native.System": {
         "type": "Transitive",
@@ -459,6 +496,11 @@
         "type": "Transitive",
         "resolved": "4.5.4",
         "contentHash": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg=="
+      },
+      "YamlDotNet": {
+        "type": "Transitive",
+        "resolved": "11.2.1",
+        "contentHash": "tBt8K+korVfrjH9wyDEhiLKxbs8qoLCLIFwvYgkSUuMC9//w3z0cFQ8LQAI/5MCKq+BMil0cfRTRvPeE7eXhQw=="
       }
     }
   }
