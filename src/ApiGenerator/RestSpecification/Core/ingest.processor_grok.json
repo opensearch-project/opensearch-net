@@ -1,0 +1,24 @@
+{
+  "ingest.processor_grok":{
+    "documentation":{
+      "url":"",
+      "description":"Returns a list of the built-in patterns."
+    },
+    "stability":"stable",
+    "visibility":"public",
+    "headers":{
+      "accept": [ "application/json"]
+    },
+    "url":{
+      "paths":[
+        {
+          "path":"/_ingest/processor/grok",
+          "methods":[
+            "GET"
+          ]
+        }
+      ]
+    },
+    "params":{}
+  }
+}
