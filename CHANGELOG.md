@@ -20,6 +20,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Microsoft.CSharp` from 4.6.0 to 4.7.0
 - Bumps `BenchMarkDotNet` from 0.13.4 to 0.13.5
 - Bumps `FSharp.Core` from 6.0.7 to 7.0.300
+- Bumps `Microsoft.NET.Test.Sdk` from 17.4.1 to 17.6.2
 
 ## [1.3.0]
 ### Added
