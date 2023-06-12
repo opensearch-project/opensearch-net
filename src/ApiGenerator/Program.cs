@@ -68,17 +68,14 @@ namespace ApiGenerator
             catch (OperationCanceledException)
             {
                 AnsiConsole.WriteLine();
-                AnsiConsole.Render(new Rule("[b white on orange4_1] Cancelled [/]").LeftAligned());
+                AnsiConsole.Write(new Rule("[b white on orange4_1] Cancelled [/]").LeftJustified());
                 AnsiConsole.WriteLine();
                 return 1;
             }
             catch (Exception ex)
             {
                 AnsiConsole.WriteLine();
-                AnsiConsole.Render(new Rule("[b white on darkred] Exception [/]")
-                {
-                    Alignment = Justify.Left,
-                });
+                AnsiConsole.Write(new Rule("[b white on darkred] Exception [/]").LeftJustified());
                 AnsiConsole.WriteLine();
                 AnsiConsole.WriteException(ex);
                 return 1;
@@ -115,7 +112,7 @@ namespace ApiGenerator
                 .AddRow("[b]Include high level client[/]", $"{YesNo(!lowLevelOnly)}");
 
             Console.WriteLine();
-            AnsiConsole.Render(
+            AnsiConsole.Write(
                 new Panel(grid)
                     .Header(new PanelHeader("[b white on chartreuse4] OpenSearch .NET client API generator [/]", Justify.Left))
             );
@@ -124,7 +121,7 @@ namespace ApiGenerator
             if (redownloadCoreSpecification)
             {
                 Console.WriteLine();
-                AnsiConsole.Render(new Rule("[b white on chartreuse4] Downloading specification [/]").LeftAligned());
+                AnsiConsole.Write(new Rule("[b white on chartreuse4] Downloading specification [/]").LeftJustified());
                 Console.WriteLine();
                 await RestSpecDownloader.DownloadAsync(downloadBranch, token);
             }
@@ -132,7 +129,7 @@ namespace ApiGenerator
             if (!generateCode) return 0;
 
             Console.WriteLine();
-            AnsiConsole.Render(new Rule("[b white on chartreuse4] Loading specification [/]").LeftAligned());
+            AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
             Console.WriteLine();
 
             var spec = Generator.ApiGenerator.CreateRestApiSpecModel(downloadBranch, "Core");
@@ -148,7 +145,7 @@ namespace ApiGenerator
             }
 
             Console.WriteLine();
-            AnsiConsole.Render(new Rule("[b white on chartreuse4] Generating code [/]").LeftAligned());
+            AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());
             Console.WriteLine();
 
             await Generator.ApiGenerator.Generate(downloadBranch, lowLevelOnly, spec, token);
@@ -157,7 +154,7 @@ namespace ApiGenerator
             if (warnings.Count > 0)
             {
                 Console.WriteLine();
-                AnsiConsole.Render(new Rule("[b black on yellow] Specification warnings [/]").LeftAligned());
+                AnsiConsole.Write(new Rule("[b black on yellow] Specification warnings [/]").LeftJustified());
                 Console.WriteLine();
 
                 foreach (var warning in warnings.Distinct().OrderBy(w => w))
