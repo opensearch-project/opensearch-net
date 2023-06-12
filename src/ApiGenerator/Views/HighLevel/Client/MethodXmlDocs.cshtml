@@ -1,11 +1,8 @@
 @using ApiGenerator
 @using ApiGenerator.Domain.Code.HighLevel.Methods;
 @inherits CodeTemplatePage<MethodSyntaxBase>
-@{
-    var syntax = Model;
-}
 /// <summary>
-/// @Raw(syntax.XmlDocSummary)
+/// @Raw(Model.XmlDocSummary)
 /// @Raw("<para></para>")
-/// <a href="@syntax.DocumentationLink">@syntax.DocumentationLink</a>
+/// <a href="@Model.DocumentationLink">@Model.DocumentationLink</a>
 /// </summary>

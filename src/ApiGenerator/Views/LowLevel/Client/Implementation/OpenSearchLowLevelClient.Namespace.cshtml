@@ -1,15 +1,12 @@
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using System.Linq
 @using ApiGenerator 
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 @{
-    KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-    string ns = model.Key;
-    var endpoints = model.Value;
+	var (ns, endpoints) = Model;
 }
 // ReSharper disable RedundantUsingDirective
 using System;
@@ -26,17 +23,17 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable once CheckNamespace
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
-namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix)
+namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix)
 {
     ///<summary>
-    /// @(ns.SplitPascalCase()) APIs.
+    /// @ns.SplitPascalCase() APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
     ///</para>
     ///</summary>
-    public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+    public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
     {
-        internal @(CsharpNames.LowLevelClientNamespacePrefix)@(model.Key)@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+        internal @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
     <text>protected override string ContentType { get; } = "text/plain";</text>

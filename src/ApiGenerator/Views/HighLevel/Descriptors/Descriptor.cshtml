@@ -1,33 +1,31 @@
 @using System.Linq
 @using ApiGenerator
 @using ApiGenerator.Domain.Code.HighLevel.Requests
-@using ApiGenerator.Domain.Specification
 @using ApiGenerator.Generator
 @inherits global::ApiGenerator.CodeTemplatePage<DescriptorPartialImplementation>
 @{
-    DescriptorPartialImplementation d = Model;
-    var names = d.CsharpNames;
+	var names = Model.CsharpNames;
     var type = names.GenericOrNonGenericDescriptorName;
     var concreteInterface = names.GenericOrNonGenericInterfaceName;
     var baseInterface = names.GenericOrNonGenericInterfacePreference;
-    var apiLookup = $"ApiUrlsLookups.{d.CsharpNames.Namespace}{d.CsharpNames.MethodName}";
+    var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-    ///<summary>Descriptor for @names.MethodName@Raw(d.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + d.OfficialDocumentationLink + "</para>")</summary>
+    ///<summary>Descriptor for @names.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
     public partial class @Raw(type) @(Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,names.ParametersName, concreteInterface)))
     { 
         internal override ApiUrls ApiUrls => @apiLookup;
-@foreach (Constructor c in d.Constructors)
+@foreach (var c in Model.Constructors)
 {
 <text>      @(Raw(CodeGenerator.Constructor(c)))
 </text>
 }
         // values part of the url path
-@foreach (UrlPart part in d.Parts)
+@foreach (var part in Model.Parts)
 {
 <text>      @(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw(string.Format("<{0}>",part.HighLevelTypeName)))("@(part.Name)");
 </text>
 }
-@foreach (FluentRouteSetter c in d.GetFluentRouteSetters())
+@foreach (var c in Model.GetFluentRouteSetters())
 {
 <text>
         @(Raw(c.XmlDoc))
@@ -35,16 +33,16 @@
 </text>
 }
         // Request parameters
-@foreach (var param in d.Params)
+@foreach (var param in Model.Params)
 {
     var original = param.QueryStringKey;
     //skip parameters already part of the path portion of the url
-    if (d.Parts.Any(p=>p.Name == original))
+    if (Model.Parts.Any(p=>p.Name == original))
     {
         continue;
     }
     //we prefer this parameter to be explictly implemented on the request body
-    if (param.RenderPartial && (d.HasBody))
+    if (param.RenderPartial && (Model.HasBody))
     {
         continue;
     }

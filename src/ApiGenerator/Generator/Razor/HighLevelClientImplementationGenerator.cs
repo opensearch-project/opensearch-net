@@ -49,7 +49,7 @@ namespace ApiGenerator.Generator.Razor
 
             var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
             var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
-            await DoRazor(spec, view, target, null, token);
+            await DoRazor(spec, view, target, token);
 
             string Target(string id) => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs");
 

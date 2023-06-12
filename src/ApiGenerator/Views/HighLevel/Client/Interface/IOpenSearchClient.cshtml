@@ -3,7 +3,7 @@
 @using ApiGenerator.Domain
 @using ApiGenerator.Domain.Code
 @inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
@@ -20,17 +20,16 @@ namespace OpenSearch.Client
     ///</summary>
     public partial interface IOpenSearchClient 
     {
-        @foreach(var kv in Model.EndpointsPerNamespaceHighLevel)
+        @foreach(var (ns, endpoints) in Model.EndpointsPerNamespaceHighLevel)
         {
-        if (kv.Key != CsharpNames.RootNamespace)
+        if (ns != CsharpNames.RootNamespace)
         {
-<text>      ///<summary>@(kv.Key.SplitPascalCase()) APIs</summary>
-            @CsharpNames.HighLevelClientNamespacePrefix@(kv.Key)@CsharpNames.ClientNamespaceSuffix @kv.Key { get; }
+<text>      ///<summary>@ns.SplitPascalCase() APIs</summary>
+            @CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
 </text>
             continue;
         }
-            var endpoints = kv.Value;
-            var models = endpoints.Select(e=>e.HighLevelModel).ToList();
+	        var models = endpoints.Select(e=>e.HighLevelModel).ToList();
             foreach(var m in models)
             {
                 await IncludeAsync("HighLevel/Client/Interface/MethodInterface.cshtml", m);
