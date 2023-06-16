@@ -31,7 +31,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Generator;
-using CsQuery.ExtensionMethods.Internal;
 
 namespace ApiGenerator.Domain.Code
 {
@@ -73,7 +72,7 @@ namespace ApiGenerator.Domain.Code
         public string RestSpecName { get; }
 
         /// <summary>
-        /// The pascal cased method name as loaded by <see cref="ApiEndpointFactory.FromFile"/>
+        /// The pascal cased method name as loaded by <see cref="ApiEndpointFactory.From"/>
         /// <pre>Uses <see cref="CodeConfiguration.ApiNameMapping"/> mapping of request implementations in the OSC code base</pre>
         /// </summary>
         public string MethodName { get; }

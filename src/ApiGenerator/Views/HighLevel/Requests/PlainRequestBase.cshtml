@@ -18,10 +18,5 @@ namespace OpenSearch.Client
 {
     public abstract partial class @Raw("PlainRequestBase<TParameters>")
     {
-@foreach (var common in RestApiSpec.CommonApiQueryParameters.Values)
-{
-<text>      @Raw(common.InitializerGenerator(null, common.TypeHighLevel, common.ClsName, common.QueryStringKey, "value", common.DescriptionHighLevel.ToArray()))
-</text>
-}
     }
 }

@@ -194,8 +194,8 @@ Execution hints can be provided anywhere on the command line
         | ["build"]
         | ["clean"]
         | ["benchmark"]
-        | ["codegen"; ] 
         | ["profile"] -> parsed
+        | "codegen" :: tail -> { parsed with RemainingArguments = tail }
         | "rest-spec-tests" :: tail -> { parsed with RemainingArguments = tail }
         
         | ["release"; version] -> { parsed with CommandArguments = SetVersion { Version = version; OutputLocation = None }; }

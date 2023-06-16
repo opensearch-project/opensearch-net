@@ -132,10 +132,10 @@ namespace ApiGenerator
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
             Console.WriteLine();
 
-            var spec = Generator.ApiGenerator.CreateRestApiSpecModel(downloadBranch, "Core");
+            var spec = await Generator.ApiGenerator.CreateRestApiSpecModel(token);
             if (!lowLevelOnly)
             {
-                foreach (var endpoint in spec.Endpoints.Select(e => e.Value.FileName))
+                foreach (var endpoint in spec.Endpoints.Select(e => e.Value.Name))
                 {
                     if (CodeConfiguration.IsNewHighLevelApi(endpoint)
                         && Ask($"Generate highlevel code for new api {endpoint}", false))
@@ -148,7 +148,7 @@ namespace ApiGenerator
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());
             Console.WriteLine();
 
-            await Generator.ApiGenerator.Generate(downloadBranch, lowLevelOnly, spec, token);
+            await Generator.ApiGenerator.Generate(lowLevelOnly, spec, token);
 
             var warnings = Generator.ApiGenerator.Warnings;
             if (warnings.Count > 0)

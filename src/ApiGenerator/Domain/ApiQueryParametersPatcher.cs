@@ -39,8 +39,7 @@ namespace ApiGenerator.Domain
         public static SortedDictionary<string, QueryParameters> Patch(
             string endpointName,
             IDictionary<string, QueryParameters> source,
-            IEndpointOverrides overrides,
-            bool checkCommon = true
+            IEndpointOverrides overrides
         )
         {
             if (source == null) return null;
@@ -54,32 +53,23 @@ namespace ApiGenerator.Domain
             var obsoleteLookup = CreateObsoleteLookup(globalOverrides, overrides, declaredKeys);
 
             var patchedParams = new SortedDictionary<string, QueryParameters>();
-            var name = overrides?.GetType().Name ?? endpointName ?? "unknown";
-            foreach (var kv in source)
+            foreach (var (queryStringKey, value) in source)
             {
-                var queryStringKey = kv.Key;
-                kv.Value.QueryStringKey = queryStringKey;
+				value.QueryStringKey = queryStringKey;
 
-                if (checkCommon && RestApiSpec.CommonApiQueryParameters.Keys.Contains(queryStringKey))
-                {
-                    Generator.ApiGenerator.Warnings.Add($"key '{queryStringKey}' in {name} is already declared in _common.json");
-                    continue;
-                }
+                if (!renameLookup.TryGetValue(queryStringKey, out var preferredName)) preferredName = queryStringKey;
+                value.ClsName = CreateCSharpName(preferredName, endpointName);
 
-                if (!renameLookup.TryGetValue(queryStringKey, out var preferredName)) preferredName = kv.Key;
-                kv.Value.ClsName = CreateCSharpName(preferredName, endpointName);
+                if (skipList.Contains(queryStringKey)) value.Skip = true;
 
-                if (skipList.Contains(queryStringKey)) kv.Value.Skip = true;
+                if (partialList.Contains(queryStringKey)) value.RenderPartial = true;
 
-                if (partialList.Contains(queryStringKey)) kv.Value.RenderPartial = true;
-
-                if (obsoleteLookup.TryGetValue(queryStringKey, out var obsolete)) kv.Value.Obsolete = obsolete;
+                if (obsoleteLookup.TryGetValue(queryStringKey, out var obsolete)) value.Obsolete = obsolete;
 
                 //make sure source_enabled takes a boolean only
-                if (preferredName == "source_enabled") kv.Value.Type = "boolean";
+                if (preferredName == "source_enabled") value.Type = "boolean";
 
-
-                patchedParams[preferredName] = kv.Value;
+				patchedParams[preferredName] = value;
             }
 
             return patchedParams;
