@@ -40,10 +40,7 @@ namespace ApiGenerator.Domain.Specification
 {
     public class ApiEndpoint
     {
-        /// <summary> The filename of the spec describing the api endpoint </summary>
-        public string FileName { get; set; }
-
-        /// <summary> The original name as declared in the spec </summary>
+		/// <summary> The original name as declared in the spec </summary>
         public string Name { get; set; }
 
         /// <summary> The original namespace as declared in the spec </summary>
