@@ -39,7 +39,7 @@
     
     <PackageReference Include="Fake.Core.Environment" Version="6.0.0" />
     <PackageReference Include="Fake.Core.SemVer" Version="6.0.0" />
-    <PackageReference Include="Fake.IO.FileSystem" Version="5.23.1" />
+    <PackageReference Include="Fake.IO.FileSystem" Version="6.0.0" />
     <PackageReference Include="Fake.IO.Zip" Version="5.23.1" />
     <PackageReference Include="Fake.Tools.Git" Version="5.23.1" />
     
