@@ -3,27 +3,27 @@
 @using HighLevelModel = ApiGenerator.Domain.Code.HighLevel.Methods.HighLevelModel
 @inherits CodeTemplatePage<HighLevelModel>
 @{
-    HighLevelModel model = Model;
-    var fluentPath = "HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml";
-    var initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml";
+	const string fluentPath = "HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml";
+	const string initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml";
+	const string xmlDocsPath = "HighLevel/Client/MethodXmlDocs.cshtml";
 }
 
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.Fluent); }
-@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.Fluent, async: false)); };
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.Fluent); }
-@{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.Fluent, async: true)); };
+@{ await IncludeAsync(xmlDocsPath, Model.Fluent); }
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: false)); };
+@{ await IncludeAsync(xmlDocsPath, Model.Fluent); }
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: true)); };
 
-@if (model.FluentBound != null)
+@if (Model.FluentBound != null)
 {
 <text>
-    @{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.FluentBound); }
-    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.FluentBound, async: false)); };
-    @{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.FluentBound); }
-    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(model.FluentBound, async: true)); };
+    @{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: false)); };
+    @{ await IncludeAsync(xmlDocsPath, Model.FluentBound); }
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: true)); };
 </text>
 }
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.Initializer); }
-@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(model.Initializer, async: false)); };
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", model.Initializer); }
-@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(model.Initializer, async: true)); };
+@{ await IncludeAsync(xmlDocsPath, Model.Initializer); }
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: false)); };
+@{ await IncludeAsync(xmlDocsPath, Model.Initializer); }
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: true)); };
 

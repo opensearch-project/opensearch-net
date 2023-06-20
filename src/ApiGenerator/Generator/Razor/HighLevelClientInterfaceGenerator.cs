@@ -43,7 +43,7 @@ namespace ApiGenerator.Generator.Razor
             var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient.cshtml");
             var target = GeneratorLocations.HighLevel("IOpenSearchClient.Generated.cs");
 
-            await DoRazor(spec, view, target, null, token);
+            await DoRazor(spec, view, target, token);
         }
     }
 }

@@ -3,15 +3,12 @@
 @using ApiGenerator
 @using ApiGenerator.Configuration
 @inherits CodeTemplatePage<RestApiSpec>
-@{
-    RestApiSpec m = Model;
-}
-@{ await IncludeAsync("GeneratorNotice.cshtml", m); }
+@{ await IncludeGeneratorNotice(); }
 namespace OpenSearch.Client
 {
     internal static class ApiUrlsLookups 
     {
-@foreach (var endpoint in m.Endpoints.Values)
+@foreach (var endpoint in Model.Endpoints.Values)
 {
     if (CodeConfiguration.IgnoreHighLevelApi(endpoint.Name))
     {

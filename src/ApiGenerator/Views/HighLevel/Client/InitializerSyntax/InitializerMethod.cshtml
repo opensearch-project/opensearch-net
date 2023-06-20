@@ -2,11 +2,9 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
 @inherits ApiGenerator.CodeTemplatePage<InitializerSyntaxView>
 @{
-    InitializerMethod syntax = Model.Syntax;
-    
-    var dispatchMethod = !Model.Async ? syntax.DispatchMethod : string.Format("{0}Async", syntax.DispatchMethod);
-    var dispatchGenerics = syntax.DispatchGenerics;
-    var dispatchParameters = syntax.DispatchParameters;
+	var dispatchMethod = !Model.Async ? Model.Syntax.DispatchMethod : string.Format("{0}Async", Model.Syntax.DispatchMethod);
+    var dispatchGenerics = Model.Syntax.DispatchGenerics;
+    var dispatchParameters = Model.Syntax.DispatchParameters;
     var asyncKeyword = Model.Syntax.InterfaceResponse && Model.Async ? "async " : String.Empty;
     var awaitKeyWord = Model.Syntax.InterfaceResponse && Model.Async ? "await ": string.Empty;
     var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : String.Empty;
@@ -15,7 +13,7 @@
         dispatchParameters += ", ct";
     }
 }
-@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", syntax); }
+@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", Model.Syntax); }
 public @Raw(asyncKeyword)@{ await IncludeAsync("HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml", Model); } @Raw("=>")
     @(awaitKeyWord)@(dispatchMethod)@(Raw(dispatchGenerics))(@Raw(dispatchParameters))@Raw(configureAwait);
 

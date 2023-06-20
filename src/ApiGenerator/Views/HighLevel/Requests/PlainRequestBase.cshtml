@@ -1,7 +1,6 @@
-@using System.Linq
 @using ApiGenerator.Domain
 @inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;

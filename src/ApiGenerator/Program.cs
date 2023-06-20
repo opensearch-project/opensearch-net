@@ -77,7 +77,7 @@ namespace ApiGenerator
                 AnsiConsole.WriteLine();
                 AnsiConsole.Write(new Rule("[b white on darkred] Exception [/]").LeftJustified());
                 AnsiConsole.WriteLine();
-                AnsiConsole.WriteException(ex);
+                AnsiConsole.WriteException(ex, ExceptionFormats.ShowLinks);
                 return 1;
             }
             return 0;
