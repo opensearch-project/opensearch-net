@@ -1,16 +1,14 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
 @inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
 @{
-    FluentSyntaxBase syntax = Model.Syntax;
-
-    var response = !Model.Async ? syntax.ResponseName : string.Format("Task<{0}>", syntax.ResponseName);
-    var method = !Model.Async ? syntax.MethodName : string.Format("{0}Async", syntax.MethodName);
+	var response = !Model.Async ? Model.Syntax.ResponseName : string.Format("Task<{0}>", Model.Syntax.ResponseName);
+    var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
     
-    var methodGenerics = syntax.MethodGenerics;
-    var descriptorArgs = syntax.DescriptorArguments();
-    var selector = syntax.Selector;
-    var optionalSelector = syntax.OptionalSelectorSuffix;
-    var whereClause = syntax.GenericWhereClause;
+    var methodGenerics = Model.Syntax.MethodGenerics;
+    var descriptorArgs = Model.Syntax.DescriptorArguments();
+    var selector = Model.Syntax.Selector;
+    var optionalSelector = Model.Syntax.OptionalSelectorSuffix;
+    var whereClause = Model.Syntax.GenericWhereClause;
     var cancellationToken = !Model.Async ? string.Empty : ", CancellationToken ct = default";
 }
 @Raw(response) @(method)@(Raw(methodGenerics))(@(Raw(descriptorArgs))@(Raw(selector)) selector@(optionalSelector)@(cancellationToken))@whereClause

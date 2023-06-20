@@ -3,7 +3,7 @@
 @using ApiGenerator 
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
@@ -12,8 +12,7 @@ using OpenSearch.Client;
 @{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
 
 @{
-    RestApiSpec model = Model;
-    var namespaces = model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
+	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
 <text>
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client
@@ -44,7 +43,7 @@ namespace OpenSearch.Client
 </text>
     
 
-    foreach (var kv in model.EndpointsPerNamespaceHighLevel)
+    foreach (var kv in Model.EndpointsPerNamespaceHighLevel)
     {
         if (kv.Key != CsharpNames.RootNamespace)
         {

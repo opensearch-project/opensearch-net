@@ -1,14 +1,12 @@
-@using System.Collections.Generic
 @using System.Collections.ObjectModel
 @using ApiGenerator
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 @{
-    KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>> model = Model;
-    string ns = model.Key != CsharpNames.RootNamespace ? "."+CsharpNames.ApiNamespace+"." + model.Key + CsharpNames.ApiNamespaceSuffix : null;
-    var endpoints = model.Value;
+	var (ns, endpoints) = Model;
+	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
 
 // ReSharper disable RedundantUsingDirective

@@ -1,11 +1,10 @@
-@using System
 @using System.Linq
 @using System.Text
 @using ApiGenerator.Domain
 @using ApiGenerator
 @using ApiGenerator.Configuration.Overrides
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeAsync("GeneratorNotice.cshtml", Model); }
+@{ await IncludeGeneratorNotice(); }
 @functions {
     private const string RawSize = "Raw";
     private const string SizeEnum = "Size";
@@ -54,7 +53,7 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Net
 {
-@foreach (EnumDescription e in Model.EnumsInTheSpec)
+@foreach (var e in Model.EnumsInTheSpec)
 {
     var isFlag = IsFlag(e.Name);
     <text>
@@ -70,7 +69,7 @@ namespace OpenSearch.Net
 
         static KnownEnums()
         {
-        @foreach (EnumDescription e in Model.EnumsInTheSpec)
+        @foreach (var e in Model.EnumsInTheSpec)
         {
 <text>          EnumStringResolvers.TryAdd(typeof(@(e.Name)), (e) => GetStringValue((@(e.Name))e));
 </text>
@@ -83,7 +82,7 @@ namespace OpenSearch.Net
             public @(Raw("Func<Enum, string>")) Resolver { get; set; }
         }   
 
-    @foreach (EnumDescription e in Model.EnumsInTheSpec)
+    @foreach (var e in Model.EnumsInTheSpec)
     {
         var isFlag = IsFlag(e.Name);
         <text>

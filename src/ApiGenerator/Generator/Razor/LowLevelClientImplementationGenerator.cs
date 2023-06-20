@@ -49,7 +49,7 @@ namespace ApiGenerator.Generator.Razor
 
             var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
             var target = GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs");
-            await DoRazor(spec, view, target, null, token);
+            await DoRazor(spec, view, target, token);
 
             var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
             var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace.cshtml");

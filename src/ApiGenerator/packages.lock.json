@@ -39,9 +39,9 @@
       },
       "RazorLight": {
         "type": "Direct",
-        "requested": "[2.1.0, )",
-        "resolved": "2.1.0",
-        "contentHash": "WUJUsOJXUXrRpMrlWunn2QsOigF07S+lP2QxuOEBlfswDtuO4SAGaL97tOn0Hq24lMNqR4SWepOMj4Rlx+OfsQ==",
+        "requested": "[2.3.1, )",
+        "resolved": "2.3.1",
+        "contentHash": "Eegx5xEQ2AvydJB5lHTZgIQQyCZJ6NLJb1ePinAGmv5S42rvj8o/FRZFxrB0jQhXmA4uu93x+J/ZVE1qBv4dLw==",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor.Extensions": "6.0.0",
           "Microsoft.CodeAnalysis.Razor": "6.0.0",

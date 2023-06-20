@@ -48,7 +48,7 @@ namespace ApiGenerator.Generator.Razor
 
             var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase.cshtml");
             var target = GeneratorLocations.HighLevel("Descriptors.cs");
-            await DoRazor(spec, view, target, null, token);
+            await DoRazor(spec, view, target, token);
 
             var dependantView = ViewLocations.HighLevel("Descriptors", "Descriptors.cshtml");
             string Target(string id) => GeneratorLocations.HighLevel($"Descriptors.{id}.cs");

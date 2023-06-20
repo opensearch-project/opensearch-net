@@ -26,17 +26,16 @@
 *  under the License.
 */
 
-using System;
 using System.Threading.Tasks;
 using RazorLight;
 
-namespace ApiGenerator 
+namespace ApiGenerator
 {
-    /// <summary> This only exists to make the IDE tooling happy, not actually used to render the templates </summary>
-    public class CodeTemplatePage<TModel> : TemplatePage<TModel>
-    {
-        public override Task ExecuteAsync() => throw new NotImplementedException();
+    public abstract class CodeTemplatePage<TModel> : TemplatePage<TModel>
+	{
+		protected new Task IncludeAsync(string key, object model = null)
+			=> base.IncludeAsync(key.Replace('/', '.'), model);
 
-        public Task Execute() => Task.CompletedTask;
-    }
+		protected async Task IncludeGeneratorNotice() => await IncludeAsync("GeneratorNotice");
+	}
 }
