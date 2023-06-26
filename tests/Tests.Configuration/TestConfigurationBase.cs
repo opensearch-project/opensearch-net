@@ -42,8 +42,6 @@ namespace Tests.Configuration
 		/// <summary> The OpenSearch version to test against, defined for both unit and integration tests</summary>
 		public OpenSearchVersion OpenSearchVersion { get; protected set; }
 
-		public bool OpenSearchVersionIsSnapshot => OpenSearchVersion.ArtifactBuildState == ArtifactBuildState.Snapshot;
-
 		/// <summary> Force a reseed (bootstrap) of the cluster even if checks indicate bootstrap already ran </summary>
 		public bool ForceReseed { get; protected set; }
 
