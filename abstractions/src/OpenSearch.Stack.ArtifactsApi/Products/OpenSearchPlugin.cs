@@ -79,5 +79,7 @@ namespace OpenSearch.Stack.ArtifactsApi.Products
 		public static OpenSearchPlugin StoreSMB { get; } = new("store-smb");
 
 		public static OpenSearchPlugin DeleteByQuery { get; } = new("delete-by-query", version => version < "1.0.0");
+
+		public static OpenSearchPlugin Knn { get; } = new("opensearch-knn");
 	}
 }
