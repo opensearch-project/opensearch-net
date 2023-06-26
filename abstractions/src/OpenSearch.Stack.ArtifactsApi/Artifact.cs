@@ -38,13 +38,11 @@ namespace OpenSearch.Stack.ArtifactsApi
 	{
 		private static readonly Uri BaseUri = new Uri("http://localhost");
 
-		internal Artifact(Product product, Version version, string downloadUrl, ArtifactBuildState state,
-			string buildHash)
+		internal Artifact(Product product, Version version, string downloadUrl, string buildHash)
 		{
 			ProductName = product?.ProductName ?? "opensearch";
 			Version = version;
-			DownloadUrl = product?.PatchDownloadUrl(downloadUrl);
-			State = state;
+			DownloadUrl = downloadUrl;
 			BuildHash = buildHash;
 		}
 
@@ -52,8 +50,7 @@ namespace OpenSearch.Stack.ArtifactsApi
 		{
 			ProductName = product.ProductName;
 			Version = version;
-			State = ArtifactBuildState.Snapshot;
-			DownloadUrl = product?.PatchDownloadUrl(package.DownloadUrl);
+			DownloadUrl = package.DownloadUrl;
 			ShaUrl = package.ShaUrl;
 			AscUrl = package.AscUrl;
 			BuildHash = buildHash;
@@ -63,18 +60,10 @@ namespace OpenSearch.Stack.ArtifactsApi
 		{
 			get
 			{
-				var hashed = string.IsNullOrWhiteSpace(BuildHash) ? string.Empty : $"-build-{BuildHash}";
-				switch (State)
-				{
-					case ArtifactBuildState.Released:
-						return $"{ProductName}-{Version}";
-					case ArtifactBuildState.Snapshot:
-						return $"{ProductName}-{Version}{hashed}";
-					case ArtifactBuildState.BuildCandidate:
-						return $"{ProductName}-{Version}{hashed}";
-					default:
-						throw new ArgumentOutOfRangeException(nameof(State), $"{State} not expected here");
-				}
+				var hashed = !Version.IsPreRelease || string.IsNullOrWhiteSpace(BuildHash)
+					? string.Empty
+					: $"-build-{BuildHash}";
+				return $"{ProductName}-{Version}{hashed}";
 			}
 		}
 
@@ -96,7 +85,6 @@ namespace OpenSearch.Stack.ArtifactsApi
 		public Version Version { get; }
 		public string DownloadUrl { get; }
 
-		public ArtifactBuildState State { get; }
 		public string BuildHash { get; }
 		public string ShaUrl { get; }
 

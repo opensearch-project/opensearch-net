@@ -48,11 +48,6 @@ namespace OpenSearch.Stack.ArtifactsApi.Products
 
 		public OpenSearchVersion ShippedByDefaultAsOf { get; set; }
 
-		/// <summary>
-		///     Temporary, snapshot API reports bad plugin download urls
-		/// </summary>
-		public Func<string, string> PatchDownloadUrl { get; set; } = s => s;
-
 		public bool PlatformDependent { get; protected set; }
 
 		/// <summary> what moniker to use when asserting the sub product is already present</summary>

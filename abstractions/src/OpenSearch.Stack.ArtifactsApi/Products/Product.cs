@@ -70,7 +70,5 @@ namespace OpenSearch.Stack.ArtifactsApi.Products
 
 		public override string ToString() =>
 			SubProduct != null ? $"{ProductName}/{SubProduct.SubProductName}" : ProductName;
-
-		public string PatchDownloadUrl(string downloadUrl) => SubProduct?.PatchDownloadUrl(downloadUrl) ?? downloadUrl;
 	}
 }

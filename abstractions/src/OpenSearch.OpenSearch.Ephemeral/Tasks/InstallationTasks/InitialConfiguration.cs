@@ -27,6 +27,7 @@
 */
 
 using System.IO;
+using System.Linq;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi;
 
@@ -36,25 +37,31 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 	{
 		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
 		{
-			if (cluster.CachingAndCachedHomeExists()) return;
-
 			var fs = cluster.FileSystem;
-			var script = Path.Combine(fs.OpenSearchHome, "server-initial-config.sh");
+			var configFile = Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml");
 
-			File.WriteAllText(script, InitialConfigurationOpenSearch.GetConfigurationScript(cluster.ClusterConfiguration.Version));
+			if (File.Exists(configFile) && File.ReadLines(configFile).Any(l => !string.IsNullOrWhiteSpace(l) && !l.StartsWith("#")))
+			{
+				cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} opensearch.yml already exists, skipping initial configuration");
+				return;
+			}
 
-			cluster.Writer?.WriteDiagnostic($"{{{nameof(Run)}}} going to run [server-initial-config.sh]");
+			var securityInstallDemoConfigSubPath = "plugins/opensearch-security/tools/install_demo_configuration.sh";
+			var securityInstallDemoConfig = Path.Combine(fs.OpenSearchHome, securityInstallDemoConfigSubPath);
+
+			cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} going to run [{securityInstallDemoConfigSubPath}]");
 
 			ExecuteBinary(
 				cluster.ClusterConfiguration,
 				cluster.Writer,
 				"/bin/bash",
-				"run initial cluster configuration",
-				script);
+				"install security plugin demo configuration",
+				securityInstallDemoConfig,
+				"-y", "-i", "-s");
 
 			if (cluster.ClusterConfiguration.EnableSsl) return;
 
-			File.AppendAllText(Path.Combine(fs.OpenSearchHome, "config", "opensearch.yml"), "plugins.security.disabled: true");
+			File.AppendAllText(configFile, "plugins.security.disabled: true");
 		}
 	}
 }

@@ -42,25 +42,15 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 	{
 		public WritableCluster() : base(CreateConfiguration()) { }
 
-		private static ClientTestClusterConfiguration CreateConfiguration()
-		{
-			var plugins = new List<OpenSearchPlugin>
-			{
-				IngestGeoIp,
-				IngestAttachment,
-				AnalysisKuromoji,
-				AnalysisIcu,
-				AnalysisPhonetic,
+		private static ClientTestClusterConfiguration CreateConfiguration() =>
+			new(
+				AnalysisIcu, AnalysisKuromoji, AnalysisNori, AnalysisPhonetic,
+				IngestAttachment, IngestGeoIp,
 				MapperMurmur3,
-			};
-
-			plugins.Add(new OpenSearchPlugin("analysis-nori"));
-
-			return new ClientTestClusterConfiguration(plugins.ToArray())
+				Security)
 			{
 				MaxConcurrency = 4
 			};
-		}
 
 		protected override void SeedNode()
 		{

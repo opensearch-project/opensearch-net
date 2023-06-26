@@ -48,6 +48,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Plugins
 			{
 				OpenSearchPlugin.AnalysisIcu,
 				OpenSearchPlugin.AnalysisKuromoji,
+				OpenSearchPlugin.AnalysisNori,
 				OpenSearchPlugin.AnalysisPhonetic,
 				OpenSearchPlugin.AnalysisSmartCn,
 				OpenSearchPlugin.AnalysisStempel,
@@ -66,6 +67,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Plugins
 				OpenSearchPlugin.RepositoryGCS,
 				OpenSearchPlugin.RepositoryHDFS,
 				OpenSearchPlugin.RepositoryS3,
+				OpenSearchPlugin.Security,
 				OpenSearchPlugin.StoreSMB,
 				OpenSearchPlugin.DeleteByQuery,
 			});
