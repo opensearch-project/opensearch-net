@@ -80,6 +80,8 @@ namespace OpenSearch.Client
 
 		void Visit(IIntervalsQuery query);
 
+		void Visit(IKnnQuery query);
+
 		void Visit(IMatchQuery query);
 
 		void Visit(IMatchPhraseQuery query);
@@ -224,6 +226,8 @@ namespace OpenSearch.Client
 		public virtual void Visit(IIdsQuery query) { }
 
 		public virtual void Visit(IIntervalsQuery query) { }
+
+		public virtual void Visit(IKnnQuery query) { }
 
 		public virtual void Visit(IMatchQuery query) { }
 

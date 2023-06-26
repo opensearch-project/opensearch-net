@@ -154,6 +154,21 @@ namespace Tests.Indices.MappingManagement.PutMapping
 				versionControl = new
 				{
 					type = "keyword"
+				},
+				vector = new
+				{
+					type = "knn_vector",
+					dimension = 2,
+					method = new {
+						name = "hnsw",
+						space_type = "l2",
+						engine = "nmslib",
+						parameters = new
+						{
+							ef_construction = 128,
+							m = 24
+						}
+					}
 				}
 			}
 		};
@@ -215,6 +230,19 @@ namespace Tests.Indices.MappingManagement.PutMapping
 				)
 				.Keyword(k => k
 					.Name(n => n.VersionControl)
+				)
+				.KnnVector(k => k
+					.Name(p => p.Vector)
+					.Dimension(2)
+					.Method(m => m
+						.Name("hnsw")
+						.SpaceType("l2")
+						.Engine("nmslib")
+						.Parameters(p => p
+							.Parameter("ef_construction", 128)
+							.Parameter("m", 24)
+						)
+					)
 				)
 			);
 
@@ -329,7 +357,22 @@ namespace Tests.Indices.MappingManagement.PutMapping
 					}
 				},
 				{ p => p.Rank, new RankFeatureProperty() },
-				{ p => p.VersionControl, new KeywordProperty() }
+				{ p => p.VersionControl, new KeywordProperty() },
+				{ p => p.Vector, new KnnVectorProperty
+				{
+					Dimension = 2,
+					Method = new KnnMethod
+					{
+						Name = "hnsw",
+						SpaceType = "l2",
+						Engine = "nmslib",
+						Parameters = new KnnMethodParameters
+						{
+							{"ef_construction", 128},
+							{"m", 24}
+						}
+					}
+				} }
 			}
 		};
 

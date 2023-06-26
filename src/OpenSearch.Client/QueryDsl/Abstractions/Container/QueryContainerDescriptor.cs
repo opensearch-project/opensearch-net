@@ -237,6 +237,9 @@ namespace OpenSearch.Client
 		public QueryContainer HasParent<TParent>(Func<HasParentQueryDescriptor<TParent>, IHasParentQuery> selector) where TParent : class =>
 			WrapInContainer(selector, (query, container) => container.HasParent = query);
 
+		public QueryContainer Knn(Func<KnnQueryDescriptor<T>, IKnnQuery> selector) =>
+			WrapInContainer(selector, (query, container) => container.Knn = query);
+
 		/// <summary>
 		/// A query that generates the union of documents produced by its subqueries, and that scores each document
 		/// with the maximum score for that document as produced by any subquery, plus a tie breaking increment for

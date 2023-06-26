@@ -149,6 +149,10 @@ namespace OpenSearch.Client
 		public IProperty SearchAsYouType(Func<SearchAsYouTypePropertyDescriptor<T>, ISearchAsYouTypeProperty> selector) =>
 			selector?.Invoke(new SearchAsYouTypePropertyDescriptor<T>());
 
+		/// <inheritdoc />
+		public IProperty KnnVector(Func<KnnVectorPropertyDescriptor<T>, IKnnVectorProperty> selector) =>
+			selector?.Invoke(new KnnVectorPropertyDescriptor<T>());
+
 #pragma warning disable CS3001 // Argument type is not CLS-compliant
 		public IProperty Scalar(Expression<Func<T, int>> field, Func<NumberPropertyDescriptor<T>, INumberProperty> selector = null) =>
 			selector.InvokeOrDefault(new NumberPropertyDescriptor<T>().Name(field).Type(NumberType.Integer));
