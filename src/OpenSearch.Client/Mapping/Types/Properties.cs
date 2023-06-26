@@ -157,6 +157,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc cref="ISearchAsYouTypeProperty"/>
 		TReturnType SearchAsYouType(Func<SearchAsYouTypePropertyDescriptor<T>, ISearchAsYouTypeProperty> selector);
+
+		/// <inheritdoc cref="IKnnVectorProperty" />
+		TReturnType KnnVector(Func<KnnVectorPropertyDescriptor<T>, IKnnVectorProperty> selector);
 	}
 
 	public partial class PropertiesDescriptor<T> where T : class
@@ -251,6 +254,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc cref="IRankFeaturesProperty"/>
 		public PropertiesDescriptor<T> RankFeatures(Func<RankFeaturesPropertyDescriptor<T>, IRankFeaturesProperty> selector) => SetProperty(selector);
+
+		/// <inheritdoc cref="IKnnVectorProperty" />
+		public PropertiesDescriptor<T> KnnVector(Func<KnnVectorPropertyDescriptor<T>, IKnnVectorProperty> selector) => SetProperty(selector);
 
 		/// <summary>
 		/// Map a custom property.

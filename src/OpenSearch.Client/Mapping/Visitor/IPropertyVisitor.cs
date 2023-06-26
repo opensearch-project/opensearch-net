@@ -88,6 +88,8 @@ namespace OpenSearch.Client
 
 		void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
+		void Visit(IKnnVectorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+
 		IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
 		bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);

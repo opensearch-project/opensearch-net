@@ -130,6 +130,11 @@ namespace OpenSearch.Client
 				v.Visit(d);
 				Accept(v, d.Query);
 			});
+			VisitQuery(qd.Knn, visitor, (v, d) =>
+			{
+				v.Visit(d);
+				Accept(v, d.Filter);
+			});
 			VisitQuery(qd.Nested, visitor, (v, d) =>
 			{
 				v.Visit(d);

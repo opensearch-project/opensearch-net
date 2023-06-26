@@ -92,6 +92,9 @@ namespace OpenSearch.Client
 		public static QueryContainer Intervals(Func<IntervalsQueryDescriptor<T>, IIntervalsQuery> selector) =>
 			new QueryContainerDescriptor<T>().Intervals(selector);
 
+		public static QueryContainer Knn(Func<KnnQueryDescriptor<T>, IKnnQuery> selector) =>
+			new QueryContainerDescriptor<T>().Knn(selector);
+
 		public static QueryContainer Match(Func<MatchQueryDescriptor<T>, IMatchQuery> selector) =>
 			new QueryContainerDescriptor<T>().Match(selector);
 
