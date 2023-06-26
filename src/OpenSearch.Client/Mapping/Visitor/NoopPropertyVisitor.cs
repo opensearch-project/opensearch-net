@@ -89,6 +89,8 @@ namespace OpenSearch.Client
 
 		public virtual void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
 
+		public virtual void Visit(IKnnVectorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) { }
+
 		public virtual IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) => null;
 
 		public void Visit(IProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)
@@ -175,6 +177,9 @@ namespace OpenSearch.Client
 					break;
 				case IFieldAliasProperty fieldAlias:
 					Visit(fieldAlias, propertyInfo, attribute);
+					break;
+				case IKnnVectorProperty knnVector:
+					Visit(knnVector, propertyInfo, attribute);
 					break;
 			}
 		}

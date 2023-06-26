@@ -159,6 +159,8 @@ namespace OpenSearch.Client
 
 		public virtual void Visit(IIntervalsQuery query) => Write("intervals");
 
+		public virtual void Visit(IKnnQuery query) => Write("knn", query.Field);
+
 		public virtual void Visit(IMatchQuery query) => Write("match", query.Field);
 
 		public virtual void Visit(IMatchPhraseQuery query) => Write("match_phrase", query.Field);

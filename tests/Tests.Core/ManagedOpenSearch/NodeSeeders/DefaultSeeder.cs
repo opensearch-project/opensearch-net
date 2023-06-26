@@ -220,7 +220,10 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 
 #pragma warning disable 618
 		private Task<CreateIndexResponse> CreateProjectIndexAsync() => Client.Indices.CreateAsync(typeof(Project), c => c
-			.Settings(settings => settings.Analysis(ProjectAnalysisSettings))
+			.Settings(settings => settings
+				.Analysis(ProjectAnalysisSettings)
+				.Setting("index.knn", true)
+				.Setting("index.knn.algo_param.ef_search", 100))
 			.Mappings(ProjectMappings)
 			.Aliases(aliases => aliases
 				.Alias(ProjectsAliasName)
@@ -386,7 +389,19 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 				.RankFeature(rf => rf
 					.Name(p => p.Rank)
 					.PositiveScoreImpact()
-				);
+				)
+				.KnnVector(k => k
+					.Name(p => p.Vector)
+					.Dimension(2)
+					.Method(m => m
+						.Name("hnsw")
+						.SpaceType("l2")
+						.Engine("nmslib")
+						.Parameters(p => p
+							.Parameter("ef_construction", 128)
+							.Parameter("m", 24)
+						)
+					));
 
 			return props;
 		}

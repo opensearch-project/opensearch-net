@@ -159,6 +159,9 @@ namespace OpenSearch.Client
 		RankFeature,
 
 		[EnumMember(Value = "rank_features")]
-		RankFeatures
+		RankFeatures,
+
+		[EnumMember(Value = "knn_vector")]
+		KnnVector
 	}
 }

@@ -83,13 +83,15 @@ namespace Tests.Domain
 		public StateOfBeing State { get; set; }
 		public CompletionField Suggest { get; set; }
 		public IEnumerable<Tag> Tags { get; set; }
-		
+
 		public string Type => TypeName;
 
 		//the first applies when using internal source serializer the latter when using JsonNetSourceSerializer
 		public Visibility Visibility { get; set; }
 
 		public string VersionControl { get; set; }
+
+		public float[] Vector { get; set; }
 
 		// @formatter:off — enable formatter after this line
 		public static Faker<Project> Generator { get; } =
@@ -123,7 +125,8 @@ namespace Tests.Domain
 						{ "color", new[] { "red", "blue", "green", "violet", "yellow" }.Take(Gimme.Random.Number(1, 4)) }
 					}
 				})
-				.RuleFor(p => p.VersionControl, VersionControlConstant);
+				.RuleFor(p => p.VersionControl, VersionControlConstant)
+				.RuleFor(p => p.Vector, f => new[] { Gimme.Random.Float(0f, 5f), Gimme.Random.Float(0f, 5f)});
 
 		public static IList<Project> Projects { get; } = Generator.Clone().Generate(100);
 
@@ -198,7 +201,7 @@ namespace Tests.Domain
 	public class ProjectTransform
 	{
 		public double? AverageCommits { get; set; }
-		
+
 		public long WeekStartedOnMillis { get; set; }
 
 		public DateTime WeekStartedOnDate { get; set; }
