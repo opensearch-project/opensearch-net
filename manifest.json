@@ -7023,46 +7023,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKnnMethod.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IKnnMethod.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKnnMethodParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IKnnMethodParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKnnQuery.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IKnnQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKnnVectorProperty.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IKnnVectorProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IKuromojiAnalyzer.yml",
       "output": {
         ".html": {
@@ -11167,86 +11127,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.KeywordTokenizerDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnMethod.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnMethod.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnMethodDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnMethodDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnMethodParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnMethodParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnMethodParametersDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnMethodParametersDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnQuery.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnQuery.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnQueryDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnQueryDescriptor-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnVectorProperty.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnVectorProperty.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.KnnVectorPropertyDescriptor-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.KnnVectorPropertyDescriptor-1.html"
         }
       },
       "version": ""
