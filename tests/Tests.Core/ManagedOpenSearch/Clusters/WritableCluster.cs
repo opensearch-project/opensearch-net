@@ -46,6 +46,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 			new(
 				AnalysisIcu, AnalysisKuromoji, AnalysisNori, AnalysisPhonetic,
 				IngestAttachment, IngestGeoIp,
+				Knn,
 				MapperMurmur3,
 				Security)
 			{

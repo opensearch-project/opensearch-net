@@ -140,6 +140,14 @@ jobs:
             for plugin in ${PluginList[*]}; do
               ./gradlew :plugins:$plugin:assemble
             done
+            
+      - name: Determine OpenSearch distribution path and version
+        shell: bash -eo pipefail {0}
+        run: |
+          distribution=`ls -1 $PWD/opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz | head -1`
+          version=`basename $distribution | cut -d'-' -f3,4`
+          echo "OPENSEARCH_DISTRIBUTION=$distribution" >> $GITHUB_ENV
+          echo "OPENSEARCH_VERSION=$version" >> $GITHUB_ENV
         
       - name: Restore or Build OpenSearch Security
         uses: ./client/.github/actions/cached-git-build
@@ -150,22 +158,42 @@ jobs:
           path: opensearch-security
           cached_paths: |
             ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip
-          build_script: ./gradlew assemble
+          build_script: ./gradlew assemble -Dopensearch.version=$OPENSEARCH_VERSION
+      
+      - name: Restore or Build OpenSearch k-NN
+        uses: ./client/.github/actions/cached-git-build
+        with:
+          repository: opensearch-project/k-NN
+          ref: ${{ matrix.opensearch_ref }}
+          path: opensearch-knn
+          cached_paths: |
+            ./opensearch-knn/build/distributions/opensearch-knn-*-SNAPSHOT.zip
+          build_script: |
+            sudo apt-get install -y libopenblas-dev libomp-dev
+            ./gradlew buildJniLib assemble -Dopensearch.version=$OPENSEARCH_VERSION
+            distributions=./build/distributions
+            lib_dir=$distributions/lib
+            mkdir $lib_dir
+            cp -v $(ldconfig -p | grep libgomp | cut -d ' ' -f 4) $lib_dir
+            cp -v ./jni/release/libopensearchknn_* $lib_dir
+            ls -l $lib_dir
+            cd $distributions
+            zip -ur opensearch-knn-*.zip lib
         
-      - name: Determine OpenSearch distribution path
+      - name: Copy OpenSearch plugins
         shell: bash -eo pipefail {0}
         run: |
-          distribution=`ls -1 $PWD/opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz | head -1`
-          version=`basename $distribution | cut -d'-' -f3,4`
-          echo "OPENSEARCH_DISTRIBUTION=$distribution" >> $GITHUB_ENV
-          echo "OPENSEARCH_VERSION=$version" >> $GITHUB_ENV
-          
           mkdir -p $OPENSEARCH_PLUGINS_DIRECTORY
-          cp ./opensearch/plugins/*/build/distributions/*-$version.zip $OPENSEARCH_PLUGINS_DIRECTORY/
+          cp -v ./opensearch/plugins/*/build/distributions/*-$OPENSEARCH_VERSION.zip $OPENSEARCH_PLUGINS_DIRECTORY/
           
-          if [[ -d "./opensearch-security" ]]; then 
-            cp ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip $OPENSEARCH_PLUGINS_DIRECTORY/
-          fi
+          plugins=("opensearch-knn" "opensearch-security")
+          for plugin in ${plugins[*]}; do
+            if [[ -d "./$plugin" ]]; then
+              cp -v ./$plugin/build/distributions/$plugin-*-SNAPSHOT.zip $OPENSEARCH_PLUGINS_DIRECTORY/
+            fi
+          done
+          
+          ls -l $OPENSEARCH_PLUGINS_DIRECTORY
       
       - run: "./build.sh integrate ${{ env.OPENSEARCH_VERSION }} readonly,writable random:test_only_one --report"
         name: Integration Tests
