@@ -95,7 +95,7 @@ namespace OpenSearch.OpenSearch.Managed
 			if (!string.IsNullOrWhiteSpace(config.FileSystem.OpenSearchHome))
 				environmentVariables.Add("OPENSEARCH_HOME", config.FileSystem.OpenSearchHome);
 
-			var knnLibDir = Path.Combine(config.FileSystem.OpenSearchHome, "plugins", "opensearch-knn", config.Version.Major >= 2 ? "lib" : "knnlib");
+			var knnLibDir = Path.Combine(config.FileSystem.OpenSearchHome, "plugins", "opensearch-knn", config.Version >= "1.3.10" ? "lib" : "knnlib");
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
 				AppendPathEnvVar("JAVA_LIBRARY_PATH", knnLibDir);
 			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
