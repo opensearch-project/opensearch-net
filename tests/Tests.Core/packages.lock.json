@@ -86,6 +86,11 @@
         "resolved": "34.0.2",
         "contentHash": "2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A=="
       },
+      "JetBrains.Annotations": {
+        "type": "Transitive",
+        "resolved": "2022.3.1",
+        "contentHash": "11nsS3+lFICGkztVs9PP2NRItxf9fF+qD6xEW/T0YGto52zj07wseUeBdMAU1ah9HNVTDZyRC1u4NWdtJScwhw=="
+      },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
         "resolved": "7.0.0",
@@ -948,6 +953,7 @@
       "opensearch.opensearch.ephemeral": {
         "type": "Project",
         "dependencies": {
+          "JetBrains.Annotations": "[2022.3.1, )",
           "OpenSearch.OpenSearch.Managed": "[1.3.0, )",
           "SharpZipLib": "[1.4.2, )"
         }

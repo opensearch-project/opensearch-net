@@ -46,7 +46,7 @@ namespace OpenSearch.Stack.ArtifactsApi.Resolvers
 			var archive = $"{productMoniker}-{version}-{platformMoniker}.{extension}";
 			var downloadUrl = $"{downloadPath}/{archive}";
 
-			artifact = new Artifact(product, version, downloadUrl, ArtifactBuildState.Released, null);
+			artifact = new Artifact(product, version, downloadUrl, null);
 			return true;
 		}
 	}

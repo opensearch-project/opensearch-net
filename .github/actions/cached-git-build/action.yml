@@ -1,0 +1,48 @@
+name: Build and Cache a Git Repository
+description: Builds and caches a git repository
+inputs:
+  repository:
+    description: The git repository to clone
+  ref:
+    description: The git ref to clone
+  path:
+    description: The path to clone the repository to
+  cached_paths:
+    description: A list of paths to cache
+  build_script:
+    description: The script to run to build the repository
+runs:
+  using: composite
+  steps:
+    - name: Clone Repository
+      uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        path: ${{ inputs.path }}
+    
+    - name: Get Commit SHA
+      id: get-sha
+      working-directory: ${{ inputs.path }}
+      shell: bash -eo pipefail {0}
+      run: echo sha=`git log -1 --format='%H'` >> $GITHUB_OUTPUT
+    
+    - name: Restore from cache
+      id: restore
+      uses: actions/cache/restore@v3
+      with:
+        path: ${{ inputs.cached_paths }}
+        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}
+      
+    - name: Build
+      if: steps.restore.outputs.cache-hit != 'true'
+      shell: bash -eo pipefail {0}
+      working-directory: ${{ inputs.path }}
+      run: ${{ inputs.build_script }}
+
+    - name: Save to cache
+      if: steps.restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v3
+      with:
+        path: ${{ inputs.cached_paths }}
+        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}

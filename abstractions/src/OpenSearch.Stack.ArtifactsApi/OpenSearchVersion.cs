@@ -28,7 +28,6 @@
 
 using System;
 using System.Collections.Concurrent;
-using System.Linq;
 using System.Runtime.InteropServices;
 using OpenSearch.Stack.ArtifactsApi.Platform;
 using OpenSearch.Stack.ArtifactsApi.Products;
@@ -42,14 +41,11 @@ namespace OpenSearch.Stack.ArtifactsApi
 	{
 		private readonly ConcurrentDictionary<string, Artifact> _resolved = new();
 
-		protected OpenSearchVersion(string version, ArtifactBuildState state, string buildHash = null) : base(version)
-		{
-			ArtifactBuildState = state;
-			BuildHash = buildHash;
-		}
+		protected OpenSearchVersion(string version, string buildHash = null) : base(version) => BuildHash = buildHash;
 
-		public ArtifactBuildState ArtifactBuildState { get; }
 		private string BuildHash { get; }
+
+		public bool IsSnapshot => PreRelease == "SNAPSHOT";
 
 		public int CompareTo(string other)
 		{
@@ -64,21 +60,8 @@ namespace OpenSearch.Stack.ArtifactsApi
 				return artifact;
 
 			var currentPlatform = OsMonikers.CurrentPlatform();
-			switch (ArtifactBuildState)
-			{
-				case ArtifactBuildState.Released:
-					ReleasedVersionResolver.TryResolve(product, this, currentPlatform, RuntimeInformation.OSArchitecture, out artifact);
-					break;
-				case ArtifactBuildState.Snapshot:
-					SnapshotApiResolver.TryResolve(product, this, currentPlatform, null, out artifact);
-					break;
-				case ArtifactBuildState.BuildCandidate:
-					StagingVersionResolver.TryResolve(product, this, BuildHash, out artifact);
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(ArtifactBuildState),
-						$"{ArtifactBuildState} not expected here");
-			}
+
+			ReleasedVersionResolver.TryResolve(product, this, currentPlatform, RuntimeInformation.OSArchitecture, out artifact);
 
 			_resolved.TryAdd(cacheKey, artifact);
 
@@ -90,7 +73,7 @@ namespace OpenSearch.Stack.ArtifactsApi
 		/// </summary>
 		public static OpenSearchVersion From(string managedVersionString) =>
 			// TODO resolve `latest` and `latest-x` for OpenSearch
-			managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, ArtifactBuildState.Released, "");
+			managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, "");
 
 		public bool InRange(string range)
 		{

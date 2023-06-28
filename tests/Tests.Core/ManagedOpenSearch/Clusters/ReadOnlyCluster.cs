@@ -33,7 +33,7 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 {
 	public class ReadOnlyCluster : ClientTestClusterBase
 	{
-		public ReadOnlyCluster() : base(MapperMurmur3) { }
+		public ReadOnlyCluster() : base(MapperMurmur3, Security) { }
 
 		protected override void SeedNode() => new DefaultSeeder(Client).SeedNode();
 	}

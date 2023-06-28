@@ -29,17 +29,22 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Xml;
+using JetBrains.Annotations;
 using OpenSearch.OpenSearch.Managed;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.OpenSearch.Managed.FileSystem;
 using OpenSearch.Stack.ArtifactsApi;
 using OpenSearch.Stack.ArtifactsApi.Products;
-using ProcNet.Std;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 {
 	public class InstallPlugins : ClusterComposeTask
 	{
+		private static readonly HttpClient HttpClient = new();
+
 		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
 		{
 			if (cluster.CachingAndCachedHomeExists()) return;
@@ -65,7 +70,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				if (includedByDefault)
 				{
 					cluster.Writer?.WriteDiagnostic(
-						$"{{{nameof(Run)}}} SKIP plugin [{plugin.SubProductName}] shipped OOTB as of: {{{plugin.ShippedByDefaultAsOf}}}");
+						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] shipped OOTB as of: {{{plugin.ShippedByDefaultAsOf}}}");
 					continue;
 				}
 
@@ -73,7 +78,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				if (!validForCurrentVersion)
 				{
 					cluster.Writer?.WriteDiagnostic(
-						$"{{{nameof(Run)}}} SKIP plugin [{plugin.SubProductName}] not valid for version: {{{v}}}");
+						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] not valid for version: {{{v}}}");
 					continue;
 				}
 
@@ -81,13 +86,13 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				if (alreadyInstalled)
 				{
 					cluster.Writer?.WriteDiagnostic(
-						$"{{{nameof(Run)}}} SKIP plugin [{plugin.SubProductName}] already installed");
+						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] already installed");
 					continue;
 				}
 
 				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(Run)}}} attempting install [{plugin.SubProductName}] as it's not OOTB: {{{plugin.ShippedByDefaultAsOf}}} and valid for {v}: {{{plugin.IsValid(v)}}}");
-				
+					$"{{{nameof(InstallPlugins)}}} attempting install [{plugin.SubProductName}] as it's not OOTB: {{{plugin.ShippedByDefaultAsOf}}} and valid for {v}: {{{plugin.IsValid(v)}}}");
+
 				if (!Directory.Exists(fs.ConfigPath)) Directory.CreateDirectory(fs.ConfigPath);
 				ExecuteBinary(
 					cluster.ClusterConfiguration,
@@ -98,17 +103,85 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 
 				CopyConfigDirectoryToHomeCacheConfigDirectory(cluster, plugin);
 			}
+
+			cluster.Writer?.WriteDiagnostic($"{{{nameof(InstallPlugins)}}} all plugins installed");
 		}
 
 		private static string GetPluginLocation(OpenSearchPlugin plugin, OpenSearchVersion v)
 		{
-			// OpenSearch 1.0.0 artifacts were not published. The plugins are built in the workflow and used here.
-			if (v == "1.0.0")
-				// The environment variable is set in the integration workflow in
-				// https://github.com/opensearch-project/opensearch-net/blob/main/.github/workflows/integration.yml
-				return "file://" + Environment.GetEnvironmentVariable("plugins-directory") + $"/{plugin.SubProductName}-{v}.zip";
-			else
-				return plugin.SubProductName;
+			var pluginName = plugin.SubProductName;
+			var versionVariants = new[]
+			{
+				v.ToString(),
+				$"{v.BaseVersion()}.0{(v.IsPreRelease ? $"-{v.PreRelease}" : string.Empty)}",
+			};
+
+			if (Environment.GetEnvironmentVariable("OPENSEARCH_PLUGINS_DIRECTORY") is { } pluginsDirectory)
+			{
+				foreach (var versionVariant in versionVariants)
+				{
+					var pluginFile = Path.Combine(pluginsDirectory, $"{pluginName}-{versionVariant}.zip");
+					if (File.Exists(pluginFile))
+					{
+						return new UriBuilder("file",string.Empty)
+							{
+								Path = pluginFile
+									.Replace("%",$"%{(int)'%':X2}")
+									.Replace("[",$"%{(int)'[':X2}")
+									.Replace("]",$"%{(int)']':X2}"),
+							}
+							.Uri
+							.AbsoluteUri;
+					}
+				}
+			}
+
+			if (v.IsSnapshot)
+				return DeterminePluginSnapshotUrl(pluginName, versionVariants);
+
+			return pluginName;
+		}
+
+		private static string DeterminePluginSnapshotUrl(string pluginName, string[] versionVariants)
+		{
+			try
+			{
+				var baseUrl = $"https://aws.oss.sonatype.org/content/repositories/snapshots/org/opensearch/plugin/{pluginName}";
+
+				var versionConditions = string.Join(" or ", versionVariants.Select(v => $".='{v}'"));
+				var version = SelectNodeWithinRemoteXml(
+						$"{baseUrl}/maven-metadata.xml",
+						$"metadata/versioning/versions/version[{versionConditions}]")
+					.InnerText;
+
+				var versionUrl = $"{baseUrl}/{version}";
+
+				var snapshotVersion = SelectNodeWithinRemoteXml(
+						$"{versionUrl}/maven-metadata.xml",
+						"metadata/versioning/snapshotVersions/snapshotVersion[extension='zip']/value")
+					.InnerText;
+
+				return $"{versionUrl}/{pluginName}-{snapshotVersion}.zip";
+			}
+			catch (Exception e)
+			{
+				throw new Exception($"Could not determine snapshot url for plugin `{pluginName}` at versions `{string.Join(", ", versionVariants)}`", e);
+			}
+		}
+
+		private static XmlNode SelectNodeWithinRemoteXml(string url, [LanguageInjection("XPath")] string xPath)
+		{
+			var task = Task.Run(async () =>
+			{
+				var msg = await HttpClient.GetAsync(url);
+				msg.EnsureSuccessStatusCode();
+				var xml = await msg.Content.ReadAsStringAsync();
+				var doc = new XmlDocument();
+				doc.LoadXml(xml);
+				return doc.SelectSingleNode(xPath) ?? throw new Exception($"Could not find node matching XPath: `{xPath}` within `{xml}`");
+			});
+			task.Wait();
+			return task.Result;
 		}
 
 		private static void CopyConfigDirectoryToHomeCacheConfigDirectory(
