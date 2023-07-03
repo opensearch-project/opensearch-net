@@ -22,9 +22,9 @@
       },
       "Proc": {
         "type": "Direct",
-        "requested": "[0.6.1, )",
-        "resolved": "0.6.1",
-        "contentHash": "xRSCfgQNoGy60MOuvD2X1euzqvWDoyfpB8NAfVs2E5K5U1I8cA9MvVY6NbUkp5ApbOmVXls2JEPrOn8rQi2Pzg==",
+        "requested": "[0.6.2, )",
+        "resolved": "0.6.2",
+        "contentHash": "81easJse61jBrADq/XrePODDTbIMyBekulANnmIWOc5YzFtJlLECMMuN+HIn8e20jBCwPJQXNsQuUb1OfctmVA==",
         "dependencies": {
           "System.Diagnostics.Process": "[4.3.0]",
           "System.Threading.Thread": "[4.3.0]"

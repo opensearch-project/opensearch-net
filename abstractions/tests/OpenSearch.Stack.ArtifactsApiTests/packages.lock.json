@@ -143,8 +143,8 @@
       },
       "Proc": {
         "type": "Transitive",
-        "resolved": "0.6.1",
-        "contentHash": "xRSCfgQNoGy60MOuvD2X1euzqvWDoyfpB8NAfVs2E5K5U1I8cA9MvVY6NbUkp5ApbOmVXls2JEPrOn8rQi2Pzg==",
+        "resolved": "0.6.2",
+        "contentHash": "81easJse61jBrADq/XrePODDTbIMyBekulANnmIWOc5YzFtJlLECMMuN+HIn8e20jBCwPJQXNsQuUb1OfctmVA==",
         "dependencies": {
           "System.Diagnostics.Process": "[4.3.0]",
           "System.Threading.Thread": "[4.3.0]"
@@ -912,7 +912,7 @@
         "type": "Project",
         "dependencies": {
           "OpenSearch.Stack.ArtifactsApi": "[1.3.0, )",
-          "Proc": "[0.6.1, )",
+          "Proc": "[0.6.2, )",
           "System.Net.Http": "[4.3.4, )"
         }
       },
@@ -948,7 +948,7 @@
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",
           "OpenSearch.Client.JsonNetSerializer": "[1.3.0, )",
           "OpenSearch.OpenSearch.Xunit": "[1.3.0, )",
-          "Proc": "[0.6.1, )",
+          "Proc": "[0.6.2, )",
           "Tests.Domain": "[1.3.0, )",
           "xunit": "[2.4.2, )"
         }
