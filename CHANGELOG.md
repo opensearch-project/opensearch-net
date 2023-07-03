@@ -26,6 +26,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Microsoft.NET.Test.Sdk` from 17.4.1 to 17.6.2
 - Bumps `Fake.IO.FileSystem` from 5.23.1 to 6.0.0
 - Bumps `Microsoft.SourceLink.GitHub` from 1.0.0 to 1.1.1
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.0 to 6.0.1
 
 ## [1.3.0]
 ### Added
