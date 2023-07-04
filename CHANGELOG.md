@@ -20,6 +20,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Microsoft.CSharp` from 4.6.0 to 4.7.0
 - Bumps `BenchMarkDotNet` from 0.13.4 to 0.13.5
 - Bumps `Microsoft.SourceLink.GitHub` from 1.0.0 to 1.1.1
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.0 to 6.0.1
 
 ## [1.3.0]
 ### Added
