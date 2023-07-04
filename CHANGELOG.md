@@ -28,6 +28,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Microsoft.SourceLink.GitHub` from 1.0.0 to 1.1.1
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.0 to 6.0.1
 - Bumps `System.Reactive` from 5.0.0 to 6.0.0
+- Bumps `Proc` from 0.6.1 to 0.6.2
 
 ## [1.3.0]
 ### Added
