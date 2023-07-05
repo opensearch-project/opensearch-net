@@ -4,7 +4,7 @@
     "rollForward": "latestFeature",
     "allowPrerelease": false
   },
-  "version": "1.3.0",
-  "doc_current": "1.3",
+  "version": "1.4.0",
+  "doc_current": "1.4",
   "doc_branch": "1.x"
 }
