@@ -56,20 +56,6 @@ using System.Threading;
 
 namespace OpenSearch.Net
 {
-#if !DOTNETCORE
-	/// <summary>
-	/// Stub for System.Diagnostics.Tracing.EventCounter which is not available on .NET 4.6.1
-	/// </summary>
-	// ReSharper disable once UnusedType.Global
-	internal class EventCounter
-	{
-		// ReSharper disable UnusedParameter.Local
-		public EventCounter(string blocks, RecyclableMemoryStreamManager.Events eventsWriter) { }
-		// ReSharper restore UnusedParameter.Local
-
-		public void WriteMetric(long v) { }
-	}
-#endif
 #if !NETSTANDARD2_1
 	internal class PollingCounter : IDisposable
 	{

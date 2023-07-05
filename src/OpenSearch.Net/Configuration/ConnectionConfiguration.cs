@@ -33,10 +33,8 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-#if DOTNETCORE
 using System.Net.Http;
 using System.Runtime.InteropServices;
-#endif
 using System.Net.Security;
 using System.Reflection;
 using System.Security;
@@ -82,16 +80,10 @@ namespace OpenSearch.Net
 		/// </summary>
 		public static readonly TimeSpan DefaultDnsRefreshTimeout = TimeSpan.FromMinutes(5);
 
-#if DOTNETCORE
 		/// <summary>
 		/// The default connection limit for both OpenSearch.Net and OpenSearch.Client. Defaults to <c>80</c>
 		/// <para>Except for <see cref="HttpClientHandler"/> implementations based on curl, which defaults to <see cref="Environment.ProcessorCount"/></para>
 		/// </summary>
-#else
-		/// <summary>
-		/// The default connection limit for both OpenSearch.Net and OpenSearch.Client. Defaults to <c>80</c>
-		/// </summary>
-#endif
 		public static readonly int DefaultConnectionLimit = UsingCurlHandler ? Environment.ProcessorCount : 80;
 
 		/// <summary>
@@ -440,11 +432,7 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// DnsRefreshTimeout for the connections. Defaults to 5 minutes.
-#if DOTNETCORE
 		/// <para>Will create new instances of <see cref="System.Net.Http.HttpClient"/> after this timeout to force DNS updates</para>
-#else
-		/// <para>Will set both <see cref="System.Net.ServicePointManager.DnsRefreshTimeout"/> and <see cref="System.Net.ServicePointManager.ConnectionLeaseTimeout "/>
-#endif
 		/// </summary>
 		public T DnsRefreshTimeout(TimeSpan timeout) => Assign(timeout, (a, v) => a._dnsRefreshTimeout = v);
 

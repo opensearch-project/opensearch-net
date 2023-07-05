@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-#if DOTNETCORE
 using System;
 using System.Threading;
 
@@ -63,4 +62,3 @@ namespace OpenSearch.Net
 		}
 	}
 }
-#endif

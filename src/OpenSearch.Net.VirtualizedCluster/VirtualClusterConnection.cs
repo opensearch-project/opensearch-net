@@ -30,11 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-#if DOTNETCORE
-using TheException = System.Net.Http.HttpRequestException;
-#else
-using TheException = System.Net.WebException;
-#endif
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net.VirtualizedCluster.MockResponses;
@@ -167,7 +163,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 					CallResponse
 				);
 			}
-			catch (TheException e)
+			catch (HttpRequestException e)
 			{
 				return ResponseBuilder.ToResponse<TResponse>(requestData, e, null, null, Stream.Null);
 			}
@@ -228,7 +224,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 				var time = timeout < rule.Takes.Value ? timeout : rule.Takes.Value;
 				_dateTimeProvider.ChangeTime(d => d.Add(time));
 				if (rule.Takes.Value > requestData.RequestTimeout)
-					throw new TheException(
+					throw new HttpRequestException(
 						$"Request timed out after {time} : call configured to take {rule.Takes.Value} while requestTimeout was: {timeout}");
 			}
 
@@ -248,7 +244,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 				var time = timeout < rule.Takes.Value ? timeout : rule.Takes.Value;
 				_dateTimeProvider.ChangeTime(d => d.Add(time));
 				if (rule.Takes.Value > requestData.RequestTimeout)
-					throw new TheException(
+					throw new HttpRequestException(
 						$"Request timed out after {time} : call configured to take {rule.Takes.Value} while requestTimeout was: {timeout}");
 			}
 
@@ -268,7 +264,7 @@ namespace OpenSearch.Net.VirtualizedCluster
 			rule.RecordExecuted();
 
 			if (ret == null)
-				throw new TheException();
+				throw new HttpRequestException();
 
 			return ret.Match(
 				(e) => throw e,

@@ -280,17 +280,10 @@ namespace OpenSearch.Net
 		/// </summary>
 		bool TransferEncodingChunked { get; }
 
-		#if DOTNETCORE
 		/// <summary>
 		/// DnsRefreshTimeout for the connections. Defaults to 5 minutes.
 		/// <para>Will create new instances of <see cref="System.Net.Http.HttpClient"/> after this timeout to force DNS updates</para>
 		/// </summary>
-		#else
-		/// <summary>
-		/// DnsRefreshTimeout for the connections. Defaults to 5 minutes.
-		/// <para>Will set <see cref="System.Net.ServicePoint.ConnectionLeaseTimeout "/> </para>
-		/// </summary>
-		#endif
 		TimeSpan DnsRefreshTimeout { get; }
 
 		/// <summary>

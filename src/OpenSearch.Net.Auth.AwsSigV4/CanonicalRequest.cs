@@ -13,17 +13,9 @@ using System.Web;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal.Auth;
 using Amazon.Util;
-
-#if DOTNETCORE
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-#else
-using System.Collections.Specialized;
-using System.IO;
-using System.IO.Compression;
-using System.Net;
-#endif
 
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
@@ -59,19 +51,11 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			XAmzSecurityToken = xAmzSecurityToken;
 		}
 
-#if DOTNETCORE
 		public static async Task<CanonicalRequest> From(HttpRequestMessage request, ImmutableCredentials credentials, DateTime signingTime)
-#else
-		public static CanonicalRequest From(HttpWebRequest request, RequestData requestData, ImmutableCredentials credentials, DateTime signingTime)
-#endif
 		{
 			var path = AWSSDKUtils.CanonicalizeResourcePathV2(request.RequestUri, null, false, null);
 
-#if DOTNETCORE
 			var bodyBytes = await GetBodyBytes(request).ConfigureAwait(false);
-#else
-			var bodyBytes = GetBodyBytes(requestData);
-#endif
 
 			var xAmzContentSha256 = AWSSDKUtils.ToHex(AWS4Signer.ComputeHash(bodyBytes), true);
 
@@ -80,9 +64,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			var canonicalHeaders = new SortedDictionary<string, List<string>>();
 
 			CanonicalizeHeaders(canonicalHeaders, request.Headers);
-#if DOTNETCORE
 			CanonicalizeHeaders(canonicalHeaders, request.Content?.Headers);
-#endif
 
 			canonicalHeaders[HeaderNames.Host] = new List<string> { request.RequestUri.Authority };
 			canonicalHeaders[HeaderNames.XAmzDate] = new List<string> { xAmzDate };
@@ -109,16 +91,11 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 
 			var paramString = string.Join("&", orderedParams);
 
-#if DOTNETCORE
 			var method = request.Method.ToString();
-#else
-			var method = request.Method;
-#endif
 
 			return new CanonicalRequest(method, path, paramString, canonicalHeaders, xAmzContentSha256, xAmzDate, xAmzSecurityToken);
 		}
 
-#if DOTNETCORE
 		private static async Task<byte[]> GetBodyBytes(HttpRequestMessage request)
 		{
 			if (request.Content == null) return Array.Empty<byte>();
@@ -139,38 +116,14 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			return body;
 		}
 
-#else
-		private static byte[] GetBodyBytes(RequestData requestData)
-		{
-			if (requestData.PostData == null) return Array.Empty<byte>();
-
-			using var ms = new MemoryStream();
-			if (requestData.HttpCompression)
-				using (var zipStream = new GZipStream(ms, CompressionMode.Compress))
-					requestData.PostData.Write(zipStream, requestData.ConnectionSettings);
-			else
-				requestData.PostData.Write(ms, requestData.ConnectionSettings);
-
-			return ms.ToArray();
-		}
-#endif
-
 		private static void CanonicalizeHeaders(
 			IDictionary<string, List<string>> canonicalHeaders,
-#if DOTNETCORE
 			HttpHeaders headers
-#else
-			NameValueCollection headers
-#endif
 		)
 		{
 			if (headers == null) return;
 
-#if DOTNETCORE
 			foreach (var pair in headers)
-#else
-			foreach (var pair in headers.AllKeys.Select(k => new KeyValuePair<string, IEnumerable<string>>(k, headers.GetValues(k))))
-#endif
 			{
 				if (pair.Value == null) continue;
 

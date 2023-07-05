@@ -44,7 +44,6 @@ namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 
 		public PingTests(ReadOnlyCluster cluster) => _cluster = cluster;
 
-#if DOTNETCORE
 		[I]
 		public void UsesRelativePathForPing()
 		{
@@ -62,24 +61,6 @@ namespace Tests.ClientConcepts.ConnectionPooling.Pinging
 			healthResponse.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.PingSuccess);
 			healthResponse.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.HealthyResponse);
 		}
-#else
-		[I]
-		public void UsesRelativePathForPing()
-		{
-			var uris = _cluster.NodesUris().Select(u => new Uri(u.AbsoluteUri.Trim('/') + "/opensearch/"));
-			var pool = new StaticConnectionPool(uris);
-			var connection = new HttpWebRequestConnectionTests.TestableHttpWebRequestConnection();
-			var settings = new ConnectionSettings(pool, connection);
-			settings = (ConnectionSettings)_cluster.UpdateSettings(settings);
-
-			var client = new OpenSearchClient(settings);
-			var healthResponse = client.Ping();
-
-			connection.LastRequest.Address.AbsolutePath.Should().StartWith("/opensearch/");
-			healthResponse.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.PingSuccess);
-			healthResponse.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.HealthyResponse);
-		}
-#endif
 	}
 }
 

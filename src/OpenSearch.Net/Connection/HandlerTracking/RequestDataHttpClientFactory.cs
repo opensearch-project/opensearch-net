@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-#if DOTNETCORE
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
@@ -272,4 +271,3 @@ namespace OpenSearch.Net
 		}
 	}
 }
-#endif

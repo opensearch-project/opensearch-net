@@ -32,11 +32,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using OpenSearch.Net;
-
-#if DOTNETCORE
 using System.Runtime.InteropServices;
-#endif
+using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {

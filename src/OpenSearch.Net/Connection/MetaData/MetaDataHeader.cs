@@ -53,11 +53,7 @@ namespace OpenSearch.Net
 		}
 
 		private static readonly string _httpClientIdentifier =
-#if DOTNETCORE
 			ConnectionInfo.UsingCurlHandler ? "cu" : "so";
-#else
-			"wr";
-#endif
 
 		public string ServiceIdentifier { get; private set; }
 		public string ClientVersion { get; private set; }

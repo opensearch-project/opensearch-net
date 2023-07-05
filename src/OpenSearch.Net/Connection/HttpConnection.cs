@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-#if DOTNETCORE
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -411,7 +410,7 @@ namespace OpenSearch.Net
 				if (requestData.PostData.DisableDirectStreaming.GetValueOrDefault(false) && !requestData.HttpCompression)
 				{
 					message.Content = new ByteArrayContent(requestData.PostData.WrittenBytes);
-#if DOTNETCORE_2_1_OR_HIGHER
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
 						await stream.DisposeAsync().ConfigureAwait(false);
 
 #else
@@ -462,4 +461,3 @@ namespace OpenSearch.Net
 		protected virtual void DisposeManagedResources() => HttpClientFactory.Dispose();
 	}
 }
-#endif

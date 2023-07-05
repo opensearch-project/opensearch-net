@@ -133,7 +133,6 @@ namespace Tests.ClientConcepts.Connection
 		* provides some examples
 		*
 		*/
-#if DOTNETCORE
 		public class MyCustomHttpConnection : HttpConnection
 		{
 			protected override HttpRequestMessage CreateRequestMessage(RequestData requestData)
@@ -144,47 +143,6 @@ namespace Tests.ClientConcepts.Connection
 				return message;
 			}
 		}
-#endif
-#if !DOTNETCORE
-		/**
-		 * On .NET full framework the overrides on HttpConnection are different as they are geared towards using HttpWebRequest.
-		 * Here are two examples for .NET full framework
-		 */
-		public class MyCustomHttpConnection : HttpConnection
-		{
-			protected override void AlterServicePoint(ServicePoint requestServicePoint, RequestData requestData)
-			{
-				base.AlterServicePoint(requestServicePoint, requestData);
-				requestServicePoint.ConnectionLimit = 10000;
-				requestServicePoint.UseNagleAlgorithm = true;
-			}
-		}
-		public class X509CertificateHttpConnection : HttpConnection
-		{
-			protected override HttpWebRequest CreateHttpWebRequest(RequestData requestData)
-			{
-				var request = base.CreateHttpWebRequest(requestData);
-				request.ClientCertificates.Add(new X509Certificate("file_path_to_cert"));
-				return request;
-			}
-		}
-
-		/**
-		 * As before, a new instance of the custom connection is passed to `ConnectionSettings` in order to
-		 * use
-		 */
-		public void UseX509CertificateHttpConnection()
-		{
-			var connection = new X509CertificateHttpConnection();
-			var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new ConnectionSettings(connectionPool, connection);
-			var client = new OpenSearchClient(settings);
-		}
-		/**
-		 * See <<working-with-certificates, Working with certificates>> for further details.
-		 */
-#endif
-#if DOTNETCORE
 
 		/*
 		* [[kerberos-authentication]]
@@ -209,6 +167,5 @@ namespace Tests.ClientConcepts.Connection
 		/**
 		 * See <<working-with-certificates, Working with certificates>> for further details.
 		 */
-#endif
 	}
 }
