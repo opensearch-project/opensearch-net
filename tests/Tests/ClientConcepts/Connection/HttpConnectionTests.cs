@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-#if DOTNETCORE
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -82,7 +81,7 @@ namespace Tests.ClientConcepts.Connection
 			connection.InUseHandlers.Should().Be(1);
 			connection.RemovedHandlers.Should().Be(1);
 		}
-		
+
 		[I] public async Task MultipleInstancesOfHttpClientWhenRequestTimeoutChanges() =>
 			await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(TimeSpan.FromSeconds(30)));
 
@@ -140,7 +139,7 @@ namespace Tests.ClientConcepts.Connection
 				connectionSettings.Proxy(proxyAddress, null, (string)null);
 
 			var requestParameters = new SearchRequestParameters();
-			
+
 			if (requestMetaData is object)
 			{
 				requestParameters.RequestConfiguration ??= new RequestConfiguration();
@@ -319,4 +318,3 @@ namespace Tests.ClientConcepts.Connection
 		}
 	}
 }
-#endif

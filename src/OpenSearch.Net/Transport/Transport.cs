@@ -33,10 +33,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net.Extensions;
 
-#if !DOTNETCORE
-using System.Net;
-#endif
-
 namespace OpenSearch.Net
 {
 	public class Transport<TConnectionSettings> : ITransport<TConnectionSettings>
@@ -239,14 +235,6 @@ namespace OpenSearch.Net
 				//set it to the OpenSearchClientException we created for the bad response
 				if (clientException != null && a.OriginalException == null)
 					a.OriginalException = clientException;
-				//On .NET Core the IConnection implementation throws exceptions on bad responses
-				//This causes it to behave differently to .NET FULL. We already wrapped the WebException
-				//under OpenSearchServerException and it exposes way more information as part of it's
-				//exception message e.g the the root cause of the server error body.
-#if !DOTNETCORE
-				if (a.OriginalException is WebException)
-					a.OriginalException = clientException;
-#endif
 			}
 
 			Settings.OnRequestCompleted?.Invoke(response.ApiCall);

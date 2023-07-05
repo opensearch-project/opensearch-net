@@ -5,8 +5,6 @@
 * compatible open source license.
 */
 
-#if DOTNETCORE
-
 using System;
 using System.Net.Http;
 using System.Threading;
@@ -42,5 +40,3 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		}
 	}
 }
-
-#endif

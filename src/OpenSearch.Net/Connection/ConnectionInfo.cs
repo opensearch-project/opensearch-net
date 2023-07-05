@@ -27,9 +27,7 @@
 */
 
 using System;
-#if DOTNETCORE
 using System.Net.Http;
-#endif
 
 namespace OpenSearch.Net
 {
@@ -39,9 +37,6 @@ namespace OpenSearch.Net
 		{
 			get
 			{
-#if !DOTNETCORE
-				return false;
-#else
 				var curlHandlerExists = typeof(HttpClientHandler).Assembly.GetType("System.Net.Http.CurlHandler") != null;
 				if (!curlHandlerExists)
 					return false;
@@ -65,7 +60,6 @@ namespace OpenSearch.Net
 
 				return environmentVariable.Equals("false", StringComparison.OrdinalIgnoreCase) ||
 					environmentVariable.Equals("0");
-#endif
 			}
 		}
 	}

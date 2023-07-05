@@ -72,23 +72,10 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			_dateTimeProvider = dateTimeProvider ?? DateTimeProvider.Default;
 		}
 
-#if DOTNETCORE
-
 		protected virtual System.Net.Http.HttpMessageHandler InnerCreateHttpClientHandler(RequestData requestData) =>
 			base.CreateHttpClientHandler(requestData);
 
 		protected override System.Net.Http.HttpMessageHandler CreateHttpClientHandler(RequestData requestData) =>
 			new AwsSigV4HttpClientHandler(_credentials, _region, _service, _dateTimeProvider, InnerCreateHttpClientHandler(requestData));
-
-#else
-
-		protected override System.Net.HttpWebRequest CreateHttpWebRequest(RequestData requestData)
-		{
-			var request = base.CreateHttpWebRequest(requestData);
-			AwsSigV4Util.SignRequest(request, requestData, _credentials.GetCredentials(), _region, _dateTimeProvider.Now(), _service);
-			return request;
-		}
-
-#endif
 	}
 }

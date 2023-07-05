@@ -27,11 +27,7 @@
 */
 
 using System;
-#if DOTNETCORE
-using TheException = System.Net.Http.HttpRequestException;
-#else
-using TheException = System.Net.WebException;
-#endif
+using System.Net.Http;
 
 namespace OpenSearch.Net.VirtualizedCluster.Rules
 {
@@ -45,7 +41,7 @@ namespace OpenSearch.Net.VirtualizedCluster.Rules
 		{
 			Self.Times = times;
 			Self.Succeeds = false;
-			Self.Return = errorState ?? new TheException();
+			Self.Return = errorState ?? new HttpRequestException();
 			return this;
 		}
 
@@ -65,7 +61,7 @@ namespace OpenSearch.Net.VirtualizedCluster.Rules
 
 		public ClientCallRule ThrowsAfterSucceeds()
 		{
-			Self.AfterSucceeds = new TheException();
+			Self.AfterSucceeds = new HttpRequestException();
 			return this;
 		}
 

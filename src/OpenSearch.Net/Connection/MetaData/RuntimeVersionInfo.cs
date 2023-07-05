@@ -48,15 +48,10 @@
 #endregion
 
 using System;
-#if DOTNETCORE
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-#else
-using Microsoft.Win32;
-using System.Linq;
-#endif
 
 namespace OpenSearch.Net
 {
@@ -70,13 +65,8 @@ namespace OpenSearch.Net
 		public RuntimeVersionInfo() => StoreVersion(GetRuntimeVersion());
 
 		private static string GetRuntimeVersion() =>
-#if !DOTNETCORE
-			GetFullFrameworkRuntime();
-#else
 			GetNetCoreVersion();
-#endif
 
-#if DOTNETCORE
 		private static string GetNetCoreVersion()
 		{
 			// for .NET 5+ we can use Environment.Version
@@ -161,7 +151,7 @@ namespace OpenSearch.Net
 				if (releaseVersionIndex > 0)
 				{
 					version = productVersion.Substring(releaseVersionIndex + releaseVersionPrefix.Length);
-					return true;					
+					return true;
 				}
 			}
 
@@ -193,75 +183,5 @@ namespace OpenSearch.Net
 		}
 
 		private static bool IsRunningInContainer => string.Equals(Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER"), "true");
-#endif
-
-#if !DOTNETCORE
-		private static string GetFullFrameworkRuntime()
-		{
-			const string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
-
-			using (var ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey))
-			{
-				if (ndpKey != null && ndpKey.GetValue("Release") != null)
-				{
-					var version = CheckFor45PlusVersion((int)ndpKey.GetValue("Release"));
-
-					if (!string.IsNullOrEmpty(version) )
-						return version;
-				}
-			}
-
-			var fullName = RuntimeInformation.FrameworkDescription;
-			var servicingVersion = new string(fullName.SkipWhile(c => !char.IsDigit(c)).ToArray());
-			var servicingVersionRelease = MapToReleaseVersion(servicingVersion);
-
-			return servicingVersionRelease;
-
-			static string MapToReleaseVersion(string servicingVersion)
-			{
-				// the following code assumes that .NET 4.6.1 is the oldest supported version
-				if (string.Compare(servicingVersion, "4.6.2") < 0)
-					return "4.6.1";
-				if (string.Compare(servicingVersion, "4.7") < 0)
-					return "4.6.2";
-				if (string.Compare(servicingVersion, "4.7.1") < 0)
-					return "4.7";
-				if (string.Compare(servicingVersion, "4.7.2") < 0)
-					return "4.7.1";
-				if (string.Compare(servicingVersion, "4.8") < 0)
-					return "4.7.2";
-
-				return "4.8.0"; // most probably the last major release of Full .NET Framework
-			}
-
-			// Checking the version using >= enables forward compatibility.
-			static string CheckFor45PlusVersion(int releaseKey)
-			{
-				if (releaseKey >= 528040)
-					return "4.8.0";
-				if (releaseKey >= 461808)
-					return "4.7.2";
-				if (releaseKey >= 461308)
-					return "4.7.1";
-				if (releaseKey >= 460798)
-					return "4.7";
-				if (releaseKey >= 394802)
-					return "4.6.2";
-				if (releaseKey >= 394254)
-					return "4.6.1";
-				if (releaseKey >= 393295)
-					return "4.6";
-				if (releaseKey >= 379893)
-					return "4.5.2";
-				if (releaseKey >= 378675)
-					return "4.5.1";
-				if (releaseKey >= 378389)
-					return "4.5.0";
-				// This code should never execute. A non-null release key should mean
-				// that 4.5 or later is installed.
-				return null;
-			}
-		}
-#endif
 	}
 }
