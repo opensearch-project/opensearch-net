@@ -90,7 +90,7 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "[1.4.0, )"
+          "OpenSearch.Net": "[1.5.0, )"
         }
       },
       "opensearch.net": {
@@ -297,7 +297,7 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "[1.4.0, )"
+          "OpenSearch.Net": "[1.5.0, )"
         }
       },
       "opensearch.net": {

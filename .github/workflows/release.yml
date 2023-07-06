@@ -2,7 +2,7 @@ name: Create Release Candidate
 
 on: [pull_request, push]
 env:
-    VERSION: 1.4.0
+    VERSION: 1.5.0
 jobs:
   create-release-artifacts:
     name: Create Release Artifacts
