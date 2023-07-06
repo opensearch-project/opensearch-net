@@ -836,14 +836,14 @@
         "type": "Project",
         "dependencies": {
           "JetBrains.Annotations": "[2022.3.1, )",
-          "OpenSearch.OpenSearch.Managed": "[1.4.0, )",
+          "OpenSearch.OpenSearch.Managed": "[1.5.0, )",
           "SharpZipLib": "[1.4.2, )"
         }
       },
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "[1.4.0, )",
+          "OpenSearch.Stack.ArtifactsApi": "[1.5.0, )",
           "Proc": "[0.6.2, )",
           "System.Net.Http": "[4.3.4, )"
         }

@@ -852,14 +852,14 @@
       "opensearch.client": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Net": "[1.4.0, )"
+          "OpenSearch.Net": "[1.5.0, )"
         }
       },
       "opensearch.client.jsonnetserializer": {
         "type": "Project",
         "dependencies": {
           "Newtonsoft.Json": "[13.0.3, )",
-          "OpenSearch.Client": "[1.4.0, )"
+          "OpenSearch.Client": "[1.5.0, )"
         }
       },
       "opensearch.net": {
@@ -874,14 +874,14 @@
         "type": "Project",
         "dependencies": {
           "JetBrains.Annotations": "[2022.3.1, )",
-          "OpenSearch.OpenSearch.Managed": "[1.4.0, )",
+          "OpenSearch.OpenSearch.Managed": "[1.5.0, )",
           "SharpZipLib": "[1.4.2, )"
         }
       },
       "opensearch.opensearch.managed": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.Stack.ArtifactsApi": "[1.4.0, )",
+          "OpenSearch.Stack.ArtifactsApi": "[1.5.0, )",
           "Proc": "[0.6.2, )",
           "System.Net.Http": "[4.3.4, )"
         }
@@ -889,7 +889,7 @@
       "opensearch.opensearch.xunit": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Ephemeral": "[1.4.0, )",
+          "OpenSearch.OpenSearch.Ephemeral": "[1.5.0, )",
           "xunit": "[2.4.2, )"
         }
       },
@@ -905,7 +905,7 @@
       "tests.configuration": {
         "type": "Project",
         "dependencies": {
-          "OpenSearch.OpenSearch.Managed": "[1.4.0, )"
+          "OpenSearch.OpenSearch.Managed": "[1.5.0, )"
         }
       },
       "tests.core": {
@@ -916,10 +916,10 @@
           "JunitXml.TestLogger": "[3.0.124, )",
           "Microsoft.TestPlatform.ObjectModel": "[17.5.0, )",
           "Nullean.VsTest.Pretty.TestLogger": "[0.3.0, )",
-          "OpenSearch.Client.JsonNetSerializer": "[1.4.0, )",
-          "OpenSearch.OpenSearch.Xunit": "[1.4.0, )",
+          "OpenSearch.Client.JsonNetSerializer": "[1.5.0, )",
+          "OpenSearch.OpenSearch.Xunit": "[1.5.0, )",
           "Proc": "[0.6.2, )",
-          "Tests.Domain": "[1.4.0, )",
+          "Tests.Domain": "[1.5.0, )",
           "xunit": "[2.4.2, )"
         }
       },
@@ -928,9 +928,9 @@
         "dependencies": {
           "Bogus": "[34.0.2, )",
           "Newtonsoft.Json": "[13.0.3, )",
-          "OpenSearch.Client": "[1.4.0, )",
-          "OpenSearch.OpenSearch.Managed": "[1.4.0, )",
-          "Tests.Configuration": "[1.4.0, )"
+          "OpenSearch.Client": "[1.5.0, )",
+          "OpenSearch.OpenSearch.Managed": "[1.5.0, )",
+          "Tests.Configuration": "[1.5.0, )"
         }
       }
     }
