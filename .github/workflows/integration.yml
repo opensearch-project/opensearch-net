@@ -37,11 +37,18 @@ jobs:
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             5.0.x
             6.0.x
+            
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
         # Due to https://github.com/opensearch-project/project-website/issues/737
         # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
@@ -96,11 +103,18 @@ jobs:
         with:
           path: client
           
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             5.0.x
             6.0.x
+            
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
             
       - name: Restore or Build OpenSearch
         uses: ./client/.github/actions/cached-git-build
