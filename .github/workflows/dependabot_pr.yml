@@ -41,14 +41,10 @@ jobs:
         with:
           version: 'Unreleased'
 
-      - name: Update packages.lock.json
-        if: ${{ contains(github.event.pull_request.labels.*.name, 'dependabot') }}
-        run: dotnet restore --force-evaluate
-
       - name: Commit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update changelog & packages.lock.json"
+          commit_message: "Update changelog"
           branch: ${{ github.head_ref }}
           commit_user_name: dependabot[bot]
           commit_user_email: support@github.com

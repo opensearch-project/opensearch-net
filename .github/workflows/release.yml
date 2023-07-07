@@ -15,14 +15,6 @@ jobs:
         dotnet-version: |
           5.0.x
           6.0.x
-    - uses: actions/cache@v2
-      with:
-        path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-nuget-
-    - run: dotnet nuget locals all --clear
-      name: Clear nuget cache
     - name: Generate Release
       run: |
         ./build.sh release $VERSION
