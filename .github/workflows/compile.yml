@@ -16,7 +16,7 @@ jobs:
     - uses: actions/cache@v3
       with:
         path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
     - name: Compile

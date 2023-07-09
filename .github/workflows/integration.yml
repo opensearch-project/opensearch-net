@@ -42,11 +42,11 @@ jobs:
           dotnet-version: |
             5.0.x
             6.0.x
-            
+
       - uses: actions/cache@v3
         with:
           path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
 
@@ -108,11 +108,11 @@ jobs:
           dotnet-version: |
             5.0.x
             6.0.x
-            
+
       - uses: actions/cache@v3
         with:
           path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
             
