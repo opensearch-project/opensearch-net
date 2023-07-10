@@ -6,6 +6,10 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202), [#203](https://github.com/opensearch-project/opensearch-net/pull/203), [#205](https://github.com/opensearch-project/opensearch-net/pull/205), [#206](https://github.com/opensearch-project/opensearch-net/pull/206), [#207](https://github.com/opensearch-project/opensearch-net/pull/207), [#208](https://github.com/opensearch-project/opensearch-net/pull/208), [#209](https://github.com/opensearch-project/opensearch-net/pull/209))
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 
+### Dependencies
+- Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
+
+## [1.4.0]
 ### Added
 - Added support for approximate k-NN search queries and k-NN vector index properties ([#215](https://github.com/opensearch-project/opensearch-net/pull/215))
 
@@ -20,8 +24,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `SharpZipLib` from 1.4.1 to 1.4.2
 - Bumps `AWSSDK.Core` from 3.7.103.17 to 3.7.106.29
 - Bumps `Newtonsoft.Json` from 13.0.2 to 13.0.3
-- Bumps `FSharp.Data` from 5.0.2 to 6.2.0
 - Bumps `Microsoft.CSharp` from 4.6.0 to 4.7.0
+- Bumps `FSharp.Data` from 5.0.2 to 6.2.0
 - Bumps `BenchMarkDotNet` from 0.13.4 to 0.13.5
 - Bumps `FSharp.Core` from 6.0.7 to 7.0.300
 - Bumps `Microsoft.NET.Test.Sdk` from 17.4.1 to 17.6.2
@@ -30,7 +34,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.0 to 6.0.1
 - Bumps `System.Reactive` from 5.0.0 to 6.0.0
 - Bumps `Proc` from 0.6.1 to 0.6.2
-- Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 
 ## [1.3.0]
 ### Added
@@ -71,5 +74,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/1.3.0...HEAD
-[1.3.0]: https://github.com/opensearch-project/opensearch-net/compare/1.2.0...1.3.0
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...main
+[1.4.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.2.0...v1.3.0
