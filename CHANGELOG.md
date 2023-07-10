@@ -2,6 +2,8 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+### Dependencies
+- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.6.3
 
 ## [1.4.0]
 ### Added
