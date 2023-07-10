@@ -37,23 +37,19 @@ jobs:
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             5.0.x
             6.0.x
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - run: dotnet nuget locals all --clear
-        name: Clear nuget cache
-        working-directory: client
-      
         # Due to https://github.com/opensearch-project/project-website/issues/737
         # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
         # Compiled plugins are copied to ${OPENSEARCH_PLUGINS_DIRECTORY} where picked up by the test framework
@@ -107,23 +103,19 @@ jobs:
         with:
           path: client
           
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             5.0.x
             6.0.x
-            
-      - uses: actions/cache@v2
+
+      - uses: actions/cache@v3
         with:
           path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
-      - run: dotnet nuget locals all --clear
-        name: Clear nuget cache
-        working-directory: client
-        
+            
       - name: Restore or Build OpenSearch
         uses: ./client/.github/actions/cached-git-build
         with:
