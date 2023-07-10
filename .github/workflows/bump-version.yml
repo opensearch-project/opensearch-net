@@ -30,7 +30,7 @@ jobs:
         run: bash .github/bump-version.sh "${{ github.event.inputs.version }}"
         
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ steps.github_app_token.outputs.token }}
           base: ${{ github.event.inputs.branch }}
@@ -39,6 +39,7 @@ jobs:
           signoff: true
           delete-branch: true
           title: 'Bump version on ${{ github.event.inputs.branch }} to ${{ github.event.inputs.version }}.'
+          labels: skip-changelog
           body: |
             Bumping version on `${{ github.event.inputs.branch }}` to `${{ github.event.inputs.version }}`.
 
