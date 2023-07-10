@@ -7,20 +7,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
       with:
         dotnet-version: |
           5.0.x
           6.0.x
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       with:
         path: ~/.nuget/packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
-    - run: dotnet nuget locals all --clear
-      name: Clear nuget cache
     - name: Compile
       run: |
         dotnet build
