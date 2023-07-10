@@ -18,6 +18,13 @@ jobs:
             5.0.x
             6.0.x
 
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: Install docfx
         run: dotnet tool install --global docfx
         
