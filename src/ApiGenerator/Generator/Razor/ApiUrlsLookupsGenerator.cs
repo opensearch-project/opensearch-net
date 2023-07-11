@@ -41,7 +41,7 @@ namespace ApiGenerator.Generator.Razor
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
             var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup.cshtml");
-            var target = GeneratorLocations.HighLevel("_Generated", "ApiUrlsLookup.generated.cs");
+            var target = GeneratorLocations.HighLevel("ApiUrlsLookup.cs");
 
             await DoRazor(spec, view, target, token);
         }

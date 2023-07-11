@@ -141,7 +141,7 @@ namespace ApiGenerator.Generator
 	        while (schema.HasReference) schema = schema.Reference;
 
 			if (schema.GetExtension("x-data-type") is string dataType)
-				return dataType;
+				return dataType == "array" ? "list" : dataType;
 
 	        return schema.Type switch
 	        {

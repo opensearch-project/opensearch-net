@@ -39,10 +39,15 @@ namespace ApiGenerator.Configuration
         public static string OpenSearchNetFolder { get; } = $@"{Root}../../src/OpenSearch.Net/";
 
         public static string OpenSearchClientFolder { get; } = $@"{Root}../../src/OpenSearch.Client/";
-        // @formatter:on — enable formatter after this line
 
-        public static string HighLevel(params string[] paths) => OpenSearchClientFolder + string.Join("/", paths);
-        public static string LowLevel(params string[] paths) => OpenSearchNetFolder + string.Join("/", paths);
+		public static string LowLevelGeneratedFolder { get; } = $"{OpenSearchNetFolder}_Generated/";
+
+		public static string HighLevelGeneratedFolder { get; } = $"{OpenSearchClientFolder}_Generated/";
+
+		// @formatter:on — enable formatter after this line
+
+        public static string HighLevel(params string[] paths) => HighLevelGeneratedFolder + string.Join("/", paths);
+        public static string LowLevel(params string[] paths) => LowLevelGeneratedFolder + string.Join("/", paths);
 
         public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
 
