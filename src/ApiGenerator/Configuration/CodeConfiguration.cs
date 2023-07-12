@@ -31,11 +31,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using GlobExpressions;
 
 namespace ApiGenerator.Configuration
 {
     public static class CodeConfiguration
-    {
+	{
+		private static readonly Glob[] OperationsToInclude =
+		{
+			// e.g. new Glob("nodes.*"),
+		};
+
+		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));
+
 		/// <summary>
         /// Map API default names for API's we are only supporting on the low level client first
         /// </summary>

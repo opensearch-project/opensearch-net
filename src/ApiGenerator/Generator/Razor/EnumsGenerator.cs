@@ -40,8 +40,8 @@ namespace ApiGenerator.Generator.Razor
 
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
-            var view = ViewLocations.LowLevel("Enums.Generated.cshtml");
-            var target = GeneratorLocations.LowLevel("Api", "Enums.Generated.cs");
+            var view = ViewLocations.LowLevel("Enums.cshtml");
+            var target = GeneratorLocations.LowLevel("Api", "Enums.cs");
 
             await DoRazor(spec, view, target, token);
         }
