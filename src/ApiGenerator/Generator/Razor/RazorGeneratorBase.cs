@@ -93,7 +93,10 @@ namespace ApiGenerator.Generator.Razor
             var tree = CSharpSyntaxTree.ParseText(contents);
             var root = tree.GetRoot().NormalizeWhitespace(indentation:"\t", "\n");
             contents = root.ToFullString();
-            File.WriteAllText(path, contents);
+
+			if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
+
+			File.WriteAllText(path, contents);
         }
 
         public abstract string Title { get; }

@@ -63,11 +63,9 @@ namespace OpenSearch.Net
     }</text>
 }
 
-    public static class KnownEnums
+    public static partial class KnownEnums
     {
-        private static readonly @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>")) EnumStringResolvers = new @(Raw("ConcurrentDictionary<Type, Func<Enum, string>>"))();
-
-        static KnownEnums()
+		static partial void RegisterEnumStringResolvers()
         {
         @foreach (var e in Model.EnumsInTheSpec)
         {
@@ -76,13 +74,7 @@ namespace OpenSearch.Net
         }
         }
 
-        private class EnumDictionary : @(Raw("Dictionary<Enum, string>"))
-        {   
-            public EnumDictionary(int capacity) : base(capacity) {}
-            public @(Raw("Func<Enum, string>")) Resolver { get; set; }
-        }   
-
-    @foreach (var e in Model.EnumsInTheSpec)
+	@foreach (var e in Model.EnumsInTheSpec)
     {
         var isFlag = IsFlag(e.Name);
         <text>
@@ -127,46 +119,5 @@ namespace OpenSearch.Net
         }</text>
         }
     }
-
-        public static string GetStringValue(this Enum e)
-        {
-            var type = e.GetType();     
-            var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
-            return resolver(e);
-        }
-
-        private static @Raw("Func<Enum, string>") GetEnumStringResolver(Type type)
-        {
-            var values = Enum.GetValues(type);
-            var dictionary = new EnumDictionary(values.Length);
-
-            for (int index = 0; index < values.Length; index++)
-            {
-                var value = values.GetValue(index);
-                var info = type.GetField(value.ToString());
-                var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-                var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
-                dictionary.Add((Enum)value, stringValue);
-            }
-
-            var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-
-            return (e) => 
-            {
-                if (isFlag)
-                {
-                    var list = new @(Raw("List<string>()"));
-                    foreach(var kv in dictionary)
-                    {
-                        if (e.HasFlag(kv.Key)) list.Add(kv.Value);
-                    }
-                    return string.Join(",", list);
-                }
-                else
-                {
-                    return dictionary[e];
-                }
-            };
-        }
-    }
+	}
 }

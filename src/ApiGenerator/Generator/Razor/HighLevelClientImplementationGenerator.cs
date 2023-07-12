@@ -43,11 +43,7 @@ namespace ApiGenerator.Generator.Razor
 
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
-            // Delete existing files
-            foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchClientFolder, "OpenSearchClient.*.cs"))
-                File.Delete(file);
-
-            var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
+			var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
             var target = GeneratorLocations.HighLevel($"OpenSearchClient.{CsharpNames.RootNamespace}.cs");
             await DoRazor(spec, view, target, token);
 

@@ -112,7 +112,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of alias names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -177,7 +177,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of alias names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -242,7 +242,8 @@
                                 "$ref": "#/components/schemas/IndicesUpdateAliases_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -289,15 +290,6 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IndicesUpdateAliasesResponseContent"
-                                },
-                                "examples": {
-                                    "IndicesUpdateAliases_example1": {
-                                        "summary": "Examples for Post Aliases Operation.",
-                                        "description": "",
-                                        "value": {
-                                            "acknowledged": true
-                                        }
-                                    }
                                 }
                             }
                         }
@@ -381,7 +373,8 @@
                                 "$ref": "#/components/schemas/Bulk_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -511,7 +504,8 @@
                                 "$ref": "#/components/schemas/Bulk_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -882,7 +876,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of alias names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -1103,7 +1097,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -1417,7 +1411,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -1599,7 +1593,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of fields to return the fielddata size.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -1942,14 +1936,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "CatIndices 200 response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CatIndicesOutputPayload"
-                                }
-                            }
-                        }
+                        "description": "CatIndices 200 response"
                     }
                 },
                 "x-operation-group": "cat.indices",
@@ -1969,7 +1956,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -2127,14 +2114,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "CatIndices_WithIndex 200 response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CatIndices_WithIndexOutputPayload"
-                                }
-                            }
-                        }
+                        "description": "CatIndices_WithIndex 200 response"
                     }
                 },
                 "x-operation-group": "cat.indices",
@@ -2499,14 +2479,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "CatNodes 200 response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CatNodesOutputPayload"
-                                }
-                            }
-                        }
+                        "description": "CatNodes 200 response"
                     }
                 },
                 "x-operation-group": "cat.nodes",
@@ -2882,7 +2855,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list or wildcard expression of index names to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -3277,7 +3250,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list or wildcard expression of index names to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -3544,7 +3517,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -3788,7 +3761,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to limit the returned information.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -4042,7 +4015,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of repository names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -4650,7 +4623,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of regular-expressions to filter the thread pools in the output.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -5100,7 +5073,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Limit the information returned to specific indicies.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -5427,7 +5400,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -5520,7 +5493,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -5942,7 +5915,8 @@
                                 "$ref": "#/components/schemas/ClusterPutSettings_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -6143,7 +6117,7 @@
                                 "cluster_manager_node",
                                 "version"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -6262,7 +6236,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -6285,7 +6259,7 @@
                                 "cluster_manager_node",
                                 "version"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -6444,7 +6418,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -6685,7 +6659,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "The Comma-separated names of the component templates.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -6795,7 +6769,8 @@
                                 "$ref": "#/components/schemas/ClusterPutComponentTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -6878,7 +6853,8 @@
                                 "$ref": "#/components/schemas/ClusterPutComponentTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -7471,7 +7447,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of data streams; use `_all` or empty string to perform the operation on all data streams.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     }
@@ -7496,7 +7472,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of data streams; use `_all` or empty string to perform the operation on all data streams.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     }
@@ -7560,7 +7536,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of data streams; use `_all` or empty string to perform the operation on all data streams.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     }
@@ -8330,7 +8306,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated names of the index templates.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -8460,7 +8436,8 @@
                                 "$ref": "#/components/schemas/IndicesPutIndexTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -8542,7 +8519,8 @@
                                 "$ref": "#/components/schemas/IndicesPutIndexTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -8693,7 +8671,8 @@
                                 "$ref": "#/components/schemas/IngestSimulate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -8793,7 +8772,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of pipeline ids. Wildcards supported.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -8845,7 +8824,8 @@
                                 "$ref": "#/components/schemas/IngestPutPipeline_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -8950,7 +8930,8 @@
                                 "$ref": "#/components/schemas/IngestSimulate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -9101,7 +9082,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of fields.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -9281,7 +9262,8 @@
                                 "$ref": "#/components/schemas/Mget_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -9483,7 +9465,8 @@
                                 "$ref": "#/components/schemas/Msearch_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -9639,7 +9622,8 @@
                                 "$ref": "#/components/schemas/MsearchTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -10372,7 +10356,7 @@
                                 "discovery",
                                 "indexing_pressure"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10512,7 +10496,7 @@
                                 "discovery",
                                 "indexing_pressure"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10542,7 +10526,7 @@
                                 "warmer",
                                 "suggest"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10702,7 +10686,7 @@
                                 "_all",
                                 "rest_actions"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10741,7 +10725,7 @@
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
                             "x-overloaded-param": "metric",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10789,7 +10773,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10879,7 +10863,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -10980,7 +10964,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11018,7 +11002,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11158,7 +11142,7 @@
                                 "discovery",
                                 "indexing_pressure"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11170,7 +11154,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11310,7 +11294,7 @@
                                 "discovery",
                                 "indexing_pressure"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11340,7 +11324,7 @@
                                 "warmer",
                                 "suggest"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11352,7 +11336,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11478,7 +11462,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11520,7 +11504,7 @@
                                 "_all",
                                 "rest_actions"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11532,7 +11516,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11570,7 +11554,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11593,7 +11577,7 @@
                                 "plugins",
                                 "ingest"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -11625,6 +11609,209 @@
                     }
                 },
                 "x-operation-group": "nodes.info",
+                "x-version-added": "1.0"
+            }
+        },
+        "/_plugins/_security/api/tenants/": {
+            "get": {
+                "description": "Retrieves all tenants.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/2.7/security/access-control/api/#get-tenants"
+                },
+                "operationId": "GetTenants",
+                "responses": {
+                    "200": {
+                        "description": "GetTenants 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTenantsResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.get_tenants",
+                "x-version-added": "1.0"
+            },
+            "patch": {
+                "description": "Add, delete, or modify multiple tenants in a single call.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/2.7/security/access-control/api/#patch-tenants"
+                },
+                "operationId": "PatchTenants",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchTenantsParams"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "PatchTenants 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PatchTenantsResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.patch_tenants",
+                "x-version-added": "1.0"
+            }
+        },
+        "/_plugins/_security/api/tenants/{tenant}": {
+            "delete": {
+                "description": "Delete the specified tenant.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group"
+                },
+                "operationId": "DeleteTenant",
+                "parameters": [
+                    {
+                        "name": "tenant",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "DeleteTenant 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeleteTenantResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.delete_tenant",
+                "x-version-added": "1.0"
+            },
+            "get": {
+                "description": "Retrieves one tenant.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/2.7/security/access-control/api/#get-tenant"
+                },
+                "operationId": "GetTenant",
+                "parameters": [
+                    {
+                        "name": "tenant",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GetTenant 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTenantResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.get_tenant",
+                "x-version-added": "1.0"
+            },
+            "patch": {
+                "description": "Add, delete, or modify a single tenant.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/2.7/security/access-control/api/#patch-tenant"
+                },
+                "operationId": "PatchTenant",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchTenantParams"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "tenant",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PatchTenant 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PatchTenantResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.patch_tenant",
+                "x-version-added": "1.0"
+            },
+            "put": {
+                "description": "Creates or replaces the specified tenant.",
+                "externalDocs": {
+                    "description": "API Reference",
+                    "url": "https://opensearch.org/docs/2.7/security/access-control/api/#create-tenant"
+                },
+                "operationId": "CreateTenant",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTenantParams"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "tenant",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CreateTenant 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateTenantResponseContent"
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-operation-group": "security.create_tenant",
                 "x-version-added": "1.0"
             }
         },
@@ -11690,7 +11877,8 @@
                                 "$ref": "#/components/schemas/RankEval_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -11875,7 +12063,8 @@
                                 "$ref": "#/components/schemas/Reindex_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -12055,7 +12244,8 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -12227,7 +12417,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of names or wildcard expressions.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -12448,7 +12638,8 @@
                                 "$ref": "#/components/schemas/PutScript_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -12521,7 +12712,8 @@
                                 "$ref": "#/components/schemas/PutScript_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -12592,7 +12784,8 @@
                                 "$ref": "#/components/schemas/PutScript_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -12672,7 +12865,8 @@
                                 "$ref": "#/components/schemas/PutScript_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -13724,7 +13918,8 @@
                                 "$ref": "#/components/schemas/DeletePit_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "responses": {
                     "200": {
@@ -13916,7 +14111,7 @@
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of scroll IDs to clear.",
                             "deprecated": true,
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     }
@@ -14208,7 +14403,8 @@
                                 "$ref": "#/components/schemas/SearchTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -14656,7 +14852,8 @@
                                 "$ref": "#/components/schemas/IndicesPutSettings_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -14764,7 +14961,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of settings.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -15043,7 +15240,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -15104,7 +15301,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of repository names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -15162,7 +15359,8 @@
                                 "$ref": "#/components/schemas/SnapshotCreateRepository_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -15244,7 +15442,8 @@
                                 "$ref": "#/components/schemas/SnapshotCreateRepository_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -15598,7 +15797,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of snapshot names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -15833,7 +16032,8 @@
                                 "$ref": "#/components/schemas/SnapshotClone_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -16013,7 +16213,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of snapshot names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -16214,7 +16414,7 @@
                                 "warmer",
                                 "suggest"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -16756,7 +16956,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated names of the index templates.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -16830,7 +17030,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated names of the index templates.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -16887,7 +17087,8 @@
                                 "$ref": "#/components/schemas/IndicesPutTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -16969,7 +17170,8 @@
                                 "$ref": "#/components/schemas/IndicesPutTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -17653,7 +17855,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to delete; use `_all` or `*` string to delete all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -17758,7 +17960,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -17870,7 +18072,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18062,7 +18264,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to filter aliases.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18129,7 +18331,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18141,7 +18343,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of aliases to delete (supports wildcards); use `_all` to delete all aliases for the specified indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18202,7 +18404,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to filter aliases.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18214,7 +18416,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of alias names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18275,7 +18477,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to filter aliases.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18287,7 +18489,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of alias names.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18357,7 +18559,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18442,7 +18644,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18516,7 +18718,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18528,7 +18730,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of aliases to delete (supports wildcards); use `_all` to delete all aliases for the specified indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18598,7 +18800,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18679,7 +18881,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18834,7 +19036,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to add a block to.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -18932,7 +19134,8 @@
                                 "$ref": "#/components/schemas/Bulk_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -19073,7 +19276,8 @@
                                 "$ref": "#/components/schemas/Bulk_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -19218,7 +19422,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -19514,7 +19718,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to close.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -19612,7 +19816,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to restrict the results.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -19779,7 +19983,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to restrict the results.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -19937,7 +20141,8 @@
                                 "$ref": "#/components/schemas/Create_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -20050,7 +20255,8 @@
                                 "$ref": "#/components/schemas/Create_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -20165,7 +20371,8 @@
                                 "$ref": "#/components/schemas/DeleteByQuery_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -20176,7 +20383,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -20549,7 +20756,8 @@
                                 "$ref": "#/components/schemas/Index_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -21134,7 +21342,8 @@
                                 "$ref": "#/components/schemas/Index_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -21281,7 +21490,8 @@
                                 "$ref": "#/components/schemas/Index_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -21777,7 +21987,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -21861,7 +22071,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -21938,7 +22148,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22008,7 +22218,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22080,7 +22290,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22162,7 +22372,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22249,7 +22459,8 @@
                                 "$ref": "#/components/schemas/IndicesPutMapping_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -22260,7 +22471,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22366,7 +22577,8 @@
                                 "$ref": "#/components/schemas/IndicesPutMapping_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -22377,16 +22589,9 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
-                        "required": true,
-                        "examples": {
-                            "IndicesPutMapping_Put_example1": {
-                                "summary": "Examples for Put Index Mapping with index Operation.",
-                                "description": "",
-                                "value": "books"
-                            }
-                        }
+                        "required": true
                     },
                     {
                         "name": "timeout",
@@ -22468,15 +22673,6 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IndicesPutMapping_PutResponseContent"
-                                },
-                                "examples": {
-                                    "IndicesPutMapping_Put_example1": {
-                                        "summary": "Examples for Put Index Mapping with index Operation.",
-                                        "description": "",
-                                        "value": {
-                                            "acknowledged": true
-                                        }
-                                    }
                                 }
                             }
                         }
@@ -22499,7 +22695,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22511,7 +22707,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of fields.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22698,7 +22894,8 @@
                                 "$ref": "#/components/schemas/Mget_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -22828,7 +23025,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to use as default.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -22919,7 +23116,8 @@
                                 "$ref": "#/components/schemas/Msearch_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -22930,7 +23128,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to use as default.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23025,7 +23223,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to use as default.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23095,7 +23293,8 @@
                                 "$ref": "#/components/schemas/MsearchTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -23106,7 +23305,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to use as default.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23493,7 +23692,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices to open.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23580,7 +23779,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23637,7 +23836,8 @@
                                 "$ref": "#/components/schemas/RankEval_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -23648,7 +23848,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23709,7 +23909,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23756,7 +23956,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23807,7 +24007,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -23860,7 +24060,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -24349,7 +24549,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -24857,7 +25057,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -24926,7 +25126,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25074,7 +25274,8 @@
                                 "$ref": "#/components/schemas/SearchTemplate_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -25085,7 +25286,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25237,7 +25438,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25317,7 +25518,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25399,7 +25600,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25462,7 +25663,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -25573,7 +25774,8 @@
                                 "$ref": "#/components/schemas/IndicesPutSettings_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -25584,7 +25786,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -25693,7 +25895,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -25712,7 +25914,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of settings.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true,
                         "examples": {
@@ -25827,7 +26029,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -26590,7 +26792,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -26719,7 +26921,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -26749,7 +26951,7 @@
                                 "warmer",
                                 "suggest"
                             ],
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -27468,7 +27670,8 @@
                                 "$ref": "#/components/schemas/Update_BodyParams"
                             }
                         }
-                    }
+                    },
+                    "required": true
                 },
                 "parameters": [
                     {
@@ -27660,7 +27863,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -28040,7 +28243,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -28091,7 +28294,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -28163,7 +28366,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -28304,7 +28507,7 @@
                             "type": "string",
                             "pattern": "^(?!_|template|query|field|point|clear|usage|stats|hot|reload|painless)",
                             "description": "Comma-separated list of indices; use `_all` or empty string to perform the operation on all indices.",
-                            "x-data-type": "list"
+                            "x-data-type": "array"
                         },
                         "required": true
                     },
@@ -28442,6 +28645,12 @@
                     }
                 }
             },
+            "AttributeMap": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
             "Bulk_BodyParams": {
                 "type": "object",
                 "x-serialize": "bulk"
@@ -28463,9 +28672,6 @@
                     "pb"
                 ]
             },
-            "CatIndicesOutputPayload": {},
-            "CatIndices_WithIndexOutputPayload": {},
-            "CatNodesOutputPayload": {},
             "ClearScroll_BodyParams": {
                 "type": "object"
             },
@@ -28551,6 +28757,27 @@
             "Count_BodyParams": {
                 "type": "object"
             },
+            "CreateTenantParams": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CreateTenantResponseContent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Informing of request's status."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message indicating the information of action of the model."
+                    }
+                }
+            },
             "Create_BodyParams": {
                 "type": "object"
             },
@@ -28567,6 +28794,19 @@
             },
             "DeletePit_BodyParams": {
                 "type": "object"
+            },
+            "DeleteTenantResponseContent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Informing of request's status."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message indicating the information of action of the model."
+                    }
+                }
             },
             "ExpandWildcards": {
                 "type": "string",
@@ -28627,6 +28867,25 @@
                     "_index",
                     "found"
                 ]
+            },
+            "GetTenantResponseContent": {
+                "type": "object",
+                "properties": {
+                    "tenant": {
+                        "$ref": "#/components/schemas/Tenant"
+                    }
+                }
+            },
+            "GetTenantsResponseContent": {
+                "type": "object",
+                "properties": {
+                    "tenantlist": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tenant"
+                        }
+                    }
+                }
             },
             "GroupBy": {
                 "type": "string",
@@ -28905,6 +29164,65 @@
                     "index",
                     "create"
                 ]
+            },
+            "PatchOperation": {
+                "type": "object",
+                "properties": {
+                    "op": {
+                        "type": "string"
+                    },
+                    "path": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "$ref": "#/components/schemas/AttributeMap"
+                    }
+                }
+            },
+            "PatchTenantParams": {
+                "type": "object",
+                "properties": {
+                    "tenantPatch": {
+                        "$ref": "#/components/schemas/PatchOperation"
+                    }
+                }
+            },
+            "PatchTenantResponseContent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Informing of request's status."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message indicating the information of action of the model."
+                    }
+                }
+            },
+            "PatchTenantsParams": {
+                "type": "object",
+                "properties": {
+                    "tenantsPatch": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PatchOperation"
+                        }
+                    }
+                }
+            },
+            "PatchTenantsResponseContent": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Informing of request's status."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message indicating the information of action of the model."
+                    }
+                }
             },
             "PutScript_BodyParams": {
                 "type": "object"
@@ -29218,6 +29536,23 @@
                     "popular",
                     "always"
                 ]
+            },
+            "Tenant": {
+                "type": "object",
+                "properties": {
+                    "reserved": {
+                        "type": "boolean"
+                    },
+                    "hidden": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "static": {
+                        "type": "boolean"
+                    }
+                }
             },
             "Termvectors_BodyParams": {
                 "type": "object"

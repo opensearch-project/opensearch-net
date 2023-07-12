@@ -42,11 +42,7 @@ namespace ApiGenerator.Generator.Razor
 
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
-            // Delete existing files
-            foreach (var file in Directory.GetFiles(GeneratorLocations.OpenSearchNetFolder, "RequestParameters.*.cs"))
-                File.Delete(file);
-
-            var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters.cshtml");
+			var view = ViewLocations.LowLevel("RequestParameters", "RequestParameters.cshtml");
             string Target(string id) => GeneratorLocations.LowLevel("Api", "RequestParameters", $"RequestParameters.{id}.cs");
 
             var namespaced = spec.EndpointsPerNamespaceLowLevel.ToList();
