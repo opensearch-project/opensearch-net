@@ -50,7 +50,7 @@ namespace Tests.Reproduce
 		}
 
 		[U]
-		public void GithubIssu281_MustNotWithTermQueryAndEmptyValueShouldBeInRequestBody()
+		public void GithubIssu281_MustNotWithTermQueryAndVerbatimEmptyValueShouldBeInRequestBody()
 		{
 			var connectionSettings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 			var client = new OpenSearchClient(connectionSettings);
@@ -60,7 +60,7 @@ namespace Tests.Reproduce
 					.Query(q => q
 						.Bool(b => b
 							.Must(m => m.Exists(e => e.Field("last_name")))
-							.MustNot(m => m.Term(t => t.Field("last_name.keyword").Value(string.Empty)))
+							.MustNot(m => m.Term(t => t.Verbatim().Field("last_name.keyword").Value(string.Empty)))
 						)
 					)
 					.Index("index")
@@ -76,13 +76,13 @@ namespace Tests.Reproduce
 		}
 
 		[U]
-		public void GithubIssue281_MustNotTermQueryAndEmptyValueShouldBeRegisteredAsNonNull()
+		public void GithubIssue281_MustNotTermQueryAndVerbatimEmptyValueShouldBeRegisteredAsNonNull()
 		{
 			Func<SearchDescriptor<SampleDomainObject>, ISearchRequest> selector = s => s
 				.Query(q => q
 					.Bool(b => b
 						.Must(m => m.Exists(e => e.Field("last_name")))
-						.MustNot(m => m.Term(t => t.Field("last_name.keyword").Value(string.Empty)))
+						.MustNot(m => m.Term(t => t.Verbatim().Field("last_name.keyword").Value(string.Empty)))
 					)
 				)
 				.Index("index")
@@ -97,18 +97,18 @@ namespace Tests.Reproduce
 
 			// this too...
 			query.Bool.MustNot.Should().NotBeEmpty();
-			// ... but this is fails as the collection contains one `<null>` entry which explains why it's missing from the serialized request JSON
+			// ... and this passes so long as `.Verbatim()` is used in the `TermQuery`
 			query.Bool.MustNot.First().Should().NotBeNull("MustNot");
 		}
 
 		[U]
-		public void GithubIssue281_MustNotTermQueryAndNonEmptyValueShouldBeRegisteredAsNonNull()
+		public void GithubIssue281_MustNotTermQueryAndNonVerbatimEmptyValueShouldBeRegisteredAsNonNull()
 		{
 			Func<SearchDescriptor<SampleDomainObject>, ISearchRequest> selector = s => s
 				.Query(q => q
 					.Bool(b => b
 						.Must(m => m.Exists(e => e.Field("last_name")))
-						.MustNot(m => m.Term(t => t.Field("last_name.keyword").Value("mal")))
+						.MustNot(m => m.Term(t => t.Verbatim().Field("last_name.keyword").Value("mal")))
 					)
 				)
 				.Index("index")
@@ -164,10 +164,10 @@ namespace Tests.Reproduce
 		}
 
 		[U]
-		public void GithubIssue281_TermQueryWithEmptyValueSerializesToNonNullResult()
+		public void GithubIssue281_TermQueryWithVerbatimEmptyValueSerializesToNonNullResult()
 		{
 			Func<QueryContainerDescriptor<SampleDomainObject>, QueryContainer> termQuery =
-				m => m.Term(t => t.Field("last_name.keyword").Value(string.Empty));
+				m => m.Term(t => t.Verbatim().Field("last_name.keyword").Value(string.Empty));
 
 			var result = termQuery.Invoke(new QueryContainerDescriptor<SampleDomainObject>());
 
@@ -177,7 +177,7 @@ namespace Tests.Reproduce
 		[TU]
 		[InlineData("null", null, true)]
 		[InlineData("non-empty string", "doe", false)]
-		[InlineData("empty string", "", false)]
+		[InlineData("empty string", "", true)]
 		public void GithubIssue281_TermQueryIsConditionless(string scenario, string val, bool expected)
 		{
 			bool SimulateIsConditionless(ITermQuery q)
