@@ -118,6 +118,49 @@ var request = new SearchRequest
 
 var searchResponse = client.Search<Tweet>(request);
 ```
+
+#### Searching for presence or absence of exact terms
+
+From the documentation on [Term-level queries](https://opensearch.org/docs/latest/query-dsl/term/):
+
+> Term-level queries search an index for documents that contain an exact search term...
+>
+> When working with text data, use term-level queries for fields mapped as keyword only.
+>
+> Term-level queries are not suited for searching analyzed text fields. To return analyzed fields, use a full-text query.
+
+The above search example includes a `TermQuery` matching documents with `user:kimchy`.
+
+Term-level queries with empty or null values however are stripped from search requests by default.
+
+To search for documents which contain a non-null but empty field value (i.e. an empty string) include an `IsVerbatim` property or a `.Verbatim()` clause like this:
+
+```csharp
+var request = new SearchRequest
+{
+    From = 0,
+    Size = 10,
+    Query = new TermQuery { Field = "user", Value = "", IsVerbatim = true },
+};
+
+var searchResponse = client.Search<Tweet>(request);
+```
+
+In Fluent syntax this might look like:
+
+```csharp
+var result = await OpenSearchClient.SearchAsync<Tweet>(s => s
+    .Index(index)
+    .From(0)
+    .Size(10)
+    .Query(q => q
+        .Bool(b => b
+            .Must(m => m.Term(t => t.Verbatim().Field(f => f.User).Value(string.Empty)))
+        )
+    )
+);
+```
+
 ### Falling back to OpenSearch.Net
 
 OpenSearch.Client also includes and exposes the low-level [OpenSearch.Net](https://github.com/opensearch-project/opensearch-net/tree/main/src/OpenSearch.Net) client that you can fall back to in case anything is missing:
