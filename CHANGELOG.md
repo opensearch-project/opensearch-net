@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `BenchMarkDotNet` from 0.13.5 to 0.13.6
 - Bumps `Microsoft.NET.Test.Sdk` from 17.6.2 to 17.6.3
 - Bumps `AWSSDK.Core` from 3.7.106.29 to 3.7.200.3
+- Bumps `Bullseye` from 3.3.0 to 4.2.1
 
 ## [1.4.0]
 ### Added
