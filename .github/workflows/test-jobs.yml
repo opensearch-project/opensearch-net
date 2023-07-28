@@ -39,20 +39,13 @@ jobs:
         name: Test
       - name: Test Results
         if: always()
-        uses: mikepenz/action-junit-report@v2
+        uses: mikepenz/action-junit-report@v3
         with:
           report_paths: 'build/output/junit-*.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_failure: true
           require_tests: true
           check_name: Unit Test Results
-        # This is the only way to get test reports out from GitHub Actions
-        # TODO remove this before release
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: unit-test-report
-          path: build/output/*
 
           
   # Packages nuget packages first and then uses the nuget packages to test
@@ -78,18 +71,11 @@ jobs:
         name: Test
       - name: Test Results
         if: always()
-        uses: mikepenz/action-junit-report@v2
+        uses: mikepenz/action-junit-report@v3
         with:
           report_paths: 'build/output/junit-*.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_failure: true
           require_tests: true
           check_name: Canary Test Results
-        # This is the only way to get test reports out from GitHub Actions
-        # TODO remove this before release
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: canary-test-report
-          path: build/output/*
 

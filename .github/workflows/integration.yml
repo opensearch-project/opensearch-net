@@ -16,8 +16,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # 1.0.1 is skipped because it doesn't have a tag in OpenSearch repo, we can't check out to compile plugins
-        version: 
+        version:
+          - 2.9.0
+          - 2.8.0
           - 2.7.0
           - 2.6.0
           - 2.5.0
@@ -26,10 +27,9 @@ jobs:
           - 2.2.1
           - 2.1.0
           - 2.0.1
-          - 1.3.10
+          - 1.3.11
           - 1.2.4
           - 1.1.0
-          - 1.0.0
 
     steps:
       - name: Checkout Client
@@ -49,31 +49,6 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
-        # Due to https://github.com/opensearch-project/project-website/issues/737
-        # No plugins released for versions 1.0.x , so we need to compile plugins on our own to run tests properly
-        # Compiled plugins are copied to ${OPENSEARCH_PLUGINS_DIRECTORY} where picked up by the test framework
-        # Versions of OpenSearch starting 1.1.0 are able to download plugins from the Internet
-      - name: Restore or Build OpenSearch Plugins
-        uses: ./client/.github/actions/cached-git-build
-        if: matrix.version == '1.0.0'
-        with:
-          repository: opensearch-project/OpenSearch
-          ref: ${{ matrix.version }}
-          path: opensearch
-          cached_paths: |
-            ./opensearch/plugins/*/build/distributions/*.zip
-          build_script: |
-            PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
-            for plugin in ${PluginList[*]}; do
-              ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=false
-            done
-      
-      - name: Copy OpenSearch Plugins
-        if: matrix.version == '1.0.0'
-        run: |
-          mkdir -p ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
-          cp opensearch/plugins/*/build/distributions/*-${{ matrix.version }}.zip ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
       
       - run: "./build.sh integrate ${{ matrix.version }} readonly,writable random:test_only_one --report"
         name: Integration Tests
@@ -115,81 +90,22 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-            
+      
       - name: Restore or Build OpenSearch
-        uses: ./client/.github/actions/cached-git-build
+        id: opensearch
+        uses: ./client/.github/actions/build-opensearch
         with:
-          repository: opensearch-project/OpenSearch
           ref: ${{ matrix.opensearch_ref }}
-          path: opensearch
-          cached_paths: |
-            ./opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz
-            ./opensearch/plugins/*/build/distributions/*.zip
-          build_script: |
-            ./gradlew :distribution:archives:linux-tar:assemble
+          security_plugin: true
+          knn_plugin: true
+          plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
           
-            PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
-            for plugin in ${PluginList[*]}; do
-              ./gradlew :plugins:$plugin:assemble
-            done
-            
-      - name: Determine OpenSearch distribution path and version
-        shell: bash -eo pipefail {0}
-        run: |
-          distribution=`ls -1 $PWD/opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz | head -1`
-          version=`basename $distribution | cut -d'-' -f3,4`
-          echo "OPENSEARCH_DISTRIBUTION=$distribution" >> $GITHUB_ENV
-          echo "OPENSEARCH_VERSION=$version" >> $GITHUB_ENV
-        
-      - name: Restore or Build OpenSearch Security
-        uses: ./client/.github/actions/cached-git-build
-        if: matrix.opensearch_ref == '1.x'
-        with:
-          repository: opensearch-project/security
-          ref: ${{ matrix.opensearch_ref }}
-          path: opensearch-security
-          cached_paths: |
-            ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip
-          build_script: ./gradlew assemble -Dopensearch.version=$OPENSEARCH_VERSION
-      
-      - name: Restore or Build OpenSearch k-NN
-        uses: ./client/.github/actions/cached-git-build
-        with:
-          repository: opensearch-project/k-NN
-          ref: ${{ matrix.opensearch_ref }}
-          path: opensearch-knn
-          cached_paths: |
-            ./opensearch-knn/build/distributions/opensearch-knn-*-SNAPSHOT.zip
-          build_script: |
-            sudo apt-get install -y libopenblas-dev libomp-dev
-            ./gradlew buildJniLib assemble -Dopensearch.version=$OPENSEARCH_VERSION
-            distributions=./build/distributions
-            lib_dir=$distributions/lib
-            mkdir $lib_dir
-            cp -v $(ldconfig -p | grep libgomp | cut -d ' ' -f 4) $lib_dir
-            cp -v ./jni/release/libopensearchknn_* $lib_dir
-            ls -l $lib_dir
-            cd $distributions
-            zip -ur opensearch-knn-*.zip lib
-        
-      - name: Copy OpenSearch plugins
-        shell: bash -eo pipefail {0}
-        run: |
-          mkdir -p $OPENSEARCH_PLUGINS_DIRECTORY
-          cp -v ./opensearch/plugins/*/build/distributions/*-$OPENSEARCH_VERSION.zip $OPENSEARCH_PLUGINS_DIRECTORY/
-          
-          plugins=("opensearch-knn" "opensearch-security")
-          for plugin in ${plugins[*]}; do
-            if [[ -d "./$plugin" ]]; then
-              cp -v ./$plugin/build/distributions/$plugin-*-SNAPSHOT.zip $OPENSEARCH_PLUGINS_DIRECTORY/
-            fi
-          done
-          
-          ls -l $OPENSEARCH_PLUGINS_DIRECTORY
-      
-      - run: "./build.sh integrate ${{ env.OPENSEARCH_VERSION }} readonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
+        env:
+          OPENSEARCH_VERSION: ${{ steps.opensearch.outputs.version }}
+          OPENSEARCH_DISTRIBUTION: ${{ steps.opensearch.outputs.distribution }}
         
       - name: Upload test report
         if: failure()
@@ -197,3 +113,115 @@ jobs:
         with:
           name: report-unreleased-${{ matrix.opensearch_ref }}
           path: client/build/output/*
+
+  test-yaml:
+    name: YAML Tests (Released OpenSearch)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [ '1.2.4', '1.3.11', '2.2.0', '2.4.0', '2.6.0', '2.8.0', '2.9.0' ]
+    steps:
+      - name: Checkout Client
+        uses: actions/checkout@v3
+        with:
+          path: client
+
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Run OpenSearch
+        id: opensearch
+        uses: ./client/.github/actions/run-released-opensearch
+        with:
+          version: ${{ matrix.version }}
+          secured: true
+
+      - name: Run YAML tests
+        working-directory: client
+        run: |
+          dotnet run \
+            --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
+            -- \
+            --endpoint $OPENSEARCH_URL \
+            --auth-cert ./.ci/certs/kirk.p12 \
+            --auth-cert-pass kirk \
+            --junit-output-file ./test-results.xml
+        env:
+          OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
+
+      - name: Save OpenSearch logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: opensearch-logs-${{ matrix.version }}
+          path: |
+            opensearch-*/logs/*
+
+  test-yaml-unreleased:
+    name: YAML Tests (Unreleased OpenSearch)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        opensearch_ref: ['1.x', '2.x', 'main']
+    steps:
+      - name: Checkout Client
+        uses: actions/checkout@v3
+        with:
+          path: client
+
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore or Build OpenSearch
+        id: opensearch_build
+        uses: ./client/.github/actions/build-opensearch
+        with:
+          ref: ${{ matrix.opensearch_ref }}
+
+      - name: Unpack OpenSearch
+        run: tar -xzf ${{ steps.opensearch_build.outputs.distribution }}
+
+      - name: Start OpenSearch
+        id: opensearch
+        uses: ./client/.github/actions/start-opensearch
+
+      - name: Run YAML tests
+        working-directory: client
+        run: |
+          dotnet run \
+            --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
+            -- \
+            --endpoint $OPENSEARCH_URL \
+            --junit-output-file ./test-results.xml
+        env:
+          OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
+
+      - name: Save OpenSearch logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: opensearch-logs-${{ matrix.opensearch_ref }}
+          path: |
+            opensearch-*/logs/*

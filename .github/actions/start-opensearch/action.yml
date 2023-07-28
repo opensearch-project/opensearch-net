@@ -1,0 +1,76 @@
+name: Start OpenSearch
+description: Configures and starts an OpenSearch daemon
+inputs:
+  secured:
+    description: Whether to enable the security plugin
+    default: 'false'
+outputs:
+  opensearch_url:
+    description: The URL where the OpenSearch node is accessible
+    value: ${{ steps.opensearch.outputs.url }}
+runs:
+  using: composite
+  steps:
+    - name: Install Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: zulu
+        java-version: 11
+
+    - name: Start OpenSearch
+      id: opensearch
+      shell: bash -eo pipefail {0}
+      run: |
+        if [[ "$RUNNER_OS" == "macOS" ]]; then
+          brew install -q coreutils
+        fi
+        OPENSEARCH_HOME=$(realpath ./opensearch-*)
+        OPENSEARCH_JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
+
+        url="http://localhost:9200"
+        cp ./client/.ci/opensearch/opensearch.yml $OPENSEARCH_HOME/config/
+
+        bash ./client/.ci/generate-certs.sh
+
+        if [[ -d "$OPENSEARCH_HOME/plugins/opensearch-security" ]]; then
+          if [[ "$SECURED" == "true" ]]; then
+            bash $OPENSEARCH_HOME/plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
+            sed -i.bak -e 's/plugins.security.audit.type:.*/plugins.security.audit.type: log4j/' $OPENSEARCH_HOME/config/opensearch.yml
+            cp ./client/.ci/opensearch/*.pem $OPENSEARCH_HOME/config/
+            url="https://localhost:9200"
+          else
+            printf "\nplugins.security.disabled: true" >> $OPENSEARCH_HOME/config/opensearch.yml
+          fi
+        fi
+
+        if [[ "$RUNNER_OS" == "macOS" ]]; then
+          sed -i.bak -e 's/bootstrap.memory_lock:.*/bootstrap.memory_lock: false/' $OPENSEARCH_HOME/config/opensearch.yml
+        fi
+
+        echo "url=$url" >> $GITHUB_OUTPUT
+        if [[ "$RUNNER_OS" == "Linux" ]]; then
+          sudo swapoff -a
+          sudo sysctl -w vm.swappiness=1
+          sudo sysctl -w fs.file-max=262144
+          sudo sysctl -w vm.max_map_count=262144
+          sudo prlimit --pid $$ --memlock=unlimited:unlimited
+        fi
+
+        if [[ "$RUNNER_OS" != "Windows" ]]; then
+          $OPENSEARCH_HOME/bin/opensearch &
+        else
+          $OPENSEARCH_HOME/bin/opensearch.bat -d &
+        fi
+
+        for attempt in {1..20}; do
+          sleep 5
+          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:admin $url; then
+            echo '=====> ready'
+            exit 0
+          fi
+          echo '=====> waiting...'
+        done
+        exit 1
+      env:
+        SECURED: ${{ inputs.secured }}
+        RUNNER_OS: ${{ runner.os }}

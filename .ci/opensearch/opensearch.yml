@@ -1,0 +1,11 @@
+network.host: 0.0.0.0
+node.name: instance
+cluster.name: search-rest-test
+cluster.initial_master_nodes: instance
+discovery.seed_hosts: instance
+cluster.routing.allocation.disk.threshold_enabled: false
+bootstrap.memory_lock: true
+node.attr.testattr: test
+path.repo: /tmp
+repositories.url.allowed_urls: http://snapshot.test*
+action.destructive_requires_name: false

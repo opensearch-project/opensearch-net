@@ -28,6 +28,8 @@
 module Tests.YamlRunner.Commands
 
 open System
+open System.IO.Compression
+open FSharp.Data
 open ShellProgressBar
 open Tests.YamlRunner.AsyncExtensions
 open Tests.YamlRunner.TestsLocator
@@ -51,23 +53,48 @@ let private subBarOptions =
     )
 
 let LocateTests namedSuite revision directoryFilter fileFilter = async {
-    let! folders = TestsLocator.ListFolders namedSuite revision directoryFilter
-    if folders.Length = 0 then
-        raise <| Exception("No folders found trying to list the yaml specs")
-        
-    let l = folders.Length
-    use progress = new ProgressBar(l, sprintf "Listing %i folders" l, barOptions)
-    progress.WriteLine <| sprintf "Listing %i folders" l
-    let folderDownloads =
-        folders
-        |> Seq.map(fun folder -> TestsLocator.DownloadTestsInFolder folder fileFilter namedSuite revision progress subBarOptions)
-    let! completed = Async.ForEachAsync 4 folderDownloads
-    return completed 
+    let! response = Http.AsyncRequestStream(
+        $"https://api.github.com/repos/opensearch-project/OpenSearch/zipball/%s{revision}",
+        headers=[
+            "User-Agent", "OpenSearch .NET YAML Tests"
+        ]
+    )
+    use zip = new ZipArchive(response.ResponseStream, ZipArchiveMode.Read)
+    
+    let folders =
+        let testDir = "rest-api-spec/src/main/resources/rest-api-spec/test/"
+        let trimParent (p:string) =
+            p.Substring(p.IndexOf('/')+1)
+            
+        zip.Entries
+        |> Seq.map (fun e -> e, trimParent e.FullName)
+        |> Seq.filter (fun (_, p) -> p.StartsWith(testDir) && p.EndsWith(".yml"))
+        |> Seq.map (fun (e, p) -> e, p.Substring(testDir.Length))
+        |> Seq.map (fun (e, p) ->
+                let parts = p.Split('/')
+                parts[0], parts[1], e
+            )
+        |> Seq.groupBy (fun (folder, _, _) -> folder)
+        |> Seq.filter (fun (folder, _) -> match directoryFilter with | Some d -> folder.StartsWith(d, StringComparison.OrdinalIgnoreCase) | None -> true)
+        |> Seq.map (fun (folder, entries) ->
+            ExtractTestsInFolder folder (entries |> Seq.map (fun (_, f, e) -> f, e)) fileFilter namedSuite revision
+            )
+    
+    let! completed = Async.ForEachAsync 1 folders
+    
+    return completed
 }
 
 let ReadTests (tests:LocateResults list) = 
-    
-    let readPaths paths = paths |> List.map TestsReader.ReadYamlFile  
+    let safeRead yamlInfo = 
+        try
+            ReadYamlFile yamlInfo |> Some
+        with
+        | ex -> 
+            printfn "%s" ex.Message
+            None
+
+    let readPaths paths = paths |> List.map safeRead |> List.filter Option.isSome |> List.map Option.get
     
     tests |> List.map (fun t -> { Folder= t.Folder; Files = readPaths t.Paths})
     
