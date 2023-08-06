@@ -96,7 +96,7 @@ jobs:
         uses: ./client/.github/actions/build-opensearch
         with:
           ref: ${{ matrix.opensearch_ref }}
-          security_plugin: true
+          security_plugin: ${{ matrix.opensearch_ref == '1.x' }}
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
           
@@ -167,6 +167,13 @@ jobs:
           name: opensearch-logs-${{ matrix.version }}
           path: |
             opensearch-*/logs/*
+            
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-yaml-${{ matrix.version }}
+          path: client/test-results.xml
 
   test-yaml-unreleased:
     name: YAML Tests (Unreleased OpenSearch)
@@ -225,3 +232,10 @@ jobs:
           name: opensearch-logs-${{ matrix.opensearch_ref }}
           path: |
             opensearch-*/logs/*
+            
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report-yaml-unreleased-${{ matrix.opensearch_ref }}
+          path: client/test-results.xml

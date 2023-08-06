@@ -46,6 +46,12 @@ jobs:
           fail_on_failure: true
           require_tests: true
           check_name: Unit Test Results
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-report
+          path: build/output/*
 
           
   # Packages nuget packages first and then uses the nuget packages to test
@@ -78,4 +84,9 @@ jobs:
           fail_on_failure: true
           require_tests: true
           check_name: Canary Test Results
-
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: canary-test-report
+          path: build/output/*
