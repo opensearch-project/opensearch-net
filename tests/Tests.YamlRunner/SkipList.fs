@@ -31,64 +31,25 @@ type SkipSection = All | Section of string | Sections of string list
 
 type SkipFile = SkipFile of string 
 
-let SkipList = dict<SkipFile,SkipSection> [    
-    // funny looking dispatch /_security/privilege/app?name
-    SkipFile "privileges/10_basic.yml", All
+let SkipList = dict<SkipFile,SkipSection> [
+    // Incorrectly being run due to OpenSearch 1.x/2.x being numerically <7.2.0, but feature-wise >7.10
+    SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
+    SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
     
-    // We skip the generation of this API till one of the later minors
+    // .NET method arg typings make this not possible, index is a required parameter
+    SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
+    
+    // The client doesn't support the indices.upgrade API
     SkipFile "indices.upgrade/10_basic.yml", All
     
-    // - Failed: Assert operation NumericAssert Length invalidated_api_keys "Long" Reason: Expected 2.000000 = 3.000000        
-    SkipFile "api_key/11_invalidation.yml", Section "Test invalidate api key by realm name"
+    // TODO: Add support for point-in-time APIs
+    SkipFile "pit/10_basic.yml", All
+    // TODO: Add support for search pipeline APIs
+    SkipFile "search_pipeline/10_basic.yml", All
     
-    // Uses variables in strings e.g Bearer ${token} we can not due variable substitution in string yet
-    SkipFile "token/10_basic.yml", All
-    
-    SkipFile "change_password/11_token.yml", Section "Test user changing their password authenticating with token not allowed"
-
-    SkipFile "change_password/10_basic.yml", Sections [
-        // Changing password locks out tests
-        "Test user changing their own password"
-        // Uses variables in strings e.g Bearer ${token} we can not due variable substitution in string yet
-        "Test user changing their password authenticating with token not allowed"
-    ] 
-
-    // TEMPORARY: Missing 'body: { indices: "test_index" }' payload, TODO: PR
-    SkipFile "snapshot/10_basic.yml", Section "Create a source only snapshot and then restore it"
-    // illegal_argument_exception: Provided password hash uses [NOOP] but the configured hashing algorithm is [BCRYPT]
-    SkipFile "users/10_basic.yml", Section "Test put user with password hash"
-    // Slash in index name is not escaped (BUG)
-    SkipFile "security/authz/13_index_datemath.yml", Section "Test indexing documents with datemath, when permitted"
-    // Possibly a cluster health color mismatch...
-    SkipFile "security/authz/14_cat_indices.yml", All
-   
-    // Snapshot testing requires local filesystem access
-    SkipFile "snapshot.create/10_basic.yml", All
-    SkipFile "snapshot.get/10_basic.yml", All
-    SkipFile "snapshot.get_repository/10_basic.yml", All
-    SkipFile "snapshot.restore/10_basic.yml", All
-    SkipFile "snapshot.status/10_basic.yml", All
-      
-    // uses $stashed id in match with object
-    SkipFile "cluster.reroute/11_explain.yml", Sections [
-        "Explain API for non-existent node & shard"
-    ]
-    
-    //These are ignored because they were flagged on a big PR.
-    
-    //additional enters in regex
-    SkipFile "cat.templates/10_basic.yml", Sections [ "Multiple template"; "Sort templates"; "No templates" ]
-    
-    //Replace stashed value in body that is passed as string json
-    SkipFile "api_key/10_basic.yml", Section "Test get api key"
-        
-    //new API TODO remove when we regenerate
-    SkipFile "cluster.voting_config_exclusions/10_basic.yml", All
-    
-    //TODO has dates without strings which trips up our yaml parser
-    SkipFile "runtime_fields/40_date.yml", All
-
-    SkipFile "nodes.info/10_basic.yml", Section "node_info role test"
+    // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
+    SkipFile "search.aggregation/20_terms.yml", Section "Unsigned Long test"
+    SkipFile "search.aggregation/230_composite_unsigned.yml", All
+    SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
+    SkipFile "search/90_search_after.yml", Section "unsigned long"
 ]
-
-

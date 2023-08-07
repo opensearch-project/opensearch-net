@@ -28,53 +28,48 @@
 module Tests.YamlRunner.TestSuiteBootstrap
 
 open System
-open System.Linq
 open OpenSearch.Net
 open OpenSearch.Net.Specification.CatApi
-open OpenSearch.Net.Specification.ClusterApi
 open OpenSearch.Net.Specification.IndicesApi
 open Tests.YamlRunner.Models
 
-let DefaultSetup : Operation list = [Actions("Setup", fun (client, suite) ->
-    let firstFailure (responses:DynamicResponse seq) =
-            responses
-            |> Seq.filter (fun r -> not r.Success && r.HttpStatusCode <> Nullable.op_Implicit 404)
-            |> Seq.tryHead
-    
-    let deleteAll () =
-        let dp = DeleteIndexRequestParameters()
-        dp.SetQueryString("expand_wildcards", "open,closed,hidden")
-        client.Indices.Delete<DynamicResponse>("*", dp)
-    let templates () =
-        client.Cat.Templates<StringResponse>("*", CatTemplatesRequestParameters(Headers=["name";"order"].ToArray()))
+let private deleteAllIndices (client: IOpenSearchLowLevelClient) =
+    [
+        client.Indices.Delete<DynamicResponse>("*", DeleteIndexRequestParameters(ExpandWildcards=ExpandWildcards.All))
+    ]
+
+let private deleteAllTemplates (client: IOpenSearchLowLevelClient) =
+    [
+        client.Indices.DeleteTemplateForAll<DynamicResponse>("*")
+        client.Indices.DeleteTemplateV2ForAll<DynamicResponse>("*")
+        client.Cluster.DeleteComponentTemplate<DynamicResponse>("*")
+    ]
+
+let private deleteAllSnapshotsAndRepositories (client: IOpenSearchLowLevelClient) =
+    let snapshotResps =
+        client.Cat.Repositories<StringResponse>(CatRepositoriesRequestParameters(Headers=[| "id" |]))
             .Body.Split("\n")
-            |> Seq.map(fun line -> line.Split(" ", StringSplitOptions.RemoveEmptyEntries))
-            |> Seq.filter(fun line -> line.Length = 2)
-            |> Seq.map(fun tokens -> tokens.[0], Int32.Parse(tokens.[1]))
-            //assume templates with order 100 or higher are defaults
-            |> Seq.filter(fun (_, order) -> order < 100)
-            |> Seq.filter(fun (name, _) -> not(String.IsNullOrWhiteSpace(name)) && not(name.StartsWith(".")) && name <> "security-audit-log")
-            //TODO template does not accept comma separated list but is documented as such
-            |> Seq.map(fun (template, _) ->
-                let result = client.Indices.DeleteTemplateForAll<DynamicResponse>(template)
-                match result.Success with
-                | true -> result
-                | false -> client.Indices.DeleteTemplateV2ForAll<DynamicResponse>(template)
-            )
-            |> Seq.toList
-                
-    let snapshots =
-        client.Cat.Snapshots<StringResponse>(CatSnapshotsRequestParameters(Headers=["id,repository"].ToArray()))
-            .Body.Split("\n")
-            |> Seq.map(fun line -> line.Split " ")
-            |> Seq.filter(fun tokens -> tokens.Length = 2)
-            |> Seq.map(fun tokens -> (tokens.[0].Trim(), tokens.[1].Trim()))
-            |> Seq.filter(fun (id, repos) -> not(String.IsNullOrWhiteSpace(id)) && not(String.IsNullOrWhiteSpace(repos)))
-            //TODO template does not accept comma separated list but is documented as such
-            |> Seq.map(fun (id, repos) -> client.Snapshot.Delete<DynamicResponse>(repos, id))
-            |> Seq.toList
-                
-    let deleteRepositories = client.Snapshot.DeleteRepository<DynamicResponse>("*")
-    firstFailure <| [deleteAll()] @ templates() @ snapshots @ [deleteRepositories]
+        |> Seq.filter (fun line -> not (String.IsNullOrWhiteSpace(line)))
+        |> Seq.map (fun repo -> client.Snapshot.Delete<DynamicResponse>(repo, "*"))
+        |> Seq.toList
+    snapshotResps @ [
+        client.Snapshot.DeleteRepository<DynamicResponse>("*")
+    ]
+
+let private resetSettings (client: IOpenSearchLowLevelClient) =
+    [
+        client.Cluster.PutSettings<DynamicResponse>(PostData.String("{ \"persistent\": { \"*\": null }, \"transient\": { \"*\": null } }"))
+    ]
+
+let DefaultSetup : Operation list = [Actions("Setup", fun (client, _) ->
+    seq {
+        deleteAllIndices;
+        deleteAllTemplates;
+        deleteAllSnapshotsAndRepositories;
+        resetSettings
+    }
+    |> Seq.collect (fun f -> f client)
+    |> Seq.filter (fun r -> not r.Success)
+    |> Seq.tryHead
 )]
 

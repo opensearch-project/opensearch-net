@@ -1,0 +1,103 @@
+name: Restore or Build OpenSearch
+description: Restore or Build OpenSearch from source
+inputs:
+  ref:
+    description: The git ref to clone
+  build_snapshot:
+    description: Whether to build a snapshot version
+    default: "true"
+  security_plugin:
+    description: Whether to build the security plugin
+    default: "false"
+  knn_plugin:
+    description: Whether to build the k-nn plugin
+    default: "false"
+  plugins_output_directory:
+    description: The directory to output the plugins to
+    default: ""
+outputs: 
+    distribution:
+      description: The path to the OpenSearch distribution
+      value: ${{ steps.determine.outputs.distribution }}
+    version:
+      description: The version of OpenSearch
+      value: ${{ steps.determine.outputs.version }}
+runs:
+  using: composite
+  steps:
+    - name: Restore or Build OpenSearch
+      uses: ./client/.github/actions/cached-git-build
+      with:
+        repository: opensearch-project/OpenSearch
+        ref: ${{ inputs.ref }}
+        path: opensearch
+        cache_key_suffix: ${{ inputs.build_snapshot == 'true' && '-snapshot' || '' }}
+        cached_paths: |
+          ./opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz
+          ./opensearch/plugins/*/build/distributions/*.zip
+        build_script: |
+          ./gradlew :distribution:archives:linux-tar:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
+
+          PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
+          for plugin in ${PluginList[*]}; do
+            ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
+          done
+
+    - name: Determine OpenSearch distribution path and version
+      id: determine
+      shell: bash -eo pipefail {0}
+      run: |
+        distribution=`ls -1 $PWD/opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz | head -1`
+        version=`basename $distribution | cut -d'-' -f3,${{ inputs.build_snapshot == 'true' && 4 || 3 }}`
+        echo "distribution=$distribution" | tee -a $GITHUB_OUTPUT
+        echo "version=$version" | tee -a $GITHUB_OUTPUT
+
+    - name: Restore or Build OpenSearch Security
+      uses: ./client/.github/actions/cached-git-build
+      if: inputs.security_plugin == 'true'
+      with:
+        repository: opensearch-project/security
+        ref: ${{ inputs.ref }}
+        path: opensearch-security
+        cache_key_suffix: ${{ inputs.build_snapshot == 'true' && '-snapshot' || '' }}
+        cached_paths: |
+          ./opensearch-security/build/distributions/opensearch-security-*.zip
+        build_script: ./gradlew assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
+
+    - name: Restore or Build OpenSearch k-NN
+      uses: ./client/.github/actions/cached-git-build
+      if: inputs.knn_plugin == 'true'
+      with:
+        repository: opensearch-project/k-NN
+        ref: ${{ inputs.ref }}
+        path: opensearch-knn
+        cache_key_suffix: ${{ inputs.build_snapshot == 'true' && '-snapshot' || '' }}
+        cached_paths: |
+          ./opensearch-knn/build/distributions/opensearch-knn-*.zip
+        build_script: |
+          sudo apt-get install -y libopenblas-dev libomp-dev
+          ./gradlew buildJniLib assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
+          distributions=./build/distributions
+          lib_dir=$distributions/lib
+          mkdir $lib_dir
+          cp -v $(ldconfig -p | grep libgomp | cut -d ' ' -f 4) $lib_dir
+          cp -v ./jni/release/libopensearchknn_* $lib_dir
+          ls -l $lib_dir
+          cd $distributions
+          zip -ur opensearch-knn-*.zip lib
+
+    - name: Copy OpenSearch plugins
+      shell: bash -eo pipefail {0}
+      if: inputs.plugins_output_directory != ''
+      run: |
+        mkdir -p ${{ inputs.plugins_output_directory }}
+        cp -v ./opensearch/plugins/*/build/distributions/*.zip ${{ inputs.plugins_output_directory }}/
+
+        plugins=("opensearch-knn" "opensearch-security")
+        for plugin in ${plugins[*]}; do
+          if [[ -d "./$plugin" ]]; then
+            cp -v ./$plugin/build/distributions/$plugin-*.zip ${{ inputs.plugins_output_directory }}/
+          fi
+        done
+
+        ls -l ${{ inputs.plugins_output_directory }}
