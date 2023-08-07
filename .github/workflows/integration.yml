@@ -91,6 +91,7 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
+
       - name: Restore or Build OpenSearch
         id: opensearch
         uses: ./client/.github/actions/build-opensearch
