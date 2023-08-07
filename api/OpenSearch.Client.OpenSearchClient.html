@@ -841,7 +841,7 @@ Out of the box <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#Op
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_OpenSearch_Client_IBulkAllRequest___0__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(OpenSearch.Client.IBulkAllRequest{``0},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IBulkAllRequest&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests</p>
 <p></p>
-The index to target will be inferred from <see cref="!:T"></see>. If no default index has been mapped for <see cref="!:T"></see>
+The index to target will be inferred from T. If no default index has been mapped for T
 using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch.Client.ConnectionSettingsBase`1.DefaultMappingFor``1(System.Func{OpenSearch.Client.ClrTypeMappingDescriptor{``0},OpenSearch.Client.IClrTypeMapping{``0}})">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.
@@ -914,7 +914,7 @@ an index can be specified for each document using <a class="xref" href="OpenSear
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_System_Collections_Generic_IEnumerable___0__System_Func_OpenSearch_Client_BulkAllDescriptor___0__OpenSearch_Client_IBulkAllRequest___0___System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(System.Collections.Generic.IEnumerable{``0},System.Func{OpenSearch.Client.BulkAllDescriptor{``0},OpenSearch.Client.IBulkAllRequest{``0}},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;BulkAllDescriptor&lt;T&gt;, IBulkAllRequest&lt;T&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.</p>
 <p></p>
-The index to target will be inferred from <see cref="!:T"></see>. If no default index has been mapped for <see cref="!:T"></see>
+The index to target will be inferred from T. If no default index has been mapped for T
 using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch.Client.ConnectionSettingsBase`1.DefaultMappingFor``1(System.Func{OpenSearch.Client.ClrTypeMappingDescriptor{``0},OpenSearch.Client.IClrTypeMapping{``0}})">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_Index_OpenSearch_Client_IndexName_">Index(IndexName)</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.
@@ -1718,9 +1718,9 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be created. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+TDocument</p><p>3. A property named Id on TDocument</p>
 </td>
       </tr>
       <tr>
@@ -1792,9 +1792,9 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be created. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+TDocument</p><p>3. A property named Id on TDocument</p>
 </td>
       </tr>
     </tbody>
@@ -4592,9 +4592,9 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be indexed. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+TDocument</p><p>3. A property named Id on TDocument</p>
 </td>
       </tr>
       <tr>
@@ -4667,9 +4667,9 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be indexed. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <see cref="!:TDocument"></see></p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-<see cref="!:TDocument"></see></p><p>3. A property named Id on <see cref="!:TDocument"></see></p>
+TDocument</p><p>3. A property named Id on TDocument</p>
 </td>
       </tr>
     </tbody>
@@ -10915,16 +10915,10 @@ custom routing key</p>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="OpenSearch.Client.DeleteManyExtensions.html#OpenSearch_Client_DeleteManyExtensions_DeleteMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_">DeleteManyExtensions.DeleteMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName)</a>
-  </div>
-  <div>
       <a class="xref" href="OpenSearch.Client.DeleteManyExtensions.html#OpenSearch_Client_DeleteManyExtensions_DeleteManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_System_Threading_CancellationToken_">DeleteManyExtensions.DeleteManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__OpenSearch_Client_IndexName_">GetManyExtensions.GetMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, IndexName)</a>
-  </div>
-  <div>
-      <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__OpenSearch_Client_IndexName_">GetManyExtensions.GetMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, IndexName)</a>
+      <a class="xref" href="OpenSearch.Client.DeleteManyExtensions.html#OpenSearch_Client_DeleteManyExtensions_DeleteMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_">DeleteManyExtensions.DeleteMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName)</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__OpenSearch_Client_IndexName_System_Threading_CancellationToken_">GetManyExtensions.GetManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, IndexName, CancellationToken)</a>
@@ -10933,22 +10927,28 @@ custom routing key</p>
       <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__OpenSearch_Client_IndexName_System_Threading_CancellationToken_">GetManyExtensions.GetManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, IndexName, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="OpenSearch.Client.IndexManyExtensions.html#OpenSearch_Client_IndexManyExtensions_IndexMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_">IndexManyExtensions.IndexMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName)</a>
+      <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__OpenSearch_Client_IndexName_">GetManyExtensions.GetMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, IndexName)</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.GetManyExtensions.html#OpenSearch_Client_GetManyExtensions_GetMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__OpenSearch_Client_IndexName_">GetManyExtensions.GetMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, IndexName)</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.IndexManyExtensions.html#OpenSearch_Client_IndexManyExtensions_IndexManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_System_Threading_CancellationToken_">IndexManyExtensions.IndexManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_">SourceManyExtensions.SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, string)</a>
-  </div>
-  <div>
-      <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_">SourceManyExtensions.SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, string)</a>
+      <a class="xref" href="OpenSearch.Client.IndexManyExtensions.html#OpenSearch_Client_IndexManyExtensions_IndexMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable___0__OpenSearch_Client_IndexName_">IndexManyExtensions.IndexMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;T&gt;, IndexName)</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_System_Threading_CancellationToken_">SourceManyExtensions.SourceManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, string, CancellationToken)</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceManyAsync__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_System_Threading_CancellationToken_">SourceManyExtensions.SourceManyAsync&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, string, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_Int64__System_String_">SourceManyExtensions.SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;long&gt;, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SourceManyExtensions.html#OpenSearch_Client_SourceManyExtensions_SourceMany__1_OpenSearch_Client_IOpenSearchClient_System_Collections_Generic_IEnumerable_System_String__System_String_">SourceManyExtensions.SourceMany&lt;T&gt;(IOpenSearchClient, IEnumerable&lt;string&gt;, string)</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.Specification.IndicesApi.AliasPointingToIndexExtensions.html#OpenSearch_Client_Specification_IndicesApi_AliasPointingToIndexExtensions_GetAliasesPointingToIndex_OpenSearch_Client_IOpenSearchClient_OpenSearch_Client_IndexName_">AliasPointingToIndexExtensions.GetAliasesPointingToIndex(IOpenSearchClient, IndexName)</a>
