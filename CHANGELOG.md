@@ -19,6 +19,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FluentAssertions` from 6.10.0 to 6.11.0
 - Bumps `JetBrains.Annotations` from 2022.3.1 to 2023.2.0
 - Bumps `Octokit` from 6.1.0 to 7.1.0
+- Bumps `FSharp.Core` from 7.0.300 to 7.0.400
 
 ## [1.4.0]
 ### Added
