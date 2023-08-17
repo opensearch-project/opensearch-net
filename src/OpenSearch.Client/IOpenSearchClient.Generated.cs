@@ -1042,11 +1042,5 @@ namespace OpenSearch.Client
 		{
 			get;
 		}
-
-		///<summary>Tasks APIs</summary>
-		TasksNamespace Tasks
-		{
-			get;
-		}
 	}
 }

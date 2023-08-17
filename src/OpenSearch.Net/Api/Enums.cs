@@ -437,17 +437,6 @@ namespace OpenSearch.Net
 		Block
 	}
 
-	[StringEnum]
-	public enum GroupBy
-	{
-		[EnumMember(Value = "nodes")]
-		Nodes,
-		[EnumMember(Value = "parents")]
-		Parents,
-		[EnumMember(Value = "none")]
-		None
-	}
-
 	public static partial class KnownEnums
 	{
 		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new ConcurrentDictionary<Type, Func<Enum, string>>();
@@ -476,7 +465,6 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(OpType), (e) => GetStringValue((OpType)e));
 			EnumStringResolvers.TryAdd(typeof(IndicesShardStoresStatus), (e) => GetStringValue((IndicesShardStoresStatus)e));
 			EnumStringResolvers.TryAdd(typeof(ThreadType), (e) => GetStringValue((ThreadType)e));
-			EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
 			RegisterEnumStringResolvers();
 		}
 
@@ -949,21 +937,6 @@ namespace OpenSearch.Net
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'");
 		}
 
-		public static string GetStringValue(this GroupBy enumValue)
-		{
-			switch (enumValue)
-			{
-				case GroupBy.Nodes:
-					return "nodes";
-				case GroupBy.Parents:
-					return "parents";
-				case GroupBy.None:
-					return "none";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'GroupBy'");
-		}
-
 		public static string GetStringValue(this Enum e)
 		{
 			var type = e.GetType();
@@ -975,7 +948,7 @@ namespace OpenSearch.Net
 		{
 			var values = Enum.GetValues(type);
 			var dictionary = new EnumDictionary(values.Length);
-			for (int index = 0; index < values.Length; index++)
+			for (var index = 0; index < values.Length; index++)
 			{
 				var value = values.GetValue(index);
 				var info = type.GetField(value.ToString());
