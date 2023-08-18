@@ -145,7 +145,9 @@ namespace Tests.Search.Request
 							}
 						}
 					}
-				}
+				},
+				max_analyzer_offset = 1_000_000
+				
 			}
 		};
 
@@ -200,6 +202,7 @@ namespace Tests.Search.Request
 							)
 						)
 				)
+				.MaxAnalyzerOffset(1_000_000) //the default value
 			);
 
 		protected override SearchRequest<Project> Initializer =>
@@ -261,7 +264,8 @@ namespace Tests.Search.Request
 								}
 							}
 						}
-					}
+					},
+					MaxAnalyzerOffset = 1_000_000
 				}
 			};
 
