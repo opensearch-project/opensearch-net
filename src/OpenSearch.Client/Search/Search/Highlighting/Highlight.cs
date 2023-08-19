@@ -107,6 +107,7 @@ namespace OpenSearch.Client
 		/// If this setting is set to a non-negative value, the highlighting stops at this defined maximum limit, and the
 		/// rest of the text is not processed, thus not highlighted and no error is returned.
 		/// </summary>
+		/// <remarks>Introduced in OpenSearch 2.2</remarks>
 		[DataMember(Name ="max_analyzer_offset")]
 		int? MaxAnalyzerOffset { get; set; }
 

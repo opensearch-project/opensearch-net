@@ -31,9 +31,11 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
+using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using Xunit;
 
@@ -45,13 +47,13 @@ namespace Tests.Search.Request
 	*
 	* See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-highlighting[highlighting] for more detail.
 	*/
-	public class HighlightingUsageTests : SearchUsageTestBase
+	[SkipVersion("<2.2.0", "MaxAnalyzerOffset field was introduced in 2.2.0")]
+	public class HighlightingUsageTestsWithMaxAnalyzerOffset : HighlightingUsageTests
 	{
-		public HighlightingUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+		public HighlightingUsageTestsWithMaxAnalyzerOffset(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		public string LastNameSearch { get; } = Project.First.LeadDeveloper.LastName;
-
-		protected override object ExpectJson => new
+		protected override object ExpectJson =>
+		 new
 		{
 			query = new
 			{
@@ -145,11 +147,14 @@ namespace Tests.Search.Request
 							}
 						}
 					}
-				}
+				},
+				max_analyzer_offset = 1_000_000
 			}
 		};
 
 		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+			
+			
 			.Query(q => q
 				.Match(m => m
 					.Field(f => f.Name.Suffix("standard"))
@@ -200,6 +205,7 @@ namespace Tests.Search.Request
 							)
 						)
 				)
+				.MaxAnalyzerOffset(1_000_000) //the default value
 			);
 
 		protected override SearchRequest<Project> Initializer =>
@@ -261,7 +267,8 @@ namespace Tests.Search.Request
 								}
 							}
 						}
-					}
+					},
+					MaxAnalyzerOffset = 1_000_000
 				}
 			};
 
