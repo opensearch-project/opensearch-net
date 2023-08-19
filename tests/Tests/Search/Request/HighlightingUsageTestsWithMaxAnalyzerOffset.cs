@@ -94,7 +94,8 @@ namespace Tests.Search.Request
 							{ "fragment_size", 150 },
 							{ "fragmenter", "span" },
 							{ "number_of_fragments", 3 },
-							{ "no_match_size", 150 }
+							{ "no_match_size", 150 },
+							{ "max_analyzer_offset", 500 }
 						}
 					},
 					{
@@ -179,7 +180,8 @@ namespace Tests.Search.Request
 						.FragmentSize(150)
 						.Fragmenter(HighlighterFragmenter.Span)
 						.NumberOfFragments(3)
-						.NoMatchSize(150),
+						.NoMatchSize(150)
+						.MaxAnalyzerOffset(500),
 					fs => fs
 						.Field(p => p.LeadDeveloper.FirstName)
 						.Type(HighlighterType.Fvh)
@@ -236,7 +238,8 @@ namespace Tests.Search.Request
 								FragmentSize = 150,
 								Fragmenter = HighlighterFragmenter.Span,
 								NumberOfFragments = 3,
-								NoMatchSize = 150
+								NoMatchSize = 150,
+								MaxAnalyzerOffset = 500
 							}
 						},
 						{
