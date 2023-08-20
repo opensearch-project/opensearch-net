@@ -6,6 +6,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Moved `OpenSearch.Client` request classes into their respective namespaces to match those in `OpenSearch.Net` ([#200](https://github.com/opensearch-project/opensearch-net/pull/200), [#202](https://github.com/opensearch-project/opensearch-net/pull/202), [#203](https://github.com/opensearch-project/opensearch-net/pull/203), [#205](https://github.com/opensearch-project/opensearch-net/pull/205), [#206](https://github.com/opensearch-project/opensearch-net/pull/206), [#207](https://github.com/opensearch-project/opensearch-net/pull/207), [#208](https://github.com/opensearch-project/opensearch-net/pull/208), [#209](https://github.com/opensearch-project/opensearch-net/pull/209))
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 
+### Fixed
+- Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
+
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.6.3

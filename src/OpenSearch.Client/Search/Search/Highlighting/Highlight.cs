@@ -107,8 +107,9 @@ namespace OpenSearch.Client
 		/// If this setting is set to a non-negative value, the highlighting stops at this defined maximum limit, and the
 		/// rest of the text is not processed, thus not highlighted and no error is returned.
 		/// </summary>
-		[DataMember(Name ="max_analyzed_offset")]
-		int? MaxAnalyzedOffset { get; set; }
+		/// <remarks>Introduced in OpenSearch 2.2</remarks>
+		[DataMember(Name ="max_analyzer_offset")]
+		int? MaxAnalyzerOffset { get; set; }
 
 		[DataMember(Name ="max_fragment_length")]
 		int? MaxFragmentLength { get; set; }
@@ -210,7 +211,7 @@ namespace OpenSearch.Client
 		public QueryContainer HighlightQuery { get; set; }
 
 		/// <inheritdoc/>
-		public int? MaxAnalyzedOffset { get; set; }
+		public int? MaxAnalyzerOffset { get; set; }
 
 		/// <inheritdoc/>
 		public int? MaxFragmentLength { get; set; }
@@ -258,7 +259,7 @@ namespace OpenSearch.Client
 		int? IHighlight.FragmentOffset { get; set; }
 		int? IHighlight.FragmentSize { get; set; }
 		QueryContainer IHighlight.HighlightQuery { get; set; }
-		int? IHighlight.MaxAnalyzedOffset { get; set; }
+		int? IHighlight.MaxAnalyzerOffset { get; set; }
 		int? IHighlight.MaxFragmentLength { get; set; }
 		int? IHighlight.NoMatchSize { get; set; }
 		int? IHighlight.NumberOfFragments { get; set; }
@@ -323,8 +324,8 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IHighlight.BoundaryMaxScan" />
 		public HighlightDescriptor<T> BoundaryMaxScan(int? boundaryMaxScan) => Assign(boundaryMaxScan, (a, v) => a.BoundaryMaxScan = v);
 
-		/// <inheritdoc cref="IHighlight.MaxAnalyzedOffset" />
-		public HighlightDescriptor<T> MaxAnalyzedOffset(int? maxAnalyzedOffset) => Assign(maxAnalyzedOffset, (a, v) => a.MaxAnalyzedOffset = v);
+		/// <inheritdoc cref="IHighlight.MaxAnalyzerOffset" />
+		public HighlightDescriptor<T> MaxAnalyzerOffset(int? maxAnalyzerOffset) => Assign(maxAnalyzerOffset, (a, v) => a.MaxAnalyzerOffset = v);
 
 		/// <inheritdoc cref="IHighlight.MaxFragmentLength" />
 		public HighlightDescriptor<T> MaxFragmentLength(int? maxFragmentLength) => Assign(maxFragmentLength, (a, v) => a.MaxFragmentLength = v);
