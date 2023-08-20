@@ -2,6 +2,9 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+### Fixed
+- Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
+
 ### Dependencies
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.6.3
 - Bumps `JunitXml.TestLogger` from 3.0.124 to 3.0.134
