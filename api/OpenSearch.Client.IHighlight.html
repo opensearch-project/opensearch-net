@@ -418,21 +418,21 @@ QueryContainer HighlightQuery { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_MaxAnalyzedOffset.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.MaxAnalyzedOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_MaxAnalyzerOffset.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.MaxAnalyzerOffset%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L110">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L111">View Source</a>
   </span>
-  <a id="OpenSearch_Client_IHighlight_MaxAnalyzedOffset_" data-uid="OpenSearch.Client.IHighlight.MaxAnalyzedOffset*"></a>
-  <h4 id="OpenSearch_Client_IHighlight_MaxAnalyzedOffset" data-uid="OpenSearch.Client.IHighlight.MaxAnalyzedOffset">MaxAnalyzedOffset</h4>
+  <a id="OpenSearch_Client_IHighlight_MaxAnalyzerOffset_" data-uid="OpenSearch.Client.IHighlight.MaxAnalyzerOffset*"></a>
+  <h4 id="OpenSearch_Client_IHighlight_MaxAnalyzerOffset" data-uid="OpenSearch.Client.IHighlight.MaxAnalyzerOffset">MaxAnalyzerOffset</h4>
   <div class="markdown level1 summary"><p>If this setting is set to a non-negative value, the highlighting stops at this defined maximum limit, and the
 rest of the text is not processed, thus not highlighted and no error is returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_analyzed_offset&quot;)]
-int? MaxAnalyzedOffset { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;max_analyzer_offset&quot;)]
+int? MaxAnalyzerOffset { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -449,12 +449,15 @@ int? MaxAnalyzedOffset { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="OpenSearch_Client_IHighlight_MaxAnalyzerOffset_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.2</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_MaxFragmentLength.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.MaxFragmentLength%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L113">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L114">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_MaxFragmentLength_" data-uid="OpenSearch.Client.IHighlight.MaxFragmentLength*"></a>
   <h4 id="OpenSearch_Client_IHighlight_MaxFragmentLength" data-uid="OpenSearch.Client.IHighlight.MaxFragmentLength">MaxFragmentLength</h4>
@@ -485,7 +488,7 @@ int? MaxFragmentLength { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_NoMatchSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.NoMatchSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L122">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L123">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_NoMatchSize_" data-uid="OpenSearch.Client.IHighlight.NoMatchSize*"></a>
   <h4 id="OpenSearch_Client_IHighlight_NoMatchSize" data-uid="OpenSearch.Client.IHighlight.NoMatchSize">NoMatchSize</h4>
@@ -520,7 +523,7 @@ int? NoMatchSize { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_NumberOfFragments.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.NumberOfFragments%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L128">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L129">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_NumberOfFragments_" data-uid="OpenSearch.Client.IHighlight.NumberOfFragments*"></a>
   <h4 id="OpenSearch_Client_IHighlight_NumberOfFragments" data-uid="OpenSearch.Client.IHighlight.NumberOfFragments">NumberOfFragments</h4>
@@ -552,7 +555,7 @@ int? NumberOfFragments { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_Order.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.Order%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L134">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L135">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_Order_" data-uid="OpenSearch.Client.IHighlight.Order*"></a>
   <h4 id="OpenSearch_Client_IHighlight_Order" data-uid="OpenSearch.Client.IHighlight.Order">Order</h4>
@@ -584,7 +587,7 @@ HighlighterOrder? Order { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_PostTags.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.PostTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L142">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L143">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_PostTags_" data-uid="OpenSearch.Client.IHighlight.PostTags*"></a>
   <h4 id="OpenSearch_Client_IHighlight_PostTags" data-uid="OpenSearch.Client.IHighlight.PostTags">PostTags</h4>
@@ -618,7 +621,7 @@ IEnumerable&lt;string&gt; PostTags { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_PreTags.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.PreTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L150">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L151">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_PreTags_" data-uid="OpenSearch.Client.IHighlight.PreTags*"></a>
   <h4 id="OpenSearch_Client_IHighlight_PreTags" data-uid="OpenSearch.Client.IHighlight.PreTags">PreTags</h4>
@@ -652,7 +655,7 @@ IEnumerable&lt;string&gt; PreTags { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_RequireFieldMatch.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.RequireFieldMatch%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L163">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L164">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_RequireFieldMatch_" data-uid="OpenSearch.Client.IHighlight.RequireFieldMatch*"></a>
   <h4 id="OpenSearch_Client_IHighlight_RequireFieldMatch" data-uid="OpenSearch.Client.IHighlight.RequireFieldMatch">RequireFieldMatch</h4>
@@ -691,7 +694,7 @@ bool? RequireFieldMatch { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_IHighlight_TagsSchema.md&amp;value=---%0Auid%3A%20OpenSearch.Client.IHighlight.TagsSchema%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L176">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/Highlighting/Highlight.cs/#L177">View Source</a>
   </span>
   <a id="OpenSearch_Client_IHighlight_TagsSchema_" data-uid="OpenSearch.Client.IHighlight.TagsSchema*"></a>
   <h4 id="OpenSearch_Client_IHighlight_TagsSchema" data-uid="OpenSearch.Client.IHighlight.TagsSchema">TagsSchema</h4>
