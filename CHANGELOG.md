@@ -11,7 +11,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
-- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.6.3
+- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.7.1
 - Bumps `JunitXml.TestLogger` from 3.0.124 to 3.0.134
 - Bumps `System.Reflection.Emit.Lightweight` from 4.3.0 to 4.7.0
 - Bumps `BenchMarkDotNet` from 0.13.5 to 0.13.7
