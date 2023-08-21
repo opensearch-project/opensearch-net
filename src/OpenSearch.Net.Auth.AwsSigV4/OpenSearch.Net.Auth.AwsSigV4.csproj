@@ -20,6 +20,6 @@
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net\OpenSearch.Net.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AWSSDK.Core" Version="3.7.200.16" />
+    <PackageReference Include="AWSSDK.Core" Version="3.7.201.1" />
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Reflection.Emit.Lightweight` from 4.3.0 to 4.7.0
 - Bumps `BenchMarkDotNet` from 0.13.5 to 0.13.7
 - Bumps `Microsoft.NET.Test.Sdk` from 17.6.2 to 17.7.1
-- Bumps `AWSSDK.Core` from 3.7.106.29 to 3.7.200.16
+- Bumps `AWSSDK.Core` from 3.7.106.29 to 3.7.201.1
 - Bumps `Bullseye` from 3.3.0 to 4.2.1
 - Bumps `xunit.runner.visualstudio` from 2.4.5 to 2.5.0
 - Bumps `FluentAssertions` from 6.10.0 to 6.11.0
