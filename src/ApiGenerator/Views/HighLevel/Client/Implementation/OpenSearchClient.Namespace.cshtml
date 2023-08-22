@@ -24,7 +24,7 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiName
     /// on <see cref="IOpenSearchClient"/>.
     ///</para>
     ///</summary>
-    public class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+    public partial class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
     {
         internal @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
         @foreach(var e in endpoints)

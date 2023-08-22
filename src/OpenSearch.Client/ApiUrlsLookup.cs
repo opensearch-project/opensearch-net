@@ -172,9 +172,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls SnapshotRestore = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}/_restore"});
 		internal static ApiUrls SnapshotStatus = new ApiUrls(new[]{"_snapshot/_status", "_snapshot/{repository}/_status", "_snapshot/{repository}/{snapshot}/_status"});
 		internal static ApiUrls SnapshotVerifyRepository = new ApiUrls(new[]{"_snapshot/{repository}/_verify"});
-		internal static ApiUrls TasksCancel = new ApiUrls(new[]{"_tasks/_cancel", "_tasks/{task_id}/_cancel"});
-		internal static ApiUrls TasksGetTask = new ApiUrls(new[]{"_tasks/{task_id}"});
-		internal static ApiUrls TasksList = new ApiUrls(new[]{"_tasks"});
 		internal static ApiUrls NoNamespaceTermVectors = new ApiUrls(new[]{"{index}/_termvectors/{id}", "{index}/_termvectors"});
 		internal static ApiUrls NoNamespaceUpdate = new ApiUrls(new[]{"{index}/_update/{id}"});
 		internal static ApiUrls NoNamespaceUpdateByQuery = new ApiUrls(new[]{"{index}/_update_by_query"});

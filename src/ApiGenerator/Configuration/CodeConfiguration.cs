@@ -40,6 +40,7 @@ namespace ApiGenerator.Configuration
 		private static readonly Glob[] OperationsToInclude =
 		{
 			// e.g. new Glob("nodes.*"),
+			new("tasks.*")
 		};
 
 		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));

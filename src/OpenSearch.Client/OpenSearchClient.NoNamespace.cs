@@ -112,13 +112,6 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Tasks APIs</summary>
-		public TasksNamespace Tasks
-		{
-			get;
-			private set;
-		}
-
 		partial void SetupNamespaces()
 		{
 			Cat = new CatNamespace(this);
@@ -128,7 +121,6 @@ namespace OpenSearch.Client
 			Ingest = new IngestNamespace(this);
 			Nodes = new NodesNamespace(this);
 			Snapshot = new SnapshotNamespace(this);
-			Tasks = new TasksNamespace(this);
 		}
 
 		/// <summary>
