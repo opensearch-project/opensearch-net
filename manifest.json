@@ -28523,36 +28523,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FeaturesApi.GetFeaturesRequestParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.FeaturesApi.GetFeaturesRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FeaturesApi.LowLevelFeaturesNamespace.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.FeaturesApi.LowLevelFeaturesNamespace.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FeaturesApi.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.FeaturesApi.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.AddIndexBlockRequestParameters.yml",
       "output": {
         ".html": {
