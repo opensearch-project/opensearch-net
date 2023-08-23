@@ -9,6 +9,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
 
+### Removed
+- Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
+
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.7.1
