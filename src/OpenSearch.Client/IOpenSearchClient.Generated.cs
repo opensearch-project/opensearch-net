@@ -76,12 +76,6 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Dangling Indices APIs</summary>
-		DanglingIndicesNamespace DanglingIndices
-		{
-			get;
-		}
-
 		///<summary>Indices APIs</summary>
 		IndicesNamespace Indices
 		{

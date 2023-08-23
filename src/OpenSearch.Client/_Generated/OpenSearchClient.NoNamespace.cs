@@ -46,6 +46,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.TasksApi;
 
 // ReSharper disable RedundantTypeArgumentsOfMethod
@@ -56,11 +57,15 @@ namespace OpenSearch.Client
     ///</summary>
     public partial class OpenSearchClient : IOpenSearchClient
     {
+        ///<summary>Dangling Indices APIs</summary>
+        public DanglingIndicesNamespace DanglingIndices { get; private set; }
+
         ///<summary>Tasks APIs</summary>
         public TasksNamespace Tasks { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {
+            DanglingIndices = new DanglingIndicesNamespace(this);
             Tasks = new TasksNamespace(this);
         }
     }

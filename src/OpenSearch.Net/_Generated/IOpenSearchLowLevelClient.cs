@@ -50,6 +50,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.DanglingIndicesApi;
 using OpenSearch.Net.Specification.TasksApi;
 
 namespace OpenSearch.Net
@@ -59,6 +60,9 @@ namespace OpenSearch.Net
     ///</summary>
     public partial interface IOpenSearchLowLevelClient
     {
+        ///<summary>Dangling Indices APIs</summary>
+        LowLevelDanglingIndicesNamespace DanglingIndices { get; }
+
         ///<summary>Tasks APIs</summary>
         LowLevelTasksNamespace Tasks { get; }
     }

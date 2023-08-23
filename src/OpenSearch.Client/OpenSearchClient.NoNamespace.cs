@@ -77,13 +77,6 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Dangling Indices APIs</summary>
-		public DanglingIndicesNamespace DanglingIndices
-		{
-			get;
-			private set;
-		}
-
 		///<summary>Indices APIs</summary>
 		public IndicesNamespace Indices
 		{
@@ -116,7 +109,6 @@ namespace OpenSearch.Client
 		{
 			Cat = new CatNamespace(this);
 			Cluster = new ClusterNamespace(this);
-			DanglingIndices = new DanglingIndicesNamespace(this);
 			Indices = new IndicesNamespace(this);
 			Ingest = new IngestNamespace(this);
 			Nodes = new NodesNamespace(this);

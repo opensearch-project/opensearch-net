@@ -78,12 +78,6 @@ namespace OpenSearch.Net
 			get;
 		}
 
-		///<summary>Dangling Indices APIs</summary>
-		LowLevelDanglingIndicesNamespace DanglingIndices
-		{
-			get;
-		}
-
 		///<summary>Indices APIs</summary>
 		LowLevelIndicesNamespace Indices
 		{
