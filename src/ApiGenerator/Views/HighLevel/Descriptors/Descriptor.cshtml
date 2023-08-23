@@ -56,7 +56,7 @@
     if(!string.IsNullOrWhiteSpace(param.Obsolete))
     {
         <text>
-        [Obsolete("Scheduled to be removed in 8.0, @param.Obsolete")]
+        [Obsolete("@Raw(param.Obsolete)")]
         </text>
     }
 <text>
