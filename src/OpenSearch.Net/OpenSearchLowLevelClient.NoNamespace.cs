@@ -53,7 +53,6 @@ using OpenSearch.Net;
 using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.FeaturesApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.NodesApi;
@@ -88,12 +87,6 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelFeaturesNamespace Features
-		{
-			get;
-			private set;
-		}
-
 		public LowLevelIndicesNamespace Indices
 		{
 			get;
@@ -123,7 +116,6 @@ namespace OpenSearch.Net
 			Cat = new LowLevelCatNamespace(this);
 			Cluster = new LowLevelClusterNamespace(this);
 			DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
-			Features = new LowLevelFeaturesNamespace(this);
 			Indices = new LowLevelIndicesNamespace(this);
 			Ingest = new LowLevelIngestNamespace(this);
 			Nodes = new LowLevelNodesNamespace(this);

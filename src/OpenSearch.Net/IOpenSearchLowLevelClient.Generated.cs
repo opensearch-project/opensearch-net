@@ -53,7 +53,6 @@ using OpenSearch.Net;
 using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.FeaturesApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.NodesApi;
@@ -81,12 +80,6 @@ namespace OpenSearch.Net
 
 		///<summary>Dangling Indices APIs</summary>
 		LowLevelDanglingIndicesNamespace DanglingIndices
-		{
-			get;
-		}
-
-		///<summary>Features APIs</summary>
-		LowLevelFeaturesNamespace Features
 		{
 			get;
 		}
