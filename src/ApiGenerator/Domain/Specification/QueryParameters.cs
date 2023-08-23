@@ -45,6 +45,8 @@ namespace ApiGenerator.Domain.Specification
 
         public string Description { get; set; }
 
+		public string VersionAdded { get; set; }
+
         public IEnumerable<string> DescriptionHighLevel
         {
             get
@@ -191,8 +193,8 @@ namespace ApiGenerator.Domain.Specification
         }
 
 
-        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, params string[] doc) =>
-            CodeGenerator.Property(@namespace, type, name, key, setter, Obsolete, doc);
+        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, string versionAdded, params string[] doc) =>
+            CodeGenerator.Property(@namespace, type, name, key, setter, Obsolete, versionAdded, doc);
     }
 
     public class QueryParameterDeprecation

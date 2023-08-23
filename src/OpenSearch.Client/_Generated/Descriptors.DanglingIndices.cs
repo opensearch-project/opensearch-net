@@ -89,6 +89,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             Qs("accept_data_loss", acceptdataloss);
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeleteDanglingIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
@@ -134,6 +135,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
             Qs("accept_data_loss", acceptdataloss);
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ImportDanglingIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 

@@ -67,6 +67,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
@@ -106,6 +107,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");

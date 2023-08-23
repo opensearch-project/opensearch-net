@@ -98,6 +98,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         }
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
             get => Q<Time>("cluster_manager_timeout");
@@ -162,6 +163,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         }
 
         ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
             get => Q<Time>("cluster_manager_timeout");

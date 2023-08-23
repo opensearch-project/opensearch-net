@@ -57,7 +57,7 @@
         continue;
     }
     var doc = param.DescriptionHighLevel.ToArray();
-	@Raw(param.InitializerGenerator(Model.CsharpNames.Namespace, param.TypeHighLevel, param.ClsName, original, param.SetterHighLevel, doc))
+	@Raw(param.InitializerGenerator(Model.CsharpNames.Namespace, param.TypeHighLevel, param.ClsName, original, param.SetterHighLevel, param.VersionAdded, doc))
 }
 @if (Model.CsharpNames.DescriptorNotFoundInCodebase)
 {<text>

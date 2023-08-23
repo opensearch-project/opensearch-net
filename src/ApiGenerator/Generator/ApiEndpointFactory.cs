@@ -89,7 +89,8 @@ namespace ApiGenerator.Generator
 	                    Type = GetOpenSearchType(p.Schema),
 	                    Description = p.Description,
 	                    Options = GetEnumOptions(p.Schema),
-	                    Deprecated = GetDeprecation(p.Schema)
+	                    Deprecated = GetDeprecation(p.Schema),
+	                    VersionAdded = p.Schema.GetExtension("x-version-added") as string,
 	                });
 
 	        var endpoint = new ApiEndpoint
