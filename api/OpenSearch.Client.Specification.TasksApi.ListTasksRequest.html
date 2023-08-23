@@ -83,7 +83,7 @@
 
   <h1 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest" class="text-break">Class ListTasksRequest
 </h1>
-  <div class="markdown level0 summary"><p>Request for List <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level0 summary"><p>Request for List <p>https://opensearch.org/docs/latest/api-reference/tasks/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -171,9 +171,6 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ListTasksRequest : PlainRequestBase&lt;ListTasksRequestParameters&gt;, IListTasksRequest, IRequest&lt;ListTasksRequestParameters&gt;, IRequest</code></pre>
   </div>
-  <h5 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.</p>
-</div>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
@@ -181,11 +178,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Actions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Actions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L185">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L182">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Actions_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Actions*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Actions" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Actions">Actions</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of actions that should be returned. Leave empty to return all.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of actions that should be returned. Leave empty to return all.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -212,11 +209,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Detailed.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Detailed%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L192">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L189">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Detailed_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Detailed*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Detailed" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Detailed">Detailed</h4>
-  <div class="markdown level1 summary"><p>Return detailed task information (default: false)</p>
+  <div class="markdown level1 summary"><p>Return detailed task information.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -243,11 +240,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_GroupBy.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.GroupBy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L199">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L196">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_GroupBy_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.GroupBy*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_GroupBy" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.GroupBy">GroupBy</h4>
-  <div class="markdown level1 summary"><p>Group tasks by nodes or parent/child relationships</p>
+  <div class="markdown level1 summary"><p>Group tasks by nodes or parent/child relationships.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -274,12 +271,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Nodes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Nodes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L209">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L206">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Nodes_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Nodes*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Nodes" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Nodes">Nodes</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're
-connecting to, leave empty to get information from all nodes</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're
+connecting to, leave empty to get information from all nodes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -306,7 +303,7 @@ connecting to, leave empty to get information from all nodes</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_ParentTaskId.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.ParentTaskId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L216">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L213">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_ParentTaskId_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.ParentTaskId*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_ParentTaskId" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.ParentTaskId">ParentTaskId</h4>
@@ -337,7 +334,7 @@ connecting to, leave empty to get information from all nodes</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L180">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L175">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Self_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Self*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Self" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Self">Self</h4>
@@ -367,11 +364,11 @@ connecting to, leave empty to get information from all nodes</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L223">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L220">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Timeout_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_Timeout" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Operation timeout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -398,11 +395,11 @@ connecting to, leave empty to get information from all nodes</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest_WaitForCompletion.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest.WaitForCompletion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Tasks.cs/#L230">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L227">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_WaitForCompletion_" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.WaitForCompletion*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_ListTasksRequest_WaitForCompletion" data-uid="OpenSearch.Client.Specification.TasksApi.ListTasksRequest.WaitForCompletion">WaitForCompletion</h4>
-  <div class="markdown level1 summary"><p>Wait for the matching tasks to complete (default: false)</p>
+  <div class="markdown level1 summary"><p>Should this request wait until the operation has completed before returning.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -450,7 +447,7 @@ connecting to, leave empty to get information from all nodes</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_ListTasksRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.ListTasksRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Tasks/ListTasks/ListTasksRequest.cs/#L34" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L171" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -150,11 +150,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync%60%601(OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L81">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L80">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync``1(OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters,System.Threading.CancellationToken)">CancelAsync&lt;TResponse&gt;(CancelTasksRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>POST on /_tasks/_cancel <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>POST on /_tasks/_cancel <p>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -214,19 +214,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync%60%601(System.String%2COpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L94">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L112">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.CancelAsync``1(System.String,OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters,System.Threading.CancellationToken)">CancelAsync&lt;TResponse&gt;(string, CancelTasksRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>POST on /_tasks/{task_id}/_cancel <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>POST on /_tasks/{task_id}/_cancel <p>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -246,7 +243,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">taskId</span></td>
-        <td><p>Cancel the task with specified task id (node_id:task_number)</p>
+        <td><p>Cancel the task with specified task id (node_id:task_number).</p>
 </td>
       </tr>
       <tr>
@@ -292,19 +289,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_CancelAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel%60%601(OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L76">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L74">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel``1(OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters)">Cancel&lt;TResponse&gt;(CancelTasksRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_tasks/_cancel <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>POST on /_tasks/_cancel <p>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -359,19 +353,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel%60%601(System.String%2COpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L88">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L97">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.Cancel``1(System.String,OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters)">Cancel&lt;TResponse&gt;(string, CancelTasksRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>POST on /_tasks/{task_id}/_cancel <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>POST on /_tasks/{task_id}/_cancel <p>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -391,7 +382,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">taskId</span></td>
-        <td><p>Cancel the task with specified task id (node_id:task_number)</p>
+        <td><p>Cancel the task with specified task id (node_id:task_number).</p>
 </td>
       </tr>
       <tr>
@@ -432,19 +423,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_Cancel__1_System_String_OpenSearch_Net_Specification_TasksApi_CancelTasksRequestParameters__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTaskAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTaskAsync%60%601(System.String%2COpenSearch.Net.Specification.TasksApi.GetTaskRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L107">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L145">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTaskAsync_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTaskAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTaskAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTaskAsync``1(System.String,OpenSearch.Net.Specification.TasksApi.GetTaskRequestParameters,System.Threading.CancellationToken)">GetTaskAsync&lt;TResponse&gt;(string, GetTaskRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>GET on /_tasks/{task_id} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>GET on /_tasks/{task_id} <p>https://opensearch.org/docs/latest/api-reference/tasks/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -464,7 +452,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">taskId</span></td>
-        <td><p>Return the task with specified id (node_id:task_number)</p>
+        <td><p>Return the task with specified id (node_id:task_number).</p>
 </td>
       </tr>
       <tr>
@@ -510,19 +498,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTaskAsync__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTask__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTask%60%601(System.String%2COpenSearch.Net.Specification.TasksApi.GetTaskRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L101">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L130">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTask_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTask*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTask__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.GetTask``1(System.String,OpenSearch.Net.Specification.TasksApi.GetTaskRequestParameters)">GetTask&lt;TResponse&gt;(string, GetTaskRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_tasks/{task_id} <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>GET on /_tasks/{task_id} <p>https://opensearch.org/docs/latest/api-reference/tasks/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -542,7 +527,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">taskId</span></td>
-        <td><p>Return the task with specified id (node_id:task_number)</p>
+        <td><p>Return the task with specified id (node_id:task_number).</p>
 </td>
       </tr>
       <tr>
@@ -583,19 +568,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_GetTask__1_System_String_OpenSearch_Net_Specification_TasksApi_GetTaskRequestParameters__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_ListAsync__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.ListAsync%60%601(OpenSearch.Net.Specification.TasksApi.ListTasksRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L118">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L168">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_ListAsync_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.ListAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_ListAsync__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.ListAsync``1(OpenSearch.Net.Specification.TasksApi.ListTasksRequestParameters,System.Threading.CancellationToken)">ListAsync&lt;TResponse&gt;(ListTasksRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>GET on /_tasks <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>GET on /_tasks <p>https://opensearch.org/docs/latest/api-reference/tasks/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -655,19 +637,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_ListAsync__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_List__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.List%60%601(OpenSearch.Net.Specification.TasksApi.ListTasksRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L113">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L162">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_List_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.List*"></a>
   <h4 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_List__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters_" data-uid="OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace.List``1(OpenSearch.Net.Specification.TasksApi.ListTasksRequestParameters)">List&lt;TResponse&gt;(ListTasksRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>GET on /_tasks <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</p>
+  <div class="markdown level1 summary"><p>GET on /_tasks <p>https://opensearch.org/docs/latest/api-reference/tasks/</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -722,9 +701,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace_List__1_OpenSearch_Net_Specification_TasksApi_ListTasksRequestParameters__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</p>
-</div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
@@ -741,7 +717,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_TasksApi_LowLevelTasksNamespace.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.TasksApi.LowLevelTasksNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/OpenSearchLowLevelClient.Tasks.cs/#L67" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Tasks.cs/#L67" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
