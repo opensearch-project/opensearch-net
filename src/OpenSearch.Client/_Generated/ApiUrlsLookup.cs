@@ -53,6 +53,19 @@ namespace OpenSearch.Client
 
         internal static ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
 
+        internal static ApiUrls IngestDeletePipeline = new(new[] { "_ingest/pipeline/{id}" });
+
+        internal static ApiUrls IngestGetPipeline =
+            new(new[] { "_ingest/pipeline", "_ingest/pipeline/{id}" });
+
+        internal static ApiUrls IngestGrokProcessorPatterns =
+            new(new[] { "_ingest/processor/grok" });
+
+        internal static ApiUrls IngestPutPipeline = new(new[] { "_ingest/pipeline/{id}" });
+
+        internal static ApiUrls IngestSimulatePipeline =
+            new(new[] { "_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate" });
+
         internal static ApiUrls TasksCancel =
             new(new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" });
 

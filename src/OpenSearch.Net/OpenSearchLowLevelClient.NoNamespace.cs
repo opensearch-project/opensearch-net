@@ -87,12 +87,6 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelIngestNamespace Ingest
-		{
-			get;
-			private set;
-		}
-
 		public LowLevelNodesNamespace Nodes
 		{
 			get;
@@ -110,7 +104,6 @@ namespace OpenSearch.Net
 			Cat = new LowLevelCatNamespace(this);
 			Cluster = new LowLevelClusterNamespace(this);
 			Indices = new LowLevelIndicesNamespace(this);
-			Ingest = new LowLevelIngestNamespace(this);
 			Nodes = new LowLevelNodesNamespace(this);
 			Snapshot = new LowLevelSnapshotNamespace(this);
 		}

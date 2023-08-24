@@ -51,6 +51,7 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.TasksApi;
 
 // ReSharper disable UnusedTypeParameter

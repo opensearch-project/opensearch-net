@@ -82,12 +82,6 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Ingest APIs</summary>
-		IngestNamespace Ingest
-		{
-			get;
-		}
-
 		///<summary>Nodes APIs</summary>
 		NodesNamespace Nodes
 		{

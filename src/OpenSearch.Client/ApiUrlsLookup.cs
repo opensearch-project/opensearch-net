@@ -134,11 +134,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls IndicesBulkAlias = new ApiUrls(new[]{"_aliases"});
 		internal static ApiUrls IndicesValidateQuery = new ApiUrls(new[]{"_validate/query", "{index}/_validate/query"});
 		internal static ApiUrls NoNamespaceRootNodeInfo = new ApiUrls(new[]{""});
-		internal static ApiUrls IngestDeletePipeline = new ApiUrls(new[]{"_ingest/pipeline/{id}"});
-		internal static ApiUrls IngestGetPipeline = new ApiUrls(new[]{"_ingest/pipeline", "_ingest/pipeline/{id}"});
-		internal static ApiUrls IngestGrokProcessorPatterns = new ApiUrls(new[]{"_ingest/processor/grok"});
-		internal static ApiUrls IngestPutPipeline = new ApiUrls(new[]{"_ingest/pipeline/{id}"});
-		internal static ApiUrls IngestSimulatePipeline = new ApiUrls(new[]{"_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate"});
 		internal static ApiUrls NoNamespaceMultiGet = new ApiUrls(new[]{"_mget", "{index}/_mget"});
 		internal static ApiUrls NoNamespaceMultiSearch = new ApiUrls(new[]{"_msearch", "{index}/_msearch"});
 		internal static ApiUrls NoNamespaceMultiSearchTemplate = new ApiUrls(new[]{"_msearch/template", "{index}/_msearch/template"});

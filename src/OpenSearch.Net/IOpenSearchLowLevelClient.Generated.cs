@@ -84,12 +84,6 @@ namespace OpenSearch.Net
 			get;
 		}
 
-		///<summary>Ingest APIs</summary>
-		LowLevelIngestNamespace Ingest
-		{
-			get;
-		}
-
 		///<summary>Nodes APIs</summary>
 		LowLevelNodesNamespace Nodes
 		{

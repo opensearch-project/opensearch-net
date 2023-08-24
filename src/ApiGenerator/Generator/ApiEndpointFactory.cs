@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Net.Mime;
 using ApiGenerator.Configuration;
 using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
@@ -76,7 +77,7 @@ namespace ApiGenerator.Generator
 	                Name = p.Name,
 	                Required = requiredPathParams?.Contains(p.Name) ?? false,
 	                Type = GetOpenSearchType(p.Schema),
-	                Options = GetEnumOptions(p.Schema),
+	                Options = GetEnumOptions(p.Schema)
 	            })
 	            .ToImmutableSortedDictionary(p => p.Name, p => p);
 
@@ -90,7 +91,7 @@ namespace ApiGenerator.Generator
 	                    Description = p.Description,
 	                    Options = GetEnumOptions(p.Schema),
 	                    Deprecated = GetDeprecation(p.Schema),
-	                    VersionAdded = p.Schema.GetExtension("x-version-added") as string,
+	                    VersionAdded = p.Schema.XVersionAdded()
 	                });
 
 	        var endpoint = new ApiEndpoint
@@ -103,14 +104,14 @@ namespace ApiGenerator.Generator
 	            OfficialDocumentationLink = new Documentation
 	            {
 	                Description = variants[0].Operation.Description,
-	                Url = variants[0].Operation.ExternalDocumentation?.Url,
+	                Url = variants[0].Operation.ExternalDocumentation?.Url
 	            },
 	            Url = urlInfo,
-	            Body = variants.Select(v => v.Operation.RequestBody).FirstOrDefault(b => b != null) is {} reqBody ? new Body
-	            {
-	                Description = reqBody.Description,
-	                Required = reqBody.IsRequired
-	            } : null,
+	            Body = variants
+					.Select(v => v.Operation.RequestBody)
+					.FirstOrDefault(b => b != null) is { } reqBody
+					? new Body { Description = GetDescription(reqBody), Required = reqBody.IsRequired }
+					: null,
 	            HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
 	        };
 
@@ -138,10 +139,10 @@ namespace ApiGenerator.Generator
 	            ?? throw new ArgumentNullException("ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)");
 
 	    private static string GetOpenSearchType(JsonSchema schema)
-	    {
-	        while (schema.HasReference) schema = schema.Reference;
+		{
+			schema = schema.ActualSchema;
 
-			if (schema.GetExtension("x-data-type") is string dataType)
+			if (schema.XDataType() is {} dataType)
 				return dataType == "array" ? "list" : dataType;
 
 	        return schema.Type switch
@@ -153,22 +154,37 @@ namespace ApiGenerator.Generator
 	        };
 	    }
 
-	    private static IEnumerable<string> GetEnumOptions(JsonSchema schema)
-	    {
-	        while (schema.HasReference) schema = schema.Reference;
+	    private static IEnumerable<string> GetEnumOptions(JsonSchema schema) =>
+			schema.ActualSchema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
 
-	        return schema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
-	    }
+		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema) =>
+			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
+			{
+				(null, null) => null,
+				var (m, v) => new QueryParameterDeprecation { Description = m, Version = v }
+			};
 
-		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema)
+		private static string GetDescription(OpenApiRequestBody requestBody)
 		{
-			var message = schema.GetExtension("x-deprecation-message") as string;
-			var version = schema.GetExtension("x-version-deprecated") as string;
+			if (!string.IsNullOrWhiteSpace(requestBody.Description))
+				return requestBody.Description;
 
-			return message != null || version != null
-				? new QueryParameterDeprecation { Description = message, Version = version }
+			return requestBody.Content.TryGetValue(MediaTypeNames.Application.Json, out var content)
+				? content.Schema?.ActualSchema.Description
 				: null;
 		}
+
+		private static string XDeprecationMessage(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-deprecation-message") as string;
+
+		private static string XVersionDeprecated(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-version-deprecated") as string;
+
+		private static string XVersionAdded(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-version-added") as string;
+
+		private static string XDataType(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-data-type") as string;
 
 	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
