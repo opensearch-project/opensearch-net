@@ -44,7 +44,7 @@ namespace ApiGenerator.Generator.Razor
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
 			var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
-            var target = GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{CsharpNames.RootNamespace}.cs");
+            var target = GeneratorLocations.LowLevel("OpenSearchLowLevelClient.cs");
             await DoRazor(spec, view, target, token);
 
             var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();

@@ -91,20 +91,12 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Snapshot APIs</summary>
-		public SnapshotNamespace Snapshot
-		{
-			get;
-			private set;
-		}
-
 		partial void SetupNamespaces()
 		{
 			Cat = new CatNamespace(this);
 			Cluster = new ClusterNamespace(this);
 			Indices = new IndicesNamespace(this);
 			Nodes = new NodesNamespace(this);
-			Snapshot = new SnapshotNamespace(this);
 		}
 
 		/// <summary>

@@ -1024,11 +1024,5 @@ namespace OpenSearch.Client
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/update-by-query/">https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/update-by-query/</a>
 		/// </summary>
 		Task<ListTasksResponse> UpdateByQueryRethrottleAsync(IUpdateByQueryRethrottleRequest request, CancellationToken ct = default);
-
-		///<summary>Snapshot APIs</summary>
-		SnapshotNamespace Snapshot
-		{
-			get;
-		}
 	}
 }

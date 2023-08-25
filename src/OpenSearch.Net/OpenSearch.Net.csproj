@@ -46,8 +46,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OpenSearchLowLevelClient.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Update="_Generated\OpenSearchLowLevelClient.*.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OpenSearchLowLevelClient.cs</DependentUpon>
+    </Compile>
     <Compile Update="Api\RequestParameters\RequestParameters.*.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Api\RequestParameters\RequestParameters.cs</DependentUpon>

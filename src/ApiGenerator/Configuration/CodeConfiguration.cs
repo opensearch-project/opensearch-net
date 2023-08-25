@@ -42,6 +42,7 @@ namespace ApiGenerator.Configuration
 			// e.g. new Glob("nodes.*"),
 			new("dangling_indices.*"),
 			new("ingest.*"),
+			new("snapshot.*"),
 			new("tasks.*")
 		};
 

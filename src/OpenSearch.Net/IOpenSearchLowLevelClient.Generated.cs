@@ -686,10 +686,5 @@ namespace OpenSearch.Net
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		Task<TResponse> UpdateByQueryRethrottleAsync<TResponse>(string taskId, UpdateByQueryRethrottleRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new();
-		///<summary>Snapshot APIs</summary>
-		LowLevelSnapshotNamespace Snapshot
-		{
-			get;
-		}
 	}
 }
