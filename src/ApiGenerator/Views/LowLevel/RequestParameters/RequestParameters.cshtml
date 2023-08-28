@@ -32,7 +32,7 @@ namespace OpenSearch.Net@(ns)
         public override bool SupportsBody => @(supportsBody ? "true" : "false");
         @foreach (var param in r.Params)
         {
-<text>      @Raw(param.InitializerGenerator(r.CsharpNames.Namespace, param.TypeLowLevel, param.ClsName, param.QueryStringKey, param.SetterLowLevel, param.Description))
+<text>      @Raw(param.InitializerGenerator(r.CsharpNames.Namespace, param.TypeLowLevel, param.ClsName, param.QueryStringKey, param.SetterLowLevel, param.VersionAdded, param.Description))
 </text>
         }
     }</text>

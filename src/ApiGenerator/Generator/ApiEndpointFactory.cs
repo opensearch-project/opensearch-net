@@ -89,7 +89,8 @@ namespace ApiGenerator.Generator
 	                    Type = GetOpenSearchType(p.Schema),
 	                    Description = p.Description,
 	                    Options = GetEnumOptions(p.Schema),
-	                    Deprecated = p.IsDeprecated ? new QueryParameterDeprecation { Description = p.DeprecatedMessage } : null
+	                    Deprecated = GetDeprecation(p.Schema),
+	                    VersionAdded = p.Schema.GetExtension("x-version-added") as string,
 	                });
 
 	        var endpoint = new ApiEndpoint
@@ -158,6 +159,16 @@ namespace ApiGenerator.Generator
 
 	        return schema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
 	    }
+
+		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema)
+		{
+			var message = schema.GetExtension("x-deprecation-message") as string;
+			var version = schema.GetExtension("x-version-deprecated") as string;
+
+			return message != null || version != null
+				? new QueryParameterDeprecation { Description = message, Version = version }
+				: null;
+		}
 
 	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;

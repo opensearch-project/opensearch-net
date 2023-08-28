@@ -279,7 +279,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -1023,7 +1024,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -1150,7 +1152,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -1261,7 +1264,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -1838,7 +1842,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2016,7 +2021,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2172,7 +2178,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2285,7 +2292,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2417,7 +2425,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2536,7 +2545,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -2712,7 +2722,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3083,7 +3094,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3500,7 +3512,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3617,7 +3630,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3736,7 +3750,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3871,7 +3886,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -3990,7 +4006,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -4117,7 +4134,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -4367,7 +4385,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -4485,7 +4504,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -4606,7 +4626,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -4735,7 +4756,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -5022,7 +5044,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -5182,7 +5205,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -5670,7 +5694,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -5764,7 +5789,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -5904,7 +5930,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6008,7 +6035,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6080,7 +6108,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6210,7 +6239,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6352,7 +6382,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6616,7 +6647,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6692,7 +6724,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -6742,7 +6775,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -6884,7 +6918,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -6968,7 +7003,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -7367,7 +7403,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -7440,7 +7477,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8054,7 +8092,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -8137,7 +8176,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8217,7 +8257,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8301,7 +8342,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8367,7 +8409,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8427,7 +8470,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -8578,7 +8622,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8661,7 +8706,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8705,7 +8751,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8822,7 +8869,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -8883,7 +8931,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -8946,7 +8995,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -9124,7 +9174,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -13682,7 +13733,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -13989,7 +14041,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -14042,7 +14095,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -14112,7 +14166,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -14186,7 +14241,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -14269,7 +14325,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -14350,7 +14407,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -16216,7 +16274,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16324,7 +16383,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16433,7 +16493,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16592,7 +16653,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16646,7 +16708,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16712,7 +16775,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16773,7 +16837,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16842,7 +16907,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -16925,7 +16991,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17000,7 +17067,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17062,7 +17130,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17127,7 +17196,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17204,7 +17274,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -17269,7 +17340,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17357,7 +17429,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17440,7 +17513,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17537,7 +17611,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -17612,7 +17687,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -17685,7 +17761,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -18302,7 +18379,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -18378,7 +18456,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -18438,7 +18517,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -18590,7 +18670,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -18673,7 +18754,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -19161,7 +19243,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -19262,7 +19345,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -19490,7 +19574,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -19666,7 +19751,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -19826,7 +19912,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20053,7 +20140,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20138,7 +20226,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20213,7 +20302,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20294,7 +20384,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20375,7 +20466,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     }
                 ],
@@ -20530,7 +20622,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -21032,7 +21125,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -21125,7 +21219,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -21201,7 +21296,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -23870,7 +23966,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -23954,7 +24051,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -24072,7 +24170,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -27157,7 +27256,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -27273,7 +27373,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -27408,7 +27509,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -27623,7 +27725,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -27726,7 +27829,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -28115,7 +28219,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
@@ -28218,7 +28323,8 @@
                             "type": "string",
                             "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Operation timeout for connection to cluster-manager node.",
-                            "x-data-type": "time"
+                            "x-data-type": "time",
+                            "x-version-added": "2.0.0"
                         }
                     },
                     {
