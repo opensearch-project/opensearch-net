@@ -27,6 +27,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `JetBrains.Annotations` from 2022.3.1 to 2023.2.0
 - Bumps `Octokit` from 6.1.0 to 7.1.0
 - Bumps `FSharp.Core` from 7.0.300 to 7.0.400
+- Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
 
 ## [1.4.0]
 ### Added
