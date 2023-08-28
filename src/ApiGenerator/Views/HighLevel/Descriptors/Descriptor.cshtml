@@ -53,10 +53,17 @@
     var desc = param.DescriptionHighLevel.ToList();
     
     await IncludeAsync("HighLevel/Descriptors/XmlDocs.cshtml", desc);
-    if(!string.IsNullOrWhiteSpace(param.Obsolete))
+
+	if (!string.IsNullOrWhiteSpace(param.VersionAdded))
+	{
+		<text>
+		///<remarks>Supported by OpenSearch servers of version @(param.VersionAdded) or greater.</remarks></text>
+	}
+
+	if(!string.IsNullOrWhiteSpace(param.Obsolete))
     {
         <text>
-        [Obsolete("Scheduled to be removed in 8.0, @param.Obsolete")]
+        [Obsolete("@Raw(param.Obsolete)")]
         </text>
     }
 <text>

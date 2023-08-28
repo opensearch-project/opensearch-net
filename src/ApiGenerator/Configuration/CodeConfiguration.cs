@@ -40,6 +40,7 @@ namespace ApiGenerator.Configuration
 		private static readonly Glob[] OperationsToInclude =
 		{
 			// e.g. new Glob("nodes.*"),
+			new("dangling_indices.*"),
 			new("tasks.*")
 		};
 

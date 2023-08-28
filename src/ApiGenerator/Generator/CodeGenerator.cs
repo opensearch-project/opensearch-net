@@ -45,11 +45,12 @@ namespace ApiGenerator.Generator
         public static string PropertyGenerator(string type, string name, string key, string setter) =>
             $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
 
-        public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, params string[] doc)
+        public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, string versionAdded, params string[] doc)
         {
             var components = new List<string>();
             foreach (var d in RenderDocumentation(doc)) A(d);
-            if (!string.IsNullOrWhiteSpace(obsolete)) A($"[Obsolete(\"Scheduled to be removed in 8.0, {obsolete}\")]");
+			if (!string.IsNullOrWhiteSpace(versionAdded)) A($"///<remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
+            if (!string.IsNullOrWhiteSpace(obsolete)) A($"[Obsolete(\"{obsolete}\")]");
 
             var generated = @namespace != null && @namespace == "Cat" && name == "Format"
                 ? CatFormatPropertyGenerator(type, name, key, setter)

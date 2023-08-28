@@ -81,12 +81,6 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelDanglingIndicesNamespace DanglingIndices
-		{
-			get;
-			private set;
-		}
-
 		public LowLevelIndicesNamespace Indices
 		{
 			get;
@@ -115,7 +109,6 @@ namespace OpenSearch.Net
 		{
 			Cat = new LowLevelCatNamespace(this);
 			Cluster = new LowLevelClusterNamespace(this);
-			DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
 			Indices = new LowLevelIndicesNamespace(this);
 			Ingest = new LowLevelIngestNamespace(this);
 			Nodes = new LowLevelNodesNamespace(this);

@@ -45,12 +45,19 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
-        internal static ApiUrls TasksCancel = new ApiUrls(
-            new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" }
-        );
+        internal static ApiUrls DanglingIndicesDeleteDanglingIndex =
+            new(new[] { "_dangling/{index_uuid}" });
 
-        internal static ApiUrls TasksGetTask = new ApiUrls(new[] { "_tasks/{task_id}" });
+        internal static ApiUrls DanglingIndicesImportDanglingIndex =
+            new(new[] { "_dangling/{index_uuid}" });
 
-        internal static ApiUrls TasksList = new ApiUrls(new[] { "_tasks" });
+        internal static ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
+
+        internal static ApiUrls TasksCancel =
+            new(new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" });
+
+        internal static ApiUrls TasksGetTask = new(new[] { "_tasks/{task_id}" });
+
+        internal static ApiUrls TasksList = new(new[] { "_tasks" });
     }
 }

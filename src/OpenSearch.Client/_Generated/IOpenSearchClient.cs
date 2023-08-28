@@ -48,6 +48,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.TasksApi;
 
 namespace OpenSearch.Client
@@ -57,6 +58,9 @@ namespace OpenSearch.Client
     ///</summary>
     public partial interface IOpenSearchClient
     {
+        ///<summary>Dangling Indices APIs</summary>
+        DanglingIndicesNamespace DanglingIndices { get; }
+
         ///<summary>Tasks APIs</summary>
         TasksNamespace Tasks { get; }
     }
