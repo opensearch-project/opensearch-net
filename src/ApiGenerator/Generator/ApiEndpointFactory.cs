@@ -37,6 +37,7 @@ using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Specification;
 using NJsonSchema;
+using NJsonSchema.References;
 using NSwag;
 
 namespace ApiGenerator.Generator
@@ -84,15 +85,7 @@ namespace ApiGenerator.Generator
 	        urlInfo.Params = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
 	            .Where(p => p.Kind == OpenApiParameterKind.Query)
 	            .DistinctBy(p => p.Name)
-	            .ToImmutableSortedDictionary(p => p.Name,
-	                p => new QueryParameters
-	                {
-	                    Type = GetOpenSearchType(p.Schema),
-	                    Description = p.Description,
-	                    Options = GetEnumOptions(p.Schema),
-	                    Deprecated = GetDeprecation(p.Schema),
-	                    VersionAdded = p.Schema.XVersionAdded()
-	                });
+	            .ToImmutableSortedDictionary(p => p.Name, BuildQueryParam);
 
 	        var endpoint = new ApiEndpoint
 	        {
@@ -137,6 +130,25 @@ namespace ApiGenerator.Generator
 	    private static void PatchRequestParameters(ApiEndpoint endpoint) =>
 	        endpoint.Url.Params = ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)
 	            ?? throw new ArgumentNullException("ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)");
+
+        private static QueryParameters BuildQueryParam(OpenApiParameter p)
+        {
+            var param = new QueryParameters
+            {
+                Type = GetOpenSearchType(p.Schema),
+                Description = p.Description,
+                Options = GetEnumOptions(p.Schema),
+                Deprecated = GetDeprecation(p.Schema),
+                VersionAdded = p.Schema.GetExtension("x-version-added") as string,
+            };
+
+            if (param.Type == "enum" && p.Schema.HasReference)
+            {
+                param.ClsName = ((IJsonReference)p.Schema).ReferencePath.Split('/').Last();
+            }
+
+            return param;
+        }
 
 	    private static string GetOpenSearchType(JsonSchema schema)
 		{

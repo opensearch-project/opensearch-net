@@ -69,7 +69,7 @@ namespace OpenSearch.Net
     {
         static partial void RegisterEnumStringResolvers()
         {
-            EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
+            EnumStringResolvers.TryAdd(typeof(GroupBy), e => GetStringValue((GroupBy)e));
         }
 
         public static string GetStringValue(this GroupBy enumValue)

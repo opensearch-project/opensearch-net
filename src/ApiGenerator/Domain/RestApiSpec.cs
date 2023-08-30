@@ -63,32 +63,13 @@ namespace ApiGenerator.Domain
             {
                 if (_enumDescriptions != null) return _enumDescriptions;
 
-                string CreateName(string name, string methodName, string @namespace)
-                {
-                    if (
-                        name.ToLowerInvariant().Contains("metric")
-                         ||(name.ToLowerInvariant() == "status")
-                         ||(name.ToLowerInvariant() == "format")
-                    )
-                    {
-                        if (methodName.StartsWith(@namespace))
-                            return methodName + name;
-                        else
-                            return @namespace + methodName + name;
-                    }
-
-                    return name;
-                }
-
                 var urlParameterEnums = (
                     from e in Endpoints.Values
                     from para in e.Url.Params.Values
                     where para.Options != null && para.Options.Any()
-                    let name = CreateName(para.ClsName, e.CsharpNames.MethodName, e.CsharpNames.Namespace)
-                    where name != "Time"
                     select new EnumDescription
                     {
-                        Name = name,
+                        Name = para.ClsName,
                         Options = para.Options
                     }).ToList();
 
@@ -98,7 +79,7 @@ namespace ApiGenerator.Domain
                     where part.Options != null && part.Options.Any()
                     select new EnumDescription
                     {
-                        Name = CreateName(part.Name.ToPascalCase(), e.CsharpNames.MethodName, e.CsharpNames.Namespace),
+                        Name = part.Name.ToPascalCase(),
                         Options = part.Options
                     }).ToList();
 
