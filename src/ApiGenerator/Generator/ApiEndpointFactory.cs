@@ -56,7 +56,18 @@ namespace ApiGenerator.Generator
 
 	        foreach (var (httpPath, path, _, operation) in variants.DistinctBy(v => v.HttpPath))
 	        {
-	            urlInfo.OriginalPaths.Add(httpPath);
+	            if (!operation.IsDeprecated)
+                    urlInfo.OriginalPaths.Add(httpPath);
+                else
+                {
+                    urlInfo.DeprecatedPaths.Add(new DeprecatedPath
+                    {
+                        Path = httpPath,
+                        Version = operation.GetExtension("x-version-deprecated") as string,
+                        Description = operation.GetExtension("x-deprecation-message") as string
+                    });
+                }
+
 	            var pathParams = path.Parameters
 	                .Concat(operation.Parameters)
 	                .Where(p => p.Kind == OpenApiParameterKind.Path)

@@ -42,7 +42,7 @@ namespace ApiGenerator.Domain.Specification
 
         public IDictionary<string, UrlPart> OriginalParts { get; set; }
 
-        private IReadOnlyCollection<DeprecatedPath> DeprecatedPaths { get; set; }
+        public IList<DeprecatedPath> DeprecatedPaths { get; set; } = new List<DeprecatedPath>();
 
         private List<UrlPath> _paths;
         public IReadOnlyCollection<UrlPath> Paths
