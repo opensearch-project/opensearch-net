@@ -93,12 +93,12 @@ namespace OpenSearch.Client.Specification.NodesApi
         ///<summary>The interval for the second sampling of threads.</summary>
         public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
 
-        ///<summary>Number of samples of thread stacktrace.</summary>
-        public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
-
         ///<summary>The type to sample.</summary>
         public NodesHotThreadsDescriptor SampleType(SampleType? sampletype) =>
             Qs("type", sampletype);
+
+        ///<summary>Number of samples of thread stacktrace.</summary>
+        public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
 
         ///<summary>Specify the number of threads to provide information for.</summary>
         public NodesHotThreadsDescriptor Threads(long? threads) => Qs("threads", threads);

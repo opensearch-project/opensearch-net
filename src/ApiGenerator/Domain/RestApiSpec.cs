@@ -43,7 +43,7 @@ namespace ApiGenerator.Domain
 
     public class RestApiSpec
     {
-		public IDictionary<string, ApiEndpoint> Endpoints { get; set; }
+		public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
             Endpoints.Values.GroupBy(e=>e.CsharpNames.Namespace)

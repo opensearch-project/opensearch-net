@@ -73,18 +73,18 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("interval", value);
         }
 
-        ///<summary>Number of samples of thread stacktrace.</summary>
-        public long? Snapshots
-        {
-            get => Q<long?>("snapshots");
-            set => Q("snapshots", value);
-        }
-
         ///<summary>The type to sample.</summary>
         public SampleType? SampleType
         {
             get => Q<SampleType?>("type");
             set => Q("type", value);
+        }
+
+        ///<summary>Number of samples of thread stacktrace.</summary>
+        public long? Snapshots
+        {
+            get => Q<long?>("snapshots");
+            set => Q("snapshots", value);
         }
 
         ///<summary>Specify the number of threads to provide information for.</summary>
