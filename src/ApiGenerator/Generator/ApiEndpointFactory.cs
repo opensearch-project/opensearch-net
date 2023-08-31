@@ -72,11 +72,21 @@ namespace ApiGenerator.Generator
 	                .Concat(operation.Parameters)
 	                .Where(p => p.Kind == OpenApiParameterKind.Path)
 	                .ToList();
+
+				foreach (var overloadedParam in pathParams.Where(p => p.Schema.XOverloadedParam() != null))
+				{
+					urlInfo.OriginalPaths.Add(httpPath.Replace(
+						$"{{{overloadedParam.Name}}}",
+						$"{{{overloadedParam.Schema.XOverloadedParam()}}}"
+					));
+				}
+
 	            var paramNames = pathParams.Select(p => p.Name);
-	            if (requiredPathParams != null)
+				if (requiredPathParams != null)
 	                requiredPathParams.IntersectWith(paramNames);
 	            else
 	                requiredPathParams = new HashSet<string>(paramNames);
+
 	            allPathParams.AddRange(pathParams);
 	        }
 
@@ -150,7 +160,7 @@ namespace ApiGenerator.Generator
                 Description = p.Description,
                 Options = GetEnumOptions(p.Schema),
                 Deprecated = GetDeprecation(p.Schema),
-                VersionAdded = p.Schema.GetExtension("x-version-added") as string,
+                VersionAdded = p.Schema.XVersionAdded(),
             };
 
             if (param.Type == "enum" && p.Schema.HasReference)
@@ -208,6 +218,9 @@ namespace ApiGenerator.Generator
 
 		private static string XDataType(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-data-type") as string;
+
+		private static string XOverloadedParam(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-overloaded-param") as string;
 
 	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
