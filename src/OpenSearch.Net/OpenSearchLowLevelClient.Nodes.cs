@@ -66,50 +66,6 @@ namespace OpenSearch.Net.Specification.NodesApi
 	///</summary>
 	public partial class LowLevelNodesNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_nodes <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse InfoForAll<TResponse>(NodesInfoRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_nodes", null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.info", "")]
-		public Task<TResponse> InfoForAllAsync<TResponse>(NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_nodes", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Info<TResponse>(string nodeId, NodesInfoRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.info", "node_id")]
-		public Task<TResponse> InfoAsync<TResponse>(string nodeId, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse InfoForAll<TResponse>(string metric, NodesInfoRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{metric:metric}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.info", "metric")]
-		public Task<TResponse> InfoForAllAsync<TResponse>(string metric, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{metric:metric}"), ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Info<TResponse>(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/{metric:metric}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes</param>
-		///<param name = "metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.info", "node_id, metric")]
-		public Task<TResponse> InfoAsync<TResponse>(string nodeId, string metric, NodesInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_nodes/{nodeId:nodeId}/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 		///<summary>POST on /_nodes/reload_secure_settings <para></para></summary>
 		///<param name = "body">An object containing the password for the opensearch keystore</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

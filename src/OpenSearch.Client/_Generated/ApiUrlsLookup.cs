@@ -69,6 +69,17 @@ namespace OpenSearch.Client
         internal static ApiUrls NodesHotThreads =
             new(new[] { "_nodes/hot_threads", "_nodes/{node_id}/hot_threads" });
 
+        internal static ApiUrls NodesInfo =
+            new(
+                new[]
+                {
+                    "_nodes",
+                    "_nodes/{node_id}",
+                    "_nodes/{metric}",
+                    "_nodes/{node_id}/{metric}"
+                }
+            );
+
         internal static ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 

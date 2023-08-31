@@ -129,4 +129,65 @@ namespace OpenSearch.Client.Specification.NodesApi
             set => Q("timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface INodesInfoRequest : IRequest<NodesInfoRequestParameters>
+    {
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+
+        [IgnoreDataMember]
+        Metrics Metric { get; }
+    }
+
+    ///<summary>Request for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    public partial class NodesInfoRequest
+        : PlainRequestBase<NodesInfoRequestParameters>,
+            INodesInfoRequest
+    {
+        protected INodesInfoRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesInfo;
+
+        ///<summary>/_nodes</summary>
+        public NodesInfoRequest()
+            : base() { }
+
+        ///<summary>/_nodes/{node_id}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public NodesInfoRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        ///<summary>/_nodes/{metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesInfoRequest(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/{node_id}/{metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesInfoRequest(NodeIds nodeId, Metrics metric)
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        [IgnoreDataMember]
+        Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        // Request parameters
+        ///<summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

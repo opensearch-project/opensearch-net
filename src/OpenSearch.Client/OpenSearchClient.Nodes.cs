@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.NodesApi
 	public partial class NodesNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public NodesInfoResponse Info(Func<NodesInfoDescriptor, INodesInfoRequest> selector = null) => Info(selector.InvokeOrDefault(new NodesInfoDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public Task<NodesInfoResponse> InfoAsync(Func<NodesInfoDescriptor, INodesInfoRequest> selector = null, CancellationToken ct = default) => InfoAsync(selector.InvokeOrDefault(new NodesInfoDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public NodesInfoResponse Info(INodesInfoRequest request) => DoRequest<INodesInfoRequest, NodesInfoResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public Task<NodesInfoResponse> InfoAsync(INodesInfoRequest request, CancellationToken ct = default) => DoRequestAsync<INodesInfoRequest, NodesInfoResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = ""></a>

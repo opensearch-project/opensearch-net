@@ -101,4 +101,25 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("timeout", value);
         }
     }
+
+    ///<summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    public partial class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        ///<summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

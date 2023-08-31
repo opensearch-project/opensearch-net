@@ -42,6 +42,7 @@ namespace ApiGenerator.Configuration
 			new("dangling_indices.*"),
 			new("ingest.*"),
             new("nodes.hot_threads"),
+			new("nodes.info"),
 			new("snapshot.*"),
 			new("tasks.*")
 		};

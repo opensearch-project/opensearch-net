@@ -57,48 +57,6 @@ using OpenSearch.Net.Specification.NodesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.NodesApi
 {
-	///<summary>Descriptor for Info <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-	public partial class NodesInfoDescriptor : RequestDescriptorBase<NodesInfoDescriptor, NodesInfoRequestParameters, INodesInfoRequest>, INodesInfoRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesInfo;
-		///<summary>/_nodes</summary>
-		public NodesInfoDescriptor(): base()
-		{
-		}
-
-		///<summary>/_nodes/{node_id}</summary>
-		///<param name = "nodeId">Optional, accepts null</param>
-		public NodesInfoDescriptor(NodeIds nodeId): base(r => r.Optional("node_id", nodeId))
-		{
-		}
-
-		///<summary>/_nodes/{metric}</summary>
-		///<param name = "metric">Optional, accepts null</param>
-		public NodesInfoDescriptor(Metrics metric): base(r => r.Optional("metric", metric))
-		{
-		}
-
-		///<summary>/_nodes/{node_id}/{metric}</summary>
-		///<param name = "nodeId">Optional, accepts null</param>
-		///<param name = "metric">Optional, accepts null</param>
-		public NodesInfoDescriptor(NodeIds nodeId, Metrics metric): base(r => r.Optional("node_id", nodeId).Optional("metric", metric))
-		{
-		}
-
-		// values part of the url path
-		NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
-		Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-		///<summary>A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</summary>
-		public NodesInfoDescriptor NodeId(NodeIds nodeId) => Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
-		///<summary>A comma-separated list of metrics you wish returned. Leave empty to return all.</summary>
-		public NodesInfoDescriptor Metric(Metrics metric) => Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
-		// Request parameters
-		///<summary>Return settings in flat format (default: false)</summary>
-		public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
-		///<summary>Explicit operation timeout</summary>
-		public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for ReloadSecureSettings <para></para></summary>
 	public partial class ReloadSecureSettingsDescriptor : RequestDescriptorBase<ReloadSecureSettingsDescriptor, ReloadSecureSettingsRequestParameters, IReloadSecureSettingsRequest>, IReloadSecureSettingsRequest
 	{

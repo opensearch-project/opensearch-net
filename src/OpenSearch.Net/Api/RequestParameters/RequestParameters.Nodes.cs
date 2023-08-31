@@ -51,26 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.NodesApi
 {
-	///<summary>Request options for Info <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-	public class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>Return settings in flat format (default: false)</summary>
-		public bool? FlatSettings
-		{
-			get => Q<bool? >("flat_settings");
-			set => Q("flat_settings", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
 	///<summary>Request options for ReloadSecureSettings <para></para></summary>
 	public class ReloadSecureSettingsRequestParameters : RequestParameters<ReloadSecureSettingsRequestParameters>
 	{
