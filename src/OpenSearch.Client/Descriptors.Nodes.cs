@@ -57,40 +57,6 @@ using OpenSearch.Net.Specification.NodesApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.NodesApi
 {
-	///<summary>Descriptor for HotThreads <para></para></summary>
-	public partial class NodesHotThreadsDescriptor : RequestDescriptorBase<NodesHotThreadsDescriptor, NodesHotThreadsRequestParameters, INodesHotThreadsRequest>, INodesHotThreadsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesHotThreads;
-		///<summary>/_nodes/hot_threads</summary>
-		public NodesHotThreadsDescriptor(): base()
-		{
-		}
-
-		///<summary>/_nodes/{node_id}/hot_threads</summary>
-		///<param name = "nodeId">Optional, accepts null</param>
-		public NodesHotThreadsDescriptor(NodeIds nodeId): base(r => r.Optional("node_id", nodeId))
-		{
-		}
-
-		// values part of the url path
-		NodeIds INodesHotThreadsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
-		///<summary>A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</summary>
-		public NodesHotThreadsDescriptor NodeId(NodeIds nodeId) => Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
-		// Request parameters
-		///<summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue (default: true)</summary>
-		public NodesHotThreadsDescriptor IgnoreIdleThreads(bool? ignoreidlethreads = true) => Qs("ignore_idle_threads", ignoreidlethreads);
-		///<summary>The interval for the second sampling of threads</summary>
-		public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
-		///<summary>Number of samples of thread stacktrace (default: 10)</summary>
-		public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
-		///<summary>The type to sample (default: cpu)</summary>
-		public NodesHotThreadsDescriptor ThreadType(ThreadType? threadtype) => Qs("type", threadtype);
-		///<summary>Specify the number of threads to provide information for (default: 3)</summary>
-		public NodesHotThreadsDescriptor Threads(long? threads) => Qs("threads", threads);
-		///<summary>Explicit operation timeout</summary>
-		public NodesHotThreadsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for Info <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
 	public partial class NodesInfoDescriptor : RequestDescriptorBase<NodesInfoDescriptor, NodesInfoRequestParameters, INodesInfoRequest>, INodesInfoRequest
 	{

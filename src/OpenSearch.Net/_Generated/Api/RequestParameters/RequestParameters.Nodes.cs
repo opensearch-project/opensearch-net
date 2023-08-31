@@ -41,39 +41,64 @@
 //      Windows     :   build.bat codegen
 //
 // -----------------------------------------------
+
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Linq;
-using OpenSearch.Client;
-using OpenSearch.Client.Specification.DanglingIndicesApi;
-using OpenSearch.Client.Specification.IngestApi;
-using OpenSearch.Client.Specification.NodesApi;
-using OpenSearch.Client.Specification.SnapshotApi;
-using OpenSearch.Client.Specification.TasksApi;
+using System.Text;
+using System.Linq.Expressions;
 
-namespace OpenSearch.Client
+// ReSharper disable once CheckNamespace
+namespace OpenSearch.Net.Specification.NodesApi
 {
-    ///<summary>
-    ///OpenSearch high level client
-    ///</summary>
-    public partial interface IOpenSearchClient
+    ///<summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+    public partial class NodesHotThreadsRequestParameters
+        : RequestParameters<NodesHotThreadsRequestParameters>
     {
-        ///<summary>Dangling Indices APIs</summary>
-        DanglingIndicesNamespace DanglingIndices { get; }
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
 
-        ///<summary>Ingest APIs</summary>
-        IngestNamespace Ingest { get; }
+        ///<summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
+        public bool? IgnoreIdleThreads
+        {
+            get => Q<bool?>("ignore_idle_threads");
+            set => Q("ignore_idle_threads", value);
+        }
 
-        ///<summary>Nodes APIs</summary>
-        NodesNamespace Nodes { get; }
+        ///<summary>The interval for the second sampling of threads.</summary>
+        public TimeSpan Interval
+        {
+            get => Q<TimeSpan>("interval");
+            set => Q("interval", value);
+        }
 
-        ///<summary>Snapshot APIs</summary>
-        SnapshotNamespace Snapshot { get; }
+        ///<summary>Number of samples of thread stacktrace.</summary>
+        public long? Snapshots
+        {
+            get => Q<long?>("snapshots");
+            set => Q("snapshots", value);
+        }
 
-        ///<summary>Tasks APIs</summary>
-        TasksNamespace Tasks { get; }
+        ///<summary>The type to sample.</summary>
+        public SampleType? SampleType
+        {
+            get => Q<SampleType?>("type");
+            set => Q("type", value);
+        }
+
+        ///<summary>Specify the number of threads to provide information for.</summary>
+        public long? Threads
+        {
+            get => Q<long?>("threads");
+            set => Q("threads", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
     }
 }

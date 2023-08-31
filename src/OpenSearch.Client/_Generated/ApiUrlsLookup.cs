@@ -66,6 +66,9 @@ namespace OpenSearch.Client
         internal static ApiUrls IngestSimulatePipeline =
             new(new[] { "_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate" });
 
+        internal static ApiUrls NodesHotThreads =
+            new(new[] { "_nodes/hot_threads", "_nodes/{node_id}/hot_threads" });
+
         internal static ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 

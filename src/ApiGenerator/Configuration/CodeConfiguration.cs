@@ -39,9 +39,9 @@ namespace ApiGenerator.Configuration
 	{
 		private static readonly Glob[] OperationsToInclude =
 		{
-			// e.g. new Glob("nodes.*"),
 			new("dangling_indices.*"),
 			new("ingest.*"),
+            new("nodes.hot_threads"),
 			new("snapshot.*"),
 			new("tasks.*")
 		};

@@ -48,6 +48,7 @@ using System.Threading.Tasks;
 using OpenSearch.Client;
 using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.IngestApi;
+using OpenSearch.Client.Specification.NodesApi;
 using OpenSearch.Client.Specification.SnapshotApi;
 using OpenSearch.Client.Specification.TasksApi;
 
@@ -65,6 +66,9 @@ namespace OpenSearch.Client
         ///<summary>Ingest APIs</summary>
         public IngestNamespace Ingest { get; private set; }
 
+        ///<summary>Nodes APIs</summary>
+        public NodesNamespace Nodes { get; private set; }
+
         ///<summary>Snapshot APIs</summary>
         public SnapshotNamespace Snapshot { get; private set; }
 
@@ -75,6 +79,7 @@ namespace OpenSearch.Client
         {
             DanglingIndices = new DanglingIndicesNamespace(this);
             Ingest = new IngestNamespace(this);
+            Nodes = new NodesNamespace(this);
             Snapshot = new SnapshotNamespace(this);
             Tasks = new TasksNamespace(this);
         }

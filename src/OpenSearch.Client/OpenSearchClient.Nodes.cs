@@ -57,36 +57,8 @@ namespace OpenSearch.Client.Specification.NodesApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class NodesNamespace : NamespacedClientProxy
+	public partial class NodesNamespace : NamespacedClientProxy
 	{
-		internal NodesNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public NodesHotThreadsResponse HotThreads(Func<NodesHotThreadsDescriptor, INodesHotThreadsRequest> selector = null) => HotThreads(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<NodesHotThreadsResponse> HotThreadsAsync(Func<NodesHotThreadsDescriptor, INodesHotThreadsRequest> selector = null, CancellationToken ct = default) => HotThreadsAsync(selector.InvokeOrDefault(new NodesHotThreadsDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public NodesHotThreadsResponse HotThreads(INodesHotThreadsRequest request) => DoRequest<INodesHotThreadsRequest, NodesHotThreadsResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>nodes.hot_threads</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<NodesHotThreadsResponse> HotThreadsAsync(INodesHotThreadsRequest request, CancellationToken ct = default) => DoRequestAsync<INodesHotThreadsRequest, NodesHotThreadsResponse>(request, request.RequestParameters, ct);
 		/// <summary>
 		/// <c>GET</c> request to the <c>nodes.info</c> API, read more about this API online:
 		/// <para></para>

@@ -82,12 +82,6 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Nodes APIs</summary>
-		NodesNamespace Nodes
-		{
-			get;
-		}
-
 		/// <summary>
 		/// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
 		/// <para></para>

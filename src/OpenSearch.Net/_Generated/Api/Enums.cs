@@ -53,6 +53,19 @@ using System.Runtime.Serialization;
 namespace OpenSearch.Net
 {
     [StringEnum]
+    public enum SampleType
+    {
+        [EnumMember(Value = "cpu")]
+        Cpu,
+
+        [EnumMember(Value = "wait")]
+        Wait,
+
+        [EnumMember(Value = "block")]
+        Block
+    }
+
+    [StringEnum]
     public enum GroupBy
     {
         [EnumMember(Value = "nodes")]
@@ -69,7 +82,24 @@ namespace OpenSearch.Net
     {
         static partial void RegisterEnumStringResolvers()
         {
+            EnumStringResolvers.TryAdd(typeof(SampleType), e => GetStringValue((SampleType)e));
             EnumStringResolvers.TryAdd(typeof(GroupBy), e => GetStringValue((GroupBy)e));
+        }
+
+        public static string GetStringValue(this SampleType enumValue)
+        {
+            switch (enumValue)
+            {
+                case SampleType.Cpu:
+                    return "cpu";
+                case SampleType.Wait:
+                    return "wait";
+                case SampleType.Block:
+                    return "block";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'SampleType'"
+            );
         }
 
         public static string GetStringValue(this GroupBy enumValue)
