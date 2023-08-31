@@ -43,6 +43,7 @@ namespace ApiGenerator.Configuration
 			new("ingest.*"),
             new("nodes.hot_threads"),
 			new("nodes.info"),
+			new("nodes.reload_secure_settings"),
 			new("snapshot.*"),
 			new("tasks.*")
 		};

@@ -148,5 +148,56 @@ namespace OpenSearch.Client.Specification.NodesApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</a>
+        /// </summary>
+        public ReloadSecureSettingsResponse ReloadSecureSettings(
+            Func<ReloadSecureSettingsDescriptor, IReloadSecureSettingsRequest> selector = null
+        ) => ReloadSecureSettings(selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()));
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</a>
+        /// </summary>
+        public Task<ReloadSecureSettingsResponse> ReloadSecureSettingsAsync(
+            Func<ReloadSecureSettingsDescriptor, IReloadSecureSettingsRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            ReloadSecureSettingsAsync(
+                selector.InvokeOrDefault(new ReloadSecureSettingsDescriptor()),
+                ct
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</a>
+        /// </summary>
+        public ReloadSecureSettingsResponse ReloadSecureSettings(
+            IReloadSecureSettingsRequest request
+        ) =>
+            DoRequest<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>nodes.reload_secure_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</a>
+        /// </summary>
+        public Task<ReloadSecureSettingsResponse> ReloadSecureSettingsAsync(
+            IReloadSecureSettingsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IReloadSecureSettingsRequest, ReloadSecureSettingsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

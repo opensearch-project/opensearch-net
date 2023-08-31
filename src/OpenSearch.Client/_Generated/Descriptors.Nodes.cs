@@ -154,4 +154,36 @@ namespace OpenSearch.Client.Specification.NodesApi
         ///<summary>Operation timeout.</summary>
         public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
+
+    ///<summary>Descriptor for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    public partial class ReloadSecureSettingsDescriptor
+        : RequestDescriptorBase<
+            ReloadSecureSettingsDescriptor,
+            ReloadSecureSettingsRequestParameters,
+            IReloadSecureSettingsRequest
+        >,
+            IReloadSecureSettingsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesReloadSecureSettings;
+
+        ///<summary>/_nodes/reload_secure_settings</summary>
+        public ReloadSecureSettingsDescriptor()
+            : base() { }
+
+        ///<summary>/_nodes/{node_id}/reload_secure_settings</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public ReloadSecureSettingsDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        NodeIds IReloadSecureSettingsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        ///<summary>Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</summary>
+        public ReloadSecureSettingsDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        ///<summary>Operation timeout.</summary>
+        public ReloadSecureSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
 }

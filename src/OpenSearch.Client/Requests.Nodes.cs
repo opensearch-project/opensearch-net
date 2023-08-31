@@ -59,44 +59,6 @@ using OpenSearch.Net.Specification.NodesApi;
 namespace OpenSearch.Client.Specification.NodesApi
 {
 	[InterfaceDataContract]
-	public partial interface IReloadSecureSettingsRequest : IRequest<ReloadSecureSettingsRequestParameters>
-	{
-		[IgnoreDataMember]
-		NodeIds NodeId
-		{
-			get;
-		}
-	}
-
-	///<summary>Request for ReloadSecureSettings <para></para></summary>
-	public partial class ReloadSecureSettingsRequest : PlainRequestBase<ReloadSecureSettingsRequestParameters>, IReloadSecureSettingsRequest
-	{
-		protected IReloadSecureSettingsRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesReloadSecureSettings;
-		///<summary>/_nodes/reload_secure_settings</summary>
-		public ReloadSecureSettingsRequest(): base()
-		{
-		}
-
-		///<summary>/_nodes/{node_id}/reload_secure_settings</summary>
-		///<param name = "nodeId">Optional, accepts null</param>
-		public ReloadSecureSettingsRequest(NodeIds nodeId): base(r => r.Optional("node_id", nodeId))
-		{
-		}
-
-		// values part of the url path
-		[IgnoreDataMember]
-		NodeIds IReloadSecureSettingsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
-		// Request parameters
-		///<summary>Explicit operation timeout</summary>
-		public Time Timeout
-		{
-			get => Q<Time>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
-	[InterfaceDataContract]
 	public partial interface INodesStatsRequest : IRequest<NodesStatsRequestParameters>
 	{
 		[IgnoreDataMember]

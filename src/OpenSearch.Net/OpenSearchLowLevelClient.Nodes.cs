@@ -66,30 +66,6 @@ namespace OpenSearch.Net.Specification.NodesApi
 	///</summary>
 	public partial class LowLevelNodesNamespace : NamespacedClientProxy
 	{
-		///<summary>POST on /_nodes/reload_secure_settings <para></para></summary>
-		///<param name = "body">An object containing the password for the opensearch keystore</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse ReloadSecureSettingsForAll<TResponse>(PostData body, ReloadSecureSettingsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_nodes/reload_secure_settings", body, RequestParams(requestParameters));
-		///<summary>POST on /_nodes/reload_secure_settings <para></para></summary>
-		///<param name = "body">An object containing the password for the opensearch keystore</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.reload_secure_settings", "body")]
-		public Task<TResponse> ReloadSecureSettingsForAllAsync<TResponse>(PostData body, ReloadSecureSettingsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_nodes/reload_secure_settings", ctx, body, RequestParams(requestParameters));
-		///<summary>POST on /_nodes/{node_id}/reload_secure_settings <para></para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
-		///<param name = "body">An object containing the password for the opensearch keystore</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse ReloadSecureSettings<TResponse>(string nodeId, PostData body, ReloadSecureSettingsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"), body, RequestParams(requestParameters));
-		///<summary>POST on /_nodes/{node_id}/reload_secure_settings <para></para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
-		///<param name = "body">An object containing the password for the opensearch keystore</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("nodes.reload_secure_settings", "node_id, body")]
-		public Task<TResponse> ReloadSecureSettingsAsync<TResponse>(string nodeId, PostData body, ReloadSecureSettingsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, Url($"_nodes/{nodeId:nodeId}/reload_secure_settings"), ctx, body, RequestParams(requestParameters));
 		///<summary>GET on /_nodes/stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse StatsForAll<TResponse>(NodesStatsRequestParameters requestParameters = null)

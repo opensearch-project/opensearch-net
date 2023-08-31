@@ -122,4 +122,19 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("timeout", value);
         }
     }
+
+    ///<summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    public partial class ReloadSecureSettingsRequestParameters
+        : RequestParameters<ReloadSecureSettingsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        ///<summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

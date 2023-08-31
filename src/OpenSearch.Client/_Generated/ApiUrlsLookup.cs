@@ -80,6 +80,11 @@ namespace OpenSearch.Client
                 }
             );
 
+        internal static ApiUrls NodesReloadSecureSettings =
+            new(
+                new[] { "_nodes/reload_secure_settings", "_nodes/{node_id}/reload_secure_settings" }
+            );
+
         internal static ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 
