@@ -188,7 +188,9 @@ namespace ApiGenerator.Generator
 	    }
 
 	    private static IEnumerable<string> GetEnumOptions(JsonSchema schema) =>
-			schema.ActualSchema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
+			schema.ActualSchema.XEnumOptions()
+			?? schema.ActualSchema.Enumeration?.Select(e => e.ToString())
+			?? Enumerable.Empty<string>();
 
 		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema) =>
 			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
@@ -221,6 +223,9 @@ namespace ApiGenerator.Generator
 
 		private static string XOverloadedParam(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-overloaded-param") as string;
+
+		private static IEnumerable<string> XEnumOptions(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-enum-options") is object[] opts ? opts.Cast<string>() : null;
 
 	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;

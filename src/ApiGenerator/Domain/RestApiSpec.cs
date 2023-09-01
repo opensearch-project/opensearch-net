@@ -63,25 +63,32 @@ namespace ApiGenerator.Domain
             {
                 if (_enumDescriptions != null) return _enumDescriptions;
 
-                var urlParameterEnums = (
-                    from e in Endpoints.Values
-                    from para in e.Url.Params.Values
-                    where para.Options != null && para.Options.Any()
-                    select new EnumDescription
-                    {
-                        Name = para.ClsName,
-                        Options = para.Options
-                    }).ToList();
+                var urlParameterEnums = Endpoints
+					.Values
+					.SelectMany(e => e.Url.Params.Values)
+					.Where(p => p.Options != null && p.Options.Any())
+					.Select(p => new EnumDescription
+					{
+						Name = p.ClsName,
+						Options = p.Options
+					})
+					.ToList();
 
-                var urlPartEnums = (
-                    from e in Endpoints.Values
-                    from part in e.Url.Parts
-                    where part.Options != null && part.Options.Any()
-                    select new EnumDescription
-                    {
-                        Name = part.Name.ToPascalCase(),
-                        Options = part.Options
-                    }).ToList();
+                var urlPartEnums = Endpoints
+					.Values
+					.SelectMany(e => e.Url.Parts, (e, part) => new { e, part })
+					.Where(p => p.part.Options != null && p.part.Options.Any())
+					.Select(p =>
+					{
+						var ns = p.e.CsharpNames.Namespace;
+						var m = p.e.CsharpNames.MethodName;
+						return new EnumDescription
+						{
+							Name = (!m.StartsWith(ns) ? ns : string.Empty) + m + p.part.Name.ToPascalCase(),
+							Options = p.part.Options
+						};
+					}).
+					ToList();
 
                 _enumDescriptions = urlPartEnums
                     .Concat(urlParameterEnums)

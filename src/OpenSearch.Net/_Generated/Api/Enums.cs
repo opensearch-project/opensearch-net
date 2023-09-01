@@ -52,6 +52,135 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Net
 {
+    [Flags, StringEnum]
+    public enum NodesInfoMetric
+    {
+        [EnumMember(Value = "settings")]
+        Settings = 1 << 0,
+
+        [EnumMember(Value = "os")]
+        Os = 1 << 1,
+
+        [EnumMember(Value = "process")]
+        Process = 1 << 2,
+
+        [EnumMember(Value = "jvm")]
+        Jvm = 1 << 3,
+
+        [EnumMember(Value = "thread_pool")]
+        ThreadPool = 1 << 4,
+
+        [EnumMember(Value = "transport")]
+        Transport = 1 << 5,
+
+        [EnumMember(Value = "http")]
+        Http = 1 << 6,
+
+        [EnumMember(Value = "plugins")]
+        Plugins = 1 << 7,
+
+        [EnumMember(Value = "ingest")]
+        Ingest = 1 << 8
+    }
+
+    [Flags, StringEnum]
+    public enum NodesStatsIndexMetric
+    {
+        [EnumMember(Value = "store")]
+        Store = 1 << 0,
+
+        [EnumMember(Value = "indexing")]
+        Indexing = 1 << 1,
+
+        [EnumMember(Value = "get")]
+        Get = 1 << 2,
+
+        [EnumMember(Value = "search")]
+        Search = 1 << 3,
+
+        [EnumMember(Value = "merge")]
+        Merge = 1 << 4,
+
+        [EnumMember(Value = "flush")]
+        Flush = 1 << 5,
+
+        [EnumMember(Value = "refresh")]
+        Refresh = 1 << 6,
+
+        [EnumMember(Value = "query_cache")]
+        QueryCache = 1 << 7,
+
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 8,
+
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 9,
+
+        [EnumMember(Value = "warmer")]
+        Warmer = 1 << 10,
+
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 11,
+
+        [EnumMember(Value = "segments")]
+        Segments = 1 << 12,
+
+        [EnumMember(Value = "translog")]
+        Translog = 1 << 13,
+
+        [EnumMember(Value = "suggest")]
+        Suggest = 1 << 14,
+
+        [EnumMember(Value = "request_cache")]
+        RequestCache = 1 << 15,
+
+        [EnumMember(Value = "recovery")]
+        Recovery = 1 << 16,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 17
+    }
+
+    [Flags, StringEnum]
+    public enum NodesStatsMetric
+    {
+        [EnumMember(Value = "breaker")]
+        Breaker = 1 << 0,
+
+        [EnumMember(Value = "fs")]
+        Fs = 1 << 1,
+
+        [EnumMember(Value = "http")]
+        Http = 1 << 2,
+
+        [EnumMember(Value = "indices")]
+        Indices = 1 << 3,
+
+        [EnumMember(Value = "jvm")]
+        Jvm = 1 << 4,
+
+        [EnumMember(Value = "os")]
+        Os = 1 << 5,
+
+        [EnumMember(Value = "process")]
+        Process = 1 << 6,
+
+        [EnumMember(Value = "thread_pool")]
+        ThreadPool = 1 << 7,
+
+        [EnumMember(Value = "transport")]
+        Transport = 1 << 8,
+
+        [EnumMember(Value = "discovery")]
+        Discovery = 1 << 9,
+
+        [EnumMember(Value = "indexing_pressure")]
+        IndexingPressure = 1 << 10,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 11
+    }
+
     [StringEnum]
     public enum SampleType
     {
@@ -95,12 +224,120 @@ namespace OpenSearch.Net
     {
         static partial void RegisterEnumStringResolvers()
         {
+            EnumStringResolvers.TryAdd(
+                typeof(NodesInfoMetric),
+                e => GetStringValue((NodesInfoMetric)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(NodesStatsIndexMetric),
+                e => GetStringValue((NodesStatsIndexMetric)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(NodesStatsMetric),
+                e => GetStringValue((NodesStatsMetric)e)
+            );
             EnumStringResolvers.TryAdd(typeof(SampleType), e => GetStringValue((SampleType)e));
             EnumStringResolvers.TryAdd(
                 typeof(NodesStatLevel),
                 e => GetStringValue((NodesStatLevel)e)
             );
             EnumStringResolvers.TryAdd(typeof(GroupBy), e => GetStringValue((GroupBy)e));
+        }
+
+        public static string GetStringValue(this NodesInfoMetric enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & NodesInfoMetric.Settings) != 0)
+                list.Add("settings");
+            if ((enumValue & NodesInfoMetric.Os) != 0)
+                list.Add("os");
+            if ((enumValue & NodesInfoMetric.Process) != 0)
+                list.Add("process");
+            if ((enumValue & NodesInfoMetric.Jvm) != 0)
+                list.Add("jvm");
+            if ((enumValue & NodesInfoMetric.ThreadPool) != 0)
+                list.Add("thread_pool");
+            if ((enumValue & NodesInfoMetric.Transport) != 0)
+                list.Add("transport");
+            if ((enumValue & NodesInfoMetric.Http) != 0)
+                list.Add("http");
+            if ((enumValue & NodesInfoMetric.Plugins) != 0)
+                list.Add("plugins");
+            if ((enumValue & NodesInfoMetric.Ingest) != 0)
+                list.Add("ingest");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this NodesStatsIndexMetric enumValue)
+        {
+            if ((enumValue & NodesStatsIndexMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & NodesStatsIndexMetric.Store) != 0)
+                list.Add("store");
+            if ((enumValue & NodesStatsIndexMetric.Indexing) != 0)
+                list.Add("indexing");
+            if ((enumValue & NodesStatsIndexMetric.Get) != 0)
+                list.Add("get");
+            if ((enumValue & NodesStatsIndexMetric.Search) != 0)
+                list.Add("search");
+            if ((enumValue & NodesStatsIndexMetric.Merge) != 0)
+                list.Add("merge");
+            if ((enumValue & NodesStatsIndexMetric.Flush) != 0)
+                list.Add("flush");
+            if ((enumValue & NodesStatsIndexMetric.Refresh) != 0)
+                list.Add("refresh");
+            if ((enumValue & NodesStatsIndexMetric.QueryCache) != 0)
+                list.Add("query_cache");
+            if ((enumValue & NodesStatsIndexMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & NodesStatsIndexMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & NodesStatsIndexMetric.Warmer) != 0)
+                list.Add("warmer");
+            if ((enumValue & NodesStatsIndexMetric.Completion) != 0)
+                list.Add("completion");
+            if ((enumValue & NodesStatsIndexMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & NodesStatsIndexMetric.Translog) != 0)
+                list.Add("translog");
+            if ((enumValue & NodesStatsIndexMetric.Suggest) != 0)
+                list.Add("suggest");
+            if ((enumValue & NodesStatsIndexMetric.RequestCache) != 0)
+                list.Add("request_cache");
+            if ((enumValue & NodesStatsIndexMetric.Recovery) != 0)
+                list.Add("recovery");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this NodesStatsMetric enumValue)
+        {
+            if ((enumValue & NodesStatsMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & NodesStatsMetric.Breaker) != 0)
+                list.Add("breaker");
+            if ((enumValue & NodesStatsMetric.Fs) != 0)
+                list.Add("fs");
+            if ((enumValue & NodesStatsMetric.Http) != 0)
+                list.Add("http");
+            if ((enumValue & NodesStatsMetric.Indices) != 0)
+                list.Add("indices");
+            if ((enumValue & NodesStatsMetric.Jvm) != 0)
+                list.Add("jvm");
+            if ((enumValue & NodesStatsMetric.Os) != 0)
+                list.Add("os");
+            if ((enumValue & NodesStatsMetric.Process) != 0)
+                list.Add("process");
+            if ((enumValue & NodesStatsMetric.ThreadPool) != 0)
+                list.Add("thread_pool");
+            if ((enumValue & NodesStatsMetric.Transport) != 0)
+                list.Add("transport");
+            if ((enumValue & NodesStatsMetric.Discovery) != 0)
+                list.Add("discovery");
+            if ((enumValue & NodesStatsMetric.IndexingPressure) != 0)
+                list.Add("indexing_pressure");
+            return string.Join(",", list);
         }
 
         public static string GetStringValue(this SampleType enumValue)
