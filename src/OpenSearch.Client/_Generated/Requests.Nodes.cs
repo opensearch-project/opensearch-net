@@ -228,4 +228,132 @@ namespace OpenSearch.Client.Specification.NodesApi
             set => Q("timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface INodesStatsRequest : IRequest<NodesStatsRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexMetrics IndexMetric { get; }
+
+        [IgnoreDataMember]
+        Metrics Metric { get; }
+
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+    }
+
+    ///<summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    public partial class NodesStatsRequest
+        : PlainRequestBase<NodesStatsRequestParameters>,
+            INodesStatsRequest
+    {
+        protected INodesStatsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesStats;
+
+        ///<summary>/_nodes/stats</summary>
+        public NodesStatsRequest()
+            : base() { }
+
+        ///<summary>/_nodes/stats/{metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesStatsRequest(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/stats/{metric}/{index_metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        ///<param name="indexMetric">Optional, accepts null</param>
+        public NodesStatsRequest(Metrics metric, IndexMetrics indexMetric)
+            : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
+
+        ///<summary>/_nodes/{node_id}/stats</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public NodesStatsRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        ///<summary>/_nodes/{node_id}/stats/{metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesStatsRequest(NodeIds nodeId, Metrics metric)
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/{node_id}/stats/{metric}/{index_metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        ///<param name="indexMetric">Optional, accepts null</param>
+        public NodesStatsRequest(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
+            : base(
+                r =>
+                    r.Optional("node_id", nodeId)
+                        .Optional("metric", metric)
+                        .Optional("index_metric", indexMetric)
+            ) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexMetrics INodesStatsRequest.IndexMetric =>
+            Self.RouteValues.Get<IndexMetrics>("index_metric");
+
+        [IgnoreDataMember]
+        Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        [IgnoreDataMember]
+        NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        // Request parameters
+        ///<summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        public Fields CompletionFields
+        {
+            get => Q<Fields>("completion_fields");
+            set => Q("completion_fields", value);
+        }
+
+        ///<summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        public Fields FielddataFields
+        {
+            get => Q<Fields>("fielddata_fields");
+            set => Q("fielddata_fields", value);
+        }
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        ///<summary>Comma-separated list of search groups for `search` index metric.</summary>
+        public string[] Groups
+        {
+            get => Q<string[]>("groups");
+            set => Q("groups", value);
+        }
+
+        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        public bool? IncludeSegmentFileSizes
+        {
+            get => Q<bool?>("include_segment_file_sizes");
+            set => Q("include_segment_file_sizes", value);
+        }
+
+        ///<summary>Return indices stats aggregated at index, node or shard level.</summary>
+        public NodesStatLevel? NodesStatLevel
+        {
+            get => Q<NodesStatLevel?>("level");
+            set => Q("level", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        ///<summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        public string[] Types
+        {
+            get => Q<string[]>("types");
+            set => Q("types", value);
+        }
+    }
 }

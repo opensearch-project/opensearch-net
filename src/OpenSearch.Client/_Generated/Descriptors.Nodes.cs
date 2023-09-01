@@ -186,4 +186,113 @@ namespace OpenSearch.Client.Specification.NodesApi
         ///<summary>Operation timeout.</summary>
         public ReloadSecureSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
+
+    ///<summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    public partial class NodesStatsDescriptor
+        : RequestDescriptorBase<
+            NodesStatsDescriptor,
+            NodesStatsRequestParameters,
+            INodesStatsRequest
+        >,
+            INodesStatsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesStats;
+
+        ///<summary>/_nodes/stats</summary>
+        public NodesStatsDescriptor()
+            : base() { }
+
+        ///<summary>/_nodes/stats/{metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesStatsDescriptor(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/stats/{metric}/{index_metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        ///<param name="indexMetric">Optional, accepts null</param>
+        public NodesStatsDescriptor(Metrics metric, IndexMetrics indexMetric)
+            : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
+
+        ///<summary>/_nodes/{node_id}/stats</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public NodesStatsDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        ///<summary>/_nodes/{node_id}/stats/{metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric)
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/{node_id}/stats/{metric}/{index_metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        ///<param name="indexMetric">Optional, accepts null</param>
+        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
+            : base(
+                r =>
+                    r.Optional("node_id", nodeId)
+                        .Optional("metric", metric)
+                        .Optional("index_metric", indexMetric)
+            ) { }
+
+        // values part of the url path
+        IndexMetrics INodesStatsRequest.IndexMetric =>
+            Self.RouteValues.Get<IndexMetrics>("index_metric");
+        Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+        NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        ///<summary>Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</summary>
+        public NodesStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
+            Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
+
+        ///<summary>Limit the information returned to the specified metrics.</summary>
+        public NodesStatsDescriptor Metric(Metrics metric) =>
+            Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
+
+        ///<summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        public NodesStatsDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        ///<summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor CompletionFields(Fields completionfields) =>
+            Qs("completion_fields", completionfields);
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
+
+        ///<summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor FielddataFields(Fields fielddatafields) =>
+            Qs("fielddata_fields", fielddatafields);
+
+        ///<summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        public NodesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+
+        ///<summary>Comma-separated list of search groups for `search` index metric.</summary>
+        public NodesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
+
+        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        public NodesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
+            Qs("include_segment_file_sizes", includesegmentfilesizes);
+
+        ///<summary>Return indices stats aggregated at index, node or shard level.</summary>
+        public NodesStatsDescriptor NodesStatLevel(NodesStatLevel? nodesstatlevel) =>
+            Qs("level", nodesstatlevel);
+
+        ///<summary>Operation timeout.</summary>
+        public NodesStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        ///<summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        public NodesStatsDescriptor Types(params string[] types) => Qs("types", types);
+    }
 }

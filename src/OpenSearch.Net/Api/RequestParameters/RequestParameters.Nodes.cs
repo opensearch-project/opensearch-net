@@ -51,68 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.NodesApi
 {
-	///<summary>Request options for Stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-	public class NodesStatsRequestParameters : RequestParameters<NodesStatsRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>
-		public string[] CompletionFields
-		{
-			get => Q<string[]>("completion_fields");
-			set => Q("completion_fields", value);
-		}
-
-		///<summary>A comma-separated list of fields for `fielddata` index metric (supports wildcards)</summary>
-		public string[] FielddataFields
-		{
-			get => Q<string[]>("fielddata_fields");
-			set => Q("fielddata_fields", value);
-		}
-
-		///<summary>A comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards)</summary>
-		public string[] Fields
-		{
-			get => Q<string[]>("fields");
-			set => Q("fields", value);
-		}
-
-		///<summary>A comma-separated list of search groups for `search` index metric</summary>
-		public bool? Groups
-		{
-			get => Q<bool? >("groups");
-			set => Q("groups", value);
-		}
-
-		///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested)</summary>
-		public bool? IncludeSegmentFileSizes
-		{
-			get => Q<bool? >("include_segment_file_sizes");
-			set => Q("include_segment_file_sizes", value);
-		}
-
-		///<summary>Return indices stats aggregated at index, node or shard level</summary>
-		public Level? Level
-		{
-			get => Q<Level? >("level");
-			set => Q("level", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-
-		///<summary>A comma-separated list of document types for the `indexing` index metric</summary>
-		public string[] Types
-		{
-			get => Q<string[]>("types");
-			set => Q("types", value);
-		}
-	}
-
 	///<summary>Request options for Usage <para></para></summary>
 	public class NodesUsageRequestParameters : RequestParameters<NodesUsageRequestParameters>
 	{

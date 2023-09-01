@@ -85,6 +85,19 @@ namespace OpenSearch.Client
                 new[] { "_nodes/reload_secure_settings", "_nodes/{node_id}/reload_secure_settings" }
             );
 
+        internal static ApiUrls NodesStats =
+            new(
+                new[]
+                {
+                    "_nodes/stats",
+                    "_nodes/stats/{metric}",
+                    "_nodes/stats/{metric}/{index_metric}",
+                    "_nodes/{node_id}/stats",
+                    "_nodes/{node_id}/stats/{metric}",
+                    "_nodes/{node_id}/stats/{metric}/{index_metric}"
+                }
+            );
+
         internal static ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 

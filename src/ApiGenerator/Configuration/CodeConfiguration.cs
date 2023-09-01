@@ -44,6 +44,7 @@ namespace ApiGenerator.Configuration
             new("nodes.hot_threads"),
 			new("nodes.info"),
 			new("nodes.reload_secure_settings"),
+			new("nodes.stats"),
 			new("snapshot.*"),
 			new("tasks.*")
 		};

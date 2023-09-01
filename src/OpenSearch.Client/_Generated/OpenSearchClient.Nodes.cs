@@ -199,5 +199,47 @@ namespace OpenSearch.Client.Specification.NodesApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</a>
+        /// </summary>
+        public NodesStatsResponse Stats(
+            Func<NodesStatsDescriptor, INodesStatsRequest> selector = null
+        ) => Stats(selector.InvokeOrDefault(new NodesStatsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</a>
+        /// </summary>
+        public Task<NodesStatsResponse> StatsAsync(
+            Func<NodesStatsDescriptor, INodesStatsRequest> selector = null,
+            CancellationToken ct = default
+        ) => StatsAsync(selector.InvokeOrDefault(new NodesStatsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</a>
+        /// </summary>
+        public NodesStatsResponse Stats(INodesStatsRequest request) =>
+            DoRequest<INodesStatsRequest, NodesStatsResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/">https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</a>
+        /// </summary>
+        public Task<NodesStatsResponse> StatsAsync(
+            INodesStatsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<INodesStatsRequest, NodesStatsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

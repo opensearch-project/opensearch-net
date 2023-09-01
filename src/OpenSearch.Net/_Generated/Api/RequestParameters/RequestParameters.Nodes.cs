@@ -137,4 +137,68 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("timeout", value);
         }
     }
+
+    ///<summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    public partial class NodesStatsRequestParameters
+        : RequestParameters<NodesStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        public string[] CompletionFields
+        {
+            get => Q<string[]>("completion_fields");
+            set => Q("completion_fields", value);
+        }
+
+        ///<summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        public string[] FielddataFields
+        {
+            get => Q<string[]>("fielddata_fields");
+            set => Q("fielddata_fields", value);
+        }
+
+        ///<summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        ///<summary>Comma-separated list of search groups for `search` index metric.</summary>
+        public string[] Groups
+        {
+            get => Q<string[]>("groups");
+            set => Q("groups", value);
+        }
+
+        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        public bool? IncludeSegmentFileSizes
+        {
+            get => Q<bool?>("include_segment_file_sizes");
+            set => Q("include_segment_file_sizes", value);
+        }
+
+        ///<summary>Return indices stats aggregated at index, node or shard level.</summary>
+        public NodesStatLevel? NodesStatLevel
+        {
+            get => Q<NodesStatLevel?>("level");
+            set => Q("level", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        ///<summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        public string[] Types
+        {
+            get => Q<string[]>("types");
+            set => Q("types", value);
+        }
+    }
 }

@@ -66,6 +66,19 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum NodesStatLevel
+    {
+        [EnumMember(Value = "indices")]
+        Indices,
+
+        [EnumMember(Value = "node")]
+        Node,
+
+        [EnumMember(Value = "shards")]
+        Shards
+    }
+
+    [StringEnum]
     public enum GroupBy
     {
         [EnumMember(Value = "nodes")]
@@ -83,6 +96,10 @@ namespace OpenSearch.Net
         static partial void RegisterEnumStringResolvers()
         {
             EnumStringResolvers.TryAdd(typeof(SampleType), e => GetStringValue((SampleType)e));
+            EnumStringResolvers.TryAdd(
+                typeof(NodesStatLevel),
+                e => GetStringValue((NodesStatLevel)e)
+            );
             EnumStringResolvers.TryAdd(typeof(GroupBy), e => GetStringValue((GroupBy)e));
         }
 
@@ -99,6 +116,22 @@ namespace OpenSearch.Net
             }
             throw new ArgumentException(
                 $"'{enumValue.ToString()}' is not a valid value for enum 'SampleType'"
+            );
+        }
+
+        public static string GetStringValue(this NodesStatLevel enumValue)
+        {
+            switch (enumValue)
+            {
+                case NodesStatLevel.Indices:
+                    return "indices";
+                case NodesStatLevel.Node:
+                    return "node";
+                case NodesStatLevel.Shards:
+                    return "shards";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'NodesStatLevel'"
             );
         }
 
