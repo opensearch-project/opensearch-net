@@ -99,6 +99,17 @@ namespace OpenSearch.Client
                 }
             );
 
+        internal static readonly ApiUrls NodesUsage =
+            new(
+                new[]
+                {
+                    "_nodes/usage",
+                    "_nodes/usage/{metric}",
+                    "_nodes/{node_id}/usage",
+                    "_nodes/{node_id}/usage/{metric}"
+                }
+            );
+
         internal static readonly ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 

@@ -519,5 +519,132 @@ namespace OpenSearch.Net.Specification.NodesApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse UsageForAll<TResponse>(
+            NodesUsageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_nodes/usage", null, RequestParams(requestParameters));
+
+        ///<summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("nodes.usage", "")]
+        public Task<TResponse> UsageForAllAsync<TResponse>(
+            NodesUsageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_nodes/usage",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="metric">Limit the information returned to the specified metrics.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse UsageForAll<TResponse>(
+            string metric,
+            NodesUsageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_nodes/usage/{metric:metric}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="metric">Limit the information returned to the specified metrics.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("nodes.usage", "metric")]
+        public Task<TResponse> UsageForAllAsync<TResponse>(
+            string metric,
+            NodesUsageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_nodes/usage/{metric:metric}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Usage<TResponse>(
+            string nodeId,
+            NodesUsageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}/usage"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("nodes.usage", "node_id")]
+        public Task<TResponse> UsageAsync<TResponse>(
+            string nodeId,
+            NodesUsageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}/usage"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        ///<param name="metric">Limit the information returned to the specified metrics.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Usage<TResponse>(
+            string nodeId,
+            string metric,
+            NodesUsageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        ///<param name="metric">Limit the information returned to the specified metrics.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("nodes.usage", "node_id, metric")]
+        public Task<TResponse> UsageAsync<TResponse>(
+            string nodeId,
+            string metric,
+            NodesUsageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}/usage/{metric:metric}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

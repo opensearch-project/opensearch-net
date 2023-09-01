@@ -241,5 +241,47 @@ namespace OpenSearch.Client.Specification.NodesApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public NodesUsageResponse Usage(
+            Func<NodesUsageDescriptor, INodesUsageRequest> selector = null
+        ) => Usage(selector.InvokeOrDefault(new NodesUsageDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<NodesUsageResponse> UsageAsync(
+            Func<NodesUsageDescriptor, INodesUsageRequest> selector = null,
+            CancellationToken ct = default
+        ) => UsageAsync(selector.InvokeOrDefault(new NodesUsageDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public NodesUsageResponse Usage(INodesUsageRequest request) =>
+            DoRequest<INodesUsageRequest, NodesUsageResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>nodes.usage</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<NodesUsageResponse> UsageAsync(
+            INodesUsageRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<INodesUsageRequest, NodesUsageResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

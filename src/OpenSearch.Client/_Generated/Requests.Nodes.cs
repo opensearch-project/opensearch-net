@@ -356,4 +356,58 @@ namespace OpenSearch.Client.Specification.NodesApi
             set => Q("types", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface INodesUsageRequest : IRequest<NodesUsageRequestParameters>
+    {
+        [IgnoreDataMember]
+        Metrics Metric { get; }
+
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+    }
+
+    ///<summary>Request for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class NodesUsageRequest
+        : PlainRequestBase<NodesUsageRequestParameters>,
+            INodesUsageRequest
+    {
+        protected INodesUsageRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesUsage;
+
+        ///<summary>/_nodes/usage</summary>
+        public NodesUsageRequest()
+            : base() { }
+
+        ///<summary>/_nodes/usage/{metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesUsageRequest(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/{node_id}/usage</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public NodesUsageRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        ///<summary>/_nodes/{node_id}/usage/{metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesUsageRequest(NodeIds nodeId, Metrics metric)
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        [IgnoreDataMember]
+        NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        // Request parameters
+        ///<summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

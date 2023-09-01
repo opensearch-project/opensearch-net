@@ -295,4 +295,52 @@ namespace OpenSearch.Client.Specification.NodesApi
         ///<summary>Comma-separated list of document types for the `indexing` index metric.</summary>
         public NodesStatsDescriptor Types(params string[] types) => Qs("types", types);
     }
+
+    ///<summary>Descriptor for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class NodesUsageDescriptor
+        : RequestDescriptorBase<
+            NodesUsageDescriptor,
+            NodesUsageRequestParameters,
+            INodesUsageRequest
+        >,
+            INodesUsageRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesUsage;
+
+        ///<summary>/_nodes/usage</summary>
+        public NodesUsageDescriptor()
+            : base() { }
+
+        ///<summary>/_nodes/usage/{metric}</summary>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesUsageDescriptor(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        ///<summary>/_nodes/{node_id}/usage</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public NodesUsageDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        ///<summary>/_nodes/{node_id}/usage/{metric}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        ///<param name="metric">Optional, accepts null</param>
+        public NodesUsageDescriptor(NodeIds nodeId, Metrics metric)
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+
+        // values part of the url path
+        Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+        NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        ///<summary>Limit the information returned to the specified metrics.</summary>
+        public NodesUsageDescriptor Metric(Metrics metric) =>
+            Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
+
+        ///<summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        public NodesUsageDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        ///<summary>Operation timeout.</summary>
+        public NodesUsageDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
 }

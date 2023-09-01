@@ -181,6 +181,16 @@ namespace OpenSearch.Net
         All = 1 << 11
     }
 
+    [Flags, StringEnum]
+    public enum NodesUsageMetric
+    {
+        [EnumMember(Value = "rest_actions")]
+        RestActions = 1 << 0,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 1
+    }
+
     [StringEnum]
     public enum SampleType
     {
@@ -235,6 +245,10 @@ namespace OpenSearch.Net
             EnumStringResolvers.TryAdd(
                 typeof(NodesStatsMetric),
                 e => GetStringValue((NodesStatsMetric)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(NodesUsageMetric),
+                e => GetStringValue((NodesUsageMetric)e)
             );
             EnumStringResolvers.TryAdd(typeof(SampleType), e => GetStringValue((SampleType)e));
             EnumStringResolvers.TryAdd(
@@ -337,6 +351,16 @@ namespace OpenSearch.Net
                 list.Add("discovery");
             if ((enumValue & NodesStatsMetric.IndexingPressure) != 0)
                 list.Add("indexing_pressure");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this NodesUsageMetric enumValue)
+        {
+            if ((enumValue & NodesUsageMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & NodesUsageMetric.RestActions) != 0)
+                list.Add("rest_actions");
             return string.Join(",", list);
         }
 

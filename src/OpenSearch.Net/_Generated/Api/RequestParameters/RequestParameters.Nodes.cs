@@ -201,4 +201,19 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("types", value);
         }
     }
+
+    ///<summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class NodesUsageRequestParameters
+        : RequestParameters<NodesUsageRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        ///<summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

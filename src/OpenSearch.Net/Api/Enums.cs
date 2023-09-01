@@ -116,15 +116,6 @@ namespace OpenSearch.Net
 		All = 1 << 16
 	}
 
-	[Flags, StringEnum]
-	public enum NodesUsageMetric
-	{
-		[EnumMember(Value = "rest_actions")]
-		RestActions = 1 << 0,
-		[EnumMember(Value = "_all")]
-		All = 1 << 1
-	}
-
 	[StringEnum]
 	public enum DefaultOperator
 	{
@@ -353,7 +344,6 @@ namespace OpenSearch.Net
 		{
 			EnumStringResolvers.TryAdd(typeof(ClusterStateMetric), (e) => GetStringValue((ClusterStateMetric)e));
 			EnumStringResolvers.TryAdd(typeof(IndicesStatsMetric), (e) => GetStringValue((IndicesStatsMetric)e));
-			EnumStringResolvers.TryAdd(typeof(NodesUsageMetric), (e) => GetStringValue((NodesUsageMetric)e));
 			EnumStringResolvers.TryAdd(typeof(DefaultOperator), (e) => GetStringValue((DefaultOperator)e));
 			EnumStringResolvers.TryAdd(typeof(ExpandWildcards), (e) => GetStringValue((ExpandWildcards)e));
 			EnumStringResolvers.TryAdd(typeof(SearchType), (e) => GetStringValue((SearchType)e));
@@ -450,16 +440,6 @@ namespace OpenSearch.Net
 				list.Add("request_cache");
 			if ((enumValue & IndicesStatsMetric.Recovery) != 0)
 				list.Add("recovery");
-			return string.Join(",", list);
-		}
-
-		public static string GetStringValue(this NodesUsageMetric enumValue)
-		{
-			if ((enumValue & NodesUsageMetric.All) != 0)
-				return "_all";
-			var list = new List<string>();
-			if ((enumValue & NodesUsageMetric.RestActions) != 0)
-				list.Add("rest_actions");
 			return string.Join(",", list);
 		}
 
