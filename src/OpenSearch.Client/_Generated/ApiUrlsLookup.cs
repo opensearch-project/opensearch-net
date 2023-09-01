@@ -45,31 +45,32 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
-        internal static ApiUrls DanglingIndicesDeleteDanglingIndex =
+        internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 
-        internal static ApiUrls DanglingIndicesImportDanglingIndex =
+        internal static readonly ApiUrls DanglingIndicesImportDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 
-        internal static ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
+        internal static readonly ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
 
-        internal static ApiUrls IngestDeletePipeline = new(new[] { "_ingest/pipeline/{id}" });
+        internal static readonly ApiUrls IngestDeletePipeline =
+            new(new[] { "_ingest/pipeline/{id}" });
 
-        internal static ApiUrls IngestGetPipeline =
+        internal static readonly ApiUrls IngestGetPipeline =
             new(new[] { "_ingest/pipeline", "_ingest/pipeline/{id}" });
 
-        internal static ApiUrls IngestGrokProcessorPatterns =
+        internal static readonly ApiUrls IngestGrokProcessorPatterns =
             new(new[] { "_ingest/processor/grok" });
 
-        internal static ApiUrls IngestPutPipeline = new(new[] { "_ingest/pipeline/{id}" });
+        internal static readonly ApiUrls IngestPutPipeline = new(new[] { "_ingest/pipeline/{id}" });
 
-        internal static ApiUrls IngestSimulatePipeline =
+        internal static readonly ApiUrls IngestSimulatePipeline =
             new(new[] { "_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate" });
 
-        internal static ApiUrls NodesHotThreads =
+        internal static readonly ApiUrls NodesHotThreads =
             new(new[] { "_nodes/hot_threads", "_nodes/{node_id}/hot_threads" });
 
-        internal static ApiUrls NodesInfo =
+        internal static readonly ApiUrls NodesInfo =
             new(
                 new[]
                 {
@@ -80,12 +81,12 @@ namespace OpenSearch.Client
                 }
             );
 
-        internal static ApiUrls NodesReloadSecureSettings =
+        internal static readonly ApiUrls NodesReloadSecureSettings =
             new(
                 new[] { "_nodes/reload_secure_settings", "_nodes/{node_id}/reload_secure_settings" }
             );
 
-        internal static ApiUrls NodesStats =
+        internal static readonly ApiUrls NodesStats =
             new(
                 new[]
                 {
@@ -98,30 +99,34 @@ namespace OpenSearch.Client
                 }
             );
 
-        internal static ApiUrls SnapshotCleanupRepository =
+        internal static readonly ApiUrls SnapshotCleanupRepository =
             new(new[] { "_snapshot/{repository}/_cleanup" });
 
-        internal static ApiUrls SnapshotClone =
+        internal static readonly ApiUrls SnapshotClone =
             new(new[] { "_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}" });
 
-        internal static ApiUrls SnapshotSnapshot =
+        internal static readonly ApiUrls SnapshotSnapshot =
             new(new[] { "_snapshot/{repository}/{snapshot}" });
 
-        internal static ApiUrls SnapshotCreateRepository = new(new[] { "_snapshot/{repository}" });
+        internal static readonly ApiUrls SnapshotCreateRepository =
+            new(new[] { "_snapshot/{repository}" });
 
-        internal static ApiUrls SnapshotDelete = new(new[] { "_snapshot/{repository}/{snapshot}" });
+        internal static readonly ApiUrls SnapshotDelete =
+            new(new[] { "_snapshot/{repository}/{snapshot}" });
 
-        internal static ApiUrls SnapshotDeleteRepository = new(new[] { "_snapshot/{repository}" });
+        internal static readonly ApiUrls SnapshotDeleteRepository =
+            new(new[] { "_snapshot/{repository}" });
 
-        internal static ApiUrls SnapshotGet = new(new[] { "_snapshot/{repository}/{snapshot}" });
+        internal static readonly ApiUrls SnapshotGet =
+            new(new[] { "_snapshot/{repository}/{snapshot}" });
 
-        internal static ApiUrls SnapshotGetRepository =
+        internal static readonly ApiUrls SnapshotGetRepository =
             new(new[] { "_snapshot", "_snapshot/{repository}" });
 
-        internal static ApiUrls SnapshotRestore =
+        internal static readonly ApiUrls SnapshotRestore =
             new(new[] { "_snapshot/{repository}/{snapshot}/_restore" });
 
-        internal static ApiUrls SnapshotStatus =
+        internal static readonly ApiUrls SnapshotStatus =
             new(
                 new[]
                 {
@@ -131,14 +136,14 @@ namespace OpenSearch.Client
                 }
             );
 
-        internal static ApiUrls SnapshotVerifyRepository =
+        internal static readonly ApiUrls SnapshotVerifyRepository =
             new(new[] { "_snapshot/{repository}/_verify" });
 
-        internal static ApiUrls TasksCancel =
+        internal static readonly ApiUrls TasksCancel =
             new(new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" });
 
-        internal static ApiUrls TasksGetTask = new(new[] { "_tasks/{task_id}" });
+        internal static readonly ApiUrls TasksGetTask = new(new[] { "_tasks/{task_id}" });
 
-        internal static ApiUrls TasksList = new(new[] { "_tasks" });
+        internal static readonly ApiUrls TasksList = new(new[] { "_tasks" });
     }
 }
