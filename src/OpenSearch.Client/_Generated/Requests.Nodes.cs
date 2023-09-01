@@ -134,10 +134,10 @@ namespace OpenSearch.Client.Specification.NodesApi
     public partial interface INodesInfoRequest : IRequest<NodesInfoRequestParameters>
     {
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        Metrics Metric { get; }
 
         [IgnoreDataMember]
-        Metrics Metric { get; }
+        NodeIds NodeId { get; }
     }
 
     ///<summary>Request for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
@@ -170,10 +170,10 @@ namespace OpenSearch.Client.Specification.NodesApi
 
         // values part of the url path
         [IgnoreDataMember]
-        NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+        Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
         [IgnoreDataMember]
-        Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+        NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
         // Request parameters
         ///<summary>Return settings in flat format.</summary>
