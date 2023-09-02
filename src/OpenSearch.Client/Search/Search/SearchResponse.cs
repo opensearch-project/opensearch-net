@@ -50,7 +50,8 @@ namespace OpenSearch.Client
 		ClusterStatistics Clusters { get; }
 
 		/// <summary>
-		/// Gets the documents inside the hits, by deserializing <see cref="IHitMetadata{T}.Source" /> into <typeparamref name="TDocument" />
+		/// Gets the documents inside the hits, by deserializing <see cref="IHitMetadata{T}.Source" />
+		/// into <typeparamref name="TDocument" />
 		/// <para>
 		/// NOTE: if you use <see cref="ISearchRequest.StoredFields" /> on the search request,
 		/// <see cref="Documents" /> will be empty and you should use <see cref="Fields" />
@@ -143,7 +144,7 @@ namespace OpenSearch.Client
 		private IReadOnlyCollection<IHit<TDocument>> _hits;
 
 		/// <inheritdoc />
-		[DataMember(Name ="aggregations")]
+		[DataMember(Name = "aggregations")]
 		public AggregateDictionary Aggregations { get; internal set; } = AggregateDictionary.Default;
 
 		/// <inheritdoc />
@@ -170,7 +171,7 @@ namespace OpenSearch.Client
 			_hits ?? (_hits = HitsMetadata?.Hits ?? EmptyReadOnly<IHit<TDocument>>.Collection);
 
 		/// <inheritdoc />
-		[DataMember(Name ="hits")]
+		[DataMember(Name = "hits")]
 		public IHitsMetadata<TDocument> HitsMetadata { get; internal set; }
 
 		/// <inheritdoc />
@@ -178,11 +179,11 @@ namespace OpenSearch.Client
 		public double MaxScore => HitsMetadata?.MaxScore ?? 0;
 
 		/// <inheritdoc />
-		[DataMember(Name ="num_reduce_phases")]
+		[DataMember(Name = "num_reduce_phases")]
 		public long NumberOfReducePhases { get; internal set; }
 
 		/// <inheritdoc />
-		[DataMember(Name ="profile")]
+		[DataMember(Name = "profile")]
 		public Profile Profile { get; internal set; }
 
 		/// <inheritdoc />
@@ -190,27 +191,27 @@ namespace OpenSearch.Client
 		public string ScrollId { get; internal set; }
 
 		/// <inheritdoc />
-		[DataMember(Name ="_shards")]
+		[DataMember(Name = "_shards")]
 		public ShardStatistics Shards { get; internal set; }
 
 		/// <inheritdoc />
-		[DataMember(Name ="suggest")]
+		[DataMember(Name = "suggest")]
 		public ISuggestDictionary<TDocument> Suggest { get; internal set; } = SuggestDictionary<TDocument>.Default;
 
 		/// <inheritdoc />
-		[DataMember(Name ="terminated_early")]
+		[DataMember(Name = "terminated_early")]
 		public bool TerminatedEarly { get; internal set; }
 
 		/// <inheritdoc />
-		[DataMember(Name ="timed_out")]
+		[DataMember(Name = "timed_out")]
 		public bool TimedOut { get; internal set; }
 
 		/// <inheritdoc />
-		[DataMember(Name ="took")]
+		[DataMember(Name = "took")]
 		public long Took { get; internal set; }
 
 		/// <inheritdoc />
 		[IgnoreDataMember]
-		public long Total => HitsMetadata?.Total.Value ?? -1;
+		public long Total => HitsMetadata?.Total?.Value ?? -1;
 	}
 }
