@@ -4,6 +4,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### Fixed
 - Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
+- Fix null-ref exception when track total hits is disabled ([#341](https://github.com/opensearch-project/opensearch-net/pull/341))
 
 ### Dependencies
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.7.1
