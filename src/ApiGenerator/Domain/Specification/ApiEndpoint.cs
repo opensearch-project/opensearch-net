@@ -103,17 +103,14 @@ namespace ApiGenerator.Domain.Specification
             HttpMethod = PreferredHttpMethod
         };
 
-        public string PreferredHttpMethod
-        {
-            get
+        public string PreferredHttpMethod =>
+            HttpMethods.OrderByDescending(m => m switch
             {
-                var first = HttpMethods.First();
-                if (HttpMethods.Count > 1 && first.ToUpperInvariant() == "GET")
-                    return HttpMethods.Last();
-
-                return first;
-            }
-        }
+                "GET" => 0,
+                "POST" => 1,
+                "PUT" or "DELETE" or "PATCH" or "HEAD" => 2, // Prefer "resource" methods over GET/POST methods
+                _ => -1
+            }).First();
 
         public string HighLevelMethodXmlDocDescription =>
             $"<c>{PreferredHttpMethod}</c> request to the <c>{Name}</c> API, read more about this API online:";
