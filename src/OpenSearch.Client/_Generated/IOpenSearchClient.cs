@@ -48,6 +48,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.IngestApi;
 using OpenSearch.Client.Specification.NodesApi;
@@ -61,6 +62,9 @@ namespace OpenSearch.Client
     ///</summary>
     public partial interface IOpenSearchClient
     {
+        ///<summary>Cluster APIs</summary>
+        ClusterNamespace Cluster { get; }
+
         ///<summary>Dangling Indices APIs</summary>
         DanglingIndicesNamespace DanglingIndices { get; }
 

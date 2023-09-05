@@ -57,18 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.ClusterApi
 {
-	///<summary>Descriptor for AllocationExplain <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</para></summary>
-	public partial class ClusterAllocationExplainDescriptor : RequestDescriptorBase<ClusterAllocationExplainDescriptor, ClusterAllocationExplainRequestParameters, IClusterAllocationExplainRequest>, IClusterAllocationExplainRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterAllocationExplain;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return information about disk usage and shard sizes (default: false)</summary>
-		public ClusterAllocationExplainDescriptor IncludeDiskInfo(bool? includediskinfo = true) => Qs("include_disk_info", includediskinfo);
-		///<summary>Return 'YES' decisions in explanation (default: false)</summary>
-		public ClusterAllocationExplainDescriptor IncludeYesDecisions(bool? includeyesdecisions = true) => Qs("include_yes_decisions", includeyesdecisions);
-	}
-
 	///<summary>Descriptor for DeleteVotingConfigExclusions <para></para></summary>
 	public partial class DeleteVotingConfigExclusionsDescriptor : RequestDescriptorBase<DeleteVotingConfigExclusionsDescriptor, DeleteVotingConfigExclusionsRequestParameters, IDeleteVotingConfigExclusionsRequest>, IDeleteVotingConfigExclusionsRequest
 	{

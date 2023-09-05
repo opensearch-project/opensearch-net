@@ -45,6 +45,9 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls ClusterAllocationExplain =
+            new(new[] { "_cluster/allocation/explain" });
+
         internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 

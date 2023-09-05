@@ -50,38 +50,56 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
-using OpenSearch.Net.Specification.ClusterApi;
-using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.IngestApi;
-using OpenSearch.Net.Specification.NodesApi;
-using OpenSearch.Net.Specification.SnapshotApi;
-using OpenSearch.Net.Specification.TasksApi;
 using static OpenSearch.Net.HttpMethod;
 
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
+// ReSharper disable once CheckNamespace
+// ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
-namespace OpenSearch.Net
+namespace OpenSearch.Net.Specification.ClusterApi
 {
     ///<summary>
-    ///OpenSearch low level client
+    /// Cluster APIs.
+    /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Cluster"/> property
+    /// on <see cref="IOpenSearchLowLevelClient"/>.
+    ///</para>
     ///</summary>
-    public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
+    public partial class LowLevelClusterNamespace : NamespacedClientProxy
     {
-        public LowLevelClusterNamespace Cluster { get; private set; }
-        public LowLevelDanglingIndicesNamespace DanglingIndices { get; private set; }
-        public LowLevelIngestNamespace Ingest { get; private set; }
-        public LowLevelNodesNamespace Nodes { get; private set; }
-        public LowLevelSnapshotNamespace Snapshot { get; private set; }
-        public LowLevelTasksNamespace Tasks { get; private set; }
+        internal LowLevelClusterNamespace(OpenSearchLowLevelClient client)
+            : base(client) { }
 
-        partial void SetupGeneratedNamespaces()
-        {
-            Cluster = new LowLevelClusterNamespace(this);
-            DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
-            Ingest = new LowLevelIngestNamespace(this);
-            Nodes = new LowLevelNodesNamespace(this);
-            Snapshot = new LowLevelSnapshotNamespace(this);
-            Tasks = new LowLevelTasksNamespace(this);
-        }
+        ///<summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+        ///<param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AllocationExplain<TResponse>(
+            PostData body,
+            ClusterAllocationExplainRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_cluster/allocation/explain",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+        ///<param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.allocation_explain", "body")]
+        public Task<TResponse> AllocationExplainAsync<TResponse>(
+            PostData body,
+            ClusterAllocationExplainRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_cluster/allocation/explain",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
     }
 }

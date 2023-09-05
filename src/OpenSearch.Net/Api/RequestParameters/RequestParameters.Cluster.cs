@@ -51,26 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for AllocationExplain <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</para></summary>
-	public class ClusterAllocationExplainRequestParameters : RequestParameters<ClusterAllocationExplainRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-		public override bool SupportsBody => true;
-		///<summary>Return information about disk usage and shard sizes (default: false)</summary>
-		public bool? IncludeDiskInfo
-		{
-			get => Q<bool? >("include_disk_info");
-			set => Q("include_disk_info", value);
-		}
-
-		///<summary>Return 'YES' decisions in explanation (default: false)</summary>
-		public bool? IncludeYesDecisions
-		{
-			get => Q<bool? >("include_yes_decisions");
-			set => Q("include_yes_decisions", value);
-		}
-	}
-
 	///<summary>Request options for DeleteComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
 	public class DeleteComponentTemplateRequestParameters : RequestParameters<DeleteComponentTemplateRequestParameters>
 	{

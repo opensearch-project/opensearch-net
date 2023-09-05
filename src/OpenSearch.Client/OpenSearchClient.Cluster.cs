@@ -57,36 +57,8 @@ namespace OpenSearch.Client.Specification.ClusterApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class ClusterNamespace : NamespacedClientProxy
+	public partial class ClusterNamespace : NamespacedClientProxy
 	{
-		internal ClusterNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
-		/// <summary>
-		/// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</a>
-		/// </summary>
-		public ClusterAllocationExplainResponse AllocationExplain(Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector = null) => AllocationExplain(selector.InvokeOrDefault(new ClusterAllocationExplainDescriptor()));
-		/// <summary>
-		/// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</a>
-		/// </summary>
-		public Task<ClusterAllocationExplainResponse> AllocationExplainAsync(Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector = null, CancellationToken ct = default) => AllocationExplainAsync(selector.InvokeOrDefault(new ClusterAllocationExplainDescriptor()), ct);
-		/// <summary>
-		/// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</a>
-		/// </summary>
-		public ClusterAllocationExplainResponse AllocationExplain(IClusterAllocationExplainRequest request) => DoRequest<IClusterAllocationExplainRequest, ClusterAllocationExplainResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</a>
-		/// </summary>
-		public Task<ClusterAllocationExplainResponse> AllocationExplainAsync(IClusterAllocationExplainRequest request, CancellationToken ct = default) => DoRequestAsync<IClusterAllocationExplainRequest, ClusterAllocationExplainResponse>(request, request.RequestParameters, ct);
 		/// <summary>
 		/// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
 		/// <para></para>

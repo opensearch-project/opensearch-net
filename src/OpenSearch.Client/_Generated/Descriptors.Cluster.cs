@@ -47,18 +47,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
-using System.Runtime.Serialization;
+
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Specification.ClusterApi;
-using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.IngestApi;
-using OpenSearch.Net.Specification.NodesApi;
-using OpenSearch.Net.Specification.SnapshotApi;
-using OpenSearch.Net.Specification.TasksApi;
 
+// ReSharper disable RedundantBaseConstructorCall
 // ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
+// ReSharper disable PartialMethodWithSinglePart
+// ReSharper disable RedundantNameQualifier
+namespace OpenSearch.Client.Specification.ClusterApi
 {
-    public abstract partial class PlainRequestBase<TParameters> { }
+    ///<summary>Descriptor for AllocationExplain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+    public partial class ClusterAllocationExplainDescriptor
+        : RequestDescriptorBase<
+            ClusterAllocationExplainDescriptor,
+            ClusterAllocationExplainRequestParameters,
+            IClusterAllocationExplainRequest
+        >,
+            IClusterAllocationExplainRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterAllocationExplain;
+
+        // values part of the url path
+        // Request parameters
+        ///<summary>Return information about disk usage and shard sizes.</summary>
+        public ClusterAllocationExplainDescriptor IncludeDiskInfo(bool? includediskinfo = true) =>
+            Qs("include_disk_info", includediskinfo);
+
+        ///<summary>Return 'YES' decisions in explanation.</summary>
+        public ClusterAllocationExplainDescriptor IncludeYesDecisions(
+            bool? includeyesdecisions = true
+        ) => Qs("include_yes_decisions", includeyesdecisions);
+    }
 }

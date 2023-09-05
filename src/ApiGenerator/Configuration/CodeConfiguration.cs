@@ -39,6 +39,7 @@ namespace ApiGenerator.Configuration
 	{
 		private static readonly Glob[] OperationsToInclude =
 		{
+			new("cluster.allocation_explain"),
 			new("dangling_indices.*"),
 			new("ingest.*"),
             new("nodes.*"),

@@ -59,33 +59,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[InterfaceDataContract]
-	public partial interface IClusterAllocationExplainRequest : IRequest<ClusterAllocationExplainRequestParameters>
-	{
-	}
-
-	///<summary>Request for AllocationExplain <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-allocation/</para></summary>
-	public partial class ClusterAllocationExplainRequest : PlainRequestBase<ClusterAllocationExplainRequestParameters>, IClusterAllocationExplainRequest
-	{
-		protected IClusterAllocationExplainRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterAllocationExplain;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return information about disk usage and shard sizes (default: false)</summary>
-		public bool? IncludeDiskInfo
-		{
-			get => Q<bool? >("include_disk_info");
-			set => Q("include_disk_info", value);
-		}
-
-		///<summary>Return 'YES' decisions in explanation (default: false)</summary>
-		public bool? IncludeYesDecisions
-		{
-			get => Q<bool? >("include_yes_decisions");
-			set => Q("include_yes_decisions", value);
-		}
-	}
-
-	[InterfaceDataContract]
 	public partial interface IDeleteVotingConfigExclusionsRequest : IRequest<DeleteVotingConfigExclusionsRequestParameters>
 	{
 	}

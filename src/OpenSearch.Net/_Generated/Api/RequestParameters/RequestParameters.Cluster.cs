@@ -41,24 +41,36 @@
 //      Windows     :   build.bat codegen
 //
 // -----------------------------------------------
+
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
-using System.Runtime.Serialization;
-using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
-using OpenSearch.Net.Specification.ClusterApi;
-using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.IngestApi;
-using OpenSearch.Net.Specification.NodesApi;
-using OpenSearch.Net.Specification.SnapshotApi;
-using OpenSearch.Net.Specification.TasksApi;
 
-// ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
+// ReSharper disable once CheckNamespace
+namespace OpenSearch.Net.Specification.ClusterApi
 {
-    public abstract partial class PlainRequestBase<TParameters> { }
+    ///<summary>Request options for AllocationExplain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+    public partial class ClusterAllocationExplainRequestParameters
+        : RequestParameters<ClusterAllocationExplainRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        ///<summary>Return information about disk usage and shard sizes.</summary>
+        public bool? IncludeDiskInfo
+        {
+            get => Q<bool?>("include_disk_info");
+            set => Q("include_disk_info", value);
+        }
+
+        ///<summary>Return 'YES' decisions in explanation.</summary>
+        public bool? IncludeYesDecisions
+        {
+            get => Q<bool?>("include_yes_decisions");
+            set => Q("include_yes_decisions", value);
+        }
+    }
 }
