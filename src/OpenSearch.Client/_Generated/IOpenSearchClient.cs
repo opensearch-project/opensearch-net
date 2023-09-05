@@ -50,6 +50,7 @@ using System.Linq;
 using OpenSearch.Client;
 using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.IngestApi;
+using OpenSearch.Client.Specification.SnapshotApi;
 using OpenSearch.Client.Specification.TasksApi;
 
 namespace OpenSearch.Client
@@ -64,6 +65,9 @@ namespace OpenSearch.Client
 
         ///<summary>Ingest APIs</summary>
         IngestNamespace Ingest { get; }
+
+        ///<summary>Snapshot APIs</summary>
+        SnapshotNamespace Snapshot { get; }
 
         ///<summary>Tasks APIs</summary>
         TasksNamespace Tasks { get; }

@@ -49,5 +49,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OpenSearchClient.cs</DependentUpon>
     </Compile>
+    <Compile Update="_Generated\OpenSearchClient.*.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OpenSearchClient.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

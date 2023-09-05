@@ -66,6 +66,42 @@ namespace OpenSearch.Client
         internal static ApiUrls IngestSimulatePipeline =
             new(new[] { "_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate" });
 
+        internal static ApiUrls SnapshotCleanupRepository =
+            new(new[] { "_snapshot/{repository}/_cleanup" });
+
+        internal static ApiUrls SnapshotClone =
+            new(new[] { "_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}" });
+
+        internal static ApiUrls SnapshotSnapshot =
+            new(new[] { "_snapshot/{repository}/{snapshot}" });
+
+        internal static ApiUrls SnapshotCreateRepository = new(new[] { "_snapshot/{repository}" });
+
+        internal static ApiUrls SnapshotDelete = new(new[] { "_snapshot/{repository}/{snapshot}" });
+
+        internal static ApiUrls SnapshotDeleteRepository = new(new[] { "_snapshot/{repository}" });
+
+        internal static ApiUrls SnapshotGet = new(new[] { "_snapshot/{repository}/{snapshot}" });
+
+        internal static ApiUrls SnapshotGetRepository =
+            new(new[] { "_snapshot", "_snapshot/{repository}" });
+
+        internal static ApiUrls SnapshotRestore =
+            new(new[] { "_snapshot/{repository}/{snapshot}/_restore" });
+
+        internal static ApiUrls SnapshotStatus =
+            new(
+                new[]
+                {
+                    "_snapshot/_status",
+                    "_snapshot/{repository}/_status",
+                    "_snapshot/{repository}/{snapshot}/_status"
+                }
+            );
+
+        internal static ApiUrls SnapshotVerifyRepository =
+            new(new[] { "_snapshot/{repository}/_verify" });
+
         internal static ApiUrls TasksCancel =
             new(new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" });
 

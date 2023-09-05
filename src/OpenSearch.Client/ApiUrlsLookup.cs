@@ -153,17 +153,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls NoNamespaceSearch = new ApiUrls(new[]{"_search", "{index}/_search"});
 		internal static ApiUrls NoNamespaceSearchShards = new ApiUrls(new[]{"_search_shards", "{index}/_search_shards"});
 		internal static ApiUrls NoNamespaceSearchTemplate = new ApiUrls(new[]{"_search/template", "{index}/_search/template"});
-		internal static ApiUrls SnapshotCleanupRepository = new ApiUrls(new[]{"_snapshot/{repository}/_cleanup"});
-		internal static ApiUrls SnapshotClone = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}"});
-		internal static ApiUrls SnapshotSnapshot = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}"});
-		internal static ApiUrls SnapshotCreateRepository = new ApiUrls(new[]{"_snapshot/{repository}"});
-		internal static ApiUrls SnapshotDelete = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}"});
-		internal static ApiUrls SnapshotDeleteRepository = new ApiUrls(new[]{"_snapshot/{repository}"});
-		internal static ApiUrls SnapshotGet = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}"});
-		internal static ApiUrls SnapshotGetRepository = new ApiUrls(new[]{"_snapshot", "_snapshot/{repository}"});
-		internal static ApiUrls SnapshotRestore = new ApiUrls(new[]{"_snapshot/{repository}/{snapshot}/_restore"});
-		internal static ApiUrls SnapshotStatus = new ApiUrls(new[]{"_snapshot/_status", "_snapshot/{repository}/_status", "_snapshot/{repository}/{snapshot}/_status"});
-		internal static ApiUrls SnapshotVerifyRepository = new ApiUrls(new[]{"_snapshot/{repository}/_verify"});
 		internal static ApiUrls NoNamespaceTermVectors = new ApiUrls(new[]{"{index}/_termvectors/{id}", "{index}/_termvectors"});
 		internal static ApiUrls NoNamespaceUpdate = new ApiUrls(new[]{"{index}/_update/{id}"});
 		internal static ApiUrls NoNamespaceUpdateByQuery = new ApiUrls(new[]{"{index}/_update_by_query"});

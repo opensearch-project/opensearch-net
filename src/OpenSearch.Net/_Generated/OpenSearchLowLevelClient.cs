@@ -52,6 +52,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
+using OpenSearch.Net.Specification.SnapshotApi;
 using OpenSearch.Net.Specification.TasksApi;
 using static OpenSearch.Net.HttpMethod;
 
@@ -66,12 +67,14 @@ namespace OpenSearch.Net
     {
         public LowLevelDanglingIndicesNamespace DanglingIndices { get; private set; }
         public LowLevelIngestNamespace Ingest { get; private set; }
+        public LowLevelSnapshotNamespace Snapshot { get; private set; }
         public LowLevelTasksNamespace Tasks { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {
             DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
             Ingest = new LowLevelIngestNamespace(this);
+            Snapshot = new LowLevelSnapshotNamespace(this);
             Tasks = new LowLevelTasksNamespace(this);
         }
     }
