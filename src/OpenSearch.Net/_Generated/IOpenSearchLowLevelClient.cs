@@ -51,6 +51,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.TasksApi;
 
 namespace OpenSearch.Net
@@ -62,6 +63,9 @@ namespace OpenSearch.Net
     {
         ///<summary>Dangling Indices APIs</summary>
         LowLevelDanglingIndicesNamespace DanglingIndices { get; }
+
+        ///<summary>Ingest APIs</summary>
+        LowLevelIngestNamespace Ingest { get; }
 
         ///<summary>Tasks APIs</summary>
         LowLevelTasksNamespace Tasks { get; }

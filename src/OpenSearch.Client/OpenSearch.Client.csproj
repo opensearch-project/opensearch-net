@@ -33,12 +33,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Requests.cs</DependentUpon>
     </Compile>
+    <Compile Update="_Generated\Requests.*.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Requests.cs</DependentUpon>
+    </Compile>
     <Compile Update="Descriptors.*.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Descriptors.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Update="_Generated\Descriptors.*.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Descriptors.cs</DependentUpon>
+    </Compile>
     <Compile Update="OpenSearchClient.*.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>OpenSearchClient.cs</DependentUpon>

@@ -84,13 +84,6 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Ingest APIs</summary>
-		public IngestNamespace Ingest
-		{
-			get;
-			private set;
-		}
-
 		///<summary>Nodes APIs</summary>
 		public NodesNamespace Nodes
 		{
@@ -110,7 +103,6 @@ namespace OpenSearch.Client
 			Cat = new CatNamespace(this);
 			Cluster = new ClusterNamespace(this);
 			Indices = new IndicesNamespace(this);
-			Ingest = new IngestNamespace(this);
 			Nodes = new NodesNamespace(this);
 			Snapshot = new SnapshotNamespace(this);
 		}
