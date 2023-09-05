@@ -83,7 +83,7 @@
 
   <h1 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor" class="text-break">Class VerifyRepositoryDescriptor
 </h1>
-  <div class="markdown level0 summary"><p>Descriptor for VerifyRepository <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</p>
+  <div class="markdown level0 summary"><p>Descriptor for VerifyRepository <p>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -191,7 +191,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Snapshot.cs/#L385">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L518">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.#ctor">VerifyRepositoryDescriptor()</h4>
@@ -207,7 +207,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor_OpenSearch_Client_Name_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.%23ctor(OpenSearch.Client.Name)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Snapshot.cs/#L380">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L514">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor__ctor_OpenSearch_Client_Name_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.#ctor(OpenSearch.Client.Name)">VerifyRepositoryDescriptor(Name)</h4>
@@ -243,16 +243,16 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Snapshot.cs/#L398">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L528">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VerifyRepositoryDescriptor ClusterManagerTimeout(Time timeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public VerifyRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -266,7 +266,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
-        <td><span class="parametername">timeout</span></td>
+        <td><span class="parametername">clustermanagertimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -287,23 +287,24 @@
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.html#OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_MasterTimeout_OpenSearch_Client_Time_">MasterTimeout(Time)</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Snapshot.cs/#L395">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L532">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to master node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -337,19 +338,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_MasterTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.html#OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_">ClusterManagerTimeout(Time)</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_Timeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.Timeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Snapshot.cs/#L400">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L539">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_Timeout_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Operation timeout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -417,7 +415,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_VerifyRepositoryDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.VerifyRepositoryDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Snapshot/Repositories/VerifyRepository/VerifyRepositoryRequest.cs/#L36" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Snapshot.cs/#L502" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
