@@ -101,5 +101,38 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 body,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The name of the template.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteComponentTemplate<TResponse>(
+            string name,
+            DeleteComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_component_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The name of the template.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.delete_component_template", "name")]
+        public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(
+            string name,
+            DeleteComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_component_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }
