@@ -51,19 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for DeleteVotingConfigExclusions <para></para></summary>
-	public class DeleteVotingConfigExclusionsRequestParameters : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-		public override bool SupportsBody => false;
-		///<summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.</summary>
-		public bool? WaitForRemoval
-		{
-			get => Q<bool? >("wait_for_removal");
-			set => Q("wait_for_removal", value);
-		}
-	}
-
 	///<summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
 	public class ExistsComponentTemplateRequestParameters : RequestParameters<ExistsComponentTemplateRequestParameters>
 	{

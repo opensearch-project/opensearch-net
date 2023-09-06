@@ -48,6 +48,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 
+        internal static readonly ApiUrls ClusterDeleteVotingConfigExclusions =
+            new(new[] { "_cluster/voting_config_exclusions" });
+
         internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 

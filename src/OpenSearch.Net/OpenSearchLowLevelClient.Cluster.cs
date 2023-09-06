@@ -66,15 +66,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 	///</summary>
 	public partial class LowLevelClusterNamespace : NamespacedClientProxy
 	{
-		///<summary>DELETE on /_cluster/voting_config_exclusions <para></para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse DeleteVotingConfigExclusions<TResponse>(DeleteVotingConfigExclusionsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, "_cluster/voting_config_exclusions", null, RequestParams(requestParameters));
-		///<summary>DELETE on /_cluster/voting_config_exclusions <para></para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cluster.delete_voting_config_exclusions", "")]
-		public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(DeleteVotingConfigExclusionsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, "_cluster/voting_config_exclusions", ctx, null, RequestParams(requestParameters));
 		///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
 		///<param name = "name">The name of the template</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

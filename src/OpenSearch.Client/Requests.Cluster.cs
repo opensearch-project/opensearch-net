@@ -59,26 +59,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[InterfaceDataContract]
-	public partial interface IDeleteVotingConfigExclusionsRequest : IRequest<DeleteVotingConfigExclusionsRequestParameters>
-	{
-	}
-
-	///<summary>Request for DeleteVotingConfigExclusions <para></para></summary>
-	public partial class DeleteVotingConfigExclusionsRequest : PlainRequestBase<DeleteVotingConfigExclusionsRequestParameters>, IDeleteVotingConfigExclusionsRequest
-	{
-		protected IDeleteVotingConfigExclusionsRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteVotingConfigExclusions;
-		// values part of the url path
-		// Request parameters
-		///<summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.</summary>
-		public bool? WaitForRemoval
-		{
-			get => Q<bool? >("wait_for_removal");
-			set => Q("wait_for_removal", value);
-		}
-	}
-
-	[InterfaceDataContract]
 	public partial interface IClusterGetSettingsRequest : IRequest<ClusterGetSettingsRequestParameters>
 	{
 	}

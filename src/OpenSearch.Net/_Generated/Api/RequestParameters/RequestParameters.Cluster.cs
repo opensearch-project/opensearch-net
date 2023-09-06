@@ -106,4 +106,19 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("timeout", value);
         }
     }
+
+    ///<summary>Request options for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteVotingConfigExclusionsRequestParameters
+        : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+
+        ///<summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.</summary>
+        public bool? WaitForRemoval
+        {
+            get => Q<bool?>("wait_for_removal");
+            set => Q("wait_for_removal", value);
+        }
+    }
 }

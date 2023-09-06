@@ -80,4 +80,22 @@ namespace OpenSearch.Client.Specification.ClusterApi
             bool? includeyesdecisions = true
         ) => Qs("include_yes_decisions", includeyesdecisions);
     }
+
+    ///<summary>Descriptor for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteVotingConfigExclusionsDescriptor
+        : RequestDescriptorBase<
+            DeleteVotingConfigExclusionsDescriptor,
+            DeleteVotingConfigExclusionsRequestParameters,
+            IDeleteVotingConfigExclusionsRequest
+        >,
+            IDeleteVotingConfigExclusionsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteVotingConfigExclusions;
+
+        // values part of the url path
+        // Request parameters
+        ///<summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.</summary>
+        public DeleteVotingConfigExclusionsDescriptor WaitForRemoval(bool? waitforremoval = true) =>
+            Qs("wait_for_removal", waitforremoval);
+    }
 }

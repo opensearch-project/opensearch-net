@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.ClusterApi
 	public partial class ClusterNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(Func<DeleteVotingConfigExclusionsDescriptor, IDeleteVotingConfigExclusionsRequest> selector = null) => DeleteVotingConfigExclusions(selector.InvokeOrDefault(new DeleteVotingConfigExclusionsDescriptor()));
-		/// <summary>
-		/// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(Func<DeleteVotingConfigExclusionsDescriptor, IDeleteVotingConfigExclusionsRequest> selector = null, CancellationToken ct = default) => DeleteVotingConfigExclusionsAsync(selector.InvokeOrDefault(new DeleteVotingConfigExclusionsDescriptor()), ct);
-		/// <summary>
-		/// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(IDeleteVotingConfigExclusionsRequest request) => DoRequest<IDeleteVotingConfigExclusionsRequest, DeleteVotingConfigExclusionsResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(IDeleteVotingConfigExclusionsRequest request, CancellationToken ct = default) => DoRequestAsync<IDeleteVotingConfigExclusionsRequest, DeleteVotingConfigExclusionsResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/">https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</a>

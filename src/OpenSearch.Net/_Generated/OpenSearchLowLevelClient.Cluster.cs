@@ -134,5 +134,34 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteVotingConfigExclusions<TResponse>(
+            DeleteVotingConfigExclusionsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                "_cluster/voting_config_exclusions",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.delete_voting_config_exclusions", "")]
+        public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(
+            DeleteVotingConfigExclusionsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                "_cluster/voting_config_exclusions",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

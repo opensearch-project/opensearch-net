@@ -114,5 +114,64 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
+            Func<
+                DeleteVotingConfigExclusionsDescriptor,
+                IDeleteVotingConfigExclusionsRequest
+            > selector = null
+        ) =>
+            DeleteVotingConfigExclusions(
+                selector.InvokeOrDefault(new DeleteVotingConfigExclusionsDescriptor())
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
+            Func<
+                DeleteVotingConfigExclusionsDescriptor,
+                IDeleteVotingConfigExclusionsRequest
+            > selector = null,
+            CancellationToken ct = default
+        ) =>
+            DeleteVotingConfigExclusionsAsync(
+                selector.InvokeOrDefault(new DeleteVotingConfigExclusionsDescriptor()),
+                ct
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
+            IDeleteVotingConfigExclusionsRequest request
+        ) =>
+            DoRequest<IDeleteVotingConfigExclusionsRequest, DeleteVotingConfigExclusionsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
+            IDeleteVotingConfigExclusionsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<
+                IDeleteVotingConfigExclusionsRequest,
+                DeleteVotingConfigExclusionsResponse
+            >(request, request.RequestParameters, ct);
     }
 }
