@@ -27573,6 +27573,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NodesStatLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.NodesStatLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NodesStatsIndexMetric.yml",
       "output": {
         ".html": {
@@ -27897,6 +27907,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.RootNodeInfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SampleType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SampleType.html"
         }
       },
       "version": ""
