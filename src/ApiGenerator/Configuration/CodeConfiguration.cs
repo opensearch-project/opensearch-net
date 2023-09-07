@@ -45,6 +45,7 @@ namespace ApiGenerator.Configuration
 			new("cluster.exists_component_template"),
 			new("cluster.get_component_template"),
 			new("cluster.get_settings"),
+			new("cluster.health"),
 
 			new("dangling_indices.*"),
 			new("ingest.*"),

@@ -53,6 +53,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls ClusterGetSettings = new(new[] { "_cluster/settings" });
 
+        internal static readonly ApiUrls ClusterHealth =
+            new(new[] { "_cluster/health", "_cluster/health/{index}" });
+
         internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 

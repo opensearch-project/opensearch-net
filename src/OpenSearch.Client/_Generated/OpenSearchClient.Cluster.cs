@@ -218,5 +218,56 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        public ClusterHealthResponse Health(
+            Indices index = null,
+            Func<ClusterHealthDescriptor, IClusterHealthRequest> selector = null
+        ) => Health(selector.InvokeOrDefault(new ClusterHealthDescriptor().Index(index: index)));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        public Task<ClusterHealthResponse> HealthAsync(
+            Indices index = null,
+            Func<ClusterHealthDescriptor, IClusterHealthRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            HealthAsync(
+                selector.InvokeOrDefault(new ClusterHealthDescriptor().Index(index: index)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        public ClusterHealthResponse Health(IClusterHealthRequest request) =>
+            DoRequest<IClusterHealthRequest, ClusterHealthResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        public Task<ClusterHealthResponse> HealthAsync(
+            IClusterHealthRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterHealthRequest, ClusterHealthResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

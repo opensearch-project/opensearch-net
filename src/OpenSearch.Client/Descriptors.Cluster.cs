@@ -57,59 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.ClusterApi
 {
-	///<summary>Descriptor for Health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-health/</para></summary>
-	public partial class ClusterHealthDescriptor : RequestDescriptorBase<ClusterHealthDescriptor, ClusterHealthRequestParameters, IClusterHealthRequest>, IClusterHealthRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterHealth;
-		///<summary>/_cluster/health</summary>
-		public ClusterHealthDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cluster/health/{index}</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public ClusterHealthDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>Limit the information returned to a specific index</summary>
-		public ClusterHealthDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public ClusterHealthDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public ClusterHealthDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Specify the level of detail for returned information</summary>
-		public ClusterHealthDescriptor Level(Level? level) => Qs("level", level);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterHealthDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-		///<summary>Wait until the specified number of shards is active</summary>
-		public ClusterHealthDescriptor WaitForActiveShards(string waitforactiveshards) => Qs("wait_for_active_shards", waitforactiveshards);
-		///<summary>Wait until all currently queued events with the given priority are processed</summary>
-		public ClusterHealthDescriptor WaitForEvents(WaitForEvents? waitforevents) => Qs("wait_for_events", waitforevents);
-		///<summary>Whether to wait until there are no initializing shards in the cluster</summary>
-		public ClusterHealthDescriptor WaitForNoInitializingShards(bool? waitfornoinitializingshards = true) => Qs("wait_for_no_initializing_shards", waitfornoinitializingshards);
-		///<summary>Whether to wait until there are no relocating shards in the cluster</summary>
-		public ClusterHealthDescriptor WaitForNoRelocatingShards(bool? waitfornorelocatingshards = true) => Qs("wait_for_no_relocating_shards", waitfornorelocatingshards);
-		///<summary>Wait until the specified number of nodes is available</summary>
-		public ClusterHealthDescriptor WaitForNodes(string waitfornodes) => Qs("wait_for_nodes", waitfornodes);
-		///<summary>Wait until cluster is in a specific state</summary>
-		public ClusterHealthDescriptor WaitForStatus(WaitForStatus? waitforstatus) => Qs("wait_for_status", waitforstatus);
-	}
-
 	///<summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
 	public partial class ClusterPendingTasksDescriptor : RequestDescriptorBase<ClusterPendingTasksDescriptor, ClusterPendingTasksRequestParameters, IClusterPendingTasksRequest>, IClusterPendingTasksRequest
 	{

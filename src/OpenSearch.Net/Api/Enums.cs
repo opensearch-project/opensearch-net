@@ -126,21 +126,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum ExpandWildcards
-	{
-		[EnumMember(Value = "open")]
-		Open,
-		[EnumMember(Value = "closed")]
-		Closed,
-		[EnumMember(Value = "hidden")]
-		Hidden,
-		[EnumMember(Value = "none")]
-		None,
-		[EnumMember(Value = "all")]
-		All
-	}
-
-	[StringEnum]
 	public enum SearchType
 	{
 		[EnumMember(Value = "query_then_fetch")]
@@ -237,34 +222,6 @@ namespace OpenSearch.Net
 		Shards
 	}
 
-	[StringEnum]
-	public enum WaitForEvents
-	{
-		[EnumMember(Value = "immediate")]
-		Immediate,
-		[EnumMember(Value = "urgent")]
-		Urgent,
-		[EnumMember(Value = "high")]
-		High,
-		[EnumMember(Value = "normal")]
-		Normal,
-		[EnumMember(Value = "low")]
-		Low,
-		[EnumMember(Value = "languid")]
-		Languid
-	}
-
-	[StringEnum]
-	public enum WaitForStatus
-	{
-		[EnumMember(Value = "green")]
-		Green,
-		[EnumMember(Value = "yellow")]
-		Yellow,
-		[EnumMember(Value = "red")]
-		Red
-	}
-
 	[Flags, StringEnum]
 	public enum ClusterRerouteMetric
 	{
@@ -345,7 +302,6 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(ClusterStateMetric), (e) => GetStringValue((ClusterStateMetric)e));
 			EnumStringResolvers.TryAdd(typeof(IndicesStatsMetric), (e) => GetStringValue((IndicesStatsMetric)e));
 			EnumStringResolvers.TryAdd(typeof(DefaultOperator), (e) => GetStringValue((DefaultOperator)e));
-			EnumStringResolvers.TryAdd(typeof(ExpandWildcards), (e) => GetStringValue((ExpandWildcards)e));
 			EnumStringResolvers.TryAdd(typeof(SearchType), (e) => GetStringValue((SearchType)e));
 			EnumStringResolvers.TryAdd(typeof(SuggestMode), (e) => GetStringValue((SuggestMode)e));
 			EnumStringResolvers.TryAdd(typeof(Refresh), (e) => GetStringValue((Refresh)e));
@@ -353,8 +309,6 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(Health), (e) => GetStringValue((Health)e));
 			EnumStringResolvers.TryAdd(typeof(Size), (e) => GetStringValue((Size)e));
 			EnumStringResolvers.TryAdd(typeof(Level), (e) => GetStringValue((Level)e));
-			EnumStringResolvers.TryAdd(typeof(WaitForEvents), (e) => GetStringValue((WaitForEvents)e));
-			EnumStringResolvers.TryAdd(typeof(WaitForStatus), (e) => GetStringValue((WaitForStatus)e));
 			EnumStringResolvers.TryAdd(typeof(ClusterRerouteMetric), (e) => GetStringValue((ClusterRerouteMetric)e));
 			EnumStringResolvers.TryAdd(typeof(VersionType), (e) => GetStringValue((VersionType)e));
 			EnumStringResolvers.TryAdd(typeof(Conflicts), (e) => GetStringValue((Conflicts)e));
@@ -454,25 +408,6 @@ namespace OpenSearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'");
-		}
-
-		public static string GetStringValue(this ExpandWildcards enumValue)
-		{
-			switch (enumValue)
-			{
-				case ExpandWildcards.Open:
-					return "open";
-				case ExpandWildcards.Closed:
-					return "closed";
-				case ExpandWildcards.Hidden:
-					return "hidden";
-				case ExpandWildcards.None:
-					return "none";
-				case ExpandWildcards.All:
-					return "all";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ExpandWildcards'");
 		}
 
 		public static string GetStringValue(this SearchType enumValue)
@@ -598,42 +533,6 @@ namespace OpenSearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'");
-		}
-
-		public static string GetStringValue(this WaitForEvents enumValue)
-		{
-			switch (enumValue)
-			{
-				case WaitForEvents.Immediate:
-					return "immediate";
-				case WaitForEvents.Urgent:
-					return "urgent";
-				case WaitForEvents.High:
-					return "high";
-				case WaitForEvents.Normal:
-					return "normal";
-				case WaitForEvents.Low:
-					return "low";
-				case WaitForEvents.Languid:
-					return "languid";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'");
-		}
-
-		public static string GetStringValue(this WaitForStatus enumValue)
-		{
-			switch (enumValue)
-			{
-				case WaitForStatus.Green:
-					return "green";
-				case WaitForStatus.Yellow:
-					return "yellow";
-				case WaitForStatus.Red:
-					return "red";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForStatus'");
 		}
 
 		public static string GetStringValue(this ClusterRerouteMetric enumValue)

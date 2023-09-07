@@ -282,5 +282,60 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Health<TResponse>(ClusterHealthRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cluster/health", null, RequestParams(requestParameters));
+
+        ///<summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.health", "")]
+        public Task<TResponse> HealthAsync<TResponse>(
+            ClusterHealthRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cluster/health",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        ///<param name="index">Limit the information returned to specific indicies.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Health<TResponse>(
+            string index,
+            ClusterHealthRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cluster/health/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        ///<param name="index">Limit the information returned to specific indicies.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.health", "index")]
+        public Task<TResponse> HealthAsync<TResponse>(
+            string index,
+            ClusterHealthRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cluster/health/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

@@ -165,4 +165,136 @@ namespace OpenSearch.Client.Specification.ClusterApi
             set => Q("timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IClusterHealthRequest : IRequest<ClusterHealthRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    ///<summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+    public partial class ClusterHealthRequest
+        : PlainRequestBase<ClusterHealthRequestParameters>,
+            IClusterHealthRequest
+    {
+        protected IClusterHealthRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterHealth;
+
+        ///<summary>/_cluster/health</summary>
+        public ClusterHealthRequest()
+            : base() { }
+
+        ///<summary>/_cluster/health/{index}</summary>
+        ///<param name="index">Optional, accepts null</param>
+        public ClusterHealthRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        ///<summary>The awareness attribute for which the health is required.</summary>
+        public string AwarenessAttribute
+        {
+            get => Q<string>("awareness_attribute");
+            set => Q("awareness_attribute", value);
+        }
+
+        ///<summary>Specify the level of detail for returned information.</summary>
+        public ClusterHealthLevel? ClusterHealthLevel
+        {
+            get => Q<ClusterHealthLevel?>("level");
+            set => Q("level", value);
+        }
+
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        ///<summary>Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.</summary>
+        public bool? EnsureNodeCommissioned
+        {
+            get => Q<bool?>("ensure_node_commissioned");
+            set => Q("ensure_node_commissioned", value);
+        }
+
+        ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        ///<summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        ///<summary>Wait until the specified number of shards is active.</summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        ///<summary>Wait until all currently queued events with the given priority are processed.</summary>
+        public WaitForEvents? WaitForEvents
+        {
+            get => Q<WaitForEvents?>("wait_for_events");
+            set => Q("wait_for_events", value);
+        }
+
+        ///<summary>Wait until the specified number of nodes is available.</summary>
+        public string WaitForNodes
+        {
+            get => Q<string>("wait_for_nodes");
+            set => Q("wait_for_nodes", value);
+        }
+
+        ///<summary>Whether to wait until there are no initializing shards in the cluster.</summary>
+        public bool? WaitForNoInitializingShards
+        {
+            get => Q<bool?>("wait_for_no_initializing_shards");
+            set => Q("wait_for_no_initializing_shards", value);
+        }
+
+        ///<summary>Whether to wait until there are no relocating shards in the cluster.</summary>
+        public bool? WaitForNoRelocatingShards
+        {
+            get => Q<bool?>("wait_for_no_relocating_shards");
+            set => Q("wait_for_no_relocating_shards", value);
+        }
+
+        ///<summary>Wait until cluster is in a specific state.</summary>
+        public WaitForStatus? WaitForStatus
+        {
+            get => Q<WaitForStatus?>("wait_for_status");
+            set => Q("wait_for_status", value);
+        }
+    }
 }

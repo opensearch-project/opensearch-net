@@ -77,9 +77,9 @@ namespace Tests.Cluster.ClusterHealth
 		protected override bool ExpectIsValid => true;
 		protected override int ExpectStatusCode => 200;
 
-		protected override Func<ClusterHealthDescriptor, IClusterHealthRequest> Fluent => c => c.Level(Level.Shards);
+		protected override Func<ClusterHealthDescriptor, IClusterHealthRequest> Fluent => c => c.ClusterHealthLevel(ClusterHealthLevel.Shards);
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override ClusterHealthRequest Initializer => new ClusterHealthRequest { Level = Level.Shards };
+		protected override ClusterHealthRequest Initializer => new ClusterHealthRequest { ClusterHealthLevel = ClusterHealthLevel.Shards };
 		protected override string UrlPath => "/_cluster/health?level=shards";
 
 		protected override LazyResponses ClientUsage() => Calls(
