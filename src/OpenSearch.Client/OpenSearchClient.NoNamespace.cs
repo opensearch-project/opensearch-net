@@ -84,19 +84,11 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Nodes APIs</summary>
-		public NodesNamespace Nodes
-		{
-			get;
-			private set;
-		}
-
 		partial void SetupNamespaces()
 		{
 			Cat = new CatNamespace(this);
 			Cluster = new ClusterNamespace(this);
 			Indices = new IndicesNamespace(this);
-			Nodes = new NodesNamespace(this);
 		}
 
 		/// <summary>

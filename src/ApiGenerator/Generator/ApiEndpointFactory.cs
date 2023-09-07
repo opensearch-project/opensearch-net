@@ -37,6 +37,7 @@ using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Specification;
 using NJsonSchema;
+using NJsonSchema.References;
 using NSwag;
 
 namespace ApiGenerator.Generator
@@ -55,16 +56,37 @@ namespace ApiGenerator.Generator
 
 	        foreach (var (httpPath, path, _, operation) in variants.DistinctBy(v => v.HttpPath))
 	        {
-	            urlInfo.OriginalPaths.Add(httpPath);
+	            if (!operation.IsDeprecated)
+                    urlInfo.OriginalPaths.Add(httpPath);
+                else
+                {
+                    urlInfo.DeprecatedPaths.Add(new DeprecatedPath
+                    {
+                        Path = httpPath,
+                        Version = operation.GetExtension("x-version-deprecated") as string,
+                        Description = operation.GetExtension("x-deprecation-message") as string
+                    });
+                }
+
 	            var pathParams = path.Parameters
 	                .Concat(operation.Parameters)
 	                .Where(p => p.Kind == OpenApiParameterKind.Path)
 	                .ToList();
+
+				foreach (var overloadedParam in pathParams.Where(p => p.Schema.XOverloadedParam() != null))
+				{
+					urlInfo.OriginalPaths.Add(httpPath.Replace(
+						$"{{{overloadedParam.Name}}}",
+						$"{{{overloadedParam.Schema.XOverloadedParam()}}}"
+					));
+				}
+
 	            var paramNames = pathParams.Select(p => p.Name);
-	            if (requiredPathParams != null)
+				if (requiredPathParams != null)
 	                requiredPathParams.IntersectWith(paramNames);
 	            else
 	                requiredPathParams = new HashSet<string>(paramNames);
+
 	            allPathParams.AddRange(pathParams);
 	        }
 
@@ -84,15 +106,7 @@ namespace ApiGenerator.Generator
 	        urlInfo.Params = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
 	            .Where(p => p.Kind == OpenApiParameterKind.Query)
 	            .DistinctBy(p => p.Name)
-	            .ToImmutableSortedDictionary(p => p.Name,
-	                p => new QueryParameters
-	                {
-	                    Type = GetOpenSearchType(p.Schema),
-	                    Description = p.Description,
-	                    Options = GetEnumOptions(p.Schema),
-	                    Deprecated = GetDeprecation(p.Schema),
-	                    VersionAdded = p.Schema.XVersionAdded()
-	                });
+	            .ToImmutableSortedDictionary(p => p.Name, BuildQueryParam);
 
 	        var endpoint = new ApiEndpoint
 	        {
@@ -138,6 +152,25 @@ namespace ApiGenerator.Generator
 	        endpoint.Url.Params = ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)
 	            ?? throw new ArgumentNullException("ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)");
 
+        private static QueryParameters BuildQueryParam(OpenApiParameter p)
+        {
+            var param = new QueryParameters
+            {
+                Type = GetOpenSearchType(p.Schema),
+                Description = p.Description,
+                Options = GetEnumOptions(p.Schema),
+                Deprecated = GetDeprecation(p.Schema),
+                VersionAdded = p.Schema.XVersionAdded(),
+            };
+
+            if (param.Type == "enum" && p.Schema.HasReference)
+            {
+                param.ClsName = ((IJsonReference)p.Schema).ReferencePath.Split('/').Last();
+            }
+
+            return param;
+        }
+
 	    private static string GetOpenSearchType(JsonSchema schema)
 		{
 			schema = schema.ActualSchema;
@@ -155,7 +188,9 @@ namespace ApiGenerator.Generator
 	    }
 
 	    private static IEnumerable<string> GetEnumOptions(JsonSchema schema) =>
-			schema.ActualSchema.Enumeration?.Select(e => e.ToString()) ?? Enumerable.Empty<string>();
+			schema.ActualSchema.XEnumOptions()
+			?? schema.ActualSchema.Enumeration?.Select(e => e.ToString())
+			?? Enumerable.Empty<string>();
 
 		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema) =>
 			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
@@ -185,6 +220,12 @@ namespace ApiGenerator.Generator
 
 		private static string XDataType(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-data-type") as string;
+
+		private static string XOverloadedParam(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-overloaded-param") as string;
+
+		private static IEnumerable<string> XEnumOptions(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-enum-options") is object[] opts ? opts.Cast<string>() : null;
 
 	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;

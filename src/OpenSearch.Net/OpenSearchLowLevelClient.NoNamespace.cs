@@ -87,18 +87,11 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelNodesNamespace Nodes
-		{
-			get;
-			private set;
-		}
-
 		partial void SetupNamespaces()
 		{
 			Cat = new LowLevelCatNamespace(this);
 			Cluster = new LowLevelClusterNamespace(this);
 			Indices = new LowLevelIndicesNamespace(this);
-			Nodes = new LowLevelNodesNamespace(this);
 		}
 
 		///<summary>POST on /_bulk <para>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/</para></summary>

@@ -36,6 +36,7 @@ using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ApiGenerator.Generator.Razor;
+using NJsonSchema;
 using NSwag;
 using ShellProgressBar;
 
@@ -92,6 +93,7 @@ namespace ApiGenerator.Generator
 		public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
 		{
 			var document = await OpenApiYamlDocument.FromFileAsync(GeneratorLocations.OpenApiSpecFile, token);
+            JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
 
 			var endpoints = document.Paths
 				.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })

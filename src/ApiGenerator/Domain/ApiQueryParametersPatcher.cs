@@ -58,7 +58,8 @@ namespace ApiGenerator.Domain
 				value.QueryStringKey = queryStringKey;
 
                 if (!renameLookup.TryGetValue(queryStringKey, out var preferredName)) preferredName = queryStringKey;
-                value.ClsName = CreateCSharpName(preferredName, endpointName);
+
+                value.ClsName ??= CreateCSharpName(preferredName, endpointName);
 
                 if (skipList.Contains(queryStringKey)) value.Skip = true;
 
