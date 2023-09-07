@@ -503,6 +503,46 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IPostVotingConfigExclusionsRequest
+        : IRequest<PostVotingConfigExclusionsRequestParameters> { }
+
+    /// <summary>Request for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PostVotingConfigExclusionsRequest
+        : PlainRequestBase<PostVotingConfigExclusionsRequestParameters>,
+            IPostVotingConfigExclusionsRequest
+    {
+        protected IPostVotingConfigExclusionsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>
+        /// Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// ?node_names.
+        /// </summary>
+        public string NodeIds
+        {
+            get => Q<string>("node_ids");
+            set => Q("node_ids", value);
+        }
+
+        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
+        public string NodeNames
+        {
+            get => Q<string>("node_names");
+            set => Q("node_names", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IPutComponentTemplateRequest
         : IRequest<PutComponentTemplateRequestParameters>
     {

@@ -484,6 +484,66 @@ namespace OpenSearch.Client.Specification.ClusterApi
             );
 
         /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
+            Func<
+                PostVotingConfigExclusionsDescriptor,
+                IPostVotingConfigExclusionsRequest
+            > selector = null
+        ) =>
+            PostVotingConfigExclusions(
+                selector.InvokeOrDefault(new PostVotingConfigExclusionsDescriptor())
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
+            Func<
+                PostVotingConfigExclusionsDescriptor,
+                IPostVotingConfigExclusionsRequest
+            > selector = null,
+            CancellationToken ct = default
+        ) =>
+            PostVotingConfigExclusionsAsync(
+                selector.InvokeOrDefault(new PostVotingConfigExclusionsDescriptor()),
+                ct
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
+            IPostVotingConfigExclusionsRequest request
+        ) =>
+            DoRequest<IPostVotingConfigExclusionsRequest, PostVotingConfigExclusionsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
+            IPostVotingConfigExclusionsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IPostVotingConfigExclusionsRequest, PostVotingConfigExclusionsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>

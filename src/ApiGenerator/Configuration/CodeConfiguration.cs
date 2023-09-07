@@ -47,6 +47,7 @@ namespace ApiGenerator.Configuration
 			new("cluster.get_settings"),
 			new("cluster.health"),
 			new("cluster.pending_tasks"),
+			new("cluster.post_voting_config_exclusions"),
 
 			new("cluster.*_component_template"),
 

@@ -57,20 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for PostVotingConfigExclusions <para></para></summary>
-	public partial class PostVotingConfigExclusionsDescriptor : RequestDescriptorBase<PostVotingConfigExclusionsDescriptor, PostVotingConfigExclusionsRequestParameters, IPostVotingConfigExclusionsRequest>, IPostVotingConfigExclusionsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
-		// values part of the url path
-		// Request parameters
-		///<summary>A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_names.</summary>
-		public PostVotingConfigExclusionsDescriptor NodeIds(string nodeids) => Qs("node_ids", nodeids);
-		///<summary>A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
-		public PostVotingConfigExclusionsDescriptor NodeNames(string nodenames) => Qs("node_names", nodenames);
-		///<summary>Explicit operation timeout</summary>
-		public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for PutSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
 	public partial class ClusterPutSettingsDescriptor : RequestDescriptorBase<ClusterPutSettingsDescriptor, ClusterPutSettingsRequestParameters, IClusterPutSettingsRequest>, IClusterPutSettingsRequest
 	{

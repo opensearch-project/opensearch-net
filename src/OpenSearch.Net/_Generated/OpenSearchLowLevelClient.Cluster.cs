@@ -367,6 +367,35 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PostVotingConfigExclusions<TResponse>(
+            PostVotingConfigExclusionsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_cluster/voting_config_exclusions",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.post_voting_config_exclusions", "")]
+        public Task<TResponse> PostVotingConfigExclusionsAsync<TResponse>(
+            PostVotingConfigExclusionsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_cluster/voting_config_exclusions",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_component_template/{name}</summary>
         /// <param name="name">The name of the template.</param>
         /// <param name="body">The template definition</param>

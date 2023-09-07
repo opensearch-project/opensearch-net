@@ -371,6 +371,38 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
+    /// <summary>Request options for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PostVotingConfigExclusionsRequestParameters
+        : RequestParameters<PostVotingConfigExclusionsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>
+        /// Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// ?node_names.
+        /// </summary>
+        public string NodeIds
+        {
+            get => Q<string>("node_ids");
+            set => Q("node_ids", value);
+        }
+
+        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
+        public string NodeNames
+        {
+            get => Q<string>("node_names");
+            set => Q("node_names", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
     /// <summary>Request options for PutComponentTemplate</summary>
     public partial class PutComponentTemplateRequestParameters
         : RequestParameters<PutComponentTemplateRequestParameters>

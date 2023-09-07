@@ -51,39 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for PostVotingConfigExclusions <para></para></summary>
-	public class PostVotingConfigExclusionsRequestParameters : RequestParameters<PostVotingConfigExclusionsRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-		public override bool SupportsBody => false;
-		///<summary>
-		/// A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
-		/// ?node_names.
-		///</summary>
-		public string NodeIds
-		{
-			get => Q<string>("node_ids");
-			set => Q("node_ids", value);
-		}
-
-		///<summary>
-		/// A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify
-		/// ?node_ids.
-		///</summary>
-		public string NodeNames
-		{
-			get => Q<string>("node_names");
-			set => Q("node_names", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
 	///<summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
 	public class ClusterPutSettingsRequestParameters : RequestParameters<ClusterPutSettingsRequestParameters>
 	{

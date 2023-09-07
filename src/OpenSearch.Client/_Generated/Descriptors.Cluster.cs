@@ -385,6 +385,31 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
+    /// <summary>Descriptor for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PostVotingConfigExclusionsDescriptor
+        : RequestDescriptorBase<
+            PostVotingConfigExclusionsDescriptor,
+            PostVotingConfigExclusionsRequestParameters,
+            IPostVotingConfigExclusionsRequest
+        >,
+            IPostVotingConfigExclusionsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_names.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeIds(string nodeids) =>
+            Qs("node_ids", nodeids);
+
+        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeNames(string nodenames) =>
+            Qs("node_names", nodenames);
+
+        /// <summary>Operation timeout.</summary>
+        public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
     /// <summary>Descriptor for PutComponentTemplate</summary>
     public partial class PutComponentTemplateDescriptor
         : RequestDescriptorBase<
