@@ -59,42 +59,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[InterfaceDataContract]
-	public partial interface IClusterPendingTasksRequest : IRequest<ClusterPendingTasksRequestParameters>
-	{
-	}
-
-	///<summary>Request for PendingTasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
-	public partial class ClusterPendingTasksRequest : PlainRequestBase<ClusterPendingTasksRequestParameters>, IClusterPendingTasksRequest
-	{
-		protected IClusterPendingTasksRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public bool? Local
-		{
-			get => Q<bool? >("local");
-			set => Q("local", value);
-		}
-
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public Time MasterTimeout
-		{
-			get => Q<Time>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public Time ClusterManagerTimeout
-		{
-			get => Q<Time>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-	}
-
-	[InterfaceDataContract]
 	public partial interface IPostVotingConfigExclusionsRequest : IRequest<PostVotingConfigExclusionsRequestParameters>
 	{
 	}

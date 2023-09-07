@@ -56,6 +56,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterHealth =
             new(new[] { "_cluster/health", "_cluster/health/{index}" });
 
+        internal static readonly ApiUrls ClusterPendingTasks =
+            new(new[] { "_cluster/pending_tasks" });
+
         internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
             new(new[] { "_dangling/{index_uuid}" });
 

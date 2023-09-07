@@ -297,4 +297,45 @@ namespace OpenSearch.Client.Specification.ClusterApi
             set => Q("wait_for_status", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IClusterPendingTasksRequest
+        : IRequest<ClusterPendingTasksRequestParameters> { }
+
+    ///<summary>Request for PendingTasks <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterPendingTasksRequest
+        : PlainRequestBase<ClusterPendingTasksRequestParameters>,
+            IClusterPendingTasksRequest
+    {
+        protected IClusterPendingTasksRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
+
+        // values part of the url path
+
+        // Request parameters
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
 }

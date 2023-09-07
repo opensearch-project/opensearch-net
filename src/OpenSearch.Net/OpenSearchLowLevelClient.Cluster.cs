@@ -66,15 +66,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 	///</summary>
 	public partial class LowLevelClusterNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse PendingTasks<TResponse>(ClusterPendingTasksRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/pending_tasks", null, RequestParams(requestParameters));
-		///<summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cluster.pending_tasks", "")]
-		public Task<TResponse> PendingTasksAsync<TResponse>(ClusterPendingTasksRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/pending_tasks", ctx, null, RequestParams(requestParameters));
 		///<summary>POST on /_cluster/voting_config_exclusions <para></para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse PostVotingConfigExclusions<TResponse>(PostVotingConfigExclusionsRequestParameters requestParameters = null)

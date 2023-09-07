@@ -57,22 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.ClusterApi
 {
-	///<summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
-	public partial class ClusterPendingTasksDescriptor : RequestDescriptorBase<ClusterPendingTasksDescriptor, ClusterPendingTasksRequestParameters, IClusterPendingTasksRequest>, IClusterPendingTasksRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterPendingTasksDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-	}
-
 	///<summary>Descriptor for PostVotingConfigExclusions <para></para></summary>
 	public partial class PostVotingConfigExclusionsDescriptor : RequestDescriptorBase<PostVotingConfigExclusionsDescriptor, PostVotingConfigExclusionsRequestParameters, IPostVotingConfigExclusionsRequest>, IPostVotingConfigExclusionsRequest
 	{

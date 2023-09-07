@@ -269,5 +269,50 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ClusterPendingTasksResponse PendingTasks(
+            Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null
+        ) => PendingTasks(selector.InvokeOrDefault(new ClusterPendingTasksDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ClusterPendingTasksResponse> PendingTasksAsync(
+            Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null,
+            CancellationToken ct = default
+        ) => PendingTasksAsync(selector.InvokeOrDefault(new ClusterPendingTasksDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ClusterPendingTasksResponse PendingTasks(IClusterPendingTasksRequest request) =>
+            DoRequest<IClusterPendingTasksRequest, ClusterPendingTasksResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ClusterPendingTasksResponse> PendingTasksAsync(
+            IClusterPendingTasksRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterPendingTasksRequest, ClusterPendingTasksResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

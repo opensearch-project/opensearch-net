@@ -233,4 +233,33 @@ namespace OpenSearch.Client.Specification.ClusterApi
         public ClusterHealthDescriptor WaitForStatus(WaitForStatus? waitforstatus) =>
             Qs("wait_for_status", waitforstatus);
     }
+
+    ///<summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterPendingTasksDescriptor
+        : RequestDescriptorBase<
+            ClusterPendingTasksDescriptor,
+            ClusterPendingTasksRequestParameters,
+            IClusterPendingTasksRequest
+        >,
+            IClusterPendingTasksRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
+
+        // values part of the url path
+        // Request parameters
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterPendingTasksDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+    }
 }
