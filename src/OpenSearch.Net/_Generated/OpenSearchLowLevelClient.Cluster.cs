@@ -196,5 +196,67 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetComponentTemplate<TResponse>(
+            GetComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_component_template",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.get_component_template", "")]
+        public Task<TResponse> GetComponentTemplateAsync<TResponse>(
+            GetComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_component_template",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The Comma-separated names of the component templates.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetComponentTemplate<TResponse>(
+            string name,
+            GetComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_component_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The Comma-separated names of the component templates.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.get_component_template", "name")]
+        public Task<TResponse> GetComponentTemplateAsync<TResponse>(
+            string name,
+            GetComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_component_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

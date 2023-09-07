@@ -51,35 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for GetComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
-	public class GetComponentTemplateRequestParameters : RequestParameters<GetComponentTemplateRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public bool? Local
-		{
-			get => Q<bool? >("local");
-			set => Q("local", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public TimeSpan MasterTimeout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public TimeSpan ClusterManagerTimeout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-	}
-
 	///<summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
 	public class ClusterGetSettingsRequestParameters : RequestParameters<ClusterGetSettingsRequestParameters>
 	{
