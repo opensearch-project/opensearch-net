@@ -163,5 +163,38 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The name of the template.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ExistsComponentTemplate<TResponse>(
+            string name,
+            ExistsComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                HEAD,
+                Url($"_component_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        ///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        ///<param name="name">The name of the template.</param>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.exists_component_template", "name")]
+        public Task<TResponse> ExistsComponentTemplateAsync<TResponse>(
+            string name,
+            ExistsComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                HEAD,
+                Url($"_component_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

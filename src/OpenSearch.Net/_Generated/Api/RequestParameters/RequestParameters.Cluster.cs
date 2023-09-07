@@ -121,4 +121,29 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("wait_for_removal", value);
         }
     }
+
+    ///<summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ExistsComponentTemplateRequestParameters
+        : RequestParameters<ExistsComponentTemplateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
+        public override bool SupportsBody => false;
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
 }
