@@ -62,44 +62,46 @@ namespace ApiGenerator.Domain.Specification
 
         public IEndpointOverrides Overrides { get; internal set; }
 
-        public RequestInterface RequestInterface => new RequestInterface
-        {
+		private IEnumerable<QueryParameters> ParamsToGenerate => Url.Params.Values.Where(p => !p.Skip).OrderBy(p => p.ClsName);
+
+        public RequestInterface RequestInterface => new()
+		{
             CsharpNames = CsharpNames,
             UrlParts = Url.Parts,
             PartialParameters =
-                Body == null ? Enumerable.Empty<QueryParameters>().ToList() : Url.Params.Values.Where(p => p.RenderPartial && !p.Skip).ToList(),
+                Body == null ? Enumerable.Empty<QueryParameters>().ToList() : ParamsToGenerate.Where(p => p.RenderPartial).ToList(),
             OfficialDocumentationLink = OfficialDocumentationLink?.Url
         };
 
-        public RequestPartialImplementation RequestPartialImplementation => new RequestPartialImplementation
-        {
+        public RequestPartialImplementation RequestPartialImplementation => new()
+		{
             CsharpNames = CsharpNames,
             OfficialDocumentationLink = OfficialDocumentationLink?.Url,
             Stability = Stability,
             Paths = Url.Paths,
             Parts = Url.Parts,
-            Params = Url.Params.Values.Where(p => !p.Skip).ToList(),
+            Params = ParamsToGenerate.ToList(),
             Constructors = Constructor.RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: true).ToList(),
             GenericConstructors = Constructor.RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: false).ToList(),
             HasBody = Body != null,
         };
 
-        public DescriptorPartialImplementation DescriptorPartialImplementation => new DescriptorPartialImplementation
-        {
+        public DescriptorPartialImplementation DescriptorPartialImplementation => new()
+		{
             CsharpNames = CsharpNames,
             OfficialDocumentationLink = OfficialDocumentationLink?.Url,
             Constructors = Constructor.DescriptorConstructors(CsharpNames, Url).ToList(),
             Paths = Url.Paths,
             Parts = Url.Parts,
-            Params = Url.Params.Values.Where(p => !p.Skip).ToList(),
+            Params = ParamsToGenerate.ToList(),
             HasBody = Body != null,
         };
 
-        public RequestParameterImplementation RequestParameterImplementation => new RequestParameterImplementation
-        {
+        public RequestParameterImplementation RequestParameterImplementation => new()
+		{
             CsharpNames = CsharpNames,
             OfficialDocumentationLink = OfficialDocumentationLink?.Url,
-            Params = Url.Params.Values.Where(p => !p.Skip).ToList(),
+            Params = ParamsToGenerate.ToList(),
             HttpMethod = PreferredHttpMethod
         };
 
