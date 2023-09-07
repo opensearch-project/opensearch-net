@@ -258,5 +258,29 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        ///<summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetSettings<TResponse>(
+            ClusterGetSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cluster/settings", null, RequestParams(requestParameters));
+
+        ///<summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.get_settings", "")]
+        public Task<TResponse> GetSettingsAsync<TResponse>(
+            ClusterGetSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cluster/settings",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

@@ -70,7 +70,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls CatTemplates = new ApiUrls(new[]{"_cat/templates", "_cat/templates/{name}"});
 		internal static ApiUrls CatThreadPool = new ApiUrls(new[]{"_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}"});
 		internal static ApiUrls NoNamespaceClearScroll = new ApiUrls(new[]{"_search/scroll"});
-		internal static ApiUrls ClusterGetSettings = new ApiUrls(new[]{"_cluster/settings"});
 		internal static ApiUrls ClusterHealth = new ApiUrls(new[]{"_cluster/health", "_cluster/health/{index}"});
 		internal static ApiUrls ClusterPendingTasks = new ApiUrls(new[]{"_cluster/pending_tasks"});
 		internal static ApiUrls ClusterPostVotingConfigExclusions = new ApiUrls(new[]{"_cluster/voting_config_exclusions"});

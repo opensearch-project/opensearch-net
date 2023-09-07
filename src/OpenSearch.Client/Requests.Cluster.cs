@@ -59,56 +59,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 namespace OpenSearch.Client.Specification.ClusterApi
 {
 	[InterfaceDataContract]
-	public partial interface IClusterGetSettingsRequest : IRequest<ClusterGetSettingsRequestParameters>
-	{
-	}
-
-	///<summary>Request for GetSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
-	public partial class ClusterGetSettingsRequest : PlainRequestBase<ClusterGetSettingsRequestParameters>, IClusterGetSettingsRequest
-	{
-		protected IClusterGetSettingsRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetSettings;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return settings in flat format (default: false)</summary>
-		public bool? FlatSettings
-		{
-			get => Q<bool? >("flat_settings");
-			set => Q("flat_settings", value);
-		}
-
-		///<summary>Whether to return all default clusters setting.</summary>
-		public bool? IncludeDefaults
-		{
-			get => Q<bool? >("include_defaults");
-			set => Q("include_defaults", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public Time MasterTimeout
-		{
-			get => Q<Time>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public Time ClusterManagerTimeout
-		{
-			get => Q<Time>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public Time Timeout
-		{
-			get => Q<Time>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
-	[InterfaceDataContract]
 	public partial interface IClusterHealthRequest : IRequest<ClusterHealthRequestParameters>
 	{
 		[IgnoreDataMember]

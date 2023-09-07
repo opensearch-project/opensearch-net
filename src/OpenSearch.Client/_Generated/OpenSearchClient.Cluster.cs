@@ -173,5 +173,50 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 IDeleteVotingConfigExclusionsRequest,
                 DeleteVotingConfigExclusionsResponse
             >(request, request.RequestParameters, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        public ClusterGetSettingsResponse GetSettings(
+            Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null
+        ) => GetSettings(selector.InvokeOrDefault(new ClusterGetSettingsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        public Task<ClusterGetSettingsResponse> GetSettingsAsync(
+            Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null,
+            CancellationToken ct = default
+        ) => GetSettingsAsync(selector.InvokeOrDefault(new ClusterGetSettingsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        public ClusterGetSettingsResponse GetSettings(IClusterGetSettingsRequest request) =>
+            DoRequest<IClusterGetSettingsRequest, ClusterGetSettingsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        public Task<ClusterGetSettingsResponse> GetSettingsAsync(
+            IClusterGetSettingsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterGetSettingsRequest, ClusterGetSettingsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

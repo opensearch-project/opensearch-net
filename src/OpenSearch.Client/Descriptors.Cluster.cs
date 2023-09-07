@@ -57,26 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.ClusterApi
 {
-	///<summary>Descriptor for GetSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
-	public partial class ClusterGetSettingsDescriptor : RequestDescriptorBase<ClusterGetSettingsDescriptor, ClusterGetSettingsRequestParameters, IClusterGetSettingsRequest>, IClusterGetSettingsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetSettings;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return settings in flat format (default: false)</summary>
-		public ClusterGetSettingsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
-		///<summary>Whether to return all default clusters setting.</summary>
-		public ClusterGetSettingsDescriptor IncludeDefaults(bool? includedefaults = true) => Qs("include_defaults", includedefaults);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for Health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-health/</para></summary>
 	public partial class ClusterHealthDescriptor : RequestDescriptorBase<ClusterHealthDescriptor, ClusterHealthRequestParameters, IClusterHealthRequest>, IClusterHealthRequest
 	{

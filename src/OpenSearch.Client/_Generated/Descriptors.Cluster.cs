@@ -98,4 +98,41 @@ namespace OpenSearch.Client.Specification.ClusterApi
         public DeleteVotingConfigExclusionsDescriptor WaitForRemoval(bool? waitforremoval = true) =>
             Qs("wait_for_removal", waitforremoval);
     }
+
+    ///<summary>Descriptor for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+    public partial class ClusterGetSettingsDescriptor
+        : RequestDescriptorBase<
+            ClusterGetSettingsDescriptor,
+            ClusterGetSettingsRequestParameters,
+            IClusterGetSettingsRequest
+        >,
+            IClusterGetSettingsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetSettings;
+
+        // values part of the url path
+        // Request parameters
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        ///<summary>Return settings in flat format.</summary>
+        public ClusterGetSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        ///<summary>Whether to return all default clusters setting.</summary>
+        public ClusterGetSettingsDescriptor IncludeDefaults(bool? includedefaults = true) =>
+            Qs("include_defaults", includedefaults);
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        ///<summary>Operation timeout.</summary>
+        public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
 }
