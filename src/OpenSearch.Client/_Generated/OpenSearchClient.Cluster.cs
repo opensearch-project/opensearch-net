@@ -598,5 +598,50 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        public ClusterPutSettingsResponse PutSettings(
+            Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector
+        ) => PutSettings(selector.InvokeOrDefault(new ClusterPutSettingsDescriptor()));
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        public Task<ClusterPutSettingsResponse> PutSettingsAsync(
+            Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector,
+            CancellationToken ct = default
+        ) => PutSettingsAsync(selector.InvokeOrDefault(new ClusterPutSettingsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        public ClusterPutSettingsResponse PutSettings(IClusterPutSettingsRequest request) =>
+            DoRequest<IClusterPutSettingsRequest, ClusterPutSettingsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        public Task<ClusterPutSettingsResponse> PutSettingsAsync(
+            IClusterPutSettingsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterPutSettingsRequest, ClusterPutSettingsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

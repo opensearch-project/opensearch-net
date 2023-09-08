@@ -57,24 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for PutSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
-	public partial class ClusterPutSettingsDescriptor : RequestDescriptorBase<ClusterPutSettingsDescriptor, ClusterPutSettingsRequestParameters, IClusterPutSettingsRequest>, IClusterPutSettingsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return settings in flat format (default: false)</summary>
-		public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Explicit operation timeout</summary>
-		public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for RemoteInfo <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
 	public partial class RemoteInfoDescriptor : RequestDescriptorBase<RemoteInfoDescriptor, RemoteInfoRequestParameters, IRemoteInfoRequest>, IRemoteInfoRequest
 	{

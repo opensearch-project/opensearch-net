@@ -66,17 +66,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 	///</summary>
 	public partial class LowLevelClusterNamespace : NamespacedClientProxy
 	{
-		///<summary>PUT on /_cluster/settings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
-		///<param name = "body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse PutSettings<TResponse>(PostData body, ClusterPutSettingsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, "_cluster/settings", body, RequestParams(requestParameters));
-		///<summary>PUT on /_cluster/settings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
-		///<param name = "body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cluster.put_settings", "body")]
-		public Task<TResponse> PutSettingsAsync<TResponse>(PostData body, ClusterPutSettingsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, "_cluster/settings", ctx, body, RequestParams(requestParameters));
 		///<summary>GET on /_remote/info <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse RemoteInfo<TResponse>(RemoteInfoRequestParameters requestParameters = null)

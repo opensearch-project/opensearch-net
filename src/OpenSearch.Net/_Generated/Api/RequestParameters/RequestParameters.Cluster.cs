@@ -442,4 +442,44 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("timeout", value);
         }
     }
+
+    /// <summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    public partial class ClusterPutSettingsRequestParameters
+        : RequestParameters<ClusterPutSettingsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

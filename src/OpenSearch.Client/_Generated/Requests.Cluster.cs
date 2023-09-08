@@ -605,4 +605,52 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IClusterPutSettingsRequest
+        : IRequest<ClusterPutSettingsRequestParameters> { }
+
+    /// <summary>Request for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    public partial class ClusterPutSettingsRequest
+        : PlainRequestBase<ClusterPutSettingsRequestParameters>,
+            IClusterPutSettingsRequest
+    {
+        protected IClusterPutSettingsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

@@ -453,4 +453,37 @@ namespace OpenSearch.Client
         /// <summary>Operation timeout.</summary>
         public PutComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
+
+    /// <summary>Descriptor for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    public partial class ClusterPutSettingsDescriptor
+        : RequestDescriptorBase<
+            ClusterPutSettingsDescriptor,
+            ClusterPutSettingsRequestParameters,
+            IClusterPutSettingsRequest
+        >,
+            IClusterPutSettingsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Return settings in flat format.</summary>
+        public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Operation timeout.</summary>
+        public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
 }
