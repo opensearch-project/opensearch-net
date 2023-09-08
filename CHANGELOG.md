@@ -7,15 +7,19 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 
-### Fixed
-- Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
-- Fix null-ref exception when track total hits is disabled ([#341](https://github.com/opensearch-project/opensearch-net/pull/341))
-
 ### Removed
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
+- Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
+
+## [1.5.0]
+### Fixed
+- Fix highlight max_analyzer_offset field name to match with the one introduced in OpenSearch 2.2.0 ([#322](https://github.com/opensearch-project/opensearch-net/pull/322))
+- Fix null-ref exception when track total hits is disabled ([#341](https://github.com/opensearch-project/opensearch-net/pull/341))
+
+### Dependencies
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.5.0 to 17.7.2
 - Bumps `JunitXml.TestLogger` from 3.0.124 to 3.0.134
 - Bumps `System.Reflection.Emit.Lightweight` from 4.3.0 to 4.7.0
@@ -28,7 +32,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `JetBrains.Annotations` from 2022.3.1 to 2023.2.0
 - Bumps `Octokit` from 6.1.0 to 7.1.0
 - Bumps `FSharp.Core` from 7.0.300 to 7.0.400
-- Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
 
 ## [1.4.0]
 ### Added
@@ -95,6 +98,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...main
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...main
+[1.5.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.2.0...v1.3.0
