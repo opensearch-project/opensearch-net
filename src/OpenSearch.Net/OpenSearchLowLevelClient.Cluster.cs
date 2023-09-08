@@ -66,15 +66,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 	///</summary>
 	public partial class LowLevelClusterNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_remote/info <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse RemoteInfo<TResponse>(RemoteInfoRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_remote/info", null, RequestParams(requestParameters));
-		///<summary>GET on /_remote/info <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cluster.remote_info", "")]
-		public Task<TResponse> RemoteInfoAsync<TResponse>(RemoteInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_remote/info", ctx, null, RequestParams(requestParameters));
 		///<summary>POST on /_cluster/reroute <para></para></summary>
 		///<param name = "body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

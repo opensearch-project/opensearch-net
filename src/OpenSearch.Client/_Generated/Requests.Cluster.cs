@@ -653,4 +653,19 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters> { }
+
+    /// <summary>Request for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    public partial class RemoteInfoRequest
+        : PlainRequestBase<RemoteInfoRequestParameters>,
+            IRemoteInfoRequest
+    {
+        protected IRemoteInfoRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
+        // values part of the url path
+
+        // Request parameters
+    }
 }

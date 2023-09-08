@@ -51,13 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
-	public class RemoteInfoRequestParameters : RequestParameters<RemoteInfoRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-	}
-
 	///<summary>Request options for Reroute <para></para></summary>
 	public class ClusterRerouteRequestParameters : RequestParameters<ClusterRerouteRequestParameters>
 	{

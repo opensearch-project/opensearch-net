@@ -482,4 +482,12 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("timeout", value);
         }
     }
+
+    /// <summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    public partial class RemoteInfoRequestParameters
+        : RequestParameters<RemoteInfoRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
 }

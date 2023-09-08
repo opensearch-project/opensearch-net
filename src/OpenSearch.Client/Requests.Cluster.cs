@@ -59,20 +59,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 namespace OpenSearch.Client
 {
 	[InterfaceDataContract]
-	public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters>
-	{
-	}
-
-	///<summary>Request for RemoteInfo <para>https://opensearch.org/docs/latest/opensearch/rest-api/remote-info/</para></summary>
-	public partial class RemoteInfoRequest : PlainRequestBase<RemoteInfoRequestParameters>, IRemoteInfoRequest
-	{
-		protected IRemoteInfoRequest Self => this;
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
-	// values part of the url path
-	// Request parameters
-	}
-
-	[InterfaceDataContract]
 	public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters>
 	{
 	}

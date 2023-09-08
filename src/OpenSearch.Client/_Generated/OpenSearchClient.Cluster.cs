@@ -643,5 +643,47 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        public RemoteInfoResponse RemoteInfo(
+            Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null
+        ) => RemoteInfo(selector.InvokeOrDefault(new RemoteInfoDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        public Task<RemoteInfoResponse> RemoteInfoAsync(
+            Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null,
+            CancellationToken ct = default
+        ) => RemoteInfoAsync(selector.InvokeOrDefault(new RemoteInfoDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        public RemoteInfoResponse RemoteInfo(IRemoteInfoRequest request) =>
+            DoRequest<IRemoteInfoRequest, RemoteInfoResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        public Task<RemoteInfoResponse> RemoteInfoAsync(
+            IRemoteInfoRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IRemoteInfoRequest, RemoteInfoResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }
