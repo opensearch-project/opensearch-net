@@ -551,4 +551,82 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("timeout", value);
         }
     }
+
+    /// <summary>Request options for State <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterStateRequestParameters
+        : RequestParameters<ClusterStateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>
+        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// been specified).
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Wait for the metadata version to be equal or greater than the specified metadata version.</summary>
+        public long? WaitForMetadataVersion
+        {
+            get => Q<long?>("wait_for_metadata_version");
+            set => Q("wait_for_metadata_version", value);
+        }
+
+        /// <summary>The maximum time to wait for wait_for_metadata_version before timing out.</summary>
+        public TimeSpan WaitForTimeout
+        {
+            get => Q<TimeSpan>("wait_for_timeout");
+            set => Q("wait_for_timeout", value);
+        }
+    }
 }

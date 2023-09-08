@@ -70,7 +70,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls CatTemplates = new ApiUrls(new[]{"_cat/templates", "_cat/templates/{name}"});
 		internal static ApiUrls CatThreadPool = new ApiUrls(new[]{"_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}"});
 		internal static ApiUrls NoNamespaceClearScroll = new ApiUrls(new[]{"_search/scroll"});
-		internal static ApiUrls ClusterState = new ApiUrls(new[]{"_cluster/state", "_cluster/state/{metric}", "_cluster/state/{metric}/{index}"});
 		internal static ApiUrls ClusterStats = new ApiUrls(new[]{"_cluster/stats", "_cluster/stats/nodes/{node_id}"});
 		internal static ApiUrls NoNamespaceCount = new ApiUrls(new[]{"_count", "{index}/_count"});
 		internal static ApiUrls NoNamespaceCreate = new ApiUrls(new[]{"{index}/_create/{id}"});

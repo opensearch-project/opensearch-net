@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.ClusterApi
 	public partial class ClusterNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public ClusterStateResponse State(Indices index = null, Func<ClusterStateDescriptor, IClusterStateRequest> selector = null) => State(selector.InvokeOrDefault(new ClusterStateDescriptor().Index(index: index)));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<ClusterStateResponse> StateAsync(Indices index = null, Func<ClusterStateDescriptor, IClusterStateRequest> selector = null, CancellationToken ct = default) => StateAsync(selector.InvokeOrDefault(new ClusterStateDescriptor().Index(index: index)), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public ClusterStateResponse State(IClusterStateRequest request) => DoRequest<IClusterStateRequest, ClusterStateResponse>(request, request.RequestParameters);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = ""></a>
-		/// </summary>
-		public Task<ClusterStateResponse> StateAsync(IClusterStateRequest request, CancellationToken ct = default) => DoRequestAsync<IClusterStateRequest, ClusterStateResponse>(request, request.RequestParameters, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = ""></a>

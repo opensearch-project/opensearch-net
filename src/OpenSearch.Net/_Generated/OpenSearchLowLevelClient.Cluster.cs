@@ -510,5 +510,97 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 body,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cluster/state <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse State<TResponse>(ClusterStateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cluster/state", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cluster/state <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.state", "")]
+        public Task<TResponse> StateAsync<TResponse>(
+            ClusterStateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cluster/state",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/state/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse State<TResponse>(
+            string metric,
+            ClusterStateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cluster/state/{metric:metric}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/state/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.state", "metric")]
+        public Task<TResponse> StateAsync<TResponse>(
+            string metric,
+            ClusterStateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cluster/state/{metric:metric}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse State<TResponse>(
+            string metric,
+            string index,
+            ClusterStateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cluster/state/{metric:metric}/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.state", "metric, index")]
+        public Task<TResponse> StateAsync<TResponse>(
+            string metric,
+            string index,
+            ClusterStateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cluster/state/{metric:metric}/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

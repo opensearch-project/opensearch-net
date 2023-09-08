@@ -57,63 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for State <para></para></summary>
-	public partial class ClusterStateDescriptor : RequestDescriptorBase<ClusterStateDescriptor, ClusterStateRequestParameters, IClusterStateRequest>, IClusterStateRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterState;
-		///<summary>/_cluster/state</summary>
-		public ClusterStateDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cluster/state/{metric}</summary>
-		///<param name = "metric">Optional, accepts null</param>
-		public ClusterStateDescriptor(Metrics metric): base(r => r.Optional("metric", metric))
-		{
-		}
-
-		///<summary>/_cluster/state/{metric}/{index}</summary>
-		///<param name = "metric">Optional, accepts null</param>
-		///<param name = "index">Optional, accepts null</param>
-		public ClusterStateDescriptor(Metrics metric, Indices index): base(r => r.Optional("metric", metric).Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-		Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>Limit the information returned to the specified metrics</summary>
-		public ClusterStateDescriptor Metric(Metrics metric) => Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
-		///<summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</summary>
-		public ClusterStateDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public ClusterStateDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public ClusterStateDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
-		public ClusterStateDescriptor AllowNoIndices(bool? allownoindices = true) => Qs("allow_no_indices", allownoindices);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public ClusterStateDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>Return settings in flat format (default: false)</summary>
-		public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
-		///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
-		public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterStateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterStateDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Wait for the metadata version to be equal or greater than the specified metadata version</summary>
-		public ClusterStateDescriptor WaitForMetadataVersion(long? waitformetadataversion) => Qs("wait_for_metadata_version", waitformetadataversion);
-		///<summary>The maximum time to wait for wait_for_metadata_version before timing out</summary>
-		public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) => Qs("wait_for_timeout", waitfortimeout);
-	}
-
 	///<summary>Descriptor for Stats <para></para></summary>
 	public partial class ClusterStatsDescriptor : RequestDescriptorBase<ClusterStatsDescriptor, ClusterStatsRequestParameters, IClusterStatsRequest>, IClusterStatsRequest
 	{

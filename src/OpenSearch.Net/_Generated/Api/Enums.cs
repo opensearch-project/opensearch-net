@@ -53,6 +53,37 @@ using System.Text;
 namespace OpenSearch.Net
 {
     [Flags, StringEnum]
+    public enum ClusterStateMetric
+    {
+        [EnumMember(Value = "blocks")]
+        Blocks = 1 << 0,
+
+        [EnumMember(Value = "metadata")]
+        Metadata = 1 << 1,
+
+        [EnumMember(Value = "nodes")]
+        Nodes = 1 << 2,
+
+        [EnumMember(Value = "routing_table")]
+        RoutingTable = 1 << 3,
+
+        [EnumMember(Value = "routing_nodes")]
+        RoutingNodes = 1 << 4,
+
+        [EnumMember(Value = "master_node")]
+        MasterNode = 1 << 5,
+
+        [EnumMember(Value = "cluster_manager_node")]
+        ClusterManagerNode = 1 << 6,
+
+        [EnumMember(Value = "version")]
+        Version = 1 << 7,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 8
+    }
+
+    [Flags, StringEnum]
     public enum NodesInfoMetric
     {
         [EnumMember(Value = "settings")]
@@ -305,6 +336,10 @@ namespace OpenSearch.Net
         static partial void RegisterEnumStringResolvers()
         {
             EnumStringResolvers.TryAdd(
+                typeof(ClusterStateMetric),
+                e => GetStringValue((ClusterStateMetric)e)
+            );
+            EnumStringResolvers.TryAdd(
                 typeof(NodesInfoMetric),
                 e => GetStringValue((NodesInfoMetric)e)
             );
@@ -342,6 +377,30 @@ namespace OpenSearch.Net
                 e => GetStringValue((NodesStatLevel)e)
             );
             EnumStringResolvers.TryAdd(typeof(GroupBy), e => GetStringValue((GroupBy)e));
+        }
+
+        public static string GetStringValue(this ClusterStateMetric enumValue)
+        {
+            if ((enumValue & ClusterStateMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & ClusterStateMetric.Blocks) != 0)
+                list.Add("blocks");
+            if ((enumValue & ClusterStateMetric.Metadata) != 0)
+                list.Add("metadata");
+            if ((enumValue & ClusterStateMetric.Nodes) != 0)
+                list.Add("nodes");
+            if ((enumValue & ClusterStateMetric.RoutingTable) != 0)
+                list.Add("routing_table");
+            if ((enumValue & ClusterStateMetric.RoutingNodes) != 0)
+                list.Add("routing_nodes");
+            if ((enumValue & ClusterStateMetric.MasterNode) != 0)
+                list.Add("master_node");
+            if ((enumValue & ClusterStateMetric.ClusterManagerNode) != 0)
+                list.Add("cluster_manager_node");
+            if ((enumValue & ClusterStateMetric.Version) != 0)
+                list.Add("version");
+            return string.Join(",", list);
         }
 
         public static string GetStringValue(this NodesInfoMetric enumValue)
