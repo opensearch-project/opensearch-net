@@ -629,4 +629,40 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) =>
             Qs("wait_for_timeout", waitfortimeout);
     }
+
+    /// <summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    public partial class ClusterStatsDescriptor
+        : RequestDescriptorBase<
+            ClusterStatsDescriptor,
+            ClusterStatsRequestParameters,
+            IClusterStatsRequest
+        >,
+            IClusterStatsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
+
+        /// <summary>/_cluster/stats</summary>
+        public ClusterStatsDescriptor()
+            : base() { }
+
+        /// <summary>/_cluster/stats/nodes/{node_id}</summary>
+        /// <param name="nodeId">Optional, accepts null</param>
+        public ClusterStatsDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        public ClusterStatsDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        /// <summary>Return settings in flat format.</summary>
+        public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        /// <summary>Operation timeout.</summary>
+        public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
 }

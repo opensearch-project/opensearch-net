@@ -52,6 +52,7 @@ namespace ApiGenerator.Configuration
 			new("cluster.remote_info"),
 			new("cluster.reroute"),
 			new("cluster.state"),
+			new("cluster.stats"),
 
 			new("cluster.*_component_template"),
 

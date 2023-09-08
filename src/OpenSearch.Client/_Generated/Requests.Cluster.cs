@@ -848,4 +848,48 @@ namespace OpenSearch.Client
             set => Q("wait_for_timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IClusterStatsRequest : IRequest<ClusterStatsRequestParameters>
+    {
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+    }
+
+    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    public partial class ClusterStatsRequest
+        : PlainRequestBase<ClusterStatsRequestParameters>,
+            IClusterStatsRequest
+    {
+        protected IClusterStatsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
+
+        /// <summary>/_cluster/stats</summary>
+        public ClusterStatsRequest()
+            : base() { }
+
+        /// <summary>/_cluster/stats/nodes/{node_id}</summary>
+        /// <param name="nodeId">Optional, accepts null</param>
+        public ClusterStatsRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        // Request parameters
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

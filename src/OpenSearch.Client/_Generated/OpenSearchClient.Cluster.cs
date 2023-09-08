@@ -781,5 +781,50 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        public ClusterStatsResponse Stats(
+            Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null
+        ) => Stats(selector.InvokeOrDefault(new ClusterStatsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        public Task<ClusterStatsResponse> StatsAsync(
+            Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null,
+            CancellationToken ct = default
+        ) => StatsAsync(selector.InvokeOrDefault(new ClusterStatsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        public ClusterStatsResponse Stats(IClusterStatsRequest request) =>
+            DoRequest<IClusterStatsRequest, ClusterStatsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        public Task<ClusterStatsResponse> StatsAsync(
+            IClusterStatsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterStatsRequest, ClusterStatsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

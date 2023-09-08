@@ -90,6 +90,9 @@ namespace OpenSearch.Client
                 }
             );
 
+        internal static readonly ApiUrls ClusterStats =
+            new(new[] { "_cluster/stats", "_cluster/stats/nodes/{node_id}" });
+
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });
 
