@@ -78,6 +78,8 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls ClusterRemoteInfo = new(new[] { "_remote/info" });
 
+        internal static readonly ApiUrls ClusterReroute = new(new[] { "_cluster/reroute" });
+
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });
 

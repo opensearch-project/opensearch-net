@@ -685,5 +685,50 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ClusterRerouteResponse Reroute(
+            Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null
+        ) => Reroute(selector.InvokeOrDefault(new ClusterRerouteDescriptor()));
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ClusterRerouteResponse> RerouteAsync(
+            Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null,
+            CancellationToken ct = default
+        ) => RerouteAsync(selector.InvokeOrDefault(new ClusterRerouteDescriptor()), ct);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ClusterRerouteResponse Reroute(IClusterRerouteRequest request) =>
+            DoRequest<IClusterRerouteRequest, ClusterRerouteResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ClusterRerouteResponse> RerouteAsync(
+            IClusterRerouteRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IClusterRerouteRequest, ClusterRerouteResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

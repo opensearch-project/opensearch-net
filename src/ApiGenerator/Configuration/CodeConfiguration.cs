@@ -50,6 +50,7 @@ namespace ApiGenerator.Configuration
 			new("cluster.post_voting_config_exclusions"),
 			new("cluster.put_settings"),
 			new("cluster.remote_info"),
+			new("cluster.reroute"),
 
 			new("cluster.*_component_template"),
 

@@ -57,30 +57,6 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Reroute <para></para></summary>
-	public partial class ClusterRerouteDescriptor : RequestDescriptorBase<ClusterRerouteDescriptor, ClusterRerouteRequestParameters, IClusterRerouteRequest>, IClusterRerouteRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
-		// values part of the url path
-		// Request parameters
-		///<summary>Simulate the operation only and return the resulting state</summary>
-		public ClusterRerouteDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
-		///<summary>Return an explanation of why the commands can or cannot be executed</summary>
-		public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public ClusterRerouteDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Limit the information returned to the specified metrics. Defaults to all but metadata</summary>
-		public ClusterRerouteDescriptor Metric(params string[] metric) => Qs("metric", metric);
-		///<summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures</summary>
-		public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) => Qs("retry_failed", retryfailed);
-		///<summary>Explicit operation timeout</summary>
-		public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
-	}
-
 	///<summary>Descriptor for State <para></para></summary>
 	public partial class ClusterStateDescriptor : RequestDescriptorBase<ClusterStateDescriptor, ClusterStateRequestParameters, IClusterStateRequest>, IClusterStateRequest
 	{

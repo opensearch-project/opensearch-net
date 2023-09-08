@@ -51,63 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-	///<summary>Request options for Reroute <para></para></summary>
-	public class ClusterRerouteRequestParameters : RequestParameters<ClusterRerouteRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-		public override bool SupportsBody => true;
-		///<summary>Simulate the operation only and return the resulting state</summary>
-		public bool? DryRun
-		{
-			get => Q<bool? >("dry_run");
-			set => Q("dry_run", value);
-		}
-
-		///<summary>Return an explanation of why the commands can or cannot be executed</summary>
-		public bool? Explain
-		{
-			get => Q<bool? >("explain");
-			set => Q("explain", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public TimeSpan MasterTimeout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public TimeSpan ClusterManagerTimeout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-
-		///<summary>Limit the information returned to the specified metrics. Defaults to all but metadata</summary>
-		public string[] Metric
-		{
-			get => Q<string[]>("metric");
-			set => Q("metric", value);
-		}
-
-		///<summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures</summary>
-		public bool? RetryFailed
-		{
-			get => Q<bool? >("retry_failed");
-			set => Q("retry_failed", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
 	///<summary>Request options for State <para></para></summary>
 	public class ClusterStateRequestParameters : RequestParameters<ClusterStateRequestParameters>
 	{

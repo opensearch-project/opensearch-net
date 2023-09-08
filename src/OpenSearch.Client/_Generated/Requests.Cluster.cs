@@ -668,4 +668,72 @@ namespace OpenSearch.Client
 
         // Request parameters
     }
+
+    [InterfaceDataContract]
+    public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters> { }
+
+    /// <summary>Request for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterRerouteRequest
+        : PlainRequestBase<ClusterRerouteRequestParameters>,
+            IClusterRerouteRequest
+    {
+        protected IClusterRerouteRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Simulate the operation only and return the resulting state.</summary>
+        public bool? DryRun
+        {
+            get => Q<bool?>("dry_run");
+            set => Q("dry_run", value);
+        }
+
+        /// <summary>Return an explanation of why the commands can or cannot be executed.</summary>
+        public bool? Explain
+        {
+            get => Q<bool?>("explain");
+            set => Q("explain", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Limit the information returned to the specified metrics. Defaults to all but metadata.</summary>
+        public string[] Metric
+        {
+            get => Q<string[]>("metric");
+            set => Q("metric", value);
+        }
+
+        /// <summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        public bool? RetryFailed
+        {
+            get => Q<bool?>("retry_failed");
+            set => Q("retry_failed", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

@@ -482,5 +482,33 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>POST on /_cluster/reroute <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Reroute<TResponse>(
+            PostData body,
+            ClusterRerouteRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_cluster/reroute", body, RequestParams(requestParameters));
+
+        /// <summary>POST on /_cluster/reroute <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.reroute", "body")]
+        public Task<TResponse> RerouteAsync<TResponse>(
+            PostData body,
+            ClusterRerouteRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_cluster/reroute",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
     }
 }
