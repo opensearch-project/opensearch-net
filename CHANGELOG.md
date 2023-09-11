@@ -13,6 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
+- Bumps `FSharp.Data` from 6.2.0 to 6.3.0
 
 ## [1.5.0]
 ### Fixed
