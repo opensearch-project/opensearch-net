@@ -2,6 +2,8 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+### Dependencies
+- Bumps `FSharp.Data` from 6.2.0 to 6.3.0
 
 ## [1.5.0]
 ### Fixed
