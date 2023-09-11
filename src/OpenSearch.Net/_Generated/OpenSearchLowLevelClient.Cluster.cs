@@ -135,6 +135,35 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>DELETE on /_cluster/decommission/awareness/ <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteDecommissionAwareness<TResponse>(
+            DeleteDecommissionAwarenessRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                "_cluster/decommission/awareness/",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_cluster/decommission/awareness/ <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.delete_decommission_awareness", "")]
+        public Task<TResponse> DeleteDecommissionAwarenessAsync<TResponse>(
+            DeleteDecommissionAwarenessRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                "_cluster/decommission/awareness/",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteVotingConfigExclusions<TResponse>(
@@ -159,6 +188,35 @@ namespace OpenSearch.Net.Specification.ClusterApi
             DoRequestAsync<TResponse>(
                 DELETE,
                 "_cluster/voting_config_exclusions",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteWeightedRouting<TResponse>(
+            DeleteWeightedRoutingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                "_cluster/routing/awareness/weights",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.delete_weighted_routing", "")]
+        public Task<TResponse> DeleteWeightedRoutingAsync<TResponse>(
+            DeleteWeightedRoutingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                "_cluster/routing/awareness/weights",
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -259,6 +317,43 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_cluster/decommission/awareness/{awareness_attribute_name}/_status <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
+        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetDecommissionAwareness<TResponse>(
+            string awarenessAttributeName,
+            GetDecommissionAwarenessRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url(
+                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"
+                ),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/decommission/awareness/{awareness_attribute_name}/_status <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
+        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.get_decommission_awareness", "awareness_attribute_name")]
+        public Task<TResponse> GetDecommissionAwarenessAsync<TResponse>(
+            string awarenessAttributeName,
+            GetDecommissionAwarenessRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url(
+                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"
+                ),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetSettings<TResponse>(
@@ -278,6 +373,39 @@ namespace OpenSearch.Net.Specification.ClusterApi
             DoRequestAsync<TResponse>(
                 GET,
                 "_cluster/settings",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
+        /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetWeightedRouting<TResponse>(
+            string attribute,
+            GetWeightedRoutingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
+        /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.get_weighted_routing", "attribute")]
+        public Task<TResponse> GetWeightedRoutingAsync<TResponse>(
+            string attribute,
+            GetWeightedRoutingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -433,6 +561,50 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
+        /// <param name="awarenessAttributeValue">Awareness attribute value.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutDecommissionAwareness<TResponse>(
+            string awarenessAttributeName,
+            string awarenessAttributeValue,
+            PutDecommissionAwarenessRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url(
+                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"
+                ),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
+        /// <param name="awarenessAttributeValue">Awareness attribute value.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi(
+            "cluster.put_decommission_awareness",
+            "awareness_attribute_name, awareness_attribute_value"
+        )]
+        public Task<TResponse> PutDecommissionAwarenessAsync<TResponse>(
+            string awarenessAttributeName,
+            string awarenessAttributeValue,
+            PutDecommissionAwarenessRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url(
+                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"
+                ),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -458,6 +630,39 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 "_cluster/settings",
                 ctx,
                 body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
+        /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutWeightedRouting<TResponse>(
+            string attribute,
+            PutWeightedRoutingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
+        /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.put_weighted_routing", "attribute")]
+        public Task<TResponse> PutWeightedRoutingAsync<TResponse>(
+            string attribute,
+            PutWeightedRoutingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
+                ctx,
+                null,
                 RequestParams(requestParameters)
             );
 

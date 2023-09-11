@@ -107,6 +107,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
+    /// <summary>Request options for DeleteDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+    public partial class DeleteDecommissionAwarenessRequestParameters
+        : RequestParameters<DeleteDecommissionAwarenessRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
     public partial class DeleteVotingConfigExclusionsRequestParameters
         : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
@@ -120,6 +128,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<bool?>("wait_for_removal");
             set => Q("wait_for_removal", value);
         }
+    }
+
+    /// <summary>Request options for DeleteWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+    public partial class DeleteWeightedRoutingRequestParameters
+        : RequestParameters<DeleteWeightedRoutingRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
     }
 
     /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
@@ -188,6 +204,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
+    /// <summary>Request options for GetDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
+    public partial class GetDecommissionAwarenessRequestParameters
+        : RequestParameters<GetDecommissionAwarenessRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsRequestParameters
         : RequestParameters<ClusterGetSettingsRequestParameters>
@@ -233,6 +257,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
+    }
+
+    /// <summary>Request options for GetWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
+    public partial class GetWeightedRoutingRequestParameters
+        : RequestParameters<GetWeightedRoutingRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
     }
 
     /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
@@ -443,6 +475,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
+    /// <summary>Request options for PutDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+    public partial class PutDecommissionAwarenessRequestParameters
+        : RequestParameters<PutDecommissionAwarenessRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsRequestParameters
         : RequestParameters<ClusterPutSettingsRequestParameters>
@@ -481,6 +521,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
+    }
+
+    /// <summary>Request options for PutWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
+    public partial class PutWeightedRoutingRequestParameters
+        : RequestParameters<PutWeightedRoutingRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => false;
     }
 
     /// <summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
