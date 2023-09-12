@@ -51,65 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.CatApi
 {
-	///<summary>Request options for Aliases <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</para></summary>
-	public class CatAliasesRequestParameters : RequestParameters<CatAliasesRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public ExpandWildcards? ExpandWildcards
-		{
-			get => Q<ExpandWildcards? >("expand_wildcards");
-			set => Q("expand_wildcards", value);
-		}
-
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public string Format
-		{
-			get => Q<string>("format");
-			set
-			{
-				Q("format", value);
-				SetAcceptHeader(value);
-			}
-		}
-
-		///<summary>Comma-separated list of column names to display</summary>
-		public string[] Headers
-		{
-			get => Q<string[]>("h");
-			set => Q("h", value);
-		}
-
-		///<summary>Return help information</summary>
-		public bool? Help
-		{
-			get => Q<bool? >("help");
-			set => Q("help", value);
-		}
-
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public bool? Local
-		{
-			get => Q<bool? >("local");
-			set => Q("local", value);
-		}
-
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public string[] SortByColumns
-		{
-			get => Q<string[]>("s");
-			set => Q("s", value);
-		}
-
-		///<summary>Verbose mode. Display column headers</summary>
-		public bool? Verbose
-		{
-			get => Q<bool? >("v");
-			set => Q("v", value);
-		}
-	}
-
 	///<summary>Request options for Allocation <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
 	public class CatAllocationRequestParameters : RequestParameters<CatAllocationRequestParameters>
 	{

@@ -57,42 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Aliases <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</para></summary>
-	public partial class CatAliasesDescriptor : RequestDescriptorBase<CatAliasesDescriptor, CatAliasesRequestParameters, ICatAliasesRequest>, ICatAliasesRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAliases;
-		///<summary>/_cat/aliases</summary>
-		public CatAliasesDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/aliases/{name}</summary>
-		///<param name = "name">Optional, accepts null</param>
-		public CatAliasesDescriptor(Names name): base(r => r.Optional("name", name))
-		{
-		}
-
-		// values part of the url path
-		Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
-		///<summary>A comma-separated list of alias names to return</summary>
-		public CatAliasesDescriptor Name(Names name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
-		// Request parameters
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public CatAliasesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatAliasesDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatAliasesDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatAliasesDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public CatAliasesDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatAliasesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Allocation <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
 	public partial class CatAllocationDescriptor : RequestDescriptorBase<CatAllocationDescriptor, CatAllocationRequestParameters, ICatAllocationRequest>, ICatAllocationRequest
 	{

@@ -57,36 +57,8 @@ namespace OpenSearch.Client.Specification.CatApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class CatNamespace : NamespacedClientProxy
+	public partial class CatNamespace : NamespacedClientProxy
 	{
-		internal CatNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</a>
-		/// </summary>
-		public CatResponse<CatAliasesRecord> Aliases(Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null) => Aliases(selector.InvokeOrDefault(new CatAliasesDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</a>
-		/// </summary>
-		public Task<CatResponse<CatAliasesRecord>> AliasesAsync(Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null, CancellationToken ct = default) => AliasesAsync(selector.InvokeOrDefault(new CatAliasesDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</a>
-		/// </summary>
-		public CatResponse<CatAliasesRecord> Aliases(ICatAliasesRequest request) => DoCat<ICatAliasesRequest, CatAliasesRequestParameters, CatAliasesRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</a>
-		/// </summary>
-		public Task<CatResponse<CatAliasesRecord>> AliasesAsync(ICatAliasesRequest request, CancellationToken ct = default) => DoCatAsync<ICatAliasesRequest, CatAliasesRequestParameters, CatAliasesRecord>(request, ct);
 		/// <summary>
 		/// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
 		/// <para></para>

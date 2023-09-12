@@ -45,6 +45,9 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls CatAliases =
+            new(new[] { "_cat/aliases", "_cat/aliases/{name}" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 

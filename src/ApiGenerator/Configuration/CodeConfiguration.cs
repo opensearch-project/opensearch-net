@@ -41,6 +41,8 @@ namespace ApiGenerator.Configuration
 		{
 			new("{create,delete}_pit"),
 			new("{delete,get}_all_pits"),
+            
+			new("cat.aliases"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

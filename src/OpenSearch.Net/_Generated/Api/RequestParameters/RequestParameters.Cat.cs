@@ -41,27 +41,75 @@
 //      Windows     :   build.bat codegen
 //
 // -----------------------------------------------
+
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Runtime.Serialization;
 using System.Text;
-using OpenSearch.Net;
-using OpenSearch.Net.Specification.CatApi;
-using OpenSearch.Net.Specification.ClusterApi;
-using OpenSearch.Net.Specification.DanglingIndicesApi;
-using OpenSearch.Net.Specification.HttpApi;
-using OpenSearch.Net.Specification.IndicesApi;
-using OpenSearch.Net.Specification.IngestApi;
-using OpenSearch.Net.Specification.NodesApi;
-using OpenSearch.Net.Specification.SnapshotApi;
-using OpenSearch.Net.Specification.TasksApi;
-using OpenSearch.Net.Utf8Json;
 
-// ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
+// ReSharper disable once CheckNamespace
+namespace OpenSearch.Net.Specification.CatApi
 {
-    public abstract partial class PlainRequestBase<TParameters> { }
+    /// <summary>Request options for Aliases <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
+    public partial class CatAliasesRequestParameters
+        : RequestParameters<CatAliasesRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }
