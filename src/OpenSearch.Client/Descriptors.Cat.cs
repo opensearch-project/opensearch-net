@@ -57,48 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Allocation <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
-	public partial class CatAllocationDescriptor : RequestDescriptorBase<CatAllocationDescriptor, CatAllocationRequestParameters, ICatAllocationRequest>, ICatAllocationRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
-		///<summary>/_cat/allocation</summary>
-		public CatAllocationDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/allocation/{node_id}</summary>
-		///<param name = "nodeId">Optional, accepts null</param>
-		public CatAllocationDescriptor(NodeIds nodeId): base(r => r.Optional("node_id", nodeId))
-		{
-		}
-
-		// values part of the url path
-		NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
-		///<summary>A comma-separated list of node IDs or names to limit the returned information</summary>
-		public CatAllocationDescriptor NodeId(NodeIds nodeId) => Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
-		// Request parameters
-		///<summary>The unit in which to display byte values</summary>
-		public CatAllocationDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatAllocationDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatAllocationDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatAllocationDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CatAllocationDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CatAllocationDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatAllocationDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatAllocationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Count <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
 	public partial class CatCountDescriptor : RequestDescriptorBase<CatCountDescriptor, CatCountRequestParameters, ICatCountRequest>, ICatCountRequest
 	{

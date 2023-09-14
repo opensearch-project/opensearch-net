@@ -140,4 +140,105 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatAllocationRequest : IRequest<CatAllocationRequestParameters>
+    {
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+    }
+
+    ///<summary>Request for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    public partial class CatAllocationRequest
+        : PlainRequestBase<CatAllocationRequestParameters>,
+            ICatAllocationRequest
+    {
+        protected ICatAllocationRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
+
+        ///<summary>/_cat/allocation</summary>
+        public CatAllocationRequest()
+            : base() { }
+
+        ///<summary>/_cat/allocation/{node_id}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public CatAllocationRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        // Request parameters
+        ///<summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

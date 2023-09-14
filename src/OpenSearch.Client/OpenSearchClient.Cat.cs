@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</a>
-		/// </summary>
-		public CatResponse<CatAllocationRecord> Allocation(Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null) => Allocation(selector.InvokeOrDefault(new CatAllocationDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</a>
-		/// </summary>
-		public Task<CatResponse<CatAllocationRecord>> AllocationAsync(Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null, CancellationToken ct = default) => AllocationAsync(selector.InvokeOrDefault(new CatAllocationDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</a>
-		/// </summary>
-		public CatResponse<CatAllocationRecord> Allocation(ICatAllocationRequest request) => DoCat<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</a>
-		/// </summary>
-		public Task<CatResponse<CatAllocationRecord>> AllocationAsync(ICatAllocationRequest request, CancellationToken ct = default) => DoCatAsync<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</a>

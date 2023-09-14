@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/allocation <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Allocation<TResponse>(CatAllocationRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/allocation", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/allocation <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.allocation", "")]
-		public Task<TResponse> AllocationAsync<TResponse>(CatAllocationRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/allocation", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/allocation/{node_id} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Allocation<TResponse>(string nodeId, CatAllocationRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/allocation/{nodeId:nodeId}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/allocation/{node_id} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-allocation/</para></summary>
-		///<param name = "nodeId">A comma-separated list of node IDs or names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.allocation", "node_id")]
-		public Task<TResponse> AllocationAsync<TResponse>(string nodeId, CatAllocationRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/allocation/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/count <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Count<TResponse>(CatCountRequestParameters requestParameters = null)

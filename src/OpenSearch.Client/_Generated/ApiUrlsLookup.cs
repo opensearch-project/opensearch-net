@@ -48,6 +48,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls CatAliases =
             new(new[] { "_cat/aliases", "_cat/aliases/{name}" });
 
+        internal static readonly ApiUrls CatAllocation =
+            new(new[] { "_cat/allocation", "_cat/allocation/{node_id}" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 

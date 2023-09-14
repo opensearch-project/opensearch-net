@@ -108,4 +108,67 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    ///<summary>Descriptor for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    public partial class CatAllocationDescriptor
+        : RequestDescriptorBase<
+            CatAllocationDescriptor,
+            CatAllocationRequestParameters,
+            ICatAllocationRequest
+        >,
+            ICatAllocationRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
+
+        ///<summary>/_cat/allocation</summary>
+        public CatAllocationDescriptor()
+            : base() { }
+
+        ///<summary>/_cat/allocation/{node_id}</summary>
+        ///<param name="nodeId">Optional, accepts null</param>
+        public CatAllocationDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        ///<summary>Comma-separated list of node IDs or names to limit the returned information.</summary>
+        public CatAllocationDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        ///<summary>The unit in which to display byte values.</summary>
+        public CatAllocationDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatAllocationDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatAllocationDescriptor Format(string format) => Qs("format", format);
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public CatAllocationDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        ///<summary>Return help information.</summary>
+        public CatAllocationDescriptor Help(bool? help = true) => Qs("help", help);
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatAllocationDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatAllocationDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public CatAllocationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }

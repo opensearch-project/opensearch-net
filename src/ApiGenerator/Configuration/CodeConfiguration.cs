@@ -43,6 +43,7 @@ namespace ApiGenerator.Configuration
 			new("{delete,get}_all_pits"),
             
 			new("cat.aliases"),
+			new("cat.allocation"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),
