@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/count <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Count<TResponse>(CatCountRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/count", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/count <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.count", "")]
-		public Task<TResponse> CountAsync<TResponse>(CatCountRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/count", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Count<TResponse>(string index, CatCountRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/count/{index:index}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.count", "index")]
-		public Task<TResponse> CountAsync<TResponse>(string index, CatCountRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/count/{index:index}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/fielddata <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Fielddata<TResponse>(CatFielddataRequestParameters requestParameters = null)

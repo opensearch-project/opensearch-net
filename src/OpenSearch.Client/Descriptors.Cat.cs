@@ -57,43 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Count <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</para></summary>
-	public partial class CatCountDescriptor : RequestDescriptorBase<CatCountDescriptor, CatCountRequestParameters, ICatCountRequest>, ICatCountRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatCount;
-		///<summary>/_cat/count</summary>
-		public CatCountDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/count/{index}</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public CatCountDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma-separated list of index names to limit the returned information</summary>
-		public CatCountDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public CatCountDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public CatCountDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatCountDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatCountDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatCountDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatCountDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatCountDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Fielddata <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
 	public partial class CatFielddataDescriptor : RequestDescriptorBase<CatFielddataDescriptor, CatFielddataRequestParameters, ICatFielddataRequest>, ICatFielddataRequest
 	{

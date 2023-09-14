@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</a>
-		/// </summary>
-		public CatResponse<CatCountRecord> Count(Func<CatCountDescriptor, ICatCountRequest> selector = null) => Count(selector.InvokeOrDefault(new CatCountDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</a>
-		/// </summary>
-		public Task<CatResponse<CatCountRecord>> CountAsync(Func<CatCountDescriptor, ICatCountRequest> selector = null, CancellationToken ct = default) => CountAsync(selector.InvokeOrDefault(new CatCountDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</a>
-		/// </summary>
-		public CatResponse<CatCountRecord> Count(ICatCountRequest request) => DoCat<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-count/</a>
-		/// </summary>
-		public Task<CatResponse<CatCountRecord>> CountAsync(ICatCountRequest request, CancellationToken ct = default) => DoCatAsync<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</a>

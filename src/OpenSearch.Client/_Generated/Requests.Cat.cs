@@ -241,4 +241,73 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatCountRequest : IRequest<CatCountRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    ///<summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
+    public partial class CatCountRequest
+        : PlainRequestBase<CatCountRequestParameters>,
+            ICatCountRequest
+    {
+        protected ICatCountRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatCount;
+
+        ///<summary>/_cat/count</summary>
+        public CatCountRequest()
+            : base() { }
+
+        ///<summary>/_cat/count/{index}</summary>
+        ///<param name="index">Optional, accepts null</param>
+        public CatCountRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }
