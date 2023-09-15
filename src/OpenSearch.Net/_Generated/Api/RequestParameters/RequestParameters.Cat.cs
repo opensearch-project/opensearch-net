@@ -237,4 +237,65 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("v", value);
         }
     }
+
+    ///<summary>Request options for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
+    public partial class CatFielddataRequestParameters
+        : RequestParameters<CatFielddataRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        ///<summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        ///<summary>Comma-separated list of fields to return in the output.</summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

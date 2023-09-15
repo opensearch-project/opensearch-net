@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/fielddata <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Fielddata<TResponse>(CatFielddataRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/fielddata", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/fielddata <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.fielddata", "")]
-		public Task<TResponse> FielddataAsync<TResponse>(CatFielddataRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/fielddata", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/fielddata/{fields} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
-		///<param name = "fields">A comma-separated list of fields to return the fielddata size</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Fielddata<TResponse>(string fields, CatFielddataRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/fielddata/{fields:fields}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/fielddata/{fields} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
-		///<param name = "fields">A comma-separated list of fields to return the fielddata size</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.fielddata", "fields")]
-		public Task<TResponse> FielddataAsync<TResponse>(string fields, CatFielddataRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/fielddata/{fields:fields}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Health<TResponse>(CatHealthRequestParameters requestParameters = null)

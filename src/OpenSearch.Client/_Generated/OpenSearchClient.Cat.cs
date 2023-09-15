@@ -182,5 +182,46 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatCountRequest request,
             CancellationToken ct = default
         ) => DoCatAsync<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// </summary>
+        public CatResponse<CatFielddataRecord> Fielddata(
+            Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null
+        ) => Fielddata(selector.InvokeOrDefault(new CatFielddataDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// </summary>
+        public Task<CatResponse<CatFielddataRecord>> FielddataAsync(
+            Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null,
+            CancellationToken ct = default
+        ) => FielddataAsync(selector.InvokeOrDefault(new CatFielddataDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// </summary>
+        public CatResponse<CatFielddataRecord> Fielddata(ICatFielddataRequest request) =>
+            DoCat<ICatFielddataRequest, CatFielddataRequestParameters, CatFielddataRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// </summary>
+        public Task<CatResponse<CatFielddataRecord>> FielddataAsync(
+            ICatFielddataRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatFielddataRequest, CatFielddataRequestParameters, CatFielddataRecord>(
+                request,
+                ct
+            );
     }
 }

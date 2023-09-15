@@ -57,42 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Fielddata <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-field-data/</para></summary>
-	public partial class CatFielddataDescriptor : RequestDescriptorBase<CatFielddataDescriptor, CatFielddataRequestParameters, ICatFielddataRequest>, ICatFielddataRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatFielddata;
-		///<summary>/_cat/fielddata</summary>
-		public CatFielddataDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/fielddata/{fields}</summary>
-		///<param name = "fields">Optional, accepts null</param>
-		public CatFielddataDescriptor(Fields fields): base(r => r.Optional("fields", fields))
-		{
-		}
-
-		// values part of the url path
-		Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
-		///<summary>A comma-separated list of fields to return the fielddata size</summary>
-		public CatFielddataDescriptor Fields(Fields fields) => Assign(fields, (a, v) => a.RouteValues.Optional("fields", v));
-		///<summary>A comma-separated list of fields to return the fielddata size</summary>
-		public CatFielddataDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) => Assign(fields, (a, v) => a.RouteValues.Optional("fields", (Fields)v));
-		// Request parameters
-		///<summary>The unit in which to display byte values</summary>
-		public CatFielddataDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatFielddataDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatFielddataDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatFielddataDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatFielddataDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatFielddataDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
 	public partial class CatHealthDescriptor : RequestDescriptorBase<CatHealthDescriptor, CatHealthRequestParameters, ICatHealthRequest>, ICatHealthRequest
 	{
