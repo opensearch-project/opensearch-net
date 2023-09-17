@@ -351,4 +351,25 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("v", value);
         }
     }
+
+    ///<summary>Request options for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    public partial class CatHelpRequestParameters : RequestParameters<CatHelpRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+    }
 }

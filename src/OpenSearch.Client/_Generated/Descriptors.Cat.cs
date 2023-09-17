@@ -302,4 +302,21 @@ namespace OpenSearch.Client
         ///<summary>Verbose mode. Display column headers.</summary>
         public CatHealthDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    ///<summary>Descriptor for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    public partial class CatHelpDescriptor
+        : RequestDescriptorBase<CatHelpDescriptor, CatHelpRequestParameters, ICatHelpRequest>,
+            ICatHelpRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
+
+        // values part of the url path
+        // Request parameters
+        ///<summary>Return help information.</summary>
+        public CatHelpDescriptor Help(bool? help = true) => Qs("help", help);
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatHelpDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+    }
 }

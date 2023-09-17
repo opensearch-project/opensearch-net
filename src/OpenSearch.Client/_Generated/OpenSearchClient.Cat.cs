@@ -261,5 +261,42 @@ namespace OpenSearch.Client.Specification.CatApi
             CancellationToken ct = default
         ) =>
             DoCatAsync<ICatHealthRequest, CatHealthRequestParameters, CatHealthRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// </summary>
+        public CatResponse<CatHelpRecord> Help(
+            Func<CatHelpDescriptor, ICatHelpRequest> selector = null
+        ) => Help(selector.InvokeOrDefault(new CatHelpDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// </summary>
+        public Task<CatResponse<CatHelpRecord>> HelpAsync(
+            Func<CatHelpDescriptor, ICatHelpRequest> selector = null,
+            CancellationToken ct = default
+        ) => HelpAsync(selector.InvokeOrDefault(new CatHelpDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// </summary>
+        public CatResponse<CatHelpRecord> Help(ICatHelpRequest request) =>
+            DoCat<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// </summary>
+        public Task<CatResponse<CatHelpRecord>> HelpAsync(
+            ICatHelpRequest request,
+            CancellationToken ct = default
+        ) => DoCatAsync<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request, ct);
     }
 }

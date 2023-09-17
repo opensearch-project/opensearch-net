@@ -57,18 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Help <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</para></summary>
-	public partial class CatHelpDescriptor : RequestDescriptorBase<CatHelpDescriptor, CatHelpRequestParameters, ICatHelpRequest>, ICatHelpRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
-		// values part of the url path
-		// Request parameters
-		///<summary>Return help information</summary>
-		public CatHelpDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatHelpDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-	}
-
 	///<summary>Descriptor for Indices <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
 	public partial class CatIndicesDescriptor : RequestDescriptorBase<CatIndicesDescriptor, CatIndicesRequestParameters, ICatIndicesRequest>, ICatIndicesRequest
 	{

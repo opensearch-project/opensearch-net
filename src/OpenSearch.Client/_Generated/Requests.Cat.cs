@@ -447,4 +447,33 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatHelpRequest : IRequest<CatHelpRequestParameters> { }
+
+    ///<summary>Request for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    public partial class CatHelpRequest
+        : PlainRequestBase<CatHelpRequestParameters>,
+            ICatHelpRequest
+    {
+        protected ICatHelpRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
+
+        // values part of the url path
+
+        // Request parameters
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+    }
 }

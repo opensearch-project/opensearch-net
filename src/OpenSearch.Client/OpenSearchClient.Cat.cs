@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</a>
-		/// </summary>
-		public CatResponse<CatHelpRecord> Help(Func<CatHelpDescriptor, ICatHelpRequest> selector = null) => Help(selector.InvokeOrDefault(new CatHelpDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</a>
-		/// </summary>
-		public Task<CatResponse<CatHelpRecord>> HelpAsync(Func<CatHelpDescriptor, ICatHelpRequest> selector = null, CancellationToken ct = default) => HelpAsync(selector.InvokeOrDefault(new CatHelpDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</a>
-		/// </summary>
-		public CatResponse<CatHelpRecord> Help(ICatHelpRequest request) => DoCat<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</a>
-		/// </summary>
-		public Task<CatResponse<CatHelpRecord>> HelpAsync(ICatHelpRequest request, CancellationToken ct = default) => DoCatAsync<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</a>
