@@ -51,58 +51,6 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.CatApi
 {
-	///<summary>Request options for Health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
-	public class CatHealthRequestParameters : RequestParameters<CatHealthRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public string Format
-		{
-			get => Q<string>("format");
-			set
-			{
-				Q("format", value);
-				SetAcceptHeader(value);
-			}
-		}
-
-		///<summary>Comma-separated list of column names to display</summary>
-		public string[] Headers
-		{
-			get => Q<string[]>("h");
-			set => Q("h", value);
-		}
-
-		///<summary>Return help information</summary>
-		public bool? Help
-		{
-			get => Q<bool? >("help");
-			set => Q("help", value);
-		}
-
-		///<summary>Set to false to disable timestamping</summary>
-		public bool? IncludeTimestamp
-		{
-			get => Q<bool? >("ts");
-			set => Q("ts", value);
-		}
-
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public string[] SortByColumns
-		{
-			get => Q<string[]>("s");
-			set => Q("s", value);
-		}
-
-		///<summary>Verbose mode. Display column headers</summary>
-		public bool? Verbose
-		{
-			get => Q<bool? >("v");
-			set => Q("v", value);
-		}
-	}
-
 	///<summary>Request options for Help <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</para></summary>
 	public class CatHelpRequestParameters : RequestParameters<CatHelpRequestParameters>
 	{

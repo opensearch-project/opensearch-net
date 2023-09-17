@@ -66,15 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Health<TResponse>(CatHealthRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/health", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.health", "")]
-		public Task<TResponse> HealthAsync<TResponse>(CatHealthRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/health", ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Help<TResponse>(CatHelpRequestParameters requestParameters = null)

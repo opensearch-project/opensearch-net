@@ -223,5 +223,43 @@ namespace OpenSearch.Client.Specification.CatApi
                 request,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// </summary>
+        public CatResponse<CatHealthRecord> Health(
+            Func<CatHealthDescriptor, ICatHealthRequest> selector = null
+        ) => Health(selector.InvokeOrDefault(new CatHealthDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// </summary>
+        public Task<CatResponse<CatHealthRecord>> HealthAsync(
+            Func<CatHealthDescriptor, ICatHealthRequest> selector = null,
+            CancellationToken ct = default
+        ) => HealthAsync(selector.InvokeOrDefault(new CatHealthDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// </summary>
+        public CatResponse<CatHealthRecord> Health(ICatHealthRequest request) =>
+            DoCat<ICatHealthRequest, CatHealthRequestParameters, CatHealthRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// </summary>
+        public Task<CatResponse<CatHealthRecord>> HealthAsync(
+            ICatHealthRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatHealthRequest, CatHealthRequestParameters, CatHealthRecord>(request, ct);
     }
 }

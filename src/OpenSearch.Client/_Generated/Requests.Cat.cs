@@ -386,4 +386,65 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatHealthRequest : IRequest<CatHealthRequestParameters> { }
+
+    ///<summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
+    public partial class CatHealthRequest
+        : PlainRequestBase<CatHealthRequestParameters>,
+            ICatHealthRequest
+    {
+        protected ICatHealthRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHealth;
+
+        // values part of the url path
+
+        // Request parameters
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        ///<summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        ///<summary>Set to false to disable timestamping.</summary>
+        public bool? IncludeTimestamp
+        {
+            get => Q<bool?>("ts");
+            set => Q("ts", value);
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

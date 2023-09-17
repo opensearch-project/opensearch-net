@@ -57,26 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Health <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-health/</para></summary>
-	public partial class CatHealthDescriptor : RequestDescriptorBase<CatHealthDescriptor, CatHealthRequestParameters, ICatHealthRequest>, ICatHealthRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHealth;
-		// values part of the url path
-		// Request parameters
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatHealthDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatHealthDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Set to false to disable timestamping</summary>
-		public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) => Qs("ts", includetimestamp);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatHealthDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatHealthDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Help <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/index/</para></summary>
 	public partial class CatHelpDescriptor : RequestDescriptorBase<CatHelpDescriptor, CatHelpRequestParameters, ICatHelpRequest>, ICatHelpRequest
 	{
