@@ -319,4 +319,89 @@ namespace OpenSearch.Client
         public CatHelpDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
     }
+
+    ///<summary>Descriptor for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
+    public partial class CatIndicesDescriptor
+        : RequestDescriptorBase<
+            CatIndicesDescriptor,
+            CatIndicesRequestParameters,
+            ICatIndicesRequest
+        >,
+            ICatIndicesRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatIndices;
+
+        ///<summary>/_cat/indices</summary>
+        public CatIndicesDescriptor()
+            : base() { }
+
+        ///<summary>/_cat/indices/{index}</summary>
+        ///<param name="index">Optional, accepts null</param>
+        public CatIndicesDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        ///<summary>Comma-separated list of indices to limit the returned information.</summary>
+        public CatIndicesDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        ///<summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CatIndicesDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        ///<summary>A shortcut into calling Index(Indices.All)</summary>
+        public CatIndicesDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        ///<summary>The unit in which to display byte values.</summary>
+        public CatIndicesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
+        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatIndicesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatIndicesDescriptor Format(string format) => Qs("format", format);
+
+        ///<summary>Comma-separated list of column names to display.</summary>
+        public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        ///<summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
+        public CatIndicesDescriptor Health(Health? health) => Qs("health", health);
+
+        ///<summary>Return help information.</summary>
+        public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        ///<summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
+        public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
+            Qs("include_unloaded_segments", includeunloadedsegments);
+
+        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
+
+        ///<summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        ///<summary>Set to true to return stats only for primary shards.</summary>
+        public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatIndicesDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        ///<summary>Verbose mode. Display column headers.</summary>
+        public CatIndicesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }

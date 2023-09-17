@@ -48,7 +48,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls NoNamespaceBulk = new ApiUrls(new[]{"_bulk", "{index}/_bulk"});
 		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMaster"/></remarks>
 		internal static ApiUrls CatClusterManager = new ApiUrls(new[]{"_cat/cluster_manager"});
-		internal static ApiUrls CatIndices = new ApiUrls(new[]{"_cat/indices", "_cat/indices/{index}"});
 		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManager"/> instead</remarks>
 		internal static ApiUrls CatMaster = new ApiUrls(new[]{"_cat/master"});
 		internal static ApiUrls CatNodeAttributes = new ApiUrls(new[]{"_cat/nodeattrs"});

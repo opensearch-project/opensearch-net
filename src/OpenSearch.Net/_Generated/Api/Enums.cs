@@ -279,6 +279,19 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum Health
+    {
+        [EnumMember(Value = "green")]
+        Green,
+
+        [EnumMember(Value = "yellow")]
+        Yellow,
+
+        [EnumMember(Value = "red")]
+        Red
+    }
+
+    [StringEnum]
     public enum ClusterHealthLevel
     {
         [EnumMember(Value = "cluster")]
@@ -397,6 +410,7 @@ namespace OpenSearch.Net
                 e => GetStringValue((ExpandWildcards)e)
             );
             EnumStringResolvers.TryAdd(typeof(Bytes), e => GetStringValue((Bytes)e));
+            EnumStringResolvers.TryAdd(typeof(Health), e => GetStringValue((Health)e));
             EnumStringResolvers.TryAdd(
                 typeof(ClusterHealthLevel),
                 e => GetStringValue((ClusterHealthLevel)e)
@@ -596,6 +610,22 @@ namespace OpenSearch.Net
             }
             throw new ArgumentException(
                 $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
+            );
+        }
+
+        public static string GetStringValue(this Health enumValue)
+        {
+            switch (enumValue)
+            {
+                case Health.Green:
+                    return "green";
+                case Health.Yellow:
+                    return "yellow";
+                case Health.Red:
+                    return "red";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'Health'"
             );
         }
 

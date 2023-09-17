@@ -57,61 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Indices <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
-	public partial class CatIndicesDescriptor : RequestDescriptorBase<CatIndicesDescriptor, CatIndicesRequestParameters, ICatIndicesRequest>, ICatIndicesRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatIndices;
-		///<summary>/_cat/indices</summary>
-		public CatIndicesDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/indices/{index}</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public CatIndicesDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>A comma-separated list of index names to limit the returned information</summary>
-		public CatIndicesDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public CatIndicesDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public CatIndicesDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>The unit in which to display byte values</summary>
-		public CatIndicesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
-		///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-		public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatIndicesDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>A health status ("green", "yellow", or "red" to filter only indices matching the specified health status</summary>
-		public CatIndicesDescriptor Health(Health? health) => Qs("health", health);
-		///<summary>Return help information</summary>
-		public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>If set to true segment stats will include stats for segments that are not currently loaded into memory</summary>
-		public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) => Qs("include_unloaded_segments", includeunloadedsegments);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CatIndicesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CatIndicesDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Set to true to return stats only for primary shards</summary>
-		public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatIndicesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatIndicesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
 	///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerDescriptor"/> instead</remarks>
 	public partial class CatMasterDescriptor : RequestDescriptorBase<CatMasterDescriptor, CatMasterRequestParameters, ICatMasterRequest>, ICatMasterRequest

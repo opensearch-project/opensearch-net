@@ -298,5 +298,46 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatHelpRequest request,
             CancellationToken ct = default
         ) => DoCatAsync<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// </summary>
+        public CatResponse<CatIndicesRecord> Indices(
+            Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null
+        ) => Indices(selector.InvokeOrDefault(new CatIndicesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// </summary>
+        public Task<CatResponse<CatIndicesRecord>> IndicesAsync(
+            Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null,
+            CancellationToken ct = default
+        ) => IndicesAsync(selector.InvokeOrDefault(new CatIndicesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// </summary>
+        public CatResponse<CatIndicesRecord> Indices(ICatIndicesRequest request) =>
+            DoCat<ICatIndicesRequest, CatIndicesRequestParameters, CatIndicesRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// </summary>
+        public Task<CatResponse<CatIndicesRecord>> IndicesAsync(
+            ICatIndicesRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatIndicesRequest, CatIndicesRequestParameters, CatIndicesRecord>(
+                request,
+                ct
+            );
     }
 }

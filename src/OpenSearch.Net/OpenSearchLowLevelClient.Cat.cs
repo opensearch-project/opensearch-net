@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/indices <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Indices<TResponse>(CatIndicesRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/indices", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/indices <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.indices", "")]
-		public Task<TResponse> IndicesAsync<TResponse>(CatIndicesRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/indices", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/indices/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Indices<TResponse>(string index, CatIndicesRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/indices/{index:index}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/indices/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-indices/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.indices", "index")]
-		public Task<TResponse> IndicesAsync<TResponse>(string index, CatIndicesRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/indices/{index:index}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
 		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager"/> instead</remarks>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
