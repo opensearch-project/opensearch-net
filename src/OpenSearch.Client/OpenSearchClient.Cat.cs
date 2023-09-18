@@ -60,34 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/">https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</a>
-		/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager(Func&lt;CatClusterManagerDescriptor, ICatClusterManagerRequest&gt;)"/> instead</remarks>
-		/// </summary>
-		public CatResponse<CatMasterRecord> Master(Func<CatMasterDescriptor, ICatMasterRequest> selector = null) => Master(selector.InvokeOrDefault(new CatMasterDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/">https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</a>
-		/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerAsync(Func&lt;CatClusterManagerDescriptor, ICatClusterManagerRequest&gt;, CancellationToken)"/> instead</remarks>
-		/// </summary>
-		public Task<CatResponse<CatMasterRecord>> MasterAsync(Func<CatMasterDescriptor, ICatMasterRequest> selector = null, CancellationToken ct = default) => MasterAsync(selector.InvokeOrDefault(new CatMasterDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/">https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</a>
-		/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManager(ICatClusterManagerRequest)"/> instead</remarks>
-		/// </summary>
-		public CatResponse<CatMasterRecord> Master(ICatMasterRequest request) => DoCat<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/">https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</a>
-		/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerAsync(ICatClusterManagerRequest, CancellationToken)"/> instead</remarks>
-		/// </summary>
-		public Task<CatResponse<CatMasterRecord>> MasterAsync(ICatMasterRequest request, CancellationToken ct = default) => DoCatAsync<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</a>

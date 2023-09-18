@@ -339,5 +339,55 @@ namespace OpenSearch.Client.Specification.CatApi
                 request,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0, reason: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+        )]
+        public CatResponse<CatMasterRecord> Master(
+            Func<CatMasterDescriptor, ICatMasterRequest> selector = null
+        ) => Master(selector.InvokeOrDefault(new CatMasterDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0, reason: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+        )]
+        public Task<CatResponse<CatMasterRecord>> MasterAsync(
+            Func<CatMasterDescriptor, ICatMasterRequest> selector = null,
+            CancellationToken ct = default
+        ) => MasterAsync(selector.InvokeOrDefault(new CatMasterDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0, reason: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+        )]
+        public CatResponse<CatMasterRecord> Master(ICatMasterRequest request) =>
+            DoCat<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0, reason: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+        )]
+        public Task<CatResponse<CatMasterRecord>> MasterAsync(
+            ICatMasterRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request, ct);
     }
 }

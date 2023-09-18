@@ -58,29 +58,6 @@ using OpenSearch.Net.Specification.CatApi;
 namespace OpenSearch.Client
 {
 	///<summary>Descriptor for Master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
-	///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerDescriptor"/> instead</remarks>
-	public partial class CatMasterDescriptor : RequestDescriptorBase<CatMasterDescriptor, CatMasterRequestParameters, ICatMasterRequest>, ICatMasterRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatMaster;
-		// values part of the url path
-		// Request parameters
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatMasterDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatMasterDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatMasterDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public CatMasterDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		public CatMasterDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatMasterDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatMasterDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
-	///<summary>Descriptor for Master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
 	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterDescriptor"/></remarks>
 	public partial class CatClusterManagerDescriptor : RequestDescriptorBase<CatClusterManagerDescriptor, CatClusterManagerRequestParameters, ICatClusterManagerRequest>, ICatClusterManagerRequest
 	{

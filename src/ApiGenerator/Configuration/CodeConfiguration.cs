@@ -49,6 +49,7 @@ namespace ApiGenerator.Configuration
 			new("cat.health"),
 			new("cat.help"),
 			new("cat.indices"),
+			new("cat.master"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),
