@@ -6,3 +6,7 @@
 /// @Raw("<para></para>")
 /// <a href="@Model.DocumentationLink">@Model.DocumentationLink</a>
 /// </summary>
+@if (Model.Deprecated is {} deprecation)
+{
+@Raw($"[Obsolete(\"{deprecation}\")]")
+}

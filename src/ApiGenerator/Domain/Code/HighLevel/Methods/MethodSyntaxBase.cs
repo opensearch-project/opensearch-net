@@ -26,16 +26,20 @@
 *  under the License.
 */
 
+using ApiGenerator.Domain.Specification;
+
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public abstract class MethodSyntaxBase
     {
-        protected MethodSyntaxBase(CsharpNames names, string link, string summary) =>
-            (CsharpNames, DocumentationLink, XmlDocSummary) = (names, link, summary);
+        protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated) =>
+            (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated) = (names, link, summary, deprecated);
 
         public string DocumentationLink { get;  }
 
         public string XmlDocSummary { get;  }
+
+		public Deprecation Deprecated { get; }
 
         protected CsharpNames CsharpNames { get; }
 

@@ -31,14 +31,14 @@ using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Methods 
+namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public abstract class FluentSyntaxBase : MethodSyntaxBase
     {
         private readonly bool _selectorIsOptional;
 
-        protected FluentSyntaxBase(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary) 
-            : base(names, link, summary) =>
+        protected FluentSyntaxBase(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated)
+            : base(names, link, summary, deprecated) =>
             (UrlParts, _selectorIsOptional) = (CreateDescriptorArgs(parts), selectorIsOptional);
 
         private IReadOnlyCollection<UrlPart> UrlParts { get; }
@@ -61,7 +61,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
             CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName)
                 ? CsharpNames.GenericsDeclaredOnRequest
                 : DescriptorGenerics;
-        
+
         public virtual string RequestMethodGenerics =>
             CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName)
                 ? CsharpNames.GenericsDeclaredOnRequest
@@ -74,11 +74,11 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
         private List<UrlPart> CreateDescriptorArgs(IReadOnlyCollection<UrlPart> parts)
         {
             var requiredParts = parts.Where(p => p.Required).ToList();
-            
+
             //Many api's return ALOT of information by default e.g get_alias or get_mapping
             //the client methods that take a descriptor default to forcing a choice on the user.
             //except for cat api's where the amount of information returned is manageable
-            
+
             var willInferFromDocument = CsharpNames.GenericsDeclaredOnDescriptor?.Contains("Document") ?? false;
             if (!requiredParts.Any() && CsharpNames.Namespace != "Cat")
             {
@@ -113,15 +113,15 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
         }
 
         private bool IsDocumentRequest => CodeConfiguration.DocumentRequests.Contains(CsharpNames.RequestInterfaceName);
-        private string GenericFirstArgument => 
+        private string GenericFirstArgument =>
             CsharpNames.GenericsDeclaredOnDescriptor.Replace("<", "").Replace(">", "").Split(",").First().Trim();
-        
+
         public string DescriptorArguments()
         {
             string codeArgs;
             if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out codeArgs))
                 codeArgs += ",";
-            
+
             if (!UrlParts.Any()) return codeArgs;
 
             string Optional(UrlPart p) => !p.Required && SelectorIsOptional ? " = null" : string.Empty;
@@ -136,17 +136,17 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
                 codeArgs = string.Join(", ", codeArgs.Split(',').Select(a=>a.Split(' ').Last()));
                 return codeArgs;
             }
-            
+
             var parts = UrlParts.Where(p => p.Required).ToList();
             if (!parts.Any()) return null;
 
             string ToArg(UrlPart p)
             {
                 if (IsDocumentRequest) return "documentWithId: document";
-                
+
                 if (p.HighLevelTypeName.StartsWith("DocumentPath"))
                     return "documentWithId: id?.Document, index: id?.Self?.Index, id: id?.Self?.Id";
-                
+
 
                 return $"{p.Name.ToCamelCase()}: {p.Name.ToCamelCase()}";
             }

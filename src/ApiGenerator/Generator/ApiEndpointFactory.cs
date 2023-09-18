@@ -192,11 +192,11 @@ namespace ApiGenerator.Generator
 			?? schema.ActualSchema.Enumeration?.Select(e => e.ToString())
 			?? Enumerable.Empty<string>();
 
-		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema) =>
+		private static Deprecation GetDeprecation(IJsonExtensionObject schema) =>
 			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
 			{
 				(null, null) => null,
-				var (m, v) => new QueryParameterDeprecation { Description = m, Version = v }
+				var (m, v) => new Deprecation { Description = m, Version = v }
 			};
 
 		private static string GetDescription(OpenApiRequestBody requestBody)

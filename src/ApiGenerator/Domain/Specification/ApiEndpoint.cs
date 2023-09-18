@@ -117,24 +117,34 @@ namespace ApiGenerator.Domain.Specification
         public string HighLevelMethodXmlDocDescription =>
             $"<c>{PreferredHttpMethod}</c> request to the <c>{Name}</c> API, read more about this API online:";
 
-        public HighLevelModel HighLevelModel => new HighLevelModel
-        {
+		private bool BodyIsOptional => Body is not { Required: true } || HttpMethods.Contains("GET");
+
+		private Deprecation Deprecated =>
+			Url.OriginalPaths.Count == 0 && Url.DeprecatedPaths.Count > 0
+				? Url.DeprecatedPaths.Select(p => new Deprecation { Description = p.Description, Version = p.Version }).FirstOrDefault()
+				: null;
+
+        public HighLevelModel HighLevelModel => new()
+		{
             CsharpNames = CsharpNames,
             Fluent = new FluentMethod(CsharpNames, Url.Parts,
-                selectorIsOptional: Body == null || !Body.Required || HttpMethods.Contains("GET"),
+                selectorIsOptional: BodyIsOptional,
                 link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription
+                summary: HighLevelMethodXmlDocDescription,
+				deprecated: Deprecated
             ),
             FluentBound = !CsharpNames.DescriptorBindsOverMultipleDocuments
                 ? null
                 : new BoundFluentMethod(CsharpNames, Url.Parts,
-                    selectorIsOptional: Body == null || !Body.Required || HttpMethods.Contains("GET"),
+                    selectorIsOptional: BodyIsOptional,
                     link: OfficialDocumentationLink?.Url,
-                    summary: HighLevelMethodXmlDocDescription
+                    summary: HighLevelMethodXmlDocDescription,
+					deprecated: Deprecated
                 ),
             Initializer = new InitializerMethod(CsharpNames,
                 link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription
+                summary: HighLevelMethodXmlDocDescription,
+				deprecated: Deprecated
             )
         };
 
