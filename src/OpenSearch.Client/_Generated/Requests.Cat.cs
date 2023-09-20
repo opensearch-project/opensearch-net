@@ -148,7 +148,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    ///<summary>Request for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    /// <summary>Request for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationRequest
         : PlainRequestBase<CatAllocationRequestParameters>,
             ICatAllocationRequest
@@ -156,12 +156,12 @@ namespace OpenSearch.Client
         protected ICatAllocationRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
 
-        ///<summary>/_cat/allocation</summary>
+        /// <summary>/_cat/allocation</summary>
         public CatAllocationRequest()
             : base() { }
 
-        ///<summary>/_cat/allocation/{node_id}</summary>
-        ///<param name="nodeId">Optional, accepts null</param>
+        /// <summary>/_cat/allocation/{node_id}</summary>
+        /// <param name="nodeId">Optional, accepts null</param>
         public CatAllocationRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
 
@@ -170,22 +170,22 @@ namespace OpenSearch.Client
         NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
         // Request parameters
-        ///<summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit in which to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
             set => Q("bytes", value);
         }
 
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
             get => Q<Time>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
 
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -196,28 +196,28 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -227,14 +227,14 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -249,7 +249,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    ///<summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
+    /// <summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
     public partial class CatCountRequest
         : PlainRequestBase<CatCountRequestParameters>,
             ICatCountRequest
@@ -257,12 +257,12 @@ namespace OpenSearch.Client
         protected ICatCountRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatCount;
 
-        ///<summary>/_cat/count</summary>
+        /// <summary>/_cat/count</summary>
         public CatCountRequest()
             : base() { }
 
-        ///<summary>/_cat/count/{index}</summary>
-        ///<param name="index">Optional, accepts null</param>
+        /// <summary>/_cat/count/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
         public CatCountRequest(Indices index)
             : base(r => r.Optional("index", index)) { }
 
@@ -271,7 +271,7 @@ namespace OpenSearch.Client
         Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -282,28 +282,28 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -318,7 +318,7 @@ namespace OpenSearch.Client
         Fields Fields { get; }
     }
 
-    ///<summary>Request for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
+    /// <summary>Request for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
     public partial class CatFielddataRequest
         : PlainRequestBase<CatFielddataRequestParameters>,
             ICatFielddataRequest
@@ -326,12 +326,12 @@ namespace OpenSearch.Client
         protected ICatFielddataRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatFielddata;
 
-        ///<summary>/_cat/fielddata</summary>
+        /// <summary>/_cat/fielddata</summary>
         public CatFielddataRequest()
             : base() { }
 
-        ///<summary>/_cat/fielddata/{fields}</summary>
-        ///<param name="fields">Optional, accepts null</param>
+        /// <summary>/_cat/fielddata/{fields}</summary>
+        /// <param name="fields">Optional, accepts null</param>
         public CatFielddataRequest(Fields fields)
             : base(r => r.Optional("fields", fields)) { }
 
@@ -340,14 +340,14 @@ namespace OpenSearch.Client
         Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
 
         // Request parameters
-        ///<summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit in which to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
             set => Q("bytes", value);
         }
 
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -358,28 +358,28 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -390,7 +390,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatHealthRequest : IRequest<CatHealthRequestParameters> { }
 
-    ///<summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
+    /// <summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
     public partial class CatHealthRequest
         : PlainRequestBase<CatHealthRequestParameters>,
             ICatHealthRequest
@@ -401,7 +401,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -412,35 +412,35 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Set to false to disable timestamping.</summary>
+        /// <summary>Set to false to disable timestamping.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
             set => Q("ts", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -451,7 +451,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatHelpRequest : IRequest<CatHelpRequestParameters> { }
 
-    ///<summary>Request for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    /// <summary>Request for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
     public partial class CatHelpRequest
         : PlainRequestBase<CatHelpRequestParameters>,
             ICatHelpRequest
@@ -462,14 +462,14 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
@@ -484,7 +484,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    ///<summary>Request for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
+    /// <summary>Request for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
     public partial class CatIndicesRequest
         : PlainRequestBase<CatIndicesRequestParameters>,
             ICatIndicesRequest
@@ -492,12 +492,12 @@ namespace OpenSearch.Client
         protected ICatIndicesRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatIndices;
 
-        ///<summary>/_cat/indices</summary>
+        /// <summary>/_cat/indices</summary>
         public CatIndicesRequest()
             : base() { }
 
-        ///<summary>/_cat/indices/{index}</summary>
-        ///<param name="index">Optional, accepts null</param>
+        /// <summary>/_cat/indices/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
         public CatIndicesRequest(Indices index)
             : base(r => r.Optional("index", index)) { }
 
@@ -506,29 +506,29 @@ namespace OpenSearch.Client
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        ///<summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit in which to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
             set => Q("bytes", value);
         }
 
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
             get => Q<Time>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
 
-        ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -539,42 +539,42 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
+        /// <summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
         public Health? Health
         {
             get => Q<Health?>("health");
             set => Q("health", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
+        /// <summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
             set => Q("include_unloaded_segments", value);
         }
 
-        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -584,21 +584,21 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        ///<summary>Set to true to return stats only for primary shards.</summary>
+        /// <summary>Set to true to return stats only for primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
             set => Q("pri", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -609,7 +609,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatMasterRequest : IRequest<CatMasterRequestParameters> { }
 
-    ///<summary>Request for Master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Request for Master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatMasterRequest
         : PlainRequestBase<CatMasterRequestParameters>,
             ICatMasterRequest
@@ -620,15 +620,15 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
             get => Q<Time>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
 
-        ///<summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -639,28 +639,28 @@ namespace OpenSearch.Client
             }
         }
 
-        ///<summary>Comma-separated list of column names to display.</summary>
+        /// <summary>Comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        ///<summary>Return help information.</summary>
+        /// <summary>Return help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        ///<summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -670,14 +670,14 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        ///<summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        ///<summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Verbose mode. Display column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
