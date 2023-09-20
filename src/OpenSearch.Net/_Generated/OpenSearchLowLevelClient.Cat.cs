@@ -183,6 +183,37 @@ namespace OpenSearch.Net.Specification.CatApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_cat/cluster_manager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TResponse ClusterManager<TResponse>(
+            CatClusterManagerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_cat/cluster_manager",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/cluster_manager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        [MapsApi("cat.cluster_manager", "")]
+        public Task<TResponse> ClusterManagerAsync<TResponse>(
+            CatClusterManagerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/cluster_manager",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_cat/count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Count<TResponse>(CatCountRequestParameters requestParameters = null)

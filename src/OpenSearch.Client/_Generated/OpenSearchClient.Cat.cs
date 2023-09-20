@@ -147,6 +147,58 @@ namespace OpenSearch.Client.Specification.CatApi
             );
 
         /// <summary>
+        /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatResponse<CatClusterManagerRecord> ClusterManager(
+            Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null
+        ) => ClusterManager(selector.InvokeOrDefault(new CatClusterManagerDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
+            Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null,
+            CancellationToken ct = default
+        ) => ClusterManagerAsync(selector.InvokeOrDefault(new CatClusterManagerDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatResponse<CatClusterManagerRecord> ClusterManager(
+            ICatClusterManagerRequest request
+        ) =>
+            DoCat<
+                ICatClusterManagerRequest,
+                CatClusterManagerRequestParameters,
+                CatClusterManagerRecord
+            >(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
+            ICatClusterManagerRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatClusterManagerRequest,
+                CatClusterManagerRequestParameters,
+                CatClusterManagerRecord
+            >(request, ct);
+
+        /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>

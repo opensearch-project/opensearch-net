@@ -66,17 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/cluster_manager <para>https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</para></summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master"/></remarks>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse ClusterManager<TResponse>(CatClusterManagerRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/cluster_manager", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/cluster_manager <para>https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</para></summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterAsync"/></remarks>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.cluster_manager", "")]
-		public Task<TResponse> ClusterManagerAsync<TResponse>(CatClusterManagerRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/cluster_manager", ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/nodeattrs <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodeattrs/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse NodeAttributes<TResponse>(CatNodeAttributesRequestParameters requestParameters = null)

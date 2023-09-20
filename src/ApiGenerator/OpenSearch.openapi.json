@@ -1323,7 +1323,7 @@
                     }
                 },
                 "x-operation-group": "cat.cluster_manager",
-                "x-version-added": "1.0"
+                "x-version-added": "2.0"
             }
         },
         "/_cat/count": {

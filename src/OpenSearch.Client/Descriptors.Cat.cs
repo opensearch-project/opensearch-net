@@ -57,29 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Master <para>https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/</para></summary>
-	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterDescriptor"/></remarks>
-	public partial class CatClusterManagerDescriptor : RequestDescriptorBase<CatClusterManagerDescriptor, CatClusterManagerRequestParameters, ICatClusterManagerRequest>, ICatClusterManagerRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatClusterManager;
-		// values part of the url path
-		// Request parameters
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatClusterManagerDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatClusterManagerDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatClusterManagerDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public CatClusterManagerDescriptor Local(bool? local = true) => Qs("local", local);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		public CatClusterManagerDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatClusterManagerDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatClusterManagerDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for NodeAttributes <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodeattrs/</para></summary>
 	public partial class CatNodeAttributesDescriptor : RequestDescriptorBase<CatNodeAttributesDescriptor, CatNodeAttributesRequestParameters, ICatNodeAttributesRequest>, ICatNodeAttributesRequest
 	{

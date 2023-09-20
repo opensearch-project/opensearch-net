@@ -60,34 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</a>
-		/// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master(Func&lt;CatMasterDescriptor, ICatMasterRequest&gt;)"/></remarks>
-		/// </summary>
-		public CatResponse<CatClusterManagerRecord> ClusterManager(Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null) => ClusterManager(selector.InvokeOrDefault(new CatClusterManagerDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</a>
-		/// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterAsync(Func&lt;CatMasterDescriptor, ICatMasterRequest&gt;, CancellationToken)"/></remarks>
-		/// </summary>
-		public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null, CancellationToken ct = default) => ClusterManagerAsync(selector.InvokeOrDefault(new CatClusterManagerDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</a>
-		/// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="Master(ICatMasterRequest)"/></remarks>
-		/// </summary>
-		public CatResponse<CatClusterManagerRecord> ClusterManager(ICatClusterManagerRequest request) => DoCat<ICatClusterManagerRequest, CatClusterManagerRequestParameters, CatClusterManagerRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/</a>
-		/// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterAsync(ICatMasterRequest, CancellationToken)"/></remarks>
-		/// </summary>
-		public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(ICatClusterManagerRequest request, CancellationToken ct = default) => DoCatAsync<ICatClusterManagerRequest, CatClusterManagerRequestParameters, CatClusterManagerRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodeattrs/</a>
