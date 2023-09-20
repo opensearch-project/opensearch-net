@@ -89,15 +89,15 @@ namespace ApiGenerator.Generator
             {
                 case 0: yield break;
                 case 1:
-                    yield return $"///<summary>{doc[0]}</summary>";
+                    yield return $"/// <summary>{doc[0]}</summary>";
 
                     yield break;
                 default:
-                    yield return "///<summary>";
+                    yield return "/// <summary>";
 
                     foreach (var d in doc) yield return $"/// {d}";
 
-                    yield return "///</summary>";
+                    yield return "/// </summary>";
 
                     yield break;
             }

@@ -4,13 +4,14 @@
 	var description = Model.Count == 1 ? Model.First() : string.Join($"{Environment.NewLine}\t\t", Model.Select(d => "/// " + d));
     if (Model.Count == 1)
     {
-<text>      ///<summary>@Raw(description)</summary></text>
+<text>      /// <summary>@Raw(description)</summary>
+</text>
     }
     else
     {
-<text>      ///<summary>
+<text>      /// <summary>
         @Raw(description)
-        ///</summary>
+        /// </summary>
 </text>
     }
 }

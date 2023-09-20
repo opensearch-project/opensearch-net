@@ -3,10 +3,10 @@
 @inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
 @{
 	var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
-    var asyncKeyword = Model.Syntax.InterfaceResponse && Model.Async ? "async " : String.Empty;
+    var asyncKeyword = Model.Syntax.InterfaceResponse && Model.Async ? "async " : string.Empty;
     var awaitKeyWord = Model.Syntax.InterfaceResponse && Model.Async ? "await ": string.Empty;
-    var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : String.Empty;
-    
+    var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : string.Empty;
+
     var requestMethodGenerics = Model.Syntax.RequestMethodGenerics;
     var descriptor = Model.Syntax.DescriptorName;
     var selectorArgs = Model.Syntax.SelectorArguments();

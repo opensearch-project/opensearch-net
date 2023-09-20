@@ -95,7 +95,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string GetXmlDocs(string indent, bool skipResolvable = false, bool documentConstructor = false)
         {
-            var doc = $@"///<summary>{Path}</summary>";
+            var doc = $@"/// <summary>{Path}</summary>";
             var parts = Parts.Where(p => !skipResolvable || !ResolvabeFromT.Contains(p.Name)).ToList();
             if (!parts.Any()) return doc;
 
@@ -112,7 +112,7 @@ namespace ApiGenerator.Domain.Specification
             }
         }
 
-        private string P(string name, string description) => $"///<param name=\"{name}\">{description}</param>";
+        private string P(string name, string description) => $"/// <param name=\"{name}\">{description}</param>";
 
         private string LeadingBackslash(string p) => p.StartsWith("/") ? p : $"/{p}";
     }

@@ -2,13 +2,13 @@
 @using ApiGenerator.Domain.Code.LowLevel
 @using ApiGenerator.Domain.Specification
 @inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
-///<summary>@Model.HttpMethod on @Model.Path@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
+/// <summary>@Model.HttpMethod on @Model.Path@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
 @foreach (var part in Model.Parts)
 {
-<text>      ///@Raw("<param name=\""+part.NameAsArgument+"\">")@part.Description@Raw("</param>")
+<text>      /// @Raw("<param name=\""+part.NameAsArgument+"\">")@part.Description@Raw("</param>")
 </text>
 }
-        ///@Raw(@"<param name=""requestParameters"">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>")
+        /// @Raw(@"<param name=""requestParameters"">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>")
         @if (Model.Stability != Stability.Stable)
         {
             string warningMessage = "";
@@ -23,9 +23,10 @@
             }
 
             warningMessage += " This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.";
-            
-<text>      ///@Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
 
+<text>      /// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
+
+</text>}
 </text>}
         @if (Model.DeprecatedPath != null)
         {

@@ -66,7 +66,7 @@ namespace ApiGenerator.Domain
                 var urlParameterEnums = Endpoints
 					.Values
 					.SelectMany(e => e.Url.Params.Values)
-					.Where(p => p.Options != null && p.Options.Any())
+					.Where(p => !p.Skip && p.Options != null && p.Options.Any())
 					.Select(p => new EnumDescription
 					{
 						Name = p.ClsName,
