@@ -53,6 +53,7 @@ namespace ApiGenerator.Configuration
 			new("cat.master"),
 			new("cat.nodeattrs"),
 			new("cat.nodes"),
+			new("cat.pending_tasks"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

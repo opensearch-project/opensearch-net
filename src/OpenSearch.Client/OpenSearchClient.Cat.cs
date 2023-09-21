@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</a>
-		/// </summary>
-		public CatResponse<CatPendingTasksRecord> PendingTasks(Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null) => PendingTasks(selector.InvokeOrDefault(new CatPendingTasksDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</a>
-		/// </summary>
-		public Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null, CancellationToken ct = default) => PendingTasksAsync(selector.InvokeOrDefault(new CatPendingTasksDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</a>
-		/// </summary>
-		public CatResponse<CatPendingTasksRecord> PendingTasks(ICatPendingTasksRequest request) => DoCat<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</a>
-		/// </summary>
-		public Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(ICatPendingTasksRequest request, CancellationToken ct = default) => DoCatAsync<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-plugins/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-plugins/</a>
