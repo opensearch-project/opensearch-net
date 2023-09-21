@@ -446,5 +446,29 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/nodeattrs <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse NodeAttributes<TResponse>(
+            CatNodeAttributesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/nodeattrs", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/nodeattrs <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.nodeattrs", "")]
+        public Task<TResponse> NodeAttributesAsync<TResponse>(
+            CatNodeAttributesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/nodeattrs",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

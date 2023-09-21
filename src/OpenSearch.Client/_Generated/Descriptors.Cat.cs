@@ -490,4 +490,49 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatMasterDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for NodeAttributes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+    public partial class CatNodeAttributesDescriptor
+        : RequestDescriptorBase<
+            CatNodeAttributesDescriptor,
+            CatNodeAttributesRequestParameters,
+            ICatNodeAttributesRequest
+        >,
+            ICatNodeAttributesRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodeAttributes;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatNodeAttributesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatNodeAttributesDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatNodeAttributesDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatNodeAttributesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public CatNodeAttributesDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatNodeAttributesDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatNodeAttributesDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatNodeAttributesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }

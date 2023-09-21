@@ -441,5 +441,53 @@ namespace OpenSearch.Client.Specification.CatApi
             CancellationToken ct = default
         ) =>
             DoCatAsync<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// </summary>
+        public CatResponse<CatNodeAttributesRecord> NodeAttributes(
+            Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null
+        ) => NodeAttributes(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// </summary>
+        public Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
+            Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null,
+            CancellationToken ct = default
+        ) => NodeAttributesAsync(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// </summary>
+        public CatResponse<CatNodeAttributesRecord> NodeAttributes(
+            ICatNodeAttributesRequest request
+        ) =>
+            DoCat<
+                ICatNodeAttributesRequest,
+                CatNodeAttributesRequestParameters,
+                CatNodeAttributesRecord
+            >(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// </summary>
+        public Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
+            ICatNodeAttributesRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatNodeAttributesRequest,
+                CatNodeAttributesRequestParameters,
+                CatNodeAttributesRecord
+            >(request, ct);
     }
 }
