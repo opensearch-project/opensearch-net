@@ -70,6 +70,8 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatNodeAttributes = new(new[] { "_cat/nodeattrs" });
 
+        internal static readonly ApiUrls CatNodes = new(new[] { "_cat/nodes" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 

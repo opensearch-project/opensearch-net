@@ -52,6 +52,7 @@ namespace ApiGenerator.Configuration
 			new("cat.indices"),
 			new("cat.master"),
 			new("cat.nodeattrs"),
+			new("cat.nodes"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

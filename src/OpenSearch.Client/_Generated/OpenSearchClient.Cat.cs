@@ -489,5 +489,42 @@ namespace OpenSearch.Client.Specification.CatApi
                 CatNodeAttributesRequestParameters,
                 CatNodeAttributesRecord
             >(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// </summary>
+        public CatResponse<CatNodesRecord> Nodes(
+            Func<CatNodesDescriptor, ICatNodesRequest> selector = null
+        ) => Nodes(selector.InvokeOrDefault(new CatNodesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// </summary>
+        public Task<CatResponse<CatNodesRecord>> NodesAsync(
+            Func<CatNodesDescriptor, ICatNodesRequest> selector = null,
+            CancellationToken ct = default
+        ) => NodesAsync(selector.InvokeOrDefault(new CatNodesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// </summary>
+        public CatResponse<CatNodesRecord> Nodes(ICatNodesRequest request) =>
+            DoCat<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// </summary>
+        public Task<CatResponse<CatNodesRecord>> NodesAsync(
+            ICatNodesRequest request,
+            CancellationToken ct = default
+        ) => DoCatAsync<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request, ct);
     }
 }

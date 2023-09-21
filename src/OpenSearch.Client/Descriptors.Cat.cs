@@ -57,34 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Nodes <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</para></summary>
-	public partial class CatNodesDescriptor : RequestDescriptorBase<CatNodesDescriptor, CatNodesRequestParameters, ICatNodesRequest>, ICatNodesRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodes;
-		// values part of the url path
-		// Request parameters
-		///<summary>The unit in which to display byte values</summary>
-		public CatNodesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatNodesDescriptor Format(string format) => Qs("format", format);
-		///<summary>Return the full node ID instead of the shortened version (default: false)</summary>
-		public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatNodesDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatNodesDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CatNodesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CatNodesDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatNodesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatNodesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</para></summary>
 	public partial class CatPendingTasksDescriptor : RequestDescriptorBase<CatPendingTasksDescriptor, CatPendingTasksRequestParameters, ICatPendingTasksRequest>, ICatPendingTasksRequest
 	{

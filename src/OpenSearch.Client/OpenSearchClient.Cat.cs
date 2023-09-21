@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public CatResponse<CatNodesRecord> Nodes(Func<CatNodesDescriptor, ICatNodesRequest> selector = null) => Nodes(selector.InvokeOrDefault(new CatNodesDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public Task<CatResponse<CatNodesRecord>> NodesAsync(Func<CatNodesDescriptor, ICatNodesRequest> selector = null, CancellationToken ct = default) => NodesAsync(selector.InvokeOrDefault(new CatNodesDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public CatResponse<CatNodesRecord> Nodes(ICatNodesRequest request) => DoCat<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-nodes/</a>
-		/// </summary>
-		public Task<CatResponse<CatNodesRecord>> NodesAsync(ICatNodesRequest request, CancellationToken ct = default) => DoCatAsync<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-pending-tasks/</a>

@@ -535,4 +535,54 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatNodeAttributesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for Nodes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</para></summary>
+    public partial class CatNodesDescriptor
+        : RequestDescriptorBase<CatNodesDescriptor, CatNodesRequestParameters, ICatNodesRequest>,
+            ICatNodesRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodes;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public CatNodesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatNodesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatNodesDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Return the full node ID instead of the shortened version.</summary>
+        public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatNodesDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatNodesDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        [Obsolete(
+            "Deprecated as of: 1.0, reason: This parameter does not cause this API to act locally."
+        )]
+        public CatNodesDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatNodesDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatNodesDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatNodesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }
