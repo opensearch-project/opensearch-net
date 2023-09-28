@@ -15,7 +15,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
 - Bumps `FSharp.Data` from 6.2.0 to 6.3.0
 - Bumps `BenchMarkDotNet` from 0.13.7 to 0.13.8
-- Bumps `AWSSDK.Core` from 3.7.202.1 to 3.7.202.10
+- Bumps `AWSSDK.Core` from 3.7.202.1 to 3.7.202.13
 - Bumps `xunit.runner.visualstudio` from 2.5.0 to 2.5.1
 - Bumps `Octokit` from 7.1.0 to 8.0.0
 
