@@ -83,7 +83,7 @@
 
   <h1 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor" class="text-break">Class ClusterGetSettingsDescriptor
 </h1>
-  <div class="markdown level0 summary"><p>Descriptor for GetSettings <p>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</p>
+  <div class="markdown level0 summary"><p>Descriptor for GetSettings <p>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -191,16 +191,16 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L97">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L117">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time timeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -214,7 +214,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
-        <td><span class="parametername">timeout</span></td>
+        <td><span class="parametername">clustermanagertimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -235,18 +235,18 @@
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.html#OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_MasterTimeout_OpenSearch_Client_Time_">MasterTimeout(Time)</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_FlatSettings_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.FlatSettings(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L89">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L121">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_FlatSettings_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_FlatSettings_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.FlatSettings(System.Nullable{System.Boolean})">FlatSettings(bool?)</h4>
-  <div class="markdown level1 summary"><p>Return settings in flat format (default: false)</p>
+  <div class="markdown level1 summary"><p>Return settings in flat format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,7 +290,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_IncludeDefaults_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.IncludeDefaults(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L91">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L125">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_IncludeDefaults_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.IncludeDefaults*"></a>
   <h4 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_IncludeDefaults_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.IncludeDefaults(System.Nullable{System.Boolean})">IncludeDefaults(bool?)</h4>
@@ -338,16 +338,17 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L94">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L129">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to master node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -381,19 +382,16 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_MasterTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.html#OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_">ClusterManagerTimeout(Time)</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_Timeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.Timeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L99">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L136">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_Timeout_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Operation timeout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -461,7 +459,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_ClusterApi_ClusterGetSettingsDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.ClusterApi.ClusterGetSettingsDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Cluster.cs/#L83" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L103" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
