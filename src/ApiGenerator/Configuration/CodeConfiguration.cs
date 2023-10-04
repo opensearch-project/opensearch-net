@@ -39,6 +39,15 @@ namespace ApiGenerator.Configuration
 	{
 		private static readonly Glob[] OperationsToInclude =
 		{
+			new("cluster.allocation_explain"),
+			new("cluster.delete_component_template"),
+			new("cluster.delete_voting_config_exclusions"),
+			new("cluster.exists_component_template"),
+			new("cluster.get_component_template"),
+			new("cluster.get_settings"),
+			new("cluster.health"),
+			new("cluster.pending_tasks"),
+
 			new("dangling_indices.*"),
 			new("ingest.*"),
             new("nodes.*"),
