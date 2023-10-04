@@ -72,12 +72,6 @@ namespace OpenSearch.Net
 			get;
 		}
 
-		///<summary>Cluster APIs</summary>
-		LowLevelClusterNamespace Cluster
-		{
-			get;
-		}
-
 		///<summary>Indices APIs</summary>
 		LowLevelIndicesNamespace Indices
 		{

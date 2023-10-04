@@ -70,12 +70,6 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Cluster APIs</summary>
-		ClusterNamespace Cluster
-		{
-			get;
-		}
-
 		///<summary>Indices APIs</summary>
 		IndicesNamespace Indices
 		{

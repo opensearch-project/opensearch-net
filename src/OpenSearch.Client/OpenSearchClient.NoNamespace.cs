@@ -70,13 +70,6 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Cluster APIs</summary>
-		public ClusterNamespace Cluster
-		{
-			get;
-			private set;
-		}
-
 		///<summary>Indices APIs</summary>
 		public IndicesNamespace Indices
 		{
@@ -87,7 +80,6 @@ namespace OpenSearch.Client
 		partial void SetupNamespaces()
 		{
 			Cat = new CatNamespace(this);
-			Cluster = new ClusterNamespace(this);
 			Indices = new IndicesNamespace(this);
 		}
 

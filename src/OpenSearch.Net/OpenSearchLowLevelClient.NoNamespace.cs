@@ -75,12 +75,6 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelClusterNamespace Cluster
-		{
-			get;
-			private set;
-		}
-
 		public LowLevelIndicesNamespace Indices
 		{
 			get;
@@ -90,7 +84,6 @@ namespace OpenSearch.Net
 		partial void SetupNamespaces()
 		{
 			Cat = new LowLevelCatNamespace(this);
-			Cluster = new LowLevelClusterNamespace(this);
 			Indices = new LowLevelIndicesNamespace(this);
 		}
 

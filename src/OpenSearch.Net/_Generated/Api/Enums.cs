@@ -192,6 +192,76 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum ExpandWildcards
+    {
+        [EnumMember(Value = "all")]
+        All,
+
+        [EnumMember(Value = "open")]
+        Open,
+
+        [EnumMember(Value = "closed")]
+        Closed,
+
+        [EnumMember(Value = "hidden")]
+        Hidden,
+
+        [EnumMember(Value = "none")]
+        None
+    }
+
+    [StringEnum]
+    public enum ClusterHealthLevel
+    {
+        [EnumMember(Value = "cluster")]
+        Cluster,
+
+        [EnumMember(Value = "indices")]
+        Indices,
+
+        [EnumMember(Value = "shards")]
+        Shards,
+
+        [EnumMember(Value = "awareness_attributes")]
+        AwarenessAttributes
+    }
+
+    [StringEnum]
+    public enum WaitForEvents
+    {
+        [EnumMember(Value = "immediate")]
+        Immediate,
+
+        [EnumMember(Value = "urgent")]
+        Urgent,
+
+        [EnumMember(Value = "high")]
+        High,
+
+        [EnumMember(Value = "normal")]
+        Normal,
+
+        [EnumMember(Value = "low")]
+        Low,
+
+        [EnumMember(Value = "languid")]
+        Languid
+    }
+
+    [StringEnum]
+    public enum WaitForStatus
+    {
+        [EnumMember(Value = "green")]
+        Green,
+
+        [EnumMember(Value = "yellow")]
+        Yellow,
+
+        [EnumMember(Value = "red")]
+        Red
+    }
+
+    [StringEnum]
     public enum SampleType
     {
         [EnumMember(Value = "cpu")]
@@ -249,6 +319,22 @@ namespace OpenSearch.Net
             EnumStringResolvers.TryAdd(
                 typeof(NodesUsageMetric),
                 e => GetStringValue((NodesUsageMetric)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(ExpandWildcards),
+                e => GetStringValue((ExpandWildcards)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(ClusterHealthLevel),
+                e => GetStringValue((ClusterHealthLevel)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(WaitForEvents),
+                e => GetStringValue((WaitForEvents)e)
+            );
+            EnumStringResolvers.TryAdd(
+                typeof(WaitForStatus),
+                e => GetStringValue((WaitForStatus)e)
             );
             EnumStringResolvers.TryAdd(typeof(SampleType), e => GetStringValue((SampleType)e));
             EnumStringResolvers.TryAdd(
@@ -362,6 +448,82 @@ namespace OpenSearch.Net
             if ((enumValue & NodesUsageMetric.RestActions) != 0)
                 list.Add("rest_actions");
             return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this ExpandWildcards enumValue)
+        {
+            switch (enumValue)
+            {
+                case ExpandWildcards.All:
+                    return "all";
+                case ExpandWildcards.Open:
+                    return "open";
+                case ExpandWildcards.Closed:
+                    return "closed";
+                case ExpandWildcards.Hidden:
+                    return "hidden";
+                case ExpandWildcards.None:
+                    return "none";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'ExpandWildcards'"
+            );
+        }
+
+        public static string GetStringValue(this ClusterHealthLevel enumValue)
+        {
+            switch (enumValue)
+            {
+                case ClusterHealthLevel.Cluster:
+                    return "cluster";
+                case ClusterHealthLevel.Indices:
+                    return "indices";
+                case ClusterHealthLevel.Shards:
+                    return "shards";
+                case ClusterHealthLevel.AwarenessAttributes:
+                    return "awareness_attributes";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'"
+            );
+        }
+
+        public static string GetStringValue(this WaitForEvents enumValue)
+        {
+            switch (enumValue)
+            {
+                case WaitForEvents.Immediate:
+                    return "immediate";
+                case WaitForEvents.Urgent:
+                    return "urgent";
+                case WaitForEvents.High:
+                    return "high";
+                case WaitForEvents.Normal:
+                    return "normal";
+                case WaitForEvents.Low:
+                    return "low";
+                case WaitForEvents.Languid:
+                    return "languid";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'"
+            );
+        }
+
+        public static string GetStringValue(this WaitForStatus enumValue)
+        {
+            switch (enumValue)
+            {
+                case WaitForStatus.Green:
+                    return "green";
+                case WaitForStatus.Yellow:
+                    return "yellow";
+                case WaitForStatus.Red:
+                    return "red";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForStatus'"
+            );
         }
 
         public static string GetStringValue(this SampleType enumValue)
