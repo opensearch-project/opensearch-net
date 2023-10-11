@@ -8,14 +8,18 @@ Index templates allow you to define default settings, mappings, and aliases for 
 Assuming you have OpenSearch running locally on port 9200, you can create a client instance with the following code:
 
 ```csharp
-using OpenSearch.Client;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.ClusterApi;
 
 var node = new Uri("https://localhost:9200");
 var config = new ConnectionConfiguration(node)
     .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
     .BasicAuthentication("admin", "admin");
+
 var client = new OpenSearchLowLevelClient(config);;
+
+// The PutComponentTemplate method is not yet implemented in the low-level client, so you need to use an instance of the LowLevelClusterNamespace class which contains the PutComponentTemplate method.
+LowLevelClusterNamespace cluster = client.Cluster; 
 ```
 
 
