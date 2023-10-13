@@ -39,6 +39,8 @@ namespace ApiGenerator.Configuration
 	{
 		private static readonly Glob[] OperationsToInclude =
 		{
+			new("{create,delete}_pit"),
+
 			new("cluster.allocation_explain"),
 			new("cluster.delete_component_template"),
 			new("cluster.delete_voting_config_exclusions"),

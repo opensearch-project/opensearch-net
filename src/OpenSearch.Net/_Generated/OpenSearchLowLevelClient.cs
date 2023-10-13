@@ -83,5 +83,75 @@ namespace OpenSearch.Net
             Snapshot = new LowLevelSnapshotNamespace(this);
             Tasks = new LowLevelTasksNamespace(this);
         }
+
+        /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public TResponse CreatePit<TResponse>(
+            string index,
+            CreatePitRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_search/point_in_time"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        [MapsApi("create_pit", "index")]
+        public Task<TResponse> CreatePitAsync<TResponse>(
+            string index,
+            CreatePitRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_search/point_in_time"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public TResponse DeletePit<TResponse>(
+            PostData body,
+            DeletePitRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                "_search/point_in_time",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        [MapsApi("delete_pit", "body")]
+        public Task<TResponse> DeletePitAsync<TResponse>(
+            PostData body,
+            DeletePitRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                "_search/point_in_time",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
     }
 }
