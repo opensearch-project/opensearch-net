@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.ClusterApi
 {
-    ///<summary>
+    /// <summary>
     /// Cluster APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Cluster"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class ClusterNamespace : NamespacedClientProxy
     {
         internal ClusterNamespace(OpenSearchClient client)

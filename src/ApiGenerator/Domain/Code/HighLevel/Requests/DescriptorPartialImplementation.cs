@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Domain.Specification;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Requests 
+namespace ApiGenerator.Domain.Code.HighLevel.Requests
 {
     public class DescriptorPartialImplementation
     {
@@ -41,7 +41,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
         public IReadOnlyCollection<UrlPath> Paths { get; set; }
         public IReadOnlyCollection<QueryParameters> Params { get; set; }
         public bool HasBody { get; set; }
-        
+
         public IEnumerable<FluentRouteSetter> GetFluentRouteSetters()
         {
             var setters = new List<FluentRouteSetter>();
@@ -67,26 +67,26 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
 
                 var code =
                     $"public {returnType} {p.InterfaceName}({p.HighLevelTypeName} {paramName}) => Assign({paramName}, (a,v)=>a.RouteValues.{routeSetter}(\"{p.Name}\", {routeValue}));";
-                var xmlDoc = $"///<summary>{p.Description}</summary>";
+                var xmlDoc = $"/// <summary>{p.Description}</summary>";
                 setters.Add(new FluentRouteSetter { Code = code, XmlDoc = xmlDoc });
                 if (paramName == "index")
                 {
                     code = $"public {returnType} {p.InterfaceName}<TOther>() where TOther : class ";
                     code += $"=> Assign(typeof(TOther), (a,v)=>a.RouteValues.{routeSetter}(\"{p.Name}\", ({p.HighLevelTypeName})v));";
-                    xmlDoc = $"///<summary>a shortcut into calling {p.InterfaceName}(typeof(TOther))</summary>";
+                    xmlDoc = $"/// <summary>a shortcut into calling {p.InterfaceName}(typeof(TOther))</summary>";
                     setters.Add(new FluentRouteSetter { Code = code, XmlDoc = xmlDoc });
                 }
                 if (paramName == "index" && p.Type == "list")
                 {
                     code = $"public {returnType} AllIndices() => Index(Indices.All);";
-                    xmlDoc = $"///<summary>A shortcut into calling Index(Indices.All)</summary>";
+                    xmlDoc = $"/// <summary>A shortcut into calling Index(Indices.All)</summary>";
                     setters.Add(new FluentRouteSetter { Code = code, XmlDoc = xmlDoc });
                 }
                 if (paramName == "fields" && p.Type == "list")
                 {
                     code = $"public {returnType} Fields<T>(params Expression<Func<T, object>>[] fields) ";
                     code += $"=> Assign(fields, (a,v)=>a.RouteValues.{routeSetter}(\"fields\", (Fields)v));";
-                    xmlDoc = $"///<summary>{p.Description}</summary>";
+                    xmlDoc = $"/// <summary>{p.Description}</summary>";
                     setters.Add(new FluentRouteSetter { Code = code, XmlDoc = xmlDoc });
                 }
             }

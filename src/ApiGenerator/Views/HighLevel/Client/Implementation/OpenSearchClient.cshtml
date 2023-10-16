@@ -1,6 +1,6 @@
 @using System.Linq
 @using ApiGenerator.Domain
-@using ApiGenerator 
+@using ApiGenerator
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
 @{ await IncludeGeneratorNotice(); }
@@ -17,15 +17,15 @@ using OpenSearch.Client;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client
 {
-    ///<summary>
-    ///OpenSearch high level client
-    ///</summary>
+    /// <summary>
+    /// OpenSearch high level client
+    /// </summary>
     public partial class OpenSearchClient : IOpenSearchClient
     {
 </text>
     foreach (var ns in namespaces)
     {
-<text>      ///<summary>@(ns.SplitPascalCase()) APIs</summary>
+<text>      /// <summary>@(ns.SplitPascalCase()) APIs</summary>
             public @CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; private set; }
 </text>
     }
@@ -41,7 +41,7 @@ namespace OpenSearch.Client
 <text>
         }
 </text>
-    
+
 
     foreach (var kv in Model.EndpointsPerNamespaceHighLevel)
     {

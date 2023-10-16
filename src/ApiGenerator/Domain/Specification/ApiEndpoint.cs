@@ -33,6 +33,7 @@ using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Code.HighLevel.Methods;
 using ApiGenerator.Domain.Code.HighLevel.Requests;
 using ApiGenerator.Domain.Code.LowLevel;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Specification
 {
@@ -78,7 +79,7 @@ namespace ApiGenerator.Domain.Specification
             CsharpNames = CsharpNames,
             OfficialDocumentationLink = OfficialDocumentationLink?.Url,
             Stability = Stability,
-            Paths = Url.Paths,
+            Paths = Url.Paths.ToList(),
             Parts = Url.Parts,
             Params = ParamsToGenerate.ToList(),
             Constructors = Constructor.RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: true).ToList(),
@@ -91,7 +92,7 @@ namespace ApiGenerator.Domain.Specification
             CsharpNames = CsharpNames,
             OfficialDocumentationLink = OfficialDocumentationLink?.Url,
             Constructors = Constructor.DescriptorConstructors(CsharpNames, Url).ToList(),
-            Paths = Url.Paths,
+            Paths = Url.Paths.ToList(),
             Parts = Url.Parts,
             Params = ParamsToGenerate.ToList(),
             HasBody = Body != null,
@@ -117,24 +118,45 @@ namespace ApiGenerator.Domain.Specification
         public string HighLevelMethodXmlDocDescription =>
             $"<c>{PreferredHttpMethod}</c> request to the <c>{Name}</c> API, read more about this API online:";
 
-        public HighLevelModel HighLevelModel => new HighLevelModel
-        {
+		private bool BodyIsOptional => Body is not { Required: true } || HttpMethods.Contains("GET");
+
+		private Deprecation Deprecated =>
+			!Url.Paths.Any() && Url.AllPaths.Count > 0
+				? Url.DeprecatedPaths
+					.Select(p => p.Deprecation)
+					.MaxBy(d => d.Version)
+				: null;
+
+		private Version VersionAdded =>
+			Url.AllPaths
+				.Select(p => p.VersionAdded)
+				.Where(v => v != null)
+				.Min();
+
+        public HighLevelModel HighLevelModel => new()
+		{
             CsharpNames = CsharpNames,
             Fluent = new FluentMethod(CsharpNames, Url.Parts,
-                selectorIsOptional: Body == null || !Body.Required || HttpMethods.Contains("GET"),
+                selectorIsOptional: BodyIsOptional,
                 link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription
+                summary: HighLevelMethodXmlDocDescription,
+				deprecated: Deprecated,
+				versionAdded: VersionAdded
             ),
             FluentBound = !CsharpNames.DescriptorBindsOverMultipleDocuments
                 ? null
                 : new BoundFluentMethod(CsharpNames, Url.Parts,
-                    selectorIsOptional: Body == null || !Body.Required || HttpMethods.Contains("GET"),
+                    selectorIsOptional: BodyIsOptional,
                     link: OfficialDocumentationLink?.Url,
-                    summary: HighLevelMethodXmlDocDescription
+                    summary: HighLevelMethodXmlDocDescription,
+					deprecated: Deprecated,
+					versionAdded: VersionAdded
                 ),
             Initializer = new InitializerMethod(CsharpNames,
                 link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription
+                summary: HighLevelMethodXmlDocDescription,
+				deprecated: Deprecated,
+				versionAdded: VersionAdded
             )
         };
 
@@ -153,7 +175,7 @@ namespace ApiGenerator.Domain.Specification
                     Generator.ApiGenerator.Warnings.Add($"API '{Name}' has no documentation");
 
                 var httpMethod = PreferredHttpMethod;
-                foreach (var path in Url.PathsWithDeprecations)
+                foreach (var path in Url.AllPaths)
                 {
                     var methodName = CsharpNames.PerPathMethodName(path.Path);
                     var parts = new List<UrlPart>(path.Parts);
@@ -183,11 +205,12 @@ namespace ApiGenerator.Domain.Specification
                         HttpMethod = httpMethod,
                         OfficialDocumentationLink = OfficialDocumentationLink?.Url,
                         Stability = Stability,
-                        DeprecatedPath = path.Deprecation,
+                        Deprecation = path.Deprecation,
                         Path = path.Path,
                         Parts = parts,
                         Url = Url,
-                        HasBody = Body != null
+                        HasBody = Body != null,
+						VersionAdded = path.VersionAdded,
                     };
                     _lowLevelClientMethods.Add(apiMethod);
                 }

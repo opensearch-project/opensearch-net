@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.SnapshotApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.SnapshotApi
 {
-    ///<summary>
+    /// <summary>
     /// Snapshot APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Snapshot"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class SnapshotNamespace : NamespacedClientProxy
     {
         internal SnapshotNamespace(OpenSearchClient client)

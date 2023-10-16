@@ -89,8 +89,8 @@ namespace OpenSearch.Client
                 new[]
                 {
                     "_nodes",
-                    "_nodes/{node_id}",
                     "_nodes/{metric}",
+                    "_nodes/{node_id}",
                     "_nodes/{node_id}/{metric}"
                 }
             );

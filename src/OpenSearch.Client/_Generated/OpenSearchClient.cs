@@ -56,27 +56,27 @@ using OpenSearch.Client.Specification.TasksApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client
 {
-    ///<summary>
-    ///OpenSearch high level client
-    ///</summary>
+    /// <summary>
+    /// OpenSearch high level client
+    /// </summary>
     public partial class OpenSearchClient : IOpenSearchClient
     {
-        ///<summary>Cluster APIs</summary>
+        /// <summary>Cluster APIs</summary>
         public ClusterNamespace Cluster { get; private set; }
 
-        ///<summary>Dangling Indices APIs</summary>
+        /// <summary>Dangling Indices APIs</summary>
         public DanglingIndicesNamespace DanglingIndices { get; private set; }
 
-        ///<summary>Ingest APIs</summary>
+        /// <summary>Ingest APIs</summary>
         public IngestNamespace Ingest { get; private set; }
 
-        ///<summary>Nodes APIs</summary>
+        /// <summary>Nodes APIs</summary>
         public NodesNamespace Nodes { get; private set; }
 
-        ///<summary>Snapshot APIs</summary>
+        /// <summary>Snapshot APIs</summary>
         public SnapshotNamespace Snapshot { get; private set; }
 
-        ///<summary>Tasks APIs</summary>
+        /// <summary>Tasks APIs</summary>
         public TasksNamespace Tasks { get; private set; }
 
         partial void SetupGeneratedNamespaces()

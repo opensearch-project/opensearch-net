@@ -58,20 +58,20 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-    ///<summary>
+    /// <summary>
     /// Cluster APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Cluster"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class LowLevelClusterNamespace : NamespacedClientProxy
     {
         internal LowLevelClusterNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        ///<summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
-        ///<param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+        /// <param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse AllocationExplain<TResponse>(
             PostData body,
             ClusterAllocationExplainRequestParameters requestParameters = null
@@ -84,9 +84,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
-        ///<param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+        /// <param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.allocation_explain", "body")]
         public Task<TResponse> AllocationExplainAsync<TResponse>(
             PostData body,
@@ -102,9 +102,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The name of the template.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteComponentTemplate<TResponse>(
             string name,
             DeleteComponentTemplateRequestParameters requestParameters = null
@@ -117,9 +117,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The name of the template.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_component_template", "name")]
         public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(
             string name,
@@ -135,8 +135,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteVotingConfigExclusions<TResponse>(
             DeleteVotingConfigExclusionsRequestParameters requestParameters = null
         )
@@ -148,8 +148,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_voting_config_exclusions", "")]
         public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(
             DeleteVotingConfigExclusionsRequestParameters requestParameters = null,
@@ -164,9 +164,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The name of the template.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExistsComponentTemplate<TResponse>(
             string name,
             ExistsComponentTemplateRequestParameters requestParameters = null
@@ -179,9 +179,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The name of the template.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.exists_component_template", "name")]
         public Task<TResponse> ExistsComponentTemplateAsync<TResponse>(
             string name,
@@ -197,8 +197,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetComponentTemplate<TResponse>(
             GetComponentTemplateRequestParameters requestParameters = null
         )
@@ -210,8 +210,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "")]
         public Task<TResponse> GetComponentTemplateAsync<TResponse>(
             GetComponentTemplateRequestParameters requestParameters = null,
@@ -226,9 +226,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The Comma-separated names of the component templates.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The Comma-separated names of the component templates.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetComponentTemplate<TResponse>(
             string name,
             GetComponentTemplateRequestParameters requestParameters = null
@@ -241,9 +241,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="name">The Comma-separated names of the component templates.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The Comma-separated names of the component templates.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "name")]
         public Task<TResponse> GetComponentTemplateAsync<TResponse>(
             string name,
@@ -259,16 +259,16 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetSettings<TResponse>(
             ClusterGetSettingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cluster/settings", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_settings", "")]
         public Task<TResponse> GetSettingsAsync<TResponse>(
             ClusterGetSettingsRequestParameters requestParameters = null,
@@ -283,14 +283,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(ClusterHealthRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_cluster/health", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "")]
         public Task<TResponse> HealthAsync<TResponse>(
             ClusterHealthRequestParameters requestParameters = null,
@@ -305,9 +305,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        ///<param name="index">Limit the information returned to specific indicies.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        /// <param name="index">Limit the information returned to specific indicies.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(
             string index,
             ClusterHealthRequestParameters requestParameters = null
@@ -320,9 +320,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        ///<param name="index">Limit the information returned to specific indicies.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+        /// <param name="index">Limit the information returned to specific indicies.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "index")]
         public Task<TResponse> HealthAsync<TResponse>(
             string index,
@@ -338,8 +338,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PendingTasks<TResponse>(
             ClusterPendingTasksRequestParameters requestParameters = null
         )
@@ -351,8 +351,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.pending_tasks", "")]
         public Task<TResponse> PendingTasksAsync<TResponse>(
             ClusterPendingTasksRequestParameters requestParameters = null,

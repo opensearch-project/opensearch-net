@@ -52,29 +52,29 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.DanglingIndicesApi
 {
-    ///<summary>Request options for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class DeleteDanglingIndexRequestParameters
         : RequestParameters<DeleteDanglingIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
 
-        ///<summary>Must be set to true in order to delete the dangling index.</summary>
+        /// <summary>Must be set to true in order to delete the dangling index.</summary>
         public bool? AcceptDataLoss
         {
             get => Q<bool?>("accept_data_loss");
             set => Q("accept_data_loss", value);
         }
 
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             set => Q("master_timeout", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -92,29 +92,29 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
     }
 
-    ///<summary>Request options for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ImportDanglingIndexRequestParameters
         : RequestParameters<ImportDanglingIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
 
-        ///<summary>Must be set to true in order to import the dangling index.</summary>
+        /// <summary>Must be set to true in order to import the dangling index.</summary>
         public bool? AcceptDataLoss
         {
             get => Q<bool?>("accept_data_loss");
             set => Q("accept_data_loss", value);
         }
 
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -124,7 +124,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             set => Q("master_timeout", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -132,7 +132,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
     }
 
-    ///<summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesRequestParameters
         : RequestParameters<ListDanglingIndicesRequestParameters>
     {

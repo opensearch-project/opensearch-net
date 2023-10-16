@@ -7,7 +7,7 @@
 @{
 	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-///<summary>Request for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
+/// <summary>Request for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
 @if (Model.Stability != Stability.Stable)
 {
     string warningMessage = "";
@@ -20,8 +20,8 @@
             warningMessage = "this functionality is in beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.";
             break;
     }
-            
-<text>///@Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
+
+<text>/// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
 
 </text>}
     public partial class @Raw(Model.Name) @Raw(string.Format(": PlainRequestBase<{0}>, {1}", Model.CsharpNames.ParametersName, Model.InterfaceName))

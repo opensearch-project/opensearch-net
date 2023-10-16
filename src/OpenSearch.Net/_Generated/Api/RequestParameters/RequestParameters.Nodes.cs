@@ -52,49 +52,49 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.NodesApi
 {
-    ///<summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+    /// <summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsRequestParameters
         : RequestParameters<NodesHotThreadsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
+        /// <summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
         public bool? IgnoreIdleThreads
         {
             get => Q<bool?>("ignore_idle_threads");
             set => Q("ignore_idle_threads", value);
         }
 
-        ///<summary>The interval for the second sampling of threads.</summary>
+        /// <summary>The interval for the second sampling of threads.</summary>
         public TimeSpan Interval
         {
             get => Q<TimeSpan>("interval");
             set => Q("interval", value);
         }
 
-        ///<summary>The type to sample.</summary>
+        /// <summary>The type to sample.</summary>
         public SampleType? SampleType
         {
             get => Q<SampleType?>("type");
             set => Q("type", value);
         }
 
-        ///<summary>Number of samples of thread stacktrace.</summary>
+        /// <summary>Number of samples of thread stacktrace.</summary>
         public long? Snapshots
         {
             get => Q<long?>("snapshots");
             set => Q("snapshots", value);
         }
 
-        ///<summary>Specify the number of threads to provide information for.</summary>
+        /// <summary>Specify the number of threads to provide information for.</summary>
         public long? Threads
         {
             get => Q<long?>("threads");
             set => Q("threads", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -102,20 +102,20 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    ///<summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    /// <summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
     public partial class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Return settings in flat format.</summary>
+        /// <summary>Return settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -123,14 +123,14 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    ///<summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    /// <summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
     public partial class ReloadSecureSettingsRequestParameters
         : RequestParameters<ReloadSecureSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -138,63 +138,63 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    ///<summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
     public partial class NodesStatsRequestParameters
         : RequestParameters<NodesStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
         public string[] CompletionFields
         {
             get => Q<string[]>("completion_fields");
             set => Q("completion_fields", value);
         }
 
-        ///<summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
         public string[] FielddataFields
         {
             get => Q<string[]>("fielddata_fields");
             set => Q("fielddata_fields", value);
         }
 
-        ///<summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
             set => Q("fields", value);
         }
 
-        ///<summary>Comma-separated list of search groups for `search` index metric.</summary>
+        /// <summary>Comma-separated list of search groups for `search` index metric.</summary>
         public string[] Groups
         {
             get => Q<string[]>("groups");
             set => Q("groups", value);
         }
 
-        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
             set => Q("include_segment_file_sizes", value);
         }
 
-        ///<summary>Return indices stats aggregated at index, node or shard level.</summary>
+        /// <summary>Return indices stats aggregated at index, node or shard level.</summary>
         public NodesStatLevel? NodesStatLevel
         {
             get => Q<NodesStatLevel?>("level");
             set => Q("level", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
 
-        ///<summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        /// <summary>Comma-separated list of document types for the `indexing` index metric.</summary>
         public string[] Types
         {
             get => Q<string[]>("types");
@@ -202,14 +202,14 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    ///<summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
     public partial class NodesUsageRequestParameters
         : RequestParameters<NodesUsageRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");

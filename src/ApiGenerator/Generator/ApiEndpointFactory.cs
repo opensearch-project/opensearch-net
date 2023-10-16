@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Net.Mime;
+using System.Text.RegularExpressions;
 using ApiGenerator.Configuration;
 using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
@@ -39,6 +40,8 @@ using ApiGenerator.Domain.Specification;
 using NJsonSchema;
 using NJsonSchema.References;
 using NSwag;
+using SemanticVersioning;
+using Version = SemanticVersioning.Version;
 
 namespace ApiGenerator.Generator
 {
@@ -50,63 +53,103 @@ namespace ApiGenerator.Generator
 	        var methodName = tokens[^1];
 	        var ns = tokens.Length > 1 ? tokens[0] : null;
 
-	        var urlInfo = new UrlInformation();
-	        HashSet<string> requiredPathParams = null;
-	        var allPathParams = new List<OpenApiParameter>();
+	        HashSet<string> requiredPathParts = null;
+	        var allParts = new Dictionary<string, UrlPart>();
+			var canonicalPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
+			var deprecatedPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
+			var overloads = new List<(UrlPath Path, List<(string From, string To)> Renames)>();
 
 	        foreach (var (httpPath, path, _, operation) in variants.DistinctBy(v => v.HttpPath))
-	        {
-	            if (!operation.IsDeprecated)
-                    urlInfo.OriginalPaths.Add(httpPath);
-                else
-                {
-                    urlInfo.DeprecatedPaths.Add(new DeprecatedPath
-                    {
-                        Path = httpPath,
-                        Version = operation.GetExtension("x-version-deprecated") as string,
-                        Description = operation.GetExtension("x-deprecation-message") as string
-                    });
-                }
+			{
+				var parts = new List<UrlPart>();
+				var partNames = new HashSet<string>();
+				var overloadedParts = new List<(string From, string To)>();
 
-	            var pathParams = path.Parameters
-	                .Concat(operation.Parameters)
-	                .Where(p => p.Kind == OpenApiParameterKind.Path)
-	                .ToList();
-
-				foreach (var overloadedParam in pathParams.Where(p => p.Schema.XOverloadedParam() != null))
+				foreach (var param in path.Parameters
+							 .Concat(operation.Parameters)
+							 .Where(p => p.Kind == OpenApiParameterKind.Path))
 				{
-					urlInfo.OriginalPaths.Add(httpPath.Replace(
-						$"{{{overloadedParam.Name}}}",
-						$"{{{overloadedParam.Schema.XOverloadedParam()}}}"
-					));
+					var partName = param.Name;
+					if (!allParts.TryGetValue(partName, out var part))
+					{
+						part = allParts[partName] = new UrlPart
+						{
+							ClrTypeNameOverride = null,
+							Deprecated = param.IsDeprecated,
+							Description = param.Description,
+							Name = partName,
+							Type = GetOpenSearchType(param.Schema),
+							Options = GetEnumOptions(param.Schema)
+						};
+					}
+					partNames.Add(partName);
+					parts.Add(part);
+
+					if (param.Schema.XOverloadedParam() is {} overloadedParam) overloadedParts.Add((partName, overloadedParam));
 				}
 
-	            var paramNames = pathParams.Select(p => p.Name);
-				if (requiredPathParams != null)
-	                requiredPathParams.IntersectWith(paramNames);
-	            else
-	                requiredPathParams = new HashSet<string>(paramNames);
+				parts.SortBy(p => httpPath.IndexOf($"{{{p.Name}}}", StringComparison.Ordinal));
 
-	            allPathParams.AddRange(pathParams);
+				var urlPath = new UrlPath(httpPath, parts, GetDeprecation(operation), operation.XVersionAdded());
+				(urlPath.Deprecation == null ? canonicalPaths : deprecatedPaths).TryAdd(partNames, urlPath);
+
+				if (overloadedParts.Count > 0)
+					overloads.Add((urlPath, overloadedParts));
+
+				if (requiredPathParts != null)
+	                requiredPathParts.IntersectWith(partNames);
+	            else
+	                requiredPathParts = partNames;
 	        }
 
-	        urlInfo.OriginalParts = allPathParams.DistinctBy(p => p.Name)
-	            .Select(p => new UrlPart
-	            {
-	                ClrTypeNameOverride = null,
-	                Deprecated = p.IsDeprecated,
-	                Description = p.Description,
-	                Name = p.Name,
-	                Required = requiredPathParams?.Contains(p.Name) ?? false,
-	                Type = GetOpenSearchType(p.Schema),
-	                Options = GetEnumOptions(p.Schema)
-	            })
-	            .ToImmutableSortedDictionary(p => p.Name, p => p);
+			foreach (var (path, renames) in overloads)
+			{
+				foreach (var (from, to) in renames)
+				{
+					var newPath = path.Path.Replace($"{{{from}}}", $"{{{to}}}");
+					var newParts = path.Parts.Select(p => p.Name == from ? allParts[to] : p).ToList();
+					var newPartNames = newParts.Select(p => p.Name).ToHashSet();
+					var newUrlPath = new UrlPath(newPath, newParts, path.Deprecation, path.VersionAdded);
+					(newUrlPath.Deprecation == null ? canonicalPaths : deprecatedPaths).TryAdd(newPartNames, newUrlPath);
+				}
+			}
 
-	        urlInfo.Params = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
-	            .Where(p => p.Kind == OpenApiParameterKind.Query)
-	            .DistinctBy(p => p.Name)
-	            .ToImmutableSortedDictionary(p => p.Name, BuildQueryParam);
+			//some deprecated paths describe aliases to the canonical using the same path e.g
+            // PUT /{index}/_mapping/{type}
+            // PUT /{index}/{type}/_mappings
+            //
+            //The following routine dedups these occasions and prefers either the canonical path
+            //or the first duplicate deprecated path
+
+			var paths = canonicalPaths.Values
+				.Concat(deprecatedPaths
+					.Where(p => !canonicalPaths.ContainsKey(p.Key))
+					.Select(p => p.Value))
+				.ToList();
+			paths.Sort((p1, p2) => p1.Parts
+					.Zip(p2.Parts)
+					.Select(t => string.Compare(t.First.Name, t.Second.Name, StringComparison.Ordinal))
+					.SkipWhile(c => c == 0)
+					.FirstOrDefault());
+
+                // // now, check for and prefer deprecated URLs
+                //
+                // var finalPathsWithDeprecations = new List<UrlPath>(_pathsWithDeprecation.Count);
+                //
+                // foreach (var path in _pathsWithDeprecation)
+                // {
+                //     if (path.Deprecation is null &&
+                //         DeprecatedPaths.SingleOrDefault(p => p.Path.Equals(path.Path, StringComparison.OrdinalIgnoreCase)) is { } match)
+                //     {
+                //         finalPathsWithDeprecations.Add(new UrlPath(match, OriginalParts, Paths));
+                //     }
+                //     else
+                //     {
+                //         finalPathsWithDeprecations.Add(path);
+                //     }
+                // }
+
+			foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>()) allParts[partName].Required = true;
 
 	        var endpoint = new ApiEndpoint
 	        {
@@ -120,7 +163,14 @@ namespace ApiGenerator.Generator
 	                Description = variants[0].Operation.Description,
 	                Url = variants[0].Operation.ExternalDocumentation?.Url
 	            },
-	            Url = urlInfo,
+	            Url = new UrlInformation
+				{
+					AllPaths = paths,
+					Params = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
+						.Where(p => p.Kind == OpenApiParameterKind.Query)
+						.DistinctBy(p => p.Name)
+						.ToImmutableSortedDictionary(p => p.Name, BuildQueryParam)
+				},
 	            Body = variants
 					.Select(v => v.Operation.RequestBody)
 					.FirstOrDefault(b => b != null) is { } reqBody
@@ -192,11 +242,11 @@ namespace ApiGenerator.Generator
 			?? schema.ActualSchema.Enumeration?.Select(e => e.ToString())
 			?? Enumerable.Empty<string>();
 
-		private static QueryParameterDeprecation GetDeprecation(IJsonExtensionObject schema) =>
+		private static Deprecation GetDeprecation(IJsonExtensionObject schema) =>
 			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
 			{
 				(null, null) => null,
-				var (m, v) => new QueryParameterDeprecation { Description = m, Version = v }
+				var (m, v) => new Deprecation { Description = m, Version = v }
 			};
 
 		private static string GetDescription(OpenApiRequestBody requestBody)
@@ -215,8 +265,15 @@ namespace ApiGenerator.Generator
 		private static string XVersionDeprecated(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-version-deprecated") as string;
 
-		private static string XVersionAdded(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-version-added") as string;
+		private static Version XVersionAdded(this IJsonExtensionObject schema) =>
+			schema.GetExtension("x-version-added") is string s
+			? s.Split('.').Length switch
+			{
+				1 => new Version($"{s}.0.0"),
+				2 => new Version($"{s}.0"),
+				_ => new Version(s),
+			}
+			: null;
 
 		private static string XDataType(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-data-type") as string;

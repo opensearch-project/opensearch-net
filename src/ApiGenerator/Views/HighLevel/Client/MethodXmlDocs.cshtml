@@ -1,8 +1,18 @@
 @using ApiGenerator
 @using ApiGenerator.Domain.Code.HighLevel.Methods;
+@using Version = SemanticVersioning.Version;
 @inherits CodeTemplatePage<MethodSyntaxBase>
 /// <summary>
 /// @Raw(Model.XmlDocSummary)
 /// @Raw("<para></para>")
 /// <a href="@Model.DocumentationLink">@Model.DocumentationLink</a>
 /// </summary>
+@if (Model.VersionAdded is {} versionAdded && versionAdded > new Version("1.0.0"))
+{
+<text>/// <remarks>Supported by OpenSearch servers of version @(versionAdded) or greater.</remarks>
+</text>
+}
+@if (Model.Deprecated is {} deprecation)
+{
+@Raw($"[Obsolete(\"{deprecation}\")]")
+}

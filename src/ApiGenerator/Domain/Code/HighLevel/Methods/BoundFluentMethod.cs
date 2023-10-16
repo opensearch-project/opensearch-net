@@ -30,17 +30,18 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Methods 
+namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public class BoundFluentMethod : FluentSyntaxBase
     {
-        public BoundFluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary) 
-            : base(names, parts, selectorIsOptional, link, summary) { }
+        public BoundFluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated, Version versionAdded)
+            : base(names, parts, selectorIsOptional, link, summary, deprecated, versionAdded) { }
 
         private string DescriptorTypeParams => string.Join(", ", CsharpNames.DescriptorGenerics
             .Select(e => CsharpNames.DescriptorBoundDocumentGeneric));
-        
+
         private string RequestTypeParams => string.Join(", ", CsharpNames.SplitGeneric(CsharpNames.GenericsDeclaredOnRequest)
             .Select(e => CsharpNames.DescriptorBoundDocumentGeneric));
 
@@ -48,17 +49,17 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
             || !CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName)
                 ? CsharpNames.RequestInterfaceName
                 : $"{CsharpNames.RequestInterfaceName}<{RequestTypeParams}>";
-        
+
         public override string DescriptorName => $"{CsharpNames.DescriptorName}<{DescriptorTypeParams}>";
         public override string GenericWhereClause => $"where {CsharpNames.DescriptorBoundDocumentGeneric} : class";
         public override string MethodGenerics => $"<{CsharpNames.DescriptorBoundDocumentGeneric}>";
-        
-        public override string RequestMethodGenerics => !string.IsNullOrWhiteSpace(RequestTypeParams) 
+
+        public override string RequestMethodGenerics => !string.IsNullOrWhiteSpace(RequestTypeParams)
             ? $"<{RequestTypeParams}>"
             : base.RequestMethodGenerics;
-        
+
         public override string Selector => $"Func<{DescriptorName}, {SelectorReturn}>";
-        
+
 
     }
 }

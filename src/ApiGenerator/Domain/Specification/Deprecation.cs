@@ -26,34 +26,20 @@
 *  under the License.
 */
 
-using ApiGenerator.Domain.Specification;
-using SemanticVersioning;
+namespace ApiGenerator.Domain.Specification;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Methods
+public class Deprecation
 {
-    public abstract class MethodSyntaxBase
-    {
-        protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) =>
-            (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated, VersionAdded) = (names, link, summary, deprecated, versionAdded);
+	public string Version { get; set; }
 
-        public string DocumentationLink { get;  }
+	public string Description { get; set; }
 
-        public string XmlDocSummary { get;  }
-
-		public Deprecation Deprecated { get; }
-
-		public Version VersionAdded { get; set; }
-
-        protected CsharpNames CsharpNames { get; }
-
-        public bool InterfaceResponse => ResponseName.StartsWith("ISearchResponse<");
-
-        public string ResponseName => CsharpNames.GenericOrNonGenericResponseName;
-
-        public string DocumentationCref => CsharpNames.GenericOrNonGenericInterfacePreference;
-
-        public abstract string MethodGenerics { get; }
-
-        public abstract string GenericWhereClause { get; }
-    }
+	public override string ToString() =>
+		(!string.IsNullOrEmpty(Version), !string.IsNullOrEmpty(Description)) switch
+		{
+			(true, true) => $"Deprecated as of: {Version}, reason: {Description}",
+			(true, false) => $"Deprecated as of: {Version}",
+			(false, true) => $"reason: {Description}",
+			_ => "deprecated"
+		};
 }

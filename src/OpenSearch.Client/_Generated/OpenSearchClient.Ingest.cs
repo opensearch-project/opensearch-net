@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.IngestApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.IngestApi
 {
-    ///<summary>
+    /// <summary>
     /// Ingest APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Ingest"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class IngestNamespace : NamespacedClientProxy
     {
         internal IngestNamespace(OpenSearchClient client)

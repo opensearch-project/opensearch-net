@@ -71,5 +71,8 @@ namespace ApiGenerator
 
 		public static bool IsNullOrEmpty(this string s) =>
 			string.IsNullOrEmpty(s);
+
+		public static void SortBy<TElem, TKey>(this List<TElem> list, Func<TElem, TKey> selector) =>
+			list.Sort((a, b) => Comparer<TKey>.Default.Compare(selector(a), selector(b)));
 	}
 }
