@@ -10,9 +10,9 @@
     var baseInterface = names.GenericOrNonGenericInterfacePreference;
     var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
-    ///<summary>Descriptor for @names.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
+    /// <summary>Descriptor for @names.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
     public partial class @Raw(type) @(Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,names.ParametersName, concreteInterface)))
-    { 
+    {
         internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)
 {
@@ -50,36 +50,27 @@
     var tSuffix = (t == "bool" || t == "bool?") ? " = true" : "";
     var typed = !string.IsNullOrEmpty(names.GenericsDeclaredOnDescriptor);
     var g = typed ? names.GenericsDeclaredOnDescriptor.Replace("<", "").Replace(">", "") : "T";
-    var desc = param.DescriptionHighLevel.ToList();
-    
-    await IncludeAsync("HighLevel/Descriptors/XmlDocs.cshtml", desc);
 
-	if (!string.IsNullOrWhiteSpace(param.VersionAdded))
-	{
-		<text>
-		///<remarks>Supported by OpenSearch servers of version @(param.VersionAdded) or greater.</remarks></text>
-	}
+    await IncludeAsync("HighLevel/Descriptors/XmlDocs.cshtml", param);
 
 	if(!string.IsNullOrWhiteSpace(param.Obsolete))
     {
-        <text>
-        [Obsolete("@Raw(param.Obsolete)")]
-        </text>
+<text>        [Obsolete("@Raw(param.Obsolete)")]
+</text>
     }
-<text>
-        public @Raw(type) @(param.ClsName)(@param.DescriptorArgumentType @param.ClsArgumentName@tSuffix) => Qs("@original", @(param.ClsArgumentName));
+<text>        public @Raw(type) @(param.ClsName)(@param.DescriptorArgumentType @param.ClsArgumentName@tSuffix) => Qs("@original", @(param.ClsArgumentName));
 </text>
     if (param.IsFieldsParam)
     {
 <text>
-        ///<summary>@param.Description</summary>
+        /// <summary>@param.Description</summary>
         public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(params @Raw("Expression<Func<" + g + ", object>>[]") fields) @Raw(typed ? "" : "where " + g + " : class") => Qs("@original", fields?@Raw(".Select(e=>(Field)e)"));
 </text>
     }
     else if (param.IsFieldParam)
     {
 <text>
-        ///<summary>@param.Description</summary>
+        /// <summary>@param.Description</summary>
         public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(@Raw("Expression<Func<"+ g +", object>>") field) @Raw(typed ? "" : "where " + g + " : class") => Qs("@original", (Field)field);
 </text>
     }
@@ -90,6 +81,6 @@
         public bool IsUnmapped => true;
         public bool UseIsUnmapped => IsUnmapped;
      </text>
-    }   
+    }
     }
 

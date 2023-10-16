@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.LowLevel
 {
@@ -44,35 +45,31 @@ namespace ApiGenerator.Domain.Code.LowLevel
         public string PerPathMethodName { get; set; }
         public string HttpMethod { get; set; }
 
-        public DeprecatedPath DeprecatedPath { get; set; }
+        public Deprecation Deprecation { get; set; }
         public UrlInformation Url { get; set; }
         public bool HasBody { get; set; }
         public IEnumerable<UrlPart> Parts { get; set; }
         public string Path { get; set; }
 
+		public Version VersionAdded { get; set; }
 
         public string UrlInCode
         {
             get
             {
-                string Evaluator(Match m)
-                {
-
-                    var arg = m.Groups[^1].Value.ToCamelCase();
-                    return $"{{{arg}:{arg}}}";
-                }
-
-                var url = Path.TrimStart('/');
-                var options = Url.OriginalParts?.Select(p => p.Key) ?? Enumerable.Empty<string>();
+				var url = Path.TrimStart('/');
+                var options = Url.AllPaths.SelectMany(p => p.Parts).Select(p => p.Name).Distinct();
 
                 var pattern = string.Join("|", options);
                 var urlCode = $"\"{url}\"";
-                if (Path.Contains("{"))
-                {
-                    var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", Evaluator);
-                    urlCode = $"Url($\"{patchedUrl}\")";
-                }
-                return urlCode;
+				if (!Path.Contains('{')) return urlCode;
+
+				var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", m =>
+				{
+					var arg = m.Groups[^1].Value.ToCamelCase();
+					return $"{{{arg}:{arg}}}";
+				});
+				return  $"Url($\"{patchedUrl}\")";
             }
         }
 

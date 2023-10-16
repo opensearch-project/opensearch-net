@@ -1,6 +1,6 @@
 @using System.Collections.ObjectModel
 @using System.Linq
-@using ApiGenerator 
+@using ApiGenerator
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
@@ -25,20 +25,20 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix)
 {
-    ///<summary>
+    /// <summary>
     /// @ns.SplitPascalCase() APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
     {
         internal @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
 @if (ns == "Cat")
 {
-    <text>protected override string ContentType { get; } = "text/plain";</text>
+    <text>protected override string ContentType => "text/plain";</text>
 }
-    @{  
+    @{
         var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
         foreach (var method in methods)
         {

@@ -127,7 +127,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
                     Parameterless = true,
                     Generated = $"protected {typeName}() : base()",
                     Description =
-                        $"///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>{Indent}[SerializationConstructor]",
+                        $"/// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>{Indent}[SerializationConstructor]",
                 });
             return constructors;
         }

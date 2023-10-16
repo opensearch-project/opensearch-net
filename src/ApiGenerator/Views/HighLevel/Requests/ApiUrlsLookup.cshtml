@@ -15,7 +15,7 @@ namespace OpenSearch.Client
         continue;
     }
     var propertyName = $"{endpoint.CsharpNames.Namespace}{endpoint.CsharpNames.MethodName}";
-    var paths = endpoint.Url.Paths.Count == 0 ? endpoint.Url.PathsWithDeprecations : endpoint.Url.Paths;
+    var paths = !endpoint.Url.Paths.Any() ? endpoint.Url.AllPaths : endpoint.Url.Paths;
     <text>
         internal static readonly ApiUrls @(Raw(propertyName)) = new(new [] {@Raw(string.Join(", ", paths.Select(p=>$"\"{p.Path.TrimStart('/')}\"")))});
     </text>

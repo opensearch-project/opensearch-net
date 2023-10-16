@@ -26,50 +26,28 @@
 *  under the License.
 */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using SemanticVersioning;
 
-namespace ApiGenerator.Domain.Specification 
+namespace ApiGenerator.Domain.Specification
 {
     public class UrlPath
     {
-        private readonly List<UrlPart> _additionalPartsForConstructor;
+        private readonly IList<UrlPart> _additionalPartsForConstructor;
         public string Path { get; }
-        public DeprecatedPath Deprecation { get; }
+        public Deprecation Deprecation { get; }
+		public Version VersionAdded { get; }
+        public IList<UrlPart> Parts { get; }
 
-
-        public List<UrlPart> Parts { get; }
-
-        //TODO mark the parts that are deprecated
-        public UrlPath(DeprecatedPath path, IDictionary<string, UrlPart> originalParts, IReadOnlyCollection<UrlPath> allNonDeprecatedPaths) 
-            : this(path.Path, originalParts)
-        {
-            Deprecation = path;
-            foreach (var part in Parts)
-            {
-                if (!part.Deprecated && !allNonDeprecatedPaths.Any(p => p.Path.Contains($"{{{part.Name}}}")))
-                    part.Deprecated = true;
-            }
-        }
-        public UrlPath(string path, IDictionary<string, UrlPart> allParts, List<UrlPart> additionalPartsForConstructor = null)
+        public UrlPath(string path, IList<UrlPart> parts, Deprecation deprecation, Version versionAdded, IList<UrlPart> additionalPartsForConstructor = null)
         {
             _additionalPartsForConstructor = additionalPartsForConstructor ?? new List<UrlPart>();
             Path = LeadingBackslash(path);
-            if (allParts == null)
-            {
-                Parts = new List<UrlPart>();
-                return;
-            }
-            var parts =
-                from p in allParts
-                //so deliciously side effect-y but at least its more isolated then in ApiEndpoint.CsharpMethods
-                let name = p.Value.Name = p.Key
-                where path.Contains($"{{{name}}}")
-                orderby path.IndexOf($"{{{name}}}", StringComparison.Ordinal)
-                select p.Value;
-            Parts = parts.ToList();
-        }
+            Parts = parts;
+			Deprecation = deprecation;
+			VersionAdded = versionAdded;
+		}
 
         public string ConstructorArguments => string.Join(", ", Parts.Select(p => $"{p.HighLevelTypeName} {p.NameAsArgument}"));
         public string RequestBaseArguments =>
@@ -95,7 +73,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string GetXmlDocs(string indent, bool skipResolvable = false, bool documentConstructor = false)
         {
-            var doc = $@"///<summary>{Path}</summary>";
+            var doc = $@"/// <summary>{Path}</summary>";
             var parts = Parts.Where(p => !skipResolvable || !ResolvabeFromT.Contains(p.Name)).ToList();
             if (!parts.Any()) return doc;
 
@@ -112,7 +90,7 @@ namespace ApiGenerator.Domain.Specification
             }
         }
 
-        private string P(string name, string description) => $"///<param name=\"{name}\">{description}</param>";
+        private string P(string name, string description) => $"/// <param name=\"{name}\">{description}</param>";
 
         private string LeadingBackslash(string p) => p.StartsWith("/") ? p : $"/{p}";
     }

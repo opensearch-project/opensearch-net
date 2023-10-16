@@ -25,8 +25,8 @@ namespace OpenSearch.Net@(ns)
         var supportsBody = endpoint.Body != null;
         var names = r.CsharpNames;
 <text>
-    ///<summary>Request options for @names.MethodName@Raw(r.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + r.OfficialDocumentationLink + "</para>")</summary>
-    public partial class @names.ParametersName : RequestParameters<@names.ParametersName> 
+    /// <summary>Request options for @names.MethodName@Raw(r.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + r.OfficialDocumentationLink + "</para>")</summary>
+    public partial class @names.ParametersName : RequestParameters<@names.ParametersName>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.@r.HttpMethod;
         public override bool SupportsBody => @(supportsBody ? "true" : "false");

@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Generator;
+using Version = SemanticVersioning.Version;
 
 namespace ApiGenerator.Domain.Specification
 {
@@ -45,7 +46,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string Description { get; set; }
 
-		public string VersionAdded { get; set; }
+		public Version VersionAdded { get; set; }
 
         public IEnumerable<string> DescriptionHighLevel
         {
@@ -97,27 +98,13 @@ namespace ApiGenerator.Domain.Specification
 
         public string Obsolete
         {
-            get
-            {
-                if (!string.IsNullOrEmpty(_obsolete)) return _obsolete;
-                if (Deprecated != null)
-                {
-                    if (!string.IsNullOrEmpty(Deprecated.Version) && !string.IsNullOrEmpty(Deprecated.Description))
-                        return $"Deprecated as of: {Deprecated.Version}, reason: {Deprecated.Description}";
-                    if (!string.IsNullOrEmpty(Deprecated.Version))
-                        return $"Deprecated as of: {Deprecated.Version}";
-                    if (!string.IsNullOrEmpty(Deprecated.Description))
-                        return $"reason: {Deprecated.Description}";
-
-                    return "deprecated";
-                }
-
-                return null;
-            }
-            set => _obsolete = value;
+            get => !string.IsNullOrEmpty(_obsolete)
+				? _obsolete
+				: Deprecated?.ToString();
+			set => _obsolete = value;
         }
 
-        public QueryParameterDeprecation Deprecated { get; set; }
+        public Deprecation Deprecated { get; set; }
 
         public IEnumerable<string> Options { get; set; }
         public string QueryStringKey { get; set; }
@@ -193,14 +180,7 @@ namespace ApiGenerator.Domain.Specification
         }
 
 
-        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, string versionAdded, params string[] doc) =>
+        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, Version versionAdded, params string[] doc) =>
             CodeGenerator.Property(@namespace, type, name, key, setter, Obsolete, versionAdded, doc);
-    }
-
-    public class QueryParameterDeprecation
-    {
-        public string Version { get; set; }
-
-        public string Description { get; set; }
     }
 }
