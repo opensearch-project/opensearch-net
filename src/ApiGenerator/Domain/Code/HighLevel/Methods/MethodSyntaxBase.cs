@@ -27,19 +27,22 @@
 */
 
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public abstract class MethodSyntaxBase
     {
-        protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated) =>
-            (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated) = (names, link, summary, deprecated);
+        protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) =>
+            (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated, VersionAdded) = (names, link, summary, deprecated, versionAdded);
 
         public string DocumentationLink { get;  }
 
         public string XmlDocSummary { get;  }
 
 		public Deprecation Deprecated { get; }
+
+		public Version VersionAdded { get; set; }
 
         protected CsharpNames CsharpNames { get; }
 

@@ -30,16 +30,6 @@ using System.Collections.Generic;
 
 namespace ApiGenerator.Domain.Specification
 {
-
-    // Rename this type to Deprecation and remove Path duplication
-    public class DeprecatedPath
-    {
-        public string Version { get; set; }
-        public string Path { get; set; }
-        public string Description { get; set; }
-    }
-
-
     public class UrlPart
     {
         private string _description;
@@ -146,30 +136,23 @@ namespace ApiGenerator.Domain.Specification
             set => _description = CleanUpDescription(value);
         }
 
-        public string InterfaceName
-        {
-            get
-            {
-                switch (Name)
-                {
-                    case "repository": return "RepositoryName";
-                    default: return Name.ToPascalCase();
-                }
-            }
-        }
+        public string InterfaceName =>
+			Name switch
+			{
+				"repository" => "RepositoryName",
+				_ => Name.ToPascalCase()
+			};
 
-        public string Name { get; set; }
+		public string Name { get; set; }
         public string NameAsArgument => Name.ToCamelCase();
         public IEnumerable<string> Options { get; set; }
         public bool Required { get; set; }
         public bool Deprecated { get; set; }
         public string Type { get; set; }
 
-        private string CleanUpDescription(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value)) return value;
-
-            return value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
-        }
-    }
+        private static string CleanUpDescription(string value) =>
+			string.IsNullOrWhiteSpace(value)
+				? value
+				: value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
+	}
 }

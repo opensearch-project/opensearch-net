@@ -29,12 +29,13 @@
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public class InitializerMethod : MethodSyntaxBase
     {
-        public InitializerMethod(CsharpNames names, string link, string summary, Deprecation deprecated) : base(names, link, summary, deprecated) { }
+        public InitializerMethod(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) : base(names, link, summary, deprecated, versionAdded) { }
 
         public string MethodName => CsharpNames.MethodName;
 

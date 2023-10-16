@@ -1,6 +1,8 @@
 @using ApiGenerator
 @using ApiGenerator.Domain.Code.LowLevel
 @using ApiGenerator.Domain.Specification
+@using SemanticVersioning
+@using Version = SemanticVersioning.Version
 @inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
 /// <summary>@Model.HttpMethod on @Model.Path@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
 @foreach (var part in Model.Parts)
@@ -27,8 +29,11 @@
 <text>      /// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
 
 </text>}
+		@if (Model.VersionAdded is {} versionAdded && versionAdded > new Version("1.0.0"))
+		{
+<text>      /// @Raw("<remarks>Supported by OpenSearch servers of version " + versionAdded + " or greater.</remarks>")
 </text>}
-        @if (Model.DeprecatedPath != null)
+        @if (Model.Deprecation is {} deprecation)
         {
-<text>      [Obsolete("Deprecated in version @Model.DeprecatedPath.Version: @Raw(Model.DeprecatedPath.Description)")]
+<text>      [Obsolete("Deprecated in version @deprecation.Version: @Raw(deprecation.Description)")]
 </text>}

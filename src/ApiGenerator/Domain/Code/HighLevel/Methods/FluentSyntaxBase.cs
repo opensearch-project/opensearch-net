@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
@@ -37,8 +38,8 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
     {
         private readonly bool _selectorIsOptional;
 
-        protected FluentSyntaxBase(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated)
-            : base(names, link, summary, deprecated) =>
+        protected FluentSyntaxBase(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated, Version versionAdded)
+            : base(names, link, summary, deprecated, versionAdded) =>
             (UrlParts, _selectorIsOptional) = (CreateDescriptorArgs(parts), selectorIsOptional);
 
         private IReadOnlyCollection<UrlPart> UrlParts { get; }

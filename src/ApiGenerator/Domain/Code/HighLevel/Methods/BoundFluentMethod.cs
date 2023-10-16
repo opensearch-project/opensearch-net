@@ -30,13 +30,14 @@ using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public class BoundFluentMethod : FluentSyntaxBase
     {
-        public BoundFluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated)
-            : base(names, parts, selectorIsOptional, link, summary, deprecated) { }
+        public BoundFluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated, Version versionAdded)
+            : base(names, parts, selectorIsOptional, link, summary, deprecated, versionAdded) { }
 
         private string DescriptorTypeParams => string.Join(", ", CsharpNames.DescriptorGenerics
             .Select(e => CsharpNames.DescriptorBoundDocumentGeneric));

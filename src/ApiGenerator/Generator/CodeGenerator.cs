@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Domain.Code.HighLevel.Requests;
+using Version = SemanticVersioning.Version;
 
 namespace ApiGenerator.Generator
 {
@@ -45,11 +46,11 @@ namespace ApiGenerator.Generator
         public static string PropertyGenerator(string type, string name, string key, string setter) =>
             $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
 
-        public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, string versionAdded, params string[] doc)
+        public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, Version versionAdded, params string[] doc)
         {
             var components = new List<string>();
             foreach (var d in RenderDocumentation(doc)) A(d);
-			if (!string.IsNullOrWhiteSpace(versionAdded)) A($"///<remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
+			if (versionAdded != null) A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
             if (!string.IsNullOrWhiteSpace(obsolete)) A($"[Obsolete(\"{obsolete}\")]");
 
             var generated = @namespace != null && @namespace == "Cat" && name == "Format"

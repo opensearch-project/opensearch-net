@@ -29,13 +29,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Domain.Specification;
+using SemanticVersioning;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public class FluentMethod : FluentSyntaxBase
     {
-        public FluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated)
-            : base(names, parts, selectorIsOptional, link, summary, deprecated) { }
+        public FluentMethod(CsharpNames names, IReadOnlyCollection<UrlPart> parts, bool selectorIsOptional, string link, string summary, Deprecation deprecated, Version versionAdded)
+            : base(names, parts, selectorIsOptional, link, summary, deprecated, versionAdded) { }
 
         public override string GenericWhereClause =>
             string.Join(" ", CsharpNames.HighLevelDescriptorMethodGenerics

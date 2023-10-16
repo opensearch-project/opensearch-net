@@ -1,8 +1,10 @@
 @using System.Linq
-@inherits ApiGenerator.CodeTemplatePage<List<string>>
+@using Version = SemanticVersioning.Version
+@inherits ApiGenerator.CodeTemplatePage<ApiGenerator.Domain.Specification.QueryParameters>
 @{
-	var description = Model.Count == 1 ? Model.First() : string.Join($"{Environment.NewLine}\t\t", Model.Select(d => "/// " + d));
-    if (Model.Count == 1)
+	var docs = Model.DescriptionHighLevel.ToList();
+	var description = docs.Count == 1 ? docs.First() : string.Join($"{Environment.NewLine}\t\t", docs.Select(d => "/// " + d));
+    if (docs.Count == 1)
     {
 <text>      /// <summary>@Raw(description)</summary>
 </text>
@@ -14,4 +16,9 @@
         /// </summary>
 </text>
     }
+	if (Model.VersionAdded is {} versionAdded && versionAdded > new Version("1.0.0"))
+	{
+<text>		/// <remarks>Supported by OpenSearch servers of version @(versionAdded) or greater.</remarks>
+</text>
+	}
 }

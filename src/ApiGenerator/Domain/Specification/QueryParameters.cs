@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Generator;
+using Version = SemanticVersioning.Version;
 
 namespace ApiGenerator.Domain.Specification
 {
@@ -45,7 +46,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string Description { get; set; }
 
-		public string VersionAdded { get; set; }
+		public Version VersionAdded { get; set; }
 
         public IEnumerable<string> DescriptionHighLevel
         {
@@ -179,7 +180,7 @@ namespace ApiGenerator.Domain.Specification
         }
 
 
-        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, string versionAdded, params string[] doc) =>
+        public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, Version versionAdded, params string[] doc) =>
             CodeGenerator.Property(@namespace, type, name, key, setter, Obsolete, versionAdded, doc);
     }
 }
