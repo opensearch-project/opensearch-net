@@ -59,27 +59,27 @@ using OpenSearch.Net.Specification.TasksApi;
 
 namespace OpenSearch.Net
 {
-    ///<summary>
-    ///OpenSearch low level client
-    ///</summary>
+    /// <summary>
+    /// OpenSearch low level client
+    /// </summary>
     public partial interface IOpenSearchLowLevelClient
     {
-        ///<summary>Cluster APIs</summary>
+        /// <summary>Cluster APIs</summary>
         LowLevelClusterNamespace Cluster { get; }
 
-        ///<summary>Dangling Indices APIs</summary>
+        /// <summary>Dangling Indices APIs</summary>
         LowLevelDanglingIndicesNamespace DanglingIndices { get; }
 
-        ///<summary>Ingest APIs</summary>
+        /// <summary>Ingest APIs</summary>
         LowLevelIngestNamespace Ingest { get; }
 
-        ///<summary>Nodes APIs</summary>
+        /// <summary>Nodes APIs</summary>
         LowLevelNodesNamespace Nodes { get; }
 
-        ///<summary>Snapshot APIs</summary>
+        /// <summary>Snapshot APIs</summary>
         LowLevelSnapshotNamespace Snapshot { get; }
 
-        ///<summary>Tasks APIs</summary>
+        /// <summary>Tasks APIs</summary>
         LowLevelTasksNamespace Tasks { get; }
     }
 }

@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.NodesApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.NodesApi
 {
-    ///<summary>
+    /// <summary>
     /// Nodes APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Nodes"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class NodesNamespace : NamespacedClientProxy
     {
         internal NodesNamespace(OpenSearchClient client)

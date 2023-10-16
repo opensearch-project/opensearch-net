@@ -58,20 +58,20 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.Specification.SnapshotApi
 {
-    ///<summary>
+    /// <summary>
     /// Snapshot APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Snapshot"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class LowLevelSnapshotNamespace : NamespacedClientProxy
     {
         internal LowLevelSnapshotNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        ///<summary>POST on /_snapshot/{repository}/_cleanup <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/_cleanup <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse CleanupRepository<TResponse>(
             string repository,
             CleanupRepositoryRequestParameters requestParameters = null
@@ -84,9 +84,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_snapshot/{repository}/_cleanup <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/_cleanup <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.cleanup_repository", "repository")]
         public Task<TResponse> CleanupRepositoryAsync<TResponse>(
             string repository,
@@ -102,12 +102,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="targetSnapshot">The name of the cloned snapshot to create.</param>
-        ///<param name="body">The snapshot clone definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="targetSnapshot">The name of the cloned snapshot to create.</param>
+        /// <param name="body">The snapshot clone definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Clone<TResponse>(
             string repository,
             string snapshot,
@@ -125,12 +125,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="targetSnapshot">The name of the cloned snapshot to create.</param>
-        ///<param name="body">The snapshot clone definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot}/_clone/{target_snapshot} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="targetSnapshot">The name of the cloned snapshot to create.</param>
+        /// <param name="body">The snapshot clone definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.clone", "repository, snapshot, target_snapshot, body")]
         public Task<TResponse> CloneAsync<TResponse>(
             string repository,
@@ -151,11 +151,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="body">The snapshot definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Snapshot<TResponse>(
             string repository,
             string snapshot,
@@ -170,11 +170,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="body">The snapshot definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.create", "repository, snapshot, body")]
         public Task<TResponse> SnapshotAsync<TResponse>(
             string repository,
@@ -192,10 +192,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}</summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="body">The repository definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}</summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="body">The repository definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse CreateRepository<TResponse>(
             string repository,
             PostData body,
@@ -209,10 +209,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>PUT on /_snapshot/{repository}</summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="body">The repository definition</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>PUT on /_snapshot/{repository}</summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="body">The repository definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.create_repository", "repository, body")]
         public Task<TResponse> CreateRepositoryAsync<TResponse>(
             string repository,
@@ -229,10 +229,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Delete<TResponse>(
             string repository,
             string snapshot,
@@ -246,10 +246,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.delete", "repository, snapshot")]
         public Task<TResponse> DeleteAsync<TResponse>(
             string repository,
@@ -266,9 +266,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
-        ///<param name="repository">Name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
+        /// <param name="repository">Name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteRepository<TResponse>(
             string repository,
             DeleteRepositoryRequestParameters requestParameters = null
@@ -281,9 +281,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
-        ///<param name="repository">Name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
+        /// <param name="repository">Name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.delete_repository", "repository")]
         public Task<TResponse> DeleteRepositoryAsync<TResponse>(
             string repository,
@@ -299,10 +299,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Comma-separated list of snapshot names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(
             string repository,
             string snapshot,
@@ -316,10 +316,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Comma-separated list of snapshot names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.get", "repository, snapshot")]
         public Task<TResponse> GetAsync<TResponse>(
             string repository,
@@ -336,16 +336,16 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRepository<TResponse>(
             GetRepositoryRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_snapshot", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.get_repository", "")]
         public Task<TResponse> GetRepositoryAsync<TResponse>(
             GetRepositoryRequestParameters requestParameters = null,
@@ -360,9 +360,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
-        ///<param name="repository">Comma-separated list of repository names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRepository<TResponse>(
             string repository,
             GetRepositoryRequestParameters requestParameters = null
@@ -375,9 +375,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
-        ///<param name="repository">Comma-separated list of repository names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.get_repository", "repository")]
         public Task<TResponse> GetRepositoryAsync<TResponse>(
             string repository,
@@ -393,11 +393,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="body">Details of what to restore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Restore<TResponse>(
             string repository,
             string snapshot,
@@ -412,11 +412,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Snapshot name.</param>
-        ///<param name="body">Details of what to restore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/{snapshot}/_restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Snapshot name.</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.restore", "repository, snapshot, body")]
         public Task<TResponse> RestoreAsync<TResponse>(
             string repository,
@@ -434,14 +434,14 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Status<TResponse>(SnapshotStatusRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_snapshot/_status", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_snapshot/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.status", "")]
         public Task<TResponse> StatusAsync<TResponse>(
             SnapshotStatusRequestParameters requestParameters = null,
@@ -456,9 +456,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Status<TResponse>(
             string repository,
             SnapshotStatusRequestParameters requestParameters = null
@@ -471,9 +471,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.status", "repository")]
         public Task<TResponse> StatusAsync<TResponse>(
             string repository,
@@ -489,10 +489,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Comma-separated list of snapshot names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Status<TResponse>(
             string repository,
             string snapshot,
@@ -506,10 +506,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="snapshot">Comma-separated list of snapshot names.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_snapshot/{repository}/{snapshot}/_status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.status", "repository, snapshot")]
         public Task<TResponse> StatusAsync<TResponse>(
             string repository,
@@ -526,9 +526,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_snapshot/{repository}/_verify <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/_verify <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse VerifyRepository<TResponse>(
             string repository,
             VerifyRepositoryRequestParameters requestParameters = null
@@ -541,9 +541,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_snapshot/{repository}/_verify <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
-        ///<param name="repository">Repository name.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_snapshot/{repository}/_verify <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
+        /// <param name="repository">Repository name.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.verify_repository", "repository")]
         public Task<TResponse> VerifyRepositoryAsync<TResponse>(
             string repository,

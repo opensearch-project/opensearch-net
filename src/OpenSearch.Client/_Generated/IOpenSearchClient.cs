@@ -57,27 +57,27 @@ using OpenSearch.Client.Specification.TasksApi;
 
 namespace OpenSearch.Client
 {
-    ///<summary>
-    ///OpenSearch high level client
-    ///</summary>
+    /// <summary>
+    /// OpenSearch high level client
+    /// </summary>
     public partial interface IOpenSearchClient
     {
-        ///<summary>Cluster APIs</summary>
+        /// <summary>Cluster APIs</summary>
         ClusterNamespace Cluster { get; }
 
-        ///<summary>Dangling Indices APIs</summary>
+        /// <summary>Dangling Indices APIs</summary>
         DanglingIndicesNamespace DanglingIndices { get; }
 
-        ///<summary>Ingest APIs</summary>
+        /// <summary>Ingest APIs</summary>
         IngestNamespace Ingest { get; }
 
-        ///<summary>Nodes APIs</summary>
+        /// <summary>Nodes APIs</summary>
         NodesNamespace Nodes { get; }
 
-        ///<summary>Snapshot APIs</summary>
+        /// <summary>Snapshot APIs</summary>
         SnapshotNamespace Snapshot { get; }
 
-        ///<summary>Tasks APIs</summary>
+        /// <summary>Tasks APIs</summary>
         TasksNamespace Tasks { get; }
     }
 }

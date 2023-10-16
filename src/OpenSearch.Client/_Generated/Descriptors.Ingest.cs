@@ -58,7 +58,7 @@ using OpenSearch.Net.Specification.IngestApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.IngestApi
 {
-    ///<summary>Descriptor for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+    /// <summary>Descriptor for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineDescriptor
         : RequestDescriptorBase<
             DeletePipelineDescriptor,
@@ -69,12 +69,12 @@ namespace OpenSearch.Client.Specification.IngestApi
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestDeletePipeline;
 
-        ///<summary>/_ingest/pipeline/{id}</summary>
-        ///<param name="id">this parameter is required</param>
+        /// <summary>/_ingest/pipeline/{id}</summary>
+        /// <param name="id">this parameter is required</param>
         public DeletePipelineDescriptor(Id id)
             : base(r => r.Required("id", id)) { }
 
-        ///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected DeletePipelineDescriptor()
             : base() { }
@@ -83,23 +83,23 @@ namespace OpenSearch.Client.Specification.IngestApi
         Id IDeletePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeletePipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public DeletePipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public DeletePipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    ///<summary>Descriptor for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+    /// <summary>Descriptor for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
     public partial class GetPipelineDescriptor
         : RequestDescriptorBase<
             GetPipelineDescriptor,
@@ -110,29 +110,29 @@ namespace OpenSearch.Client.Specification.IngestApi
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestGetPipeline;
 
-        ///<summary>/_ingest/pipeline</summary>
+        /// <summary>/_ingest/pipeline</summary>
         public GetPipelineDescriptor()
             : base() { }
 
-        ///<summary>/_ingest/pipeline/{id}</summary>
-        ///<param name="id">Optional, accepts null</param>
+        /// <summary>/_ingest/pipeline/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
         public GetPipelineDescriptor(Id id)
             : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        ///<summary>Comma-separated list of pipeline ids. Wildcards supported.</summary>
+        /// <summary>Comma-separated list of pipeline ids. Wildcards supported.</summary>
         public GetPipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -140,7 +140,7 @@ namespace OpenSearch.Client.Specification.IngestApi
             Qs("master_timeout", mastertimeout);
     }
 
-    ///<summary>Descriptor for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
     public partial class GrokProcessorPatternsDescriptor
         : RequestDescriptorBase<
             GrokProcessorPatternsDescriptor,
@@ -154,7 +154,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         // Request parameters
     }
 
-    ///<summary>Descriptor for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+    /// <summary>Descriptor for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
     public partial class PutPipelineDescriptor
         : RequestDescriptorBase<
             PutPipelineDescriptor,
@@ -165,12 +165,12 @@ namespace OpenSearch.Client.Specification.IngestApi
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestPutPipeline;
 
-        ///<summary>/_ingest/pipeline/{id}</summary>
-        ///<param name="id">this parameter is required</param>
+        /// <summary>/_ingest/pipeline/{id}</summary>
+        /// <param name="id">this parameter is required</param>
         public PutPipelineDescriptor(Id id)
             : base(r => r.Required("id", id)) { }
 
-        ///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected PutPipelineDescriptor()
             : base() { }
@@ -179,23 +179,23 @@ namespace OpenSearch.Client.Specification.IngestApi
         Id IPutPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        ///<summary>Operation timeout for connection to cluster-manager node.</summary>
-        ///<remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public PutPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        ///<summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public PutPipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public PutPipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    ///<summary>Descriptor for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+    /// <summary>Descriptor for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
     public partial class SimulatePipelineDescriptor
         : RequestDescriptorBase<
             SimulatePipelineDescriptor,
@@ -206,24 +206,24 @@ namespace OpenSearch.Client.Specification.IngestApi
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestSimulatePipeline;
 
-        ///<summary>/_ingest/pipeline/_simulate</summary>
+        /// <summary>/_ingest/pipeline/_simulate</summary>
         public SimulatePipelineDescriptor()
             : base() { }
 
-        ///<summary>/_ingest/pipeline/{id}/_simulate</summary>
-        ///<param name="id">Optional, accepts null</param>
+        /// <summary>/_ingest/pipeline/{id}/_simulate</summary>
+        /// <param name="id">Optional, accepts null</param>
         public SimulatePipelineDescriptor(Id id)
             : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        ///<summary>Pipeline ID.</summary>
+        /// <summary>Pipeline ID.</summary>
         public SimulatePipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        ///<summary>Verbose mode. Display data output for each processor in executed pipeline.</summary>
+        /// <summary>Verbose mode. Display data output for each processor in executed pipeline.</summary>
         public SimulatePipelineDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 }

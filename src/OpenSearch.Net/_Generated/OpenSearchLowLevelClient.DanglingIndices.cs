@@ -58,20 +58,20 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.Specification.DanglingIndicesApi
 {
-    ///<summary>
+    /// <summary>
     /// Dangling Indices APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.DanglingIndices"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class LowLevelDanglingIndicesNamespace : NamespacedClientProxy
     {
         internal LowLevelDanglingIndicesNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        ///<summary>DELETE on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="indexUuid">The UUID of the dangling index.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="indexUuid">The UUID of the dangling index.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteDanglingIndex<TResponse>(
             string indexUuid,
             DeleteDanglingIndexRequestParameters requestParameters = null
@@ -84,9 +84,9 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>DELETE on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="indexUuid">The UUID of the dangling index.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>DELETE on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="indexUuid">The UUID of the dangling index.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("dangling_indices.delete_dangling_index", "index_uuid")]
         public Task<TResponse> DeleteDanglingIndexAsync<TResponse>(
             string indexUuid,
@@ -102,9 +102,9 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="indexUuid">The UUID of the dangling index.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="indexUuid">The UUID of the dangling index.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ImportDanglingIndex<TResponse>(
             string indexUuid,
             ImportDanglingIndexRequestParameters requestParameters = null
@@ -117,9 +117,9 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="indexUuid">The UUID of the dangling index.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_dangling/{index_uuid} <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="indexUuid">The UUID of the dangling index.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("dangling_indices.import_dangling_index", "index_uuid")]
         public Task<TResponse> ImportDanglingIndexAsync<TResponse>(
             string indexUuid,
@@ -135,16 +135,16 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_dangling <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_dangling <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse List<TResponse>(
             ListDanglingIndicesRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_dangling", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_dangling <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_dangling <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("dangling_indices.list_dangling_indices", "")]
         public Task<TResponse> ListAsync<TResponse>(
             ListDanglingIndicesRequestParameters requestParameters = null,

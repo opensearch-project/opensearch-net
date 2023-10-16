@@ -65,7 +65,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         TaskId TaskId { get; }
     }
 
-    ///<summary>Request for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Request for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
     public partial class CancelTasksRequest
         : PlainRequestBase<CancelTasksRequestParameters>,
             ICancelTasksRequest
@@ -73,12 +73,12 @@ namespace OpenSearch.Client.Specification.TasksApi
         protected ICancelTasksRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksCancel;
 
-        ///<summary>/_tasks/_cancel</summary>
+        /// <summary>/_tasks/_cancel</summary>
         public CancelTasksRequest()
             : base() { }
 
-        ///<summary>/_tasks/{task_id}/_cancel</summary>
-        ///<param name="taskId">Optional, accepts null</param>
+        /// <summary>/_tasks/{task_id}/_cancel</summary>
+        /// <param name="taskId">Optional, accepts null</param>
         public CancelTasksRequest(TaskId taskId)
             : base(r => r.Optional("task_id", taskId)) { }
 
@@ -87,31 +87,31 @@ namespace OpenSearch.Client.Specification.TasksApi
         TaskId ICancelTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        ///<summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
+        /// <summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        ///<summary>
+        /// <summary>
         /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
         /// connecting to, leave empty to get information from all nodes.
-        ///</summary>
+        /// </summary>
         public string[] Nodes
         {
             get => Q<string[]>("nodes");
             set => Q("nodes", value);
         }
 
-        ///<summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
+        /// <summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -126,7 +126,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         TaskId TaskId { get; }
     }
 
-    ///<summary>Request for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskRequest
         : PlainRequestBase<GetTaskRequestParameters>,
             IGetTaskRequest
@@ -134,12 +134,12 @@ namespace OpenSearch.Client.Specification.TasksApi
         protected IGetTaskRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksGetTask;
 
-        ///<summary>/_tasks/{task_id}</summary>
-        ///<param name="taskId">this parameter is required</param>
+        /// <summary>/_tasks/{task_id}</summary>
+        /// <param name="taskId">this parameter is required</param>
         public GetTaskRequest(TaskId taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
-        ///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected GetTaskRequest()
             : base() { }
@@ -149,14 +149,14 @@ namespace OpenSearch.Client.Specification.TasksApi
         TaskId IGetTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -167,7 +167,7 @@ namespace OpenSearch.Client.Specification.TasksApi
     [InterfaceDataContract]
     public partial interface IListTasksRequest : IRequest<ListTasksRequestParameters> { }
 
-    ///<summary>Request for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksRequest
         : PlainRequestBase<ListTasksRequestParameters>,
             IListTasksRequest
@@ -178,52 +178,52 @@ namespace OpenSearch.Client.Specification.TasksApi
         // values part of the url path
 
         // Request parameters
-        ///<summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        ///<summary>Return detailed task information.</summary>
+        /// <summary>Return detailed task information.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        ///<summary>Group tasks by nodes or parent/child relationships.</summary>
+        /// <summary>Group tasks by nodes or parent/child relationships.</summary>
         public GroupBy? GroupBy
         {
             get => Q<GroupBy?>("group_by");
             set => Q("group_by", value);
         }
 
-        ///<summary>
+        /// <summary>
         /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
         /// connecting to, leave empty to get information from all nodes.
-        ///</summary>
+        /// </summary>
         public string[] Nodes
         {
             get => Q<string[]>("nodes");
             set => Q("nodes", value);
         }
 
-        ///<summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");

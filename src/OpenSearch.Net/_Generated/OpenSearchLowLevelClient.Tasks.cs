@@ -58,25 +58,25 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.Specification.TasksApi
 {
-    ///<summary>
+    /// <summary>
     /// Tasks APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Tasks"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class LowLevelTasksNamespace : NamespacedClientProxy
     {
         internal LowLevelTasksNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        ///<summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Cancel<TResponse>(CancelTasksRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_tasks/_cancel", null, RequestParams(requestParameters));
 
-        ///<summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.cancel", "")]
         public Task<TResponse> CancelAsync<TResponse>(
             CancelTasksRequestParameters requestParameters = null,
@@ -91,9 +91,9 @@ namespace OpenSearch.Net.Specification.TasksApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        ///<param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+        /// <param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Cancel<TResponse>(
             string taskId,
             CancelTasksRequestParameters requestParameters = null
@@ -106,9 +106,9 @@ namespace OpenSearch.Net.Specification.TasksApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        ///<param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+        /// <param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.cancel", "task_id")]
         public Task<TResponse> CancelAsync<TResponse>(
             string taskId,
@@ -124,9 +124,9 @@ namespace OpenSearch.Net.Specification.TasksApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        ///<param name="taskId">Return the task with specified id (node_id:task_number).</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <param name="taskId">Return the task with specified id (node_id:task_number).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetTask<TResponse>(
             string taskId,
             GetTaskRequestParameters requestParameters = null
@@ -139,9 +139,9 @@ namespace OpenSearch.Net.Specification.TasksApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        ///<param name="taskId">Return the task with specified id (node_id:task_number).</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <param name="taskId">Return the task with specified id (node_id:task_number).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.get", "task_id")]
         public Task<TResponse> GetTaskAsync<TResponse>(
             string taskId,
@@ -157,14 +157,14 @@ namespace OpenSearch.Net.Specification.TasksApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse List<TResponse>(ListTasksRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_tasks", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.list", "")]
         public Task<TResponse> ListAsync<TResponse>(
             ListTasksRequestParameters requestParameters = null,

@@ -58,7 +58,7 @@ using OpenSearch.Net.Specification.TasksApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client.Specification.TasksApi
 {
-    ///<summary>Descriptor for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Descriptor for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
     public partial class CancelTasksDescriptor
         : RequestDescriptorBase<
             CancelTasksDescriptor,
@@ -69,51 +69,51 @@ namespace OpenSearch.Client.Specification.TasksApi
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksCancel;
 
-        ///<summary>/_tasks/_cancel</summary>
+        /// <summary>/_tasks/_cancel</summary>
         public CancelTasksDescriptor()
             : base() { }
 
-        ///<summary>/_tasks/{task_id}/_cancel</summary>
-        ///<param name="taskId">Optional, accepts null</param>
+        /// <summary>/_tasks/{task_id}/_cancel</summary>
+        /// <param name="taskId">Optional, accepts null</param>
         public CancelTasksDescriptor(TaskId taskId)
             : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         TaskId ICancelTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
-        ///<summary>Cancel the task with specified task id (node_id:task_number).</summary>
+        /// <summary>Cancel the task with specified task id (node_id:task_number).</summary>
         public CancelTasksDescriptor TaskId(TaskId taskId) =>
             Assign(taskId, (a, v) => a.RouteValues.Optional("task_id", v));
 
         // Request parameters
-        ///<summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
+        /// <summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
         public CancelTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        ///<summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public CancelTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        ///<summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
+        /// <summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
         public CancelTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public CancelTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    ///<summary>Descriptor for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Descriptor for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskDescriptor
         : RequestDescriptorBase<GetTaskDescriptor, GetTaskRequestParameters, IGetTaskRequest>,
             IGetTaskRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksGetTask;
 
-        ///<summary>/_tasks/{task_id}</summary>
-        ///<param name="taskId">this parameter is required</param>
+        /// <summary>/_tasks/{task_id}</summary>
+        /// <param name="taskId">this parameter is required</param>
         public GetTaskDescriptor(TaskId taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
-        ///<summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected GetTaskDescriptor()
             : base() { }
@@ -122,15 +122,15 @@ namespace OpenSearch.Client.Specification.TasksApi
         TaskId IGetTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public GetTaskDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public GetTaskDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    ///<summary>Descriptor for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Descriptor for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksDescriptor
         : RequestDescriptorBase<ListTasksDescriptor, ListTasksRequestParameters, IListTasksRequest>,
             IListTasksRequest
@@ -139,26 +139,26 @@ namespace OpenSearch.Client.Specification.TasksApi
 
         // values part of the url path
         // Request parameters
-        ///<summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
         public ListTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        ///<summary>Return detailed task information.</summary>
+        /// <summary>Return detailed task information.</summary>
         public ListTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        ///<summary>Group tasks by nodes or parent/child relationships.</summary>
+        /// <summary>Group tasks by nodes or parent/child relationships.</summary>
         public ListTasksDescriptor GroupBy(GroupBy? groupby) => Qs("group_by", groupby);
 
-        ///<summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public ListTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        ///<summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
         public ListTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public ListTasksDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public ListTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }

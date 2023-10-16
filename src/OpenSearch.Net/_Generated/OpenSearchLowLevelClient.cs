@@ -62,9 +62,9 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net
 {
-    ///<summary>
-    ///OpenSearch low level client
-    ///</summary>
+    /// <summary>
+    /// OpenSearch low level client
+    /// </summary>
     public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
     {
         public LowLevelClusterNamespace Cluster { get; private set; }

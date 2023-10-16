@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.TasksApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.TasksApi
 {
-    ///<summary>
+    /// <summary>
     /// Tasks APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Tasks"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class TasksNamespace : NamespacedClientProxy
     {
         internal TasksNamespace(OpenSearchClient client)

@@ -52,38 +52,38 @@ using System.Linq.Expressions;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.TasksApi
 {
-    ///<summary>Request options for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Request options for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
     public partial class CancelTasksRequestParameters
         : RequestParameters<CancelTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
 
-        ///<summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
+        /// <summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        ///<summary>
+        /// <summary>
         /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
         /// connecting to, leave empty to get information from all nodes.
-        ///</summary>
+        /// </summary>
         public string[] Nodes
         {
             get => Q<string[]>("nodes");
             set => Q("nodes", value);
         }
 
-        ///<summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
+        /// <summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -91,20 +91,20 @@ namespace OpenSearch.Net.Specification.TasksApi
         }
     }
 
-    ///<summary>Request options for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request options for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskRequestParameters : RequestParameters<GetTaskRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -112,58 +112,58 @@ namespace OpenSearch.Net.Specification.TasksApi
         }
     }
 
-    ///<summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksRequestParameters : RequestParameters<ListTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        ///<summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        ///<summary>Return detailed task information.</summary>
+        /// <summary>Return detailed task information.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        ///<summary>Group tasks by nodes or parent/child relationships.</summary>
+        /// <summary>Group tasks by nodes or parent/child relationships.</summary>
         public GroupBy? GroupBy
         {
             get => Q<GroupBy?>("group_by");
             set => Q("group_by", value);
         }
 
-        ///<summary>
+        /// <summary>
         /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
         /// connecting to, leave empty to get information from all nodes.
-        ///</summary>
+        /// </summary>
         public string[] Nodes
         {
             get => Q<string[]>("nodes");
             set => Q("nodes", value);
         }
 
-        ///<summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        ///<summary>Operation timeout.</summary>
+        /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
 
-        ///<summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");

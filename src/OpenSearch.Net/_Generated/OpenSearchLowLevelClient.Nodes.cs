@@ -58,27 +58,27 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable RedundantExtendsListEntry
 namespace OpenSearch.Net.Specification.NodesApi
 {
-    ///<summary>
+    /// <summary>
     /// Nodes APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Nodes"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class LowLevelNodesNamespace : NamespacedClientProxy
     {
         internal LowLevelNodesNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        ///<summary>GET on /_nodes/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse HotThreadsForAll<TResponse>(
             NodesHotThreadsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/hot_threads", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_nodes/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.hot_threads", "")]
         public Task<TResponse> HotThreadsForAllAsync<TResponse>(
             NodesHotThreadsRequestParameters requestParameters = null,
@@ -93,9 +93,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse HotThreads<TResponse>(
             string nodeId,
             NodesHotThreadsRequestParameters requestParameters = null
@@ -108,9 +108,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/hot_threads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.hot_threads", "node_id")]
         public Task<TResponse> HotThreadsAsync<TResponse>(
             string nodeId,
@@ -126,14 +126,14 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse InfoForAll<TResponse>(NodesInfoRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_nodes <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.info", "")]
         public Task<TResponse> InfoForAllAsync<TResponse>(
             NodesInfoRequestParameters requestParameters = null,
@@ -142,42 +142,9 @@ namespace OpenSearch.Net.Specification.NodesApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(GET, "_nodes", ctx, null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Info<TResponse>(
-            string nodeId,
-            NodesInfoRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}"),
-                null,
-                RequestParams(requestParameters)
-            );
-
-        ///<summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("nodes.info", "node_id")]
-        public Task<TResponse> InfoAsync<TResponse>(
-            string nodeId,
-            NodesInfoRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_nodes/{nodeId:nodeId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
-        ///<summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse InfoForAll<TResponse>(
             string metric,
             NodesInfoRequestParameters requestParameters = null
@@ -190,9 +157,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.info", "metric")]
         public Task<TResponse> InfoForAllAsync<TResponse>(
             string metric,
@@ -208,10 +175,43 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Info<TResponse>(
+            string nodeId,
+            NodesInfoRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("nodes.info", "node_id")]
+        public Task<TResponse> InfoAsync<TResponse>(
+            string nodeId,
+            NodesInfoRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_nodes/{nodeId:nodeId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Info<TResponse>(
             string nodeId,
             string metric,
@@ -225,10 +225,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Comma-separated list of metrics you wish returned. Leave empty to return all.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.info", "node_id, metric")]
         public Task<TResponse> InfoAsync<TResponse>(
             string nodeId,
@@ -245,9 +245,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_nodes/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-        ///<param name="body">An object containing the password for the opensearch keystore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_nodes/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+        /// <param name="body">An object containing the password for the opensearch keystore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ReloadSecureSettingsForAll<TResponse>(
             PostData body,
             ReloadSecureSettingsRequestParameters requestParameters = null
@@ -260,9 +260,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_nodes/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-        ///<param name="body">An object containing the password for the opensearch keystore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_nodes/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+        /// <param name="body">An object containing the password for the opensearch keystore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.reload_secure_settings", "body")]
         public Task<TResponse> ReloadSecureSettingsForAllAsync<TResponse>(
             PostData body,
@@ -278,10 +278,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
-        ///<param name="body">An object containing the password for the opensearch keystore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
+        /// <param name="body">An object containing the password for the opensearch keystore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ReloadSecureSettings<TResponse>(
             string nodeId,
             PostData body,
@@ -295,10 +295,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
-        ///<param name="body">An object containing the password for the opensearch keystore</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>POST on /_nodes/{node_id}/reload_secure_settings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</param>
+        /// <param name="body">An object containing the password for the opensearch keystore</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.reload_secure_settings", "node_id, body")]
         public Task<TResponse> ReloadSecureSettingsAsync<TResponse>(
             string nodeId,
@@ -315,16 +315,16 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
             NodesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/stats", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_nodes/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
             NodesStatsRequestParameters requestParameters = null,
@@ -339,9 +339,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
             string metric,
             NodesStatsRequestParameters requestParameters = null
@@ -354,9 +354,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "metric")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
             string metric,
@@ -372,10 +372,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
             string metric,
             string indexMetric,
@@ -389,10 +389,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "metric, index_metric")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
             string metric,
@@ -409,9 +409,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
             NodesStatsRequestParameters requestParameters = null
@@ -424,9 +424,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "node_id")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
@@ -442,10 +442,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
             string metric,
@@ -459,10 +459,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats/{metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "node_id, metric")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
@@ -479,11 +479,11 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
             string metric,
@@ -498,11 +498,11 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/stats/{metric}/{index_metric} <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for `indices` metric to the specific index metrics. Isn&#x27;t used if `indices` (or `all`) metric isn&#x27;t specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.stats", "node_id, metric, index_metric")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
@@ -520,16 +520,16 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse UsageForAll<TResponse>(
             NodesUsageRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_nodes/usage", null, RequestParams(requestParameters));
 
-        ///<summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/usage <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.usage", "")]
         public Task<TResponse> UsageForAllAsync<TResponse>(
             NodesUsageRequestParameters requestParameters = null,
@@ -544,9 +544,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse UsageForAll<TResponse>(
             string metric,
             NodesUsageRequestParameters requestParameters = null
@@ -559,9 +559,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.usage", "metric")]
         public Task<TResponse> UsageForAllAsync<TResponse>(
             string metric,
@@ -577,9 +577,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Usage<TResponse>(
             string nodeId,
             NodesUsageRequestParameters requestParameters = null
@@ -592,9 +592,9 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/usage <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.usage", "node_id")]
         public Task<TResponse> UsageAsync<TResponse>(
             string nodeId,
@@ -610,10 +610,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Usage<TResponse>(
             string nodeId,
             string metric,
@@ -627,10 +627,10 @@ namespace OpenSearch.Net.Specification.NodesApi
                 RequestParams(requestParameters)
             );
 
-        ///<summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        ///<param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        ///<param name="metric">Limit the information returned to the specified metrics.</param>
-        ///<param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <summary>GET on /_nodes/{node_id}/usage/{metric} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("nodes.usage", "node_id, metric")]
         public Task<TResponse> UsageAsync<TResponse>(
             string nodeId,

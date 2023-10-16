@@ -51,12 +51,12 @@ using OpenSearch.Net.Specification.DanglingIndicesApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.DanglingIndicesApi
 {
-    ///<summary>
+    /// <summary>
     /// Dangling Indices APIs.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.DanglingIndices"/> property
     /// on <see cref="IOpenSearchClient"/>.
-    ///</para>
-    ///</summary>
+    /// </para>
+    /// </summary>
     public partial class DanglingIndicesNamespace : NamespacedClientProxy
     {
         internal DanglingIndicesNamespace(OpenSearchClient client)
