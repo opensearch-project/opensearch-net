@@ -29,24 +29,22 @@ module Tests.YamlRunner.Skips
 
 type SkipSection = All | Section of string | Sections of string list
 
-type SkipFile = SkipFile of string 
+type SkipFile = SkipFile of string
 
 let SkipList = dict<SkipFile,SkipSection> [
     // Incorrectly being run due to OpenSearch 1.x/2.x being numerically <7.2.0, but feature-wise >7.10
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
     SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
-    
+
     // .NET method arg typings make this not possible, index is a required parameter
     SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
-    
+
     // The client doesn't support the indices.upgrade API
     SkipFile "indices.upgrade/10_basic.yml", All
-    
-    // TODO: Add support for point-in-time APIs
-    SkipFile "pit/10_basic.yml", All
+
     // TODO: Add support for search pipeline APIs
     SkipFile "search_pipeline/10_basic.yml", All
-    
+
     // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
     SkipFile "search.aggregation/20_terms.yml", Section "Unsigned Long test"
     SkipFile "search.aggregation/230_composite_unsigned.yml", All

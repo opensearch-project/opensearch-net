@@ -31,6 +31,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Extensions;
 
 namespace OpenSearch.Client.Specification.CatApi
 {

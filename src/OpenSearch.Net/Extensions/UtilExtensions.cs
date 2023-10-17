@@ -51,9 +51,9 @@ namespace OpenSearch.Net.Extensions
 				return null;
 
 			if (!ms.TryGetBuffer(out var buffer) || buffer.Array is null)
-				return Encoding.UTF8.GetString(ms.ToArray());
+				return ms.ToArray().Utf8String();
 
-			return Encoding.UTF8.GetString(buffer.Array, buffer.Offset, buffer.Count);
+			return buffer.Utf8String();
 		}
 
 		internal static byte[] Utf8Bytes(this string s) => s.IsNullOrEmpty() ? null : Encoding.UTF8.GetBytes(s);
