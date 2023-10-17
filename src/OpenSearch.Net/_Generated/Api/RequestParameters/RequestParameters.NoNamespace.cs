@@ -94,10 +94,26 @@ namespace OpenSearch.Net
         }
     }
 
+    /// <summary>Request options for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    public partial class DeleteAllPitsRequestParameters
+        : RequestParameters<DeleteAllPitsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitRequestParameters : RequestParameters<DeletePitRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    public partial class GetAllPitsRequestParameters
+        : RequestParameters<GetAllPitsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
     }
 }

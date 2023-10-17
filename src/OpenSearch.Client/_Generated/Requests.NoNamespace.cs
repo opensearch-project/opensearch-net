@@ -131,6 +131,21 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters> { }
+
+    /// <summary>Request for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    public partial class DeleteAllPitsRequest
+        : PlainRequestBase<DeleteAllPitsRequestParameters>,
+            IDeleteAllPitsRequest
+    {
+        protected IDeleteAllPitsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteAllPits;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters> { }
 
     /// <summary>Request for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
@@ -140,6 +155,21 @@ namespace OpenSearch.Client
     {
         protected IDeletePitRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters> { }
+
+    /// <summary>Request for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    public partial class GetAllPitsRequest
+        : PlainRequestBase<GetAllPitsRequestParameters>,
+            IGetAllPitsRequest
+    {
+        protected IGetAllPitsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;
         // values part of the url path
 
         // Request parameters

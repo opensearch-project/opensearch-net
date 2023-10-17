@@ -114,12 +114,40 @@ namespace OpenSearch.Client
         public CreatePitDescriptor Routing(Routing routing) => Qs("routing", routing);
     }
 
+    /// <summary>Descriptor for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    public partial class DeleteAllPitsDescriptor
+        : RequestDescriptorBase<
+            DeleteAllPitsDescriptor,
+            DeleteAllPitsRequestParameters,
+            IDeleteAllPitsRequest
+        >,
+            IDeleteAllPitsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteAllPits;
+        // values part of the url path
+        // Request parameters
+    }
+
     /// <summary>Descriptor for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitDescriptor
         : RequestDescriptorBase<DeletePitDescriptor, DeletePitRequestParameters, IDeletePitRequest>,
             IDeletePitRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    public partial class GetAllPitsDescriptor
+        : RequestDescriptorBase<
+            GetAllPitsDescriptor,
+            GetAllPitsRequestParameters,
+            IGetAllPitsRequest
+        >,
+            IGetAllPitsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;
         // values part of the url path
         // Request parameters
     }

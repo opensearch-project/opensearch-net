@@ -97,8 +97,23 @@ namespace OpenSearch.Net
         )
             where TResponse : class, IOpenSearchResponse, new();
 
+        /// <summary>DELETE on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        TResponse DeleteAllPits<TResponse>(DeleteAllPitsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>DELETE on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        Task<TResponse> DeleteAllPitsAsync<TResponse>(
+            DeleteAllPitsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body"></param>
+        /// <param name="body">The point-in-time ids to be deleted</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         TResponse DeletePit<TResponse>(
@@ -108,12 +123,27 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body"></param>
+        /// <param name="body">The point-in-time ids to be deleted</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<TResponse> DeletePitAsync<TResponse>(
             PostData body,
             DeletePitRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>GET on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        TResponse GetAllPits<TResponse>(GetAllPitsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>GET on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        Task<TResponse> GetAllPitsAsync<TResponse>(
+            GetAllPitsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new();

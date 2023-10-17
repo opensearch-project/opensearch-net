@@ -70,8 +70,14 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
 
+        internal static readonly ApiUrls NoNamespaceDeleteAllPits =
+            new(new[] { "_search/point_in_time/_all" });
+
         internal static readonly ApiUrls NoNamespaceDeletePit =
             new(new[] { "_search/point_in_time" });
+
+        internal static readonly ApiUrls NoNamespaceGetAllPits =
+            new(new[] { "_search/point_in_time/_all" });
 
         internal static readonly ApiUrls IngestDeletePipeline =
             new(new[] { "_ingest/pipeline/{id}" });
