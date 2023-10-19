@@ -77,7 +77,7 @@ public sealed class PointInTimeIntegrationTests : IClusterFixture<WritableCluste
 
 		var pitSearch = await client.SearchAsync<Doc>(s => s
 			.MatchAll()
-			.PointInTime(pitResp.PitId)
+			.PointInTime(p => p.PitId(pitResp.PitId))
 			.TrackTotalHits());
 		pitSearch.ShouldBeValid();
 		pitSearch.Total.Should().Be(10);
@@ -144,7 +144,7 @@ public sealed class PointInTimeIntegrationTests : IClusterFixture<WritableCluste
 
 		var searchResp = await client.SearchAsync<Doc>(s => s
 			.MatchAll()
-			.PointInTime(createResp.PitId, p => p.KeepAlive("4h")));
+			.PointInTime(p => p.PitId(createResp.PitId).KeepAlive("4h")));
 		searchResp.ShouldBeValid();
 
 		var getAllResp = await client.GetAllPitsAsync();
