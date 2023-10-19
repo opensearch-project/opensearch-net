@@ -26,25 +26,35 @@
 *  under the License.
 */
 
-using System.Collections.Generic;
+
 using System.Runtime.Serialization;
-using OpenSearch.Net;
 
 namespace OpenSearch.Client;
 
-[DataContract]
-public class DeletePitResponse : ResponseBase
+[ReadAs(typeof(PointInTime))]
+public interface IPointInTime
 {
-	[DataMember(Name = "pits")]
-	public IReadOnlyCollection<DeletedPit> Pits { get; internal set; } = EmptyReadOnly<DeletedPit>.Collection;
+	[DataMember(Name = "id")]
+	string Id { get; set; }
+
+	[DataMember(Name = "keep_alive")]
+	Time KeepAlive { get; set; }
 }
 
-[DataContract]
-public class DeletedPit
+public class PointInTime : IPointInTime
 {
-	[DataMember(Name = "pit_id")]
-	public string PitId { get; set; }
+	public PointInTime(string id) => Id = id;
 
-	[DataMember(Name = "successful")]
-	public bool Successful { get; set; }
+	public string Id { get; set; }
+	public Time KeepAlive { get; set; }
+}
+
+public class PointInTimeDescriptor : DescriptorBase<PointInTimeDescriptor, IPointInTime>, IPointInTime
+{
+	string IPointInTime.Id { get; set; }
+	Time IPointInTime.KeepAlive { get; set; }
+
+	public PointInTimeDescriptor(string id) => Self.Id = id;
+
+	public PointInTimeDescriptor KeepAlive(Time keepAlive) => Assign(keepAlive, (a, v) => a.KeepAlive = v);
 }
