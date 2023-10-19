@@ -530,9 +530,13 @@ namespace OpenSearch.Client
 		public SearchDescriptor<TInferDocument> RuntimeFields<TSource>(Func<RuntimeFieldsDescriptor<TSource>, IPromise<IRuntimeFields>> runtimeFieldsSelector) where TSource : class =>
 			Assign(runtimeFieldsSelector, (a, v) => a.RuntimeFields = v?.Invoke(new RuntimeFieldsDescriptor<TSource>())?.Value);
 
-		public SearchDescriptor<TInferDocument> PointInTime(string pitId, Func<PointInTimeDescriptor, IPointInTime> selector = null) =>
-			Assign(selector, (a, v) => a.PointInTime = v.InvokeOrDefault(new PointInTimeDescriptor(pitId)))
-				.Index(null);
+		/// <inheritdoc cref="ISearchRequest.PointInTime" />
+		public SearchDescriptor<TInferDocument> PointInTime(Func<PointInTimeDescriptor, IPointInTime> selector) =>
+			Assign(selector, (a, v) =>
+			{
+				a.PointInTime = v?.Invoke(new PointInTimeDescriptor());
+				if (a.PointInTime != null) a.RouteValues.Remove("index");
+			});
 
 		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings) => base.ResolveUrl(routeValues, settings);
 	}

@@ -141,6 +141,39 @@ var page3 = await client.ScrollAsync<Movie>("1m", page2.ScrollId);
 Console.WriteLine(string.Join('\n', page3.Documents));
 ```
 
+### Pagination with Point in Time
+The scroll example above has one weakness: if the index is updated while you are scrolling through the results, they will be paginated inconsistently. To avoid this, you should use the "Point in Time" feature. The following example demonstrates how to use the `point_in_time` and `pit_id` parameters to paginate through the search results:
+
+```csharp
+var pitResp = await client.CreatePitAsync("movies", p => p.KeepAlive("1m"));
+
+var page1 = await client.SearchAsync<Movie>(s => s
+    .Query(_ => query)
+    .Sort(_ => sort)
+    .Size(2)
+    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m")));
+var page2 = await client.SearchAsync<Movie>(s => s
+    .Query(_ => query)
+    .Sort(_ => sort)
+    .Size(2)
+    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m"))
+    .SearchAfter(page1.Hits.Last().Sorts));
+var page3 = await client.SearchAsync<Movie>(s => s
+    .Query(_ => query)
+    .Sort(_ => sort)
+    .Size(2)
+    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m"))
+    .SearchAfter(page2.Hits.Last().Sorts));
+
+foreach (var doc in page1.Documents.Concat(page2.Documents).Concat(page3.Documents))
+{
+    Console.WriteLine(doc.Title);
+}
+
+await client.DeletePitAsync(p => p.PitIds(pitResp.PitId));
+```
+
+Note that a point-in-time is associated with an index or a set of index. So, when performing a search with a point-in-time, you DO NOT specify the index in the search.
 
 ## Cleanup
 ```csharp

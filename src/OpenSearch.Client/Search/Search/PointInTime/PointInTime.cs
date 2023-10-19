@@ -43,8 +43,6 @@ public interface IPointInTime
 
 public class PointInTime : IPointInTime
 {
-	public PointInTime(string id) => Id = id;
-
 	public string Id { get; set; }
 	public Time KeepAlive { get; set; }
 }
@@ -54,7 +52,7 @@ public class PointInTimeDescriptor : DescriptorBase<PointInTimeDescriptor, IPoin
 	string IPointInTime.Id { get; set; }
 	Time IPointInTime.KeepAlive { get; set; }
 
-	public PointInTimeDescriptor(string id) => Self.Id = id;
+	public PointInTimeDescriptor PitId(string id) => Assign(id, (a, v) => a.Id = v);
 
 	public PointInTimeDescriptor KeepAlive(Time keepAlive) => Assign(keepAlive, (a, v) => a.KeepAlive = v);
 }
