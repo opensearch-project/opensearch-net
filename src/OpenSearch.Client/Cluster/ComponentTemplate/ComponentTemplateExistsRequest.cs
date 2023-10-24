@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-using System.Runtime.Serialization;
+namespace OpenSearch.Client.Specification.ClusterApi;
 
-namespace OpenSearch.Client;
+[MapsApi("cluster.exists_component_template")]
+public partial interface IComponentTemplateExistsRequest { }
 
-[DataContract]
-public class ExistsResponse : ResponseBase
-{
-	public bool Exists => ApiCall is { Success: true, HttpStatusCode: 200 };
-}
+public partial class ComponentTemplateExistsRequest { }
+
+public partial class ComponentTemplateExistsDescriptor { }

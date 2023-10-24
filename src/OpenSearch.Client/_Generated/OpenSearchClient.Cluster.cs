@@ -232,6 +232,61 @@ namespace OpenSearch.Client.Specification.ClusterApi
             >(request, request.RequestParameters, ct);
 
         /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ExistsResponse ComponentTemplateExists(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector = null
+        ) =>
+            ComponentTemplateExists(
+                selector.InvokeOrDefault(new ComponentTemplateExistsDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ExistsResponse> ComponentTemplateExistsAsync(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector =
+                null,
+            CancellationToken ct = default
+        ) =>
+            ComponentTemplateExistsAsync(
+                selector.InvokeOrDefault(new ComponentTemplateExistsDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ExistsResponse ComponentTemplateExists(IComponentTemplateExistsRequest request) =>
+            DoRequest<IComponentTemplateExistsRequest, ExistsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ExistsResponse> ComponentTemplateExistsAsync(
+            IComponentTemplateExistsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IComponentTemplateExistsRequest, ExistsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>

@@ -122,9 +122,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
-    public partial class ExistsComponentTemplateRequestParameters
-        : RequestParameters<ExistsComponentTemplateRequestParameters>
+    /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ComponentTemplateExistsRequestParameters
+        : RequestParameters<ComponentTemplateExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;

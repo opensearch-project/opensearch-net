@@ -169,6 +169,55 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IComponentTemplateExistsRequest
+        : IRequest<ComponentTemplateExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ComponentTemplateExistsRequest
+        : PlainRequestBase<ComponentTemplateExistsRequestParameters>,
+            IComponentTemplateExistsRequest
+    {
+        protected IComponentTemplateExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterComponentTemplateExists;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public ComponentTemplateExistsRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ComponentTemplateExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IClusterGetSettingsRequest
         : IRequest<ClusterGetSettingsRequestParameters> { }
 

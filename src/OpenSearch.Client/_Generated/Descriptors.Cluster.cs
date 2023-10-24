@@ -141,6 +141,42 @@ namespace OpenSearch.Client
             Qs("wait_for_removal", waitforremoval);
     }
 
+    /// <summary>Descriptor for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ComponentTemplateExistsDescriptor
+        : RequestDescriptorBase<
+            ComponentTemplateExistsDescriptor,
+            ComponentTemplateExistsRequestParameters,
+            IComponentTemplateExistsRequest
+        >,
+            IComponentTemplateExistsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterComponentTemplateExists;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public ComponentTemplateExistsDescriptor(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ComponentTemplateExistsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public ComponentTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ComponentTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+    }
+
     /// <summary>Descriptor for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsDescriptor
         : RequestDescriptorBase<
