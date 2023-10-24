@@ -366,5 +366,42 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>PUT on /_component_template/{name}</summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutComponentTemplate<TResponse>(
+            string name,
+            PostData body,
+            PutComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_component_template/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_component_template/{name}</summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.put_component_template", "name, body")]
+        public Task<TResponse> PutComponentTemplateAsync<TResponse>(
+            string name,
+            PostData body,
+            PutComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_component_template/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
     }
 }
