@@ -218,6 +218,62 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IGetComponentTemplateRequest
+        : IRequest<GetComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class GetComponentTemplateRequest
+        : PlainRequestBase<GetComponentTemplateRequestParameters>,
+            IGetComponentTemplateRequest
+    {
+        protected IGetComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetComponentTemplate;
+
+        /// <summary>/_component_template</summary>
+        public GetComponentTemplateRequest()
+            : base() { }
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public GetComponentTemplateRequest(Names name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IClusterGetSettingsRequest
         : IRequest<ClusterGetSettingsRequestParameters> { }
 

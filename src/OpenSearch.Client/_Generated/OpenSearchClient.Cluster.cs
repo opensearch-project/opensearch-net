@@ -287,6 +287,62 @@ namespace OpenSearch.Client.Specification.ClusterApi
             );
 
         /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public GetComponentTemplateResponse GetComponentTemplate(
+            Names name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null
+        ) =>
+            GetComponentTemplate(
+                selector.InvokeOrDefault(new GetComponentTemplateDescriptor().Name(name: name))
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            Names name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            GetComponentTemplateAsync(
+                selector.InvokeOrDefault(new GetComponentTemplateDescriptor().Name(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public GetComponentTemplateResponse GetComponentTemplate(
+            IGetComponentTemplateRequest request
+        ) =>
+            DoRequest<IGetComponentTemplateRequest, GetComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            IGetComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IGetComponentTemplateRequest, GetComponentTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
