@@ -116,6 +116,63 @@ namespace OpenSearch.Client.Specification.ClusterApi
             );
 
         /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteComponentTemplateResponse DeleteComponentTemplate(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector = null
+        ) =>
+            DeleteComponentTemplate(
+                selector.InvokeOrDefault(new DeleteComponentTemplateDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector =
+                null,
+            CancellationToken ct = default
+        ) =>
+            DeleteComponentTemplateAsync(
+                selector.InvokeOrDefault(new DeleteComponentTemplateDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteComponentTemplateResponse DeleteComponentTemplate(
+            IDeleteComponentTemplateRequest request
+        ) =>
+            DoRequest<IDeleteComponentTemplateRequest, DeleteComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            IDeleteComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IDeleteComponentTemplateRequest, DeleteComponentTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>

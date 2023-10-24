@@ -81,6 +81,48 @@ namespace OpenSearch.Client
         ) => Qs("include_yes_decisions", includeyesdecisions);
     }
 
+    /// <summary>Descriptor for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteComponentTemplateDescriptor
+        : RequestDescriptorBase<
+            DeleteComponentTemplateDescriptor,
+            DeleteComponentTemplateRequestParameters,
+            IDeleteComponentTemplateRequest
+        >,
+            IDeleteComponentTemplateRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteComponentTemplate;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public DeleteComponentTemplateDescriptor(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteComponentTemplateDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public DeleteComponentTemplateDescriptor ClusterManagerTimeout(
+            Time clustermanagertimeout
+        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public DeleteComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Operation timeout.</summary>
+        public DeleteComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
     /// <summary>Descriptor for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
     public partial class DeleteVotingConfigExclusionsDescriptor
         : RequestDescriptorBase<

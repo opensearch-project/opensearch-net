@@ -89,6 +89,63 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IDeleteComponentTemplateRequest
+        : IRequest<DeleteComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteComponentTemplateRequest
+        : PlainRequestBase<DeleteComponentTemplateRequestParameters>,
+            IDeleteComponentTemplateRequest
+    {
+        protected IDeleteComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteComponentTemplate;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public DeleteComponentTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteComponentTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteVotingConfigExclusionsRequest
         : IRequest<DeleteVotingConfigExclusionsRequestParameters> { }
 
