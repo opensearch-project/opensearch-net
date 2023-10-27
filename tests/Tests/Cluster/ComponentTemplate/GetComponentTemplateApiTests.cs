@@ -58,15 +58,19 @@ namespace Tests.Cluster.ComponentTemplate
 		{
 			response.ShouldBeValid();
 
-			response.ComponentTemplates.Should().NotBeNull();
-			response.ComponentTemplates.Should().HaveCount(1);
+			response.ComponentTemplates.Should().NotBeNull().And.HaveCount(1);
 
-			var componentTemplate = response.ComponentTemplates.First(t => t.Name == CallIsolatedValue).ComponentTemplate;
+			var componentTemplate = response.ComponentTemplates.First();
 
-			componentTemplate.Version.Should().Be(1);
+			componentTemplate.Name.Should().Be(CallIsolatedValue);
 
-			componentTemplate.Template.Settings.Should().NotBeNull();
-			componentTemplate.Template.Settings.NumberOfShards.Should().Be(2);
+			componentTemplate.ComponentTemplate.Should().NotBeNull();
+
+			componentTemplate.ComponentTemplate.Version.Should().Be(1);
+
+			componentTemplate.ComponentTemplate.Template.Should().NotBeNull();
+			componentTemplate.ComponentTemplate.Template.Settings.Should().NotBeNull();
+			componentTemplate.ComponentTemplate.Template.Settings.NumberOfShards.Should().Be(2);
 		}
 	}
 }
