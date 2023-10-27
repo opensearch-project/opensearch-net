@@ -11,19 +11,18 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.ComponentTemplate
+namespace Tests.Cluster.ComponentTemplate;
+
+public class DeleteComponentTemplateUrlTests
 {
-	public class DeleteComponentTemplateUrlTests
+	[U] public async Task Urls()
 	{
-		[U] public async Task Urls()
-		{
-			var name = "temp";
-			await DELETE($"/_component_template/{name}")
-					.Fluent(c => c.Cluster.DeleteComponentTemplate(name))
-					.Request(c => c.Cluster.DeleteComponentTemplate(new DeleteComponentTemplateRequest(name)))
-					.FluentAsync(c => c.Cluster.DeleteComponentTemplateAsync(name))
-					.RequestAsync(c => c.Cluster.DeleteComponentTemplateAsync(new DeleteComponentTemplateRequest(name)))
-				;
-		}
+		var name = "temp";
+		await DELETE($"/_component_template/{name}")
+				.Fluent(c => c.Cluster.DeleteComponentTemplate(name))
+				.Request(c => c.Cluster.DeleteComponentTemplate(new DeleteComponentTemplateRequest(name)))
+				.FluentAsync(c => c.Cluster.DeleteComponentTemplateAsync(name))
+				.RequestAsync(c => c.Cluster.DeleteComponentTemplateAsync(new DeleteComponentTemplateRequest(name)))
+			;
 	}
 }

@@ -11,19 +11,18 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.ComponentTemplate
+namespace Tests.Cluster.ComponentTemplate;
+
+public class PutComponentTemplateUrlTests
 {
-	public class PutComponentTemplateUrlTests
+	[U] public async Task Urls()
 	{
-		[U] public async Task Urls()
-		{
-			var name = "temp";
-			await PUT($"/_component_template/{name}")
-					.Fluent(c => c.Cluster.PutComponentTemplate(name, p => p))
-					.Request(c => c.Cluster.PutComponentTemplate(new PutComponentTemplateRequest(name)))
-					.FluentAsync(c => c.Cluster.PutComponentTemplateAsync(name, p => p))
-					.RequestAsync(c => c.Cluster.PutComponentTemplateAsync(new PutComponentTemplateRequest(name)))
-				;
-		}
+		var name = "temp";
+		await PUT($"/_component_template/{name}")
+				.Fluent(c => c.Cluster.PutComponentTemplate(name, p => p))
+				.Request(c => c.Cluster.PutComponentTemplate(new PutComponentTemplateRequest(name)))
+				.FluentAsync(c => c.Cluster.PutComponentTemplateAsync(name, p => p))
+				.RequestAsync(c => c.Cluster.PutComponentTemplateAsync(new PutComponentTemplateRequest(name)))
+			;
 	}
 }

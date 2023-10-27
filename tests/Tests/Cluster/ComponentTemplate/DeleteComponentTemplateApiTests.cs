@@ -12,26 +12,25 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cluster.ComponentTemplate
+namespace Tests.Cluster.ComponentTemplate;
+
+public class DeleteComponentTemplateApiTests
+	: ApiTestBase<WritableCluster, DeleteComponentTemplateResponse, IDeleteComponentTemplateRequest, DeleteComponentTemplateDescriptor,
+		DeleteComponentTemplateRequest>
 {
-	public class DeleteComponentTemplateApiTests
-		: ApiTestBase<WritableCluster, DeleteComponentTemplateResponse, IDeleteComponentTemplateRequest, DeleteComponentTemplateDescriptor,
-			DeleteComponentTemplateRequest>
-	{
-		public DeleteComponentTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public DeleteComponentTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> Fluent => d => d;
-		protected override HttpMethod HttpMethod => HttpMethod.DELETE;
-		protected override DeleteComponentTemplateRequest Initializer => new DeleteComponentTemplateRequest(CallIsolatedValue);
-		protected override string UrlPath => $"/_component_template/{CallIsolatedValue}";
+	protected override Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> Fluent => d => d;
+	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+	protected override DeleteComponentTemplateRequest Initializer => new(CallIsolatedValue);
+	protected override string UrlPath => $"/_component_template/{CallIsolatedValue}";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.DeleteComponentTemplate(CallIsolatedValue, f),
-			(client, f) => client.Cluster.DeleteComponentTemplateAsync(CallIsolatedValue, f),
-			(client, r) => client.Cluster.DeleteComponentTemplate(r),
-			(client, r) => client.Cluster.DeleteComponentTemplateAsync(r)
-		);
+	protected override LazyResponses ClientUsage() => Calls(
+		(client, f) => client.Cluster.DeleteComponentTemplate(CallIsolatedValue, f),
+		(client, f) => client.Cluster.DeleteComponentTemplateAsync(CallIsolatedValue, f),
+		(client, r) => client.Cluster.DeleteComponentTemplate(r),
+		(client, r) => client.Cluster.DeleteComponentTemplateAsync(r)
+	);
 
-		protected override DeleteComponentTemplateDescriptor NewDescriptor() => new DeleteComponentTemplateDescriptor(CallIsolatedValue);
-	}
+	protected override DeleteComponentTemplateDescriptor NewDescriptor() => new(CallIsolatedValue);
 }
