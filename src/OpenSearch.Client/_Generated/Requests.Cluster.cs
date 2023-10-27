@@ -493,4 +493,68 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IPutComponentTemplateRequest
+        : IRequest<PutComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for PutComponentTemplate</summary>
+    public partial class PutComponentTemplateRequest
+        : PlainRequestBase<PutComponentTemplateRequestParameters>,
+            IPutComponentTemplateRequest
+    {
+        protected IPutComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutComponentTemplate;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public PutComponentTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutComponentTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        public bool? Create
+        {
+            get => Q<bool?>("create");
+            set => Q("create", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
 }

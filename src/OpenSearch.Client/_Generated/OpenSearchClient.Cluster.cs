@@ -482,5 +482,61 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 request.RequestParameters,
                 ct
             );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public PutComponentTemplateResponse PutComponentTemplate(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector
+        ) =>
+            PutComponentTemplate(
+                selector.InvokeOrDefault(new PutComponentTemplateDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector,
+            CancellationToken ct = default
+        ) =>
+            PutComponentTemplateAsync(
+                selector.InvokeOrDefault(new PutComponentTemplateDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public PutComponentTemplateResponse PutComponentTemplate(
+            IPutComponentTemplateRequest request
+        ) =>
+            DoRequest<IPutComponentTemplateRequest, PutComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            IPutComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IPutComponentTemplateRequest, PutComponentTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
     }
 }

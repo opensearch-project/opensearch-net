@@ -68,6 +68,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterPendingTasks =
             new(new[] { "_cluster/pending_tasks" });
 
+        internal static readonly ApiUrls ClusterPutComponentTemplate =
+            new(new[] { "_component_template/{name}" });
+            
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });
 
