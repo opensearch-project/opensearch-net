@@ -9,16 +9,21 @@ using System;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
+using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Search.PointInTime;
 
+[SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class CreatePitApiTests
-	: ApiIntegrationTestBase<WritableCluster, CreatePitResponse, ICreatePitRequest, CreatePitDescriptor, CreatePitRequest>
+	: ApiIntegrationTestBase<ReadOnlyCluster, CreatePitResponse, ICreatePitRequest, CreatePitDescriptor, CreatePitRequest>
 {
-	public CreatePitApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public CreatePitApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+	private string _pitId;
 
 	protected override bool ExpectIsValid => true;
 
@@ -31,7 +36,7 @@ public class CreatePitApiTests
 
 	protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-	protected override CreatePitRequest Initializer => new(CallIsolatedValue)
+	protected override CreatePitRequest Initializer => new(OpenSearch.Client.Indices.Index<Project>())
 	{
 		KeepAlive = "1h"
 	};
@@ -39,11 +44,11 @@ public class CreatePitApiTests
 	protected override bool SupportsDeserialization => false;
 
 	protected override string UrlPath =>
-		$"/{CallIsolatedValue}/_search/point_in_time?keep_alive=1h";
+		"/project/_search/point_in_time?keep_alive=1h";
 
 	protected override LazyResponses ClientUsage() => Calls(
-		(c, f) => c.CreatePit(CallIsolatedValue, f),
-		(c, f) => c.CreatePitAsync(CallIsolatedValue, f),
+		(c, f) => c.CreatePit(OpenSearch.Client.Indices.Index<Project>(), f),
+		(c, f) => c.CreatePitAsync(OpenSearch.Client.Indices.Index<Project>(), f),
 		(c, r) => c.CreatePit(r),
 		(c, r) => c.CreatePitAsync(r)
 	);
@@ -52,9 +57,17 @@ public class CreatePitApiTests
 
 	protected override void ExpectResponse(CreatePitResponse response)
 	{
+		_pitId = response.PitId;
 		response.IsValid.Should().BeTrue();
 		response.PitId.Should().NotBeNullOrEmpty();
 		response.CreationTime.Should().BeCloseTo(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(), 10000);
 		response.Shards.Should().NotBeNull();
+	}
+
+	protected override void OnAfterCall(IOpenSearchClient client)
+	{
+		if (string.IsNullOrEmpty(_pitId)) return;
+		client.DeletePit(d => d.PitIds(_pitId));
+		_pitId = null;
 	}
 }

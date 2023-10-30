@@ -8,6 +8,7 @@
 using System;
 using OpenSearch.Client;
 using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -17,6 +18,7 @@ namespace Tests.Search.PointInTime;
 
 // ReadOnlyCluster because eventhough its technically a write action it does not hinder
 // on going reads
+[SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeletePitApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, DeletePitResponse, IDeletePitRequest, DeletePitDescriptor, DeletePitRequest>
 {
