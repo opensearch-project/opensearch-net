@@ -30,7 +30,7 @@ public class PointInTimeDescriptor : DescriptorBase<PointInTimeDescriptor, IPoin
 	string IPointInTime.Id { get; set; }
 	Time IPointInTime.KeepAlive { get; set; }
 
-	public PointInTimeDescriptor PitId(string id) => Assign(id, (a, v) => a.Id = v);
+	public PointInTimeDescriptor Id(string id) => Assign(id, (a, v) => a.Id = v);
 
 	public PointInTimeDescriptor KeepAlive(Time keepAlive) => Assign(keepAlive, (a, v) => a.KeepAlive = v);
 }

@@ -24,7 +24,7 @@ namespace Tests.Search.PointInTime;
 public class GetAllPitsApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, GetAllPitsResponse, IGetAllPitsRequest, GetAllPitsDescriptor, GetAllPitsRequest>
 {
-	private readonly List<CreatePitResponse> _pits = new();
+	private List<(string id, long creationTime)> _pits = new();
 
 	public GetAllPitsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
@@ -52,32 +52,31 @@ public class GetAllPitsApiTests
 
 	protected override void ExpectResponse(GetAllPitsResponse response)
 	{
+		_pits.Should().HaveCount(5);
 		response.ShouldBeValid();
 		response.Pits.Should()
 			.NotBeNull()
 			.And.HaveCount(5)
 			.And.BeEquivalentTo(_pits.Select(p => new PitDetail
 			{
-				PitId = p.PitId,
-				CreationTime = p.CreationTime,
+				PitId = p.id,
+				CreationTime = p.creationTime,
 				KeepAlive = 60 * 60 * 1000
 			}));
 	}
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{
-		_pits.Clear();
-
 		for (var i = 0; i < 5; i++)
 		{
-			var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
+			var pit = client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
 			if (!pit.IsValid)
 				throw new Exception("Setup: Initial PIT failed.");
 
-			_pits.Add(pit);
+			_pits.Add((pit.PitId, pit.CreationTime));
 		}
 	}
 
 	protected override void OnAfterCall(IOpenSearchClient client) =>
-		client.DeletePit(d => d.PitId(_pits.Select(p => p.PitId)));
+		client.DeletePit(d => d.PitId(_pits.Select(p => p.id)));
 }

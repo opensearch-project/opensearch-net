@@ -67,10 +67,10 @@ public class DeletePitApiTests
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{
-		var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
+		var pit = client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
 		if (!pit.IsValid)
 			throw new Exception("Setup: Initial PIT failed.");
 
-		_pitId = pit.PitId ?? _pitId;
+		_pitId = pit.PitId;
 	}
 }

@@ -151,18 +151,18 @@ var page1 = await client.SearchAsync<Movie>(s => s
     .Query(_ => query)
     .Sort(_ => sort)
     .Size(2)
-    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m")));
+    .PointInTime(p => p.Id(pitResp.PitId).KeepAlive("1m")));
 var page2 = await client.SearchAsync<Movie>(s => s
     .Query(_ => query)
     .Sort(_ => sort)
     .Size(2)
-    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m"))
+    .PointInTime(p => p.Id(pitResp.PitId).KeepAlive("1m"))
     .SearchAfter(page1.Hits.Last().Sorts));
 var page3 = await client.SearchAsync<Movie>(s => s
     .Query(_ => query)
     .Sort(_ => sort)
     .Size(2)
-    .PointInTime(p => p.PitId(pitResp.PitId).KeepAlive("1m"))
+    .PointInTime(p => p.Id(pitResp.PitId).KeepAlive("1m"))
     .SearchAfter(page2.Hits.Last().Sorts));
 
 foreach (var doc in page1.Documents.Concat(page2.Documents).Concat(page3.Documents))
@@ -170,7 +170,7 @@ foreach (var doc in page1.Documents.Concat(page2.Documents).Concat(page3.Documen
     Console.WriteLine(doc.Title);
 }
 
-await client.DeletePitAsync(p => p.PitIds(pitResp.PitId));
+await client.DeletePitAsync(p => p.PitId(pitResp.PitId));
 ```
 
 Note that a point-in-time is associated with an index or a set of index. So, when performing a search with a point-in-time, you DO NOT specify the index in the search.

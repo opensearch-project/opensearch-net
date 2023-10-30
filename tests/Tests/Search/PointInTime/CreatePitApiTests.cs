@@ -54,7 +54,7 @@ public class CreatePitApiTests
 		(c, r) => c.CreatePitAsync(r)
 	);
 
-	protected override CreatePitDescriptor NewDescriptor() => new(CallIsolatedValue);
+	protected override CreatePitDescriptor NewDescriptor() => new(OpenSearch.Client.Indices.Index<Project>());
 
 	protected override void ExpectResponse(CreatePitResponse response)
 	{
@@ -65,10 +65,5 @@ public class CreatePitApiTests
 		response.Shards.Should().NotBeNull();
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client)
-	{
-		if (string.IsNullOrEmpty(_pitId)) return;
-		client.DeletePit(d => d.PitId(_pitId));
-		_pitId = null;
-	}
+	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(_pitId));
 }

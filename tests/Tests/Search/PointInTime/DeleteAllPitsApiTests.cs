@@ -22,11 +22,11 @@ namespace Tests.Search.PointInTime;
 
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeleteAllPitsApiTests
-	: ApiIntegrationTestBase<ReadOnlyCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
+	: ApiIntegrationTestBase<WritableCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
 {
 	private readonly List<string> _pitIds = new();
 
-	public DeleteAllPitsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public DeleteAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
 	protected override bool ExpectIsValid => true;
 
@@ -65,8 +65,6 @@ public class DeleteAllPitsApiTests
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{
-		_pitIds.Clear();
-
 		for (var i = 0; i < 5; i++)
 		{
 			var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
