@@ -6,9 +6,12 @@
 */
 
 using System;
+using System.Linq;
+using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -16,8 +19,6 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Search.PointInTime;
 
-// ReadOnlyCluster because eventhough its technically a write action it does not hinder
-// on going reads
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeletePitApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, DeletePitResponse, IDeletePitRequest, DeletePitDescriptor, DeletePitRequest>
@@ -53,6 +54,16 @@ public class DeletePitApiTests
 	);
 
 	protected override DeletePitDescriptor NewDescriptor() => new();
+
+	protected override void ExpectResponse(DeletePitResponse response)
+	{
+		response.ShouldBeValid();
+		response.Pits.Should().NotBeNull().And.HaveCount(1);
+
+		var pit = response.Pits.First();
+		pit.Successful.Should().BeTrue();
+		pit.PitId.Should().Be(_pitId);
+	}
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{

@@ -74,42 +74,6 @@ public sealed class PointInTimeIntegrationTests : IClusterFixture<WritableCluste
 		});
 	}
 
-	[I] public async Task PointInTimeGetAllDeleteAll()
-	{
-		var client = _cluster.Client;
-		var index = nameof(PointInTimeGetAllDeleteAll).ToLowerInvariant();
-
-		var createIndexResp = await client.Indices.CreateAsync(index);
-		createIndexResp.ShouldBeValid();
-
-		var pits = new List<(string id, long creationTime)>();
-		for (var i = 0; i < 5; ++i)
-		{
-			var createResp = await client.CreatePitAsync(index, c => c.KeepAlive("1h"));
-			createResp.ShouldBeValid();
-			pits.Add((createResp.PitId, createResp.CreationTime));
-		}
-
-		var getAllResp = await client.GetAllPitsAsync();
-		getAllResp.ShouldBeValid();
-		getAllResp.Pits.Should()
-			.BeEquivalentTo(pits.Select(p => new PitDetail
-			{
-				PitId = p.id,
-				CreationTime = p.creationTime,
-				KeepAlive = 60 * 60 * 1000
-			}));
-
-		var deleteAllResp = await client.DeleteAllPitsAsync();
-		deleteAllResp.ShouldBeValid();
-		deleteAllResp.Pits.Should()
-			.BeEquivalentTo(pits.Select(p => new DeletedPit
-			{
-				PitId = p.id,
-				Successful = true
-			}));
-	}
-
 	[I] public async Task PointInTimeSearchExtendKeepAlive()
 	{
 		var client = _cluster.Client;

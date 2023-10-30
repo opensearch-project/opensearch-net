@@ -10,6 +10,7 @@ using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -58,7 +59,7 @@ public class CreatePitApiTests
 	protected override void ExpectResponse(CreatePitResponse response)
 	{
 		_pitId = response.PitId;
-		response.IsValid.Should().BeTrue();
+		response.ShouldBeValid();
 		response.PitId.Should().NotBeNullOrEmpty();
 		response.CreationTime.Should().BeCloseTo(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(), 10000);
 		response.Shards.Should().NotBeNull();
