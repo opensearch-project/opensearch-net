@@ -62,7 +62,7 @@ public sealed class PointInTimeIntegrationTests : IClusterFixture<WritableCluste
 		pitSearch.Total.Should().Be(10);
 		pitSearch.Documents.Should().AllSatisfy(d => d.Id.Should().BeLessThan(10));
 
-		var deleteResp = await client.DeletePitAsync(d => d.PitIds(pitResp.PitId));
+		var deleteResp = await client.DeletePitAsync(d => d.PitId(pitResp.PitId));
 		deleteResp.ShouldBeValid();
 		deleteResp.Pits.Should().BeEquivalentTo(new[]
 		{

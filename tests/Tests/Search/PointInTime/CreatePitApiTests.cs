@@ -67,7 +67,7 @@ public class CreatePitApiTests
 	protected override void OnAfterCall(IOpenSearchClient client)
 	{
 		if (string.IsNullOrEmpty(_pitId)) return;
-		client.DeletePit(d => d.PitIds(_pitId));
+		client.DeletePit(d => d.PitId(_pitId));
 		_pitId = null;
 	}
 }

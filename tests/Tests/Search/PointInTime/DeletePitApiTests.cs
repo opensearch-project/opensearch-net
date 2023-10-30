@@ -30,7 +30,7 @@ public class DeletePitApiTests
 
 	protected override object ExpectJson => new
 	{
-		pit_ids = new[]
+		pit_id = new[]
 		{
 			_pitId
 		}
@@ -38,7 +38,7 @@ public class DeletePitApiTests
 
 	protected override int ExpectStatusCode => 200;
 
-	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitIds(_pitId);
+	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitId(_pitId);
 	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
 	protected override DeletePitRequest Initializer => new(_pitId);

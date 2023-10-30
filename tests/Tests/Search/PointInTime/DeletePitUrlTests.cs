@@ -20,9 +20,9 @@ public class DeletePitUrlTests
 		var pitIds = new[] { "pitid1", "pitid2" };
 
 		await DELETE("/_search/point_in_time")
-			.Fluent(c => c.DeletePit(d => d.PitIds(pitIds)))
+			.Fluent(c => c.DeletePit(d => d.PitId(pitIds)))
 			.Request(c => c.DeletePit(new DeletePitRequest(pitIds)))
-			.FluentAsync(c => c.DeletePitAsync(d => d.PitIds(pitIds)))
+			.FluentAsync(c => c.DeletePitAsync(d => d.PitId(pitIds)))
 			.RequestAsync(c => c.DeletePitAsync(new DeletePitRequest(pitIds)));
 	}
 }
