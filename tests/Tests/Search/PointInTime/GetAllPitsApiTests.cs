@@ -22,11 +22,11 @@ namespace Tests.Search.PointInTime;
 
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public sealed class GetAllPitsApiTests
-	: ApiIntegrationTestBase<ReadOnlyCluster, GetAllPitsResponse, IGetAllPitsRequest, GetAllPitsDescriptor, GetAllPitsRequest>
+	: ApiIntegrationTestBase<WritableCluster, GetAllPitsResponse, IGetAllPitsRequest, GetAllPitsDescriptor, GetAllPitsRequest>
 {
 	private static readonly Dictionary<string, List<(string id, long creationTime)>> Pits = new();
 
-	public GetAllPitsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public GetAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
 	private List<(string id, long creationTime)> CallIsolatedPits => Pits.TryGetValue(CallIsolatedValue, out var pits)
 		? pits
