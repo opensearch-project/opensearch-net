@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
@@ -22,9 +23,15 @@ namespace Tests.Search.PointInTime;
 public class CreatePitApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, CreatePitResponse, ICreatePitRequest, CreatePitDescriptor, CreatePitRequest>
 {
+	private static readonly Dictionary<string, string> Pits = new();
+
 	public CreatePitApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	private string _pitId;
+	private string CallIsolatedPit
+	{
+		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
+		set => Pits[CallIsolatedValue] = value;
+	}
 
 	protected override bool ExpectIsValid => true;
 
@@ -58,12 +65,12 @@ public class CreatePitApiTests
 
 	protected override void ExpectResponse(CreatePitResponse response)
 	{
-		_pitId = response.PitId;
+		CallIsolatedPit = response.PitId;
 		response.ShouldBeValid();
 		response.PitId.Should().NotBeNullOrEmpty();
 		response.CreationTime.Should().BeCloseTo(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(), 10000);
 		response.Shards.Should().NotBeNull();
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(_pitId));
+	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(CallIsolatedPit));
 }

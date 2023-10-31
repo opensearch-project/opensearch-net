@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -23,9 +24,15 @@ namespace Tests.Search.PointInTime;
 public class DeletePitApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, DeletePitResponse, IDeletePitRequest, DeletePitDescriptor, DeletePitRequest>
 {
-	private string _pitId = "default-for-unit-tests";
+	private static readonly Dictionary<string, string> Pits = new();
 
 	public DeletePitApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+	private string CallIsolatedPit
+	{
+		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
+		set => Pits[CallIsolatedValue] = value;
+	}
 
 	protected override bool ExpectIsValid => true;
 
@@ -33,16 +40,16 @@ public class DeletePitApiTests
 	{
 		pit_id = new[]
 		{
-			_pitId
+			CallIsolatedPit
 		}
 	};
 
 	protected override int ExpectStatusCode => 200;
 
-	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitId(_pitId);
+	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitId(CallIsolatedPit);
 	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-	protected override DeletePitRequest Initializer => new(_pitId);
+	protected override DeletePitRequest Initializer => new(CallIsolatedPit);
 	protected override bool SupportsDeserialization => false;
 	protected override string UrlPath => "/_search/point_in_time";
 
@@ -62,7 +69,7 @@ public class DeletePitApiTests
 
 		var pit = response.Pits.First();
 		pit.Successful.Should().BeTrue();
-		pit.PitId.Should().Be(_pitId);
+		pit.PitId.Should().Be(CallIsolatedPit);
 	}
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
@@ -71,6 +78,6 @@ public class DeletePitApiTests
 		if (!pit.IsValid)
 			throw new Exception("Setup: Initial PIT failed.");
 
-		_pitId = pit.PitId;
+		CallIsolatedPit = pit.PitId;
 	}
 }

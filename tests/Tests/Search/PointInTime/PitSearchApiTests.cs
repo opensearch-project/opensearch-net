@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -28,9 +29,15 @@ public sealed class PitSearchApiTests :
 		SearchRequest<PitSearchApiTests.Doc>
 	>
 {
+	private static readonly Dictionary<string, string> Pits = new();
+
 	public PitSearchApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	private string _pitId = "default-for-unit-tests";
+	private string CallIsolatedPit
+	{
+		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
+		set => Pits[CallIsolatedValue] = value;
+	}
 
 	protected override object ExpectJson => new
 	{
@@ -40,7 +47,7 @@ public sealed class PitSearchApiTests :
 		},
 		pit = new
 		{
-			id = _pitId,
+			id = CallIsolatedPit,
 			keep_alive = "1h"
 		},
 		track_total_hits = true
@@ -52,7 +59,7 @@ public sealed class PitSearchApiTests :
 	protected override Func<SearchDescriptor<Doc>, ISearchRequest> Fluent => s => s
 		.Query(q => q.MatchAll())
 		.PointInTime(p => p
-			.Id(_pitId)
+			.Id(CallIsolatedPit)
 			.KeepAlive("1h"))
 		.TrackTotalHits();
 
@@ -64,7 +71,7 @@ public sealed class PitSearchApiTests :
 		Query = new QueryContainer(new MatchAllQuery()),
 		PointInTime = new OpenSearch.Client.PointInTime
 		{
-			Id = _pitId,
+			Id = CallIsolatedPit,
 			KeepAlive = "1h"
 		},
 		TrackTotalHits = true
@@ -94,7 +101,7 @@ public sealed class PitSearchApiTests :
 
 		var pitResp = client.CreatePit(CallIsolatedValue, p => p.KeepAlive("1h"));
 		pitResp.ShouldBeValid();
-		_pitId = pitResp.PitId;
+		CallIsolatedPit = pitResp.PitId;
 
 		bulkResp = client.Bulk(b => b
 			.Index(CallIsolatedValue)
@@ -103,7 +110,7 @@ public sealed class PitSearchApiTests :
 		bulkResp.ShouldBeValid();
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(_pitId));
+	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(CallIsolatedPit));
 
 	protected override LazyResponses ClientUsage() => Calls(
 		(c, f) => c.Search(f),

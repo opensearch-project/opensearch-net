@@ -21,12 +21,16 @@ using Tests.Framework.EndpointTests.TestState;
 namespace Tests.Search.PointInTime;
 
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
-public class GetAllPitsApiTests
+public sealed class GetAllPitsApiTests
 	: ApiIntegrationTestBase<ReadOnlyCluster, GetAllPitsResponse, IGetAllPitsRequest, GetAllPitsDescriptor, GetAllPitsRequest>
 {
-	private List<(string id, long creationTime)> _pits = new();
+	private static readonly Dictionary<string, List<(string id, long creationTime)>> Pits = new();
 
 	public GetAllPitsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+	private List<(string id, long creationTime)> CallIsolatedPits => Pits.TryGetValue(CallIsolatedValue, out var pits)
+		? pits
+		: Pits[CallIsolatedValue] = new List<(string id, long creationTime)>();
 
 	protected override bool ExpectIsValid => true;
 
@@ -52,12 +56,11 @@ public class GetAllPitsApiTests
 
 	protected override void ExpectResponse(GetAllPitsResponse response)
 	{
-		_pits.Should().HaveCount(5);
 		response.ShouldBeValid();
 		response.Pits.Should()
 			.NotBeNull()
 			.And.HaveCount(5)
-			.And.BeEquivalentTo(_pits.Select(p => new PitDetail
+			.And.BeEquivalentTo(CallIsolatedPits.Select(p => new PitDetail
 			{
 				PitId = p.id,
 				CreationTime = p.creationTime,
@@ -73,10 +76,10 @@ public class GetAllPitsApiTests
 			if (!pit.IsValid)
 				throw new Exception("Setup: Initial PIT failed.");
 
-			_pits.Add((pit.PitId, pit.CreationTime));
+			CallIsolatedPits.Add((pit.PitId, pit.CreationTime));
 		}
 	}
 
 	protected override void OnAfterCall(IOpenSearchClient client) =>
-		client.DeletePit(d => d.PitId(_pits.Select(p => p.id)));
+		client.DeletePit(d => d.PitId(CallIsolatedPits.Select(p => p.id)));
 }

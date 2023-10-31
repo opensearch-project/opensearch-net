@@ -24,9 +24,13 @@ namespace Tests.Search.PointInTime;
 public class DeleteAllPitsApiTests
 	: ApiIntegrationTestBase<WritableCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
 {
-	private readonly List<string> _pitIds = new();
+	private static readonly Dictionary<string, List<string>> Pits = new();
 
 	public DeleteAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+	private List<string> CallIsolatedPits => Pits.TryGetValue(CallIsolatedValue, out var pits)
+		? pits
+		: Pits[CallIsolatedValue] = new List<string>();
 
 	protected override bool ExpectIsValid => true;
 
@@ -56,7 +60,7 @@ public class DeleteAllPitsApiTests
 		response.Pits.Should()
 			.NotBeNull()
 			.And.HaveCount(5)
-			.And.BeEquivalentTo(_pitIds.Select(p => new DeletedPit
+			.And.BeEquivalentTo(CallIsolatedPits.Select(p => new DeletedPit
 			{
 				PitId = p,
 				Successful = true
@@ -71,7 +75,7 @@ public class DeleteAllPitsApiTests
 			if (!pit.IsValid)
 				throw new Exception("Setup: Initial PIT failed.");
 
-			_pitIds.Add(pit.PitId);
+			CallIsolatedPits.Add(pit.PitId);
 		}
 	}
 }
