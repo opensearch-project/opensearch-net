@@ -8,6 +8,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `AWSSDK.Core` from 3.7.202.1 to 3.7.204.10
 - Bumps `xunit.runner.visualstudio` from 2.5.0 to 2.5.3
 - Bumps `Octokit` from 7.1.0 to 8.1.1
+- Bumps `FSharp.Core` from 7.0.400 to 7.0.401
 
 ## [1.5.0]
 ### Fixed
