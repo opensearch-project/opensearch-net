@@ -5119,16 +5119,6 @@
                             "type": "string",
                             "description": "The awareness attribute for which the health is required."
                         }
-                    },
-                    {
-                        "name": "ensure_node_commissioned",
-                        "in": "query",
-                        "description": "Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.",
-                        "schema": {
-                            "type": "boolean",
-                            "default": false,
-                            "description": "Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned."
-                        }
                     }
                 ],
                 "responses": {
@@ -5279,16 +5269,6 @@
                         "schema": {
                             "type": "string",
                             "description": "The awareness attribute for which the health is required."
-                        }
-                    },
-                    {
-                        "name": "ensure_node_commissioned",
-                        "in": "query",
-                        "description": "Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.",
-                        "schema": {
-                            "type": "boolean",
-                            "default": false,
-                            "description": "Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned."
                         }
                     }
                 ],
@@ -6829,6 +6809,18 @@
                             "x-data-type": "time",
                             "x-deprecation-message": "To promote inclusive language, use 'cluster_manager_timeout' instead.",
                             "deprecated": true
+                        }
+                    },
+                    {
+                        "name": "cluster_manager_timeout",
+                        "in": "query",
+                        "description": "Operation timeout for connection to cluster-manager node.",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
+                            "description": "Operation timeout for connection to cluster-manager node.",
+                            "x-version-added": "2.0.0",
+                            "x-data-type": "time"
                         }
                     },
                     {
@@ -8534,6 +8526,18 @@
                             "x-data-type": "time",
                             "x-deprecation-message": "To promote inclusive language, use 'cluster_manager_timeout' instead.",
                             "deprecated": true
+                        }
+                    },
+                    {
+                        "name": "cluster_manager_timeout",
+                        "in": "query",
+                        "description": "Operation timeout for connection to cluster-manager node.",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
+                            "description": "Operation timeout for connection to cluster-manager node.",
+                            "x-version-added": "2.0.0",
+                            "x-data-type": "time"
                         }
                     },
                     {
@@ -18595,6 +18599,18 @@
                         }
                     },
                     {
+                        "name": "cluster_manager_timeout",
+                        "in": "query",
+                        "description": "Operation timeout for connection to cluster-manager node.",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
+                            "description": "Operation timeout for connection to cluster-manager node.",
+                            "x-version-added": "2.0.0",
+                            "x-data-type": "time"
+                        }
+                    },
+                    {
                         "name": "local",
                         "in": "query",
                         "description": "Return local information, do not retrieve the state from cluster-manager node.",
@@ -19449,6 +19465,18 @@
                             "type": "boolean",
                             "default": false,
                             "description": "Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)."
+                        }
+                    },
+                    {
+                        "name": "cluster_manager_timeout",
+                        "in": "query",
+                        "description": "Operation timeout for connection to cluster-manager node.",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
+                            "description": "Operation timeout for connection to cluster-manager node.",
+                            "x-version-added": "2.0.0",
+                            "x-data-type": "time"
                         }
                     },
                     {
@@ -25303,6 +25331,18 @@
                         }
                     },
                     {
+                        "name": "cluster_manager_timeout",
+                        "in": "query",
+                        "description": "Operation timeout for connection to cluster-manager node.",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
+                            "description": "Operation timeout for connection to cluster-manager node.",
+                            "x-version-added": "2.0.0",
+                            "x-data-type": "time"
+                        }
+                    },
+                    {
                         "name": "wait_for_active_shards",
                         "in": "query",
                         "description": "Sets the number of active shards to wait for before the operation returns.",
@@ -26631,7 +26671,8 @@
                         "description": "Specify the keep alive for point in time.",
                         "schema": {
                             "type": "string",
-                            "description": "Specify the keep alive for point in time."
+                            "description": "Specify the keep alive for point in time.",
+                          "x-data-type": "time"
                         }
                     },
                     {
@@ -30868,6 +30909,7 @@
             },
             "DeletePit_BodyParams": {
                 "type": "object",
+                "description": "The point-in-time ids to be deleted",
                 "properties": {
                     "pit_id": {
                         "type": "array",
@@ -31169,6 +31211,9 @@
                         "items": {
                             "type": "string"
                         }
+                    },
+                    "dls": {
+                        "type": "string"
                     },
                     "fls": {
                         "type": "array",
@@ -31885,19 +31930,22 @@
                     "description": {
                         "type": "string"
                     },
-                    "cluster_permission": {
+                    "cluster_permissions": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         }
                     },
-                    "index_permission": {
-                        "$ref": "#/components/schemas/IndexPermission"
+                    "index_permissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IndexPermission"
+                        }
                     },
                     "tenant_permissions": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "$ref": "#/components/schemas/TenantPermission"
                         }
                     },
                     "static": {
@@ -32217,6 +32265,23 @@
                     },
                     "static": {
                         "type": "boolean"
+                    }
+                }
+            },
+            "TenantPermission": {
+                "type": "object",
+                "properties": {
+                    "tenant_patterns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "allowed_actions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
