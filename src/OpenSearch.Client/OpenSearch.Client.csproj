@@ -19,6 +19,7 @@
     <ProjectReference Include="..\OpenSearch.Net\OpenSearch.Net.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="Tests" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.CustomDynamicObjectResolver" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.DynamicCompositeResolver" Key="$(ExposedPublicKey)" />
     <InternalsVisibleTo Include="OpenSearch.Net.DynamicObjectResolverAllowPrivateFalseExcludeNullFalseNameMutateOriginal" Key="$(ExposedPublicKey)" />

@@ -114,13 +114,6 @@ namespace OpenSearch.Client
 			return null;
 		}
 
-		internal static string Utf8String(this ref ArraySegment<byte> segment) =>
-			StringEncoding.UTF8.GetString(segment.Array, segment.Offset, segment.Count);
-
-		internal static string Utf8String(this byte[] bytes) => bytes == null ? null : Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-
-		internal static byte[] Utf8Bytes(this string s) => s.IsNullOrEmpty() ? null : Encoding.UTF8.GetBytes(s);
-
 		internal static bool IsNullOrEmpty(this IndexName value) => value == null || value.GetHashCode() == 0;
 
 		internal static bool IsNullable(this Type type) =>

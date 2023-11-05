@@ -28,7 +28,7 @@
 
 namespace OpenSearch.Client
 {
-	internal static class ApiUrlsLookups
+	internal static partial class ApiUrlsLookups
 	{
 		internal static ApiUrls NoNamespaceBulk = new ApiUrls(new[]{"_bulk", "{index}/_bulk"});
 		internal static ApiUrls CatAliases = new ApiUrls(new[]{"_cat/aliases", "_cat/aliases/{name}"});

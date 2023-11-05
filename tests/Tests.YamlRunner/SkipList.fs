@@ -29,7 +29,7 @@ module Tests.YamlRunner.Skips
 
 type SkipSection = All | Section of string | Sections of string list
 
-type SkipFile = SkipFile of string 
+type SkipFile = SkipFile of string
 
 let SkipList = dict<SkipFile,SkipSection> [    
     // funny looking dispatch /_security/privilege/app?name

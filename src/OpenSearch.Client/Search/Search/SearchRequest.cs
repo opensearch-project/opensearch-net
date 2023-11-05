@@ -98,6 +98,17 @@ namespace OpenSearch.Client
 		double? MinScore { get; set; }
 
 		/// <summary>
+		/// Search against a dataset frozen at a point-in-time (PIT)
+		/// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time/">https://opensearch.org/docs/latest/search-plugins/point-in-time/</a>
+		/// </summary>
+		/// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+		/// <seealso cref="IOpenSearchClient.CreatePit(Indices,System.Func{CreatePitDescriptor,ICreatePitRequest})"/>
+		/// <seealso cref="IOpenSearchClient.CreatePit(ICreatePitRequest)"/>
+		[DataMember(Name = "pit")]
+		IPointInTime PointInTime { get; set; }
+
+		/// <summary>
 		/// Specify a query to apply to the search hits at the very end of a search request,
 		/// after aggregations have already been calculated. Useful when both search hits and aggregations
 		/// will be returned in the response, and a filter should only be applied to the search hits.
@@ -240,6 +251,8 @@ namespace OpenSearch.Client
 		/// <inheritdoc />
 		public double? MinScore { get; set; }
 		/// <inheritdoc />
+		public IPointInTime PointInTime { get; set; }
+		/// <inheritdoc />
 		public QueryContainer PostFilter { get; set; }
 		/// <inheritdoc />
 		public bool? Profile { get; set; }
@@ -285,10 +298,7 @@ namespace OpenSearch.Client
 
 		protected sealed override void RequestDefaults(SearchRequestParameters parameters) => TypedKeys = true;
 
-		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings)
-		{
-			return base.ResolveUrl(routeValues, settings);
-		}
+		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings) => base.ResolveUrl(routeValues, settings);
 	}
 
 	[DataContract]
@@ -318,6 +328,7 @@ namespace OpenSearch.Client
 		IHighlight ISearchRequest.Highlight { get; set; }
 		IDictionary<IndexName, double> ISearchRequest.IndicesBoost { get; set; }
 		double? ISearchRequest.MinScore { get; set; }
+		IPointInTime ISearchRequest.PointInTime { get; set; }
 		QueryContainer ISearchRequest.PostFilter { get; set; }
 		bool? ISearchRequest.Profile { get; set; }
 		QueryContainer ISearchRequest.Query { get; set; }
@@ -519,9 +530,14 @@ namespace OpenSearch.Client
 		public SearchDescriptor<TInferDocument> RuntimeFields<TSource>(Func<RuntimeFieldsDescriptor<TSource>, IPromise<IRuntimeFields>> runtimeFieldsSelector) where TSource : class =>
 			Assign(runtimeFieldsSelector, (a, v) => a.RuntimeFields = v?.Invoke(new RuntimeFieldsDescriptor<TSource>())?.Value);
 
-		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings)
-		{
-			return base.ResolveUrl(routeValues, settings);
-		}
+		/// <inheritdoc cref="ISearchRequest.PointInTime" />
+		public SearchDescriptor<TInferDocument> PointInTime(Func<PointInTimeDescriptor, IPointInTime> selector) =>
+			Assign(selector, (a, v) =>
+			{
+				a.PointInTime = v?.Invoke(new PointInTimeDescriptor());
+				if (a.PointInTime != null) a.RouteValues.Remove("index");
+			});
+
+		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings) => base.ResolveUrl(routeValues, settings);
 	}
 }
