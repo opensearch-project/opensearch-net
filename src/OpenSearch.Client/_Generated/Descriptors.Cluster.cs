@@ -185,11 +185,6 @@ namespace OpenSearch.Client.Specification.ClusterApi
         public ClusterHealthDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.</summary>
-        public ClusterHealthDescriptor EnsureNodeCommissioned(
-            bool? ensurenodecommissioned = true
-        ) => Qs("ensure_node_commissioned", ensurenodecommissioned);
-
         /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
         public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);

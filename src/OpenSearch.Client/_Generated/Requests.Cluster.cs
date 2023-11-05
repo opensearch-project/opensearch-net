@@ -217,13 +217,6 @@ namespace OpenSearch.Client.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.</summary>
-        public bool? EnsureNodeCommissioned
-        {
-            get => Q<bool?>("ensure_node_commissioned");
-            set => Q("ensure_node_commissioned", value);
-        }
-
         /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {

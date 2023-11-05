@@ -26,6 +26,7 @@
 *  under the License.
 */
 
+using OpenSearch.Net.Extensions;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 

@@ -129,6 +129,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
 
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
@@ -254,13 +262,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>Checks whether local node is commissioned or not. If set to true on a local call it will throw exception if node is decommissioned.</summary>
-        public bool? EnsureNodeCommissioned
-        {
-            get => Q<bool?>("ensure_node_commissioned");
-            set => Q("ensure_node_commissioned", value);
         }
 
         /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
