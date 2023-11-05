@@ -448,6 +448,14 @@ only applies the subfilters to the current token if it matches the predicate.</p
       <h4><a class="xref" href="OpenSearch.Client.CreateDescriptor-1.html">CreateDescriptor&lt;TDocument&gt;</a></h4>
       <section><p>Descriptor for Create <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.CreatePitDescriptor.html">CreatePitDescriptor</a></h4>
+      <section><p>Descriptor for CreatePit <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.CreatePitRequest.html">CreatePitRequest</a></h4>
+      <section><p>Request for CreatePit <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.CreatePitResponse.html">CreatePitResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.CreateRequest-1.html">CreateRequest&lt;TDocument&gt;</a></h4>
       <section><p>Request for Create <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-document/</p>
 </section>
@@ -532,6 +540,14 @@ For instance an interval set to month will translate any values to its closest m
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.DecayFunctionDescriptorBase-4.html">DecayFunctionDescriptorBase&lt;TDescriptor, TOrigin, TScale, T&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.DeleteAllPitsDescriptor.html">DeleteAllPitsDescriptor</a></h4>
+      <section><p>Descriptor for DeleteAllPits <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.DeleteAllPitsRequest.html">DeleteAllPitsRequest</a></h4>
+      <section><p>Request for DeleteAllPits <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.DeleteAllPitsResponse.html">DeleteAllPitsResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.DeleteByQueryDescriptor-1.html">DeleteByQueryDescriptor&lt;TDocument&gt;</a></h4>
       <section><p>Descriptor for DeleteByQuery <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/delete-by-query/</p>
 </section>
@@ -555,6 +571,14 @@ For instance an interval set to month will translate any values to its closest m
       <h4><a class="xref" href="OpenSearch.Client.DeleteManyExtensions.html">DeleteManyExtensions</a></h4>
       <section><p>Provides DeleteMany extensions that make it easier to get many documents given a list of ids</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.DeletePitDescriptor.html">DeletePitDescriptor</a></h4>
+      <section><p>Descriptor for DeletePit <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.DeletePitRequest.html">DeletePitRequest</a></h4>
+      <section><p>Request for DeletePit <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.DeletePitResponse.html">DeletePitResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.DeleteRequest.html">DeleteRequest</a></h4>
       <section><p>Request for Delete <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/delete-document/</p>
 </section>
@@ -569,6 +593,8 @@ For instance an interval set to month will translate any values to its closest m
       <section><p>Request for DeleteScript <p></p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.DeleteScriptResponse.html">DeleteScriptResponse</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.DeletedPit.html">DeletedPit</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.DelimitedPayloadTokenFilter.html">DelimitedPayloadTokenFilter</a></h4>
       <section></section>
@@ -1032,6 +1058,14 @@ Each cell is labeled using a geohash which is of user-definable precision.</p>
       <h4><a class="xref" href="OpenSearch.Client.GeometryCollection.html">GeometryCollection</a></h4>
       <section><p>A geo shape representing a collection of <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a> geometries</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.GetAllPitsDescriptor.html">GetAllPitsDescriptor</a></h4>
+      <section><p>Descriptor for GetAllPits <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.GetAllPitsRequest.html">GetAllPitsRequest</a></h4>
+      <section><p>Request for GetAllPits <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.GetAllPitsResponse.html">GetAllPitsResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.GetDescriptor-1.html">GetDescriptor&lt;TDocument&gt;</a></h4>
       <section><p>Descriptor for Get <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</p>
 </section>
@@ -2034,11 +2068,17 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PipelineAggregationDescriptorBase-3.html">PipelineAggregationDescriptorBase&lt;TPipelineAggregation, TPipelineAggregationInterface, TBucketsPath&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.PitDetail.html">PitDetail</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html">PlainRequestBase&lt;TParameters&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PluginStats.html">PluginStats</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PointGeoShape.html">PointGeoShape</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.PointInTime.html">PointInTime</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.PointInTimeDescriptor.html">PointInTimeDescriptor</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.PolygonGeoShape.html">PolygonGeoShape</a></h4>
       <section></section>
@@ -3202,6 +3242,8 @@ only applies the subfilters to the current token if it matches the predicate.</p
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ICountRequest-1.html">ICountRequest&lt;TDocument&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ICreatePitRequest.html">ICreatePitRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ICreateRequest-1.html">ICreateRequest&lt;TDocument&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ICumulativeSumAggregation.html">ICumulativeSumAggregation</a></h4>
@@ -3252,6 +3294,8 @@ dates from roughly 1970 to 2262.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IDecayFunction-2.html">IDecayFunction&lt;TOrigin, TScale&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IDeleteAllPitsRequest.html">IDeleteAllPitsRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest.html">IDeleteByQueryRequest</a></h4>
       <section><p>Delete documents that match a given query</p>
 </section>
@@ -3261,6 +3305,8 @@ dates from roughly 1970 to 2262.</p>
       <h4><a class="xref" href="OpenSearch.Client.IDeleteByQueryRethrottleRequest.html">IDeleteByQueryRethrottleRequest</a></h4>
       <section><p>Rethrottles a running delete by query</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.IDeletePitRequest.html">IDeletePitRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IDeleteRequest.html">IDeleteRequest</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IDeleteRequest-1.html">IDeleteRequest&lt;TDocument&gt;</a></h4>
@@ -3468,6 +3514,8 @@ Each cell is labeled using a geohash which is of user-definable precision.</p>
       <h4><a class="xref" href="OpenSearch.Client.IGeometryCollection.html">IGeometryCollection</a></h4>
       <section><p>A geo shape representing a collection of <a class="xref" href="OpenSearch.Client.IGeoShape.html">IGeoShape</a> geometries</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.IGetAllPitsRequest.html">IGetAllPitsRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IGetRequest.html">IGetRequest</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IGetRequest-1.html">IGetRequest&lt;TDocument&gt;</a></h4>
@@ -3957,6 +4005,8 @@ about which tokens to pick based on co-occurrence and frequencies.</p>
       <h4><a class="xref" href="OpenSearch.Client.IPipelineAggregation.html">IPipelineAggregation</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IPointGeoShape.html">IPointGeoShape</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IPointInTime.html">IPointInTime</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IPolygonGeoShape.html">IPolygonGeoShape</a></h4>
       <section></section>

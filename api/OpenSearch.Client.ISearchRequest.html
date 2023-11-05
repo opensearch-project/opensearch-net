@@ -444,10 +444,52 @@ double? MinScore { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_PointInTime.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.PointInTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ISearchRequest_PointInTime_" data-uid="OpenSearch.Client.ISearchRequest.PointInTime*"></a>
+  <h4 id="OpenSearch_Client_ISearchRequest_PointInTime" data-uid="OpenSearch.Client.ISearchRequest.PointInTime">PointInTime</h4>
+  <div class="markdown level1 summary"><p>Search against a dataset frozen at a point-in-time (PIT)</p>
+<p></p>
+<a href="https://opensearch.org/docs/latest/search-plugins/point-in-time/">https://opensearch.org/docs/latest/search-plugins/point-in-time/</a>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;pit&quot;)]
+IPointInTime PointInTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IPointInTime.html">IPointInTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_ISearchRequest_PointInTime_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <h5 id="OpenSearch_Client_ISearchRequest_PointInTime_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_CreatePit_OpenSearch_Client_Indices_System_Func_OpenSearch_Client_CreatePitDescriptor_OpenSearch_Client_ICreatePitRequest__">CreatePit</a>(<a class="xref" href="OpenSearch.Client.Indices.html">Indices</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="OpenSearch.Client.CreatePitDescriptor.html">CreatePitDescriptor</a>, <a class="xref" href="OpenSearch.Client.ICreatePitRequest.html">ICreatePitRequest</a>&gt;)</div>
+      <div><a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_CreatePit_OpenSearch_Client_ICreatePitRequest_">CreatePit</a>(<a class="xref" href="OpenSearch.Client.ICreatePitRequest.html">ICreatePitRequest</a>)</div>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_PostFilter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.PostFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L105">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L116">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_PostFilter_" data-uid="OpenSearch.Client.ISearchRequest.PostFilter*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_PostFilter" data-uid="OpenSearch.Client.ISearchRequest.PostFilter">PostFilter</h4>
@@ -481,7 +523,7 @@ QueryContainer PostFilter { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Profile.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Profile%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L113">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L124">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Profile_" data-uid="OpenSearch.Client.ISearchRequest.Profile*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Profile" data-uid="OpenSearch.Client.ISearchRequest.Profile">Profile</h4>
@@ -515,7 +557,7 @@ bool? Profile { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Query.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Query%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L119">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L130">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Query_" data-uid="OpenSearch.Client.ISearchRequest.Query*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Query" data-uid="OpenSearch.Client.ISearchRequest.Query">Query</h4>
@@ -547,7 +589,7 @@ QueryContainer Query { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Rescore.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Rescore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L125">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L136">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Rescore_" data-uid="OpenSearch.Client.ISearchRequest.Rescore*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Rescore" data-uid="OpenSearch.Client.ISearchRequest.Rescore">Rescore</h4>
@@ -579,7 +621,7 @@ IList&lt;IRescore&gt; Rescore { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_RuntimeFields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.RuntimeFields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L204">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L215">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_RuntimeFields_" data-uid="OpenSearch.Client.ISearchRequest.RuntimeFields*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_RuntimeFields" data-uid="OpenSearch.Client.ISearchRequest.RuntimeFields">RuntimeFields</h4>
@@ -611,7 +653,7 @@ IRuntimeFields RuntimeFields { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_ScriptFields.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.ScriptFields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L131">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L142">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_ScriptFields_" data-uid="OpenSearch.Client.ISearchRequest.ScriptFields*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_ScriptFields" data-uid="OpenSearch.Client.ISearchRequest.ScriptFields">ScriptFields</h4>
@@ -643,7 +685,7 @@ IScriptFields ScriptFields { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_SearchAfter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.SearchAfter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L137">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L148">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_SearchAfter_" data-uid="OpenSearch.Client.ISearchRequest.SearchAfter*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_SearchAfter" data-uid="OpenSearch.Client.ISearchRequest.SearchAfter">SearchAfter</h4>
@@ -675,7 +717,7 @@ IList&lt;object&gt; SearchAfter { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Size.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L141">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L152">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Size_" data-uid="OpenSearch.Client.ISearchRequest.Size*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Size" data-uid="OpenSearch.Client.ISearchRequest.Size">Size</h4>
@@ -707,7 +749,7 @@ int? Size { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Slice.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Slice%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L148">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L159">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Slice_" data-uid="OpenSearch.Client.ISearchRequest.Slice*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Slice" data-uid="OpenSearch.Client.ISearchRequest.Slice">Slice</h4>
@@ -740,7 +782,7 @@ ISlicedScroll Slice { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Sort.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Sort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L154">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L165">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Sort_" data-uid="OpenSearch.Client.ISearchRequest.Sort*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Sort" data-uid="OpenSearch.Client.ISearchRequest.Sort">Sort</h4>
@@ -772,7 +814,7 @@ IList&lt;ISort&gt; Sort { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Source.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Source%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L163">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L174">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Source_" data-uid="OpenSearch.Client.ISearchRequest.Source*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Source" data-uid="OpenSearch.Client.ISearchRequest.Source">Source</h4>
@@ -838,7 +880,7 @@ Fields StoredFields { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Suggest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Suggest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L169">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L180">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Suggest_" data-uid="OpenSearch.Client.ISearchRequest.Suggest*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Suggest" data-uid="OpenSearch.Client.ISearchRequest.Suggest">Suggest</h4>
@@ -870,7 +912,7 @@ ISuggestContainer Suggest { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_TerminateAfter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.TerminateAfter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L178">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L189">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_TerminateAfter_" data-uid="OpenSearch.Client.ISearchRequest.TerminateAfter*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_TerminateAfter" data-uid="OpenSearch.Client.ISearchRequest.TerminateAfter">TerminateAfter</h4>
@@ -905,7 +947,7 @@ long? TerminateAfter { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L186">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L197">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Timeout_" data-uid="OpenSearch.Client.ISearchRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Timeout" data-uid="OpenSearch.Client.ISearchRequest.Timeout">Timeout</h4>
@@ -939,7 +981,7 @@ string Timeout { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_TrackScores.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.TrackScores%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L192">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L203">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_TrackScores_" data-uid="OpenSearch.Client.ISearchRequest.TrackScores*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_TrackScores" data-uid="OpenSearch.Client.ISearchRequest.TrackScores">TrackScores</h4>
@@ -1002,7 +1044,7 @@ TrackTotalHits TrackTotalHits { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ISearchRequest_Version.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ISearchRequest.Version%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L198">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/Search/SearchRequest.cs/#L209">View Source</a>
   </span>
   <a id="OpenSearch_Client_ISearchRequest_Version_" data-uid="OpenSearch.Client.ISearchRequest.Version*"></a>
   <h4 id="OpenSearch_Client_ISearchRequest_Version" data-uid="OpenSearch.Client.ISearchRequest.Version">Version</h4>

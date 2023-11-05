@@ -1471,6 +1471,157 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_CreatePitAsync__1_System_String_OpenSearch_Net_CreatePitRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.CreatePitAsync%60%601(System.String%2COpenSearch.Net.CreatePitRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L107">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePitAsync_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.CreatePitAsync*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePitAsync__1_System_String_OpenSearch_Net_CreatePitRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.CreatePitAsync``1(System.String,OpenSearch.Net.CreatePitRequestParameters,System.Threading.CancellationToken)">CreatePitAsync&lt;TResponse&gt;(string, CreatePitRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>POST on /{index}/_search/point_in_time <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; CreatePitAsync&lt;TResponse&gt;(string index, CreatePitRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.CreatePitRequestParameters.html">CreatePitRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePitAsync__1_System_String_OpenSearch_Net_CreatePitRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_CreatePit__1_System_String_OpenSearch_Net_CreatePitRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.CreatePit%60%601(System.String%2COpenSearch.Net.CreatePitRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L91">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePit_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.CreatePit*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePit__1_System_String_OpenSearch_Net_CreatePitRequestParameters_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.CreatePit``1(System.String,OpenSearch.Net.CreatePitRequestParameters)">CreatePit&lt;TResponse&gt;(string, CreatePitRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /{index}/_search/point_in_time <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse CreatePit&lt;TResponse&gt;(string index, CreatePitRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.CreatePitRequestParameters.html">CreatePitRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_CreatePit__1_System_String_OpenSearch_Net_CreatePitRequestParameters__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_Create__1_System_String_System_String_OpenSearch_Net_PostData_OpenSearch_Net_CreateRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.Create%60%601(System.String%2CSystem.String%2COpenSearch.Net.PostData%2COpenSearch.Net.CreateRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -1551,6 +1702,145 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPitsAsync__1_OpenSearch_Net_DeleteAllPitsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPitsAsync%60%601(OpenSearch.Net.DeleteAllPitsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L139">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPitsAsync_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPitsAsync*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPitsAsync__1_OpenSearch_Net_DeleteAllPitsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPitsAsync``1(OpenSearch.Net.DeleteAllPitsRequestParameters,System.Threading.CancellationToken)">DeleteAllPitsAsync&lt;TResponse&gt;(DeleteAllPitsRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_search/point_in_time/_all <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteAllPitsAsync&lt;TResponse&gt;(DeleteAllPitsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.DeleteAllPitsRequestParameters.html">DeleteAllPitsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPitsAsync__1_OpenSearch_Net_DeleteAllPitsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPits__1_OpenSearch_Net_DeleteAllPitsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPits%60%601(OpenSearch.Net.DeleteAllPitsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L125">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPits_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPits*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPits__1_OpenSearch_Net_DeleteAllPitsRequestParameters_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeleteAllPits``1(OpenSearch.Net.DeleteAllPitsRequestParameters)">DeleteAllPits&lt;TResponse&gt;(DeleteAllPitsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_search/point_in_time/_all <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse DeleteAllPits&lt;TResponse&gt;(DeleteAllPitsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.DeleteAllPitsRequestParameters.html">DeleteAllPitsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_DeleteAllPits__1_OpenSearch_Net_DeleteAllPitsRequestParameters__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeleteAsync__1_System_String_System_String_OpenSearch_Net_DeleteRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeleteAsync%60%601(System.String%2CSystem.String%2COpenSearch.Net.DeleteRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -1934,6 +2224,157 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeletePitAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeletePitAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.DeletePitRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L173">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePitAsync_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeletePitAsync*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePitAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeletePitAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.DeletePitRequestParameters,System.Threading.CancellationToken)">DeletePitAsync&lt;TResponse&gt;(PostData, DeletePitRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_search/point_in_time <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeletePitAsync&lt;TResponse&gt;(PostData body, DeletePitRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>The point-in-time ids to be deleted</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.DeletePitRequestParameters.html">DeletePitRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePitAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeletePit__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeletePit%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.DeletePitRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L157">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePit_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeletePit*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePit__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.DeletePit``1(OpenSearch.Net.PostData,OpenSearch.Net.DeletePitRequestParameters)">DeletePit&lt;TResponse&gt;(PostData, DeletePitRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_search/point_in_time <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse DeletePit&lt;TResponse&gt;(PostData body, DeletePitRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>The point-in-time ids to be deleted</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.DeletePitRequestParameters.html">DeletePitRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_DeletePit__1_OpenSearch_Net_PostData_OpenSearch_Net_DeletePitRequestParameters__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_DeleteScriptAsync__1_System_String_OpenSearch_Net_DeleteScriptRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.DeleteScriptAsync%60%601(System.String%2COpenSearch.Net.DeleteScriptRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -3385,6 +3826,145 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_GetAllPitsAsync__1_OpenSearch_Net_GetAllPitsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.GetAllPitsAsync%60%601(OpenSearch.Net.GetAllPitsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L203">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPitsAsync_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.GetAllPitsAsync*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPitsAsync__1_OpenSearch_Net_GetAllPitsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.GetAllPitsAsync``1(OpenSearch.Net.GetAllPitsRequestParameters,System.Threading.CancellationToken)">GetAllPitsAsync&lt;TResponse&gt;(GetAllPitsRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>GET on /_search/point_in_time/_all <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetAllPitsAsync&lt;TResponse&gt;(GetAllPitsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.GetAllPitsRequestParameters.html">GetAllPitsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPitsAsync__1_OpenSearch_Net_GetAllPitsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_GetAllPits__1_OpenSearch_Net_GetAllPitsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.GetAllPits%60%601(OpenSearch.Net.GetAllPitsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.cs/#L191">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPits_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.GetAllPits*"></a>
+  <h4 id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPits__1_OpenSearch_Net_GetAllPitsRequestParameters_" data-uid="OpenSearch.Net.OpenSearchLowLevelClient.GetAllPits``1(OpenSearch.Net.GetAllPitsRequestParameters)">GetAllPits&lt;TResponse&gt;(GetAllPitsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>GET on /_search/point_in_time/_all <p>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse GetAllPits&lt;TResponse&gt;(GetAllPitsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.GetAllPitsRequestParameters.html">GetAllPitsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_OpenSearchLowLevelClient_GetAllPits__1_OpenSearch_Net_GetAllPitsRequestParameters__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.4.0 or greater.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_OpenSearchLowLevelClient_GetAsync__1_System_String_System_String_OpenSearch_Net_GetRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.OpenSearchLowLevelClient.GetAsync%60%601(System.String%2CSystem.String%2COpenSearch.Net.GetRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>

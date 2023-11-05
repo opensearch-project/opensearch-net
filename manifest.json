@@ -1612,6 +1612,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreatePitDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CreatePitDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreatePitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CreatePitRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreatePitResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CreatePitResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CreateRequest-1.yml",
       "output": {
         ".html": {
@@ -2012,6 +2042,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteAllPitsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteAllPitsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteAllPitsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteAllPitsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteAllPitsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteAllPitsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteByQueryDescriptor-1.yml",
       "output": {
         ".html": {
@@ -2092,6 +2152,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePitDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeletePitDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeletePitRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletePitResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeletePitResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteRequest-1.yml",
       "output": {
         ".html": {
@@ -2146,6 +2236,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteScriptResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeletedPit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeletedPit.html"
         }
       },
       "version": ""
@@ -4322,6 +4422,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetAllPitsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetAllPitsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetAllPitsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetAllPitsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetAllPitsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetAllPitsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetDescriptor-1.yml",
       "output": {
         ".html": {
@@ -5402,6 +5532,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICreatePitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ICreatePitRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICreateRequest-1.yml",
       "output": {
         ".html": {
@@ -5552,6 +5692,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteAllPitsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IDeleteAllPitsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteByQueryRequest-1.yml",
       "output": {
         ".html": {
@@ -5576,6 +5726,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteByQueryRethrottleRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeletePitRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IDeletePitRequest.html"
         }
       },
       "version": ""
@@ -6376,6 +6536,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IGeometryCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetAllPitsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IGetAllPitsRequest.html"
         }
       },
       "version": ""
@@ -8046,6 +8216,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IPointGeoShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPointInTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IPointInTime.html"
         }
       },
       "version": ""
@@ -13832,6 +14012,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PitDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PitDetail.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PlainRequestBase-1.yml",
       "output": {
         ".html": {
@@ -13856,6 +14046,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PointGeoShape.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PointInTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PointInTime.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PointInTimeDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PointInTimeDescriptor.html"
         }
       },
       "version": ""
@@ -26842,6 +27052,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.CreatePitRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.CreatePitRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.CreateRequestParameters.yml",
       "output": {
         ".html": {
@@ -26882,6 +27102,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.DeleteAllPitsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.DeleteAllPitsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.DeleteByQueryRequestParameters.yml",
       "output": {
         ".html": {
@@ -26896,6 +27126,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.DeleteByQueryRethrottleRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.DeletePitRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.DeletePitRequestParameters.html"
         }
       },
       "version": ""
@@ -27166,6 +27406,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.FieldCapabilitiesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.GetAllPitsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.GetAllPitsRequestParameters.html"
         }
       },
       "version": ""
@@ -29836,6 +30086,9 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -29846,6 +30099,9 @@
       "output": {
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
