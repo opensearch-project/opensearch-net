@@ -55,7 +55,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 			autoExpandReplicas.MinReplicas.Should().Be(0);
 			autoExpandReplicas.MaxReplicas.Match(
 				i => i.Should().Be(5),
-				s => Assert.True(false, "expecting a match on integer"));
+				s => Assert.Fail("expecting a match on integer"));
 
 			autoExpandReplicas.ToString().Should().Be(minAndMax);
 		}
@@ -69,7 +69,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
 			autoExpandReplicas.MaxReplicas.Match(
-				i => Assert.True(false, "expecting a match on string"),
+				i => Assert.Fail("expecting a match on string"),
 				s => s.Should().Be("all"));
 
 			autoExpandReplicas.ToString().Should().Be(minAndMax);
@@ -84,7 +84,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 			autoExpandReplicas.MinReplicas.Should().Be(2);
 			autoExpandReplicas.MaxReplicas.Match(
 				i => i.Should().Be(3),
-				s => Assert.True(false, "expecting a match on integer"));
+				s => Assert.Fail("expecting a match on integer"));
 
 			autoExpandReplicas.ToString().Should().Be("2-3");
 		}
@@ -97,7 +97,7 @@ namespace Tests.CommonOptions.AutoExpandReplicas
 			autoExpandReplicas.Enabled.Should().BeTrue();
 			autoExpandReplicas.MinReplicas.Should().Be(0);
 			autoExpandReplicas.MaxReplicas.Match(
-				i => Assert.True(false, "expecting a match on string"),
+				i => Assert.Fail("expecting a match on string"),
 				s => s.Should().Be("all"));
 
 			autoExpandReplicas.ToString().Should().Be("0-all");
