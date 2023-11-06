@@ -154,8 +154,8 @@ namespace Tests.Search.Request
 		};
 
 		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			
-			
+
+
 			.Query(q => q
 				.Match(m => m
 					.Field(f => f.Name.Suffix("standard"))
@@ -308,7 +308,7 @@ namespace Tests.Search.Request
 						}
 					}
 					else
-						Assert.True(false, $"highlights contains unexpected key {highlightField.Key}");
+						Assert.Fail($"highlights contains unexpected key {highlightField.Key}");
 				}
 			}
 		}
