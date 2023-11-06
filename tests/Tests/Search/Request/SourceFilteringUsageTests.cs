@@ -133,7 +133,7 @@ namespace Tests.Search.Request
 			falseCase.SourceFilter.Should().NotBeNull();
 			falseCase.SourceFilter.Match
 			(b => b.Should().BeFalse(),
-				f => Assert.True(false, "Expected bool but found ISourceFilter")
+				f => Assert.Fail("Expected bool but found ISourceFilter")
 			);
 
 			var trueCase = Expect("{ \"_source\": true }").DeserializesTo<WithSourceFilterProperty>();
@@ -141,7 +141,7 @@ namespace Tests.Search.Request
 			trueCase.SourceFilter.Should().NotBeNull();
 			trueCase.SourceFilter.Match
 			(b => b.Should().BeTrue(),
-				f => Assert.True(false, "Expected bool but found ISourceFilter")
+				f => Assert.Fail("Expected bool but found ISourceFilter")
 			);
 		}
 
@@ -151,7 +151,7 @@ namespace Tests.Search.Request
 			var o = Expect("{ \"_source\": [\"obj.*\"] }").DeserializesTo<WithSourceFilterProperty>();
 			o.Should().NotBeNull();
 			o.SourceFilter.Match(
-				b => Assert.True(false, "Expected ISourceFilter but found bool"),
+				b => Assert.Fail("Expected ISourceFilter but found bool"),
 				f =>
 				{
 					f.Should().NotBeNull();
@@ -166,7 +166,7 @@ namespace Tests.Search.Request
 			var o = Expect("{ \"_source\": \"obj.*\" }").DeserializesTo<WithSourceFilterProperty>();
 			o.Should().NotBeNull();
 			o.SourceFilter.Match(
-				b => Assert.True(false, "Expected ISourceFilter but found bool"),
+				b => Assert.Fail("Expected ISourceFilter but found bool"),
 				f =>
 				{
 					f.Should().NotBeNull();
@@ -181,7 +181,7 @@ namespace Tests.Search.Request
 			var o = Expect("{ \"_source\": { \"includes\": [\"obj.*\"], \"excludes\": [\"foo.*\"] } }").DeserializesTo<WithSourceFilterProperty>();
 			o.Should().NotBeNull();
 			o.SourceFilter.Match(
-				b => Assert.True(false, "Expected ISourceFilter but found bool"),
+				b => Assert.Fail("Expected ISourceFilter but found bool"),
 				f =>
 				{
 					f.Should().NotBeNull();

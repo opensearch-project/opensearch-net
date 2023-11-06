@@ -298,7 +298,7 @@ namespace Tests.Search.Request
 						}
 					}
 					else
-						Assert.True(false, $"highlights contains unexpected key {highlightField.Key}");
+						Assert.Fail($"highlights contains unexpected key {highlightField.Key}");
 				}
 			}
 		}
