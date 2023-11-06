@@ -82,7 +82,7 @@ namespace Tests.Indices.IndexSettings.GetIndexSettings
 			index.Settings.AutoExpandReplicas.Should().NotBeNull();
 			index.Settings.AutoExpandReplicas.MinReplicas.Should().Be(0);
 			index.Settings.AutoExpandReplicas.MaxReplicas.Match(
-				i => { Assert.True(false, "expecting a string"); },
+				i => { Assert.Fail("expecting a string"); },
 				s => s.Should().Be("all"));
 			index.Settings.AutoExpandReplicas.ToString().Should().Be("0-all");
 		}
