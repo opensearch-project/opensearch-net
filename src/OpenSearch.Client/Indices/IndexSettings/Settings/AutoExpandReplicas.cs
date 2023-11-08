@@ -29,7 +29,7 @@
 using System;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(AutoExpandReplicasFormatter))]
 	public class AutoExpandReplicas

@@ -31,7 +31,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Joins each element of an array into a single string using a separator

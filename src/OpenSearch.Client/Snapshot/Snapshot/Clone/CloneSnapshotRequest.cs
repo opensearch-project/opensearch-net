@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	[MapsApi("snapshot.clone.json")]
 	[ReadAs(typeof(CloneSnapshotRequest))]

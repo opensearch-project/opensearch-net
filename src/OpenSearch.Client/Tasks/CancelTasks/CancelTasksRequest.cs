@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.TasksApi
+namespace OpenSearch.Client
 {
 	[MapsApi("tasks.cancel.json")]
 	public partial interface ICancelTasksRequest { }

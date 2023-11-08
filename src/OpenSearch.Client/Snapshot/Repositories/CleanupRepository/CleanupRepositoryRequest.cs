@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	[MapsApi("snapshot.cleanup_repository.json")]
 	public partial interface ICleanupRepositoryRequest { }

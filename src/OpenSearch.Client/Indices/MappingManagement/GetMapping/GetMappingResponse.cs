@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetMappingResponse, IndexName, IndexMappings>))]
 	public class GetMappingResponse : DictionaryResponseBase<IndexName, IndexMappings>

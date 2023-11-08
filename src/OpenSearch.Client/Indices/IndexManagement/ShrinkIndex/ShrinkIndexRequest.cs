@@ -29,7 +29,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("indices.shrink.json")]
 	[ReadAs(typeof(ShrinkIndexRequest))]

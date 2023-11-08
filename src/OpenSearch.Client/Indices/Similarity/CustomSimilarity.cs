@@ -28,7 +28,7 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A custom similarity

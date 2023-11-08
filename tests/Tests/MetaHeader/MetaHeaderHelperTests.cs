@@ -36,7 +36,6 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.SnapshotApi;
 
 namespace Tests.MetaHeader
 {

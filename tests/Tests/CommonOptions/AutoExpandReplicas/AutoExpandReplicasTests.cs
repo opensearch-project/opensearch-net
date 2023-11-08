@@ -33,7 +33,7 @@ using Xunit;
 
 namespace Tests.CommonOptions.AutoExpandReplicas
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class AutoExpandReplicasTests
 	{

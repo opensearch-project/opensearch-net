@@ -28,7 +28,6 @@
 
 using System;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.IndexModules;
 
 namespace Tests.Analysis.TokenFilters

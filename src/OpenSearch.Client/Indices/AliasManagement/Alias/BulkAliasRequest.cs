@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("indices.update_aliases.json")]
 	public partial interface IBulkAliasRequest

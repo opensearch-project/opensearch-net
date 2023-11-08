@@ -27,7 +27,7 @@
 */
 
 using System;
-using OpenSearch.Client.Specification.IndicesApi;
+using OpenSearch.Client;
 
 namespace OpenSearch.Client
 {

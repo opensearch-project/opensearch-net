@@ -36,7 +36,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class UpdateIndexSettingsApiTests
 		: ApiIntegrationTestBase<WritableCluster, UpdateIndexSettingsResponse, IUpdateIndexSettingsRequest, UpdateIndexSettingsDescriptor,

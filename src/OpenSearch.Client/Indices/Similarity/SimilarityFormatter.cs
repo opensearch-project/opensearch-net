@@ -33,7 +33,7 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	internal class SimilarityFormatter : IJsonFormatter<ISimilarity>
 	{

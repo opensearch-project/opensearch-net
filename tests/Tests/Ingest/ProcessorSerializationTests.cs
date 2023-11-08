@@ -31,7 +31,6 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IngestApi;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.Ingest

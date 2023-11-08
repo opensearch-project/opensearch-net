@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[StringEnum]
 	public enum ClusterStatus

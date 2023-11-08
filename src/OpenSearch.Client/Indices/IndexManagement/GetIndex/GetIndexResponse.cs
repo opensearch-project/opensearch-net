@@ -29,7 +29,7 @@
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetIndexResponse, IndexName, IndexState>))]
 	public class GetIndexResponse : DictionaryResponseBase<IndexName, IndexState>

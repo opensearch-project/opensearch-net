@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("indices.exists_template.json")]
 	public partial interface IIndexTemplateExistsRequest { }

@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[InterfaceDataContract]
 	public partial interface ICatAliasesRequest : IRequest<CatAliasesRequestParameters>

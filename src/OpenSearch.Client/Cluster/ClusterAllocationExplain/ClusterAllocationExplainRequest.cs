@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cluster.allocation_explain.json")]
 	[ReadAs(typeof(ClusterAllocationExplainRequest))]

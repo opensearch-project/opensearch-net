@@ -29,7 +29,6 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Analysis;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

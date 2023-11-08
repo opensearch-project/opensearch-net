@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.ClusterApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[InterfaceDataContract]
 	public partial interface IPostVotingConfigExclusionsRequest : IRequest<PostVotingConfigExclusionsRequestParameters>

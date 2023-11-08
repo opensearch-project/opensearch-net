@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	public class CreateIndexResponse : AcknowledgedResponseBase
 	{

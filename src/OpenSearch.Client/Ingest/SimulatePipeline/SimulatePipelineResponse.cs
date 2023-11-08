@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	public class SimulatePipelineResponse : ResponseBase
 	{

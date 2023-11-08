@@ -34,7 +34,6 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
 using System.Runtime.Serialization;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Xunit;
 
 namespace Tests.CodeStandards

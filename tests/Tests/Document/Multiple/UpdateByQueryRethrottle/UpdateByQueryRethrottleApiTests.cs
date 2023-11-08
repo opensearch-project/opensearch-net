@@ -31,7 +31,6 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.TasksApi;
 using Tests.Document.Multiple.Reindex;
 using Tests.Domain;
 using Tests.Core.Extensions;

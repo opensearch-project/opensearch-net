@@ -30,7 +30,7 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(DynamicResponseFormatter<ClusterStateResponse>))]
 	public class ClusterStateResponse : DynamicResponseBase

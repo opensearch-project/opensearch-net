@@ -55,7 +55,7 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	///<summary>Descriptor for AddBlock <para></para></summary>
 	public partial class AddIndexBlockDescriptor : RequestDescriptorBase<AddIndexBlockDescriptor, AddIndexBlockRequestParameters, IAddIndexBlockRequest>, IAddIndexBlockRequest

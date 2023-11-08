@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("indices.flush.json")]
 	public partial interface IFlushRequest { }

@@ -30,7 +30,7 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Marker interface for alias operation

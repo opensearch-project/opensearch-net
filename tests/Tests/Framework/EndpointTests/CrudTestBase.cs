@@ -34,7 +34,6 @@ using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

@@ -37,7 +37,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.IndexTemplates
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class IndexTemplateCrudTests
 		: CrudTestBase<WritableCluster, PutIndexTemplateResponse, GetIndexTemplateResponse, PutIndexTemplateResponse, DeleteIndexTemplateResponse,

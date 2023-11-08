@@ -32,7 +32,7 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	internal class FieldMappingFormatter : IJsonFormatter<IReadOnlyDictionary<Field, IFieldMapping>>
 	{

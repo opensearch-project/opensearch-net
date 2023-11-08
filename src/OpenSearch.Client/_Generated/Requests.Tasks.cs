@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.TasksApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.TasksApi
+namespace OpenSearch.Client
 {
     [InterfaceDataContract]
     public partial interface ICancelTasksRequest : IRequest<CancelTasksRequestParameters>

@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	public class CatTasksRecord : ICatRecord
 	{

@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("indices.refresh.json")]
 	public partial interface IRefreshRequest { }

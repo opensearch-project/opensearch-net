@@ -31,7 +31,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Sorts the elements of an array ascending or descending. Homogeneous arrays of numbers

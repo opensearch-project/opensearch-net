@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A snapshot repository

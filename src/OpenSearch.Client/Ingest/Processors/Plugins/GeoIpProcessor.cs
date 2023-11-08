@@ -32,7 +32,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// The GeoIP processor adds information about the geographical location of IP addresses,

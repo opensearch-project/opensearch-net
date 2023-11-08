@@ -32,7 +32,7 @@ using OpenSearch.Net.Extensions;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A source repository enables you to create minimal, source-only snapshots that take up to 50% less space on disk.

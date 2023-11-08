@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cat.allocation.json")]
 	public partial interface ICatAllocationRequest { }

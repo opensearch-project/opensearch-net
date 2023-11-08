@@ -38,7 +38,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.SplitIndex
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class SplitIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, SplitIndexResponse, ISplitIndexRequest, SplitIndexDescriptor, SplitIndexRequest>

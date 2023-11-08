@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(VerbatimDictionaryKeysFormatter<Aliases, IAliases, IndexName, IAlias>))]
 	public interface IAliases : IIsADictionary<IndexName, IAlias> { }

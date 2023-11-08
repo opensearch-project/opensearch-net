@@ -38,7 +38,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.ShrinkIndex
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class ShrinkIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, ShrinkIndexResponse, IShrinkIndexRequest, ShrinkIndexDescriptor, ShrinkIndexRequest>

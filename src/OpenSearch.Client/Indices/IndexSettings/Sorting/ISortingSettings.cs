@@ -30,7 +30,7 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	public static class IndexSortSettings
 	{

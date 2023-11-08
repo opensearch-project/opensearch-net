@@ -29,7 +29,7 @@
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.NodesApi;
 
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("nodes.hot_threads.json")]
 	public partial interface INodesHotThreadsRequest { }

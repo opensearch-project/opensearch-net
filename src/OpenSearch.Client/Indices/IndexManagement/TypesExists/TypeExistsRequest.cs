@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
 	[MapsApi("indices.exists_type.json")]

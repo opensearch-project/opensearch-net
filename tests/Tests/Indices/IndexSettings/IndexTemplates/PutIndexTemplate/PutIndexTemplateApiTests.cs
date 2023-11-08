@@ -38,7 +38,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class PutIndexTemplateApiTests
 		: ApiIntegrationTestBase<WritableCluster, PutIndexTemplateResponse, IPutIndexTemplateRequest, PutIndexTemplateDescriptor,

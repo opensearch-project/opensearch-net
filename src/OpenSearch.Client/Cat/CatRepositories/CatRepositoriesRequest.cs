@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cat.repositories.json")]
 	public partial interface ICatRepositoriesRequest { }

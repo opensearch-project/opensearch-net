@@ -29,7 +29,6 @@
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static OpenSearch.Client.Infer;

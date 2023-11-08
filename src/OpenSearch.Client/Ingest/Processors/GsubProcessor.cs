@@ -31,7 +31,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Converts a string field by applying a regular expression and a replacement.

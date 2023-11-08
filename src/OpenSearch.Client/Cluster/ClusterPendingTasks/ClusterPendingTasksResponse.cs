@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[DataContract]
 	public class ClusterPendingTasksResponse : ResponseBase

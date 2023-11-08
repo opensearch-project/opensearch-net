@@ -29,9 +29,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using OpenSearch.Client.Specification.IndicesApi;
+using OpenSearch.Client;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Restores a snapshot

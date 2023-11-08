@@ -39,7 +39,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.CloneIndex
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class CloneIndexApiTests
 		: ApiIntegrationTestBase<WritableCluster, CloneIndexResponse, ICloneIndexRequest, CloneIndexDescriptor, CloneIndexRequest>

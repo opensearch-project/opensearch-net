@@ -32,7 +32,6 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 
 namespace Tests.Reproduce
 {

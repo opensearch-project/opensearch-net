@@ -32,7 +32,6 @@ using System.Linq;
 using System.Reflection;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IngestApi;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.Xunit;
