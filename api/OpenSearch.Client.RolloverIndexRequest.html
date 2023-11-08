@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class RolloverIndexRequest
+ | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class RolloverIndexRequest
+ | OpenSearch.Net ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.RolloverIndexRequest">
+
+
+
+  <h1 id="OpenSearch_Client_RolloverIndexRequest" data-uid="OpenSearch.Client.RolloverIndexRequest" class="text-break">Class RolloverIndexRequest
+</h1>
+  <div class="markdown level0 summary"><p>Request for Rollover <p>https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.RequestBase-1.html">RequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RolloverIndexRequestParameters.html">RolloverIndexRequestParameters</a>&gt;</div>
+    <div class="level2"><a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html">PlainRequestBase</a>&lt;<a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RolloverIndexRequestParameters.html">RolloverIndexRequestParameters</a>&gt;</div>
+    <div class="level3"><span class="xref">RolloverIndexRequest</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IRolloverIndexRequest.html">IRolloverIndexRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IIndexState.html">IIndexState</a></div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;<a class="xref" href="OpenSearch.Net.Specification.IndicesApi.RolloverIndexRequestParameters.html">RolloverIndexRequestParameters</a>&gt;</div>
+    <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_RequestConfiguration">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.RequestConfiguration</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_ErrorTrace">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.ErrorTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_FilterPath">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.FilterPath</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Human">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.Human</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_Pretty">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.Pretty</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.PlainRequestBase-1.html#OpenSearch_Client_PlainRequestBase_1_SourceQueryString">PlainRequestBase&lt;RolloverIndexRequestParameters&gt;.SourceQueryString</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_HttpMethod">RequestBase&lt;RolloverIndexRequestParameters&gt;.HttpMethod</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestState">RequestBase&lt;RolloverIndexRequestParameters&gt;.RequestState</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ContentType">RequestBase&lt;RolloverIndexRequestParameters&gt;.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_ResolveUrl_OpenSearch_Client_RouteValues_OpenSearch_Client_IConnectionSettingsValues_">RequestBase&lt;RolloverIndexRequestParameters&gt;.ResolveUrl(RouteValues, IConnectionSettingsValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_RequestDefaults__0_">RequestBase&lt;RolloverIndexRequestParameters&gt;.RequestDefaults(RolloverIndexRequestParameters)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q__1_System_String_">RequestBase&lt;RolloverIndexRequestParameters&gt;.Q&lt;TOut&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_Q_System_String_System_Object_">RequestBase&lt;RolloverIndexRequestParameters&gt;.Q(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.RequestBase-1.html#OpenSearch_Client_RequestBase_1_SetAcceptHeader_System_String_">RequestBase&lt;RolloverIndexRequestParameters&gt;.SetAcceptHeader(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_RolloverIndexRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RolloverIndexRequest : PlainRequestBase&lt;RolloverIndexRequestParameters&gt;, IRolloverIndexRequest, IIndexState, IRequest&lt;RolloverIndexRequestParameters&gt;, IRequest</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2207">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest__ctor_" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest__ctor" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor">RolloverIndexRequest()</h4>
+  <div class="markdown level1 summary"><p>Used for serialization purposes, making sure we have a parameterless constructor</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RolloverIndexRequest()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest__ctor_OpenSearch_Client_Name_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.%23ctor(OpenSearch.Client.Name)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2195">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest__ctor_" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest__ctor_OpenSearch_Client_Name_" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor(OpenSearch.Client.Name)">RolloverIndexRequest(Name)</h4>
+  <div class="markdown level1 summary"><p>/{alias}/_rollover</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RolloverIndexRequest(Name alias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Name.html">Name</a></td>
+        <td><span class="parametername">alias</span></td>
+        <td><p>this parameter is required</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest__ctor_OpenSearch_Client_Name_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.%23ctor(OpenSearch.Client.Name%2COpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2202">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest__ctor_" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest__ctor_OpenSearch_Client_Name_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.RolloverIndexRequest.#ctor(OpenSearch.Client.Name,OpenSearch.Client.IndexName)">RolloverIndexRequest(Name, IndexName)</h4>
+  <div class="markdown level1 summary"><p>/{alias}/_rollover/{new_index}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RolloverIndexRequest(Name alias, IndexName newIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Name.html">Name</a></td>
+        <td><span class="parametername">alias</span></td>
+        <td><p>this parameter is required</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IndexName.html">IndexName</a></td>
+        <td><span class="parametername">newIndex</span></td>
+        <td><p>Optional, accepts null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Aliases.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Aliases%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/RolloverIndex/RolloverIndexRequest.cs/#L44">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Aliases_" data-uid="OpenSearch.Client.RolloverIndexRequest.Aliases*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Aliases" data-uid="OpenSearch.Client.RolloverIndexRequest.Aliases">Aliases</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAliases Aliases { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IAliases.html">IAliases</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_ClusterManagerTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.ClusterManagerTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2243">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_ClusterManagerTimeout_" data-uid="OpenSearch.Client.RolloverIndexRequest.ClusterManagerTimeout*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_ClusterManagerTimeout" data-uid="OpenSearch.Client.RolloverIndexRequest.ClusterManagerTimeout">ClusterManagerTimeout</h4>
+  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time ClusterManagerTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_RolloverIndexRequest_ClusterManagerTimeout_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.RolloverIndexRequest.html#OpenSearch_Client_RolloverIndexRequest_MasterTimeout">MasterTimeout</a></p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Conditions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Conditions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/RolloverIndex/RolloverIndexRequest.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Conditions_" data-uid="OpenSearch.Client.RolloverIndexRequest.Conditions*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Conditions" data-uid="OpenSearch.Client.RolloverIndexRequest.Conditions">Conditions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IRolloverConditions Conditions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRolloverConditions.html">IRolloverConditions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_DryRun.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.DryRun%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2219">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_DryRun_" data-uid="OpenSearch.Client.RolloverIndexRequest.DryRun*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_DryRun" data-uid="OpenSearch.Client.RolloverIndexRequest.DryRun">DryRun</h4>
+  <div class="markdown level1 summary"><p>If set to true the rollover action will only be validated but not actually performed even if a condition matches. The default is false</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? DryRun { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_IncludeTypeName.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.IncludeTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2227">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_IncludeTypeName_" data-uid="OpenSearch.Client.RolloverIndexRequest.IncludeTypeName*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_IncludeTypeName" data-uid="OpenSearch.Client.RolloverIndexRequest.IncludeTypeName">IncludeTypeName</h4>
+  <div class="markdown level1 summary"><p>Whether a type should be included in the body of the mappings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IncludeTypeName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_RolloverIndexRequest_IncludeTypeName_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Mappings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Mappings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/RolloverIndex/RolloverIndexRequest.cs/#L47">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Mappings_" data-uid="OpenSearch.Client.RolloverIndexRequest.Mappings*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Mappings" data-uid="OpenSearch.Client.RolloverIndexRequest.Mappings">Mappings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITypeMapping Mappings { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.ITypeMapping.html">ITypeMapping</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_MasterTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.MasterTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2235">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_MasterTimeout_" data-uid="OpenSearch.Client.RolloverIndexRequest.MasterTimeout*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_MasterTimeout" data-uid="OpenSearch.Client.RolloverIndexRequest.MasterTimeout">MasterTimeout</h4>
+  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time MasterTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_RolloverIndexRequest_MasterTimeout_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.RolloverIndexRequest.html#OpenSearch_Client_RolloverIndexRequest_ClusterManagerTimeout">ClusterManagerTimeout</a> instead</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2191">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Self_" data-uid="OpenSearch.Client.RolloverIndexRequest.Self*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Self" data-uid="OpenSearch.Client.RolloverIndexRequest.Self">Self</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IRolloverIndexRequest Self { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IRolloverIndexRequest.html">IRolloverIndexRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Settings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Settings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/RolloverIndex/RolloverIndexRequest.cs/#L49">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Settings_" data-uid="OpenSearch.Client.RolloverIndexRequest.Settings*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Settings" data-uid="OpenSearch.Client.RolloverIndexRequest.Settings">Settings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IIndexSettings Settings { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IIndexSettings.html">IIndexSettings</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2250">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_Timeout_" data-uid="OpenSearch.Client.RolloverIndexRequest.Timeout*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_Timeout" data-uid="OpenSearch.Client.RolloverIndexRequest.Timeout">Timeout</h4>
+  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time Timeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest_WaitForActiveShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest.WaitForActiveShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2257">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_RolloverIndexRequest_WaitForActiveShards_" data-uid="OpenSearch.Client.RolloverIndexRequest.WaitForActiveShards*"></a>
+  <h4 id="OpenSearch_Client_RolloverIndexRequest_WaitForActiveShards" data-uid="OpenSearch.Client.RolloverIndexRequest.WaitForActiveShards">WaitForActiveShards</h4>
+  <div class="markdown level1 summary"><p>Set the number of active shards to wait for on the newly created rollover index before the operation returns.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string WaitForActiveShards { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRolloverIndexRequest.html">IRolloverIndexRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IIndexState.html">IIndexState</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_RolloverIndexRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.RolloverIndexRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2189" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

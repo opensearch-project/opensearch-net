@@ -1,0 +1,917 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class ClusterAllocationExplainResponse
+ | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class ClusterAllocationExplainResponse
+ | OpenSearch.Net ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse">
+
+
+
+  <h1 id="OpenSearch_Client_ClusterAllocationExplainResponse" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse" class="text-break">Class ClusterAllocationExplainResponse
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.ResponseBase.html">ResponseBase</a></div>
+    <div class="level2"><span class="xref">ClusterAllocationExplainResponse</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IResponse.html">IResponse</a></div>
+    <div><a class="xref" href="OpenSearch.Net.IOpenSearchResponse.html">IOpenSearchResponse</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ApiCall">ResponseBase.ApiCall</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_DebugInformation">ResponseBase.DebugInformation</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_IsValid">ResponseBase.IsValid</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_OriginalException">ResponseBase.OriginalException</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ServerError">ResponseBase.ServerError</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_DebugIsValid_System_Text_StringBuilder_">ResponseBase.DebugIsValid(StringBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.ResponseBase.html#OpenSearch_Client_ResponseBase_ToString">ResponseBase.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_ClusterAllocationExplainResponse_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class ClusterAllocationExplainResponse : ResponseBase, IResponse, IOpenSearchResponse</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_AllocateExplanation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.AllocateExplanation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L39">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocateExplanation_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocateExplanation*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocateExplanation" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocateExplanation">AllocateExplanation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;allocate_explanation&quot;)]
+public string AllocateExplanation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelay.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L42">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelay_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelay*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelay" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelay">AllocationDelay</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;allocation_delay&quot;)]
+public string AllocationDelay { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelayInMilliseconds.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelayInMilliseconds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelayInMilliseconds_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelayInMilliseconds*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_AllocationDelayInMilliseconds" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.AllocationDelayInMilliseconds">AllocationDelayInMilliseconds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;allocation_delay_in_millis&quot;)]
+public long AllocationDelayInMilliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanAllocate.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanAllocate%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L48">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanAllocate_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanAllocate*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanAllocate" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanAllocate">CanAllocate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_allocate&quot;)]
+public Decision? CanAllocate { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Decision.html">Decision</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanMoveToOtherNode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanMoveToOtherNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanMoveToOtherNode_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanMoveToOtherNode*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanMoveToOtherNode" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanMoveToOtherNode">CanMoveToOtherNode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_move_to_other_node&quot;)]
+public Decision? CanMoveToOtherNode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Decision.html">Decision</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceCluster.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceCluster%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L54">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceCluster_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceCluster*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceCluster" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceCluster">CanRebalanceCluster</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_rebalance_cluster&quot;)]
+public Decision? CanRebalanceCluster { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Decision.html">Decision</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceClusterDecisions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceClusterDecisions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L57">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceClusterDecisions_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceClusterDecisions*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceClusterDecisions" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceClusterDecisions">CanRebalanceClusterDecisions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_rebalance_cluster_decisions&quot;)]
+public IReadOnlyCollection&lt;AllocationDecision&gt; CanRebalanceClusterDecisions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="OpenSearch.Client.AllocationDecision.html">AllocationDecision</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceToOtherNode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceToOtherNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L61">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceToOtherNode_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceToOtherNode*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRebalanceToOtherNode" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRebalanceToOtherNode">CanRebalanceToOtherNode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_rebalance_to_other_node&quot;)]
+public Decision? CanRebalanceToOtherNode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Decision.html">Decision</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainDecisions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainDecisions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L64">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainDecisions_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainDecisions*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainDecisions" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainDecisions">CanRemainDecisions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_remain_decisions&quot;)]
+public IReadOnlyCollection&lt;AllocationDecision&gt; CanRemainDecisions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="OpenSearch.Client.AllocationDecision.html">AllocationDecision</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainOnCurrentNode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainOnCurrentNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L68">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainOnCurrentNode_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainOnCurrentNode*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CanRemainOnCurrentNode" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CanRemainOnCurrentNode">CanRemainOnCurrentNode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;can_remain_on_current_node&quot;)]
+public Decision? CanRemainOnCurrentNode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Decision.html">Decision</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelay.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L71">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelay_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelay*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelay" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelay">ConfiguredDelay</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;configured_delay&quot;)]
+public string ConfiguredDelay { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelayInMilliseconds.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelayInMilliseconds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L74">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelayInMilliseconds_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelayInMilliseconds*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_ConfiguredDelayInMilliseconds" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.ConfiguredDelayInMilliseconds">ConfiguredDelayInMilliseconds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;configured_delay_in_mills&quot;)]
+public long ConfiguredDelayInMilliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CurrentNode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CurrentNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L77">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CurrentNode_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CurrentNode*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CurrentNode" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CurrentNode">CurrentNode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;current_node&quot;)]
+public CurrentNode CurrentNode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.CurrentNode.html">CurrentNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_CurrentState.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.CurrentState%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L80">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_CurrentState_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CurrentState*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_CurrentState" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.CurrentState">CurrentState</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;current_state&quot;)]
+public string CurrentState { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L83">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_Index_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Index*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_Index" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Index">Index</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;index&quot;)]
+public string Index { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_MoveExplanation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.MoveExplanation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L86">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_MoveExplanation_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.MoveExplanation*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_MoveExplanation" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.MoveExplanation">MoveExplanation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;move_explanation&quot;)]
+public string MoveExplanation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_NodeAllocationDecisions.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.NodeAllocationDecisions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L89">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_NodeAllocationDecisions_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.NodeAllocationDecisions*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_NodeAllocationDecisions" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.NodeAllocationDecisions">NodeAllocationDecisions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;node_allocation_decisions&quot;)]
+public IReadOnlyCollection&lt;NodeAllocationExplanation&gt; NodeAllocationDecisions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="OpenSearch.Client.NodeAllocationExplanation.html">NodeAllocationExplanation</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_Primary.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.Primary%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L93">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_Primary_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Primary*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_Primary" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Primary">Primary</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;primary&quot;)]
+public bool Primary { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_RebalanceExplanation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.RebalanceExplanation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L96">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_RebalanceExplanation_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RebalanceExplanation*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_RebalanceExplanation" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RebalanceExplanation">RebalanceExplanation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;rebalance_explanation&quot;)]
+public string RebalanceExplanation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelay.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelay%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L99">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelay_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelay*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelay" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelay">RemainingDelay</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;remaining_delay&quot;)]
+public string RemainingDelay { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelayInMilliseconds.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelayInMilliseconds%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L102">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelayInMilliseconds_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelayInMilliseconds*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_RemainingDelayInMilliseconds" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.RemainingDelayInMilliseconds">RemainingDelayInMilliseconds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;remaining_delay_in_millis&quot;)]
+public long RemainingDelayInMilliseconds { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_Shard.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.Shard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L105">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_Shard_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Shard*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_Shard" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.Shard">Shard</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;shard&quot;)]
+public int Shard { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse_UnassignedInformation.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse.UnassignedInformation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_ClusterAllocationExplainResponse_UnassignedInformation_" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.UnassignedInformation*"></a>
+  <h4 id="OpenSearch_Client_ClusterAllocationExplainResponse_UnassignedInformation" data-uid="OpenSearch.Client.ClusterAllocationExplainResponse.UnassignedInformation">UnassignedInformation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;unassigned_info&quot;)]
+public UnassignedInformation UnassignedInformation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.UnassignedInformation.html">UnassignedInformation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IResponse.html">IResponse</a>
+  </div>
+  <div>
+      <a class="xref" href="OpenSearch.Net.IOpenSearchResponse.html">IOpenSearchResponse</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ClusterAllocationExplainResponse.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ClusterAllocationExplainResponse%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cluster/ClusterAllocationExplain/ClusterAllocationExplainResponse.cs/#L36" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
