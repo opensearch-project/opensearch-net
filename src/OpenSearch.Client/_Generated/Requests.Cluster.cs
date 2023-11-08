@@ -199,6 +199,14 @@ namespace OpenSearch.Client
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {

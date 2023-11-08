@@ -6,7 +6,7 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.Client.Specification.ClusterApi;
+using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;

@@ -9,7 +9,6 @@ using System;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

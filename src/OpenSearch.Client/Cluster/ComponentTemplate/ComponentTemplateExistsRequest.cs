@@ -5,7 +5,7 @@
 * compatible open source license.
 */
 
-namespace OpenSearch.Client.Specification.ClusterApi;
+namespace OpenSearch.Client;
 
 [MapsApi("cluster.exists_component_template")]
 public partial interface IComponentTemplateExistsRequest { }

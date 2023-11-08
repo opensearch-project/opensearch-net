@@ -6,7 +6,7 @@
 */
 
 using System;
-using OpenSearch.Client.Specification.ClusterApi;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;

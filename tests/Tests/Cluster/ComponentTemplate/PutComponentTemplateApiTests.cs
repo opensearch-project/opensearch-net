@@ -9,8 +9,6 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.ClusterApi;
-using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

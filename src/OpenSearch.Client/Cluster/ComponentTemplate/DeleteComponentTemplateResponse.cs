@@ -7,7 +7,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.ClusterApi;
+namespace OpenSearch.Client;
 
 [DataContract]
 public class DeleteComponentTemplateResponse : AcknowledgedResponseBase { }

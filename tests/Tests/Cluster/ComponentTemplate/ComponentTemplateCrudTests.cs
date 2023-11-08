@@ -30,8 +30,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.ClusterApi;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;

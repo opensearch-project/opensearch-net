@@ -8,10 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.ClusterApi;
+namespace OpenSearch.Client;
 
 [ReadAs(typeof(ComponentTemplate))]
 public interface IComponentTemplate

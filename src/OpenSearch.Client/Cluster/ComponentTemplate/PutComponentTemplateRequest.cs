@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Client.Specification.ClusterApi;
+namespace OpenSearch.Client;
 
 [MapsApi("cluster.put_component_template")]
 public partial interface IPutComponentTemplateRequest : IComponentTemplate { }
