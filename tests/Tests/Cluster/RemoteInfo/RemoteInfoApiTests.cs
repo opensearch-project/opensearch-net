@@ -51,14 +51,12 @@ namespace Tests.Cluster.RemoteInfo
 
 		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{
-			var enableRemoteClusters = client.Cluster.PutSettings(new ClusterPutSettingsRequest
-			{
-				Transient = new RemoteClusterConfiguration()
-				{
-					{ "cluster_one", "127.0.0.1:9300", "127.0.0.1:9301" },
-					{ "cluster_two", "127.0.0.1:9300" }
-				}
-			});
+			var enableRemoteClusters = client.Cluster.PutSettings(s => s
+				.Transient(t => t
+					.Add("cluster.remote.cluster_one.seeds", new[] { "127.0.0.1:9300", "127.0.0.1:9301" })
+					.Add("cluster.remote.cluster_one.skip_unavailable", true)
+					.Add("cluster.remote.cluster_two.seeds", new[] { "127.0.0.1:9300" })
+					.Add("cluster.remote.cluster_two.skip_unavailable", true)));
 			enableRemoteClusters.ShouldBeValid();
 
 			var remoteSearch = client.Search<Project>(s => s.Index(Index<Project>("cluster_one").And<Project>("cluster_two")));
