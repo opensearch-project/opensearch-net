@@ -29,7 +29,7 @@
 using System;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Creates a snapshot repository

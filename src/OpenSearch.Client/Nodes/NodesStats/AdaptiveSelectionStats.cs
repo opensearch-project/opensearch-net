@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
 	[DataContract]
 	public class AdaptiveSelectionStats

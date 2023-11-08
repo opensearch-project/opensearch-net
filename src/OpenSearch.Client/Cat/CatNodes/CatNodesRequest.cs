@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cat.nodes.json")]
 	public partial interface ICatNodesRequest { }

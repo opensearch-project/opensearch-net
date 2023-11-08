@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.DanglingIndicesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.DanglingIndicesApi
+namespace OpenSearch.Client
 {
     [InterfaceDataContract]
     public partial interface IDeleteDanglingIndexRequest

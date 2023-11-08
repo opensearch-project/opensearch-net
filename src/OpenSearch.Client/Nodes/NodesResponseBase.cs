@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
 	public abstract class NodesResponseBase : ResponseBase
 	{

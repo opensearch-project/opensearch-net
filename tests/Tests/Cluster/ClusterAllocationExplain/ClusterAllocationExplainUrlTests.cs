@@ -29,7 +29,6 @@
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.ClusterApi;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 

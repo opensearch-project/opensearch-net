@@ -31,7 +31,6 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -50,7 +49,7 @@ namespace Tests.Indices.IndexSettings.IndexTemplates.GetIndexTemplate
 		protected override int ExpectStatusCode => 200;
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
 		protected override string UrlPath => $"/_template/{CallIsolatedValue}";
-		
+
 		protected override GetIndexTemplateRequest Initializer => new GetIndexTemplateRequest(CallIsolatedValue);
 
 		protected override LazyResponses ClientUsage() => Calls(

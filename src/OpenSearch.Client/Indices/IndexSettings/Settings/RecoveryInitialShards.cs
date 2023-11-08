@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[StringEnum]
 	public enum RecoveryInitialShards

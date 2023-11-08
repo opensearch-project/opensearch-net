@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.TasksApi
+namespace OpenSearch.Client
 {
 	[MapsApi("tasks.list.json")]
 	public partial interface IListTasksRequest { }

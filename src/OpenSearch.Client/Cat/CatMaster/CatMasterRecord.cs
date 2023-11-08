@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// See docs <see href="https://opensearch.org/docs/1.2/opensearch/rest-api/cat/cat-master/">here</see>

@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cluster.health.json")]
 	public partial interface IClusterHealthRequest { }

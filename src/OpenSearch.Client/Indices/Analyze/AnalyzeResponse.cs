@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[DataContract]
 	public class AnalyzeResponse : ResponseBase

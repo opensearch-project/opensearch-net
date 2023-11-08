@@ -29,7 +29,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A request to put an alias to one or more indices

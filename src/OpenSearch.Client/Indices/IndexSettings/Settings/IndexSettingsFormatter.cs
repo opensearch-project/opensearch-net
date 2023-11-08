@@ -32,11 +32,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using OpenSearch.Net.Utf8Json;
-using static OpenSearch.Client.Specification.IndicesApi.FixedIndexSettings;
-using static OpenSearch.Client.Specification.IndicesApi.IndexSortSettings;
-using static OpenSearch.Client.Specification.IndicesApi.UpdatableIndexSettings;
+using static OpenSearch.Client.FixedIndexSettings;
+using static OpenSearch.Client.IndexSortSettings;
+using static OpenSearch.Client.UpdatableIndexSettings;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	internal class IndexSettingsFormatter : IJsonFormatter<IIndexSettings>
 	{

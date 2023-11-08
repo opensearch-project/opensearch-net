@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.TasksApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.TasksApi
+namespace OpenSearch.Client
 {
     /// <summary>Descriptor for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
     public partial class CancelTasksDescriptor

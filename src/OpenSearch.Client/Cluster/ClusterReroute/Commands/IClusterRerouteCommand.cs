@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(ClusterRerouteCommandFormatter))]
 	public interface IClusterRerouteCommand

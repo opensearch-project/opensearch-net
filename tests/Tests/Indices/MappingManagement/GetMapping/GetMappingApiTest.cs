@@ -33,7 +33,6 @@ using System.Text;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

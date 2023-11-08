@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Raises an exception. This is useful for when you expect a pipeline to

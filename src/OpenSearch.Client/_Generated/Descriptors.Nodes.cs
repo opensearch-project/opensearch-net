@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.NodesApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
     /// <summary>Descriptor for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsDescriptor

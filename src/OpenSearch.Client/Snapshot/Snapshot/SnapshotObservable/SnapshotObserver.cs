@@ -28,7 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	public class SnapshotObserver : CoordinatedRequestObserverBase<SnapshotStatusResponse>
 	{

@@ -30,7 +30,6 @@ using System;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -55,7 +54,7 @@ namespace Tests.Indices.AliasManagement.GetAlias
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
 		protected override bool SupportsDeserialization => false;
 		protected override string UrlPath => $"_all/_alias/{DefaultSeeder.ProjectsAliasName}";
-		
+
 		protected override GetAliasRequest Initializer => new GetAliasRequest(OpenSearch.Client.Indices.All, Names);
 		protected override Func<GetAliasDescriptor, IGetAliasRequest> Fluent => d => d.Name(Names);
 
@@ -91,7 +90,7 @@ namespace Tests.Indices.AliasManagement.GetAlias
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
 		protected override bool SupportsDeserialization => false;
 		protected override string UrlPath => $"_all/_alias/{DefaultSeeder.ProjectsAliasName}%2Cx%2Cy";
-		
+
 		protected override GetAliasRequest Initializer => new GetAliasRequest(OpenSearch.Client.Indices.All, Names);
 		protected override Func<GetAliasDescriptor, IGetAliasRequest> Fluent => d => d.Name(Names);
 
@@ -115,14 +114,14 @@ namespace Tests.Indices.AliasManagement.GetAlias
 		private static readonly Names Names = Names("bad-alias");
 
 		public GetAliasNotFoundApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-		
+
 		protected override bool SupportsDeserialization => false;
 
 		protected override bool ExpectIsValid => false;
 		protected override int ExpectStatusCode => 404;
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
 		protected override string UrlPath => $"/_all/_alias/bad-alias";
-		
+
 		protected override GetAliasRequest Initializer => new GetAliasRequest(AllIndices, Names);
 		protected override Func<GetAliasDescriptor, IGetAliasRequest> Fluent => d => d.Name(Names);
 

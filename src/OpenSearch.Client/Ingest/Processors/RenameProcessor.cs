@@ -31,7 +31,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Renames an existing field. If the field doesn't exist or the new name is already used, an exception will be thrown.

@@ -28,7 +28,6 @@
 
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.Mapping.Types

@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A list of string references to stored token filters and/or inline token filter definitions

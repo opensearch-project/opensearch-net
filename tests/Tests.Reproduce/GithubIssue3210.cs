@@ -30,7 +30,6 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.ClusterApi;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce

@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using OpenSearch.Client.Specification.IndicesApi;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using static OpenSearch.Client.Infer;
 

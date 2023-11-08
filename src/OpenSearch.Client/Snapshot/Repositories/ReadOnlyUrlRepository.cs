@@ -30,7 +30,7 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A snapshot repository that can be used as an alternative read-only way to access data created by the <see cref="IFileSystemRepository"/>.

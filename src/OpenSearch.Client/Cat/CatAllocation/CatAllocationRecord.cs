@@ -29,7 +29,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[DataContract]
 	public class CatAllocationRecord : ICatRecord

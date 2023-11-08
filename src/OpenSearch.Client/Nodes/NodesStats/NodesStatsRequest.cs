@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("nodes.stats.json")]
 	public partial interface INodesStatsRequest { }

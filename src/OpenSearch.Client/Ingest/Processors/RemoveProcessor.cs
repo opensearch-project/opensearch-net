@@ -30,7 +30,7 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Removes existing fields. If one field doesn't exist, an exception will be thrown.

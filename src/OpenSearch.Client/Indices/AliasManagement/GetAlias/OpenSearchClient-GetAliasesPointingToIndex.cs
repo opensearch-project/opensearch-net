@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	public static class AliasPointingToIndexExtensions
 	{

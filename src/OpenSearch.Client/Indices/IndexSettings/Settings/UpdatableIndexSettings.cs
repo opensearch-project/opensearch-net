@@ -28,7 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Collection of OpenSearch index settings that can be dynamically updated

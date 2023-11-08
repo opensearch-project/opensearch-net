@@ -33,7 +33,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Extensions;
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	internal class CatHelpResponseBuilder : CustomResponseBuilderBase
 	{

@@ -27,7 +27,6 @@
 */
 
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 using static Tests.Framework.Extensions.Promisify;

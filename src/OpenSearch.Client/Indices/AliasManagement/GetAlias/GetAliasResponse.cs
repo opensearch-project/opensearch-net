@@ -31,7 +31,7 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetAliasResponse, IndexName, IndexAliases>))]
 	public class GetAliasResponse : DictionaryResponseBase<IndexName, IndexAliases>

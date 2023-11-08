@@ -29,7 +29,7 @@
 using System.Collections.Generic;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.NodesApi
+namespace OpenSearch.Client
 {
 	public class NodesHotThreadsResponse : ResponseBase
 	{

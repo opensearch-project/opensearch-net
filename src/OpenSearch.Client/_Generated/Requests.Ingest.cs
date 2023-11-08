@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.IngestApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
     [InterfaceDataContract]
     public partial interface IDeletePipelineRequest : IRequest<DeletePipelineRequestParameters>

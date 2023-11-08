@@ -32,7 +32,7 @@ using OpenSearch.Client;
 
 namespace Tests.IndexModules.IndexSettings.Merge
 {
-	using OpenSearch.Client.Specification.IndicesApi;
+	using OpenSearch.Client;
 
 	public class IndexMergeSettings
 	{

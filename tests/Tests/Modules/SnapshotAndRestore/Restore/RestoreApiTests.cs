@@ -32,7 +32,6 @@ using System.IO;
 using System.Linq;
 using OpenSearch.Net;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.SnapshotApi;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;

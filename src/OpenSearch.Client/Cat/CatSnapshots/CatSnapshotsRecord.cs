@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.CatApi
+namespace OpenSearch.Client
 {
 	[DataContract]
 	public class CatSnapshotsRecord : ICatRecord

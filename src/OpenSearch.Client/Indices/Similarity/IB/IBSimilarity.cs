@@ -29,7 +29,7 @@
 using System.Runtime.Serialization;
 // ReSharper disable InconsistentNaming
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Information based model similarity.

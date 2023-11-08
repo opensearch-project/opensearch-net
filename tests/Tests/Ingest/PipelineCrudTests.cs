@@ -29,7 +29,6 @@
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IngestApi;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

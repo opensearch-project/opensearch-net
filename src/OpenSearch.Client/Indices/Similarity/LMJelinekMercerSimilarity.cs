@@ -30,7 +30,7 @@ using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 // ReSharper disable InconsistentNaming
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A similarity that attempts to capture important patterns in the text,

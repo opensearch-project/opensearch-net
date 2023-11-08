@@ -28,7 +28,7 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Drops the document without raising any errors. This is useful to prevent the document from getting indexed based on some condition.

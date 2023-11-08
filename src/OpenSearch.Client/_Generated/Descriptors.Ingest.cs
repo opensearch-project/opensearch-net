@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.IngestApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
     /// <summary>Descriptor for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineDescriptor

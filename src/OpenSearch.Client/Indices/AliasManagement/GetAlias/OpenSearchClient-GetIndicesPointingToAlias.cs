@@ -31,7 +31,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.IndicesApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Implements several handy alias extensions.

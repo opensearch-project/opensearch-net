@@ -31,8 +31,6 @@ using System.Linq;
 using System.Text;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
-using OpenSearch.Client;
-using OpenSearch.Client.Specification.SnapshotApi;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce

@@ -28,11 +28,10 @@
 
 using System.Globalization;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IndicesApi;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Single.Exists 
+namespace Tests.Document.Single.Exists
 {
 	public class DocumentExistsNotFoundApiTests : DocumentExistsApiTests
 	{

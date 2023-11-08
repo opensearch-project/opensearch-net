@@ -32,7 +32,7 @@ using System.Linq;
 using System.Threading;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	public class SnapshotObservable : IDisposable, IObservable<SnapshotStatusResponse>
 	{

@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// A snapshot repository that stores snapshot data within a Hadoop HDFS filesystem

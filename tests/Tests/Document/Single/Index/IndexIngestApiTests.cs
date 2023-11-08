@@ -30,7 +30,6 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.IngestApi;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;

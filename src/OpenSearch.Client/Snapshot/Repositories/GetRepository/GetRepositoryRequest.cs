@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	[MapsApi("snapshot.get_repository.json")]
 	public partial interface IGetRepositoryRequest { }

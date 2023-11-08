@@ -30,7 +30,6 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Client;
-using OpenSearch.Client.Specification.NodesApi;
 using Tests.Framework.EndpointTests;
 
 namespace Tests.Cluster.NodesUsage

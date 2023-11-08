@@ -33,7 +33,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	public class RestoreErrorEventArgs : EventArgs
 	{

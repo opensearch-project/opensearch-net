@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client.Specification.DanglingIndicesApi
+namespace OpenSearch.Client
 {
 	[MapsApi("dangling_indices.list_dangling_indices.json")]
 	public partial interface IListDanglingIndicesRequest

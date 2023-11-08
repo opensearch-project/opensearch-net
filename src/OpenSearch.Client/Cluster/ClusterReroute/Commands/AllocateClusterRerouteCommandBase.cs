@@ -28,7 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	public interface IAllocateClusterRerouteCommand : IClusterRerouteCommand
 	{

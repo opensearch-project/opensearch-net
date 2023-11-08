@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	[MapsApi("cluster.put_settings.json")]
 	public partial interface IClusterPutSettingsRequest

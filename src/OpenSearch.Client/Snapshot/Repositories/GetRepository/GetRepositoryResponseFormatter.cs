@@ -33,7 +33,7 @@ using OpenSearch.Net.Extensions;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
 	internal class GetRepositoryResponseFormatter : IJsonFormatter<GetRepositoryResponse>
 	{

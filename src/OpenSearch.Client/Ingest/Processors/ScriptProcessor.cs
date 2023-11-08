@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client.Specification.IngestApi
+namespace OpenSearch.Client
 {
 	/// <summary>
 	/// Allows inline and stored scripts to be executed within ingest pipelines.

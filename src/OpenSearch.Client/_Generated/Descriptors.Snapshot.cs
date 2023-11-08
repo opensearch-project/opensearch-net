@@ -56,7 +56,7 @@ using OpenSearch.Net.Specification.SnapshotApi;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client.Specification.SnapshotApi
+namespace OpenSearch.Client
 {
     /// <summary>Descriptor for CleanupRepository <para>https://opensearch.org/docs/latest</para></summary>
     public partial class CleanupRepositoryDescriptor

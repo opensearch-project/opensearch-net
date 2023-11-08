@@ -27,9 +27,9 @@
 */
 
 using System.Runtime.Serialization;
-using OpenSearch.Client.Specification.NodesApi;
+using OpenSearch.Client;
 
-namespace OpenSearch.Client.Specification.ClusterApi
+namespace OpenSearch.Client
 {
 	public class ClusterStatsResponse : NodesResponseBase
 	{
