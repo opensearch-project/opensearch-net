@@ -12,6 +12,7 @@
     <!-- File version reflects actual version number without prelease since that not allowed in its struct -->
     <FileVersion>$(CurrentAssemblyFileVersion)</FileVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
     <MajorVersion>$(Version.Split('.')[0])</MajorVersion>
   </PropertyGroup>
   <!-- Common Nuget metadata-->
