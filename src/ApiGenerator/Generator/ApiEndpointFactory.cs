@@ -28,10 +28,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Net.Mime;
-using System.Text.RegularExpressions;
 using ApiGenerator.Configuration;
 using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
@@ -40,7 +38,6 @@ using ApiGenerator.Domain.Specification;
 using NJsonSchema;
 using NJsonSchema.References;
 using NSwag;
-using SemanticVersioning;
 using Version = SemanticVersioning.Version;
 
 namespace ApiGenerator.Generator
@@ -52,6 +49,8 @@ namespace ApiGenerator.Generator
 	        var tokens = name.Split(".");
 	        var methodName = tokens[^1];
 	        var ns = tokens.Length > 1 ? tokens[0] : null;
+			var names = new CsharpNames(name, methodName, ns);
+			var overrides = LoadOverrides(name, names.MethodName);
 
 	        HashSet<string> requiredPathParts = null;
 	        var allParts = new Dictionary<string, UrlPart>();
@@ -126,6 +125,9 @@ namespace ApiGenerator.Generator
 					.Where(p => !canonicalPaths.ContainsKey(p.Key))
 					.Select(p => p.Value))
 				.ToList();
+
+			ApiRequestParametersPatcher.PatchUrlPaths(name, paths, overrides);
+
 			paths.Sort((p1, p2) => p1.Parts
 					.Zip(p2.Parts)
 					.Select(t => string.Compare(t.First.Name, t.Second.Name, StringComparison.Ordinal))
@@ -151,58 +153,52 @@ namespace ApiGenerator.Generator
 
 			foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>()) allParts[partName].Required = true;
 
-	        var endpoint = new ApiEndpoint
-	        {
-	            Name = name,
-	            Namespace = ns,
-	            MethodName = methodName,
-	            CsharpNames = new CsharpNames(name, methodName, ns),
-	            Stability = Stability.Stable, // TODO: for realsies
-	            OfficialDocumentationLink = new Documentation
-	            {
-	                Description = variants[0].Operation.Description,
-	                Url = variants[0].Operation.ExternalDocumentation?.Url
-	            },
-	            Url = new UrlInformation
+			IDictionary<string, QueryParameters> queryParams = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
+				.Where(p => p.Kind == OpenApiParameterKind.Query)
+				.DistinctBy(p => p.Name)
+				.ToDictionary(p => p.Name, BuildQueryParam);
+			queryParams = ApiRequestParametersPatcher.PatchQueryParameters(name, queryParams, overrides);
+
+			return new ApiEndpoint
+			{
+				Name = name,
+				Namespace = ns,
+				MethodName = methodName,
+				CsharpNames = names,
+				Overrides = overrides,
+				Stability = Stability.Stable, // TODO: for realsies
+				OfficialDocumentationLink = new Documentation
+				{
+					Description = variants[0].Operation.Description,
+					Url = variants[0].Operation.ExternalDocumentation?.Url
+				},
+				Url = new UrlInformation
 				{
 					AllPaths = paths,
-					Params = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
-						.Where(p => p.Kind == OpenApiParameterKind.Query)
-						.DistinctBy(p => p.Name)
-						.ToImmutableSortedDictionary(p => p.Name, BuildQueryParam)
+					Params = queryParams
 				},
-	            Body = variants
+				Body = variants
 					.Select(v => v.Operation.RequestBody)
 					.FirstOrDefault(b => b != null) is { } reqBody
 					? new Body { Description = GetDescription(reqBody), Required = reqBody.IsRequired }
 					: null,
-	            HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
-	        };
-
-	        LoadOverridesOnEndpoint(endpoint);
-	        PatchRequestParameters(endpoint);
-
-	        return endpoint;
+				HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
+			};
 	    }
 
-	    private static void LoadOverridesOnEndpoint(ApiEndpoint endpoint)
+	    private static IEndpointOverrides LoadOverrides(string endpointName, string methodName)
 	    {
-	        var method = endpoint.CsharpNames.MethodName;
-	        if (CodeConfiguration.ApiNameMapping.TryGetValue(endpoint.Name, out var mapsApiMethodName))
-	            method = mapsApiMethodName;
+	        if (CodeConfiguration.ApiNameMapping.TryGetValue(endpointName, out var mapsApiMethodName))
+	            methodName = mapsApiMethodName;
 
 	        var namespacePrefix = $"{typeof(GlobalOverrides).Namespace}.Endpoints.";
-	        var typeName = $"{namespacePrefix}{method}Overrides";
+	        var typeName = $"{namespacePrefix}{methodName}Overrides";
 	        var type = GeneratorLocations.Assembly.GetType(typeName);
-	        if (type != null && Activator.CreateInstance(type) is IEndpointOverrides overrides)
-	            endpoint.Overrides = overrides;
-	    }
 
-	    private static void PatchRequestParameters(ApiEndpoint endpoint) =>
-	        endpoint.Url.Params = ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)
-	            ?? throw new ArgumentNullException("ApiQueryParametersPatcher.Patch(endpoint.Name, endpoint.Url.Params, endpoint.Overrides)");
+			return type != null && Activator.CreateInstance(type) is IEndpointOverrides overrides ? overrides : null;
+		}
 
-        private static QueryParameters BuildQueryParam(OpenApiParameter p)
+		private static QueryParameters BuildQueryParam(OpenApiParameter p)
         {
             var param = new QueryParameters
             {
@@ -214,11 +210,9 @@ namespace ApiGenerator.Generator
             };
 
             if (param.Type == "enum" && p.Schema.HasReference)
-            {
-                param.ClsName = ((IJsonReference)p.Schema).ReferencePath.Split('/').Last();
-            }
+				param.ClsName = ((IJsonReference)p.Schema).ReferencePath.Split('/').Last();
 
-            return param;
+			return param;
         }
 
 	    private static string GetOpenSearchType(JsonSchema schema)

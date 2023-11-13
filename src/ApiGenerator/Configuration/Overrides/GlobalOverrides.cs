@@ -31,7 +31,11 @@ using System.Collections.Generic;
 namespace ApiGenerator.Configuration.Overrides
 {
     public class GlobalOverrides : EndpointOverridesBase
-    {
+	{
+		public static readonly GlobalOverrides Instance = new();
+
+		private GlobalOverrides() { }
+
         public IDictionary<string, Dictionary<string, string>> ObsoleteEnumMembers { get; set; } = new Dictionary<string, Dictionary<string, string>>()
         {
             { "VersionType", new Dictionary<string, string>() { { "force", "Force is no longer accepted by the server as of 7.5.0 and will result in an error when used" } } }
