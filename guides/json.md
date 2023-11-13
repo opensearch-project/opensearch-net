@@ -11,8 +11,6 @@
     - [PostData.MultiJson](#postdatamultijson)
 
 # Making Raw JSON REST Requests
-OpenSearch exposes a REST API that you can use to interact with OpenSearch. The OpenSearch .NET client provides a low-level API that allows you to send raw JSON requests to OpenSearch. This API is useful if you want to use a feature that is not yet supported by the OpenSearch .NET client, but it supported by the OpenSearch REST API.
-
 The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use `client.LowLevel.DoRequest` to do so. See [samples/Samples/RawJsonSample/Program.cs](../samples/Samples/RawJsonSample/Program.cs) for a complete working sample.
 
 ## HTTP Methods
