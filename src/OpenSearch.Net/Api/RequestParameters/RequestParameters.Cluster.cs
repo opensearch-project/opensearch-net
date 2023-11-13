@@ -56,35 +56,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 		}
 	}
 
-	///<summary>Request options for DeleteComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
-	public class DeleteComponentTemplateRequestParameters : RequestParameters<DeleteComponentTemplateRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-		public override bool SupportsBody => false;
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
-		public TimeSpan MasterTimeSpanout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
-		public TimeSpan ClusterManagerTimeSpanout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
 	///<summary>Request options for DeleteVotingConfigExclusions <para></para></summary>
 	public class DeleteVotingConfigExclusionsRequestParameters : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
 	{
@@ -95,64 +66,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 		{
 			get => Q<bool? >("wait_for_removal");
 			set => Q("wait_for_removal", value);
-		}
-	}
-
-	///<summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
-	public class ExistsComponentTemplateRequestParameters : RequestParameters<ExistsComponentTemplateRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
-		public override bool SupportsBody => false;
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public bool? Local
-		{
-			get => Q<bool? >("local");
-			set => Q("local", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
-		public TimeSpan MasterTimeSpanout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
-		public TimeSpan ClusterManagerTimeSpanout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-	}
-
-	///<summary>Request options for GetComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
-	public class GetComponentTemplateRequestParameters : RequestParameters<GetComponentTemplateRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-		public override bool SupportsBody => false;
-		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
-		public bool? Local
-		{
-			get => Q<bool? >("local");
-			set => Q("local", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
-		public TimeSpan MasterTimeSpanout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
-		public TimeSpan ClusterManagerTimeSpanout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
 		}
 	}
 
@@ -343,42 +256,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
 		{
 			get => Q<string>("node_names");
 			set => Q("node_names", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
-	///<summary>Request options for PutComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
-	public class PutComponentTemplateRequestParameters : RequestParameters<PutComponentTemplateRequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
-		public override bool SupportsBody => true;
-		///<summary>Whether the index template should only be added if new or can also replace an existing one</summary>
-		public bool? Create
-		{
-			get => Q<bool? >("create");
-			set => Q("create", value);
-		}
-
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
-		public TimeSpan MasterTimeSpanout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
-		public TimeSpan ClusterManagerTimeSpanout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
 		}
 
 		///<summary>Explicit operation timeout</summary>
