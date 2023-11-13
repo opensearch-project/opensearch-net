@@ -3332,6 +3332,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComponentTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComponentTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComponentTemplateExistsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComponentTemplateExistsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComponentTemplateExistsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComponentTemplateExistsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CompositeAggregation.yml",
       "output": {
         ".html": {
@@ -4416,6 +4446,36 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteByQueryRethrottleRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComponentTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComponentTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComponentTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComponentTemplateResponse.html"
         }
       },
       "version": ""
@@ -7352,6 +7412,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComponentTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComponentTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComponentTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComponentTemplateResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetDescriptor-1.yml",
       "output": {
         ".html": {
@@ -9362,6 +9452,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IComponentTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IComponentTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IComponentTemplateExistsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IComponentTemplateExistsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICompositeAggregation.yml",
       "output": {
         ".html": {
@@ -9756,6 +9866,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteByQueryRethrottleRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IDeleteComponentTemplateRequest.html"
         }
       },
       "version": ""
@@ -10776,6 +10896,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IGetAllPitsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IGetComponentTemplateRequest.html"
         }
       },
       "version": ""
@@ -13042,6 +13172,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPutComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IPutComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPutIndexTemplateRequest.yml",
       "output": {
         ".html": {
@@ -14746,6 +14886,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ITDigestMethod.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ITemplate.html"
         }
       },
       "version": ""
@@ -18712,6 +18862,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NamedComponentTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.NamedComponentTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NamedFiltersContainer.yml",
       "output": {
         ".html": {
@@ -20806,6 +20966,36 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PutAliasResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComponentTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComponentTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComponentTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComponentTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComponentTemplateResponse.html"
         }
       },
       "version": ""
@@ -25312,6 +25502,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Template.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Template.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.TemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TemplateMapping.yml",
       "output": {
         ".html": {
@@ -28662,6 +28872,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.ComponentTemplateExistsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.ComponentTemplateExistsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.DeleteComponentTemplateRequestParameters.yml",
       "output": {
         ".html": {
@@ -28676,16 +28896,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.DeleteVotingConfigExclusionsRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.ExistsComponentTemplateRequestParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.ExistsComponentTemplateRequestParameters.html"
         }
       },
       "version": ""
