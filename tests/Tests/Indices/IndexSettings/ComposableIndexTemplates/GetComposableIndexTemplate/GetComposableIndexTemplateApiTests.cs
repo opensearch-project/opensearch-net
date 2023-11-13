@@ -40,10 +40,10 @@ public class GetComposableIndexTemplateApiTests
 
 	protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 	{
-		foreach (var callUniqueValue in values.Values)
+		foreach (var value in values.Values)
 		{
-			var putTemplateResponse = client.Indices.PutComposableTemplate(callUniqueValue, d => d
-				.IndexPatterns("startingwiththis-*")
+			var putTemplateResponse = client.Indices.PutComposableTemplate(value, d => d
+				.IndexPatterns($"{value}-*")
 				.Version(1)
 				.Template(t => t
 					.Settings(s => s.NumberOfShards(2))));
@@ -65,7 +65,7 @@ public class GetComposableIndexTemplateApiTests
 
 		template.Should().NotBeNull();
 		template.IndexPatterns.Should().NotBeNull().And.HaveCount(1);
-		template.IndexPatterns.First().Should().Be("startingwiththis-*");
+		template.IndexPatterns.First().Should().Be($"{CallIsolatedValue}-*");
 
 		template.Version.Should().Be(1);
 

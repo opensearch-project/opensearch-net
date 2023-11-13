@@ -29,7 +29,7 @@ public class PutComposableIndexTemplateApiTests
 	{
 		priority = 1,
 		version = 2,
-		index_patterns = new[] { "oscx-*" },
+		index_patterns = new[] { $"{CallIsolatedValue}-*" },
 		composed_of = new[] { $"component_{CallIsolatedValue}" },
 		template = new
 		{
@@ -61,7 +61,7 @@ public class PutComposableIndexTemplateApiTests
 		.Create(false)
 		.Priority(1)
 		.Version(2)
-		.IndexPatterns("oscx-*")
+		.IndexPatterns($"{CallIsolatedValue}-*")
 		.ComposedOf($"component_{CallIsolatedValue}")
 		.Template(t => t
 			.Settings(p => p.NumberOfShards(1))
@@ -87,7 +87,7 @@ public class PutComposableIndexTemplateApiTests
 		Create = false,
 		Priority = 1,
 		Version = 2,
-		IndexPatterns = new[] { "oscx-*" },
+		IndexPatterns = new[] { $"{CallIsolatedValue}-*" },
 		ComposedOf = new[] { $"component_{CallIsolatedValue}" },
 		Template = new Template {
 			Settings = new OpenSearch.Client.IndexSettings

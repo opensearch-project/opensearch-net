@@ -45,12 +45,12 @@ public class ComposableIndexTemplateCrudTests
 
 	private PutComposableIndexTemplateRequest CreateInitializer(string name) => new(name)
 	{
-		IndexPatterns = new[] { "startingwiththis-*" },
+		IndexPatterns = new[] { $"startingwiththis-{name}-*" },
 		Template = new Template { Settings = new OpenSearch.Client.IndexSettings { NumberOfShards = 2 } }
 	};
 
 	private IPutComposableIndexTemplateRequest CreateFluent(string name, PutComposableIndexTemplateDescriptor d) => d
-		.IndexPatterns("startingwiththis-*")
+		.IndexPatterns($"startingwiththis-{name}-*")
 		.Template(t => t
 			.Settings(s => s
 				.NumberOfShards(2)
@@ -72,7 +72,7 @@ public class ComposableIndexTemplateCrudTests
 	{
 		response.IndexTemplates.Should().NotBeNull().And.HaveCount(1);
 		var template = response.IndexTemplates.First().IndexTemplate;
-		template.IndexPatterns.Should().NotBeNullOrEmpty().And.Contain(t => t.StartsWith("startingwith"));
+		template.IndexPatterns.Should().NotBeNullOrEmpty().And.Contain(t => t.StartsWith("startingwiththis"));
 		template.Template.Should().NotBeNull();
 		template.Template.Settings.Should().NotBeNull().And.NotBeEmpty();
 		template.Template.Settings.NumberOfShards.Should().Be(2);
@@ -91,12 +91,12 @@ public class ComposableIndexTemplateCrudTests
 
 	private PutComposableIndexTemplateRequest PutInitializer(string name) => new(name)
 	{
-		IndexPatterns = new[] { "startingwiththis-*" },
+		IndexPatterns = new[] { $"startingwiththis-{name}-*" },
 		Template = new Template { Settings = new OpenSearch.Client.IndexSettings { NumberOfShards = 1 } }
 	};
 
 	private IPutComposableIndexTemplateRequest PutFluent(string name, PutComposableIndexTemplateDescriptor d) => d
-		.IndexPatterns("startingwiththis-*")
+		.IndexPatterns($"startingwiththis-{name}-*")
 		.Template(t => t
 			.Settings(s => s
 				.NumberOfShards(1)
@@ -107,7 +107,7 @@ public class ComposableIndexTemplateCrudTests
 	{
 		response.IndexTemplates.Should().NotBeNull().And.HaveCount(1);
 		var template = response.IndexTemplates.First().IndexTemplate;
-		template.IndexPatterns.Should().NotBeNullOrEmpty().And.Contain(t => t.StartsWith("startingwith"));
+		template.IndexPatterns.Should().NotBeNullOrEmpty().And.Contain(t => t.StartsWith("startingwiththis"));
 		template.Template.Should().NotBeNull();
 		template.Template.Settings.Should().NotBeNull().And.NotBeEmpty();
 		template.Template.Settings.NumberOfShards.Should().Be(1);
