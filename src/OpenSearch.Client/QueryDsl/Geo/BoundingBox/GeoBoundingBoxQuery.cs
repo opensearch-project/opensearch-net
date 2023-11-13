@@ -27,6 +27,7 @@
 */
 
 using System;
+using OpenSearch.Net.Extensions;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
