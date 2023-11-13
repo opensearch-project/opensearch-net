@@ -22,6 +22,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 7.1.0 to 9.0.0
 - Bumps `FSharp.Core` from 7.0.400 to 7.0.401
 - Bumps `xunit` from 2.4.2 to 2.6.1
+- Bumps `CSharpier.Core` from 0.25.0 to 0.26.1
 
 ## [1.5.0]
 ### Fixed
