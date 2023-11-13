@@ -28,11 +28,10 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ExistsResponse : ResponseBase
 {
-	[DataContract]
-	public class ExistsResponse : ResponseBase
-	{
-		public bool Exists => ApiCall != null && ApiCall.Success && ApiCall.HttpStatusCode == 200;
-	}
+	public bool Exists => ApiCall is { Success: true, HttpStatusCode: 200 };
 }

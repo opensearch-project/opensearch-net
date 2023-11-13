@@ -116,22 +116,19 @@ Composable index templates are a new type of index template that allow you to de
 
 ```csharp
 // Create a component template
-var createResponse = client.LowLevel.Cluster.PutComponentTemplate<VoidResponse>("books_mappings", PostData.Serializable(new
-{
-    template = new
-    {
-        mappings = new
-        {
-            properties = new
-            {
-                title = new { type = "text" },
-                author = new { type = "text" },
-                published_on = new { type = "date" },
-                pages = new { type = "integer" }
-            }
-        }
-    }
-}));
+client.Cluster.PutComponentTemplate("books_mappings", ct => ct
+    .Template(t => t
+        .Map(m => m
+            .Properties(p => p
+                .Text(tp => tp
+                    .Name("title"))
+                .Text(tp => tp
+                    .Name("author"))
+                .Date(d => d
+                    .Name("published_on"))
+                .Number(n => n
+                    .Name("pages")
+                    .Type(NumberType.Integer))))));
 
 // Create an index template for "books"
 var createBooksTemplateResponse = client.LowLevel.Indices.PutTemplateV2ForAll<VoidResponse>("books", PostData.Serializable(new
@@ -178,7 +175,6 @@ When we create an index named `books-fiction-horror`, OpenSearch will apply the 
 client.Indices.Create("books-fiction-horror");
 var getResponse = client.Indices.Get("books-fiction-horror");
 Console.WriteLine(getResponse.Indices["books-fiction-horror"].Settings.NumberOfShards); // 1 Console.WriteLine(getResponse.Indices["books-fiction-horror"].Mappings.Properties["pages"].Type); // integer 
-Console.WriteLine($"Create response: {componentTemplateCreateResponse}"); // Create response: {"acknowledged":true}
 ```
 
 ### Get an Index Template
@@ -204,5 +200,5 @@ Let's delete all resources created in this guide:
 ```csharp
 client.Indices.Delete("books-");
 client.LowLevel.Indices.DeleteTemplateV2ForAll("books-fiction");
-client.LowLevel.Cluster.DeleteComponentTemplate("books_mappings");
+client.Cluster.DeleteComponentTemplate("books_mappings");
 ```

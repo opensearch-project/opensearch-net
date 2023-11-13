@@ -167,9 +167,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">The name of the template.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse ExistsComponentTemplate<TResponse>(
+        public TResponse ComponentTemplateExists<TResponse>(
             string name,
-            ExistsComponentTemplateRequestParameters requestParameters = null
+            ComponentTemplateExistsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
@@ -183,9 +183,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// <param name="name">The name of the template.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.exists_component_template", "name")]
-        public Task<TResponse> ExistsComponentTemplateAsync<TResponse>(
+        public Task<TResponse> ComponentTemplateExistsAsync<TResponse>(
             string name,
-            ExistsComponentTemplateRequestParameters requestParameters = null,
+            ComponentTemplateExistsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -364,6 +364,43 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 "_cluster/pending_tasks",
                 ctx,
                 null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_component_template/{name}</summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutComponentTemplate<TResponse>(
+            string name,
+            PostData body,
+            PutComponentTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_component_template/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_component_template/{name}</summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cluster.put_component_template", "name, body")]
+        public Task<TResponse> PutComponentTemplateAsync<TResponse>(
+            string name,
+            PostData body,
+            PutComponentTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_component_template/{name:name}"),
+                ctx,
+                body,
                 RequestParams(requestParameters)
             );
     }

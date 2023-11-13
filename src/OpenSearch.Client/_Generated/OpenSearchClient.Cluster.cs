@@ -116,6 +116,63 @@ namespace OpenSearch.Client.Specification.ClusterApi
             );
 
         /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteComponentTemplateResponse DeleteComponentTemplate(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector = null
+        ) =>
+            DeleteComponentTemplate(
+                selector.InvokeOrDefault(new DeleteComponentTemplateDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector =
+                null,
+            CancellationToken ct = default
+        ) =>
+            DeleteComponentTemplateAsync(
+                selector.InvokeOrDefault(new DeleteComponentTemplateDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public DeleteComponentTemplateResponse DeleteComponentTemplate(
+            IDeleteComponentTemplateRequest request
+        ) =>
+            DoRequest<IDeleteComponentTemplateRequest, DeleteComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            IDeleteComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IDeleteComponentTemplateRequest, DeleteComponentTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
@@ -173,6 +230,117 @@ namespace OpenSearch.Client.Specification.ClusterApi
                 IDeleteVotingConfigExclusionsRequest,
                 DeleteVotingConfigExclusionsResponse
             >(request, request.RequestParameters, ct);
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ExistsResponse ComponentTemplateExists(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector = null
+        ) =>
+            ComponentTemplateExists(
+                selector.InvokeOrDefault(new ComponentTemplateExistsDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ExistsResponse> ComponentTemplateExistsAsync(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector =
+                null,
+            CancellationToken ct = default
+        ) =>
+            ComponentTemplateExistsAsync(
+                selector.InvokeOrDefault(new ComponentTemplateExistsDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public ExistsResponse ComponentTemplateExists(IComponentTemplateExistsRequest request) =>
+            DoRequest<IComponentTemplateExistsRequest, ExistsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<ExistsResponse> ComponentTemplateExistsAsync(
+            IComponentTemplateExistsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IComponentTemplateExistsRequest, ExistsResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public GetComponentTemplateResponse GetComponentTemplate(
+            Names name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null
+        ) =>
+            GetComponentTemplate(
+                selector.InvokeOrDefault(new GetComponentTemplateDescriptor().Name(name: name))
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            Names name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            GetComponentTemplateAsync(
+                selector.InvokeOrDefault(new GetComponentTemplateDescriptor().Name(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public GetComponentTemplateResponse GetComponentTemplate(
+            IGetComponentTemplateRequest request
+        ) =>
+            DoRequest<IGetComponentTemplateRequest, GetComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            IGetComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IGetComponentTemplateRequest, GetComponentTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
@@ -310,6 +478,62 @@ namespace OpenSearch.Client.Specification.ClusterApi
             CancellationToken ct = default
         ) =>
             DoRequestAsync<IClusterPendingTasksRequest, ClusterPendingTasksResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public PutComponentTemplateResponse PutComponentTemplate(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector
+        ) =>
+            PutComponentTemplate(
+                selector.InvokeOrDefault(new PutComponentTemplateDescriptor(name: name))
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector,
+            CancellationToken ct = default
+        ) =>
+            PutComponentTemplateAsync(
+                selector.InvokeOrDefault(new PutComponentTemplateDescriptor(name: name)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public PutComponentTemplateResponse PutComponentTemplate(
+            IPutComponentTemplateRequest request
+        ) =>
+            DoRequest<IPutComponentTemplateRequest, PutComponentTemplateResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            IPutComponentTemplateRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IPutComponentTemplateRequest, PutComponentTemplateResponse>(
                 request,
                 request.RequestParameters,
                 ct

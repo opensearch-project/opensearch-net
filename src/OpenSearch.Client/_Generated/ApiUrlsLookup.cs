@@ -48,8 +48,17 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 
+        internal static readonly ApiUrls ClusterDeleteComponentTemplate =
+            new(new[] { "_component_template/{name}" });
+
         internal static readonly ApiUrls ClusterDeleteVotingConfigExclusions =
             new(new[] { "_cluster/voting_config_exclusions" });
+
+        internal static readonly ApiUrls ClusterComponentTemplateExists =
+            new(new[] { "_component_template/{name}" });
+
+        internal static readonly ApiUrls ClusterGetComponentTemplate =
+            new(new[] { "_component_template", "_component_template/{name}" });
 
         internal static readonly ApiUrls ClusterGetSettings = new(new[] { "_cluster/settings" });
 
@@ -58,6 +67,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls ClusterPendingTasks =
             new(new[] { "_cluster/pending_tasks" });
+
+        internal static readonly ApiUrls ClusterPutComponentTemplate =
+            new(new[] { "_component_template/{name}" });
 
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });

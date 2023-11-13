@@ -89,6 +89,63 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IDeleteComponentTemplateRequest
+        : IRequest<DeleteComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteComponentTemplateRequest
+        : PlainRequestBase<DeleteComponentTemplateRequestParameters>,
+            IDeleteComponentTemplateRequest
+    {
+        protected IDeleteComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteComponentTemplate;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public DeleteComponentTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteComponentTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteVotingConfigExclusionsRequest
         : IRequest<DeleteVotingConfigExclusionsRequestParameters> { }
 
@@ -108,6 +165,119 @@ namespace OpenSearch.Client
         {
             get => Q<bool?>("wait_for_removal");
             set => Q("wait_for_removal", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IComponentTemplateExistsRequest
+        : IRequest<ComponentTemplateExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ComponentTemplateExistsRequest
+        : PlainRequestBase<ComponentTemplateExistsRequestParameters>,
+            IComponentTemplateExistsRequest
+    {
+        protected IComponentTemplateExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterComponentTemplateExists;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public ComponentTemplateExistsRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ComponentTemplateExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetComponentTemplateRequest
+        : IRequest<GetComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class GetComponentTemplateRequest
+        : PlainRequestBase<GetComponentTemplateRequestParameters>,
+            IGetComponentTemplateRequest
+    {
+        protected IGetComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetComponentTemplate;
+
+        /// <summary>/_component_template</summary>
+        public GetComponentTemplateRequest()
+            : base() { }
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public GetComponentTemplateRequest(Names name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
         }
     }
 
@@ -329,6 +499,70 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("master_timeout");
             set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPutComponentTemplateRequest
+        : IRequest<PutComponentTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for PutComponentTemplate</summary>
+    public partial class PutComponentTemplateRequest
+        : PlainRequestBase<PutComponentTemplateRequestParameters>,
+            IPutComponentTemplateRequest
+    {
+        protected IPutComponentTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutComponentTemplate;
+
+        /// <summary>/_component_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public PutComponentTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutComponentTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        public bool? Create
+        {
+            get => Q<bool?>("create");
+            set => Q("create", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
         }
     }
 }

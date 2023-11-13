@@ -122,9 +122,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
-    public partial class ExistsComponentTemplateRequestParameters
-        : RequestParameters<ExistsComponentTemplateRequestParameters>
+    /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ComponentTemplateExistsRequestParameters
+        : RequestParameters<ComponentTemplateExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -368,6 +368,46 @@ namespace OpenSearch.Net.Specification.ClusterApi
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
+        }
+    }
+
+    /// <summary>Request options for PutComponentTemplate</summary>
+    public partial class PutComponentTemplateRequestParameters
+        : RequestParameters<PutComponentTemplateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        public bool? Create
+        {
+            get => Q<bool?>("create");
+            set => Q("create", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
         }
     }
 }

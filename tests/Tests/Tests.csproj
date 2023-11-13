@@ -5,6 +5,7 @@
     <NoWarn>$(NoWarn);xUnit1013</NoWarn>
     <DebugSymbols>True</DebugSymbols>
     <IsTestProject>True</IsTestProject>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'!=''">
     <PackageReference Include="OpenSearch.Net.VirtualizedCluster" Version="$(TestPackageVersion)" />
