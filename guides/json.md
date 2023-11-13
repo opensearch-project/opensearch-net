@@ -1,72 +1,105 @@
 - [Making Raw JSON REST Requests](#making-raw-json-rest-requests)
-  - [GET](#get)
-  - [PUT](#put)
-  - [POST](#post)
-  - [DELETE](#delete)
+  - [HTTP Methods](#http-methods)
+    - [GET](#get)
+    - [PUT](#put)
+    - [POST](#post)
+    - [DELETE](#delete)
+  - [Using Different Types Of PostData](#using-different-types-of-postdata)
+    - [PostData.String](#postdatastring)
+    - [PostData.Bytes](#postdatabytes)
+    - [PostData.Serializable](#postdataserializable)
+    - [PostData.MultiJson](#postdatamultijson)
 
 # Making Raw JSON REST Requests
 OpenSearch exposes a REST API that you can use to interact with OpenSearch. The OpenSearch .NET client provides a low-level API that allows you to send raw JSON requests to OpenSearch. This API is useful if you want to use a feature that is not yet supported by the OpenSearch .NET client, but it supported by the OpenSearch REST API.
 
-## GET
+The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use `client.LowLevel.DoRequest` to do so. See [samples/Samples/RawJsonSample/Program.cs](../samples/Samples/RawJsonSample/Program.cs) for a complete working sample.
+
+## HTTP Methods
+
+### GET
 The following example returns the server version information via `GET /`.
 
 ```csharp
-var versionResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.GET, "/", CancellationToken.None);
-Console.WriteLine(versionResponse.Body["version"]["distribution"].ToString(), versionResponse.Body["version"]["number"].ToString()); // Distribution & Version number
+var info = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.GET, "/", CancellationToken.None);
+Console.WriteLine($"Welcome to {info.Body.version.distribution} {info.Body.version.number}!");
 ```
 
-# PUT
+### PUT
 The following example creates an index.
 
 ```csharp
-    string indexBody = @"
-    {{
-        ""settings"": {
-            ""index"": {
-                ""number_of_shards"": 4
-            }
-        }
-    }}";
+var indexBody = new { settings = new { index = new { number_of_shards = 4 } } };
 
-var putResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.String(indexBody));
-Console.WriteLine(putResponse.Body["acknowledged"].ToString());  // true
+var createIndex = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Serializable(indexBody));
+Debug.Assert(createIndex.Success && (bool)createIndex.Body.acknowledged, createIndex.DebugInformation);
 ```
 
-## POST
+### POST
 The following example searches for a document.
 
 ```csharp
-string q = "miller";
+const string q = "miller";
 
-string query = $@"
-    {{
-    ""size"": 5,
-    ""query"": {{
-        ""multi_match"": {{
-            ""query"": ""{q}"",
-            ""fields"": [""title^2"", ""director""]
-        }}
-    }}
-    }}";
+var query = new
+{
+	size = 5,
+	query = new { multi_match = new { query = q, fields = new[] { "title^2", "director" } } }
+};
 
-var postResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, "/movies/_search", CancellationToken.None, PostData.String(query));
+var search = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, $"/{indexName}/_search", CancellationToken.None, PostData.Serializable(query));
+Debug.Assert(search.Success, search.DebugInformation);
+
+foreach (var hit in search.Body.hits.hits) Console.WriteLine(hit["_source"]["title"]);
 ```
 
-# DELETE
+### DELETE
 The following example deletes an index.
 
 ```csharp
-var deleteResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.DELETE, "/movies", CancellationToken.None);
-Console.WriteLine(deleteResponse.Body["acknowledged"].ToString()); // true
+var deleteDocument = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.DELETE, $"/{indexName}/_doc/{id}", CancellationToken.None);
+Debug.Assert(deleteDocument.Success, deleteDocument.DebugInformation);
 ```
 
 ## Using Different Types Of PostData
-The OpenSearch .NET client also provides a `PostData` class that you can use to construct JSON requests. The following example shows how to use `PostData` to create the same request as the previous example, the difference being that the request body is constructed using `PostData.Serializable()` instead of `PostData.String()`.
+The OpenSearch .NET client provides a `PostData` class that is used to provide the request body for a request. The `PostData` class has several static methods that can be used to create a `PostData` object from different types of data.
 
-# PUT
+### PostData.String
+The following example shows how to use the `PostData.String` method to create a `PostData` object from a string.
+
 ```csharp
-string q = "miller";
+string indexBody = @"
+{{
+    ""settings"": {
+        ""index"": {
+            ""number_of_shards"": 4
+        }
+    }
+}}";
 
+await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.String(indexBody));
+```
+
+### PostData.Bytes
+The following example shows how to use the `PostData.Bytes` method to create a `PostData` object from a byte array.
+
+```csharp
+byte[] indexBody = Encoding.UTF8.GetBytes(@"
+{{
+    ""settings"": {
+        ""index"": {
+            ""number_of_shards"": 4
+        }
+    }
+}}");
+
+await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Bytes(indexBody));
+```
+
+### PostData.Serializable
+The following example shows how to use the `PostData.Serializable` method to create a `PostData` object from a serializable object.
+
+```csharp
 var indexBody = new
 {
     settings = new
@@ -78,30 +111,21 @@ var indexBody = new
     }
 };
 
-var putResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, 
-"/movies", CancellationToken.None, PostData.Serializable(indexBody));
-Console.WriteLine(putResponse.Body["acknowledged"].ToString());
+await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Serializable(indexBody));
 ```
 
-## POST
-```csharp
-string q = "miller";
+### PostData.MultiJson
+The following example shows how to use the `PostData.MultiJson` method to create a `PostData` object from a collection of serializable objects. 
+The `PostData.MultiJson` method is useful when you want to send multiple documents in a bulk request.
 
-var query = new
-{
-    size = 5,
-    query = new
-    {
-        multi_match = new
-        {
-            query = q,
-            fields = new[] { "title^2", "director" }
-        }
-    }
+```csharp
+var bulkBody = new object[]
+{ 
+    new { index = new { _index = "movies", _id = "1" } },
+    new { title = "The Godfather", director = "Francis Ford Coppola", year = 1972 },
+    new { index = new { _index = "movies", _id = "2" } },
+    new { title = "The Godfather: Part II", director = "Francis Ford Coppola", year = 1974 }
 };
 
-var postResponse = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, "/movies/_search", CancellationToken.None, PostData.Serializable(query));
+await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, "/_bulk", CancellationToken.None, PostData.MultiJson(bulkBody));
 ```
-
-# Sample Code
-[Making Raw JSON Requests](/samples/Samples/Program.cs)
