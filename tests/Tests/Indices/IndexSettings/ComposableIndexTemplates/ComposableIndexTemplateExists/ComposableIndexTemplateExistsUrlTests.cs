@@ -13,7 +13,7 @@ using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.ComposableIndexTemplateExists;
 
-public class ComposableIndexTemplateUrlTests
+public class ComposableIndexTemplateExistsUrlTests
 {
 	[U] public async Task Urls()
 	{
