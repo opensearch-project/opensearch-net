@@ -14,6 +14,8 @@
   - [OpenSearch.Net](#opensearchnet)
     - [Getting Started](#getting-started-2)
     - [Connecting](#connecting-2)
+  - [Advanced Features](#advanced-features)
+
 # User Guide
 
 This user guide specifies how to include and use the .NET client in your application.
@@ -303,3 +305,8 @@ var client = new OpenSearchLowLevelClient(config);
 ```
 
 Note the main difference here is that we are instantiating an `OpenSearchLowLevelClient` rather than `OpenSearchClient`, and `ConnectionConfiguration` instead of `ConnectionSettings`.
+
+
+## Advanced Features
+
+- [Making Raw JSON Requests](guides/json.md)
