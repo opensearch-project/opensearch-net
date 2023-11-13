@@ -75,17 +75,7 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelIndicesNamespace Indices
-		{
-			get;
-			private set;
-		}
-
-		partial void SetupNamespaces()
-		{
-			Cat = new LowLevelCatNamespace(this);
-			Indices = new LowLevelIndicesNamespace(this);
-		}
+		partial void SetupNamespaces() => Cat = new LowLevelCatNamespace(this);
 
 		///<summary>POST on /_bulk <para>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/</para></summary>
 		///<param name = "body">The operation definition and data (action-data pairs), separated by newlines</param>

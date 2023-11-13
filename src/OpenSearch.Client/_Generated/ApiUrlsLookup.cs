@@ -91,6 +91,18 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls NoNamespaceGetAllPits =
             new(new[] { "_search/point_in_time/_all" });
 
+        internal static readonly ApiUrls IndicesDeleteComposableTemplate =
+            new(new[] { "_index_template/{name}" });
+
+        internal static readonly ApiUrls IndicesComposableTemplateExists =
+            new(new[] { "_index_template/{name}" });
+
+        internal static readonly ApiUrls IndicesGetComposableTemplate =
+            new(new[] { "_index_template", "_index_template/{name}" });
+
+        internal static readonly ApiUrls IndicesPutComposableTemplate =
+            new(new[] { "_index_template/{name}" });
+
         internal static readonly ApiUrls IngestDeletePipeline =
             new(new[] { "_ingest/pipeline/{id}" });
 
