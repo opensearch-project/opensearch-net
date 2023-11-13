@@ -49,11 +49,11 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-      
+
       - run: "./build.sh integrate ${{ matrix.version }} readonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
-        
+
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@v3
@@ -62,12 +62,13 @@ jobs:
           path: client/build/output/*
 
   integration-opensearch-unreleased:
+    if: false # TODO: Temporarily disabled due to failures building & running OpenSearch from source, pending investigation & fixes
     name: Integration OpenSearch Unreleased
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        opensearch_ref: 
+        opensearch_ref:
           - '1.x'
           - '2.x'
           - 'main'
@@ -77,7 +78,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: client
-          
+
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
@@ -90,7 +91,7 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-      
+
       - name: Restore or Build OpenSearch
         id: opensearch
         uses: ./client/.github/actions/build-opensearch
@@ -99,14 +100,14 @@ jobs:
           security_plugin: ${{ matrix.opensearch_ref == '1.x' }}
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
-          
+
       - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
         env:
           OPENSEARCH_VERSION: ${{ steps.opensearch.outputs.version }}
           OPENSEARCH_DISTRIBUTION: ${{ steps.opensearch.outputs.distribution }}
-        
+
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@v3

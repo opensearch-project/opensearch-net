@@ -53,6 +53,11 @@ public class GetComposableIndexTemplateApiTests
 		}
 	}
 
+	protected override void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values)
+	{
+		foreach (var value in values.Values) client.Indices.DeleteComposableTemplate(value);
+	}
+
 	protected override void ExpectResponse(GetComposableIndexTemplateResponse response)
 	{
 		response.ShouldBeValid();

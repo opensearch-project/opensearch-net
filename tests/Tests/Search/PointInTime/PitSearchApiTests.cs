@@ -6,7 +6,6 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -16,9 +15,11 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
+using Xunit;
 
 namespace Tests.Search.PointInTime;
 
+[Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public sealed class PitSearchApiTests :
 	ApiIntegrationTestBase<
@@ -29,15 +30,10 @@ public sealed class PitSearchApiTests :
 		SearchRequest<PitSearchApiTests.Doc>
 	>
 {
-	private static readonly Dictionary<string, string> Pits = new();
+	private static readonly string IndexName = nameof(PitSearchApiTests).ToLowerInvariant();
+	private string _pitId = "default-for-unit-tests";
 
 	public PitSearchApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-	private string CallIsolatedPit
-	{
-		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
-		set => Pits[CallIsolatedValue] = value;
-	}
 
 	protected override object ExpectJson => new
 	{
@@ -47,7 +43,7 @@ public sealed class PitSearchApiTests :
 		},
 		pit = new
 		{
-			id = CallIsolatedPit,
+			id = _pitId,
 			keep_alive = "1h"
 		},
 		track_total_hits = true
@@ -59,7 +55,7 @@ public sealed class PitSearchApiTests :
 	protected override Func<SearchDescriptor<Doc>, ISearchRequest> Fluent => s => s
 		.Query(q => q.MatchAll())
 		.PointInTime(p => p
-			.Id(CallIsolatedPit)
+			.Id(_pitId)
 			.KeepAlive("1h"))
 		.TrackTotalHits();
 
@@ -71,7 +67,7 @@ public sealed class PitSearchApiTests :
 		Query = new QueryContainer(new MatchAllQuery()),
 		PointInTime = new OpenSearch.Client.PointInTime
 		{
-			Id = CallIsolatedPit,
+			Id = _pitId,
 			KeepAlive = "1h"
 		},
 		TrackTotalHits = true
@@ -91,26 +87,30 @@ public sealed class PitSearchApiTests :
 			.And.BeEquivalentTo(Enumerable.Range(0, 10).Select(i => new Doc { Id = i }));
 	}
 
-	protected override void OnBeforeCall(IOpenSearchClient client)
+	protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 	{
 		var bulkResp = client.Bulk(b => b
-			.Index(CallIsolatedValue)
+			.Index(IndexName)
 			.IndexMany(Enumerable.Range(0, 10).Select(i => new Doc { Id = i }))
 			.Refresh(Refresh.WaitFor));
 		bulkResp.ShouldBeValid();
 
-		var pitResp = client.CreatePit(CallIsolatedValue, p => p.KeepAlive("1h"));
+		var pitResp = client.CreatePit(IndexName, p => p.KeepAlive("1h"));
 		pitResp.ShouldBeValid();
-		CallIsolatedPit = pitResp.PitId;
+		_pitId = pitResp.PitId;
 
 		bulkResp = client.Bulk(b => b
-			.Index(CallIsolatedValue)
+			.Index(IndexName)
 			.IndexMany(Enumerable.Range(10, 10).Select(i => new Doc { Id = i }))
 			.Refresh(Refresh.WaitFor));
 		bulkResp.ShouldBeValid();
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(CallIsolatedPit));
+	protected override void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values)
+	{
+		client.DeletePit(d => d.PitId(_pitId));
+		client.Indices.Delete(IndexName);
+	}
 
 	protected override LazyResponses ClientUsage() => Calls(
 		(c, f) => c.Search(f),

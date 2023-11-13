@@ -97,6 +97,8 @@ namespace Tests.Framework.EndpointTests
 
 		protected virtual void OnBeforeCall(IOpenSearchClient client) { }
 
+		protected virtual void OnAfterCall(IOpenSearchClient client, TResponse response) => OnAfterCall(client);
+
 		protected virtual void OnAfterCall(IOpenSearchClient client) { }
 
 		protected abstract LazyResponses ClientUsage();
@@ -138,8 +140,9 @@ namespace Tests.Framework.EndpointTests
                 UniqueValues.CurrentView = v;
 
                 IntegrateOnly(OnBeforeCall);
-                dict.Add(v, await m());
-                IntegrateOnly(OnAfterCall);
+				var resp = await m();
+                dict.Add(v, resp);
+                IntegrateOnly(c => OnAfterCall(c, resp));
 				if (TestOnlyOne) break;
 			}
 

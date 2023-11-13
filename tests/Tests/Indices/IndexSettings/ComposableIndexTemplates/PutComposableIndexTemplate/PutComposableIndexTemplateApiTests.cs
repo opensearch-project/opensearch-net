@@ -140,4 +140,13 @@ public class PutComposableIndexTemplateApiTests
 				throw new Exception($"Problem putting component template for integration test: {putComponentResponse.DebugInformation}");
 		}
 	}
+
+	protected override void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values)
+	{
+		foreach (var value in values.Values)
+		{
+			client.Indices.DeleteComposableTemplate(value);
+			client.Cluster.DeleteComponentTemplate($"component_{value}");
+		}
+	}
 }
