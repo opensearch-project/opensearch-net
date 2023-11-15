@@ -52,6 +52,13 @@ public class PutComposableIndexTemplateApiTests
 					}
 				}
 			}
+		},
+		data_stream = new
+		{
+			timestamp_field = new
+			{
+				name = "@timestamp"
+			}
 		}
 	};
 
@@ -72,13 +79,10 @@ public class PutComposableIndexTemplateApiTests
 						.MatchMappingType("*")
 						.Mapping(mm => mm
 							.Generic(g => g
-								.Index(false)
-							)
-						)
-					)
-				)
-			)
-		);
+								.Index(false)))))))
+		.DataStream(ds => ds
+			.TimestampField(tf => tf
+				.Name("@timestamp")));
 
 	protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
@@ -105,6 +109,13 @@ public class PutComposableIndexTemplateApiTests
 						Mapping = new GenericProperty { Index = false }
 					} }
 				}
+			}
+		},
+		DataStream = new DataStreamTemplate
+		{
+			TimestampField = new TimestampField
+			{
+				Name = "@timestamp"
 			}
 		}
 	};
