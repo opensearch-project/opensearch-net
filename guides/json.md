@@ -11,7 +11,7 @@
     - [PostData.MultiJson](#postdatamultijson)
 
 # Making Raw JSON REST Requests
-The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use `client.LowLevel.DoRequest` to do so. See [samples/Samples/RawJsonSample/Program.cs](../samples/Samples/RawJsonSample/Program.cs) for a complete working sample.
+The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use `client.LowLevel.DoRequest` to do so. See [samples/Samples/RawJson/RawJsonSample.cs](../samples/Samples/RawJson/RawJsonSample.cs) for a complete working sample.
 
 ## HTTP Methods
 
