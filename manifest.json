@@ -3362,6 +3362,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComposableIndexTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComposableIndexTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComposableIndexTemplateExistsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComposableIndexTemplateExistsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ComposableIndexTemplateExistsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ComposableIndexTemplateExistsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CompositeAggregation.yml",
       "output": {
         ".html": {
@@ -3952,6 +3982,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DataStreamTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DataStreamTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DataStreamTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DataStreamTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DateAttribute.yml",
       "output": {
         ".html": {
@@ -4476,6 +4526,36 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.DeleteComponentTemplateResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComposableIndexTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComposableIndexTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComposableIndexTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.DeleteComposableIndexTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.DeleteComposableIndexTemplateResponse.html"
         }
       },
       "version": ""
@@ -7442,6 +7522,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComposableIndexTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComposableIndexTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComposableIndexTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetComposableIndexTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.GetComposableIndexTemplateResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.GetDescriptor-1.yml",
       "output": {
         ".html": {
@@ -9472,6 +9582,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IComposableIndexTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IComposableIndexTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IComposableIndexTemplateExistsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IComposableIndexTemplateExistsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICompositeAggregation.yml",
       "output": {
         ".html": {
@@ -9692,6 +9822,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDataStreamTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IDataStreamTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDateHistogramAggregation.yml",
       "output": {
         ".html": {
@@ -9876,6 +10016,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IDeleteComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IDeleteComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IDeleteComposableIndexTemplateRequest.html"
         }
       },
       "version": ""
@@ -10906,6 +11056,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IGetComponentTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IGetComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IGetComposableIndexTemplateRequest.html"
         }
       },
       "version": ""
@@ -13182,6 +13342,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPutComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IPutComposableIndexTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IPutIndexTemplateRequest.yml",
       "output": {
         ".html": {
@@ -15036,6 +15206,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ITextProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITimestampField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ITimestampField.html"
         }
       },
       "version": ""
@@ -18872,6 +19052,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NamedComposableIndexTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.NamedComposableIndexTemplate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NamedFiltersContainer.yml",
       "output": {
         ".html": {
@@ -20996,6 +21186,36 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.PutComponentTemplateResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComposableIndexTemplateDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComposableIndexTemplateDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComposableIndexTemplateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComposableIndexTemplateRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.PutComposableIndexTemplateResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.PutComposableIndexTemplateResponse.html"
         }
       },
       "version": ""
@@ -25972,6 +26192,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TimestampField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.TimestampField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TimestampFieldDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.TimestampFieldDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Token.yml",
       "output": {
         ".html": {
@@ -29082,6 +29322,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.ComposableIndexTemplateExistsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.ComposableIndexTemplateExistsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.CreateIndexRequestParameters.yml",
       "output": {
         ".html": {
@@ -29102,6 +29352,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.DeleteComposableIndexTemplateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DeleteComposableIndexTemplateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.DeleteIndexRequestParameters.yml",
       "output": {
         ".html": {
@@ -29116,16 +29376,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DeleteIndexTemplateRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.DeleteIndexTemplateV2RequestParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DeleteIndexTemplateV2RequestParameters.html"
         }
       },
       "version": ""
@@ -29166,6 +29416,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetAliasRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters.html"
         }
       },
       "version": ""
@@ -29302,20 +29562,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateRequestParameters.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.PutComposableIndexTemplateRequestParameters.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateRequestParameters.html"
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.PutComposableIndexTemplateRequestParameters.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateV2RequestParameters.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateRequestParameters.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateV2RequestParameters.html"
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.PutIndexTemplateRequestParameters.html"
         }
       },
       "version": ""
