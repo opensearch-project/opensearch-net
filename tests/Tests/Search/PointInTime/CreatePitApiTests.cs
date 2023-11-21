@@ -6,7 +6,6 @@
 */
 
 using System;
-using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
@@ -16,22 +15,16 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
+using Xunit;
 
 namespace Tests.Search.PointInTime;
 
+[Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class CreatePitApiTests
-	: ApiIntegrationTestBase<ReadOnlyCluster, CreatePitResponse, ICreatePitRequest, CreatePitDescriptor, CreatePitRequest>
+	: ApiIntegrationTestBase<WritableCluster, CreatePitResponse, ICreatePitRequest, CreatePitDescriptor, CreatePitRequest>
 {
-	private static readonly Dictionary<string, string> Pits = new();
-
-	public CreatePitApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-	private string CallIsolatedPit
-	{
-		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
-		set => Pits[CallIsolatedValue] = value;
-	}
+	public CreatePitApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
 	protected override bool ExpectIsValid => true;
 
@@ -65,12 +58,11 @@ public class CreatePitApiTests
 
 	protected override void ExpectResponse(CreatePitResponse response)
 	{
-		CallIsolatedPit = response.PitId;
 		response.ShouldBeValid();
 		response.PitId.Should().NotBeNullOrEmpty();
 		response.CreationTime.Should().BeCloseTo(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(), 10000);
 		response.Shards.Should().NotBeNull();
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(CallIsolatedPit));
+	protected override void OnAfterCall(IOpenSearchClient client, CreatePitResponse response) => client.DeletePit(d => d.PitId(response.PitId));
 }

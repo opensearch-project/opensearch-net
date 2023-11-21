@@ -17,20 +17,22 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
+using Xunit;
 
 namespace Tests.Search.PointInTime;
 
+[Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public sealed class GetAllPitsApiTests
 	: ApiIntegrationTestBase<WritableCluster, GetAllPitsResponse, IGetAllPitsRequest, GetAllPitsDescriptor, GetAllPitsRequest>
 {
-	private static readonly Dictionary<string, List<(string id, long creationTime)>> Pits = new();
-
 	public GetAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	private List<(string id, long creationTime)> CallIsolatedPits => Pits.TryGetValue(CallIsolatedValue, out var pits)
-		? pits
-		: Pits[CallIsolatedValue] = new List<(string id, long creationTime)>();
+	private List<(string id, long creationTime)> Pits
+	{
+		get => ExtendedValue<List<(string, long)>>(nameof(Pits));
+		set => ExtendedValue(nameof(Pits), value);
+	}
 
 	protected override bool ExpectIsValid => true;
 
@@ -60,7 +62,7 @@ public sealed class GetAllPitsApiTests
 		response.Pits.Should()
 			.NotBeNull()
 			.And.HaveCount(5)
-			.And.BeEquivalentTo(CallIsolatedPits.Select(p => new PitDetail
+			.And.BeEquivalentTo(Pits.Select(p => new PitDetail
 			{
 				PitId = p.id,
 				CreationTime = p.creationTime,
@@ -70,16 +72,16 @@ public sealed class GetAllPitsApiTests
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{
+		Pits = new List<(string, long)>();
 		for (var i = 0; i < 5; i++)
 		{
 			var pit = client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
 			if (!pit.IsValid)
 				throw new Exception("Setup: Initial PIT failed.");
 
-			CallIsolatedPits.Add((pit.PitId, pit.CreationTime));
+			Pits.Add((pit.PitId, pit.CreationTime));
 		}
 	}
 
-	protected override void OnAfterCall(IOpenSearchClient client) =>
-		client.DeletePit(d => d.PitId(CallIsolatedPits.Select(p => p.id)));
+	protected override void OnAfterCall(IOpenSearchClient client) => client.DeletePit(d => d.PitId(Pits.Select(p => p.id)));
 }

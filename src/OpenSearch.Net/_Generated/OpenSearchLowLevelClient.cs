@@ -50,6 +50,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.ClusterApi;
+using OpenSearch.Net.Specification.IndicesApi;
 using static OpenSearch.Net.HttpMethod;
 
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
@@ -61,6 +63,15 @@ namespace OpenSearch.Net
     /// </summary>
     public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
     {
+        public LowLevelClusterNamespace Cluster { get; private set; }
+        public LowLevelIndicesNamespace Indices { get; private set; }
+
+        partial void SetupGeneratedNamespaces()
+        {
+            Cluster = new LowLevelClusterNamespace(this);
+            Indices = new LowLevelIndicesNamespace(this);
+        }
+
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
         /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

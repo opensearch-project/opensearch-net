@@ -42,12 +42,8 @@ namespace OpenSearch.Client.Specification.IndicesApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class IndicesNamespace : NamespacedClientProxy
+	public partial class IndicesNamespace : NamespacedClientProxy
 	{
-		internal IndicesNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
 		/// <summary>
 		/// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
 		/// <para></para>

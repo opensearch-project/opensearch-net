@@ -17,20 +17,22 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
+using Xunit;
 
 namespace Tests.Search.PointInTime;
 
+[Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeleteAllPitsApiTests
 	: ApiIntegrationTestBase<WritableCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
 {
-	private static readonly Dictionary<string, List<string>> Pits = new();
-
 	public DeleteAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	private List<string> CallIsolatedPits => Pits.TryGetValue(CallIsolatedValue, out var pits)
-		? pits
-		: Pits[CallIsolatedValue] = new List<string>();
+	private List<string> PitIds
+	{
+		get => ExtendedValue<List<string>>(nameof(PitIds));
+		set => ExtendedValue(nameof(PitIds), value);
+	}
 
 	protected override bool ExpectIsValid => true;
 
@@ -60,7 +62,7 @@ public class DeleteAllPitsApiTests
 		response.Pits.Should()
 			.NotBeNull()
 			.And.HaveCount(5)
-			.And.BeEquivalentTo(CallIsolatedPits.Select(p => new DeletedPit
+			.And.BeEquivalentTo(PitIds.Select(p => new DeletedPit
 			{
 				PitId = p,
 				Successful = true
@@ -69,13 +71,14 @@ public class DeleteAllPitsApiTests
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
 	{
+		PitIds = new List<string>();
 		for (var i = 0; i < 5; i++)
 		{
 			var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
 			if (!pit.IsValid)
 				throw new Exception("Setup: Initial PIT failed.");
 
-			CallIsolatedPits.Add(pit.PitId);
+			PitIds.Add(pit.PitId);
 		}
 	}
 }
