@@ -42,12 +42,8 @@ namespace OpenSearch.Client.Specification.ClusterApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class ClusterNamespace : NamespacedClientProxy
+	public partial class ClusterNamespace : NamespacedClientProxy
 	{
-		internal ClusterNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
 		/// <summary>
 		/// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
 		/// <para></para>

@@ -141,6 +141,7 @@ namespace Tests.CodeStandards
 				typeof(IndexExistsRequest),
 				typeof(TypeExistsRequest),
 				typeof(IndexTemplateExistsRequest),
+				typeof(ComponentTemplateExistsRequest),
 				typeof(SearchTemplateRequest),
 				typeof(SearchTemplateRequest<>),
 				typeof(ScrollRequest),

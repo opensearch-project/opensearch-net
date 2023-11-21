@@ -45,6 +45,18 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls ClusterDeleteComponentTemplate =
+            new(new[] { "_component_template/{name}" });
+
+        internal static readonly ApiUrls ClusterComponentTemplateExists =
+            new(new[] { "_component_template/{name}" });
+
+        internal static readonly ApiUrls ClusterGetComponentTemplate =
+            new(new[] { "_component_template", "_component_template/{name}" });
+
+        internal static readonly ApiUrls ClusterPutComponentTemplate =
+            new(new[] { "_component_template/{name}" });
+
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });
 
