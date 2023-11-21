@@ -70,12 +70,6 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Indices APIs</summary>
-		IndicesNamespace Indices
-		{
-			get;
-		}
-
 		/// <summary>
 		/// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
 		/// <para></para>

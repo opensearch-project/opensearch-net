@@ -51,6 +51,7 @@ using System.Text;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.NodesApi;
 using OpenSearch.Net.Specification.SnapshotApi;

@@ -41,7 +41,7 @@ let private deleteAllIndices (client: IOpenSearchLowLevelClient) =
 let private deleteAllTemplates (client: IOpenSearchLowLevelClient) =
     [
         client.Indices.DeleteTemplateForAll<DynamicResponse>("*")
-        client.Indices.DeleteTemplateV2ForAll<DynamicResponse>("*")
+        client.Indices.DeleteComposableTemplateForAll<DynamicResponse>("*")
         client.Cluster.DeleteComponentTemplate<DynamicResponse>("*")
     ]
 

@@ -404,35 +404,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		}
 	}
 
-	///<summary>Request options for DeleteTemplateV2 <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class DeleteIndexTemplateV2RequestParameters : RequestParameters<DeleteIndexTemplateV2RequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-		public override bool SupportsBody => false;
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public TimeSpan MasterTimeout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public TimeSpan ClusterManagerTimeout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
-		}
-
-		///<summary>Explicit operation timeout</summary>
-		public TimeSpan Timeout
-		{
-			get => Q<TimeSpan>("timeout");
-			set => Q("timeout", value);
-		}
-	}
-
 	///<summary>Request options for DeleteTemplate <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 	public class DeleteIndexTemplateRequestParameters : RequestParameters<DeleteIndexTemplateRequestParameters>
 	{
@@ -1236,42 +1207,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		{
 			get => Q<TimeSpan>("timeout");
 			set => Q("timeout", value);
-		}
-	}
-
-	///<summary>Request options for PutTemplateV2 <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-	public class PutIndexTemplateV2RequestParameters : RequestParameters<PutIndexTemplateV2RequestParameters>
-	{
-		public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
-		public override bool SupportsBody => true;
-		///<summary>User defined reason for creating/updating the index template</summary>
-		public string Cause
-		{
-			get => Q<string>("cause");
-			set => Q("cause", value);
-		}
-
-		///<summary>Whether the index template should only be added if new or can also replace an existing one</summary>
-		public bool? Create
-		{
-			get => Q<bool? >("create");
-			set => Q("create", value);
-		}
-
-		///<summary>Specify timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public TimeSpan MasterTimeout
-		{
-			get => Q<TimeSpan>("master_timeout");
-			set => Q("master_timeout", value);
-		}
-
-		///<summary>Specify timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public TimeSpan ClusterManagerTimeout
-		{
-			get => Q<TimeSpan>("cluster_manager_timeout");
-			set => Q("cluster_manager_timeout", value);
 		}
 	}
 

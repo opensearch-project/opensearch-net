@@ -35,7 +35,7 @@ namespace ApiGenerator.Domain.Specification
     public class UrlPath
     {
         private readonly IList<UrlPart> _additionalPartsForConstructor;
-        public string Path { get; }
+        public string Path { get; set; }
         public Deprecation Deprecation { get; }
 		public Version VersionAdded { get; }
         public IList<UrlPart> Parts { get; }

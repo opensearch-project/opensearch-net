@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 - Added support for point-in-time search and associated APIs ([#405](https://github.com/opensearch-project/opensearch-net/pull/405))
 - Added support for the component template APIs ([#411](https://github.com/opensearch-project/opensearch-net/pull/411))
+- Added support for the composable index template APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 
 ### Removed
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))

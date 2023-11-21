@@ -10,19 +10,16 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using HttpMethod = OpenSearch.Net.HttpMethod;
 
-public class Program
+namespace Samples.RawJson;
+
+public class RawJsonSample : Sample
 {
-    public static async Task Main(string[] args)
+	public RawJsonSample() : base("raw-json", "A sample demonstrating how to use the low-level client to perform raw JSON requests") { }
+
+    protected override async Task Run(IOpenSearchClient client)
     {
-        var node = new Uri("http://localhost:9200");
-        var config = new ConnectionSettings(node)
-            .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
-            .BasicAuthentication("admin", "admin")
-            .DisableDirectStreaming();
-
-        var client = new OpenSearchClient(config);
-
         var info = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.GET, "/", CancellationToken.None);
+		Debug.Assert(info.Success, info.DebugInformation);
         Console.WriteLine($"Welcome to {info.Body.version.distribution} {info.Body.version.number}!");
 
 		// Create an index

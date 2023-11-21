@@ -51,6 +51,9 @@ namespace ApiGenerator.Configuration
 			new("cluster.*_component_template"),
 
 			new("dangling_indices.*"),
+
+			new("indices.{delete,exists,get,put}_index_template"),
+
 			new("ingest.*"),
             new("nodes.*"),
 			new("snapshot.*"),
@@ -62,11 +65,8 @@ namespace ApiGenerator.Configuration
 		/// <summary>
         /// Map API default names for API's we are only supporting on the low level client first
         /// </summary>
-        private static readonly Dictionary<string, string> LowLevelApiNameMapping = new Dictionary<string, string>
-        {
-            { "indices.delete_index_template", "DeleteIndexTemplateV2" },
-            { "indices.get_index_template", "GetIndexTemplateV2" },
-            { "indices.put_index_template", "PutIndexTemplateV2" }
+        private static readonly Dictionary<string, string> LowLevelApiNameMapping = new()
+		{
         };
 
         /// <summary>

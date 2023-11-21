@@ -70,18 +70,7 @@ namespace OpenSearch.Client
 			private set;
 		}
 
-		///<summary>Indices APIs</summary>
-		public IndicesNamespace Indices
-		{
-			get;
-			private set;
-		}
-
-		partial void SetupNamespaces()
-		{
-			Cat = new CatNamespace(this);
-			Indices = new IndicesNamespace(this);
-		}
+		partial void SetupNamespaces() => Cat = new CatNamespace(this);
 
 		/// <summary>
 		/// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:

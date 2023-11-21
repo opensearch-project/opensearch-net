@@ -72,12 +72,6 @@ namespace OpenSearch.Net
 			get;
 		}
 
-		///<summary>Indices APIs</summary>
-		LowLevelIndicesNamespace Indices
-		{
-			get;
-		}
-
 		///<summary>POST on /_bulk <para>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/</para></summary>
 		///<param name = "body">The operation definition and data (action-data pairs), separated by newlines</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
