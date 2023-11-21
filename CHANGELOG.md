@@ -15,6 +15,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FSharp.Core` from 7.0.400 to 7.0.401
 - Bumps `xunit` from 2.4.2 to 2.6.2
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.7.2 to 17.8.0
+- Bumps `System.Text.Json` from 7.0.3 to 8.0.0
 
 ## [1.5.0]
 ### Fixed
