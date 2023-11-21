@@ -26,6 +26,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `CSharpier.Core` from 0.25.0 to 0.26.1
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.7.2 to 17.8.0
 - Bumps `System.Text.Json` from 7.0.3 to 8.0.0
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
 
 ## [1.5.0]
 ### Fixed
