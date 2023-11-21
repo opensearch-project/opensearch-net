@@ -34,15 +34,19 @@ public class IndexTemplateSample : Sample
 						.Number(f => f.Name(b => b.Pages).Type(NumberType.Integer))
 					))));
 		Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+		Console.WriteLine($"Put Template: {putTemplate.IsValid}");
 
 		// Confirm mapping
 
 		var createIndex = await client.Indices.CreateAsync("books-nonfiction");
 		Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+		Console.WriteLine($"Create Index: {createIndex.IsValid}");
+
 		var getIndex = await client.Indices.GetAsync("books-nonfiction");
 		Debug.Assert(
 			getIndex.Indices["books-nonfiction"].Mappings.Properties["pages"].Type == "integer",
 			"`pages` property should have `integer` type");
+		Console.WriteLine($"`pages` property type: {getIndex.Indices["books-nonfiction"].Mappings.Properties["pages"].Type}");
 
 		// Multiple index templates
 
@@ -54,6 +58,7 @@ public class IndexTemplateSample : Sample
 					.NumberOfShards(3)
 					.NumberOfReplicas(0))));
 		Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+		Console.WriteLine($"Put Template: {putTemplate.IsValid}");
 
 		putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d => d
 			.IndexPatterns("books-fiction-*")
@@ -63,15 +68,19 @@ public class IndexTemplateSample : Sample
 					.NumberOfShards(1)
 					.NumberOfReplicas(1))));
 		Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+		Console.WriteLine($"Put Template: {putTemplate.IsValid}");
 
 		// Validate settings
 
 		createIndex = await client.Indices.CreateAsync("books-fiction-romance");
 		Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+		Console.WriteLine($"Create Index: {createIndex.IsValid}");
+
 		getIndex = await client.Indices.GetAsync("books-fiction-romance");
 		Debug.Assert(
 			getIndex.Indices["books-fiction-romance"].Settings.NumberOfShards == 1,
 			"`books-fiction-romance` index should have 1 shard");
+		Console.WriteLine($"Number of shards: {getIndex.Indices["books-fiction-romance"].Settings.NumberOfShards}");
 
 		// Component templates
 
@@ -85,6 +94,7 @@ public class IndexTemplateSample : Sample
 						.Number(f => f.Name(b => b.Pages).Type(NumberType.Integer))
 					))));
 		Debug.Assert(putComponentTemplate.IsValid, putComponentTemplate.DebugInformation);
+		Console.WriteLine($"Put Component Template: {putComponentTemplate.IsValid}");
 
 		putTemplate = await client.Indices.PutComposableTemplateAsync("books", d => d
 			.IndexPatterns("books-*")
@@ -95,6 +105,7 @@ public class IndexTemplateSample : Sample
 					.NumberOfShards(3)
 					.NumberOfReplicas(0))));
 		Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+		Console.WriteLine($"Put Template: {putTemplate.IsValid}");
 
 		putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d => d
 			.IndexPatterns("books-fiction-*")
@@ -105,10 +116,13 @@ public class IndexTemplateSample : Sample
 					.NumberOfShards(1)
 					.NumberOfReplicas(1))));
 		Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+		Console.WriteLine($"Put Template: {putTemplate.IsValid}");
 
 		// Validate settings & mappings
 		createIndex = await client.Indices.CreateAsync("books-fiction-horror");
 		Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+		Console.WriteLine($"Create Index: {createIndex.IsValid}");
+
 		getIndex = await client.Indices.GetAsync("books-fiction-horror");
 		Debug.Assert(
 			getIndex.Indices["books-fiction-horror"].Settings.NumberOfShards == 1,
@@ -116,6 +130,8 @@ public class IndexTemplateSample : Sample
 		Debug.Assert(
 			getIndex.Indices["books-fiction-horror"].Mappings.Properties["pages"].Type == "integer",
 			"`pages` property should have `integer` type");
+		Console.WriteLine($"Number of shards: {getIndex.Indices["books-fiction-horror"].Settings.NumberOfShards}");
+		Console.WriteLine($"`pages` property type: {getIndex.Indices["books-fiction-horror"].Mappings.Properties["pages"].Type}");
 
 		// Get index template
 
@@ -123,20 +139,27 @@ public class IndexTemplateSample : Sample
 		Debug.Assert(
 			getTemplate.IndexTemplates.First().IndexTemplate.IndexPatterns.First() == "books-*",
 			"First index pattern should be `books-*`");
+		Console.WriteLine($"First index pattern: {getTemplate.IndexTemplates.First().IndexTemplate.IndexPatterns.First()}");
 
 		// Delete index template
 
 		var deleteTemplate = await client.Indices.DeleteComposableTemplateAsync("books");
 		Debug.Assert(deleteTemplate.IsValid, deleteTemplate.DebugInformation);
+		Console.WriteLine($"Delete Template: {deleteTemplate.IsValid}");
 
 		// Cleanup
 
 		var deleteIndex = await client.Indices.DeleteAsync("books-*");
 		Debug.Assert(deleteIndex.IsValid, deleteIndex.DebugInformation);
+		Console.WriteLine($"Delete Index: {deleteIndex.IsValid}");
+
 		deleteTemplate = await client.Indices.DeleteComposableTemplateAsync("books-fiction");
 		Debug.Assert(deleteTemplate.IsValid, deleteTemplate.DebugInformation);
+		Console.WriteLine($"Delete Template: {deleteTemplate.IsValid}");
+
 		var deleteComponentTemplate = await client.Cluster.DeleteComponentTemplateAsync("books_mappings");
 		Debug.Assert(deleteComponentTemplate.IsValid, deleteComponentTemplate.DebugInformation);
+		Console.WriteLine($"Delete Component Template: {deleteComponentTemplate.IsValid}");
 	}
 
 	private class Book

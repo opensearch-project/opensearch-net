@@ -62,7 +62,7 @@ jobs:
           path: client/build/output/*
 
   integration-opensearch-unreleased:
-    if: false # TODO: Temporarily disabled due to failures building & running OpenSearch from source, pending investigation & fixes
+    if: false # TODO: Temporarily disabled due to failures building & running OpenSearch from source, pending investigation & fixes (https://github.com/opensearch-project/opensearch-net/issues/268)
     name: Integration OpenSearch Unreleased
     runs-on: ubuntu-latest
     strategy:

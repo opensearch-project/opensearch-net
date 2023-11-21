@@ -49,21 +49,21 @@ var putTemplate = await client.Indices.PutComposableTemplateAsync("books", d => 
 				.Date(f => f.Name(b => b.PublishedOn))
 				.Number(f => f.Name(b => b.Pages).Type(NumberType.Integer))
 			))));
-Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+Console.WriteLine($"Put Template: {putTemplate.IsValid}");
+// -> Put Template: True
 ```
 
 Now, when you create an index that matches the `books-*` pattern, OpenSearch will automatically apply the template's settings and mappings to the index. Let's create an index named `books-nonfiction` and verify that its settings and mappings match those of the template:
 
 ```csharp
 var createIndex = await client.Indices.CreateAsync("books-nonfiction");
-Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+Console.WriteLine($"Create Index: {createIndex.IsValid}");
+// -> Create Index: True
 
 var getIndex = await client.Indices.GetAsync("books-nonfiction");
-Debug.Assert(
-	getIndex.Indices["books-nonfiction"].Mappings.Properties["pages"].Type == "integer",
-	"`pages` property should have `integer` type");
+Console.WriteLine($"`pages` property type: {getIndex.Indices["books-nonfiction"].Mappings.Properties["pages"].Type}");
+// -> `pages` property type: integer
 ```
-
 
 ### Multiple Index Templates
 
@@ -75,7 +75,8 @@ putTemplate = await client.Indices.PutComposableTemplateAsync("books", d => d
 		.Settings(s => s
 			.NumberOfShards(3)
 			.NumberOfReplicas(0))));
-Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+Console.WriteLine($"Put Template: {putTemplate.IsValid}");
+// -> Put Template: True
 
 putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d => d
 	.IndexPatterns("books-fiction-*")
@@ -84,19 +85,20 @@ putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d
 		.Settings(s => s
 			.NumberOfShards(1)
 			.NumberOfReplicas(1))));
-Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+Console.WriteLine($"Put Template: {putTemplate.IsValid}");
+// -> Put Template: True
 ```
 
 When we create an index named `books-fiction-romance`, OpenSearch will apply the `books-fiction-*` template's settings to the index:
 
 ```csharp  
 createIndex = await client.Indices.CreateAsync("books-fiction-romance");
-Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+Console.WriteLine($"Create Index: {createIndex.IsValid}");
+// -> Create Index: True
 
 getIndex = await client.Indices.GetAsync("books-fiction-romance");
-Debug.Assert(
-	getIndex.Indices["books-fiction-romance"].Settings.NumberOfShards == 1,
-	"`books-fiction-romance` index should have 1 shard");
+Console.WriteLine($"Number of shards: {getIndex.Indices["books-fiction-romance"].Settings.NumberOfShards}");
+// -> Number of shards: 1
 ```
 
 
@@ -113,7 +115,8 @@ var putComponentTemplate = await client.Cluster.PutComponentTemplateAsync("books
 				.Date(f => f.Name(b => b.PublishedOn))
 				.Number(f => f.Name(b => b.Pages).Type(NumberType.Integer))
 			))));
-Debug.Assert(putComponentTemplate.IsValid, putComponentTemplate.DebugInformation);
+Console.WriteLine($"Put Component Template: {putComponentTemplate.IsValid}");
+// -> Put Component Template: True
 
 putTemplate = await client.Indices.PutComposableTemplateAsync("books", d => d
 	.IndexPatterns("books-*")
@@ -123,7 +126,8 @@ putTemplate = await client.Indices.PutComposableTemplateAsync("books", d => d
 		.Settings(s => s
 			.NumberOfShards(3)
 			.NumberOfReplicas(0))));
-Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+Console.WriteLine($"Put Template: {putTemplate.IsValid}");
+// -> Put Template: True
 
 putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d => d
 	.IndexPatterns("books-fiction-*")
@@ -133,22 +137,22 @@ putTemplate = await client.Indices.PutComposableTemplateAsync("books-fiction", d
 		.Settings(s => s
 			.NumberOfShards(1)
 			.NumberOfReplicas(1))));
-Debug.Assert(putTemplate.IsValid, putTemplate.DebugInformation);
+Console.WriteLine($"Put Template: {putTemplate.IsValid}");
+// -> Put Template: True
 ```
 
 When we create an index named `books-fiction-horror`, OpenSearch will apply the `books-fiction-*` template's settings, and `books_mappings` template mappings to the index:
 
 ```csharp
 createIndex = await client.Indices.CreateAsync("books-fiction-horror");
-Debug.Assert(createIndex.IsValid, createIndex.DebugInformation);
+Console.WriteLine($"Create Index: {createIndex.IsValid}");
+// -> Create Index: True
 
 getIndex = await client.Indices.GetAsync("books-fiction-horror");
-Debug.Assert(
-	getIndex.Indices["books-fiction-horror"].Settings.NumberOfShards == 1,
-	"`books-fiction-horror` index should have 1 shard");
-Debug.Assert(
-	getIndex.Indices["books-fiction-horror"].Mappings.Properties["pages"].Type == "integer",
-	"`pages` property should have `integer` type");
+Console.WriteLine($"Number of shards: {getIndex.Indices["books-fiction-horror"].Settings.NumberOfShards}");
+Console.WriteLine($"`pages` property type: {getIndex.Indices["books-fiction-horror"].Mappings.Properties["pages"].Type}");
+// -> Number of shards: 1
+// -> `pages` property type: integer
 ```
 
 ### Get an Index Template
@@ -156,9 +160,8 @@ You can get an index template with the `GetComposableTemplate` API action. The f
 
 ```csharp
 var getTemplate = await client.Indices.GetComposableTemplateAsync("books");
-Debug.Assert(
-	getTemplate.IndexTemplates.First().IndexTemplate.IndexPatterns.First() == "books-*",
-	"First index pattern should be `books-*`");
+Console.WriteLine($"First index pattern: {getTemplate.IndexTemplates.First().IndexTemplate.IndexPatterns.First()}");
+// -> First index pattern: books-*
 ```
 
 ### Delete an Index Template
@@ -166,7 +169,8 @@ You can delete an index template with the `DeleteComposableTemplate` API action.
 
 ```csharp
 var deleteTemplate = await client.Indices.DeleteComposableTemplateAsync("books");
-Debug.Assert(deleteTemplate.IsValid, deleteTemplate.DebugInformation);
+Console.WriteLine($"Delete Template: {deleteTemplate.IsValid}");
+// -> Delete Template: True
 ```
 
 
@@ -175,11 +179,11 @@ Let's delete all resources created in this guide:
 
 ```csharp
 var deleteIndex = await client.Indices.DeleteAsync("books-*");
-Debug.Assert(deleteIndex.IsValid, deleteIndex.DebugInformation);
+Console.WriteLine($"Delete Index: {deleteIndex.IsValid}");
 
 deleteTemplate = await client.Indices.DeleteComposableTemplateAsync("books-fiction");
-Debug.Assert(deleteTemplate.IsValid, deleteTemplate.DebugInformation);
+Console.WriteLine($"Delete Template: {deleteTemplate.IsValid}");
 
 var deleteComponentTemplate = await client.Cluster.DeleteComponentTemplateAsync("books_mappings");
-Debug.Assert(deleteComponentTemplate.IsValid, deleteComponentTemplate.DebugInformation);
+Console.WriteLine($"Delete Component Template: {deleteComponentTemplate.IsValid}");
 ```
