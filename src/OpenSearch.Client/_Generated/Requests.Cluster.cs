@@ -503,6 +503,46 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IPostVotingConfigExclusionsRequest
+        : IRequest<PostVotingConfigExclusionsRequestParameters> { }
+
+    /// <summary>Request for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PostVotingConfigExclusionsRequest
+        : PlainRequestBase<PostVotingConfigExclusionsRequestParameters>,
+            IPostVotingConfigExclusionsRequest
+    {
+        protected IPostVotingConfigExclusionsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>
+        /// Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// ?node_names.
+        /// </summary>
+        public string NodeIds
+        {
+            get => Q<string>("node_ids");
+            set => Q("node_ids", value);
+        }
+
+        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
+        public string NodeNames
+        {
+            get => Q<string>("node_names");
+            set => Q("node_names", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IPutComponentTemplateRequest
         : IRequest<PutComponentTemplateRequestParameters>
     {
@@ -556,6 +596,293 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("master_timeout");
             set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClusterPutSettingsRequest
+        : IRequest<ClusterPutSettingsRequestParameters> { }
+
+    /// <summary>Request for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    public partial class ClusterPutSettingsRequest
+        : PlainRequestBase<ClusterPutSettingsRequestParameters>,
+            IClusterPutSettingsRequest
+    {
+        protected IClusterPutSettingsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters> { }
+
+    /// <summary>Request for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    public partial class RemoteInfoRequest
+        : PlainRequestBase<RemoteInfoRequestParameters>,
+            IRemoteInfoRequest
+    {
+        protected IRemoteInfoRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters> { }
+
+    /// <summary>Request for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterRerouteRequest
+        : PlainRequestBase<ClusterRerouteRequestParameters>,
+            IClusterRerouteRequest
+    {
+        protected IClusterRerouteRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Simulate the operation only and return the resulting state.</summary>
+        public bool? DryRun
+        {
+            get => Q<bool?>("dry_run");
+            set => Q("dry_run", value);
+        }
+
+        /// <summary>Return an explanation of why the commands can or cannot be executed.</summary>
+        public bool? Explain
+        {
+            get => Q<bool?>("explain");
+            set => Q("explain", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Limit the information returned to the specified metrics. Defaults to all but metadata.</summary>
+        public string[] Metric
+        {
+            get => Q<string[]>("metric");
+            set => Q("metric", value);
+        }
+
+        /// <summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        public bool? RetryFailed
+        {
+            get => Q<bool?>("retry_failed");
+            set => Q("retry_failed", value);
+        }
+
+        /// <summary>Operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClusterStateRequest : IRequest<ClusterStateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Metrics Metric { get; }
+    }
+
+    /// <summary>Request for State <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterStateRequest
+        : PlainRequestBase<ClusterStateRequestParameters>,
+            IClusterStateRequest
+    {
+        protected IClusterStateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterState;
+
+        /// <summary>/_cluster/state</summary>
+        public ClusterStateRequest()
+            : base() { }
+
+        /// <summary>/_cluster/state/{metric}</summary>
+        /// <param name="metric">Optional, accepts null</param>
+        public ClusterStateRequest(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        /// <summary>/_cluster/state/{metric}/{index}</summary>
+        /// <param name="metric">Optional, accepts null</param>
+        /// <param name="index">Optional, accepts null</param>
+        public ClusterStateRequest(Metrics metric, Indices index)
+            : base(r => r.Optional("metric", metric).Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        // Request parameters
+        /// <summary>
+        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// been specified).
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Wait for the metadata version to be equal or greater than the specified metadata version.</summary>
+        public long? WaitForMetadataVersion
+        {
+            get => Q<long?>("wait_for_metadata_version");
+            set => Q("wait_for_metadata_version", value);
+        }
+
+        /// <summary>The maximum time to wait for wait_for_metadata_version before timing out.</summary>
+        public Time WaitForTimeout
+        {
+            get => Q<Time>("wait_for_timeout");
+            set => Q("wait_for_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClusterStatsRequest : IRequest<ClusterStatsRequestParameters>
+    {
+        [IgnoreDataMember]
+        NodeIds NodeId { get; }
+    }
+
+    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    public partial class ClusterStatsRequest
+        : PlainRequestBase<ClusterStatsRequestParameters>,
+            IClusterStatsRequest
+    {
+        protected IClusterStatsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
+
+        /// <summary>/_cluster/stats</summary>
+        public ClusterStatsRequest()
+            : base() { }
+
+        /// <summary>/_cluster/stats/nodes/{node_id}</summary>
+        /// <param name="nodeId">Optional, accepts null</param>
+        public ClusterStatsRequest(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        // Request parameters
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
         }
 
         /// <summary>Operation timeout.</summary>

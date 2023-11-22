@@ -385,6 +385,31 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
+    /// <summary>Descriptor for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PostVotingConfigExclusionsDescriptor
+        : RequestDescriptorBase<
+            PostVotingConfigExclusionsDescriptor,
+            PostVotingConfigExclusionsRequestParameters,
+            IPostVotingConfigExclusionsRequest
+        >,
+            IPostVotingConfigExclusionsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_names.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeIds(string nodeids) =>
+            Qs("node_ids", nodeids);
+
+        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeNames(string nodenames) =>
+            Qs("node_names", nodenames);
+
+        /// <summary>Operation timeout.</summary>
+        public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
     /// <summary>Descriptor for PutComponentTemplate</summary>
     public partial class PutComponentTemplateDescriptor
         : RequestDescriptorBase<
@@ -427,5 +452,217 @@ namespace OpenSearch.Client
 
         /// <summary>Operation timeout.</summary>
         public PutComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
+    /// <summary>Descriptor for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    public partial class ClusterPutSettingsDescriptor
+        : RequestDescriptorBase<
+            ClusterPutSettingsDescriptor,
+            ClusterPutSettingsRequestParameters,
+            IClusterPutSettingsRequest
+        >,
+            IClusterPutSettingsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Return settings in flat format.</summary>
+        public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Operation timeout.</summary>
+        public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
+    /// <summary>Descriptor for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    public partial class RemoteInfoDescriptor
+        : RequestDescriptorBase<
+            RemoteInfoDescriptor,
+            RemoteInfoRequestParameters,
+            IRemoteInfoRequest
+        >,
+            IRemoteInfoRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterRerouteDescriptor
+        : RequestDescriptorBase<
+            ClusterRerouteDescriptor,
+            ClusterRerouteRequestParameters,
+            IClusterRerouteRequest
+        >,
+            IClusterRerouteRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterRerouteDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Simulate the operation only and return the resulting state.</summary>
+        public ClusterRerouteDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
+
+        /// <summary>Return an explanation of why the commands can or cannot be executed.</summary>
+        public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Limit the information returned to the specified metrics. Defaults to all but metadata.</summary>
+        public ClusterRerouteDescriptor Metric(params string[] metric) => Qs("metric", metric);
+
+        /// <summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) =>
+            Qs("retry_failed", retryfailed);
+
+        /// <summary>Operation timeout.</summary>
+        public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
+    /// <summary>Descriptor for State <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ClusterStateDescriptor
+        : RequestDescriptorBase<
+            ClusterStateDescriptor,
+            ClusterStateRequestParameters,
+            IClusterStateRequest
+        >,
+            IClusterStateRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterState;
+
+        /// <summary>/_cluster/state</summary>
+        public ClusterStateDescriptor()
+            : base() { }
+
+        /// <summary>/_cluster/state/{metric}</summary>
+        /// <param name="metric">Optional, accepts null</param>
+        public ClusterStateDescriptor(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        /// <summary>/_cluster/state/{metric}/{index}</summary>
+        /// <param name="metric">Optional, accepts null</param>
+        /// <param name="index">Optional, accepts null</param>
+        public ClusterStateDescriptor(Metrics metric, Indices index)
+            : base(r => r.Optional("metric", metric).Optional("index", index)) { }
+
+        // values part of the url path
+        Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
+        Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        /// <summary>Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
+        public ClusterStateDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public ClusterStateDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public ClusterStateDescriptor AllIndices() => Index(Indices.All);
+
+        /// <summary>Limit the information returned to the specified metrics.</summary>
+        public ClusterStateDescriptor Metric(Metrics metric) =>
+            Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
+
+        // Request parameters
+        /// <summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified).</summary>
+        public ClusterStateDescriptor AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public ClusterStateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ClusterStateDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>Return settings in flat format.</summary>
+        public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public ClusterStateDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Wait for the metadata version to be equal or greater than the specified metadata version.</summary>
+        public ClusterStateDescriptor WaitForMetadataVersion(long? waitformetadataversion) =>
+            Qs("wait_for_metadata_version", waitformetadataversion);
+
+        /// <summary>The maximum time to wait for wait_for_metadata_version before timing out.</summary>
+        public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) =>
+            Qs("wait_for_timeout", waitfortimeout);
+    }
+
+    /// <summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    public partial class ClusterStatsDescriptor
+        : RequestDescriptorBase<
+            ClusterStatsDescriptor,
+            ClusterStatsRequestParameters,
+            IClusterStatsRequest
+        >,
+            IClusterStatsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
+
+        /// <summary>/_cluster/stats</summary>
+        public ClusterStatsDescriptor()
+            : base() { }
+
+        /// <summary>/_cluster/stats/nodes/{node_id}</summary>
+        /// <param name="nodeId">Optional, accepts null</param>
+        public ClusterStatsDescriptor(NodeIds nodeId)
+            : base(r => r.Optional("node_id", nodeId)) { }
+
+        // values part of the url path
+        NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
+
+        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        public ClusterStatsDescriptor NodeId(NodeIds nodeId) =>
+            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+
+        // Request parameters
+        /// <summary>Return settings in flat format.</summary>
+        public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
+            Qs("flat_settings", flatsettings);
+
+        /// <summary>Operation timeout.</summary>
+        public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

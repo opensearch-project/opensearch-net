@@ -42,14 +42,7 @@ namespace ApiGenerator.Configuration
 			new("{create,delete}_pit"),
 			new("{delete,get}_all_pits"),
 
-			new("cluster.allocation_explain"),
-			new("cluster.delete_voting_config_exclusions"),
-			new("cluster.get_settings"),
-			new("cluster.health"),
-			new("cluster.pending_tasks"),
-
-			new("cluster.*_component_template"),
-
+			new("cluster.*"),
 			new("dangling_indices.*"),
 
 			new("indices.{delete,exists,get,put}_index_template"),

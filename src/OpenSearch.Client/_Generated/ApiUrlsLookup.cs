@@ -68,8 +68,30 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterPendingTasks =
             new(new[] { "_cluster/pending_tasks" });
 
+        internal static readonly ApiUrls ClusterPostVotingConfigExclusions =
+            new(new[] { "_cluster/voting_config_exclusions" });
+
         internal static readonly ApiUrls ClusterPutComponentTemplate =
             new(new[] { "_component_template/{name}" });
+
+        internal static readonly ApiUrls ClusterPutSettings = new(new[] { "_cluster/settings" });
+
+        internal static readonly ApiUrls ClusterRemoteInfo = new(new[] { "_remote/info" });
+
+        internal static readonly ApiUrls ClusterReroute = new(new[] { "_cluster/reroute" });
+
+        internal static readonly ApiUrls ClusterState =
+            new(
+                new[]
+                {
+                    "_cluster/state",
+                    "_cluster/state/{metric}",
+                    "_cluster/state/{metric}/{index}"
+                }
+            );
+
+        internal static readonly ApiUrls ClusterStats =
+            new(new[] { "_cluster/stats", "_cluster/stats/nodes/{node_id}" });
 
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(new[] { "{index}/_search/point_in_time" });
