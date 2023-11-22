@@ -29132,6 +29132,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.DeleteDecommissionAwarenessRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.DeleteDecommissionAwarenessRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.DeleteVotingConfigExclusionsRequestParameters.yml",
       "output": {
         ".html": {
@@ -29142,10 +29152,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.DeleteWeightedRoutingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.DeleteWeightedRoutingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.GetComponentTemplateRequestParameters.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.GetComponentTemplateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.GetDecommissionAwarenessRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.GetDecommissionAwarenessRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.GetWeightedRoutingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.GetWeightedRoutingRequestParameters.html"
         }
       },
       "version": ""
@@ -29176,6 +29216,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.PutComponentTemplateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.PutDecommissionAwarenessRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.PutDecommissionAwarenessRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ClusterApi.PutWeightedRoutingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ClusterApi.PutWeightedRoutingRequestParameters.html"
         }
       },
       "version": ""
