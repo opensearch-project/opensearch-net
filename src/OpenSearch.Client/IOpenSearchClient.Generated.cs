@@ -55,20 +55,8 @@ namespace OpenSearch.Client
 			get;
 		}
 
-		///<summary>Cluster APIs</summary>
-		ClusterNamespace Cluster
-		{
-			get;
-		}
-
 		///<summary>Dangling Indices APIs</summary>
 		DanglingIndicesNamespace DanglingIndices
-		{
-			get;
-		}
-
-		///<summary>Indices APIs</summary>
-		IndicesNamespace Indices
 		{
 			get;
 		}

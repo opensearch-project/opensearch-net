@@ -26,12 +26,12 @@
 *  under the License.
 */
 
- using System;
+using System;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
- using OpenSearch.OpenSearch.Ephemeral;
- using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;

@@ -61,12 +61,6 @@ namespace OpenSearch.Net
 			private set;
 		}
 
-		public LowLevelClusterNamespace Cluster
-		{
-			get;
-			private set;
-		}
-
 		public LowLevelDanglingIndicesNamespace DanglingIndices
 		{
 			get;
@@ -74,12 +68,6 @@ namespace OpenSearch.Net
 		}
 
 		public LowLevelFeaturesNamespace Features
-		{
-			get;
-			private set;
-		}
-
-		public LowLevelIndicesNamespace Indices
 		{
 			get;
 			private set;
@@ -112,10 +100,8 @@ namespace OpenSearch.Net
 		partial void SetupNamespaces()
 		{
 			Cat = new LowLevelCatNamespace(this);
-			Cluster = new LowLevelClusterNamespace(this);
 			DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
 			Features = new LowLevelFeaturesNamespace(this);
-			Indices = new LowLevelIndicesNamespace(this);
 			Ingest = new LowLevelIngestNamespace(this);
 			Nodes = new LowLevelNodesNamespace(this);
 			Snapshot = new LowLevelSnapshotNamespace(this);

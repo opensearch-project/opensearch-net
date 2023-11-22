@@ -48,6 +48,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.ClusterApi;
+using OpenSearch.Client.Specification.IndicesApi;
 
 namespace OpenSearch.Client
 {
@@ -56,6 +58,12 @@ namespace OpenSearch.Client
     /// </summary>
     public partial interface IOpenSearchClient
     {
+        /// <summary>Cluster APIs</summary>
+        ClusterNamespace Cluster { get; }
+
+        /// <summary>Indices APIs</summary>
+        IndicesNamespace Indices { get; }
+        
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
         /// <para></para>

@@ -51,10 +51,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 	///</summary>
 	public partial class LowLevelIndicesNamespace : NamespacedClientProxy
 	{
-		internal LowLevelIndicesNamespace(OpenSearchLowLevelClient client): base(client)
-		{
-		}
-
 		///<summary>PUT on /{index}/_block/{block} <para></para></summary>
 		///<param name = "index">A comma separated list of indices to add a block to</param>
 		///<param name = "block">The block to add (one of read, write, read_only or metadata)</param>
@@ -175,17 +171,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		[MapsApi("indices.delete_alias", "index, name")]
 		public Task<TResponse> DeleteAliasAsync<TResponse>(string index, string name, DeleteAliasRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"{index:index}/_alias/{name:name}"), ctx, null, RequestParams(requestParameters));
-		///<summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-		///<param name = "name">The name of the template</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse DeleteTemplateV2ForAll<TResponse>(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
-		///<summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-		///<param name = "name">The name of the template</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.delete_index_template", "name")]
-		public Task<TResponse> DeleteTemplateV2ForAllAsync<TResponse>(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
 		///<summary>DELETE on /_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The name of the template</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -518,19 +503,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		[MapsApi("indices.put_alias", "index, name, body")]
 		public Task<TResponse> PutAliasAsync<TResponse>(string index, string name, PostData body, PutAliasRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}/_alias/{name:name}"), ctx, body, RequestParams(requestParameters));
-		///<summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-		///<param name = "name">The name of the template</param>
-		///<param name = "body">The template definition</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse PutTemplateV2ForAll<TResponse>(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_index_template/{name:name}"), body, RequestParams(requestParameters));
-		///<summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
-		///<param name = "name">The name of the template</param>
-		///<param name = "body">The template definition</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.put_index_template", "name, body")]
-		public Task<TResponse> PutTemplateV2ForAllAsync<TResponse>(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_index_template/{name:name}"), ctx, body, RequestParams(requestParameters));
 		///<summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
 		///<param name = "index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
 		///<param name = "body">The mapping definition</param>

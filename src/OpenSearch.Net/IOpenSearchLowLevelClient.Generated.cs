@@ -58,12 +58,6 @@ namespace OpenSearch.Net
 			get;
 		}
 
-		///<summary>Cluster APIs</summary>
-		LowLevelClusterNamespace Cluster
-		{
-			get;
-		}
-
 		///<summary>Dangling Indices APIs</summary>
 		LowLevelDanglingIndicesNamespace DanglingIndices
 		{
@@ -72,12 +66,6 @@ namespace OpenSearch.Net
 
 		///<summary>Features APIs</summary>
 		LowLevelFeaturesNamespace Features
-		{
-			get;
-		}
-
-		///<summary>Indices APIs</summary>
-		LowLevelIndicesNamespace Indices
 		{
 			get;
 		}

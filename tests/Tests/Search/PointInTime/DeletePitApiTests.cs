@@ -6,7 +6,6 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -17,21 +16,21 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
+using Xunit;
 
 namespace Tests.Search.PointInTime;
 
+[Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeletePitApiTests
-	: ApiIntegrationTestBase<ReadOnlyCluster, DeletePitResponse, IDeletePitRequest, DeletePitDescriptor, DeletePitRequest>
+	: ApiIntegrationTestBase<WritableCluster, DeletePitResponse, IDeletePitRequest, DeletePitDescriptor, DeletePitRequest>
 {
-	private static readonly Dictionary<string, string> Pits = new();
+	public DeletePitApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	public DeletePitApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-	private string CallIsolatedPit
+	private string PitId
 	{
-		get => Pits.TryGetValue(CallIsolatedValue, out var pit) ? pit : "default-for-unit-tests";
-		set => Pits[CallIsolatedValue] = value;
+		get => TryGetExtendedValue<string>(nameof(PitId), out var value) ? value : "default-for-unit-tests";
+		set => ExtendedValue(nameof(PitId), value);
 	}
 
 	protected override bool ExpectIsValid => true;
@@ -40,16 +39,16 @@ public class DeletePitApiTests
 	{
 		pit_id = new[]
 		{
-			CallIsolatedPit
+			PitId
 		}
 	};
 
 	protected override int ExpectStatusCode => 200;
 
-	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitId(CallIsolatedPit);
+	protected override Func<DeletePitDescriptor, IDeletePitRequest> Fluent => d => d.PitId(PitId);
 	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-	protected override DeletePitRequest Initializer => new(CallIsolatedPit);
+	protected override DeletePitRequest Initializer => new(PitId);
 	protected override bool SupportsDeserialization => false;
 	protected override string UrlPath => "/_search/point_in_time";
 
@@ -69,7 +68,7 @@ public class DeletePitApiTests
 
 		var pit = response.Pits.First();
 		pit.Successful.Should().BeTrue();
-		pit.PitId.Should().Be(CallIsolatedPit);
+		pit.PitId.Should().Be(PitId);
 	}
 
 	protected override void OnBeforeCall(IOpenSearchClient client)
@@ -78,6 +77,6 @@ public class DeletePitApiTests
 		if (!pit.IsValid)
 			throw new Exception("Setup: Initial PIT failed.");
 
-		CallIsolatedPit = pit.PitId;
+		PitId = pit.PitId;
 	}
 }

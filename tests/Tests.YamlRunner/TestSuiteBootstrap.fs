@@ -40,7 +40,7 @@ let DefaultSetup : Operation list = [Actions("Setup", fun (client, suite) ->
             responses
             |> Seq.filter (fun r -> not r.Success && r.HttpStatusCode <> Nullable.op_Implicit 404)
             |> Seq.tryHead
-    
+
     let deleteAll () =
         let dp = DeleteIndexRequestParameters()
         dp.SetQueryString("expand_wildcards", "open,closed,hidden")
@@ -59,10 +59,10 @@ let DefaultSetup : Operation list = [Actions("Setup", fun (client, suite) ->
                 let result = client.Indices.DeleteTemplateForAll<DynamicResponse>(template)
                 match result.Success with
                 | true -> result
-                | false -> client.Indices.DeleteTemplateV2ForAll<DynamicResponse>(template)
+                | false -> client.Indices.DeleteComposableTemplateForAll<DynamicResponse>(template)
             )
             |> Seq.toList
-                
+
     let snapshots =
         client.Cat.Snapshots<StringResponse>(CatSnapshotsRequestParameters(Headers=["id,repository"].ToArray()))
             .Body.Split("\n")
@@ -73,7 +73,7 @@ let DefaultSetup : Operation list = [Actions("Setup", fun (client, suite) ->
             //TODO template does not accept comma separated list but is documented as such
             |> Seq.map(fun (id, repos) -> client.Snapshot.Delete<DynamicResponse>(repos, id))
             |> Seq.toList
-                
+
     let deleteRepositories = client.Snapshot.DeleteRepository<DynamicResponse>("*")
     firstFailure <| [deleteAll()] @ templates() @ snapshots @ [deleteRepositories]
 )]
