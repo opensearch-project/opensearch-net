@@ -29,7 +29,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using OpenSearch.Client.Specification.CatApi;
 using OpenSearch.Net;
 
 namespace OpenSearch.Client
@@ -42,23 +41,44 @@ namespace OpenSearch.Client
 		protected NamespacedClientProxy(OpenSearchClient client) => _client = client;
 
 		internal TResponse DoRequest<TRequest, TResponse>(
-			TRequest p,
+			TRequest request,
 			IRequestParameters parameters,
 			Action<IRequestConfiguration> forceConfiguration = null
 		)
 			where TRequest : class, IRequest
 			where TResponse : class, IOpenSearchResponse, new() =>
-			_client.DoRequest<TRequest, TResponse>(p, parameters, forceConfiguration);
+			_client.DoRequest<TRequest, TResponse>(request, parameters, forceConfiguration);
 
 		internal Task<TResponse> DoRequestAsync<TRequest, TResponse>(
-			TRequest p,
+			TRequest request,
 			IRequestParameters parameters,
 			CancellationToken ct,
 			Action<IRequestConfiguration> forceConfiguration = null
 		)
 			where TRequest : class, IRequest
 			where TResponse : class, IOpenSearchResponse, new() =>
-			_client.DoRequestAsync<TRequest, TResponse>(p, parameters, ct, forceConfiguration);
+			_client.DoRequestAsync<TRequest, TResponse>(request, parameters, ct, forceConfiguration);
+
+		internal TResponse DoRequest<TRequest, TResponse>(
+			TRequest request,
+			IRequestParameters parameters,
+			Func<TRequest, PostData> bodySelector,
+			Action<IRequestConfiguration> forceConfiguration = null
+		)
+			where TRequest : class, IRequest
+			where TResponse : class, IOpenSearchResponse, new() =>
+			_client.DoRequest<TRequest, TResponse>(request, parameters, bodySelector, forceConfiguration);
+
+		internal Task<TResponse> DoRequestAsync<TRequest, TResponse>(
+			TRequest request,
+			IRequestParameters parameters,
+			Func<TRequest, PostData> bodySelector,
+			CancellationToken ct,
+			Action<IRequestConfiguration> forceConfiguration = null
+		)
+			where TRequest : class, IRequest
+			where TResponse : class, IOpenSearchResponse, new() =>
+			_client.DoRequestAsync<TRequest, TResponse>(request, parameters, bodySelector, ct, forceConfiguration);
 
 		protected CatResponse<TCatRecord> DoCat<TRequest, TParams, TCatRecord>(TRequest request)
 			where TCatRecord : ICatRecord
@@ -141,35 +161,68 @@ namespace OpenSearch.Client
 
 		private ITransport<IConnectionSettingsValues> Transport { get; }
 
-		internal TResponse DoRequest<TRequest, TResponse>(TRequest p, IRequestParameters parameters, Action<IRequestConfiguration> forceConfiguration = null)
+		internal TResponse DoRequest<TRequest, TResponse>(
+			TRequest request,
+			IRequestParameters parameters,
+			Action<IRequestConfiguration> forceConfiguration = null
+		)
+			where TRequest : class, IRequest
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequest<TRequest, TResponse>(request, parameters, PostData.Serializable, forceConfiguration);
+
+		internal Task<TResponse> DoRequestAsync<TRequest, TResponse>(
+			TRequest request,
+			IRequestParameters parameters,
+			CancellationToken ct,
+			Action<IRequestConfiguration> forceConfiguration = null
+		)
+			where TRequest : class, IRequest
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequestAsync<TRequest, TResponse>(request, parameters, PostData.Serializable, ct, forceConfiguration);
+
+		internal TResponse DoRequest<TRequest, TResponse>(
+			TRequest request,
+			IRequestParameters parameters,
+			Func<TRequest, PostData> bodySelector,
+			Action<IRequestConfiguration> forceConfiguration = null
+		)
 			where TRequest : class, IRequest
 			where TResponse : class, IOpenSearchResponse, new()
 		{
-			if (forceConfiguration != null) ForceConfiguration(p, forceConfiguration);
-			if (p.ContentType != null) ForceContentType(p, p.ContentType);
-
-			var url = p.GetUrl(ConnectionSettings);
-			var b = (p.HttpMethod == HttpMethod.GET || p.HttpMethod == HttpMethod.HEAD || !parameters.SupportsBody) ? null : new SerializableData<TRequest>(p);
-
-			return LowLevel.DoRequest<TResponse>(p.HttpMethod, url, b, parameters);
+			var (method, url, body) = PrepareRequest(request, parameters, bodySelector, forceConfiguration);
+			return LowLevel.DoRequest<TResponse>(method, url, body, parameters);
 		}
 
 		internal Task<TResponse> DoRequestAsync<TRequest, TResponse>(
-			TRequest p,
+			TRequest request,
 			IRequestParameters parameters,
+			Func<TRequest, PostData> bodySelector,
 			CancellationToken ct,
 			Action<IRequestConfiguration> forceConfiguration = null
 		)
 			where TRequest : class, IRequest
 			where TResponse : class, IOpenSearchResponse, new()
 		{
-			if (forceConfiguration != null) ForceConfiguration(p, forceConfiguration);
-			if (p.ContentType != null) ForceContentType(p, p.ContentType);
+			var (method, url, body) = PrepareRequest(request, parameters, bodySelector, forceConfiguration);
+			return LowLevel.DoRequestAsync<TResponse>(method, url, ct, body, parameters);
+		}
 
-			var url = p.GetUrl(ConnectionSettings);
-			var b = (p.HttpMethod == HttpMethod.GET || p.HttpMethod == HttpMethod.HEAD || !parameters.SupportsBody) ? null : new SerializableData<TRequest>(p);
+		private (HttpMethod method, string url, PostData body) PrepareRequest<TRequest>(
+			TRequest request,
+			IRequestParameters parameters,
+			Func<TRequest, PostData> bodySelector,
+			Action<IRequestConfiguration> forceConfiguration
+		)
+			where TRequest: class, IRequest
+		{
+			if (forceConfiguration != null) ForceConfiguration(request, forceConfiguration);
+			if (request.ContentType != null) ForceContentType(request, request.ContentType);
 
-			return LowLevel.DoRequestAsync<TResponse>(p.HttpMethod, url, ct, b, parameters);
+			var method = request.HttpMethod;
+			var url = request.GetUrl(ConnectionSettings);
+			var body = method == HttpMethod.GET || method == HttpMethod.HEAD || !parameters.SupportsBody ? null : bodySelector(request);
+
+			return (method, url, body);
 		}
 
 		private static void ForceConfiguration(IRequest request, Action<IRequestConfiguration> forceConfiguration)
