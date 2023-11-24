@@ -52,6 +52,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.NodesApi;
@@ -73,6 +74,7 @@ namespace OpenSearch.Net
         public LowLevelIndicesNamespace Indices { get; private set; }
         public LowLevelIngestNamespace Ingest { get; private set; }
         public LowLevelNodesNamespace Nodes { get; private set; }
+        public LowLevelHttpNamespace Http { get; private set; }
         public LowLevelSnapshotNamespace Snapshot { get; private set; }
         public LowLevelTasksNamespace Tasks { get; private set; }
 
@@ -83,6 +85,7 @@ namespace OpenSearch.Net
             Indices = new LowLevelIndicesNamespace(this);
             Ingest = new LowLevelIngestNamespace(this);
             Nodes = new LowLevelNodesNamespace(this);
+            Http = new LowLevelHttpNamespace(this);
             Snapshot = new LowLevelSnapshotNamespace(this);
             Tasks = new LowLevelTasksNamespace(this);
         }

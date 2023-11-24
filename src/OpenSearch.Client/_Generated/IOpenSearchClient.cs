@@ -50,6 +50,7 @@ using System.Threading.Tasks;
 using OpenSearch.Client;
 using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.Client.Specification.DanglingIndicesApi;
+using OpenSearch.Client.Specification.HttpApi;
 using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Client.Specification.IngestApi;
 using OpenSearch.Client.Specification.NodesApi;
@@ -77,6 +78,15 @@ namespace OpenSearch.Client
 
         /// <summary>Nodes APIs</summary>
         NodesNamespace Nodes { get; }
+
+        /// <summary>Http APIs</summary>
+        HttpNamespace Http { get; }
+
+        /// <summary>Snapshot APIs</summary>
+        SnapshotNamespace Snapshot { get; }
+
+        /// <summary>Tasks APIs</summary>
+        TasksNamespace Tasks { get; }
 
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
@@ -237,11 +247,5 @@ namespace OpenSearch.Client
             IGetAllPitsRequest request,
             CancellationToken ct = default
         );
-
-        /// <summary>Snapshot APIs</summary>
-        SnapshotNamespace Snapshot { get; }
-
-        /// <summary>Tasks APIs</summary>
-        TasksNamespace Tasks { get; }
     }
 }

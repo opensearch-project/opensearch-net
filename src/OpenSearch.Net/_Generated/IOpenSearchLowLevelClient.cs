@@ -52,6 +52,7 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
 using OpenSearch.Net.Specification.NodesApi;
@@ -79,6 +80,15 @@ namespace OpenSearch.Net
 
         /// <summary>Nodes APIs</summary>
         LowLevelNodesNamespace Nodes { get; }
+
+        /// <summary>Http APIs</summary>
+        LowLevelHttpNamespace Http { get; }
+
+        /// <summary>Snapshot APIs</summary>
+        LowLevelSnapshotNamespace Snapshot { get; }
+
+        /// <summary>Tasks APIs</summary>
+        LowLevelTasksNamespace Tasks { get; }
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
         /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
@@ -151,11 +161,5 @@ namespace OpenSearch.Net
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new();
-
-        /// <summary>Snapshot APIs</summary>
-        LowLevelSnapshotNamespace Snapshot { get; }
-
-        /// <summary>Tasks APIs</summary>
-        LowLevelTasksNamespace Tasks { get; }
     }
 }
