@@ -26,12 +26,16 @@
 *  under the License.
 */
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
+using ApiGenerator.Domain.Code;
+using ApiGenerator.Domain.Specification;
 using ShellProgressBar;
 
 namespace ApiGenerator.Generator.Razor
@@ -42,14 +46,23 @@ namespace ApiGenerator.Generator.Razor
 
         public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
         {
-            var view = ViewLocations.HighLevel("Requests", "PlainRequestBase.cshtml");
-            var target = GeneratorLocations.HighLevel("Requests.cs");
-            await DoRazor(spec, view, target, token);
+            await DoRazor(spec, View("PlainRequestBase"), Target(), token);
 
-            var dependantView = ViewLocations.HighLevel("Requests", "Requests.cshtml");
-            string Target(string id) => GeneratorLocations.HighLevel($"Requests.{id}.cs");
-            var namespaced = spec.EndpointsPerNamespaceHighLevel.ToList();
-            await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, id => Target(id), token);
-        }
+			await DoRazor(HttpMethod.All, View("Requests.Http"), Target("Http"), token);
+
+			await DoRazorDependantFiles(
+				progressBar,
+				spec.EndpointsPerNamespaceHighLevel.ToList(),
+				View("Requests"),
+				kv => kv.Key,
+				Target,
+				token);
+
+			return;
+
+			string View(string name) => ViewLocations.HighLevel("Requests", $"{name}.cshtml");
+
+			string Target(string id = null) => GeneratorLocations.HighLevel($"Requests{(id != null ? $".{id}" : string.Empty)}.cs");
+		}
     }
 }

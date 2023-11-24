@@ -3,7 +3,7 @@
 @using ApiGenerator
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeGeneratorNotice(); }
+@{ await IncludeLegacyGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
@@ -12,7 +12,10 @@ using OpenSearch.Client;
 @{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
 
 @{
-	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
+	var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.ToHashSet();
+	namespaces.Remove(CsharpNames.RootNamespace);
+	namespaces.Add("Http");
+
 <text>
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client
@@ -35,27 +38,20 @@ namespace OpenSearch.Client
 </text>
     foreach (var ns in namespaces)
     {
-<text>      @ns = new @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
+<text>      @(ns) = new @(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
 </text>
     }
 <text>
         }
 </text>
 
-
-    foreach (var kv in Model.EndpointsPerNamespaceHighLevel)
-    {
-        if (kv.Key != CsharpNames.RootNamespace)
-        {
-            continue;
-        }
-        var endpoints = kv.Value;
-        var models = endpoints.Select(e=>e.HighLevelModel).ToList();
-        foreach (var m in models)
-        {
-            await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", m);
-        }
-    }
+	if(Model.EndpointsPerNamespaceHighLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
+	{
+		foreach(var m in endpoints.Select(e => e.HighLevelModel))
+		{
+			await IncludeAsync("HighLevel/Client/Implementation/MethodImplementation.cshtml", m);
+		}
+	}
     <text>
     }
     }

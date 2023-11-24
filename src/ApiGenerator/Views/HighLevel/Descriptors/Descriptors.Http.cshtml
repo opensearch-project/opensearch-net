@@ -1,0 +1,22 @@
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<IEnumerable<HttpMethod>>
+@{
+	const string ns = "Http";
+}
+@{ await IncludeGeneratorNotice(); }
+
+using OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix);
+
+namespace OpenSearch.Client;
+
+@foreach (var m in Model)
+{
+<text>
+
+	public class @m.Descriptor : @Raw($"Arbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequestDescriptor<{m.Descriptor}, {m.RequestParameters}, {m.IRequest}>"), @m.IRequest
+	{
+		public @(m.Descriptor)(string path) : base(path) { }
+	}
+
+</text>
+}

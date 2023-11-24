@@ -3,7 +3,7 @@
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
-@{ await IncludeGeneratorNotice(); }
+@{ await IncludeLegacyGeneratorNotice(); }
 @{
 	var (ns, endpoints) = Model;
 	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
