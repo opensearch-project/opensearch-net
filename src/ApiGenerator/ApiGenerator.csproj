@@ -9,7 +9,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSharpier.Core" Version="0.26.1" />
+    <PackageReference Include="CSharpier.Core" Version="0.26.3" />
     <PackageReference Include="Glob" Version="1.1.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.Core.Yaml" Version="13.20.0" />
