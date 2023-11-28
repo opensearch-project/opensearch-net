@@ -29442,16 +29442,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.ExistsIndexTemplateRequestParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.ExistsIndexTemplateRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.yml",
       "output": {
         ".html": {
@@ -29526,16 +29516,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetIndexTemplateRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.GetIndexTemplateV2RequestParameters.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetIndexTemplateV2RequestParameters.html"
         }
       },
       "version": ""
