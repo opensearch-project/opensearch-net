@@ -12,7 +12,7 @@
   - [Response Bodies](#response-bodies)
 
 # Making Raw JSON REST Requests
-The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use the methods defined within `client.Http` or `client.LowLevel.Http` to do so. See [samples/Samples/RawJson/RawJsonHighLevelSample.cs](../samples/Samples/RawJson/RawJsonHighLevelSample.cs) and [samples/Samples/RawJson/RawJsonLowLevelSample.cs](../samples/Samples/RawJson/RawJsonLowLevelSample.cs) for complete working samples. 
+The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use the methods defined within `client.Http` to do so. See [samples/Samples/RawJson/RawJsonHighLevelSample.cs](../samples/Samples/RawJson/RawJsonHighLevelSample.cs) and [samples/Samples/RawJson/RawJsonLowLevelSample.cs](../samples/Samples/RawJson/RawJsonLowLevelSample.cs) for complete working samples. 
 
 Older versions of the client that do not support the `client.Http` namespace can use the `client.LowLevel.DoRequest` method instead.
 
@@ -23,8 +23,6 @@ The following example returns the server version information via `GET /`.
 
 ```csharp
 var info = await client.Http.GetAsync<DynamicResponse>("/");
-// OR
-var info = await client.LowLevel.Http.GetAsync<DynamicResponse>("/");
 
 Console.WriteLine($"Welcome to {info.Body.version.distribution} {info.Body.version.number}!");
 ```
@@ -34,8 +32,6 @@ The following example checks if an index exists via `HEAD /movies`.
 
 ```csharp
 var indexExists = await client.Http.HeadAsync<VoidResponse>("/movies");
-// OR
-var indexExists = await client.LowLevel.Http.HeadAsync<VoidResponse>("/movies");
 
 Console.WriteLine($"Index Exists: {indexExists.HttpStatusCode == 200}");
 ```
@@ -47,8 +43,6 @@ The following example creates an index.
 var indexBody = new { settings = new { index = new { number_of_shards = 4 } } };
 
 var createIndex = await client.Http.PutAsync<DynamicResponse>("/movies", d => d.SerializableBody(indexBody));
-// OR
-var createIndex = await client.LowLevel.Http.PutAsync<DynamicResponse>("/movies", PostData.Serializable(indexBody));
 
 Console.WriteLine($"Create Index: {createIndex.Success && (bool)createIndex.Body.acknowledged}");
 ```
@@ -66,8 +60,6 @@ var query = new
 };
 
 var search = await client.Http.PostAsync<DynamicResponse>("/movies/_search", d => d.SerializableBody(query));
-// OR
-var search = await client.LowLevel.Http.PostAsync<DynamicResponse>("/movies/_search", PostData.Serializable(query));
 
 foreach (var hit in search.Body.hits.hits) Console.WriteLine($"Search Hit: {hit["_source"]["title"]}");
 ```
@@ -77,8 +69,6 @@ The following example deletes an index.
 
 ```csharp
 var deleteIndex = await client.Http.DeleteAsync<DynamicResponse>("/movies");
-// OR
-var deleteIndex = await client.LowLevel.Http.DeleteAsync<DynamicResponse>("/movies");
 
 Console.WriteLine($"Delete Index: {deleteIndex.Success && (bool)deleteIndex.Body.acknowledged}");
 ```
@@ -101,8 +91,6 @@ string indexBody = @"
 }}";
 
 await client.Http.PutAsync<DynamicResponse>("/movies", d => d.Body(indexBody));
-// OR
-await client.LowLevel.Http.PutAsync<DynamicResponse>("/movies", PostData.String(indexBody));
 ```
 
 ### Bytes
@@ -119,8 +107,6 @@ byte[] indexBody = Encoding.UTF8.GetBytes(@"
 }}");
 
 await client.Http.PutAsync<DynamicResponse>("/movies", d => d.Body(indexBody));
-// OR
-await client.LowLevel.Http.PutAsync<DynamicResponse>("/movies", PostData.Bytes(indexBody));
 ```
 
 ### Serializable
@@ -139,8 +125,6 @@ var indexBody = new
 };
 
 await client.Http.PutAsync<DynamicResponse>("/movies", d => d.SerializableBody(indexBody));
-// OR
-await client.LowLevel.Http.PutAsync<DynamicResponse>("/movies", PostData.Serializable(indexBody));
 ```
 
 ### Multi JSON
@@ -157,8 +141,6 @@ var bulkBody = new object[]
 };
 
 await client.Http.PostAsync<DynamicResponse>("/_bulk", d => d.MultiJsonBody(indexBody));
-// OR
-await client.LowLevel.Http.PostAsync<DynamicResponse>("/_bulk", PostData.MultiJson(indexBody));
 ```
 
 ## Response Bodies
