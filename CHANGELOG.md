@@ -7,6 +7,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added support for the component template APIs ([#411](https://github.com/opensearch-project/opensearch-net/pull/411))
 - Added support for the composable index template APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 
+### Deprecated
+- Deprecated the low-level `IndexTemplateV2` APIs in favour of the new `ComposableIndexTemplate` APIs ([#454](https://github.com/opensearch-project/opensearch-net/pull/454))
+
 ### Dependencies
 - Bumps `FSharp.Data` from 6.2.0 to 6.3.0
 - Bumps `BenchMarkDotNet` from 0.13.7 to 0.13.10

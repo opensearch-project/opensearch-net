@@ -71,6 +71,21 @@ namespace OpenSearch.Net.Specification.ClusterApi
 		[MapsApi("cluster.delete_voting_config_exclusions", "")]
 		public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(DeleteVotingConfigExclusionsRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, "_cluster/voting_config_exclusions", ctx, null, RequestParams(requestParameters));
+		///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="ComponentTemplateExists{TResponse}"/>
+		[Obsolete($"Replaced by {nameof(ComponentTemplateExists)}")]
+		public TResponse ExistsComponentTemplate<TResponse>(string name, ExistsComponentTemplateRequestParameters requestParameters = null)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(HEAD, Url($"_component_template/{name:name}"), null, RequestParams(requestParameters));
+		///<summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="ComponentTemplateExistsAsync{TResponse}"/>
+		[MapsApi("cluster.exists_component_template", "name")]
+		[Obsolete($"Replaced by {nameof(ComponentTemplateExistsAsync)}")]
+		public Task<TResponse> ExistsComponentTemplateAsync<TResponse>(string name, ExistsComponentTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(HEAD, Url($"_component_template/{name:name}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse GetSettings<TResponse>(ClusterGetSettingsRequestParameters requestParameters = null)
