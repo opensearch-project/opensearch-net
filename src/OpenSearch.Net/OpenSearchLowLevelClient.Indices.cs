@@ -171,6 +171,21 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		[MapsApi("indices.delete_alias", "index, name")]
 		public Task<TResponse> DeleteAliasAsync<TResponse>(string index, string name, DeleteAliasRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"{index:index}/_alias/{name:name}"), ctx, null, RequestParams(requestParameters));
+		///<summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="DeleteComposableTemplateForAll{TResponse}"/>
+		[Obsolete($"Replaced by {nameof(DeleteComposableTemplateForAll)}")]
+		public TResponse DeleteTemplateV2ForAll<TResponse>(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
+		///<summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="DeleteComposableTemplateForAllAsync{TResponse}"/>
+		[MapsApi("indices.delete_index_template", "name")]
+		[Obsolete($"Replaced by {nameof(DeleteComposableTemplateForAllAsync)}")]
+		public Task<TResponse> DeleteTemplateV2ForAllAsync<TResponse>(string name, DeleteIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
 		///<summary>DELETE on /_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The name of the template</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -220,12 +235,16 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		///<summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The name of the template</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="ComposableTemplateExistsForAll{TResponse}"/>
+		[Obsolete($"Replaced by {nameof(ComposableTemplateExistsForAll)}")]
 		public TResponse ExistsTemplateForAll<TResponse>(string name, ExistsIndexTemplateRequestParameters requestParameters = null)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(HEAD, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
 		///<summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The name of the template</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="ComposableTemplateExistsForAllAsync{TResponse}"/>
 		[MapsApi("indices.exists_index_template", "name")]
+		[Obsolete($"Replaced by {nameof(ComposableTemplateExistsForAllAsync)}")]
 		public Task<TResponse> ExistsTemplateForAllAsync<TResponse>(string name, ExistsIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(HEAD, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
 		///<summary>HEAD on /_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
@@ -375,22 +394,30 @@ namespace OpenSearch.Net.Specification.IndicesApi
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"{index:index}/_mapping/field/{fields:fields}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_index_template <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="GetComposableTemplateForAll{TResponse}(OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters)"/>
+		[Obsolete($"Replaced by {nameof(GetComposableTemplateForAll)}")]
 		public TResponse GetTemplateV2ForAll<TResponse>(GetIndexTemplateV2RequestParameters requestParameters = null)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_index_template", null, RequestParams(requestParameters));
 		///<summary>GET on /_index_template <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="GetComposableTemplateForAllAsync{TResponse}(OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters,System.Threading.CancellationToken)" />
 		[MapsApi("indices.get_index_template", "")]
+		[Obsolete($"Replaced by {nameof(GetComposableTemplateForAllAsync)}")]
 		public Task<TResponse> GetTemplateV2ForAllAsync<TResponse>(GetIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_index_template", ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The comma separated names of the index templates</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="GetComposableTemplateForAll{TResponse}(string,OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters)"/>
+		[Obsolete($"Replaced by {nameof(GetComposableTemplateForAll)}")]
 		public TResponse GetTemplateV2ForAll<TResponse>(string name, GetIndexTemplateV2RequestParameters requestParameters = null)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
 		///<summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
 		///<param name = "name">The comma separated names of the index templates</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="GetComposableTemplateForAllAsync{TResponse}(string,OpenSearch.Net.Specification.IndicesApi.GetComposableIndexTemplateRequestParameters,System.Threading.CancellationToken)"/>
 		[MapsApi("indices.get_index_template", "name")]
+		[Obsolete($"Replaced by {nameof(GetComposableTemplateForAllAsync)}")]
 		public Task<TResponse> GetTemplateV2ForAllAsync<TResponse>(string name, GetIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_mapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
@@ -503,6 +530,23 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		[MapsApi("indices.put_alias", "index, name, body")]
 		public Task<TResponse> PutAliasAsync<TResponse>(string index, string name, PostData body, PutAliasRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}/_alias/{name:name}"), ctx, body, RequestParams(requestParameters));
+		///<summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "body">The template definition</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="PutComposableTemplateForAll{TResponse}"/>
+		[Obsolete($"Replaced by {nameof(PutComposableTemplateForAll)}")]
+		public TResponse PutTemplateV2ForAll<TResponse>(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_index_template/{name:name}"), body, RequestParams(requestParameters));
+		///<summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</para></summary>
+		///<param name = "name">The name of the template</param>
+		///<param name = "body">The template definition</param>
+		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+		///<seealso cref="PutComposableTemplateForAllAsync{TResponse}"/>
+		[Obsolete($"Replaced by {nameof(PutComposableTemplateForAllAsync)}")]
+		[MapsApi("indices.put_index_template", "name, body")]
+		public Task<TResponse> PutTemplateV2ForAllAsync<TResponse>(string name, PostData body, PutIndexTemplateV2RequestParameters requestParameters = null, CancellationToken ctx = default)
+			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_index_template/{name:name}"), ctx, body, RequestParams(requestParameters));
 		///<summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</para></summary>
 		///<param name = "index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
 		///<param name = "body">The mapping definition</param>

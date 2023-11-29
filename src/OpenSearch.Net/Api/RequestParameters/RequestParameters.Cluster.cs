@@ -56,6 +56,30 @@ namespace OpenSearch.Net.Specification.ClusterApi
 		}
 	}
 
+	///<summary>Request options for DeleteComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+	public partial class DeleteComponentTemplateRequestParameters : RequestParameters<DeleteComponentTemplateRequestParameters>
+	{
+#pragma warning disable 618
+		///<summary>Specify timeout for connection to master node</summary>
+		///<seealso cref="MasterTimeout"/>
+		[Obsolete($"Replaced by {nameof(MasterTimeout)}")]
+		public TimeSpan MasterTimeSpanout
+		{
+			get => Q<TimeSpan>("master_timeout");
+			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<seealso cref="ClusterManagerTimeout"/>
+		[Obsolete($"Replaced by {nameof(ClusterManagerTimeout)}")]
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
+#pragma warning restore 618
+	}
+
 	///<summary>Request options for DeleteVotingConfigExclusions <para></para></summary>
 	public class DeleteVotingConfigExclusionsRequestParameters : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
 	{
@@ -67,6 +91,61 @@ namespace OpenSearch.Net.Specification.ClusterApi
 			get => Q<bool? >("wait_for_removal");
 			set => Q("wait_for_removal", value);
 		}
+	}
+
+	///<summary>Request options for ExistsComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+	///<seealso cref="ComponentTemplateExistsRequestParameters"/>
+	[Obsolete($"Replaced by {nameof(ComponentTemplateExistsRequestParameters)}")]
+	public class ExistsComponentTemplateRequestParameters : RequestParameters<ExistsComponentTemplateRequestParameters>
+	{
+		public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
+		public override bool SupportsBody => false;
+		///<summary>Return local information, do not retrieve the state from cluster_manager node (default: false)</summary>
+		public bool? Local
+		{
+			get => Q<bool? >("local");
+			set => Q("local", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to master node</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeSpanout"/> instead</remarks>
+		public TimeSpan MasterTimeSpanout
+		{
+			get => Q<TimeSpan>("master_timeout");
+			set => Q("master_timeout", value);
+		}
+
+		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeSpanout"/></remarks>
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
+	}
+
+	///<summary>Request options for GetComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+	public partial class GetComponentTemplateRequestParameters : RequestParameters<GetComponentTemplateRequestParameters>
+	{
+#pragma warning disable 618
+		///<summary>Specify timeout for connection to master node</summary>
+		///<seealso cref="MasterTimeout"/>
+		[Obsolete($"Replaced by {nameof(MasterTimeout)}")]
+		public TimeSpan MasterTimeSpanout
+		{
+			get => Q<TimeSpan>("master_timeout");
+			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<seealso cref="ClusterManagerTimeout"/>
+		[Obsolete($"Replaced by {nameof(ClusterManagerTimeout)}")]
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
+#pragma warning restore 618
 	}
 
 	///<summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
@@ -264,6 +343,30 @@ namespace OpenSearch.Net.Specification.ClusterApi
 			get => Q<TimeSpan>("timeout");
 			set => Q("timeout", value);
 		}
+	}
+
+	///<summary>Request options for PutComponentTemplate <para>https://opensearch.org/docs/latest/opensearch/index-templates/</para></summary>
+	public partial class PutComponentTemplateRequestParameters : RequestParameters<PutComponentTemplateRequestParameters>
+	{
+#pragma warning disable 618
+		///<summary>Specify timeout for connection to master node</summary>
+		///<seealso cref="MasterTimeout"/>
+		[Obsolete($"Replaced by {nameof(MasterTimeout)}")]
+		public TimeSpan MasterTimeSpanout
+		{
+			get => Q<TimeSpan>("master_timeout");
+			set => Q("master_timeout", value);
+		}
+
+		///<summary>Specify timeout for connection to cluster_manager node</summary>
+		///<seealso cref="ClusterManagerTimeout"/>
+		[Obsolete($"Replaced by {nameof(ClusterManagerTimeout)}")]
+		public TimeSpan ClusterManagerTimeSpanout
+		{
+			get => Q<TimeSpan>("cluster_manager_timeout");
+			set => Q("cluster_manager_timeout", value);
+		}
+#pragma warning restore 618
 	}
 
 	///<summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/opensearch/rest-api/cluster-settings/</para></summary>
