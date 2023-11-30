@@ -218,8 +218,8 @@ namespace OpenSearch.Client
 			if (forceConfiguration != null) ForceConfiguration(request, forceConfiguration);
 			if (request.ContentType != null) ForceContentType(request, request.ContentType);
 
-			var method = request.HttpMethod;
 			var url = request.GetUrl(ConnectionSettings);
+			var method = request.HttpMethod;
 			var body = method == HttpMethod.GET || method == HttpMethod.HEAD || !parameters.SupportsBody ? null : bodySelector(request);
 
 			return (method, url, body);
