@@ -1,5 +1,5 @@
 # Document Lifecycle
-This guide covers OpenSearch Ruby Client API actions for Document Lifecycle. You'll learn how to create, read, update, and delete documents in your OpenSearch cluster. Whether you're new to OpenSearch or an experienced user, this guide provides the information you need to manage your document lifecycle effectively.
+This guide covers OpenSearch .NET Client API actions for Document Lifecycle. You'll learn how to create, read, update, and delete documents in your OpenSearch cluster. Whether you're new to OpenSearch or an experienced user, this guide provides the information you need to manage your document lifecycle effectively.
 
 ## Setup
 Assuming you have OpenSearch running locally on port 9200, you can create a client instance with the following code:

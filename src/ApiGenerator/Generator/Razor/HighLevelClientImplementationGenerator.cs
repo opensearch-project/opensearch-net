@@ -26,33 +26,42 @@
 *  under the License.
 */
 
-using System.IO;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
+using ApiGenerator.Domain.Specification;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class HighLevelClientImplementationGenerator : RazorGeneratorBase
 {
-    public class HighLevelClientImplementationGenerator : RazorGeneratorBase
-    {
-        public override string Title => "OpenSearch.Client client implementation";
+	public override string Title => "OpenSearch.Client client implementation";
 
-        public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-        {
-			var view = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.cshtml");
-            var target = GeneratorLocations.HighLevel($"OpenSearchClient.cs");
-            await DoRazor(spec, view, target, token);
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+	{
+		await DoRazor(spec, View(), Target(), token);
 
-            string Target(string id) => GeneratorLocations.HighLevel($"OpenSearchClient.{id}.cs");
+		await DoRazor(HttpMethod.All, View("Http"), Target("Http"), token);
 
-            var namespaced = spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-            var dependantView = ViewLocations.HighLevel("Client", "Implementation", "OpenSearchClient.Namespace.cshtml");
-            await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, id => Target(id), token);
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceHighLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+			View("Namespace"),
+			kv => kv.Key,
+			Target,
+			token
+		);
 
-        }
-    }
+		return;
+
+		string View(string ns = null) => ViewLocations.HighLevel("Client", "Implementation", $"OpenSearchClient{(ns != null ? $".{ns}" : string.Empty)}.cshtml");
+
+		string Target(string ns = null) => GeneratorLocations.HighLevel($"OpenSearchClient{(ns != null ? $".{ns}" : string.Empty)}.cs");
+	}
 }

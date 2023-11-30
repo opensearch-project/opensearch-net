@@ -7,7 +7,7 @@
 	var (ns, endpoints) = Model;
 	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
 }
-@{ await IncludeGeneratorNotice(); }
+@{ await IncludeLegacyGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;

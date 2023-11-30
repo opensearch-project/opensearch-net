@@ -26,30 +26,39 @@
 *  under the License.
 */
 
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
+using ApiGenerator.Domain.Code;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class DescriptorsGenerator : RazorGeneratorBase
 {
-    public class DescriptorsGenerator : RazorGeneratorBase
-    {
-        public override string Title => "OpenSearch.Client descriptors";
+	public override string Title => "OpenSearch.Client descriptors";
 
-        public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-        {
-			var view = ViewLocations.HighLevel("Descriptors", "RequestDescriptorBase.cshtml");
-            var target = GeneratorLocations.HighLevel("Descriptors.cs");
-            await DoRazor(spec, view, target, token);
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+	{
+		await DoRazor(spec, View("RequestDescriptorBase"), Target(), token);
 
-            var dependantView = ViewLocations.HighLevel("Descriptors", "Descriptors.cshtml");
-            string Target(string id) => GeneratorLocations.HighLevel($"Descriptors.{id}.cs");
-            var namespaced = spec.EndpointsPerNamespaceHighLevel.ToList();
-            await DoRazorDependantFiles(progressBar, namespaced, dependantView, kv => kv.Key, id => Target(id), token);
-        }
-    }
+		await DoRazor(HttpMethod.All, View("Descriptors.Http"), Target("Http"), token);
+
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceHighLevel.ToList(),
+			View("Descriptors"),
+			kv => kv.Key,
+			Target,
+			token
+		);
+
+		return;
+
+		string View(string name) => ViewLocations.HighLevel("Descriptors", $"{name}.cshtml");
+
+		string Target(string id = null) => GeneratorLocations.HighLevel($"Descriptors{(id != null ? $".{id}" : string.Empty)}.cs");
+	}
 }

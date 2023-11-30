@@ -309,4 +309,8 @@ Note the main difference here is that we are instantiating an `OpenSearchLowLeve
 
 ## Advanced Features
 
-- [Making Raw JSON Requests](guides/json.md)
+- [Bulk Requests](guides/bulk.md)
+- [Document Lifecycle](guides/document-lifecycle.md)
+- [Index Template](guides/index-template.md)
+- [Making Raw JSON REST Requests](guides/json.md)
+- [Search](guides/search.md)

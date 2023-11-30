@@ -3,7 +3,7 @@
 @using ApiGenerator
 @using ApiGenerator.Domain.Code
 @inherits CodeTemplatePage<RestApiSpec>
-@{ await IncludeGeneratorNotice(); }
+@{ await IncludeLegacyGeneratorNotice(); }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,9 @@ using OpenSearch.Net;
 using static OpenSearch.Net.HttpMethod;
 
 @{
-	var namespaces = Model.EndpointsPerNamespaceLowLevel.Keys.Where(k => k != CsharpNames.RootNamespace).ToList();
+	var namespaces = Model.EndpointsPerNamespaceLowLevel.Keys.ToHashSet();
+	namespaces.Remove(CsharpNames.RootNamespace);
+	namespaces.Add("Http");
 <text>
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
@@ -47,19 +49,13 @@ namespace OpenSearch.Net
         }
 </text>
 
-
-    foreach (var (ns, endpoints) in Model.EndpointsPerNamespaceLowLevel)
-    {
-        if (ns != CsharpNames.RootNamespace)
-        {
-            continue;
-        }
-	    var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
-        foreach (var method in methods)
-        {
-            await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", method);
-        }
-    }
+	if(Model.EndpointsPerNamespaceLowLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
+	{
+		foreach(var m in endpoints.SelectMany(e => e.LowLevelClientMethods))
+		{
+			await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", m);
+		}
+	}
     <text>
     }
     }

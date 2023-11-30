@@ -4,14 +4,17 @@
     - [PUT](#put)
     - [POST](#post)
     - [DELETE](#delete)
-  - [Using Different Types Of PostData](#using-different-types-of-postdata)
-    - [PostData.String](#postdatastring)
-    - [PostData.Bytes](#postdatabytes)
-    - [PostData.Serializable](#postdataserializable)
-    - [PostData.MultiJson](#postdatamultijson)
+  - [Request Bodies](#request-bodies)
+    - [String](#string)
+    - [Bytes](#bytes)
+    - [Serializable](#serializable)
+    - [Multi Json](#multi-json)
+  - [Response Bodies](#response-bodies)
 
 # Making Raw JSON REST Requests
-The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use `client.LowLevel.DoRequest` to do so. See [samples/Samples/RawJson/RawJsonSample.cs](../samples/Samples/RawJson/RawJsonSample.cs) for a complete working sample.
+The OpenSearch client implements many high-level REST DSLs that invoke OpenSearch APIs. However you may find yourself in a situation that requires you to invoke an API that is not supported by the client. You can use the methods defined within `client.Http` to do so. See [samples/Samples/RawJson/RawJsonHighLevelSample.cs](../samples/Samples/RawJson/RawJsonHighLevelSample.cs) and [samples/Samples/RawJson/RawJsonLowLevelSample.cs](../samples/Samples/RawJson/RawJsonLowLevelSample.cs) for complete working samples. 
+
+Older versions of the client that do not support the `client.Http` namespace can use the `client.LowLevel.DoRequest` method instead.
 
 ## HTTP Methods
 
@@ -19,8 +22,18 @@ The OpenSearch client implements many high-level REST DSLs that invoke OpenSearc
 The following example returns the server version information via `GET /`.
 
 ```csharp
-var info = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.GET, "/", CancellationToken.None);
+var info = await client.Http.GetAsync<DynamicResponse>("/");
+
 Console.WriteLine($"Welcome to {info.Body.version.distribution} {info.Body.version.number}!");
+```
+
+### HEAD
+The following example checks if an index exists via `HEAD /movies`.
+
+```csharp
+var indexExists = await client.Http.HeadAsync<VoidResponse>("/movies");
+
+Console.WriteLine($"Index Exists: {indexExists.HttpStatusCode == 200}");
 ```
 
 ### PUT
@@ -29,8 +42,9 @@ The following example creates an index.
 ```csharp
 var indexBody = new { settings = new { index = new { number_of_shards = 4 } } };
 
-var createIndex = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Serializable(indexBody));
-Debug.Assert(createIndex.Success && (bool)createIndex.Body.acknowledged, createIndex.DebugInformation);
+var createIndex = await client.Http.PutAsync<DynamicResponse>("/movies", d => d.SerializableBody(indexBody));
+
+Console.WriteLine($"Create Index: {createIndex.Success && (bool)createIndex.Body.acknowledged}");
 ```
 
 ### POST
@@ -45,25 +59,26 @@ var query = new
 	query = new { multi_match = new { query = q, fields = new[] { "title^2", "director" } } }
 };
 
-var search = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, $"/{indexName}/_search", CancellationToken.None, PostData.Serializable(query));
-Debug.Assert(search.Success, search.DebugInformation);
+var search = await client.Http.PostAsync<DynamicResponse>("/movies/_search", d => d.SerializableBody(query));
 
-foreach (var hit in search.Body.hits.hits) Console.WriteLine(hit["_source"]["title"]);
+foreach (var hit in search.Body.hits.hits) Console.WriteLine($"Search Hit: {hit["_source"]["title"]}");
 ```
 
 ### DELETE
 The following example deletes an index.
 
 ```csharp
-var deleteDocument = await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.DELETE, $"/{indexName}/_doc/{id}", CancellationToken.None);
-Debug.Assert(deleteDocument.Success, deleteDocument.DebugInformation);
+var deleteIndex = await client.Http.DeleteAsync<DynamicResponse>("/movies");
+
+Console.WriteLine($"Delete Index: {deleteIndex.Success && (bool)deleteIndex.Body.acknowledged}");
 ```
 
-## Using Different Types Of PostData
-The OpenSearch .NET client provides a `PostData` class that is used to provide the request body for a request. The `PostData` class has several static methods that can be used to create a `PostData` object from different types of data.
+## Request Bodies
+For the methods that take a request body (PUT/POST/PATCH) it is possible use several different types to specify the body. The high-level methods provided in `OpenSearch.Client` provide overloaded fluent-methods for setting the body. While the lower level methods in `OpenSearch.Net` accept instances of `PostData`.  
+The `PostData` class has several static methods that can be used to create a `PostData` object from different types of data.
 
-### PostData.String
-The following example shows how to use the `PostData.String` method to create a `PostData` object from a string.
+### String
+The following example shows how to pass a string as a request body:
 
 ```csharp
 string indexBody = @"
@@ -75,11 +90,11 @@ string indexBody = @"
     }
 }}";
 
-await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.String(indexBody));
+await client.Http.PutAsync<DynamicResponse>("/movies", d => d.Body(indexBody));
 ```
 
-### PostData.Bytes
-The following example shows how to use the `PostData.Bytes` method to create a `PostData` object from a byte array.
+### Bytes
+The following example shows how to pass a byte array as a request body:
 
 ```csharp
 byte[] indexBody = Encoding.UTF8.GetBytes(@"
@@ -91,11 +106,11 @@ byte[] indexBody = Encoding.UTF8.GetBytes(@"
     }
 }}");
 
-await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Bytes(indexBody));
+await client.Http.PutAsync<DynamicResponse>("/movies", d => d.Body(indexBody));
 ```
 
-### PostData.Serializable
-The following example shows how to use the `PostData.Serializable` method to create a `PostData` object from a serializable object.
+### Serializable
+The following example shows how to pass an object that will be serialized to JSON as a request body:
 
 ```csharp
 var indexBody = new
@@ -109,12 +124,12 @@ var indexBody = new
     }
 };
 
-await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.PUT, "/movies", CancellationToken.None, PostData.Serializable(indexBody));
+await client.Http.PutAsync<DynamicResponse>("/movies", d => d.SerializableBody(indexBody));
 ```
 
-### PostData.MultiJson
-The following example shows how to use the `PostData.MultiJson` method to create a `PostData` object from a collection of serializable objects. 
-The `PostData.MultiJson` method is useful when you want to send multiple documents in a bulk request.
+### Multi JSON
+The following example shows how to pass a collection of objects (or strings) that will be serialized to JSON and then newline-delimited as a request body.
+This formatting is primarily used when you want to make a bulk request.
 
 ```csharp
 var bulkBody = new object[]
@@ -125,5 +140,13 @@ var bulkBody = new object[]
     new { title = "The Godfather: Part II", director = "Francis Ford Coppola", year = 1974 }
 };
 
-await client.LowLevel.DoRequestAsync<DynamicResponse>(HttpMethod.POST, "/_bulk", CancellationToken.None, PostData.MultiJson(bulkBody));
+await client.Http.PostAsync<DynamicResponse>("/_bulk", d => d.MultiJsonBody(indexBody));
 ```
+
+## Response Bodies
+There are a handful of response type implementations that can be used to retrieve the response body. These are specified as the generic argument to the request methods. The content of the body will then be available via the `Body` property of the response object. The following response types are available:
+
+- `VoidResponse`: The response body will not be read. Useful when you only care about the response status code, such as a `HEAD` request to check an index exists.
+- `StringResponse`: The response body will be read into a string.
+- `BytesResponse`: The response body will be read into a byte array.
+- `DynamicResponse`: The response body will be deserialized as JSON into a dynamic object.
