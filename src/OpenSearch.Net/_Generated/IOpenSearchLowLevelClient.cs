@@ -51,6 +51,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
+using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 
 namespace OpenSearch.Net
@@ -65,6 +66,9 @@ namespace OpenSearch.Net
 
         /// <summary>Indices APIs</summary>
         LowLevelIndicesNamespace Indices { get; }
+
+        /// <summary>Http APIs</summary>
+        LowLevelHttpNamespace Http { get; }
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
         /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>

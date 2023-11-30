@@ -1,0 +1,53 @@
+@using ApiGenerator
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<IEnumerable<HttpMethod>>
+@{
+	const string ns = "Http";
+}
+@{ await IncludeGeneratorNotice(); }
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix);
+
+/// <summary>
+/// @ns.SplitPascalCase() APIs.
+/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.@ns"/> property
+/// on <see cref="IOpenSearchClient"/>.
+/// </para>
+/// </summary>
+public class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+{
+    internal @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
+@{
+	var generic = Raw("<TResponse>");
+
+	foreach (var m in Model)
+	{
+		var bodySelector = Raw(m.TakesBody ? "r => r.Body" : "_ => null");
+		var selector = Raw($"Func<{m.Descriptor}, {m.IRequest}> selector = null");
+	<text>
+
+		public TResponse @(m)@(generic)(string path, @(selector))
+			where TResponse : class, IOpenSearchResponse, new() =>
+			@(m)@(generic)(selector.InvokeOrDefault(new @(m.Descriptor)(path)));
+
+		public Task@(generic) @(m)Async@(generic)(string path, @(selector), CancellationToken ct = default)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			@(m)Async@(generic)(selector.InvokeOrDefault(new @(m.Descriptor)(path)), ct);
+
+		public TResponse @(m)@(generic)(@m.IRequest request)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequest@(Raw($"<{m.IRequest}, TResponse>"))(request, request.RequestParameters, @(bodySelector));
+
+		public Task@(generic) @(m)Async@(generic)(@m.IRequest request, CancellationToken ct = default)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequestAsync@(Raw($"<{m.IRequest}, TResponse>"))(request, request.RequestParameters, @(bodySelector), ct);
+
+	</text>
+	}
+}
+}

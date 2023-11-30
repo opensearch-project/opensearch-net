@@ -47,6 +47,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Client;
 using OpenSearch.Client.Specification.ClusterApi;
+using OpenSearch.Client.Specification.HttpApi;
 using OpenSearch.Client.Specification.IndicesApi;
 
 // ReSharper disable RedundantTypeArgumentsOfMethod
@@ -63,10 +64,14 @@ namespace OpenSearch.Client
         /// <summary>Indices APIs</summary>
         public IndicesNamespace Indices { get; private set; }
 
+        /// <summary>Http APIs</summary>
+        public HttpNamespace Http { get; private set; }
+
         partial void SetupGeneratedNamespaces()
         {
             Cluster = new ClusterNamespace(this);
             Indices = new IndicesNamespace(this);
+            Http = new HttpNamespace(this);
         }
 
         /// <summary>

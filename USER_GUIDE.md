@@ -260,3 +260,12 @@ var client = new OpenSearchLowLevelClient(config);
 ```
 
 Note the main difference here is that we are instantiating an `OpenSearchLowLevelClient` rather than `OpenSearchClient`, and `ConnectionConfiguration` instead of `ConnectionSettings`.
+
+
+## Advanced Features
+
+- [Bulk Requests](guides/bulk.md)
+- [Document Lifecycle](guides/document-lifecycle.md)
+- [Index Template](guides/index-template.md)
+- [Making Raw JSON REST Requests](guides/json.md)
+- [Search](guides/search.md)

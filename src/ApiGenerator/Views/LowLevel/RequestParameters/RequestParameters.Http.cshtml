@@ -1,0 +1,35 @@
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<IEnumerable<HttpMethod>>
+@{
+	const string ns = "Http";
+}
+@{ await IncludeGeneratorNotice(); }
+
+using OpenSearch.Net;
+
+namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix);
+
+public abstract class ArbitraryHttpRequestParameters@(Raw("<TSelf>")) : RequestParameters@(Raw("<TSelf>"))
+	where TSelf : ArbitraryHttpRequestParameters@(Raw("<TSelf>"))
+{
+	protected ArbitraryHttpRequestParameters(HttpMethod method, bool supportsBody)
+	{
+		DefaultHttpMethod = method;
+		SupportsBody = supportsBody;
+	}
+
+	public override HttpMethod DefaultHttpMethod { get; }
+	public override bool SupportsBody { get; }
+}
+
+@foreach (var m in Model)
+{
+	<text>
+
+		public class @m.RequestParameters : ArbitraryHttpRequestParameters@(Raw($"<{m.RequestParameters}>"))
+		{
+			public @(m.RequestParameters)() : base(@(m.MethodEnum), @(m.TakesBody.ToString().ToLowerInvariant())) { }
+		}
+
+	</text>
+}
