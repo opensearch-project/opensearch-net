@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,22 +34,32 @@ using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 {
-    public class LowLevelClientImplementationGenerator : RazorGeneratorBase
-    {
-        public override string Title { get; } = "OpenSearch.Net client implementation";
+	public override string Title => "OpenSearch.Net client implementation";
 
-        public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-        {
-			var view = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.cshtml");
-            var target = GeneratorLocations.LowLevel("OpenSearchLowLevelClient.cs");
-            await DoRazor(spec, view, target, token);
+	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+	{
+		await DoRazor(spec, View(), Target(), token);
 
-            var namespaced = spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList();
-            var namespacedView = ViewLocations.LowLevel("Client", "Implementation", "OpenSearchLowLevelClient.Namespace.cshtml");
-            await DoRazorDependantFiles(progressBar, namespaced, namespacedView, kv => kv.Key,
-                id => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient.{id}.cs"), token);
-        }
-    }
+		await DoRazor(HttpMethod.All, View("Http"), Target("Http"), token);
+
+		await DoRazorDependantFiles(
+			progressBar,
+			spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+			View("Namespace"),
+			kv => kv.Key,
+			Target,
+			token
+		);
+
+		return;
+
+		string View(string id = null) =>
+			ViewLocations.LowLevel("Client", "Implementation", $"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cshtml");
+
+		string Target(string id = null) => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cs");
+	}
 }
