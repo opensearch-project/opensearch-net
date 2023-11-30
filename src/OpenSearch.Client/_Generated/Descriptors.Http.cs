@@ -26,7 +26,7 @@ using OpenSearch.Net.Specification.HttpApi;
 namespace OpenSearch.Client;
 
 public class HttpDeleteDescriptor
-    : ArbitraryHttpRequestDescriptor<
+    : ArbitraryHttpRequestDescriptorBase<
         HttpDeleteDescriptor,
         HttpDeleteRequestParameters,
         IHttpDeleteRequest
@@ -38,7 +38,11 @@ public class HttpDeleteDescriptor
 }
 
 public class HttpGetDescriptor
-    : ArbitraryHttpRequestDescriptor<HttpGetDescriptor, HttpGetRequestParameters, IHttpGetRequest>,
+    : ArbitraryHttpRequestDescriptorBase<
+        HttpGetDescriptor,
+        HttpGetRequestParameters,
+        IHttpGetRequest
+    >,
         IHttpGetRequest
 {
     public HttpGetDescriptor(string path)
@@ -46,7 +50,7 @@ public class HttpGetDescriptor
 }
 
 public class HttpHeadDescriptor
-    : ArbitraryHttpRequestDescriptor<
+    : ArbitraryHttpRequestDescriptorBase<
         HttpHeadDescriptor,
         HttpHeadRequestParameters,
         IHttpHeadRequest
@@ -58,7 +62,7 @@ public class HttpHeadDescriptor
 }
 
 public class HttpPatchDescriptor
-    : ArbitraryBodyHttpRequestDescriptor<
+    : ArbitraryBodyHttpRequestDescriptorBase<
         HttpPatchDescriptor,
         HttpPatchRequestParameters,
         IHttpPatchRequest
@@ -70,7 +74,7 @@ public class HttpPatchDescriptor
 }
 
 public class HttpPostDescriptor
-    : ArbitraryBodyHttpRequestDescriptor<
+    : ArbitraryBodyHttpRequestDescriptorBase<
         HttpPostDescriptor,
         HttpPostRequestParameters,
         IHttpPostRequest
@@ -82,7 +86,7 @@ public class HttpPostDescriptor
 }
 
 public class HttpPutDescriptor
-    : ArbitraryBodyHttpRequestDescriptor<
+    : ArbitraryBodyHttpRequestDescriptorBase<
         HttpPutDescriptor,
         HttpPutRequestParameters,
         IHttpPutRequest

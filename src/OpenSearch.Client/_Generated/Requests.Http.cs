@@ -29,7 +29,7 @@ namespace OpenSearch.Client;
 public interface IHttpDeleteRequest : IArbitraryHttpRequest<HttpDeleteRequestParameters> { }
 
 public class HttpDeleteRequest
-    : ArbitraryHttpRequest<HttpDeleteRequestParameters>,
+    : ArbitraryHttpRequestBase<HttpDeleteRequestParameters>,
         IHttpDeleteRequest
 {
     [SerializationConstructor]
@@ -41,7 +41,7 @@ public class HttpDeleteRequest
 
 public interface IHttpGetRequest : IArbitraryHttpRequest<HttpGetRequestParameters> { }
 
-public class HttpGetRequest : ArbitraryHttpRequest<HttpGetRequestParameters>, IHttpGetRequest
+public class HttpGetRequest : ArbitraryHttpRequestBase<HttpGetRequestParameters>, IHttpGetRequest
 {
     [SerializationConstructor]
     protected HttpGetRequest() { }
@@ -52,7 +52,7 @@ public class HttpGetRequest : ArbitraryHttpRequest<HttpGetRequestParameters>, IH
 
 public interface IHttpHeadRequest : IArbitraryHttpRequest<HttpHeadRequestParameters> { }
 
-public class HttpHeadRequest : ArbitraryHttpRequest<HttpHeadRequestParameters>, IHttpHeadRequest
+public class HttpHeadRequest : ArbitraryHttpRequestBase<HttpHeadRequestParameters>, IHttpHeadRequest
 {
     [SerializationConstructor]
     protected HttpHeadRequest() { }
@@ -64,7 +64,7 @@ public class HttpHeadRequest : ArbitraryHttpRequest<HttpHeadRequestParameters>, 
 public interface IHttpPatchRequest : IArbitraryBodyHttpRequest<HttpPatchRequestParameters> { }
 
 public class HttpPatchRequest
-    : ArbitraryBodyHttpRequest<HttpPatchRequestParameters>,
+    : ArbitraryBodyHttpRequestBase<HttpPatchRequestParameters>,
         IHttpPatchRequest
 {
     [SerializationConstructor]
@@ -76,7 +76,9 @@ public class HttpPatchRequest
 
 public interface IHttpPostRequest : IArbitraryBodyHttpRequest<HttpPostRequestParameters> { }
 
-public class HttpPostRequest : ArbitraryBodyHttpRequest<HttpPostRequestParameters>, IHttpPostRequest
+public class HttpPostRequest
+    : ArbitraryBodyHttpRequestBase<HttpPostRequestParameters>,
+        IHttpPostRequest
 {
     [SerializationConstructor]
     protected HttpPostRequest() { }
@@ -87,7 +89,9 @@ public class HttpPostRequest : ArbitraryBodyHttpRequest<HttpPostRequestParameter
 
 public interface IHttpPutRequest : IArbitraryBodyHttpRequest<HttpPutRequestParameters> { }
 
-public class HttpPutRequest : ArbitraryBodyHttpRequest<HttpPutRequestParameters>, IHttpPutRequest
+public class HttpPutRequest
+    : ArbitraryBodyHttpRequestBase<HttpPutRequestParameters>,
+        IHttpPutRequest
 {
     [SerializationConstructor]
     protected HttpPutRequest() { }

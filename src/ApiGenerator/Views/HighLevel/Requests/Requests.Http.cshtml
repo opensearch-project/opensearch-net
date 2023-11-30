@@ -16,7 +16,7 @@ namespace OpenSearch.Client;
 
 	public interface @m.IRequest : @Raw($"IArbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequest<{m.RequestParameters}>") { }
 
-	public class @m.Request : @Raw($"Arbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequest<{m.RequestParameters}>"), @m.IRequest
+	public class @m.Request : @Raw($"Arbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequestBase<{m.RequestParameters}>"), @m.IRequest
 	{
 		[SerializationConstructor]
 		protected @(m.Request)() { }

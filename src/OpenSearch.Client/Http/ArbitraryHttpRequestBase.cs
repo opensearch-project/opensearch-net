@@ -30,15 +30,15 @@ public interface IArbitraryBodyHttpRequest<out T> : IArbitraryHttpRequest<T>
 	PostData Body { get; set; }
 }
 
-public abstract class ArbitraryHttpRequest<TParams>
+public abstract class ArbitraryHttpRequestBase<TParams>
 	: PlainRequestBase<TParams>, IArbitraryHttpRequest<TParams>
 	where TParams : ArbitraryHttpRequestParameters<TParams>, new()
 {
 	private string _path;
 
-	protected ArbitraryHttpRequest() { }
+	protected ArbitraryHttpRequestBase() { }
 
-	protected ArbitraryHttpRequest(string path) => Path = path;
+	protected ArbitraryHttpRequestBase(string path) => Path = path;
 
 	public string Path
 	{
@@ -63,26 +63,26 @@ public abstract class ArbitraryHttpRequest<TParams>
 	string IRequest.GetUrl(IConnectionSettingsValues settings) => Path;
 }
 
-public abstract class ArbitraryBodyHttpRequest<TParams>
-	: ArbitraryHttpRequest<TParams>, IArbitraryBodyHttpRequest<TParams>
+public abstract class ArbitraryBodyHttpRequestBase<TParams>
+	: ArbitraryHttpRequestBase<TParams>, IArbitraryBodyHttpRequest<TParams>
 	where TParams : ArbitraryHttpRequestParameters<TParams>, new()
 {
-	protected ArbitraryBodyHttpRequest() { }
+	protected ArbitraryBodyHttpRequestBase() { }
 
-	protected ArbitraryBodyHttpRequest(string path) : base(path) { }
+	protected ArbitraryBodyHttpRequestBase(string path) : base(path) { }
 
 	public PostData Body { get; set; }
 }
 
-public abstract class ArbitraryHttpRequestDescriptor<TSelf, TParams, TInterface>
+public abstract class ArbitraryHttpRequestDescriptorBase<TSelf, TParams, TInterface>
 	: RequestDescriptorBase<TSelf, TParams, TInterface>, IArbitraryHttpRequest<TParams>
-	where TSelf : ArbitraryHttpRequestDescriptor<TSelf, TParams, TInterface>, TInterface
+	where TSelf : ArbitraryHttpRequestDescriptorBase<TSelf, TParams, TInterface>, TInterface
 	where TParams : ArbitraryHttpRequestParameters<TParams>, new()
 	where TInterface : IArbitraryHttpRequest<TParams>
 {
 	private string _path;
 
-	protected ArbitraryHttpRequestDescriptor(string path) => Path = path;
+	protected ArbitraryHttpRequestDescriptorBase(string path) => Path = path;
 
 	public string Path
 	{
@@ -107,29 +107,33 @@ public abstract class ArbitraryHttpRequestDescriptor<TSelf, TParams, TInterface>
 	string IRequest.GetUrl(IConnectionSettingsValues settings) => Path;
 }
 
-public abstract class ArbitraryBodyHttpRequestDescriptor<TSelf, TParams, TInterface>
-	: ArbitraryHttpRequestDescriptor<TSelf, TParams, TInterface>, IArbitraryBodyHttpRequest<TParams>
-	where TSelf : ArbitraryBodyHttpRequestDescriptor<TSelf, TParams, TInterface>, TInterface
+public abstract class ArbitraryBodyHttpRequestDescriptorBase<TSelf, TParams, TInterface>
+	: ArbitraryHttpRequestDescriptorBase<TSelf, TParams, TInterface>, IArbitraryBodyHttpRequest<TParams>
+	where TSelf : ArbitraryBodyHttpRequestDescriptorBase<TSelf, TParams, TInterface>, TInterface
 	where TParams : ArbitraryHttpRequestParameters<TParams>, new()
 	where TInterface : IArbitraryBodyHttpRequest<TParams>
 {
-	protected ArbitraryBodyHttpRequestDescriptor(string path) : base(path) { }
+	protected ArbitraryBodyHttpRequestDescriptorBase(string path) : base(path) { }
 
 	PostData IArbitraryBodyHttpRequest<TParams>.Body { get; set; }
 
 	public TSelf Body(PostData body) => Assign(body, (a, v) => a.Body = v);
 
-	public TSelf Body(byte[] bytes) => Body(PostData.Bytes(bytes));
+	private TSelf Body<T>(T data, Func<T, PostData> factory) where T: class => Body(data != null ? factory(data) : null);
 
-	public TSelf Body(string body) => Body(PostData.String(body));
+	private TSelf Body<T>(T? data, Func<T, PostData> factory) where T: struct => Body(data.HasValue ? factory(data.Value) : null);
+
+	public TSelf Body(byte[] bytes) => Body(bytes, PostData.Bytes);
+
+	public TSelf Body(string body) => Body(body, PostData.String);
 
 #if NETSTANDARD2_1
-	public TSelf Body(ReadOnlyMemory<byte> bytes) => Body(PostData.ReadOnlyMemory(bytes));
+	public TSelf Body(ReadOnlyMemory<byte>? bytes) => Body(bytes, PostData.ReadOnlyMemory);
 #endif
 
-	public TSelf MultiJsonBody(IEnumerable<string> items) => Body(PostData.MultiJson(items));
+	public TSelf MultiJsonBody(IEnumerable<string> items) => Body(items, PostData.MultiJson);
 
-	public TSelf MultiJsonBody(IEnumerable<object> items) => Body(PostData.MultiJson(items));
+	public TSelf MultiJsonBody(IEnumerable<object> items) => Body(items, PostData.MultiJson);
 
 	public TSelf StreamableBody<T>(T state, Action<T, Stream> syncWriter, Func<T, Stream, CancellationToken, Task> asyncWriter) =>
 		Body(PostData.StreamHandler(state, syncWriter, asyncWriter));

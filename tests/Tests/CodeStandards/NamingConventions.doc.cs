@@ -133,6 +133,13 @@ namespace Tests.CodeStandards
 				//TODO MAP THIS
 				//typeof(RankEvalRequest),
 				//TODO add unit tests that we have no requests starting with Exists
+				typeof(HttpDeleteRequest),
+				typeof(HttpGetRequest),
+				typeof(HttpHeadRequest),
+				typeof(HttpPatchRequest),
+				typeof(HttpPostRequest),
+				typeof(HttpPutRequest),
+
 				typeof(SourceExistsRequest),
 				typeof(SourceExistsRequest<>),
 				typeof(DocumentExistsRequest),
