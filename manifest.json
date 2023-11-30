@@ -792,6 +792,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArbitraryBodyHttpRequestBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ArbitraryBodyHttpRequestBase-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArbitraryBodyHttpRequestDescriptorBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ArbitraryBodyHttpRequestDescriptorBase-3.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArbitraryHttpRequestBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ArbitraryHttpRequestBase-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArbitraryHttpRequestDescriptorBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ArbitraryHttpRequestDescriptorBase-3.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ArchitectureStats.yml",
       "output": {
         ".html": {
@@ -8382,6 +8422,126 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpDeleteDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpDeleteDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpDeleteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpDeleteRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpGetDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpGetDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpGetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpGetRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpHeadDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpHeadDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpHeadRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpHeadRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPatchDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPatchDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPatchRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPatchRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPostDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPostDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPostRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPostRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPutDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPutDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpPutRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HttpPutRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HttpStats.yml",
       "output": {
         ".html": {
@@ -8686,6 +8846,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IAppendProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IArbitraryBodyHttpRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IArbitraryBodyHttpRequest-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IArbitraryHttpRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IArbitraryHttpRequest-1.html"
         }
       },
       "version": ""
@@ -11396,6 +11576,66 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IHtmlStripCharFilter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpDeleteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpDeleteRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpGetRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpGetRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpHeadRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpHeadRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpPatchRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpPatchRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpPostRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpPostRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHttpPutRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHttpPutRequest.html"
         }
       },
       "version": ""
@@ -24922,6 +25162,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.HttpApi.HttpNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.HttpApi.HttpNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.HttpApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.HttpApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IndicesApi.IndicesNamespace.yml",
       "output": {
         ".html": {
@@ -29312,6 +29572,96 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.ArbitraryHttpRequestParameters-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.ArbitraryHttpRequestParameters-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpDeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpDeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpGetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpGetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpHeadRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpHeadRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpPatchRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpPatchRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpPostRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpPostRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.HttpPutRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.HttpPutRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.LowLevelHttpNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.LowLevelHttpNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.HttpApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.AddIndexBlockRequestParameters.yml",
       "output": {
         ".html": {
@@ -30594,11 +30944,11 @@
       "type": "Toc",
       "source_relative_path": "obj/temp/docfxapi/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -30607,11 +30957,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
