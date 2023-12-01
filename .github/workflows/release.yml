@@ -1,8 +1,6 @@
 name: Create Release Candidate
 
 on: [pull_request, push]
-env:
-    VERSION: 2.0.0
 jobs:
   create-release-artifacts:
     name: Create Release Artifacts
@@ -21,6 +19,8 @@ jobs:
         key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
         restore-keys: |
           ${{ runner.os }}-nuget-
+    - name: Determine Version
+      run: echo "VERSION=$(jq -r '.version' global.json)" | tee -a "$GITHUB_ENV"
     - name: Generate Release
       run: |
         ./build.sh release $VERSION
