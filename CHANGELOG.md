@@ -6,6 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added support for point-in-time search and associated APIs ([#405](https://github.com/opensearch-project/opensearch-net/pull/405))
 - Added support for the component template APIs ([#411](https://github.com/opensearch-project/opensearch-net/pull/411))
 - Added support for the composable index template APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
+- Added high-level DSL for raw HTTP methods ([#447](https://github.com/opensearch-project/opensearch-net/pull/447))
 
 ### Deprecated
 - Deprecated the low-level `IndexTemplateV2` APIs in favour of the new `ComposableIndexTemplate` APIs ([#454](https://github.com/opensearch-project/opensearch-net/pull/454))

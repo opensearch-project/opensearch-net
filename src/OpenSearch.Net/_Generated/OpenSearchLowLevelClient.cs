@@ -51,6 +51,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
+using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using static OpenSearch.Net.HttpMethod;
 
@@ -65,11 +66,13 @@ namespace OpenSearch.Net
     {
         public LowLevelClusterNamespace Cluster { get; private set; }
         public LowLevelIndicesNamespace Indices { get; private set; }
+        public LowLevelHttpNamespace Http { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {
             Cluster = new LowLevelClusterNamespace(this);
             Indices = new LowLevelIndicesNamespace(this);
+            Http = new LowLevelHttpNamespace(this);
         }
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>

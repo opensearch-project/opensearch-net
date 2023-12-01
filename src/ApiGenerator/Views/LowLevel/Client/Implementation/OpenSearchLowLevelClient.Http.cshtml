@@ -1,0 +1,51 @@
+@using ApiGenerator
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<IEnumerable<HttpMethod>>
+@{
+	const string ns = "Http";
+}
+@{ await IncludeGeneratorNotice(); }
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix);
+
+/// <summary>
+/// @ns.SplitPascalCase() APIs.
+/// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
+/// on <see cref="IOpenSearchLowLevelClient"/>.
+/// </para>
+/// </summary>
+public class @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+{
+    internal @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+@{
+	var generic = Raw("<TResponse>");
+
+	foreach (var m in Model)
+	{
+		var bodyParam = m.TakesBody ? ", PostData body = null" : string.Empty;
+	<text>
+
+		public TResponse @(m)@(generic)(FormattableString path@(bodyParam), @m.RequestParameters parameters = null)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			@(m)@(generic)(Url(path)@(m.TakesBody ? ", body" : string.Empty), parameters);
+
+		public Task@(generic) @(m)Async@(generic)(FormattableString path@(bodyParam), @m.RequestParameters parameters = null, CancellationToken ctx = default)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			@(m)Async@(generic)(Url(path)@(m.TakesBody ? ", body" : string.Empty), parameters, ctx);
+
+		public TResponse @(m)@(generic)(string path@(bodyParam), @m.RequestParameters parameters = null)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequest@(generic)(@m.MethodEnum, path, @(m.TakesBody ? "body" : "null"), RequestParams(parameters));
+
+		public Task@(generic) @(m)Async@(generic)(string path@(bodyParam), @m.RequestParameters parameters = null, CancellationToken ctx = default)
+			where TResponse : class, IOpenSearchResponse, new() =>
+			DoRequestAsync@(generic)(@m.MethodEnum, path, ctx, @(m.TakesBody ? "body" : "null"), RequestParams(parameters));
+
+	</text>
+	}
+}
+}
