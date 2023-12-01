@@ -28,5 +28,4 @@ GLOBAL_JSON=$(jq \
 	global.json)
 echo "$GLOBAL_JSON" > global.json
 
-sed -i'' -E "s/^([[:space:]]+VERSION: )([0-9]+\.){2}[0-9]+$/\1$VERSION/" .github/workflows/release.yml
 sed -i'' -E "s/<(Current(Assembly(File)?)?Version)>([0-9]+\.){2}[0-9]+<\/\1>/<\1>$VERSION<\/\1>/" Directory.Build.props
