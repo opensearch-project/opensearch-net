@@ -1,0 +1,24 @@
+{
+  "info":{
+    "documentation":{
+      "url":"https://opensearch.org/docs/latest/opensearch/index/",
+      "description":"Returns basic information about the cluster."
+    },
+    "stability":"stable",
+    "visibility":"public",
+    "headers":{
+      "accept": [ "application/json"]
+    },
+    "url":{
+      "paths":[
+        {
+          "path":"/",
+          "methods":[
+            "GET"
+          ]
+        }
+      ]
+    },
+    "params":{}
+  }
+}

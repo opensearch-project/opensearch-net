@@ -1,0 +1,70 @@
+{
+  "indices.put_alias":{
+    "documentation":{
+      "url":"https://opensearch.org/docs/latest/opensearch/rest-api/alias/",
+      "description":"Creates or updates an alias."
+    },
+    "stability":"stable",
+    "visibility":"public",
+    "headers":{
+      "accept": [ "application/json"],
+      "content_type": ["application/json"]
+    },
+    "url":{
+      "paths":[
+        {
+          "path":"/{index}/_alias/{name}",
+          "methods":[
+            "PUT",
+            "POST"
+          ],
+          "parts":{
+            "index":{
+              "type":"list",
+              "description":"A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices."
+            },
+            "name":{
+              "type":"string",
+              "description":"The name of the alias to be created or updated"
+            }
+          }
+        },
+        {
+          "path":"/{index}/_aliases/{name}",
+          "methods":[
+            "PUT",
+            "POST"
+          ],
+          "parts":{
+            "index":{
+              "type":"list",
+              "description":"A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices."
+            },
+            "name":{
+              "type":"string",
+              "description":"The name of the alias to be created or updated"
+            }
+          }
+        }
+      ]
+    },
+    "params":{
+      "timeout":{
+        "type":"time",
+        "description":"Explicit timestamp for the document"
+      },
+      "master_timeout":{
+        "type":"time",
+        "description":"Explicit operation timeout for connection to master node"
+      },
+      "cluster_manager_timeout":{
+        "type":"time",
+        "description":"Explicit operation timeout for connection to cluster_manager_timeout node"
+      }
+    },
+    "body":{
+      "description":"The settings for the alias, such as `routing` or `filter`",
+      "required":false
+    }
+  }
+}
