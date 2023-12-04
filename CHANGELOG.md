@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 14.0.2
 - Bumps `CSharpier.Core` from 0.25.0 to 0.27.2
+- Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.6
 - Bumps `xunit` from 2.6.2 to 2.6.6
 - Bumps `Argu` from 6.1.1 to 6.1.5
