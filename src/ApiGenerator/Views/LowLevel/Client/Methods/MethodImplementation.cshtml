@@ -1,0 +1,13 @@
+@using ApiGenerator.Domain.Code.LowLevel
+@inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
+@{
+	var contentType = Model.CsharpNames.RestSpecName.Contains(".cat_") ? ", contentType: \"text/plain\"" : string.Empty;
+}
+@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
+        public TResponse @Model.PerPathMethodName@(Raw("<TResponse>"))(@Raw(Model.Arguments))
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest@(Raw("<TResponse>"))(@Model.HttpMethod, @Raw(Model.UrlInCode), @(Model.HasBody ? "body" : "null"), RequestParams(requestParameters@(Raw(contentType))));
+
+@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
+        [MapsApi("@Model.CsharpNames.RestSpecName", "@Model.MapsApiArguments")]
+        public Task@(Raw("<TResponse>")) @(Model.PerPathMethodName)Async@(Raw("<TResponse>"))(@Raw(Model.Arguments), CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync@(Raw("<TResponse>"))(@Model.HttpMethod, @Raw(Model.UrlInCode), ctx, @(Model.HasBody ? "body" : "null"), RequestParams(requestParameters@(Raw(contentType))));

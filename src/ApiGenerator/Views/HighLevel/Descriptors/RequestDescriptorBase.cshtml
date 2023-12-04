@@ -1,0 +1,12 @@
+@using ApiGenerator.Domain
+@inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
+@{ await IncludeLegacyGeneratorNotice(); }
+using System.Collections.Generic;
+
+namespace OpenSearch.Client
+{
+    // ReSharper disable UnusedTypeParameter
+    public abstract partial class @Raw("RequestDescriptorBase<TDescriptor, TParameters, TInterface>")
+    {
+    }
+}

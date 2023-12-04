@@ -1,0 +1,7 @@
+@using ApiGenerator.Domain.Code.LowLevel
+@inherits ApiGenerator.CodeTemplatePage<LowLevelClientMethod>
+@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
+        TResponse @Model.PerPathMethodName@(Raw("<TResponse>"))(@Raw(Model.Arguments)) where TResponse : class, IOpenSearchResponse, new();
+
+@{await IncludeAsync("LowLevel/Client/Methods/MethodDocs.cshtml", Model); }
+        Task@(Raw("<TResponse>")) @(Model.PerPathMethodName)Async@(Raw("<TResponse>"))(@Raw(Model.Arguments), CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();

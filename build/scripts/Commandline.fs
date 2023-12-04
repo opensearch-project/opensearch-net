@@ -62,6 +62,8 @@ Targets:
 * benchmark [non-interactive] [url] [username] [password] 
   - Runs a benchmark from Tests.Benchmarking and indexes the results to [url] when provided.
     If non-interactive runs all benchmarks without prompting
+* codegen
+  - runs the code generator interactively
   
 NOTE: both the `test` and `integrate` targets can be suffixed with `-all` to force the tests against all suported TFM's
 
@@ -193,6 +195,7 @@ Execution hints can be provided anywhere on the command line
         | ["clean"]
         | ["benchmark"]
         | ["profile"] -> parsed
+        | "codegen" :: tail -> { parsed with RemainingArguments = tail }
         | "rest-spec-tests" :: tail -> { parsed with RemainingArguments = tail }
         
         | ["release"; version] -> { parsed with CommandArguments = SetVersion { Version = version; OutputLocation = None }; }

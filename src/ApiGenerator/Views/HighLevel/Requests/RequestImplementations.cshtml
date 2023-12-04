@@ -1,0 +1,82 @@
+@using System.Linq
+@using ApiGenerator
+@using ApiGenerator.Domain.Code.HighLevel.Requests
+@using ApiGenerator.Domain.Specification
+@using ApiGenerator.Generator
+@inherits global::ApiGenerator.CodeTemplatePage<RequestPartialImplementation>
+@{
+	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
+}
+/// <summary>Request for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
+@if (Model.Stability != Stability.Stable)
+{
+    string warningMessage = "";
+    switch (Model.Stability)
+    {
+        case Stability.Experimental:
+            warningMessage = "this functionality is experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.";
+            break;
+        case Stability.Beta:
+            warningMessage = "this functionality is in beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.";
+            break;
+    }
+
+<text>/// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
+
+</text>}
+    public partial class @Raw(Model.Name) @Raw(string.Format(": PlainRequestBase<{0}>, {1}", Model.CsharpNames.ParametersName, Model.InterfaceName))
+{
+        protected @Raw(Model.InterfaceName) Self => this;
+        internal override ApiUrls ApiUrls => @apiLookup;
+@foreach (var c in Model.Constructors)
+{
+<text>      @(Raw(CodeGenerator.Constructor(c)))
+</text>
+}
+        // values part of the url path
+@foreach (var part in Model.Parts)
+{
+<text>      [IgnoreDataMember]
+        @(Raw(part.HighLevelTypeName)) @(Raw(Model.InterfaceName)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw(string.Format("<{0}>", part.HighLevelTypeName)))("@(part.Name)");
+</text>
+}
+
+        // Request parameters
+@foreach (var param in Model.Params)
+{
+    var original = param.QueryStringKey;
+    //skip parameters already part of the path portion of the url
+    if (Model.Parts.Any(p=>p.Name == original))
+    {
+        continue;
+    }
+    // We prefer to map these explicitly in our own hand written classes.
+    // The interface generation will generate properties for these so code won't compile until we do
+    if (param.RenderPartial && (Model.HasBody))
+    {
+        continue;
+    }
+    var doc = param.DescriptionHighLevel.ToArray();
+	@Raw(param.InitializerGenerator(Model.CsharpNames.Namespace, param.TypeHighLevel, param.ClsName, original, param.SetterHighLevel, param.VersionAdded, doc))
+}
+@if (Model.CsharpNames.DescriptorNotFoundInCodebase)
+{<text>
+        [Obsolete("Unmapped, blacklist this API in CodeConfiguration.cs or implement @Model.CsharpNames.DescriptorName and @Model.CsharpNames.RequestName in a file called @(Model.CsharpNames.RequestName).cs in OSC's codebase", true)]
+        public bool IsUnmapped => true;
+        public bool UseIsUnmapped => IsUnmapped;
+ </text>
+}
+    }
+@if (Model.NeedsGenericImplementation)
+    {<text>
+    public partial class @Raw(Model.CsharpNames.GenericRequestName) @Raw(string.Format(": {0}, {1}", Model.CsharpNames.RequestName, Model.CsharpNames.GenericInterfaceName))
+    {
+        protected @Raw(Model.CsharpNames.GenericInterfaceName) TypedSelf => this;
+@foreach (Constructor c in Model.GenericConstructors)
+{
+<text>      @(Raw(CodeGenerator.Constructor(c)))
+</text>
+}
+    }
+     </text>
+}

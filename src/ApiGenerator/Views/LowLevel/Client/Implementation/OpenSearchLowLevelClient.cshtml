@@ -1,0 +1,63 @@
+@using System.Linq
+@using ApiGenerator.Domain
+@using ApiGenerator
+@using ApiGenerator.Domain.Code
+@inherits CodeTemplatePage<RestApiSpec>
+@{ await IncludeLegacyGeneratorNotice(); }
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using OpenSearch.Net;
+@{ await IncludeAsync("LowLevel/Client/Usings.cshtml", Model);}
+using static OpenSearch.Net.HttpMethod;
+
+@{
+	var namespaces = Model.EndpointsPerNamespaceLowLevel.Keys.ToHashSet();
+	namespaces.Remove(CsharpNames.RootNamespace);
+	namespaces.Add("Http");
+<text>
+// ReSharper disable InterpolatedStringExpressionIsNotIFormattable
+// ReSharper disable RedundantExtendsListEntry
+namespace OpenSearch.Net
+{
+    /// <summary>
+    /// OpenSearch low level client
+    /// </summary>
+    public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
+    {
+</text>
+    foreach (var ns in namespaces)
+    {
+<text>      public @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) @ns { get; private set; }
+</text>
+    }
+<text>
+        partial void SetupGeneratedNamespaces()
+        {
+</text>
+    foreach (var ns in namespaces)
+    {
+<text>      @ns = new @(CsharpNames.LowLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)(this);
+</text>
+    }
+<text>
+        }
+</text>
+
+	if(Model.EndpointsPerNamespaceLowLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
+	{
+		foreach(var m in endpoints.SelectMany(e => e.LowLevelClientMethods))
+		{
+			await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", m);
+		}
+	}
+    <text>
+    }
+    }
+    </text>
+}

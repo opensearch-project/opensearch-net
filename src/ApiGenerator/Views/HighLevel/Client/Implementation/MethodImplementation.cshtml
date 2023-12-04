@@ -1,0 +1,19 @@
+@using ApiGenerator
+@using ApiGenerator.Domain.Code.HighLevel.Methods
+@using HighLevelModel = ApiGenerator.Domain.Code.HighLevel.Methods.HighLevelModel
+@inherits CodeTemplatePage<HighLevelModel>
+@{
+	const string fluentPath = "HighLevel/Client/FluentSyntax/FluentMethod.cshtml";
+	const string initializerPath = "HighLevel/Client/InitializerSyntax/InitializerMethod.cshtml";
+}
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: false)); }
+@{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.Fluent, async: true)); }
+@if (Model.FluentBound != null)
+{
+<text>
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: false)); }
+    @{ await IncludeAsync(fluentPath, new FluentSyntaxView(Model.FluentBound, async: true)); }
+</text>
+}
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: false)); }
+@{ await IncludeAsync(initializerPath, new InitializerSyntaxView(Model.Initializer, async: true)); }

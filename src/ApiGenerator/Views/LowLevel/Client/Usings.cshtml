@@ -1,0 +1,14 @@
+@using ApiGenerator.Domain
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
+@{
+	var namespaces = Model.EndpointsPerNamespaceLowLevel.Keys.ToHashSet();
+	namespaces.Remove(CsharpNames.RootNamespace);
+	namespaces.Add("Http");
+
+	foreach (var ns in namespaces)
+	{
+<text>using OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix);
+</text>
+	}
+}

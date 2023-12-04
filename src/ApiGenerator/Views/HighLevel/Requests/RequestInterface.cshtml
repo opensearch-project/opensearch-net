@@ -1,0 +1,25 @@
+@using ApiGenerator.Domain.Code.HighLevel.Requests
+@inherits ApiGenerator.CodeTemplatePage<RequestInterface>
+@{
+	var name = Model.CsharpNames.RequestInterfaceName;
+}
+    [InterfaceDataContract]
+    public partial interface @Raw(Model.Name) : IRequest@(Raw(string.Format("<{0}>", Model.CsharpNames.ParametersName)))
+{
+@foreach (var part in Model.UrlParts)
+{
+<text>      [IgnoreDataMember]
+            @(Raw(part.HighLevelTypeName)) @(part.InterfaceName) { get; }
+</text>
+}
+@foreach (var partialParam in Model.PartialParameters)
+{
+<text>      [DataMember(Name = "@(partialParam.QueryStringKey)")] @(Raw(partialParam.TypeHighLevel)) @(partialParam.ClsName) { get; set; }</text>
+}
+    }
+@if (Model.NeedsGenericInterface)
+{
+<text>
+        public partial interface @(name)@Raw(Model.CsharpNames.GenericsDeclaredOnRequest) : @(Raw(name)) { }
+</text>
+}

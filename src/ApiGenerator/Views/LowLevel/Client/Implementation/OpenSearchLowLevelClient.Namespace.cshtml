@@ -1,0 +1,49 @@
+@using System.Collections.ObjectModel
+@using System.Linq
+@using ApiGenerator
+@using ApiGenerator.Domain.Code
+@using ApiGenerator.Domain.Specification
+@inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
+@{ await IncludeLegacyGeneratorNotice(); }
+@{
+	var (ns, endpoints) = Model;
+}
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using OpenSearch.Net;
+using static OpenSearch.Net.HttpMethod;
+
+// ReSharper disable InterpolatedStringExpressionIsNotIFormattable
+// ReSharper disable once CheckNamespace
+// ReSharper disable InterpolatedStringExpressionIsNotIFormattable
+// ReSharper disable RedundantExtendsListEntry
+namespace OpenSearch.Net.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiNamespaceSuffix)
+{
+    /// <summary>
+    /// @ns.SplitPascalCase() APIs.
+    /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.@ns"/> property
+    /// on <see cref="IOpenSearchLowLevelClient"/>.
+    /// </para>
+    /// </summary>
+    public partial class @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+    {
+        internal @(CsharpNames.LowLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchLowLevelClient client) : base(client) {}
+@if (ns == "Cat")
+{
+    <text>protected override string ContentType => "text/plain";</text>
+}
+    @{
+        var methods = endpoints.SelectMany(e=>e.LowLevelClientMethods).ToList();
+        foreach (var method in methods)
+        {
+            await IncludeAsync("LowLevel/Client/Methods/MethodImplementation.cshtml", method);
+        }
+    }
+    }
+}

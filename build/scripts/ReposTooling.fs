@@ -52,6 +52,14 @@ module ReposTooling =
         
         Shell.deleteDir tempDir
         
+    let GenerateApi args =
+        //TODO allow branch name to be passed for CI
+        let folder = Path.getDirectory (Paths.ProjFile "ApiGenerator")
+        let timeout = TimeSpan.FromMinutes(120.)
+        // Building to make sure XML docs files are there, faster then relying on the ApiGenerator to emit these
+        // from a compilation unit
+        Tooling.DotNet.ExecInWithTimeout folder (["run"; "-c"; " Release"; "--" ] @ args) timeout  |> ignore
+        
     let RestSpecTests args =
         let folder = Path.getDirectory (Paths.TestProjFile "Tests.YamlRunner")
         let timeout = TimeSpan.FromMinutes(120.)

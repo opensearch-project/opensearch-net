@@ -1,0 +1,18 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Methods
+@inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
+@{
+	var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
+    var asyncKeyword = Model.Syntax.InterfaceResponse && Model.Async ? "async " : string.Empty;
+    var awaitKeyWord = Model.Syntax.InterfaceResponse && Model.Async ? "await ": string.Empty;
+    var configureAwait = Model.Syntax.InterfaceResponse && Model.Async ? ".ConfigureAwait(false)" : string.Empty;
+
+    var requestMethodGenerics = Model.Syntax.RequestMethodGenerics;
+    var descriptor = Model.Syntax.DescriptorName;
+    var selectorArgs = Model.Syntax.SelectorArguments();
+    var selectorChained = Model.Syntax.SelectorChainedDefaults();
+    var cancellationToken = !Model.Async ? string.Empty : ", ct";
+}
+@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", Model.Syntax); }
+public @(asyncKeyword)@{ await IncludeAsync("HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml", Model);} @Raw("=>")
+    @(awaitKeyWord)@(method)@(Raw(requestMethodGenerics))(selector.InvokeOrDefault(new @(Raw(descriptor))(@Raw(selectorArgs))@(@selectorChained))@cancellationToken)@Raw(configureAwait);

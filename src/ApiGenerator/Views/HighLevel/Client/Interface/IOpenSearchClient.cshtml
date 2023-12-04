@@ -1,0 +1,44 @@
+@using System.Linq
+@using ApiGenerator
+@using ApiGenerator.Domain
+@using ApiGenerator.Domain.Code
+@inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
+@{ await IncludeLegacyGeneratorNotice(); }
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+using OpenSearch.Client;
+@{ await IncludeAsync("HighLevel/Client/Usings.cshtml", Model);}
+
+namespace OpenSearch.Client
+{
+    /// <summary>
+    /// OpenSearch high level client
+    /// </summary>
+    public partial interface IOpenSearchClient
+	{
+		@{
+			var namespaces = Model.EndpointsPerNamespaceHighLevel.Keys.ToHashSet();
+			namespaces.Remove(CsharpNames.RootNamespace);
+			namespaces.Add("Http");
+
+			foreach (var ns in namespaces)
+			{
+<text>      /// <summary>@ns.SplitPascalCase() APIs</summary>
+			@CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
+</text>
+			}
+
+			if(Model.EndpointsPerNamespaceHighLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
+			{
+				foreach(var m in endpoints.Select(e => e.HighLevelModel))
+			    {
+			        await IncludeAsync("HighLevel/Client/Interface/MethodInterface.cshtml", m);
+			    }
+			}
+		}
+	}
+}
