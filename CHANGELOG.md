@@ -31,6 +31,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
 - Bumps `Spectre.Console` from 0.47.0 to 0.48.0
 - Bumps `Microsoft.SourceLink.GitHub` from 1.1.1 to 8.0.0
+- Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
 
 ## [1.5.0]
 ### Fixed
