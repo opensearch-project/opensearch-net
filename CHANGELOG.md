@@ -23,7 +23,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `AWSSDK.Core` from 3.7.202.1 to 3.7.204.12
 - Bumps `xunit.runner.visualstudio` from 2.5.0 to 2.5.4
 - Bumps `Octokit` from 7.1.0 to 9.0.0
-- Bumps `FSharp.Core` from 7.0.400 to 7.0.401
+- Bumps `FSharp.Core` from 7.0.400 to 8.0.100
 - Bumps `xunit` from 2.4.2 to 2.6.2
 - Bumps `CSharpier.Core` from 0.25.0 to 0.26.3
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.7.2 to 17.8.0
