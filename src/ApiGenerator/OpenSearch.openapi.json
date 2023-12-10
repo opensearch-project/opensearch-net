@@ -22364,7 +22364,7 @@
                     {
                         "name": "op_type",
                         "in": "query",
-                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create`for requests without an explicit document ID.",
+                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create` for requests without an explicit document ID.",
                         "schema": {
                             "$ref": "#/components/schemas/OpType"
                         }
@@ -22961,7 +22961,7 @@
                     {
                         "name": "op_type",
                         "in": "query",
-                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create`for requests without an explicit document ID.",
+                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create` for requests without an explicit document ID.",
                         "schema": {
                             "$ref": "#/components/schemas/OpType"
                         }
@@ -23109,7 +23109,7 @@
                     {
                         "name": "op_type",
                         "in": "query",
-                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create`for requests without an explicit document ID.",
+                        "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create` for requests without an explicit document ID.",
                         "schema": {
                             "$ref": "#/components/schemas/OpType"
                         }
@@ -26671,8 +26671,9 @@
                         "description": "Specify the keep alive for point in time.",
                         "schema": {
                             "type": "string",
+                            "pattern": "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$",
                             "description": "Specify the keep alive for point in time.",
-                          "x-data-type": "time"
+                            "x-data-type": "time"
                         }
                     },
                     {
@@ -30720,7 +30721,7 @@
                     "pit_id": {
                         "type": "string"
                     },
-                    "_shard": {
+                    "_shards": {
                         "$ref": "#/components/schemas/ShardStatistics"
                     },
                     "creation_time": {
@@ -31513,7 +31514,7 @@
             },
             "OpType": {
                 "type": "string",
-                "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create`for requests without an explicit document ID.",
+                "description": "Explicit operation type. Defaults to `index` for requests with an explicit document ID, and to `create` for requests without an explicit document ID.",
                 "enum": [
                     "index",
                     "create"
