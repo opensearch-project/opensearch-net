@@ -29,9 +29,7 @@ namespace Scripts
 
 open System
 open System.Runtime.InteropServices
-open Fake.Core
 open Fake.IO
-open Octokit
 
 //this is ugly but a direct port of what used to be duplicated in our DOS and bash scripts
 module Commandline =

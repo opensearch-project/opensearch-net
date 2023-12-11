@@ -27,11 +27,12 @@
 
 namespace Scripts
 
+open System
 open System.Collections.Generic
 open System.Linq
 open System.IO
 open System.Text.RegularExpressions
-open System.Text;
+open System.Text
 open Octokit
 open Versioning
 
@@ -137,8 +138,13 @@ module ReleaseNotes =
         filter.Labels.Add label
         filter.State <- ItemStateFilter.Closed
 
-        let client = GitHubClient(ProductHeaderValue("ReleaseNotesGenerator"))  
-        client.Credentials <- Credentials.Anonymous
+        let client = GitHubClient(ProductHeaderValue("ReleaseNotesGenerator"))
+
+        client.Credentials <-
+            Environment.GetEnvironmentVariable("GITHUB_TOKEN")
+            |> Option.ofObj
+            |> Option.map (fun token -> Credentials(token))
+            |> Option.defaultValue Credentials.Anonymous
 
         client.Issue.GetAllForRepository(Paths.GitHubOwnerName, Paths.GitHubRepositoryName, filter)
         |> Async.AwaitTask
