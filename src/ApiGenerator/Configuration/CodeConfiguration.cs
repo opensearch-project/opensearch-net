@@ -42,15 +42,8 @@ namespace ApiGenerator.Configuration
 			new("{create,delete}_pit"),
 			new("{delete,get}_all_pits"),
 
-			new("cluster.*"),
-			new("dangling_indices.*"),
-
-			new("indices.{delete,exists,get,put}_index_template"),
-
-			new("ingest.*"),
-            new("nodes.*"),
-			new("snapshot.*"),
-			new("tasks.*")
+			new("cluster.{delete,exists,get,put}_component_template"),
+			new("indices.{delete,exists,get,put}_index_template")
 		};
 
 		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));

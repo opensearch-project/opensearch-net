@@ -211,21 +211,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum ExpandWildcards
-	{
-		[EnumMember(Value = "open")]
-		Open,
-		[EnumMember(Value = "closed")]
-		Closed,
-		[EnumMember(Value = "hidden")]
-		Hidden,
-		[EnumMember(Value = "none")]
-		None,
-		[EnumMember(Value = "all")]
-		All
-	}
-
-	[StringEnum]
 	public enum SearchType
 	{
 		[EnumMember(Value = "query_then_fetch")]
@@ -433,7 +418,7 @@ namespace OpenSearch.Net
 		None
 	}
 
-	public static class KnownEnums
+	public static partial class KnownEnums
 	{
 		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new ConcurrentDictionary<Type, Func<Enum, string>>();
 		static KnownEnums()
@@ -445,7 +430,6 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(NodesStatsIndexMetric), (e) => GetStringValue((NodesStatsIndexMetric)e));
 			EnumStringResolvers.TryAdd(typeof(NodesUsageMetric), (e) => GetStringValue((NodesUsageMetric)e));
 			EnumStringResolvers.TryAdd(typeof(DefaultOperator), (e) => GetStringValue((DefaultOperator)e));
-			EnumStringResolvers.TryAdd(typeof(ExpandWildcards), (e) => GetStringValue((ExpandWildcards)e));
 			EnumStringResolvers.TryAdd(typeof(SearchType), (e) => GetStringValue((SearchType)e));
 			EnumStringResolvers.TryAdd(typeof(SuggestMode), (e) => GetStringValue((SuggestMode)e));
 			EnumStringResolvers.TryAdd(typeof(Refresh), (e) => GetStringValue((Refresh)e));
@@ -462,7 +446,10 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(IndicesShardStoresStatus), (e) => GetStringValue((IndicesShardStoresStatus)e));
 			EnumStringResolvers.TryAdd(typeof(ThreadType), (e) => GetStringValue((ThreadType)e));
 			EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
+			RegisterEnumStringResolvers();
 		}
+
+		static partial void RegisterEnumStringResolvers();
 
 		private class EnumDictionary : Dictionary<Enum, string>
 		{
@@ -656,25 +643,6 @@ namespace OpenSearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'");
-		}
-
-		public static string GetStringValue(this ExpandWildcards enumValue)
-		{
-			switch (enumValue)
-			{
-				case ExpandWildcards.Open:
-					return "open";
-				case ExpandWildcards.Closed:
-					return "closed";
-				case ExpandWildcards.Hidden:
-					return "hidden";
-				case ExpandWildcards.None:
-					return "none";
-				case ExpandWildcards.All:
-					return "all";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ExpandWildcards'");
 		}
 
 		public static string GetStringValue(this SearchType enumValue)
