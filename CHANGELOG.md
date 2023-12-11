@@ -6,18 +6,29 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 
+### Removed
+- Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
+- Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
+
+### Dependencies
+- Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
+- Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
+- Bumps `CSharpier.Core` from 0.25.0 to 0.26.3
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
+- Bumps `Spectre.Console` from 0.47.0 to 0.48.0
+- Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
+
+## [1.6.0]
 ### Added
 - Added support for point-in-time search and associated APIs ([#405](https://github.com/opensearch-project/opensearch-net/pull/405))
 - Added support for the component template APIs ([#411](https://github.com/opensearch-project/opensearch-net/pull/411))
 - Added support for the composable index template APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 - Added high-level DSL for raw HTTP methods ([#447](https://github.com/opensearch-project/opensearch-net/pull/447))
 
-### Removed
-- Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
+### Deprecated
+- Deprecated the low-level `IndexTemplateV2` APIs in favour of the new `ComposableIndexTemplate` APIs ([#454](https://github.com/opensearch-project/opensearch-net/pull/454))
 
 ### Dependencies
-- Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
-- Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
 - Bumps `FSharp.Data` from 6.2.0 to 6.3.0
 - Bumps `BenchMarkDotNet` from 0.13.7 to 0.13.11
 - Bumps `AWSSDK.Core` from 3.7.202.1 to 3.7.204.12
@@ -25,13 +36,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 7.1.0 to 9.0.0
 - Bumps `FSharp.Core` from 7.0.400 to 8.0.100
 - Bumps `xunit` from 2.4.2 to 2.6.2
-- Bumps `CSharpier.Core` from 0.25.0 to 0.26.3
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.7.2 to 17.8.0
 - Bumps `System.Text.Json` from 7.0.3 to 8.0.0
-- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
-- Bumps `Spectre.Console` from 0.47.0 to 0.48.0
 - Bumps `Microsoft.SourceLink.GitHub` from 1.1.1 to 8.0.0
-- Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
 
 ## [1.5.0]
 ### Fixed
@@ -117,7 +124,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...main
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...main
+[1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.2.0...v1.3.0
