@@ -64,7 +64,7 @@ runs:
 
         for attempt in {1..20}; do
           sleep 5
-          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:admin $url; then
+          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:$OPENSEARCH_INITIAL_ADMIN_PASSWORD $url; then
             echo '=====> ready'
             exit 0
           fi
@@ -74,3 +74,4 @@ runs:
       env:
         SECURED: ${{ inputs.secured }}
         RUNNER_OS: ${{ runner.os }}
+        OPENSEARCH_INITIAL_ADMIN_PASSWORD: myStrongPassword123!
