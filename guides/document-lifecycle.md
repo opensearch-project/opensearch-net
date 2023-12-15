@@ -7,7 +7,7 @@ Assuming you have OpenSearch running locally on port 9200, you can create a clie
 var node = new Uri("https://localhost:9200");
 var config = new ConnectionSettings(node)
     .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
-    .BasicAuthentication("admin", "admin")
+    .BasicAuthentication("admin", <admin-password>)
     .DisableDirectStreaming();
 var client = new OpenSearchClient(config);
 

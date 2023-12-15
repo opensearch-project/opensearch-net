@@ -18,6 +18,7 @@ public static class OpenSearchClientOptions
 	{
 		Option<Uri> host = new("--host", () => new Uri("https://localhost:9200"), "The OpenSearch host to connect to");
 		Option<string> username = new("--username", () => "admin", "The username to use for authentication");
+		// TODO: This line needs to be updated to replace 'admin' with custom password
 		Option<string> password = new("--password", () => "admin", "The password to use for authentication");
 
 		Action<Option> add = global ? command.AddGlobalOption : command.AddOption;
