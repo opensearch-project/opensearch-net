@@ -34,7 +34,12 @@ runs:
 
         if [[ -d "$OPENSEARCH_HOME/plugins/opensearch-security" ]]; then
           if [[ "$SECURED" == "true" ]]; then
-            bash $OPENSEARCH_HOME/plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
+            DEMO_CONFIG_SCRIPT="$OPENSEARCH_HOME/plugins/opensearch-security/tools/install_demo_configuration.sh"
+            if grep --quiet -i org.opensearch.security.tools.democonfig.Installer "$DEMO_CONFIG_SCRIPT"; then
+              OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin bash "$DEMO_CONFIG_SCRIPT" -y -i -s -t
+            else
+              bash "$DEMO_CONFIG_SCRIPT" -y -i -s
+            fi
             sed -i.bak -e 's/plugins.security.audit.type:.*/plugins.security.audit.type: log4j/' $OPENSEARCH_HOME/config/opensearch.yml
             cp ./client/.ci/opensearch/*.pem $OPENSEARCH_HOME/config/
             url="https://localhost:9200"
@@ -64,7 +69,7 @@ runs:
 
         for attempt in {1..20}; do
           sleep 5
-          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:$OPENSEARCH_INITIAL_ADMIN_PASSWORD $url; then
+          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:admin $url; then
             echo '=====> ready'
             exit 0
           fi
@@ -74,4 +79,3 @@ runs:
       env:
         SECURED: ${{ inputs.secured }}
         RUNNER_OS: ${{ runner.os }}
-        OPENSEARCH_INITIAL_ADMIN_PASSWORD: myStrongPassword123!

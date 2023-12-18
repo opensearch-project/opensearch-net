@@ -22,8 +22,6 @@ on disk (LocalAppData).
 The easiest way to get started is by simply passing the version you want to be bootstrapped to `EphemeralCluster`.
 `Start` starts the `OpenSearchNode`'s and waits for them to be started. The default overload waits `2 minutes`.
 
-NOTE: The ephemeral cluster running with security enabled will require an initial admin password to be set. You can set it as an environment variable `OPENSEARCH_INITIAL_ADMIN_PASSWORD`.
-
 ```csharp
 using (var cluster = new EphemeralCluster("1.0.0"))
 {
