@@ -4,6 +4,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### Dependencies
 - Bumps `BenchMarkDotNet` from 0.13.10 to 0.13.11
+- Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.5
 
 ## [1.6.0]
 ### Added
