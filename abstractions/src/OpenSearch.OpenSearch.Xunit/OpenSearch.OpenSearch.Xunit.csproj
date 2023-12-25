@@ -8,7 +8,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.6.3" />
+    <PackageReference Include="xunit" Version="2.6.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenSearch.OpenSearch.Ephemeral\OpenSearch.OpenSearch.Ephemeral.csproj" />
