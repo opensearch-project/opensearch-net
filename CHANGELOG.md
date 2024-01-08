@@ -6,7 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `BenchMarkDotNet` from 0.13.10 to 0.13.11
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.5
 - Bumps `CSharpier.Core` from 0.26.3 to 0.26.7
-- Bumps `xunit` from 2.6.2 to 2.6.3
+- Bumps `xunit` from 2.6.2 to 2.6.5
 - Bumps `Argu` from 6.1.1 to 6.1.4
 
 ## [1.6.0]
