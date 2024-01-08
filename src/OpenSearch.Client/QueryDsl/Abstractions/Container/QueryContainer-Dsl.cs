@@ -28,6 +28,7 @@
 
 using System;
 using System.Runtime.Serialization;
+using OpenSearch.Client.QueryDsl.Visitor;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
@@ -131,5 +132,36 @@ namespace OpenSearch.Client
 
 		// ReSharper disable once UnusedMember.Global
 		internal bool ShouldSerialize(IJsonFormatterResolver formatterResolver) => IsWritable;
+
+
+		public QueryContainer Name(string name)
+		{
+			ContainedQuery.Name = name;
+			return this;
+		}
+
+		/// <summary>
+		/// Applies the `strict` attribute to the query container and all child sub-queries.
+		/// </summary>
+		/// <param name="strict"></param>
+		/// <returns></returns>
+		public QueryContainer Strict(bool strict)
+		{
+			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsStrict = true);
+			Accept(visitor);
+			return this;
+		}
+
+		/// <summary>
+		/// Applies the `verbatim` attribute to the query container and all child sub-queries.
+		/// </summary>
+		/// <param name="strict"></param>
+		/// <returns></returns>
+		public QueryContainer Verbatim(bool strict)
+		{
+			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsVerbatim = true);
+			Accept(visitor);
+			return this;
+		}
 	}
 }
