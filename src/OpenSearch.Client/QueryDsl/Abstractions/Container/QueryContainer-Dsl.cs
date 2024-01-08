@@ -147,7 +147,7 @@ namespace OpenSearch.Client
 		/// <returns></returns>
 		public QueryContainer Strict(bool strict)
 		{
-			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsStrict = true);
+			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsStrict = strict);
 			Accept(visitor);
 			return this;
 		}
@@ -155,11 +155,11 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Applies the `verbatim` attribute to the query container and all child sub-queries.
 		/// </summary>
-		/// <param name="strict"></param>
+		/// <param name="verbatim"></param>
 		/// <returns></returns>
-		public QueryContainer Verbatim(bool strict)
+		public QueryContainer Verbatim(bool verbatim)
 		{
-			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsVerbatim = true);
+			var visitor = new QueryNodeModifierVisitor((query, ctx) => query.IsVerbatim = verbatim);
 			Accept(visitor);
 			return this;
 		}
