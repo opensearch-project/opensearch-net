@@ -8,6 +8,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `CSharpier.Core` from 0.26.3 to 0.26.7
 - Bumps `xunit` from 2.6.2 to 2.6.3
 - Bumps `Argu` from 6.1.1 to 6.1.4
+- Bumps `JetBrains.Annotations` from 2023.2.0 to 2023.3.0
 
 ## [1.6.0]
 ### Added
