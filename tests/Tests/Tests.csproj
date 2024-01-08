@@ -15,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="FSharp.Core" Version="8.0.100" />
     <PackageReference Include="System.Reactive" Version="6.0.0" />
     <PackageReference Include="SemanticVersioning" Version="2.0.2" />
