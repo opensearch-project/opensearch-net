@@ -47,7 +47,9 @@ namespace Tests.Reproduce
 			var lowLevelClient = _cluster.Client.LowLevel;
 
 			var response = _cluster.ClusterConfiguration.Version < "2.0.0"
+#pragma warning disable CS0618 // Type or member is obsolete
 				? await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" })
+#pragma warning restore CS0618 // Type or member is obsolete
 				: await lowLevelClient.Cat.ClusterManagerAsync<StringResponse>(new CatClusterManagerRequestParameters { Format = "JSON" });
 
 			response.Success.Should().BeTrue();

@@ -50,6 +50,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
 using OpenSearch.Net.Specification.HttpApi;
@@ -66,6 +67,9 @@ namespace OpenSearch.Net
     /// </summary>
     public partial interface IOpenSearchLowLevelClient
     {
+        /// <summary>Cat APIs</summary>
+        LowLevelCatNamespace Cat { get; }
+
         /// <summary>Cluster APIs</summary>
         LowLevelClusterNamespace Cluster { get; }
 

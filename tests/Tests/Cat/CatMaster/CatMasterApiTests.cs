@@ -33,6 +33,7 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Tests.Cat.CatMaster
 {

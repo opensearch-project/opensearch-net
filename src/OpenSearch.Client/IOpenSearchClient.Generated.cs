@@ -64,12 +64,6 @@ namespace OpenSearch.Client
 	///</summary>
 	public partial interface IOpenSearchClient
 	{
-		///<summary>Cat APIs</summary>
-		CatNamespace Cat
-		{
-			get;
-		}
-
 		/// <summary>
 		/// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
 		/// <para></para>

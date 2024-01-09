@@ -132,44 +132,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum Bytes
-	{
-		[EnumMember(Value = "b")]
-		B,
-		[EnumMember(Value = "k")]
-		K,
-		[EnumMember(Value = "kb")]
-		Kb,
-		[EnumMember(Value = "m")]
-		M,
-		[EnumMember(Value = "mb")]
-		Mb,
-		[EnumMember(Value = "g")]
-		G,
-		[EnumMember(Value = "gb")]
-		Gb,
-		[EnumMember(Value = "t")]
-		T,
-		[EnumMember(Value = "tb")]
-		Tb,
-		[EnumMember(Value = "p")]
-		P,
-		[EnumMember(Value = "pb")]
-		Pb
-	}
-
-	[StringEnum]
-	public enum Health
-	{
-		[EnumMember(Value = "green")]
-		Green,
-		[EnumMember(Value = "yellow")]
-		Yellow,
-		[EnumMember(Value = "red")]
-		Red
-	}
-
-	[StringEnum]
 	public enum Size
 	{
 		[EnumMember(Value = "")]
@@ -279,8 +241,6 @@ namespace OpenSearch.Net
 			EnumStringResolvers.TryAdd(typeof(SearchType), (e) => GetStringValue((SearchType)e));
 			EnumStringResolvers.TryAdd(typeof(SuggestMode), (e) => GetStringValue((SuggestMode)e));
 			EnumStringResolvers.TryAdd(typeof(Refresh), (e) => GetStringValue((Refresh)e));
-			EnumStringResolvers.TryAdd(typeof(Bytes), (e) => GetStringValue((Bytes)e));
-			EnumStringResolvers.TryAdd(typeof(Health), (e) => GetStringValue((Health)e));
 			EnumStringResolvers.TryAdd(typeof(Size), (e) => GetStringValue((Size)e));
 			EnumStringResolvers.TryAdd(typeof(Level), (e) => GetStringValue((Level)e));
 			EnumStringResolvers.TryAdd(typeof(ClusterRerouteMetric), (e) => GetStringValue((ClusterRerouteMetric)e));
@@ -401,52 +361,6 @@ namespace OpenSearch.Net
 			}
 
 			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'");
-		}
-
-		public static string GetStringValue(this Bytes enumValue)
-		{
-			switch (enumValue)
-			{
-				case Bytes.B:
-					return "b";
-				case Bytes.K:
-					return "k";
-				case Bytes.Kb:
-					return "kb";
-				case Bytes.M:
-					return "m";
-				case Bytes.Mb:
-					return "mb";
-				case Bytes.G:
-					return "g";
-				case Bytes.Gb:
-					return "gb";
-				case Bytes.T:
-					return "t";
-				case Bytes.Tb:
-					return "tb";
-				case Bytes.P:
-					return "p";
-				case Bytes.Pb:
-					return "pb";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'");
-		}
-
-		public static string GetStringValue(this Health enumValue)
-		{
-			switch (enumValue)
-			{
-				case Health.Green:
-					return "green";
-				case Health.Yellow:
-					return "yellow";
-				case Health.Red:
-					return "red";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Health'");
 		}
 
 		public static string GetStringValue(this Size enumValue)

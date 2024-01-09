@@ -1323,7 +1323,7 @@
                     }
                 },
                 "x-operation-group": "cat.cluster_manager",
-                "x-version-added": "1.0"
+                "x-version-added": "2.0"
             }
         },
         "/_cat/count": {
@@ -2239,7 +2239,7 @@
                 "x-deprecation-message": "To promote inclusive language, please use '/_cat/cluster_manager' instead.",
                 "x-operation-group": "cat.master",
                 "x-version-added": "1.0",
-                "x-version-deprecated": "1.0"
+                "x-version-deprecated": "2.0"
             }
         },
         "/_cat/nodeattrs": {

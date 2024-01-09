@@ -31,6 +31,7 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
+#pragma warning disable CS0618 // Type or member is obsolete
 
 namespace Tests.Cat.CatMaster
 {

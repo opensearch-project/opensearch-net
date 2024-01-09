@@ -46,6 +46,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.CatApi;
 using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.Client.Specification.DanglingIndicesApi;
 using OpenSearch.Client.Specification.HttpApi;
@@ -63,6 +64,9 @@ namespace OpenSearch.Client
     /// </summary>
     public partial class OpenSearchClient : IOpenSearchClient
     {
+        /// <summary>Cat APIs</summary>
+        public CatNamespace Cat { get; private set; }
+
         /// <summary>Cluster APIs</summary>
         public ClusterNamespace Cluster { get; private set; }
 
@@ -89,6 +93,7 @@ namespace OpenSearch.Client
 
         partial void SetupGeneratedNamespaces()
         {
+            Cat = new CatNamespace(this);
             Cluster = new ClusterNamespace(this);
             DanglingIndices = new DanglingIndicesNamespace(this);
             Indices = new IndicesNamespace(this);

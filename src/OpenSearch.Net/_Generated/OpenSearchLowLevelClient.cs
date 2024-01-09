@@ -50,6 +50,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
 using OpenSearch.Net.Specification.HttpApi;
@@ -69,6 +70,7 @@ namespace OpenSearch.Net
     /// </summary>
     public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
     {
+        public LowLevelCatNamespace Cat { get; private set; }
         public LowLevelClusterNamespace Cluster { get; private set; }
         public LowLevelDanglingIndicesNamespace DanglingIndices { get; private set; }
         public LowLevelIndicesNamespace Indices { get; private set; }
@@ -80,6 +82,7 @@ namespace OpenSearch.Net
 
         partial void SetupGeneratedNamespaces()
         {
+            Cat = new LowLevelCatNamespace(this);
             Cluster = new LowLevelClusterNamespace(this);
             DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
             Indices = new LowLevelIndicesNamespace(this);

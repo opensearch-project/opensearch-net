@@ -45,6 +45,35 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls CatAliases =
+            new(new[] { "_cat/aliases", "_cat/aliases/{name}" });
+
+        internal static readonly ApiUrls CatAllocation =
+            new(new[] { "_cat/allocation", "_cat/allocation/{node_id}" });
+
+        internal static readonly ApiUrls CatClusterManager = new(new[] { "_cat/cluster_manager" });
+
+        internal static readonly ApiUrls CatCount =
+            new(new[] { "_cat/count", "_cat/count/{index}" });
+
+        internal static readonly ApiUrls CatFielddata =
+            new(new[] { "_cat/fielddata", "_cat/fielddata/{fields}" });
+
+        internal static readonly ApiUrls CatHealth = new(new[] { "_cat/health" });
+
+        internal static readonly ApiUrls CatHelp = new(new[] { "_cat" });
+
+        internal static readonly ApiUrls CatIndices =
+            new(new[] { "_cat/indices", "_cat/indices/{index}" });
+
+        internal static readonly ApiUrls CatMaster = new(new[] { "_cat/master" });
+
+        internal static readonly ApiUrls CatNodeAttributes = new(new[] { "_cat/nodeattrs" });
+
+        internal static readonly ApiUrls CatNodes = new(new[] { "_cat/nodes" });
+
+        internal static readonly ApiUrls CatPendingTasks = new(new[] { "_cat/pending_tasks" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 
