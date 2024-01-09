@@ -27,7 +27,6 @@
 */
 
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -69,6 +68,8 @@ namespace OpenSearch.Net
 			$"Your target platform does not support {nameof(ConnectionConfiguration.ConnectionLimit)}"
 			+ $" please set {nameof(ConnectionConfiguration.ConnectionLimit)} to -1 on your connection configuration/settings."
 			+ $" this will cause the {nameof(HttpClientHandler.MaxConnectionsPerServer)} not to be set on {nameof(HttpClientHandler)}";
+
+		private static readonly System.Net.Http.HttpMethod Patch = new System.Net.Http.HttpMethod("PATCH");
 
 		private RequestDataHttpClientFactory HttpClientFactory { get; }
 
@@ -430,19 +431,17 @@ namespace OpenSearch.Net
 			}
 		}
 
-		private static System.Net.Http.HttpMethod ConvertHttpMethod(HttpMethod httpMethod)
-		{
-			switch (httpMethod)
+		private static System.Net.Http.HttpMethod ConvertHttpMethod(HttpMethod httpMethod) =>
+			httpMethod switch
 			{
-				case HttpMethod.GET: return System.Net.Http.HttpMethod.Get;
-				case HttpMethod.POST: return System.Net.Http.HttpMethod.Post;
-				case HttpMethod.PUT: return System.Net.Http.HttpMethod.Put;
-				case HttpMethod.DELETE: return System.Net.Http.HttpMethod.Delete;
-				case HttpMethod.HEAD: return System.Net.Http.HttpMethod.Head;
-				default:
-					throw new ArgumentException("Invalid value for HttpMethod", nameof(httpMethod));
-			}
-		}
+				HttpMethod.GET => System.Net.Http.HttpMethod.Get,
+				HttpMethod.POST => System.Net.Http.HttpMethod.Post,
+				HttpMethod.PUT => System.Net.Http.HttpMethod.Put,
+				HttpMethod.DELETE => System.Net.Http.HttpMethod.Delete,
+				HttpMethod.HEAD => System.Net.Http.HttpMethod.Head,
+				HttpMethod.PATCH => Patch,
+				_ => throw new ArgumentException("Invalid value for HttpMethod", nameof(httpMethod))
+			};
 
 		internal static int GetClientKey(RequestData requestData)
 		{

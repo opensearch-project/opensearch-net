@@ -10,6 +10,7 @@ using Amazon;
 using Amazon.Runtime;
 using OpenSearch.Net;
 using OpenSearch.Net.Auth.AwsSigV4;
+using Tests.Core.Connection.Http;
 
 namespace Tests.Auth.AwsSigV4.Utils;
 
