@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Argu` from 6.1.1 to 6.1.4
 - Bumps `JetBrains.Annotations` from 2023.2.0 to 2023.3.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.7.2 to 17.8.0
+- Bumps `Bogus` from 34.0.2 to 35.3.0
 
 ## [1.6.0]
 ### Added
