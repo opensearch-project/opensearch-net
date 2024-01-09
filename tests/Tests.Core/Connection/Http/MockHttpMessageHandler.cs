@@ -9,9 +9,9 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Tests.Auth.AwsSigV4.Utils;
+namespace Tests.Core.Connection.Http;
 
-internal class MockHttpMessageHandler : HttpMessageHandler
+public class MockHttpMessageHandler : HttpMessageHandler
 {
 	public delegate HttpResponseMessage Handler(HttpRequestMessage request);
 

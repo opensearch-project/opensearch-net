@@ -1,15 +1,16 @@
 /* SPDX-License-Identifier: Apache-2.0
- *
- * The OpenSearch Contributors require contributions made to
- * this file be licensed under the Apache-2.0 license or a
- * compatible open source license.
- */
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*/
 
 using System;
 using System.Net.Http;
 using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Core.Connection.Http;
 using Xunit;
 using HttpMethod = OpenSearch.Net.HttpMethod;
 
@@ -28,25 +29,16 @@ public class HttpConnectionTests
 	[MemberData(nameof(HttpMethods))]
 	public void UsesCorrectHttpMethod(HttpMethod method)
 	{
-		var mockHttpConnection = new MockHttpConnection();
-		mockHttpConnection.Request<StringResponse>(new RequestData(method, "", null, null, null, null));
-		mockHttpConnection.LastRequest.Method.Should().Be(new System.Net.Http.HttpMethod(method.ToString()));
-	}
-
-	private class MockHttpConnection : HttpConnection
-	{
-		public HttpRequestMessage LastRequest { get; private set; }
-
-		protected override HttpRequestMessage CreateHttpRequestMessage(RequestData requestData)
+		HttpRequestMessage sentRequest = null;
+		var connection = new MockableHttpConnection(r =>
 		{
-			LastRequest = base.CreateHttpRequestMessage(requestData);
-			return LastRequest;
-		}
+			sentRequest = r;
+			return new HttpResponseMessage();
+		});
+		var client = new OpenSearchLowLevelClient(new ConnectionConfiguration(connection: connection));
 
-		public override TResponse Request<TResponse>(RequestData requestData)
-		{
-			CreateHttpRequestMessage(requestData);
-			return new TResponse();
-		}
+		client.DoRequest<VoidResponse>(method, "/");
+
+		sentRequest.ShouldHaveMethod(method.ToString());
 	}
 }
