@@ -205,11 +205,25 @@ namespace OpenSearch.Client
 			if (type.IsArray)
 				return type.GetElementType();
 
-			if (type.IsGenericType && type.GetGenericArguments().Length == 1
-				&& (type.GetInterfaces().HasAny(t => t == typeof(IEnumerable)) || Nullable.GetUnderlyingType(type) != null))
-				return type.GetGenericArguments()[0];
+			if (ShouldUnwrapType(type))
+			{
+				var returnType = type.GetGenericArguments()[0];
+				if (ShouldUnwrapType(returnType)) // This is needed for types like IEnumerable<int?>.
+				{
+					return returnType.GetGenericArguments()[0];
+				}
+				return returnType;
+			}
 
 			return type;
 		}
+
+		private static bool ShouldUnwrapType(Type ty) =>
+					ty.IsGenericType &&
+					ty.GetGenericArguments().Length == 1 &&
+					(
+						ty.GetInterfaces().HasAny(t => t == typeof(IEnumerable)) ||
+						Nullable.GetUnderlyingType(ty) != null
+					);
 	}
 }
