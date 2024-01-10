@@ -13,6 +13,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fix `HttpConnection.ConvertHttpMethod` to support `Patch` method ([#489](https://github.com/opensearch-project/opensearch-net/pull/489))
 
+
+### Fixed
+- Fixed `IEnumerable<int?>` property mapping. ([#503](https://github.com/opensearch-project/opensearch-net/pull/503))
+
+
 ### Dependencies
 - Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 13.20.0
