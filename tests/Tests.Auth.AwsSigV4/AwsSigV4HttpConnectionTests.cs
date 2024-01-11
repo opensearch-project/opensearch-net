@@ -16,6 +16,7 @@ using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Auth.AwsSigV4.Utils;
+using Tests.Core.Connection.Http;
 using Xunit;
 
 namespace Tests.Auth.AwsSigV4;
