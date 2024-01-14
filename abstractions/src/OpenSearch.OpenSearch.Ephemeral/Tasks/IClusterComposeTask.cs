@@ -185,12 +185,17 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 			var command = $"{{{binary}}} {{{string.Join(" ", arguments)}}}";
 			writer?.WriteDiagnostic($"{{{nameof(ExecuteBinary)}}} starting process [{description}] {command}");
 
-			var environment = environmentVariables != null
-				? new Dictionary<string, string>(environmentVariables)
-				: new Dictionary<string, string>();
+			var environment = new Dictionary<string, string>
+			{
+				{config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath},
+				{"OPENSEARCH_HOME", config.FileSystem.OpenSearchHome}
+			};
 
-			environment.Add(config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath);
-			environment.Add("OPENSEARCH_HOME", config.FileSystem.OpenSearchHome);
+			if (environmentVariables != null)
+			{
+				foreach (var kvp in environmentVariables)
+					environment[kvp.Key] = kvp.Value;
+			}
 
 			var timeout = TimeSpan.FromSeconds(420);
 			var processStartArguments = new StartArguments(binary, arguments)

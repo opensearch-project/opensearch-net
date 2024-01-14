@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
+using OpenSearch.Stack.ArtifactsApi.Products;
 using SemanticVersioning;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
@@ -42,56 +43,36 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 
 			var installConfigDir = Path.Combine(fs.OpenSearchHome, "config");
 			var installConfigFile = Path.Combine(installConfigDir, "opensearch.yml");
-			var configFile = Path.Combine(fs.ConfigPath, "opensearch.yml");
-			var configSecurity = Path.Combine(fs.ConfigPath, "opensearch-security");
+			var pluginSecurity = Path.Combine(fs.OpenSearchHome, "plugins/opensearch-security");
+
+			if (!Directory.Exists(pluginSecurity))
+				return;
 
 			var isNewDemoScript = cluster.ClusterConfiguration.Version.BaseVersion() >= new Version(2, 12, 0);
 
-			var installSecurityConfig = Path.Combine(installConfigDir, "opensearch-security");
-
-			if (isNewDemoScript && Directory.Exists(configSecurity)) Directory.Move(configSecurity, installSecurityConfig);
-
-			const string securityInstallDemoConfigSubPath = "plugins/opensearch-security/tools/install_demo_configuration.sh";
-			var securityInstallDemoConfig = Path.Combine(fs.OpenSearchHome, securityInstallDemoConfigSubPath);
+			const string securityInstallDemoConfigSubPath = "tools/install_demo_configuration.sh";
+			var securityInstallDemoConfig = Path.Combine(pluginSecurity, securityInstallDemoConfigSubPath);
 
 			cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} going to run [{securityInstallDemoConfigSubPath}]");
 
-			var alreadyInstalled = File.Exists(installConfigFile) && File.ReadLines(installConfigFile).Any(l => l.Contains("plugins.security"));
+			if (File.Exists(installConfigFile) && File.ReadLines(installConfigFile).Any(l => l.Contains("plugins.security"))) return;
 
-			if (!alreadyInstalled)
-			{
-				var env = new Dictionary<string, string>();
-				var args = new List<string> { securityInstallDemoConfig, "-y", "-i" };
-
-				if (isNewDemoScript)
-				{
-					env.Add("OPENSEARCH_INITIAL_ADMIN_PASSWORD", "admin");
-					args.Add("-t");
-				}
-
-				ExecuteBinary(
-					cluster.ClusterConfiguration,
-					cluster.Writer,
-					"/bin/bash",
-					"install security plugin demo configuration",
-					env,
-					args.ToArray());
-			}
-
-			Directory.CreateDirectory(fs.ConfigPath);
+			var env = new Dictionary<string, string>();
+			var args = new List<string> { securityInstallDemoConfig, "-y", "-i" };
 
 			if (isNewDemoScript)
 			{
-				Directory.CreateDirectory(configSecurity);
-				CopyFolder(installSecurityConfig, configSecurity);
+				env.Add("OPENSEARCH_INITIAL_ADMIN_PASSWORD", "admin");
+				args.Add("-t");
 			}
 
-			foreach (var f in new[]{"opensearch.yml", "esnode.pem", "esnode-key.pem", "root-ca.pem"})
-				File.Copy(Path.Combine(installConfigDir, f), Path.Combine(fs.ConfigPath, f), true);
-
-			if (cluster.ClusterConfiguration.EnableSsl) return;
-
-			File.AppendAllText(configFile, "plugins.security.disabled: true");
+			ExecuteBinary(
+				cluster.ClusterConfiguration,
+				cluster.Writer,
+				"/bin/bash",
+				"install security plugin demo configuration",
+				env,
+				args.ToArray());
 		}
 	}
 }
