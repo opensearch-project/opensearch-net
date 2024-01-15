@@ -11,6 +11,7 @@
       <meta name="title" content="Interface IReindexRequest&lt;TSource&gt;
  | OpenSearch.Net ">
     
+    <meta name="description" content="A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.   This will create the target index if it doesn&#39;t exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -131,7 +132,7 @@ This will create the target index if it doesn't exist already. If <a class="xref
     <tbody>
       <tr>
         <td><span class="parametername">TSource</span></td>
-        <td></td>
+        <td>A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.   This will create the target index if it doesn't exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using</td>
       </tr>
     </tbody>
   </table>

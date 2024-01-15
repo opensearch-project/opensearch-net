@@ -11,6 +11,7 @@
       <meta name="title" content="Interface IRankFeatureSaturationFunction
  | OpenSearch.Net ">
     
+    <meta name="description" content="Gives a score that is equal to S / (S + pivot) where S is the value of the rank feature and pivot is a configurable pivot value so that the result will be less than 0.5 if S is less than pivot and greater than 0.5 otherwise. Scores are always is (0, 1). If the rank feature has a negative score impact then the function will be computed as pivot / (S + pivot), which decreases when S increases.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -123,7 +124,7 @@ float? Pivot { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?</td>
-        <td></td>
+        <td>Gives a score that is equal to S / (S + pivot) where S is the value of the rank feature and pivot is a configurable pivot value so that the result will be less than 0.5 if S is less than pivot and greater than 0.5 otherwise. Scores are always is (0, 1). If the rank feature has a negative score impact then the function will be computed as pivot / (S + pivot), which decreases when S increases.</td>
       </tr>
     </tbody>
   </table>
