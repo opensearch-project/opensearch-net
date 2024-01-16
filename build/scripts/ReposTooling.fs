@@ -64,17 +64,16 @@ module ReposTooling =
         let folder = Path.getDirectory (Paths.TestProjFile "Tests.YamlRunner")
         let timeout = TimeSpan.FromMinutes(120.)
         Tooling.DotNet.ExecInWithTimeout folder (["run"; "--" ] @ args) timeout  |> ignore
-    
-    
+
+
     let restoreOnce = lazy(Tooling.DotNet.Exec ["tool"; "restore"])
-    
+
     let private differ = "assembly-differ"
     let Differ args =
         restoreOnce.Force()
-              
-        let args = args |> String.concat " "
-        let command = sprintf @"%s %s -o ../../%s" differ args Paths.BuildOutput
-        Tooling.DotNet.ExecIn Paths.TargetsFolder [command] |> ignore
+
+        let args = [differ] @ args @ ["-o"; $"../../{Paths.BuildOutput}"]
+        Tooling.DotNet.ExecIn Paths.TargetsFolder args
 
     let private assemblyRewriter = "assembly-rewriter"
     let Rewriter args =
