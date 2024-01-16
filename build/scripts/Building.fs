@@ -124,29 +124,30 @@ module Build =
             Shell.rm nuspec
             
             deps
-            
-            
-        let rewriteLibFolder libFolder project nugetId dependencies = 
+
+
+        let rewriteLibFolder libFolder project nugetId dependencies =
             let info = DirectoryInfo libFolder
             let tfm = info.Name
             let fullPath = Path.GetFullPath libFolder
-            
-            let mainDll = sprintf "%s.dll" (Path.Combine(fullPath, project)) 
+
+            let mainDll = sprintf "%s.dll" (Path.Combine(fullPath, project))
             let renamedDll dll = dll |> String.replace ".dll" (sprintf "%i.dll" version.Full.Major)
-            
+
             printfn "dll: %s Nuget id: %s dependencies: %A" mainDll nugetId dependencies
             let depAssemblies =
                 dependencies
                 |> Seq.map (fun d -> sprintf "%s.dll" (Path.Combine(Paths.InplaceBuildOutput project tfm, d)))
-            let dlls =
+            let args =
                [mainDll]
                |> Seq.append depAssemblies
                |> Seq.map (fun dll ->
-                   sprintf @"-i ""%s"" -o ""%s"" -k ""%s""" dll (renamedDll dll) keyFile
+                   ["-i"; dll; "-o"; renamedDll dll; "-k"; keyFile]
                )
-           
-            ReposTooling.Rewriter dlls
-           
+               |> Seq.concat
+
+            ReposTooling.Rewriter args
+
             Shell.rm mainDll
             let mainPdb = sprintf "%s.pdb" (Path.Combine(fullPath, project))
             if File.exists mainPdb then Shell.rm mainPdb
