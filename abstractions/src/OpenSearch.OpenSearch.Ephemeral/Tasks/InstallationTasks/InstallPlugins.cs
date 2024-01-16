@@ -99,7 +99,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 					cluster.Writer,
 					fs.PluginBinary,
 					$"install opensearch plugin: {plugin.SubProductName}",
-					"install --batch", GetPluginLocation(plugin, v));
+					"install", "--batch", GetPluginLocation(plugin, v));
 
 				CopyConfigDirectoryToHomeCacheConfigDirectory(cluster, plugin);
 			}

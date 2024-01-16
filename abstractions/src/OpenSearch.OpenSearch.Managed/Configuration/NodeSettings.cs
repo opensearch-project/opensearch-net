@@ -56,18 +56,15 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		public void Add(string key, string value, string versionRange) =>
 			Add(new NodeSetting(key, value, versionRange));
 
-		public string[] ToCommandLineArguments(OpenSearchVersion version)
-		{
-			var settingArgument = "-E ";
-			return this
+		public string[] ToCommandLineArguments(OpenSearchVersion version) =>
+			this
 				//if a node setting is only applicable for a certain version make sure its filtered out
 				.Where(s => string.IsNullOrEmpty(s.VersionRange) || version.InRange(s.VersionRange))
 				//allow additional settings to take precedence over already DefaultNodeSettings
 				//without relying on opensearch to dedup
 				.GroupBy(setting => setting.Key)
 				.Select(g => g.Last())
-				.Select(s => s.Key.StartsWith(settingArgument) ? s.ToString() : $"{settingArgument}{s}")
+				.SelectMany(s => new[] { "-E", s.ToString() })
 				.ToArray();
-		}
 	}
 }
