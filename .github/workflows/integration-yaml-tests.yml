@@ -109,13 +109,18 @@ jobs:
         uses: ./client/.github/actions/build-opensearch
         with:
           ref: ${{ matrix.opensearch_ref }}
+          security_plugin: true
 
       - name: Unpack OpenSearch
-        run: tar -xzf ${{ steps.opensearch_build.outputs.distribution }}
+        run: |
+          tar -xzf ${{ steps.opensearch_build.outputs.distribution }} \
+          && ./opensearch-*/bin/opensearch-plugin install --batch file://$(realpath ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip)
 
       - name: Start OpenSearch
         id: opensearch
         uses: ./client/.github/actions/start-opensearch
+        with:
+          secured: true
 
       - name: Run YAML tests
         working-directory: client
@@ -124,9 +129,12 @@ jobs:
             --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
             -- \
             --endpoint $OPENSEARCH_URL \
+            --auth-cert ./.ci/certs/kirk.p12 \
+            --auth-cert-pass kirk \
             --junit-output-file ./test-results.xml
         env:
           OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
+          ADMIN_PASS: ${{ steps.opensearch.outputs.admin_password }}
 
       - name: Save OpenSearch logs
         if: failure()
