@@ -46,7 +46,6 @@ namespace OpenSearch.Client
 	internal static partial class ApiUrlsLookups
 	{
 		internal static ApiUrls NoNamespaceBulk = new ApiUrls(new[]{"_bulk", "{index}/_bulk"});
-		internal static ApiUrls CatPlugins = new ApiUrls(new[]{"_cat/plugins"});
 		internal static ApiUrls CatRecovery = new ApiUrls(new[]{"_cat/recovery", "_cat/recovery/{index}"});
 		internal static ApiUrls CatRepositories = new ApiUrls(new[]{"_cat/repositories"});
 		internal static ApiUrls CatSegments = new ApiUrls(new[]{"_cat/segments", "_cat/segments/{index}"});

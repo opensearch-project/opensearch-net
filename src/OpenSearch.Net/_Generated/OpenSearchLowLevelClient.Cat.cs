@@ -516,5 +516,27 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Plugins<TResponse>(CatPluginsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/plugins", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.plugins", "")]
+        public Task<TResponse> PluginsAsync<TResponse>(
+            CatPluginsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/plugins",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

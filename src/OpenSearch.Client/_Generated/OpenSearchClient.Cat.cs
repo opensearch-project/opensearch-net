@@ -570,5 +570,46 @@ namespace OpenSearch.Client.Specification.CatApi
                 CatPendingTasksRequestParameters,
                 CatPendingTasksRecord
             >(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatPluginsRecord> Plugins(
+            Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null
+        ) => Plugins(selector.InvokeOrDefault(new CatPluginsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
+            Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null,
+            CancellationToken ct = default
+        ) => PluginsAsync(selector.InvokeOrDefault(new CatPluginsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatPluginsRecord> Plugins(ICatPluginsRequest request) =>
+            DoCat<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
+            ICatPluginsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(
+                request,
+                ct
+            );
     }
 }
