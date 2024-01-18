@@ -62,6 +62,7 @@ namespace ApiGenerator.Configuration
 			new("cat.snapshots"),
 			new("cat.tasks"),
 			new("cat.templates"),
+			new("cat.thread_pool"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

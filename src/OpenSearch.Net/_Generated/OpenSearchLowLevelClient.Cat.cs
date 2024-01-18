@@ -863,5 +863,62 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/thread_pool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ThreadPool<TResponse>(
+            CatThreadPoolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/thread_pool", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/thread_pool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.thread_pool", "")]
+        public Task<TResponse> ThreadPoolAsync<TResponse>(
+            CatThreadPoolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/thread_pool",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="threadPoolPatterns">Comma-separated list of regular-expressions to filter the thread pools in the output.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ThreadPool<TResponse>(
+            string threadPoolPatterns,
+            CatThreadPoolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="threadPoolPatterns">Comma-separated list of regular-expressions to filter the thread pools in the output.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.thread_pool", "thread_pool_patterns")]
+        public Task<TResponse> ThreadPoolAsync<TResponse>(
+            string threadPoolPatterns,
+            CatThreadPoolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

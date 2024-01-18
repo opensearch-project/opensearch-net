@@ -1737,4 +1737,106 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatThreadPoolRequest : IRequest<CatThreadPoolRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names ThreadPoolPatterns { get; }
+    }
+
+    /// <summary>Request for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    public partial class CatThreadPoolRequest
+        : PlainRequestBase<CatThreadPoolRequestParameters>,
+            ICatThreadPoolRequest
+    {
+        protected ICatThreadPoolRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatThreadPool;
+
+        /// <summary>/_cat/thread_pool</summary>
+        public CatThreadPoolRequest()
+            : base() { }
+
+        /// <summary>/_cat/thread_pool/{thread_pool_patterns}</summary>
+        /// <param name="threadPoolPatterns">Optional, accepts null</param>
+        public CatThreadPoolRequest(Names threadPoolPatterns)
+            : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names ICatThreadPoolRequest.ThreadPoolPatterns =>
+            Self.RouteValues.Get<Names>("thread_pool_patterns");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>The multiplier in which to display values.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

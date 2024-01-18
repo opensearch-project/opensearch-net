@@ -95,6 +95,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls CatTemplates =
             new(new[] { "_cat/templates", "_cat/templates/{name}" });
 
+        internal static readonly ApiUrls CatThreadPool =
+            new(new[] { "_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 

@@ -1078,4 +1078,68 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatTemplatesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    public partial class CatThreadPoolDescriptor
+        : RequestDescriptorBase<
+            CatThreadPoolDescriptor,
+            CatThreadPoolRequestParameters,
+            ICatThreadPoolRequest
+        >,
+            ICatThreadPoolRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatThreadPool;
+
+        /// <summary>/_cat/thread_pool</summary>
+        public CatThreadPoolDescriptor()
+            : base() { }
+
+        /// <summary>/_cat/thread_pool/{thread_pool_patterns}</summary>
+        /// <param name="threadPoolPatterns">Optional, accepts null</param>
+        public CatThreadPoolDescriptor(Names threadPoolPatterns)
+            : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
+
+        // values part of the url path
+        Names ICatThreadPoolRequest.ThreadPoolPatterns =>
+            Self.RouteValues.Get<Names>("thread_pool_patterns");
+
+        /// <summary>Comma-separated list of regular-expressions to filter the thread pools in the output.</summary>
+        public CatThreadPoolDescriptor ThreadPoolPatterns(Names threadPoolPatterns) =>
+            Assign(threadPoolPatterns, (a, v) => a.RouteValues.Optional("thread_pool_patterns", v));
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatThreadPoolDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatThreadPoolDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatThreadPoolDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatThreadPoolDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public CatThreadPoolDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatThreadPoolDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>The multiplier in which to display values.</summary>
+        public CatThreadPoolDescriptor Size(long? size) => Qs("size", size);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatThreadPoolDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatThreadPoolDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }

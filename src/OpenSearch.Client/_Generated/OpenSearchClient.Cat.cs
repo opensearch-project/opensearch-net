@@ -894,5 +894,48 @@ namespace OpenSearch.Client.Specification.CatApi
                 request,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public CatResponse<CatThreadPoolRecord> ThreadPool(
+            Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null
+        ) => ThreadPool(selector.InvokeOrDefault(new CatThreadPoolDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
+            Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null,
+            CancellationToken ct = default
+        ) => ThreadPoolAsync(selector.InvokeOrDefault(new CatThreadPoolDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public CatResponse<CatThreadPoolRecord> ThreadPool(ICatThreadPoolRequest request) =>
+            DoCat<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
+                request
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
+            ICatThreadPoolRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
+                request,
+                ct
+            );
     }
 }
