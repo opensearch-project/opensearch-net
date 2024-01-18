@@ -12,7 +12,7 @@ using OpenSearch.Net;
 var node = new Uri("https://localhost:9200");
 var config = new ConnectionSettings(node)
     .ServerCertificateValidationCallback(CertificateValidations.AllowAll)
-    .BasicAuthentication("admin", "admin");
+    .BasicAuthentication("admin", <admin-password>);
 
 var client = new OpenSearchClient(config);;
 ```

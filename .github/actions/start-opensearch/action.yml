@@ -8,6 +8,9 @@ outputs:
   opensearch_url:
     description: The URL where the OpenSearch node is accessible
     value: ${{ steps.opensearch.outputs.url }}
+  admin_password:
+    description: The initial admin password
+    value: ${{ steps.opensearch.outputs.password }}
 runs:
   using: composite
   steps:
@@ -24,30 +27,49 @@ runs:
         if [[ "$RUNNER_OS" == "macOS" ]]; then
           brew install -q coreutils
         fi
-        OPENSEARCH_HOME=$(realpath ./opensearch-*)
+        OPENSEARCH_HOME=$(realpath ./opensearch-[1-9]*)
+        CONFIG_DIR=$OPENSEARCH_HOME/config
+        CONFIG_FILE=$CONFIG_DIR/opensearch.yml
+        SECURITY_DIR=$OPENSEARCH_HOME/plugins/opensearch-security
         OPENSEARCH_JAVA_OPTS="-Djava.net.preferIPv4Stack=true"
 
-        url="http://localhost:9200"
-        cp ./client/.ci/opensearch/opensearch.yml $OPENSEARCH_HOME/config/
+        URL="http://localhost:9200"
+        cp ./client/.ci/opensearch/opensearch.yml $CONFIG_FILE
 
         bash ./client/.ci/generate-certs.sh
+        
+        export OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin
 
-        if [[ -d "$OPENSEARCH_HOME/plugins/opensearch-security" ]]; then
+        if [[ -d "$SECURITY_DIR" ]]; then
           if [[ "$SECURED" == "true" ]]; then
-            bash $OPENSEARCH_HOME/plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
-            sed -i.bak -e 's/plugins.security.audit.type:.*/plugins.security.audit.type: log4j/' $OPENSEARCH_HOME/config/opensearch.yml
-            cp ./client/.ci/opensearch/*.pem $OPENSEARCH_HOME/config/
-            url="https://localhost:9200"
+            SECURITY_VERSION=$(cat $SECURITY_DIR/plugin-descriptor.properties | grep '^version=' | cut -d'=' -f 2)
+            SECURITY_VERSION_COMPONENTS=(${SECURITY_VERSION//./ })
+            SECURITY_MAJOR="${SECURITY_VERSION_COMPONENTS[0]}"
+            SECURITY_MINOR="${SECURITY_VERSION_COMPONENTS[1]}"
+        
+            if (( $SECURITY_MAJOR > 2 || ( $SECURITY_MAJOR == 2 && $SECURITY_MINOR >= 12 ) )); then
+              export OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
+            fi
+        
+            bash "$SECURITY_DIR/tools/install_demo_configuration.sh" -y -i -s
+        
+            sed -i.bak -e 's/plugins.security.audit.type:.*/plugins.security.audit.type: log4j/' $CONFIG_FILE
+            cp ./client/.ci/opensearch/*.pem $CONFIG_DIR/
+            URL="https://localhost:9200"
           else
-            printf "\nplugins.security.disabled: true" >> $OPENSEARCH_HOME/config/opensearch.yml
+            printf "\nplugins.security.disabled: true" >> $CONFIG_FILE
           fi
         fi
 
         if [[ "$RUNNER_OS" == "macOS" ]]; then
-          sed -i.bak -e 's/bootstrap.memory_lock:.*/bootstrap.memory_lock: false/' $OPENSEARCH_HOME/config/opensearch.yml
+          sed -i.bak -e 's/bootstrap.memory_lock:.*/bootstrap.memory_lock: false/' $CONFIG_FILE
         fi
 
-        echo "url=$url" >> $GITHUB_OUTPUT
+        {
+          echo "url=$URL"
+          echo "password=$OPENSEARCH_INITIAL_ADMIN_PASSWORD"
+        } | tee -a $GITHUB_OUTPUT
+        
         if [[ "$RUNNER_OS" == "Linux" ]]; then
           sudo swapoff -a
           sudo sysctl -w vm.swappiness=1
@@ -64,7 +86,7 @@ runs:
 
         for attempt in {1..20}; do
           sleep 5
-          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:admin $url; then
+          if curl -k -sS --cacert ./client/.ci/certs/root-ca.crt -u admin:${OPENSEARCH_INITIAL_ADMIN_PASSWORD} $URL; then
             echo '=====> ready'
             exit 0
           fi

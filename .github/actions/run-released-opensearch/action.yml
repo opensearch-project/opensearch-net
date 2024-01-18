@@ -11,6 +11,9 @@ outputs:
   opensearch_url:
     description: The URL where the OpenSearch node is accessible
     value: ${{ steps.opensearch.outputs.opensearch_url }}
+  admin_password:
+    description: The initial admin password
+    value: ${{ steps.opensearch.outputs.admin_password }}
 runs:
   using: composite
   steps:

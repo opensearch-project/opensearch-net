@@ -34,6 +34,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using OpenSearch.OpenSearch.Managed;
+using OpenSearch.OpenSearch.Managed.Configuration;
 using OpenSearch.Stack.ArtifactsApi;
 
 namespace OpenSearch.OpenSearch.Ephemeral
@@ -58,6 +59,13 @@ namespace OpenSearch.OpenSearch.Ephemeral
 			Composer = new EphemeralClusterComposer<TConfiguration>(this);
 
 		protected EphemeralClusterComposer<TConfiguration> Composer { get; }
+
+		protected override void ModifyNodeConfiguration(NodeConfiguration nodeConfiguration, int port)
+		{
+			base.ModifyNodeConfiguration(nodeConfiguration, port);
+
+			if (!ClusterConfiguration.EnableSsl) nodeConfiguration.Add("plugins.security.disabled", "true");
+		}
 
 		public virtual ICollection<Uri> NodesUris(string hostName = null)
 		{

@@ -172,22 +172,35 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 
 		protected static void ExecuteBinary(EphemeralClusterConfiguration config, IConsoleLineHandler writer,
 			string binary, string description, params string[] arguments) =>
-			ExecuteBinaryInternal(config, writer, binary, description, arguments);
+			ExecuteBinaryInternal(config, writer, binary, description, null, arguments);
+
+		protected static void ExecuteBinary(EphemeralClusterConfiguration config, IConsoleLineHandler writer,
+			string binary, string description, IDictionary<string, string> environmentVariables,
+			params string[] arguments) =>
+			ExecuteBinaryInternal(config, writer, binary, description, environmentVariables, arguments);
 
 		private static void ExecuteBinaryInternal(EphemeralClusterConfiguration config, IConsoleLineHandler writer,
-			string binary, string description, params string[] arguments)
+			string binary, string description, IDictionary<string, string> environmentVariables, params string[] arguments)
 		{
 			var command = $"{{{binary}}} {{{string.Join(" ", arguments)}}}";
 			writer?.WriteDiagnostic($"{{{nameof(ExecuteBinary)}}} starting process [{description}] {command}");
 
+			var environment = new Dictionary<string, string>
+			{
+				{config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath},
+				{"OPENSEARCH_HOME", config.FileSystem.OpenSearchHome}
+			};
+
+			if (environmentVariables != null)
+			{
+				foreach (var kvp in environmentVariables)
+					environment[kvp.Key] = kvp.Value;
+			}
+
 			var timeout = TimeSpan.FromSeconds(420);
 			var processStartArguments = new StartArguments(binary, arguments)
 			{
-				Environment = new Dictionary<string, string>
-				{
-					{config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath},
-					{"OPENSEARCH_HOME", config.FileSystem.OpenSearchHome},
-				}
+				Environment = environment
 			};
 
 			var result = Proc.Start(processStartArguments, timeout, new ConsoleOutColorWriter());
