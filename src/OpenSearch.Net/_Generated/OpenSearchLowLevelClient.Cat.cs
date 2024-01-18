@@ -516,5 +516,409 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Plugins<TResponse>(CatPluginsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/plugins", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.plugins", "")]
+        public Task<TResponse> PluginsAsync<TResponse>(
+            CatPluginsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/plugins",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Recovery<TResponse>(CatRecoveryRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/recovery", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.recovery", "")]
+        public Task<TResponse> RecoveryAsync<TResponse>(
+            CatRecoveryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/recovery",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Recovery<TResponse>(
+            string index,
+            CatRecoveryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/recovery/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.recovery", "index")]
+        public Task<TResponse> RecoveryAsync<TResponse>(
+            string index,
+            CatRecoveryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/recovery/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Repositories<TResponse>(
+            CatRepositoriesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/repositories", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.repositories", "")]
+        public Task<TResponse> RepositoriesAsync<TResponse>(
+            CatRepositoriesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/repositories",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Segments<TResponse>(CatSegmentsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/segments", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.segments", "")]
+        public Task<TResponse> SegmentsAsync<TResponse>(
+            CatSegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/segments",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Segments<TResponse>(
+            string index,
+            CatSegmentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/segments/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.segments", "index")]
+        public Task<TResponse> SegmentsAsync<TResponse>(
+            string index,
+            CatSegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/segments/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Shards<TResponse>(CatShardsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/shards", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.shards", "")]
+        public Task<TResponse> ShardsAsync<TResponse>(
+            CatShardsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/shards",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Shards<TResponse>(
+            string index,
+            CatShardsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/shards/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.shards", "index")]
+        public Task<TResponse> ShardsAsync<TResponse>(
+            string index,
+            CatShardsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/shards/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Snapshots<TResponse>(
+            CatSnapshotsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/snapshots", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.snapshots", "")]
+        public Task<TResponse> SnapshotsAsync<TResponse>(
+            CatSnapshotsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/snapshots",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Snapshots<TResponse>(
+            string repository,
+            CatSnapshotsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/snapshots/{repository:repository}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.snapshots", "repository")]
+        public Task<TResponse> SnapshotsAsync<TResponse>(
+            string repository,
+            CatSnapshotsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/snapshots/{repository:repository}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Tasks<TResponse>(CatTasksRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/tasks", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.tasks", "")]
+        public Task<TResponse> TasksAsync<TResponse>(
+            CatTasksRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/tasks",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Templates<TResponse>(
+            CatTemplatesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/templates", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.templates", "")]
+        public Task<TResponse> TemplatesAsync<TResponse>(
+            CatTemplatesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/templates",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/templates/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Templates<TResponse>(
+            string name,
+            CatTemplatesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/templates/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/templates/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.templates", "name")]
+        public Task<TResponse> TemplatesAsync<TResponse>(
+            string name,
+            CatTemplatesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/templates/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/thread_pool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ThreadPool<TResponse>(
+            CatThreadPoolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/thread_pool", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/thread_pool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.thread_pool", "")]
+        public Task<TResponse> ThreadPoolAsync<TResponse>(
+            CatThreadPoolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/thread_pool",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="threadPoolPatterns">Comma-separated list of regular-expressions to filter the thread pools in the output.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ThreadPool<TResponse>(
+            string threadPoolPatterns,
+            CatThreadPoolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/thread_pool/{thread_pool_patterns} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+        /// <param name="threadPoolPatterns">Comma-separated list of regular-expressions to filter the thread pools in the output.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.thread_pool", "thread_pool_patterns")]
+        public Task<TResponse> ThreadPoolAsync<TResponse>(
+            string threadPoolPatterns,
+            CatThreadPoolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/thread_pool/{threadPoolPatterns:threadPoolPatterns}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

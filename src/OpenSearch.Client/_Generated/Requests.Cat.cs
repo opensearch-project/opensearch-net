@@ -1020,4 +1020,823 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatPluginsRequest : IRequest<CatPluginsRequestParameters> { }
+
+    /// <summary>Request for Plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    public partial class CatPluginsRequest
+        : PlainRequestBase<CatPluginsRequestParameters>,
+            ICatPluginsRequest
+    {
+        protected ICatPluginsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPlugins;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatRecoveryRequest : IRequest<CatRecoveryRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    public partial class CatRecoveryRequest
+        : PlainRequestBase<CatRecoveryRequestParameters>,
+            ICatRecoveryRequest
+    {
+        protected ICatRecoveryRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRecovery;
+
+        /// <summary>/_cat/recovery</summary>
+        public CatRecoveryRequest()
+            : base() { }
+
+        /// <summary>/_cat/recovery/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CatRecoveryRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>If `true`, the response only includes ongoing shard recoveries.</summary>
+        public bool? ActiveOnly
+        {
+            get => Q<bool?>("active_only");
+            set => Q("active_only", value);
+        }
+
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        public bool? Detailed
+        {
+            get => Q<bool?>("detailed");
+            set => Q("detailed", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatRepositoriesRequest
+        : IRequest<CatRepositoriesRequestParameters> { }
+
+    /// <summary>Request for Repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+    public partial class CatRepositoriesRequest
+        : PlainRequestBase<CatRepositoriesRequestParameters>,
+            ICatRepositoriesRequest
+    {
+        protected ICatRepositoriesRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRepositories;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatSegmentsRequest : IRequest<CatSegmentsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+    public partial class CatSegmentsRequest
+        : PlainRequestBase<CatSegmentsRequestParameters>,
+            ICatSegmentsRequest
+    {
+        protected ICatSegmentsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegments;
+
+        /// <summary>/_cat/segments</summary>
+        public CatSegmentsRequest()
+            : base() { }
+
+        /// <summary>/_cat/segments/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CatSegmentsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatShardsRequest : IRequest<CatShardsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+    public partial class CatShardsRequest
+        : PlainRequestBase<CatShardsRequestParameters>,
+            ICatShardsRequest
+    {
+        protected ICatShardsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatShards;
+
+        /// <summary>/_cat/shards</summary>
+        public CatShardsRequest()
+            : base() { }
+
+        /// <summary>/_cat/shards/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CatShardsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatSnapshotsRequest : IRequest<CatSnapshotsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names RepositoryName { get; }
+    }
+
+    /// <summary>Request for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    public partial class CatSnapshotsRequest
+        : PlainRequestBase<CatSnapshotsRequestParameters>,
+            ICatSnapshotsRequest
+    {
+        protected ICatSnapshotsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
+
+        /// <summary>/_cat/snapshots</summary>
+        public CatSnapshotsRequest()
+            : base() { }
+
+        /// <summary>/_cat/snapshots/{repository}</summary>
+        /// <param name="repository">Optional, accepts null</param>
+        public CatSnapshotsRequest(Names repository)
+            : base(r => r.Optional("repository", repository)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatTasksRequest : IRequest<CatTasksRequestParameters> { }
+
+    /// <summary>Request for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    public partial class CatTasksRequest
+        : PlainRequestBase<CatTasksRequestParameters>,
+            ICatTasksRequest
+    {
+        protected ICatTasksRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTasks;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        public string[] Actions
+        {
+            get => Q<string[]>("actions");
+            set => Q("actions", value);
+        }
+
+        /// <summary>Return detailed task information.</summary>
+        public bool? Detailed
+        {
+            get => Q<bool?>("detailed");
+            set => Q("detailed", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>
+        /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
+        /// connecting to, leave empty to get information from all nodes.
+        /// </summary>
+        public string[] Nodes
+        {
+            get => Q<string[]>("nodes");
+            set => Q("nodes", value);
+        }
+
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        public string ParentTaskId
+        {
+            get => Q<string>("parent_task_id");
+            set => Q("parent_task_id", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatTemplatesRequest : IRequest<CatTemplatesRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for Templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+    public partial class CatTemplatesRequest
+        : PlainRequestBase<CatTemplatesRequestParameters>,
+            ICatTemplatesRequest
+    {
+        protected ICatTemplatesRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTemplates;
+
+        /// <summary>/_cat/templates</summary>
+        public CatTemplatesRequest()
+            : base() { }
+
+        /// <summary>/_cat/templates/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public CatTemplatesRequest(Name name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name ICatTemplatesRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatThreadPoolRequest : IRequest<CatThreadPoolRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names ThreadPoolPatterns { get; }
+    }
+
+    /// <summary>Request for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    public partial class CatThreadPoolRequest
+        : PlainRequestBase<CatThreadPoolRequestParameters>,
+            ICatThreadPoolRequest
+    {
+        protected ICatThreadPoolRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatThreadPool;
+
+        /// <summary>/_cat/thread_pool</summary>
+        public CatThreadPoolRequest()
+            : base() { }
+
+        /// <summary>/_cat/thread_pool/{thread_pool_patterns}</summary>
+        /// <param name="threadPoolPatterns">Optional, accepts null</param>
+        public CatThreadPoolRequest(Names threadPoolPatterns)
+            : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names ICatThreadPoolRequest.ThreadPoolPatterns =>
+            Self.RouteValues.Get<Names>("thread_pool_patterns");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>The multiplier in which to display values.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

@@ -208,8 +208,11 @@ namespace OpenSearch.Net
         [EnumMember(Value = "indexing_pressure")]
         IndexingPressure = 1 << 10,
 
+        [EnumMember(Value = "search_pipeline")]
+        SearchPipeline = 1 << 11,
+
         [EnumMember(Value = "_all")]
-        All = 1 << 11
+        All = 1 << 12
     }
 
     [Flags, StringEnum]
@@ -548,6 +551,8 @@ namespace OpenSearch.Net
                 list.Add("discovery");
             if ((enumValue & NodesStatsMetric.IndexingPressure) != 0)
                 list.Add("indexing_pressure");
+            if ((enumValue & NodesStatsMetric.SearchPipeline) != 0)
+                list.Add("search_pipeline");
             return string.Join(",", list);
         }
 

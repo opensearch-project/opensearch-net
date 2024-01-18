@@ -570,5 +570,372 @@ namespace OpenSearch.Client.Specification.CatApi
                 CatPendingTasksRequestParameters,
                 CatPendingTasksRecord
             >(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatPluginsRecord> Plugins(
+            Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null
+        ) => Plugins(selector.InvokeOrDefault(new CatPluginsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
+            Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null,
+            CancellationToken ct = default
+        ) => PluginsAsync(selector.InvokeOrDefault(new CatPluginsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatPluginsRecord> Plugins(ICatPluginsRequest request) =>
+            DoCat<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
+            ICatPluginsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(
+                request,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatRecoveryRecord> Recovery(
+            Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null
+        ) => Recovery(selector.InvokeOrDefault(new CatRecoveryDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
+            Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null,
+            CancellationToken ct = default
+        ) => RecoveryAsync(selector.InvokeOrDefault(new CatRecoveryDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public CatResponse<CatRecoveryRecord> Recovery(ICatRecoveryRequest request) =>
+            DoCat<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// </summary>
+        public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
+            ICatRecoveryRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(
+                request,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// </summary>
+        public CatResponse<CatRepositoriesRecord> Repositories(
+            Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null
+        ) => Repositories(selector.InvokeOrDefault(new CatRepositoriesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// </summary>
+        public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
+            Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null,
+            CancellationToken ct = default
+        ) => RepositoriesAsync(selector.InvokeOrDefault(new CatRepositoriesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// </summary>
+        public CatResponse<CatRepositoriesRecord> Repositories(ICatRepositoriesRequest request) =>
+            DoCat<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(
+                request
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// </summary>
+        public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
+            ICatRepositoriesRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatRepositoriesRequest,
+                CatRepositoriesRequestParameters,
+                CatRepositoriesRecord
+            >(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// </summary>
+        public CatResponse<CatSegmentsRecord> Segments(
+            Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null
+        ) => Segments(selector.InvokeOrDefault(new CatSegmentsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// </summary>
+        public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
+            Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null,
+            CancellationToken ct = default
+        ) => SegmentsAsync(selector.InvokeOrDefault(new CatSegmentsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// </summary>
+        public CatResponse<CatSegmentsRecord> Segments(ICatSegmentsRequest request) =>
+            DoCat<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// </summary>
+        public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
+            ICatSegmentsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(
+                request,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// </summary>
+        public CatResponse<CatShardsRecord> Shards(
+            Func<CatShardsDescriptor, ICatShardsRequest> selector = null
+        ) => Shards(selector.InvokeOrDefault(new CatShardsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// </summary>
+        public Task<CatResponse<CatShardsRecord>> ShardsAsync(
+            Func<CatShardsDescriptor, ICatShardsRequest> selector = null,
+            CancellationToken ct = default
+        ) => ShardsAsync(selector.InvokeOrDefault(new CatShardsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// </summary>
+        public CatResponse<CatShardsRecord> Shards(ICatShardsRequest request) =>
+            DoCat<ICatShardsRequest, CatShardsRequestParameters, CatShardsRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// </summary>
+        public Task<CatResponse<CatShardsRecord>> ShardsAsync(
+            ICatShardsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatShardsRequest, CatShardsRequestParameters, CatShardsRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// </summary>
+        public CatResponse<CatSnapshotsRecord> Snapshots(
+            Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null
+        ) => Snapshots(selector.InvokeOrDefault(new CatSnapshotsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// </summary>
+        public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
+            Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null,
+            CancellationToken ct = default
+        ) => SnapshotsAsync(selector.InvokeOrDefault(new CatSnapshotsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// </summary>
+        public CatResponse<CatSnapshotsRecord> Snapshots(ICatSnapshotsRequest request) =>
+            DoCat<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// </summary>
+        public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
+            ICatSnapshotsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(
+                request,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public CatResponse<CatTasksRecord> Tasks(
+            Func<CatTasksDescriptor, ICatTasksRequest> selector = null
+        ) => Tasks(selector.InvokeOrDefault(new CatTasksDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public Task<CatResponse<CatTasksRecord>> TasksAsync(
+            Func<CatTasksDescriptor, ICatTasksRequest> selector = null,
+            CancellationToken ct = default
+        ) => TasksAsync(selector.InvokeOrDefault(new CatTasksDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public CatResponse<CatTasksRecord> Tasks(ICatTasksRequest request) =>
+            DoCat<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public Task<CatResponse<CatTasksRecord>> TasksAsync(
+            ICatTasksRequest request,
+            CancellationToken ct = default
+        ) => DoCatAsync<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public CatResponse<CatTemplatesRecord> Templates(
+            Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null
+        ) => Templates(selector.InvokeOrDefault(new CatTemplatesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
+            Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null,
+            CancellationToken ct = default
+        ) => TemplatesAsync(selector.InvokeOrDefault(new CatTemplatesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public CatResponse<CatTemplatesRecord> Templates(ICatTemplatesRequest request) =>
+            DoCat<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
+            ICatTemplatesRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(
+                request,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public CatResponse<CatThreadPoolRecord> ThreadPool(
+            Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null
+        ) => ThreadPool(selector.InvokeOrDefault(new CatThreadPoolDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
+            Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null,
+            CancellationToken ct = default
+        ) => ThreadPoolAsync(selector.InvokeOrDefault(new CatThreadPoolDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public CatResponse<CatThreadPoolRecord> ThreadPool(ICatThreadPoolRequest request) =>
+            DoCat<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
+                request
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// </summary>
+        public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
+            ICatThreadPoolRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
+                request,
+                ct
+            );
     }
 }
