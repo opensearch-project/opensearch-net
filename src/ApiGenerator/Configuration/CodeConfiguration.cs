@@ -58,6 +58,7 @@ namespace ApiGenerator.Configuration
 			new("cat.recovery"),
 			new("cat.repositories"),
 			new("cat.segments"),
+			new("cat.shards"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

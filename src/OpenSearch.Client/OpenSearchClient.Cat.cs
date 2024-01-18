@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</a>
-		/// </summary>
-		public CatResponse<CatShardsRecord> Shards(Func<CatShardsDescriptor, ICatShardsRequest> selector = null) => Shards(selector.InvokeOrDefault(new CatShardsDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</a>
-		/// </summary>
-		public Task<CatResponse<CatShardsRecord>> ShardsAsync(Func<CatShardsDescriptor, ICatShardsRequest> selector = null, CancellationToken ct = default) => ShardsAsync(selector.InvokeOrDefault(new CatShardsDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</a>
-		/// </summary>
-		public CatResponse<CatShardsRecord> Shards(ICatShardsRequest request) => DoCat<ICatShardsRequest, CatShardsRequestParameters, CatShardsRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</a>
-		/// </summary>
-		public Task<CatResponse<CatShardsRecord>> ShardsAsync(ICatShardsRequest request, CancellationToken ct = default) => DoCatAsync<ICatShardsRequest, CatShardsRequestParameters, CatShardsRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</a>

@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/shards <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Shards<TResponse>(CatShardsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/shards", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/shards <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.shards", "")]
-		public Task<TResponse> ShardsAsync<TResponse>(CatShardsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/shards", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Shards<TResponse>(string index, CatShardsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/shards/{index:index}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</para></summary>
-		///<param name = "index">A comma-separated list of index names to limit the returned information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.shards", "index")]
-		public Task<TResponse> ShardsAsync<TResponse>(string index, CatShardsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/shards/{index:index}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Snapshots<TResponse>(CatSnapshotsRequestParameters requestParameters = null)

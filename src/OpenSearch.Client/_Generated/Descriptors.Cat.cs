@@ -851,4 +851,71 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for Shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+    public partial class CatShardsDescriptor
+        : RequestDescriptorBase<CatShardsDescriptor, CatShardsRequestParameters, ICatShardsRequest>,
+            ICatShardsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatShards;
+
+        /// <summary>/_cat/shards</summary>
+        public CatShardsDescriptor()
+            : base() { }
+
+        /// <summary>/_cat/shards/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CatShardsDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        public CatShardsDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CatShardsDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public CatShardsDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public CatShardsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatShardsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatShardsDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatShardsDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatShardsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public CatShardsDescriptor Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatShardsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatShardsDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatShardsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }
