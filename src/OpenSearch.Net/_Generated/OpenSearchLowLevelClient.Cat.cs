@@ -538,5 +538,60 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Recovery<TResponse>(CatRecoveryRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/recovery", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.recovery", "")]
+        public Task<TResponse> RecoveryAsync<TResponse>(
+            CatRecoveryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/recovery",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Recovery<TResponse>(
+            string index,
+            CatRecoveryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/recovery/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.recovery", "index")]
+        public Task<TResponse> RecoveryAsync<TResponse>(
+            string index,
+            CatRecoveryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/recovery/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

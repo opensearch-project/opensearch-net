@@ -57,49 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Recovery <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/</para></summary>
-	public partial class CatRecoveryDescriptor : RequestDescriptorBase<CatRecoveryDescriptor, CatRecoveryRequestParameters, ICatRecoveryRequest>, ICatRecoveryRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRecovery;
-		///<summary>/_cat/recovery</summary>
-		public CatRecoveryDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/recovery/{index}</summary>
-		///<param name = "index">Optional, accepts null</param>
-		public CatRecoveryDescriptor(Indices index): base(r => r.Optional("index", index))
-		{
-		}
-
-		// values part of the url path
-		Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
-		///<summary>Comma-separated list or wildcard expression of index names to limit the returned information</summary>
-		public CatRecoveryDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
-		///<summary>a shortcut into calling Index(typeof(TOther))</summary>
-		public CatRecoveryDescriptor Index<TOther>()
-			where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
-		///<summary>A shortcut into calling Index(Indices.All)</summary>
-		public CatRecoveryDescriptor AllIndices() => Index(Indices.All);
-		// Request parameters
-		///<summary>If `true`, the response only includes ongoing shard recoveries</summary>
-		public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) => Qs("active_only", activeonly);
-		///<summary>The unit in which to display byte values</summary>
-		public CatRecoveryDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
-		///<summary>If `true`, the response includes detailed information about shard recoveries</summary>
-		public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatRecoveryDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatRecoveryDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatRecoveryDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatRecoveryDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatRecoveryDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Repositories <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</para></summary>
 	public partial class CatRepositoriesDescriptor : RequestDescriptorBase<CatRepositoriesDescriptor, CatRepositoriesRequestParameters, ICatRepositoriesRequest>, ICatRepositoriesRequest
 	{

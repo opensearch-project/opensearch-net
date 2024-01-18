@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/</a>
-		/// </summary>
-		public CatResponse<CatRecoveryRecord> Recovery(Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null) => Recovery(selector.InvokeOrDefault(new CatRecoveryDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/</a>
-		/// </summary>
-		public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null, CancellationToken ct = default) => RecoveryAsync(selector.InvokeOrDefault(new CatRecoveryDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/</a>
-		/// </summary>
-		public CatResponse<CatRecoveryRecord> Recovery(ICatRecoveryRequest request) => DoCat<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-recovery/</a>
-		/// </summary>
-		public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(ICatRecoveryRequest request, CancellationToken ct = default) => DoCatAsync<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</a>

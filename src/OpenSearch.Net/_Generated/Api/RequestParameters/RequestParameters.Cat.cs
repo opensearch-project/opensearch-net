@@ -926,4 +926,79 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("v", value);
         }
     }
+
+    /// <summary>Request options for Recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    public partial class CatRecoveryRequestParameters
+        : RequestParameters<CatRecoveryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>If `true`, the response only includes ongoing shard recoveries.</summary>
+        public bool? ActiveOnly
+        {
+            get => Q<bool?>("active_only");
+            set => Q("active_only", value);
+        }
+
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        public bool? Detailed
+        {
+            get => Q<bool?>("detailed");
+            set => Q("detailed", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
+        public string[] IndexQueryString
+        {
+            get => Q<string[]>("index");
+            set => Q("index", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

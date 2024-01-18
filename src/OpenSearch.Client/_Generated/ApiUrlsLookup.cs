@@ -76,6 +76,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatPlugins = new(new[] { "_cat/plugins" });
 
+        internal static readonly ApiUrls CatRecovery =
+            new(new[] { "_cat/recovery", "_cat/recovery/{index}" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 
