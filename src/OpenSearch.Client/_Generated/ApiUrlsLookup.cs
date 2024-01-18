@@ -92,6 +92,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatTasks = new(new[] { "_cat/tasks" });
 
+        internal static readonly ApiUrls CatTemplates =
+            new(new[] { "_cat/templates", "_cat/templates/{name}" });
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(new[] { "_cluster/allocation/explain" });
 

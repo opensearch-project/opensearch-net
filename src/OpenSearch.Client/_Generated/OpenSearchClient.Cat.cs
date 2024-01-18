@@ -853,5 +853,46 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatTasksRequest request,
             CancellationToken ct = default
         ) => DoCatAsync<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public CatResponse<CatTemplatesRecord> Templates(
+            Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null
+        ) => Templates(selector.InvokeOrDefault(new CatTemplatesDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
+            Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null,
+            CancellationToken ct = default
+        ) => TemplatesAsync(selector.InvokeOrDefault(new CatTemplatesDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public CatResponse<CatTemplatesRecord> Templates(ICatTemplatesRequest request) =>
+            DoCat<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// </summary>
+        public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
+            ICatTemplatesRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(
+                request,
+                ct
+            );
     }
 }
