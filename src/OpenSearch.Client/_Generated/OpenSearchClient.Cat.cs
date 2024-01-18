@@ -816,5 +816,42 @@ namespace OpenSearch.Client.Specification.CatApi
                 request,
                 ct
             );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public CatResponse<CatTasksRecord> Tasks(
+            Func<CatTasksDescriptor, ICatTasksRequest> selector = null
+        ) => Tasks(selector.InvokeOrDefault(new CatTasksDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public Task<CatResponse<CatTasksRecord>> TasksAsync(
+            Func<CatTasksDescriptor, ICatTasksRequest> selector = null,
+            CancellationToken ct = default
+        ) => TasksAsync(selector.InvokeOrDefault(new CatTasksDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public CatResponse<CatTasksRecord> Tasks(ICatTasksRequest request) =>
+            DoCat<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// </summary>
+        public Task<CatResponse<CatTasksRecord>> TasksAsync(
+            ICatTasksRequest request,
+            CancellationToken ct = default
+        ) => DoCatAsync<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request, ct);
     }
 }

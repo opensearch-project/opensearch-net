@@ -1295,4 +1295,81 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("v", value);
         }
     }
+
+    /// <summary>Request options for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    public partial class CatTasksRequestParameters : RequestParameters<CatTasksRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        public string[] Actions
+        {
+            get => Q<string[]>("actions");
+            set => Q("actions", value);
+        }
+
+        /// <summary>Return detailed task information.</summary>
+        public bool? Detailed
+        {
+            get => Q<bool?>("detailed");
+            set => Q("detailed", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>
+        /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
+        /// connecting to, leave empty to get information from all nodes.
+        /// </summary>
+        public string[] Nodes
+        {
+            get => Q<string[]>("nodes");
+            set => Q("nodes", value);
+        }
+
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        public string ParentTaskId
+        {
+            get => Q<string>("parent_task_id");
+            set => Q("parent_task_id", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

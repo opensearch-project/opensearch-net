@@ -60,6 +60,7 @@ namespace ApiGenerator.Configuration
 			new("cat.segments"),
 			new("cat.shards"),
 			new("cat.snapshots"),
+			new("cat.tasks"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

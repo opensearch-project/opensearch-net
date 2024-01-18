@@ -979,4 +979,43 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    public partial class CatTasksDescriptor
+        : RequestDescriptorBase<CatTasksDescriptor, CatTasksRequestParameters, ICatTasksRequest>,
+            ICatTasksRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTasks;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        public CatTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
+
+        /// <summary>Return detailed task information.</summary>
+        public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatTasksDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatTasksDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatTasksDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
+
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        public CatTasksDescriptor ParentTaskId(string parenttaskid) =>
+            Qs("parent_task_id", parenttaskid);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatTasksDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }
