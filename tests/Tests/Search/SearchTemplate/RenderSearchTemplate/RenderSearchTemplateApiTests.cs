@@ -40,6 +40,7 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Search.SearchTemplate.RenderSearchTemplate
 {
+	[SkipVersion("2.10.*,2.11.*", "Broken by security plugin https://github.com/opensearch-project/security/issues/3672")]
 	public class RenderSearchTemplateApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, RenderSearchTemplateResponse, IRenderSearchTemplateRequest, RenderSearchTemplateDescriptor,
 			RenderSearchTemplateRequest>

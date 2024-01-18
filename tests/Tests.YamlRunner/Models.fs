@@ -61,9 +61,9 @@ let (|IsDoCatch|_|) (s:string) =
     | "conflict" -> Some Conflict 
     | "unavailable" -> Some Unavailable
     | "param" -> Some UnknownParameter
-    | "request" -> Some OtherBadResponse 
-    | s -> Some <| CatchRegex (s.Trim('/'))
-    
+    | "request" -> Some OtherBadResponse
+    | s -> Some <| CatchRegex (Regex.Replace(s.Trim('/'), @"(?<!\\)\\_", "_"))
+
 type NodeSelector =
     | NodeVersionSelector of string
     | NodeAttributeSelector of string * string
