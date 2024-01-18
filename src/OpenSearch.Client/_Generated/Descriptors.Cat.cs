@@ -918,4 +918,65 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatShardsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    public partial class CatSnapshotsDescriptor
+        : RequestDescriptorBase<
+            CatSnapshotsDescriptor,
+            CatSnapshotsRequestParameters,
+            ICatSnapshotsRequest
+        >,
+            ICatSnapshotsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
+
+        /// <summary>/_cat/snapshots</summary>
+        public CatSnapshotsDescriptor()
+            : base() { }
+
+        /// <summary>/_cat/snapshots/{repository}</summary>
+        /// <param name="repository">Optional, accepts null</param>
+        public CatSnapshotsDescriptor(Names repository)
+            : base(r => r.Optional("repository", repository)) { }
+
+        // values part of the url path
+        Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
+
+        /// <summary>Comma-separated list of repository names.</summary>
+        public CatSnapshotsDescriptor RepositoryName(Names repository) =>
+            Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatSnapshotsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatSnapshotsDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatSnapshotsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatSnapshotsDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }

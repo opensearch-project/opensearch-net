@@ -57,46 +57,6 @@ using OpenSearch.Net.Specification.CatApi;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-	///<summary>Descriptor for Snapshots <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
-	public partial class CatSnapshotsDescriptor : RequestDescriptorBase<CatSnapshotsDescriptor, CatSnapshotsRequestParameters, ICatSnapshotsRequest>, ICatSnapshotsRequest
-	{
-		internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
-		///<summary>/_cat/snapshots</summary>
-		public CatSnapshotsDescriptor(): base()
-		{
-		}
-
-		///<summary>/_cat/snapshots/{repository}</summary>
-		///<param name = "repository">Optional, accepts null</param>
-		public CatSnapshotsDescriptor(Names repository): base(r => r.Optional("repository", repository))
-		{
-		}
-
-		// values part of the url path
-		Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
-		///<summary>Name of repository from which to fetch the snapshot information</summary>
-		public CatSnapshotsDescriptor RepositoryName(Names repository) => Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
-		// Request parameters
-		///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-		public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
-		///<summary>Comma-separated list of column names to display</summary>
-		public CatSnapshotsDescriptor Headers(params string[] headers) => Qs("h", headers);
-		///<summary>Return help information</summary>
-		public CatSnapshotsDescriptor Help(bool? help = true) => Qs("help", help);
-		///<summary>Set to true to ignore unavailable snapshots</summary>
-		public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) => Qs("ignore_unavailable", ignoreunavailable);
-		///<summary>Explicit operation timeout for connection to master node</summary>
-		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerTimeout"/> instead</remarks>
-		public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
-		///<summary>Explicit operation timeout for connection to cluster_manager node</summary>
-		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterTimeout"/></remarks>
-		public CatSnapshotsDescriptor ClusterManagerTimeout(Time timeout) => Qs("cluster_manager_timeout", timeout);
-		///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-		public CatSnapshotsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
-		///<summary>Verbose mode. Display column headers</summary>
-		public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
-	}
-
 	///<summary>Descriptor for Tasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</para></summary>
 	public partial class CatTasksDescriptor : RequestDescriptorBase<CatTasksDescriptor, CatTasksRequestParameters, ICatTasksRequest>, ICatTasksRequest
 	{

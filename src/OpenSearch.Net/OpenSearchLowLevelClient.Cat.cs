@@ -66,26 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Snapshots<TResponse>(CatSnapshotsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/snapshots", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.snapshots", "")]
-		public Task<TResponse> SnapshotsAsync<TResponse>(CatSnapshotsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/snapshots", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
-		///<param name = "repository">Name of repository from which to fetch the snapshot information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Snapshots<TResponse>(string repository, CatSnapshotsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cat/snapshots/{repository:repository}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</para></summary>
-		///<param name = "repository">Name of repository from which to fetch the snapshot information</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.snapshots", "repository")]
-		public Task<TResponse> SnapshotsAsync<TResponse>(string repository, CatSnapshotsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cat/snapshots/{repository:repository}"), ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/tasks <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		///<remarks>Note: Experimental within the OpenSearch server, this functionality is Experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features. This functionality is subject to potential breaking changes within a minor version, meaning that your referencing code may break when this library is upgraded.</remarks>

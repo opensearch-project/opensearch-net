@@ -727,5 +727,62 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Snapshots<TResponse>(
+            CatSnapshotsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/snapshots", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.snapshots", "")]
+        public Task<TResponse> SnapshotsAsync<TResponse>(
+            CatSnapshotsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/snapshots",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Snapshots<TResponse>(
+            string repository,
+            CatSnapshotsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/snapshots/{repository:repository}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+        /// <param name="repository">Comma-separated list of repository names.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.snapshots", "repository")]
+        public Task<TResponse> SnapshotsAsync<TResponse>(
+            string repository,
+            CatSnapshotsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/snapshots/{repository:repository}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

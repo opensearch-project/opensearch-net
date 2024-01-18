@@ -1464,4 +1464,98 @@ namespace OpenSearch.Client
             set => Q("v", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface ICatSnapshotsRequest : IRequest<CatSnapshotsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names RepositoryName { get; }
+    }
+
+    /// <summary>Request for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    public partial class CatSnapshotsRequest
+        : PlainRequestBase<CatSnapshotsRequestParameters>,
+            ICatSnapshotsRequest
+    {
+        protected ICatSnapshotsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
+
+        /// <summary>/_cat/snapshots</summary>
+        public CatSnapshotsRequest()
+            : base() { }
+
+        /// <summary>/_cat/snapshots/{repository}</summary>
+        /// <param name="repository">Optional, accepts null</param>
+        public CatSnapshotsRequest(Names repository)
+            : base(r => r.Optional("repository", repository)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

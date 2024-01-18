@@ -1223,4 +1223,76 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("v", value);
         }
     }
+
+    /// <summary>Request options for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    public partial class CatSnapshotsRequestParameters
+        : RequestParameters<CatSnapshotsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
 }

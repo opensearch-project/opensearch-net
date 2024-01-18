@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</a>
-		/// </summary>
-		public CatResponse<CatSnapshotsRecord> Snapshots(Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null) => Snapshots(selector.InvokeOrDefault(new CatSnapshotsDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</a>
-		/// </summary>
-		public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null, CancellationToken ct = default) => SnapshotsAsync(selector.InvokeOrDefault(new CatSnapshotsDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</a>
-		/// </summary>
-		public CatResponse<CatSnapshotsRecord> Snapshots(ICatSnapshotsRequest request) => DoCat<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-snapshots/</a>
-		/// </summary>
-		public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(ICatSnapshotsRequest request, CancellationToken ct = default) => DoCatAsync<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-tasks/</a>
