@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public CatResponse<CatSegmentsRecord> Segments(Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null) => Segments(selector.InvokeOrDefault(new CatSegmentsDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null, CancellationToken ct = default) => SegmentsAsync(selector.InvokeOrDefault(new CatSegmentsDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public CatResponse<CatSegmentsRecord> Segments(ICatSegmentsRequest request) => DoCat<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
-		/// </summary>
-		public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(ICatSegmentsRequest request, CancellationToken ct = default) => DoCatAsync<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-shards/</a>

@@ -617,5 +617,60 @@ namespace OpenSearch.Net.Specification.CatApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_cat/segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Segments<TResponse>(CatSegmentsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_cat/segments", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_cat/segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.segments", "")]
+        public Task<TResponse> SegmentsAsync<TResponse>(
+            CatSegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cat/segments",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Segments<TResponse>(
+            string index,
+            CatSegmentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cat/segments/{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+        /// <param name="index">Comma-separated list of indices to limit the returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("cat.segments", "index")]
+        public Task<TResponse> SegmentsAsync<TResponse>(
+            string index,
+            CatSegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cat/segments/{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

@@ -783,4 +783,72 @@ namespace OpenSearch.Client
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatRepositoriesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
+
+    /// <summary>Descriptor for Segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+    public partial class CatSegmentsDescriptor
+        : RequestDescriptorBase<
+            CatSegmentsDescriptor,
+            CatSegmentsRequestParameters,
+            ICatSegmentsRequest
+        >,
+            ICatSegmentsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegments;
+
+        /// <summary>/_cat/segments</summary>
+        public CatSegmentsDescriptor()
+            : base() { }
+
+        /// <summary>/_cat/segments/{index}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CatSegmentsDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        public CatSegmentsDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CatSegmentsDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public CatSegmentsDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public CatSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public CatSegmentsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatSegmentsDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public CatSegmentsDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
 }
