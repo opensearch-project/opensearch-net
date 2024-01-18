@@ -56,6 +56,7 @@ namespace ApiGenerator.Configuration
 			new("cat.pending_tasks"),
 			new("cat.plugins"),
 			new("cat.recovery"),
+			new("cat.repositories"),
 
 			new("cluster.*"),
 			new("dangling_indices.*"),

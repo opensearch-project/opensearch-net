@@ -66,15 +66,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		///<summary>GET on /_cat/repositories <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Repositories<TResponse>(CatRepositoriesRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cat/repositories", null, RequestParams(requestParameters));
-		///<summary>GET on /_cat/repositories <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("cat.repositories", "")]
-		public Task<TResponse> RepositoriesAsync<TResponse>(CatRepositoriesRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cat/repositories", ctx, null, RequestParams(requestParameters));
 		///<summary>GET on /_cat/segments <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Segments<TResponse>(CatSegmentsRequestParameters requestParameters = null)

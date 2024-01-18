@@ -60,30 +60,6 @@ namespace OpenSearch.Client.Specification.CatApi
 	public partial class CatNamespace : NamespacedClientProxy
 	{
 		/// <summary>
-		/// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</a>
-		/// </summary>
-		public CatResponse<CatRepositoriesRecord> Repositories(Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null) => Repositories(selector.InvokeOrDefault(new CatRepositoriesDescriptor()));
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</a>
-		/// </summary>
-		public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null, CancellationToken ct = default) => RepositoriesAsync(selector.InvokeOrDefault(new CatRepositoriesDescriptor()), ct);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</a>
-		/// </summary>
-		public CatResponse<CatRepositoriesRecord> Repositories(ICatRepositoriesRequest request) => DoCat<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(request);
-		/// <summary>
-		/// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
-		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-repositories/</a>
-		/// </summary>
-		public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(ICatRepositoriesRequest request, CancellationToken ct = default) => DoCatAsync<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(request, ct);
-		/// <summary>
 		/// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
