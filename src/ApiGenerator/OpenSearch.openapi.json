@@ -2632,13 +2632,80 @@
                         }
                     }
                 },
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "A short version of the Accept header, e.g. json, yaml.",
+                        "schema": {
+                            "type": "string",
+                            "description": "A short version of the Accept header, e.g. json, yaml."
+                        }
+                    },
+                    {
+                        "name": "h",
+                        "in": "query",
+                        "description": "Comma-separated list of column names to display.",
+                        "style": "form",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Comma-separated list of column names to display."
+                        },
+                        "explode": true
+                    },
+                    {
+                        "name": "help",
+                        "in": "query",
+                        "description": "Return help information.",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Return help information."
+                        }
+                    },
+                    {
+                        "name": "s",
+                        "in": "query",
+                        "description": "Comma-separated list of column names or column aliases to sort by.",
+                        "style": "form",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Comma-separated list of column names or column aliases to sort by."
+                        },
+                        "explode": true
+                    },
+                    {
+                        "name": "v",
+                        "in": "query",
+                        "description": "Verbose mode. Display column headers.",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Verbose mode. Display column headers."
+                        }
+                    },
+                    {
+                        "name": "bytes",
+                        "in": "query",
+                        "description": "The unit in which to display byte values.",
+                        "schema": {
+                            "$ref": "#/components/schemas/Bytes"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "CatPitSegments 200 response",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CatPitSegmentsResponseContent"
+                                    "$ref": "#/components/schemas/CatPitSegment"
                                 }
                             }
                         }
@@ -2656,13 +2723,80 @@
                     "url": "https://opensearch.org/docs/latest/search-plugins/point-in-time-api/"
                 },
                 "operationId": "CatAllPitSegments",
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "A short version of the Accept header, e.g. json, yaml.",
+                        "schema": {
+                            "type": "string",
+                            "description": "A short version of the Accept header, e.g. json, yaml."
+                        }
+                    },
+                    {
+                        "name": "h",
+                        "in": "query",
+                        "description": "Comma-separated list of column names to display.",
+                        "style": "form",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Comma-separated list of column names to display."
+                        },
+                        "explode": true
+                    },
+                    {
+                        "name": "help",
+                        "in": "query",
+                        "description": "Return help information.",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Return help information."
+                        }
+                    },
+                    {
+                        "name": "s",
+                        "in": "query",
+                        "description": "Comma-separated list of column names or column aliases to sort by.",
+                        "style": "form",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "Comma-separated list of column names or column aliases to sort by."
+                        },
+                        "explode": true
+                    },
+                    {
+                        "name": "v",
+                        "in": "query",
+                        "description": "Verbose mode. Display column headers.",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Verbose mode. Display column headers."
+                        }
+                    },
+                    {
+                        "name": "bytes",
+                        "in": "query",
+                        "description": "The unit in which to display byte values.",
+                        "schema": {
+                            "$ref": "#/components/schemas/Bytes"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "CatAllPitSegments 200 response",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/CatAllPitSegmentsResponseContent"
+                                    "$ref": "#/components/schemas/CatPitSegment"
                                 }
                             }
                         }
@@ -30476,14 +30610,6 @@
                     "pb"
                 ]
             },
-            "CatAllPitSegmentsResponseContent": {
-                "type": "object",
-                "properties": {
-                    "content": {
-                        "$ref": "#/components/schemas/CatPitSegment"
-                    }
-                }
-            },
             "CatPitSegment": {
                 "type": "object",
                 "properties": {
@@ -30491,12 +30617,10 @@
                         "type": "string"
                     },
                     "shard": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "string"
                     },
                     "prirep": {
-                        "type": "boolean",
-                        "description": "Set to true to return stats only for primary shards."
+                        "type": "string"
                     },
                     "ip": {
                         "type": "string"
@@ -30505,43 +30629,31 @@
                         "type": "string"
                     },
                     "generation": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "string"
                     },
-                    "docs_count": {
-                        "type": "integer",
-                        "format": "int32"
+                    "docs.count": {
+                        "type": "string"
                     },
-                    "docs_deleted": {
-                        "type": "integer",
-                        "format": "int32"
+                    "docs.deleted": {
+                        "type": "string"
                     },
                     "size": {
                         "type": "string"
                     },
-                    "size_memory": {
-                        "type": "integer",
-                        "format": "int32"
+                    "size.memory": {
+                        "type": "string"
                     },
                     "committed": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "searchable": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "version": {
                         "type": "string"
                     },
                     "compound": {
-                        "type": "boolean"
-                    }
-                }
-            },
-            "CatPitSegmentsResponseContent": {
-                "type": "object",
-                "properties": {
-                    "content": {
-                        "$ref": "#/components/schemas/CatPitSegment"
+                        "type": "string"
                     }
                 }
             },

@@ -109,6 +109,39 @@ namespace OpenSearch.Client
         public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
+    /// <summary>Descriptor for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    public partial class CatAllPitSegmentsDescriptor
+        : RequestDescriptorBase<
+            CatAllPitSegmentsDescriptor,
+            CatAllPitSegmentsRequestParameters,
+            ICatAllPitSegmentsRequest
+        >,
+            ICatAllPitSegmentsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllPitSegments;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public CatAllPitSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatAllPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatAllPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatAllPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatAllPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
+
     /// <summary>Descriptor for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationDescriptor
         : RequestDescriptorBase<
@@ -629,6 +662,39 @@ namespace OpenSearch.Client
 
         /// <summary>Verbose mode. Display column headers.</summary>
         public CatPendingTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
+    }
+
+    /// <summary>Descriptor for PitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    public partial class CatPitSegmentsDescriptor
+        : RequestDescriptorBase<
+            CatPitSegmentsDescriptor,
+            CatPitSegmentsRequestParameters,
+            ICatPitSegmentsRequest
+        >,
+            ICatPitSegmentsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPitSegments;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public CatPitSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public CatPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
+
+        /// <summary>Return help information.</summary>
+        public CatPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public CatPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
+            Qs("s", sortbycolumns);
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public CatPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
     /// <summary>Descriptor for Plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>

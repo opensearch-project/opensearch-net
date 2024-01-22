@@ -44,6 +44,7 @@ namespace ApiGenerator.Configuration
 
 			new("cat.aliases"),
 			new("cat.allocation"),
+			new("cat.all_pit_segments"),
 			new("cat.cluster_manager"),
 			new("cat.count"),
 			new("cat.fielddata"),
@@ -54,6 +55,7 @@ namespace ApiGenerator.Configuration
 			new("cat.nodeattrs"),
 			new("cat.nodes"),
 			new("cat.pending_tasks"),
+			new("cat.pit_segments"),
 			new("cat.plugins"),
 			new("cat.recovery"),
 			new("cat.repositories"),

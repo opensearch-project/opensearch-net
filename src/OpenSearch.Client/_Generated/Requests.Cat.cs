@@ -142,6 +142,68 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface ICatAllPitSegmentsRequest
+        : IRequest<CatAllPitSegmentsRequestParameters> { }
+
+    /// <summary>Request for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    public partial class CatAllPitSegmentsRequest
+        : PlainRequestBase<CatAllPitSegmentsRequestParameters>,
+            ICatAllPitSegmentsRequest
+    {
+        protected ICatAllPitSegmentsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllPitSegments;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface ICatAllocationRequest : IRequest<CatAllocationRequestParameters>
     {
         [IgnoreDataMember]
@@ -1004,6 +1066,67 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("master_timeout");
             set => Q("master_timeout", value);
+        }
+
+        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        public string[] SortByColumns
+        {
+            get => Q<string[]>("s");
+            set => Q("s", value);
+        }
+
+        /// <summary>Verbose mode. Display column headers.</summary>
+        public bool? Verbose
+        {
+            get => Q<bool?>("v");
+            set => Q("v", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICatPitSegmentsRequest : IRequest<CatPitSegmentsRequestParameters> { }
+
+    /// <summary>Request for PitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    public partial class CatPitSegmentsRequest
+        : PlainRequestBase<CatPitSegmentsRequestParameters>,
+            ICatPitSegmentsRequest
+    {
+        protected ICatPitSegmentsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPitSegments;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>The unit in which to display byte values.</summary>
+        public Bytes? Bytes
+        {
+            get => Q<Bytes?>("bytes");
+            set => Q("bytes", value);
+        }
+
+        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        public string Format
+        {
+            get => Q<string>("format");
+            set
+            {
+                Q("format", value);
+                SetAcceptHeader(value);
+            }
+        }
+
+        /// <summary>Comma-separated list of column names to display.</summary>
+        public string[] Headers
+        {
+            get => Q<string[]>("h");
+            set => Q("h", value);
+        }
+
+        /// <summary>Return help information.</summary>
+        public bool? Help
+        {
+            get => Q<bool?>("help");
+            set => Q("help", value);
         }
 
         /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>

@@ -104,6 +104,58 @@ namespace OpenSearch.Client.Specification.CatApi
             );
 
         /// <summary>
+        /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
+            Func<CatAllPitSegmentsDescriptor, ICatAllPitSegmentsRequest> selector = null
+        ) => AllPitSegments(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
+            Func<CatAllPitSegmentsDescriptor, ICatAllPitSegmentsRequest> selector = null,
+            CancellationToken ct = default
+        ) => AllPitSegmentsAsync(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
+            ICatAllPitSegmentsRequest request
+        ) =>
+            DoCat<
+                ICatAllPitSegmentsRequest,
+                CatAllPitSegmentsRequestParameters,
+                CatAllPitSegmentsRecord
+            >(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
+            ICatAllPitSegmentsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatAllPitSegmentsRequest,
+                CatAllPitSegmentsRequestParameters,
+                CatAllPitSegmentsRecord
+            >(request, ct);
+
+        /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
@@ -569,6 +621,54 @@ namespace OpenSearch.Client.Specification.CatApi
                 ICatPendingTasksRequest,
                 CatPendingTasksRequestParameters,
                 CatPendingTasksRecord
+            >(request, ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public CatResponse<CatPitSegmentsRecord> PitSegments(
+            Func<CatPitSegmentsDescriptor, ICatPitSegmentsRequest> selector = null
+        ) => PitSegments(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
+            Func<CatPitSegmentsDescriptor, ICatPitSegmentsRequest> selector = null,
+            CancellationToken ct = default
+        ) => PitSegmentsAsync(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()), ct);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public CatResponse<CatPitSegmentsRecord> PitSegments(ICatPitSegmentsRequest request) =>
+            DoCat<ICatPitSegmentsRequest, CatPitSegmentsRequestParameters, CatPitSegmentsRecord>(
+                request
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
+            ICatPitSegmentsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatPitSegmentsRequest,
+                CatPitSegmentsRequestParameters,
+                CatPitSegmentsRecord
             >(request, ct);
 
         /// <summary>
