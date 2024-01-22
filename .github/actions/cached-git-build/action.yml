@@ -11,6 +11,9 @@ inputs:
     description: A list of paths to cache
   build_script:
     description: The script to run to build the repository
+  cache_key_suffix:
+    description: A suffix to append to the cache key
+    default: ''
 runs:
   using: composite
   steps:
@@ -32,7 +35,7 @@ runs:
       uses: actions/cache/restore@v3
       with:
         path: ${{ inputs.cached_paths }}
-        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}
+        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}${{ inputs.cache_key_suffix }}
       
     - name: Build
       if: steps.restore.outputs.cache-hit != 'true'
@@ -45,4 +48,4 @@ runs:
       uses: actions/cache/save@v3
       with:
         path: ${{ inputs.cached_paths }}
-        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}
+        key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}${{ inputs.cache_key_suffix }}

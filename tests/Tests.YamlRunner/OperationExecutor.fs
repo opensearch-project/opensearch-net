@@ -362,7 +362,12 @@ type OperationExecutor(client:IOpenSearchLowLevelClient) =
                 | (WholeResponse, _) -> stashes.Response().Dictionary.ToDictionary() :> Object
             
             match assertValue with
-            | Value o -> OperationExecutor.JTokenDeepEquals op o value
+            | Value o ->
+                let resolvedData =
+                    match o with
+                    | :? YamlMap as m -> stashes.Resolve progress m :> Object
+                    | o -> o
+                OperationExecutor.JTokenDeepEquals op resolvedData value
             | Id id ->
                 let found, expected = stashes.TryGetValue id
                 match found with

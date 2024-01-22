@@ -1,0 +1,52 @@
+name: Run OpenSearch
+description: Runs a released version of OpenSearch
+inputs:
+  version:
+    description: The version of OpenSearch to run
+    required: true
+  secured:
+    description: Whether to enable the security plugin
+    required: true
+outputs:
+  opensearch_url:
+    description: The URL where the OpenSearch node is accessible
+    value: ${{ steps.opensearch.outputs.opensearch_url }}
+  admin_password:
+    description: The initial admin password
+    value: ${{ steps.opensearch.outputs.admin_password }}
+runs:
+  using: composite
+  steps:
+    - name: Restore cached OpenSearch distro
+      id: cache-restore
+      uses: actions/cache/restore@v3
+      with:
+        path: opensearch-*
+        key: opensearch-${{ inputs.version }}-${{ runner.os }}
+
+    - name: Download OpenSearch
+      if: steps.cache-restore.outputs.cache-hit != 'true'
+      shell: bash -eo pipefail {0}
+      run: |
+        if [[ "$RUNNER_OS" != "Windows" ]]; then
+          curl -sSLO https://artifacts.opensearch.org/releases/bundle/opensearch/${{ inputs.version }}/opensearch-${{ inputs.version }}-linux-x64.tar.gz
+          tar -xzf opensearch-*.tar.gz
+          rm -f opensearch-*.tar.gz
+        else
+          curl -sSLO https://artifacts.opensearch.org/releases/bundle/opensearch/${{ inputs.version }}/opensearch-${{ inputs.version }}-windows-x64.zip
+          unzip opensearch-*.zip
+          rm -f opensearch-*.zip
+        fi
+
+    - name: Save cached OpenSearch distro
+      if: steps.cache-restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v3
+      with:
+        path: opensearch-*
+        key: opensearch-${{ inputs.version }}-${{ runner.os }}
+
+    - name: Start OpenSearch
+      id: opensearch
+      uses: ./client/.github/actions/start-opensearch
+      with:
+        secured: ${{ inputs.secured }}

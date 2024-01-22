@@ -30,31 +30,38 @@ module Tests.YamlRunner.Main
 open System
 open System.Linq
 open System.Diagnostics
+open System.Security.Cryptography.X509Certificates
 open Argu
 open Tests.YamlRunner
 open Tests.YamlRunner.Models
 open OpenSearch.Net
 
 type Arguments =
-    | [<First; MainCommand; CliPrefix(CliPrefix.None)>] NamedSuite of string
-    | [<AltCommandLine("-f")>]Folder of string
-    | [<AltCommandLine("-t")>]TestFile of string
-    | [<AltCommandLine("-s")>]TestSection of string
-    | [<AltCommandLine("-e")>]Endpoint of string
-    | [<AltCommandLine("-r")>]Revision of string
-    | [<AltCommandLine("-o")>]JUnitOutputFile of string
-    | [<AltCommandLine("-p")>]Profile of bool
+    | [<First; MainCommand; CliPrefix(CliPrefix.None)>] Named_Suite of string
+    | Folder of string
+    | Test_File of string
+    | Test_Section of string
+    | Endpoint of string
+    | Auth_Basic of string
+    | Auth_Cert of string
+    | Auth_Cert_Pass of string
+    | Revision of string
+    | JUnit_Output_File of string
+    | Profile of bool
     with
     interface IArgParserTemplate with
         member s.Usage =
             match s with
-            | NamedSuite _ -> "specify a known yaml test suite. defaults to `opensource`."
+            | Named_Suite _ -> "specify a known yaml test suite. defaults to `opensource`."
             | Revision _ -> "The git revision to reference (commit/branch/tag). defaults to `main`"
             | Folder _ -> "Only run tests in this folder"
-            | TestFile _ -> "Only run tests starting with this filename"
-            | TestSection _ -> "Only run test with this name (best used in conjuction with -t)"
+            | Test_File _ -> "Only run tests starting with this filename"
+            | Test_Section _ -> "Only run test with this name (best used in conjunction with --test-file)"
             | Endpoint _ -> "The opensearch endpoint to run tests against"
-            | JUnitOutputFile _ -> "The path and file name to use for the junit xml output, defaults to a random tmp filename"
+            | Auth_Basic _ -> "The username and password to use for client authentication in the form of `username:password`"
+            | Auth_Cert _ -> "The certificate to use for client authentication"
+            | Auth_Cert_Pass _ -> "The password to use for the auth certificate"
+            | JUnit_Output_File _ -> "The path and file name to use for the junit xml output, defaults to a random tmp filename"
             | Profile _ -> "Print out process id and wait for confirmation to kick off the tests"
 
 let private runningMitmProxy = Process.GetProcessesByName("mitmproxy").Length > 0
@@ -67,37 +74,34 @@ let private defaultEndpoint namedSuite =
     let https = "s" // ""
     sprintf "http%s://%s:9200" https host;
 
-let private createClient endpoint namedSuite = 
-    let uri, userInfo = 
-        let e = Uri(endpoint)
-        let sanitized = UriBuilder(e)
-        sanitized.UserName <- null
-        sanitized.Password <- null
-        let uri = sanitized.Uri
-        let tokens = e.UserInfo.Split(':') |> Seq.toList
-        match (tokens, namedSuite) with 
-        | ([username; password], _) -> uri, Some (username, password)
-        | _ -> uri, None
-    let settings = new ConnectionConfiguration(uri)
+let private createClient endpoint (authBasic: string option) (authCert: string option * string option) namedSuite = 
+    let mutable settings = new ConnectionConfiguration(Uri(endpoint))
+    settings <-
+        settings.DisableDirectStreaming(true)
     // proxy 
-    let proxySettings =
-        match (runningMitmProxy, namedSuite) with
-        | (true, _) -> settings.Proxy(Uri("http://ipv4.fiddler:8080"), String(null), String(null))
+    settings <-
+        match runningMitmProxy with
+        | true -> settings.Proxy(Uri("http://ipv4.fiddler:8080"), String(null), String(null))
         | _ -> settings
     // auth
-    let authSettings =
-        match userInfo with
-        | Some(username, password) -> proxySettings.BasicAuthentication(username, password)
-        | _ -> proxySettings
+    settings <-
+        match (authCert, authBasic) with
+        | (Some(certPath), None), _ ->
+            settings.ClientCertificate(new X509Certificate2(certPath))
+        | (Some(certPath), Some(certPass)), _ ->
+            settings.ClientCertificate(new X509Certificate2(certPath, certPass))
+        | _, Some(userPass) ->
+            match userPass.Split(':') with
+            | [| username; password |] -> settings.BasicAuthentication(username, password)
+            | _ -> settings
+        | _ -> settings
     // certs
-    let certSettings =
-        match namedSuite with
-//            authSettings.ServerCertificateValidationCallback(fun _ _ _ _ -> true)
-        | _ -> authSettings
-    OpenSearchLowLevelClient(certSettings)
+    settings <-
+        settings.ServerCertificateValidationCallback(fun _ _ _ _ -> true)
+    OpenSearchLowLevelClient(settings)
     
-let validateRevisionParams endpoint _passedRevision namedSuite =    
-    let client = createClient endpoint namedSuite
+let validateRevisionParams endpoint authBasic authCert _passedRevision namedSuite =    
+    let client = createClient endpoint authBasic authCert namedSuite
     
     let node = client.Settings.ConnectionPool.Nodes.First()
     let auth =     
@@ -108,9 +112,7 @@ let validateRevisionParams endpoint _passedRevision namedSuite =
     printfn "Running opensearch %O %s" (node.Uri) auth
     
     let r =
-        let config = RequestConfiguration(DisableDirectStreaming=Nullable(true))
-        let p = RootNodeInfoRequestParameters(RequestConfiguration = config)
-        client.RootNodeInfo<DynamicResponse>(p)
+       client.RootNodeInfo<DynamicResponse>()
         
     printfn "%s" r.DebugInformation
     if not r.Success then
@@ -127,22 +129,25 @@ let validateRevisionParams endpoint _passedRevision namedSuite =
     (client, revision, version)
     
 let runMain (parsed:ParseResults<Arguments>) = async {
-    let namedSuite = parsed.TryGetResult NamedSuite |> Option.defaultValue "_"
+    let namedSuite = parsed.TryGetResult Named_Suite |> Option.defaultValue "_"
     let directory = parsed.TryGetResult Folder //|> Option.defaultValue "indices.create" |> Some
-    let file = parsed.TryGetResult TestFile //|> Option.defaultValue "10_basic.yml" |> Some
-    let section = parsed.TryGetResult TestSection //|> Option.defaultValue "10_basic.yml" |> Some
+    let file = parsed.TryGetResult Test_File //|> Option.defaultValue "10_basic.yml" |> Some
+    let section = parsed.TryGetResult Test_Section //|> Option.defaultValue "10_basic.yml" |> Some
     let endpoint = parsed.TryGetResult Endpoint |> Option.defaultValue (defaultEndpoint namedSuite)
+    let authBasic = parsed.TryGetResult Auth_Basic
+    let authCert = parsed.TryGetResult Auth_Cert
+    let authCertPass = parsed.TryGetResult Auth_Cert_Pass
     let profile = parsed.TryGetResult Profile |> Option.defaultValue false
     let passedRevision = parsed.TryGetResult Revision
     let outputFile =
-        parsed.TryGetResult JUnitOutputFile
+        parsed.TryGetResult JUnit_Output_File
         |> Option.defaultValue (System.IO.Path.GetTempFileName())
         
-    let (client, revision, version) = validateRevisionParams endpoint passedRevision namedSuite
+    let client, revision, version = validateRevisionParams endpoint authBasic (authCert, authCertPass) passedRevision namedSuite
     
     printfn "Found version %s downloading specs from: %s" version revision
     
-    let! locateResults = Commands.LocateTests namedSuite revision directory file 
+    let! locateResults = Commands.LocateTests namedSuite revision directory file
     let readResults = Commands.ReadTests locateResults 
     if profile then
         printf "Waiting for profiler to attach to pid: %O" <| Process.GetCurrentProcess().Id

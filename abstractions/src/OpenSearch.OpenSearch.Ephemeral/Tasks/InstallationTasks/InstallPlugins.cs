@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -93,12 +94,21 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				cluster.Writer?.WriteDiagnostic(
 					$"{{{nameof(InstallPlugins)}}} attempting install [{plugin.SubProductName}] as it's not OOTB: {{{plugin.ShippedByDefaultAsOf}}} and valid for {v}: {{{plugin.IsValid(v)}}}");
 
-				if (!Directory.Exists(fs.ConfigPath)) Directory.CreateDirectory(fs.ConfigPath);
+				var homeConfigPath = Path.Combine(fs.OpenSearchHome, "config");
+
+				if (!Directory.Exists(homeConfigPath)) Directory.CreateDirectory(homeConfigPath);
+
+				var env = new Dictionary<string, string>
+				{
+					{ fs.ConfigEnvironmentVariableName, homeConfigPath }
+				};
+
 				ExecuteBinary(
 					cluster.ClusterConfiguration,
 					cluster.Writer,
 					fs.PluginBinary,
 					$"install opensearch plugin: {plugin.SubProductName}",
+					env,
 					"install", "--batch", GetPluginLocation(plugin, v));
 
 				CopyConfigDirectoryToHomeCacheConfigDirectory(cluster, plugin);
