@@ -14,15 +14,15 @@
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Domain\Tests.Domain.csproj" />
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.8.0" />
-    
+
     <PackageReference Include="xunit" Version="2.6.5" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj" />
     <PackageReference Include="JunitXml.TestLogger" Version="3.0.134" />
-    
+
     <PackageReference Include="Nullean.VsTest.Pretty.TestLogger" Version="0.3.0" />
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
-    
+
     <PackageReference Include="DiffPlex" Version="1.7.1" />
-    <PackageReference Include="Proc" Version="0.8.0" />
+    <PackageReference Include="Proc" Version="0.8.1" />
   </ItemGroup>
 </Project>
