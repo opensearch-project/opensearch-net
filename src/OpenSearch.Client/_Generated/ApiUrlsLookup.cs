@@ -86,6 +86,9 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatRepositories = new(new[] { "_cat/repositories" });
 
+        internal static readonly ApiUrls CatSegmentReplication =
+            new(new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" });
+
         internal static readonly ApiUrls CatSegments =
             new(new[] { "_cat/segments", "_cat/segments/{index}" });
 

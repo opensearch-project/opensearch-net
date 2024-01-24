@@ -798,6 +798,62 @@ namespace OpenSearch.Client.Specification.CatApi
             >(request, ct);
 
         /// <summary>
+        /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
+        public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
+            Func<CatSegmentReplicationDescriptor, ICatSegmentReplicationRequest> selector = null
+        ) => SegmentReplication(selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
+        public Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
+            Func<CatSegmentReplicationDescriptor, ICatSegmentReplicationRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            SegmentReplicationAsync(
+                selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
+        public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
+            ICatSegmentReplicationRequest request
+        ) =>
+            DoCat<
+                ICatSegmentReplicationRequest,
+                CatSegmentReplicationRequestParameters,
+                CatSegmentReplicationRecord
+            >(request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
+        public Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
+            ICatSegmentReplicationRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoCatAsync<
+                ICatSegmentReplicationRequest,
+                CatSegmentReplicationRequestParameters,
+                CatSegmentReplicationRecord
+            >(request, ct);
+
+        /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>

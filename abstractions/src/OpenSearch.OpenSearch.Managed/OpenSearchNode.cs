@@ -88,7 +88,10 @@ namespace OpenSearch.OpenSearch.Managed
 
 		private static Dictionary<string, string> EnvVars(NodeConfiguration config)
 		{
-			var environmentVariables = new Dictionary<string, string> { { "OPENSEARCH_JAVA_OPTS", "-Xms1g -Xmx1g" } };
+			var javaOpts = new List<string> { "-Xms1g", "-Xmx1g" };
+
+			var environmentVariables = new Dictionary<string, string> { { "OPENSEARCH_JAVA_OPTS", string.Join(" ", javaOpts) } };
+
 			if (!string.IsNullOrWhiteSpace(config.FileSystem.ConfigPath))
 				environmentVariables.Add(config.FileSystem.ConfigEnvironmentVariableName, config.FileSystem.ConfigPath);
 
