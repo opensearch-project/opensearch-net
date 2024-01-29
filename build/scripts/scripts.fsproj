@@ -32,7 +32,7 @@
     <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Bullseye" Version="4.2.1" />
+    <PackageReference Include="Bullseye" Version="5.0.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
     
     <PackageReference Include="Fake.Core.Environment" Version="6.0.0" />
