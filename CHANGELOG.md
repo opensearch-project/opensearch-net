@@ -19,6 +19,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 9.0.0 to 9.1.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.101
 - Bumps `Proc` from 0.6.2 to 0.8.1
+- Bumps `System.Text.Json` from 8.0.0 to 8.0.1
 
 ## [1.6.0]
 ### Added
