@@ -47,7 +47,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - run: "./build.sh integrate ${{ matrix.version }} readonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate ${{ matrix.version }} readonly,replicatedreadonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
 
@@ -97,7 +97,7 @@ jobs:
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
 
-      - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,replicatedreadonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
         env:

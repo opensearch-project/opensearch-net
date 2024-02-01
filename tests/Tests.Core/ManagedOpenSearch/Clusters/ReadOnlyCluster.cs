@@ -26,6 +26,7 @@
 *  under the License.
 */
 
+using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using static OpenSearch.Stack.ArtifactsApi.Products.OpenSearchPlugin;
 
@@ -36,5 +37,16 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 		public ReadOnlyCluster() : base(Knn, MapperMurmur3, Security) { }
 
 		protected override void SeedNode() => new DefaultSeeder(Client).SeedNode();
+	}
+
+	public class ReplicatedReadOnlyCluster : ClientTestClusterBase
+	{
+		public ReplicatedReadOnlyCluster() : base(new ClientTestClusterConfiguration(numberOfNodes: 2, plugins: new[] {Knn, MapperMurmur3, Security})) { }
+
+		protected override void SeedNode() => new DefaultSeeder(Client, new IndexSettings
+		{
+			NumberOfShards = 2,
+			NumberOfReplicas = 1
+		}).SeedNode();
 	}
 }

@@ -48,6 +48,9 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls CatAliases =
             new(new[] { "_cat/aliases", "_cat/aliases/{name}" });
 
+        internal static readonly ApiUrls CatAllPitSegments =
+            new(new[] { "_cat/pit_segments/_all" });
+
         internal static readonly ApiUrls CatAllocation =
             new(new[] { "_cat/allocation", "_cat/allocation/{node_id}" });
 
@@ -74,12 +77,17 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls CatPendingTasks = new(new[] { "_cat/pending_tasks" });
 
+        internal static readonly ApiUrls CatPitSegments = new(new[] { "_cat/pit_segments" });
+
         internal static readonly ApiUrls CatPlugins = new(new[] { "_cat/plugins" });
 
         internal static readonly ApiUrls CatRecovery =
             new(new[] { "_cat/recovery", "_cat/recovery/{index}" });
 
         internal static readonly ApiUrls CatRepositories = new(new[] { "_cat/repositories" });
+
+        internal static readonly ApiUrls CatSegmentReplication =
+            new(new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" });
 
         internal static readonly ApiUrls CatSegments =
             new(new[] { "_cat/segments", "_cat/segments/{index}" });
