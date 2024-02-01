@@ -1712,6 +1712,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllPitSegmentsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatAllPitSegmentsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllPitSegmentsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatAllPitSegmentsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllPitSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatAllPitSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatAllocationDescriptor.yml",
       "output": {
         ".html": {
@@ -2042,6 +2072,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPitSegmentsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatPitSegmentsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPitSegmentsRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatPitSegmentsRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPitSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatPitSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatPluginsDescriptor.yml",
       "output": {
         ".html": {
@@ -2136,6 +2196,36 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.CatResponse-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentReplicationDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatSegmentReplicationDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentReplicationRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatSegmentReplicationRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.CatSegmentReplicationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.CatSegmentReplicationRequest.html"
         }
       },
       "version": ""
@@ -9232,6 +9322,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatAllPitSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ICatAllPitSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatAllocationRequest.yml",
       "output": {
         ".html": {
@@ -9342,6 +9442,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatPitSegmentsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ICatPitSegmentsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatPluginsRequest.yml",
       "output": {
         ".html": {
@@ -9376,6 +9486,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ICatRepositoriesRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ICatSegmentReplicationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ICatSegmentReplicationRequest.html"
         }
       },
       "version": ""
@@ -29072,6 +29192,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.CatApi.CatAllPitSegmentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.CatApi.CatAllPitSegmentsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.CatApi.CatAllocationRequestParameters.yml",
       "output": {
         ".html": {
@@ -29182,6 +29312,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.CatApi.CatPitSegmentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.CatApi.CatPitSegmentsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.CatApi.CatPluginsRequestParameters.yml",
       "output": {
         ".html": {
@@ -29206,6 +29346,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.CatApi.CatRepositoriesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.CatApi.CatSegmentReplicationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.CatApi.CatSegmentReplicationRequestParameters.html"
         }
       },
       "version": ""

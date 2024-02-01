@@ -1,0 +1,954 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class CatSegmentReplicationRecord | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class CatSegmentReplicationRecord | OpenSearch.Net ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.CatSegmentReplicationRecord">
+
+
+
+  <h1 id="OpenSearch_Client_CatSegmentReplicationRecord" data-uid="OpenSearch.Client.CatSegmentReplicationRecord" class="text-break">Class CatSegmentReplicationRecord</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">CatSegmentReplicationRecord</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.ICatRecord.html">ICatRecord</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_CatSegmentReplicationRecord_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class CatSegmentReplicationRecord : ICatRecord</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_Bytes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.Bytes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L69">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_Bytes_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Bytes*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_Bytes" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Bytes">Bytes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;bytes&quot;)]
+public string Bytes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_BytesBehind.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.BytesBehind%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L27">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_BytesBehind_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesBehind*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_BytesBehind" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesBehind">BytesBehind</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;bytes_behind&quot;)]
+public string BytesBehind { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_BytesFetched.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.BytesFetched%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L51">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_BytesFetched_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesFetched*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_BytesFetched" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesFetched">BytesFetched</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;bytes_fetched&quot;)]
+public string BytesFetched { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_BytesPercent.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.BytesPercent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L54">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_BytesPercent_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesPercent*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_BytesPercent" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesPercent">BytesPercent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;bytes_percent&quot;)]
+public string BytesPercent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_BytesTotal.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.BytesTotal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L72">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_BytesTotal_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesTotal*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_BytesTotal" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.BytesTotal">BytesTotal</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;bytes_total&quot;)]
+public string BytesTotal { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_CheckpointsBehind.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.CheckpointsBehind%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L24">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_CheckpointsBehind_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.CheckpointsBehind*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_CheckpointsBehind" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.CheckpointsBehind">CheckpointsBehind</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;checkpoints_behind&quot;)]
+public string CheckpointsBehind { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_CurrentLag.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.CurrentLag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L30">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_CurrentLag_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.CurrentLag*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_CurrentLag" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.CurrentLag">CurrentLag</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;current_lag&quot;)]
+public string CurrentLag { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_FileDiffStageTimeTaken.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.FileDiffStageTimeTaken%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L81">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_FileDiffStageTimeTaken_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FileDiffStageTimeTaken*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_FileDiffStageTimeTaken" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FileDiffStageTimeTaken">FileDiffStageTimeTaken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;file_diff_stage_time_taken&quot;)]
+public string FileDiffStageTimeTaken { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_Files.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.Files%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L63">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_Files_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Files*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_Files" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Files">Files</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;files&quot;)]
+public string Files { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_FilesFetched.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.FilesFetched%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L45">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_FilesFetched_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesFetched*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_FilesFetched" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesFetched">FilesFetched</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;files_fetched&quot;)]
+public string FilesFetched { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_FilesPercent.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.FilesPercent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L48">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_FilesPercent_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesPercent*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_FilesPercent" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesPercent">FilesPercent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;files_percent&quot;)]
+public string FilesPercent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_FilesTotal.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.FilesTotal%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L66">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_FilesTotal_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesTotal*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_FilesTotal" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FilesTotal">FilesTotal</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;files_total&quot;)]
+public string FilesTotal { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_FinalizeReplicationStageTimeTaken.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.FinalizeReplicationStageTimeTaken%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L87">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_FinalizeReplicationStageTimeTaken_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FinalizeReplicationStageTimeTaken*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_FinalizeReplicationStageTimeTaken" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.FinalizeReplicationStageTimeTaken">FinalizeReplicationStageTimeTaken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;finalize_replication_stage_time_taken&quot;)]
+public string FinalizeReplicationStageTimeTaken { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_GetCheckpointInfoStageTimeTaken.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.GetCheckpointInfoStageTimeTaken%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L78">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_GetCheckpointInfoStageTimeTaken_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.GetCheckpointInfoStageTimeTaken*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_GetCheckpointInfoStageTimeTaken" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.GetCheckpointInfoStageTimeTaken">GetCheckpointInfoStageTimeTaken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;get_checkpoint_info_stage_time_taken&quot;)]
+public string GetCheckpointInfoStageTimeTaken { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_GetFilesStageTimeTaken.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.GetFilesStageTimeTaken%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L84">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_GetFilesStageTimeTaken_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.GetFilesStageTimeTaken*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_GetFilesStageTimeTaken" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.GetFilesStageTimeTaken">GetFilesStageTimeTaken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;get_files_stage_time_taken&quot;)]
+public string GetFilesStageTimeTaken { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_LastCompletedLag.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.LastCompletedLag%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L33">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_LastCompletedLag_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.LastCompletedLag*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_LastCompletedLag" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.LastCompletedLag">LastCompletedLag</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;last_completed_lag&quot;)]
+public string LastCompletedLag { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_RejectedRequests.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.RejectedRequests%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L36">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_RejectedRequests_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.RejectedRequests*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_RejectedRequests" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.RejectedRequests">RejectedRequests</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;rejected_requests&quot;)]
+public string RejectedRequests { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_ReplicatingStageTimeTaken.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.ReplicatingStageTimeTaken%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_ReplicatingStageTimeTaken_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.ReplicatingStageTimeTaken*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_ReplicatingStageTimeTaken" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.ReplicatingStageTimeTaken">ReplicatingStageTimeTaken</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;replicating_stage_time_taken&quot;)]
+public string ReplicatingStageTimeTaken { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_ShardId.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.ShardId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L15">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_ShardId_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.ShardId*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_ShardId" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.ShardId">ShardId</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;shardId&quot;)]
+public string ShardId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_Stage.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.Stage%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L39">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_Stage_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Stage*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_Stage" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Stage">Stage</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;stage&quot;)]
+public string Stage { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_StartTime.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.StartTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L57">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_StartTime_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.StartTime*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_StartTime" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.StartTime">StartTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;start_time&quot;)]
+public string StartTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_StopTime.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.StopTime%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L60">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_StopTime_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.StopTime*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_StopTime" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.StopTime">StopTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;stop_time&quot;)]
+public string StopTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_TargetHost.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.TargetHost%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L21">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_TargetHost_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.TargetHost*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_TargetHost" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.TargetHost">TargetHost</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;target_host&quot;)]
+public string TargetHost { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_TargetNode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.TargetNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L18">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_TargetNode_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.TargetNode*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_TargetNode" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.TargetNode">TargetNode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;target_node&quot;)]
+public string TargetNode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord_Time.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord.Time%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L42">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CatSegmentReplicationRecord_Time_" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Time*"></a>
+  <h4 id="OpenSearch_Client_CatSegmentReplicationRecord_Time" data-uid="OpenSearch.Client.CatSegmentReplicationRecord.Time">Time</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;time&quot;)]
+public string Time { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.ICatRecord.html">ICatRecord</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatSegmentReplicationRecord.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatSegmentReplicationRecord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Cat/CatSegmentReplication/CatSegmentReplicationRecord.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
