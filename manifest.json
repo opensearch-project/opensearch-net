@@ -25682,6 +25682,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.StrictnessPropagatingVisitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.StrictnessPropagatingVisitor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.StringDistance.yml",
       "output": {
         ".html": {
@@ -27406,6 +27416,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.VariableWidthHistogramBucket.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.VerbatimPropagatingVisitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.VerbatimPropagatingVisitor.html"
         }
       },
       "version": ""

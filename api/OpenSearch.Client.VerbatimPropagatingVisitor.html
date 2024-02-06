@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class VerbatimPropagatingVisitor | OpenSearch.Net </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class VerbatimPropagatingVisitor | OpenSearch.Net ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../OpenSearch.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor">
+
+
+
+  <h1 id="OpenSearch_Client_VerbatimPropagatingVisitor" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor" class="text-break">Class VerbatimPropagatingVisitor</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.QueryVisitor.html">QueryVisitor</a></div>
+    <div class="level2"><span class="xref">VerbatimPropagatingVisitor</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.IQueryVisitor.html">IQueryVisitor</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Depth">QueryVisitor.Depth</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Scope">QueryVisitor.Scope</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IQueryContainer_">QueryVisitor.Visit(IQueryContainer)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IBoolQuery_">QueryVisitor.Visit(IBoolQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IBoostingQuery_">QueryVisitor.Visit(IBoostingQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IConstantScoreQuery_">QueryVisitor.Visit(IConstantScoreQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IDisMaxQuery_">QueryVisitor.Visit(IDisMaxQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IDistanceFeatureQuery_">QueryVisitor.Visit(IDistanceFeatureQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanContainingQuery_">QueryVisitor.Visit(ISpanContainingQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanWithinQuery_">QueryVisitor.Visit(ISpanWithinQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IDateRangeQuery_">QueryVisitor.Visit(IDateRangeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_INumericRangeQuery_">QueryVisitor.Visit(INumericRangeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ILongRangeQuery_">QueryVisitor.Visit(ILongRangeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ITermRangeQuery_">QueryVisitor.Visit(ITermRangeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IFunctionScoreQuery_">QueryVisitor.Visit(IFunctionScoreQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IFuzzyQuery_">QueryVisitor.Visit(IFuzzyQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IFuzzyStringQuery_">QueryVisitor.Visit(IFuzzyStringQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IFuzzyNumericQuery_">QueryVisitor.Visit(IFuzzyNumericQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IFuzzyDateQuery_">QueryVisitor.Visit(IFuzzyDateQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IGeoShapeQuery_">QueryVisitor.Visit(IGeoShapeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IShapeQuery_">QueryVisitor.Visit(IShapeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IHasChildQuery_">QueryVisitor.Visit(IHasChildQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IHasParentQuery_">QueryVisitor.Visit(IHasParentQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IIdsQuery_">QueryVisitor.Visit(IIdsQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IIntervalsQuery_">QueryVisitor.Visit(IIntervalsQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IKnnQuery_">QueryVisitor.Visit(IKnnQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchQuery_">QueryVisitor.Visit(IMatchQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchPhraseQuery_">QueryVisitor.Visit(IMatchPhraseQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchPhrasePrefixQuery_">QueryVisitor.Visit(IMatchPhrasePrefixQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchAllQuery_">QueryVisitor.Visit(IMatchAllQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchBoolPrefixQuery_">QueryVisitor.Visit(IMatchBoolPrefixQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMatchNoneQuery_">QueryVisitor.Visit(IMatchNoneQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMoreLikeThisQuery_">QueryVisitor.Visit(IMoreLikeThisQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IMultiMatchQuery_">QueryVisitor.Visit(IMultiMatchQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_INestedQuery_">QueryVisitor.Visit(INestedQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IPrefixQuery_">QueryVisitor.Visit(IPrefixQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IQueryStringQuery_">QueryVisitor.Visit(IQueryStringQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IRankFeatureQuery_">QueryVisitor.Visit(IRankFeatureQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IRangeQuery_">QueryVisitor.Visit(IRangeQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IRegexpQuery_">QueryVisitor.Visit(IRegexpQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISimpleQueryStringQuery_">QueryVisitor.Visit(ISimpleQueryStringQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanFirstQuery_">QueryVisitor.Visit(ISpanFirstQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanNearQuery_">QueryVisitor.Visit(ISpanNearQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanNotQuery_">QueryVisitor.Visit(ISpanNotQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanOrQuery_">QueryVisitor.Visit(ISpanOrQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanTermQuery_">QueryVisitor.Visit(ISpanTermQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanSubQuery_">QueryVisitor.Visit(ISpanSubQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanMultiTermQuery_">QueryVisitor.Visit(ISpanMultiTermQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanFieldMaskingQuery_">QueryVisitor.Visit(ISpanFieldMaskingQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ITermQuery_">QueryVisitor.Visit(ITermQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IWildcardQuery_">QueryVisitor.Visit(IWildcardQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ITermsQuery_">QueryVisitor.Visit(ITermsQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IScriptQuery_">QueryVisitor.Visit(IScriptQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IScriptScoreQuery_">QueryVisitor.Visit(IScriptScoreQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IGeoPolygonQuery_">QueryVisitor.Visit(IGeoPolygonQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IGeoDistanceQuery_">QueryVisitor.Visit(IGeoDistanceQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ISpanQuery_">QueryVisitor.Visit(ISpanQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IGeoBoundingBoxQuery_">QueryVisitor.Visit(IGeoBoundingBoxQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IExistsQuery_">QueryVisitor.Visit(IExistsQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IRawQuery_">QueryVisitor.Visit(IRawQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IPercolateQuery_">QueryVisitor.Visit(IPercolateQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IParentIdQuery_">QueryVisitor.Visit(IParentIdQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_ITermsSetQuery_">QueryVisitor.Visit(ITermsSetQuery)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IQueryVisitor_">QueryVisitor.Visit(IQueryVisitor)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
+  <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
+  <h5 id="OpenSearch_Client_VerbatimPropagatingVisitor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VerbatimPropagatingVisitor : QueryVisitor, IQueryVisitor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_VerbatimPropagatingVisitor__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.VerbatimPropagatingVisitor.%23ctor(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/VerbatimPropagatingVisitor.cs/#L14">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_VerbatimPropagatingVisitor__ctor_" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor.#ctor*"></a>
+  <h4 id="OpenSearch_Client_VerbatimPropagatingVisitor__ctor_System_Boolean_" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor.#ctor(System.Boolean)">VerbatimPropagatingVisitor(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VerbatimPropagatingVisitor(bool verbatim)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">verbatim</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_VerbatimPropagatingVisitor_Visit_OpenSearch_Client_IQuery_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.VerbatimPropagatingVisitor.Visit(OpenSearch.Client.IQuery)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/VerbatimPropagatingVisitor.cs/#L16">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_VerbatimPropagatingVisitor_Visit_" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor.Visit*"></a>
+  <h4 id="OpenSearch_Client_VerbatimPropagatingVisitor_Visit_OpenSearch_Client_IQuery_" data-uid="OpenSearch.Client.VerbatimPropagatingVisitor.Visit(OpenSearch.Client.IQuery)">Visit(IQuery)</h4>
+  <div class="markdown level1 summary"><p>Visit every query item just before they are visited by their specialized Visit() implementation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Visit(IQuery query)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.IQuery.html">IQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>The IQuery object that will be visited</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OpenSearch.Client.QueryVisitor.html#OpenSearch_Client_QueryVisitor_Visit_OpenSearch_Client_IQuery_">QueryVisitor.Visit(IQuery)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.IQueryVisitor.html">IQueryVisitor</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_VerbatimPropagatingVisitor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.VerbatimPropagatingVisitor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/QueryDsl/Visitor/VerbatimPropagatingVisitor.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
