@@ -8,6 +8,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
+- Added `.Strict(...)`, `.Verbatim(...)`, `.Name(...)` methods on `QueryContainer` to help modify contained query attributes  ([#509](https://github.com/opensearch-project/opensearch-net/pull/509))
 
 ### Removed
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))

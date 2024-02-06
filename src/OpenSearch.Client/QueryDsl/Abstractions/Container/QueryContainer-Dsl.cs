@@ -131,5 +131,58 @@ namespace OpenSearch.Client
 
 		// ReSharper disable once UnusedMember.Global
 		internal bool ShouldSerialize(IJsonFormatterResolver formatterResolver) => IsWritable;
+
+		/// <summary>
+		/// Assigns a name to the contained query.
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		public QueryContainer Name(string name)
+		{
+			ContainedQuery.Name = name;
+			return this;
+		}
+
+		/// <summary>
+		/// Applies or removes the `strict` attribute to the contained query and optionally to all child sub-queries.
+		/// </summary>
+		/// <param name="strict"></param>
+		/// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
+		/// <returns></returns>
+		public QueryContainer Strict(bool strict = true, bool recurse = false)
+		{
+			if (recurse)
+			{
+				var visitor = new StrictnessPropagatingVisitor(strict);
+				Accept(visitor);
+			}
+			else
+			{
+				ContainedQuery.IsStrict = strict;
+			}
+
+			return this;
+		}
+
+		/// <summary>
+		/// Applies or removes the `verbatim` attribute to the contained query and optionally to all child sub-queries.
+		/// </summary>
+		/// <param name="verbatim"></param>
+		/// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
+		/// <returns></returns>
+		public QueryContainer Verbatim(bool verbatim = true, bool recurse = false)
+		{
+			if (recurse)
+			{
+				var visitor = new VerbatimPropagatingVisitor(verbatim);
+				Accept(visitor);
+			}
+			else
+			{
+				ContainedQuery.IsVerbatim = verbatim;
+			}
+
+			return this;
+		}
 	}
 }
