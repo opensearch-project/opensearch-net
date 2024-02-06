@@ -9,9 +9,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Dependencies
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 14.0.2
-- Bumps `BenchMarkDotNet` from 0.13.10 to 0.13.11
+- Bumps `CSharpier.Core` from 0.25.0 to 0.27.2
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.6
-- Bumps `CSharpier.Core` from 0.26.3 to 0.26.7
 - Bumps `xunit` from 2.6.2 to 2.6.6
 - Bumps `Argu` from 6.1.1 to 6.1.5
 - Bumps `JetBrains.Annotations` from 2023.2.0 to 2023.3.0
