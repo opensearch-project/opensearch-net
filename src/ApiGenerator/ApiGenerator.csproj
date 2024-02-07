@@ -9,7 +9,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSharpier.Core" Version="0.26.7" />
+    <PackageReference Include="CSharpier.Core" Version="0.27.2" />
     <PackageReference Include="Glob" Version="1.1.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.Core.Yaml" Version="14.0.2" />
@@ -18,7 +18,7 @@
     <PackageReference Include="Spectre.Console" Version="0.48.0" />
     <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20371.2" />
     <PackageReference Include="RazorLight" Version="2.3.1" />
-    <PackageReference Include="System.Text.Encodings.Web" Version="7.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\**\*.cshtml" />
