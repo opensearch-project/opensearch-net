@@ -13,7 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Domain\Tests.Domain.csproj" />
-    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.8.0" />
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.9.0" />
 
     <PackageReference Include="xunit" Version="2.6.6" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj" />
