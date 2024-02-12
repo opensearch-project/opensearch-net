@@ -28,7 +28,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.6
 - Bumps `xunit` from 2.6.2 to 2.6.6
 - Bumps `Argu` from 6.1.1 to 6.1.5
-- Bumps `Microsoft.NET.Test.Sdk` from 17.7.2 to 17.8.0
+- Bumps `Microsoft.NET.Test.Sdk` from 17.7.2 to 17.9.0
 - Bumps `JetBrains.Annotations` from 2023.2.0 to 2023.3.0
 - Bumps `Bogus` from 34.0.2 to 35.3.0
 - Bumps `Octokit` from 9.0.0 to 9.1.2
@@ -37,6 +37,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Text.Json` from 8.0.0 to 8.0.1
 - Bumps `Bullseye` from 4.2.1 to 5.0.0
 - Bumps `BenchMarkDotNet` from 0.13.11 to 0.13.12
+- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.8.0 to 17.9.0
 
 ## [1.6.0]
 ### Added
