@@ -26,6 +26,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Bullseye` from 4.2.1 to 5.0.0
 - Bumps `BenchMarkDotNet` from 0.13.11 to 0.13.12
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.8.0 to 17.9.0
+- Bumps `SharpYaml` from 2.1.0 to 2.1.1
 
 ## [1.6.0]
 ### Added
