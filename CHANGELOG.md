@@ -26,7 +26,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Spectre.Console` from 0.47.0 to 0.48.0
 - Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.7
-- Bumps `xunit` from 2.6.2 to 2.6.6
+- Bumps `xunit` from 2.6.2 to 2.7.0
 - Bumps `Argu` from 6.1.1 to 6.1.5
 - Bumps `Microsoft.NET.Test.Sdk` from 17.7.2 to 17.9.0
 - Bumps `JetBrains.Annotations` from 2023.2.0 to 2023.3.0
