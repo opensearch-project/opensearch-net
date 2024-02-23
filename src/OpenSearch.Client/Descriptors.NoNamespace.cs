@@ -372,7 +372,7 @@ namespace OpenSearch.Client
 		///<summary>Search operation type</summary>
 		public DeleteByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) => Qs("search_type", searchtype);
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks.</summary>
-		public DeleteByQueryDescriptor<TDocument> Slices(long? slices) => Qs("slices", slices);
+		public DeleteByQueryDescriptor<TDocument> Slices(Slices slices) => Qs("slices", slices);
 		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public DeleteByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
 		///<summary>Whether the _source should be included in the response.</summary>
@@ -1186,7 +1186,7 @@ namespace OpenSearch.Client
 		///<summary>Control how long to keep the search context alive</summary>
 		public ReindexOnServerDescriptor Scroll(Time scroll) => Qs("scroll", scroll);
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
-		public ReindexOnServerDescriptor Slices(long? slices) => Qs("slices", slices);
+		public ReindexOnServerDescriptor Slices(Slices slices) => Qs("slices", slices);
 		///<summary>Time each individual bulk request should wait for shards that are unavailable.</summary>
 		public ReindexOnServerDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 		///<summary>Sets the number of shard copies that must be active before proceeding with the reindex operation. Defaults to 1, meaning the primary shard only. Set to `all` for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</summary>
@@ -1666,7 +1666,7 @@ namespace OpenSearch.Client
 		///<summary>Search operation type</summary>
 		public UpdateByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) => Qs("search_type", searchtype);
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
-		public UpdateByQueryDescriptor<TDocument> Slices(long? slices) => Qs("slices", slices);
+		public UpdateByQueryDescriptor<TDocument> Slices(Slices slices) => Qs("slices", slices);
 		///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
 		public UpdateByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
 		///<summary>Whether the _source should be included in the response.</summary>
