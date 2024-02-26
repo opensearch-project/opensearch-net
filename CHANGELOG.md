@@ -6,8 +6,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added `.Strict(...)`, `.Verbatim(...)`, `.Name(...)` methods on `QueryContainer` to help modify contained query attributes  ([#509](https://github.com/opensearch-project/opensearch-net/pull/509))
 
 ### Fixed
+- Fixed `HttpConnection.ConvertHttpMethod` to support `Patch` method ([#489](https://github.com/opensearch-project/opensearch-net/pull/489))
 - Fixed `IEnumerable<int?>` property mapping. ([#503](https://github.com/opensearch-project/opensearch-net/pull/503))
-- Fix `HttpConnection.ConvertHttpMethod` to support `Patch` method ([#489](https://github.com/opensearch-project/opensearch-net/pull/489))
+- Fixed `ConnectionConfiguration.DefaultMemoryStreamFactory` actually used as default. ([#552](https://github.com/opensearch-project/opensearch-net/pull/552))
 
 ### Dependencies
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 14.0.3
