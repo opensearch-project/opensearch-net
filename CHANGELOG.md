@@ -2,6 +2,8 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+
+## [1.7.0]
 ### Added
 - Added `.Strict(...)`, `.Verbatim(...)`, `.Name(...)` methods on `QueryContainer` to help modify contained query attributes  ([#509](https://github.com/opensearch-project/opensearch-net/pull/509))
 
@@ -136,7 +138,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...1.x
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...1.x
+[1.7.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.3.0...v1.4.0
