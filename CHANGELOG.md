@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed `HttpConnection.ConvertHttpMethod` to support `Patch` method ([#489](https://github.com/opensearch-project/opensearch-net/pull/489))
 - Fixed `IEnumerable<int?>` property mapping. ([#503](https://github.com/opensearch-project/opensearch-net/pull/503))
 - Fixed `ConnectionConfiguration.DefaultMemoryStreamFactory` actually used as default. ([#552](https://github.com/opensearch-project/opensearch-net/pull/552))
+- Fixed passing `"auto"` to the `slices` parameter ([#553](https://github.com/opensearch-project/opensearch-net/pull/553))
 
 ### Dependencies
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 14.0.3
