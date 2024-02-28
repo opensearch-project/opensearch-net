@@ -786,9 +786,9 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks.</summary>
-		public long? Slices
+		public Slices Slices
 		{
-			get => Q<long? >("slices");
+			get => Q<Slices>("slices");
 			set => Q("slices", value);
 		}
 
@@ -2492,9 +2492,9 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
-		public long? Slices
+		public Slices Slices
 		{
-			get => Q<long? >("slices");
+			get => Q<Slices>("slices");
 			set => Q("slices", value);
 		}
 
@@ -3620,9 +3620,9 @@ namespace OpenSearch.Client
 		}
 
 		///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
-		public long? Slices
+		public Slices Slices
 		{
-			get => Q<long? >("slices");
+			get => Q<Slices>("slices");
 			set => Q("slices", value);
 		}
 
