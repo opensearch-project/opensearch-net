@@ -86,17 +86,25 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">TrackTotalHits</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a>&gt;</div>
-    <div><a class="xref" href="OpenSearch.Net.IUrlParameter.html">IUrlParameter</a></div>
+    <div class="level1"><a class="xref" href="OpenSearch.Client.Union-2.html">Union</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>&gt;</div>
+    <div class="level2"><span class="xref">TrackTotalHits</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="OpenSearch.Client.Union-2.html#OpenSearch_Client_Union_2_Match_System_Action__0__System_Action__1__">Union&lt;bool, long&gt;.Match(Action&lt;bool&gt;, Action&lt;long&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="OpenSearch.Client.Union-2.html#OpenSearch_Client_Union_2_Match__1_System_Func__0___0__System_Func__1___0__">Union&lt;bool, long&gt;.Match&lt;T&gt;(Func&lt;bool, T&gt;, Func&lt;long, T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -112,7 +120,7 @@
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_TrackTotalHits_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TrackTotalHits : IEquatable&lt;TrackTotalHits&gt;, IUrlParameter</code></pre>
+    <pre><code class="lang-csharp hljs">public class TrackTotalHits : Union&lt;bool, long&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -121,7 +129,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.%23ctor(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L20">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L15">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits__ctor_" data-uid="OpenSearch.Client.TrackTotalHits.#ctor*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits__ctor_System_Boolean_" data-uid="OpenSearch.Client.TrackTotalHits.#ctor(System.Boolean)">TrackTotalHits(bool)</h4>
@@ -129,7 +137,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TrackTotalHits(bool trackTotalHits)</code></pre>
+    <pre><code class="lang-csharp hljs">public TrackTotalHits(bool item)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -143,7 +151,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td><span class="parametername">trackTotalHits</span></td>
+        <td><span class="parametername">item</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -153,7 +161,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits__ctor_System_Int64_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.%23ctor(System.Int64)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L26">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L17">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits__ctor_" data-uid="OpenSearch.Client.TrackTotalHits.#ctor*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits__ctor_System_Int64_" data-uid="OpenSearch.Client.TrackTotalHits.#ctor(System.Int64)">TrackTotalHits(long)</h4>
@@ -161,7 +169,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TrackTotalHits(long trackTotalHitsUpTo)</code></pre>
+    <pre><code class="lang-csharp hljs">public TrackTotalHits(long item)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -175,7 +183,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></td>
-        <td><span class="parametername">trackTotalHitsUpTo</span></td>
+        <td><span class="parametername">item</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -184,185 +192,10 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_Equals_OpenSearch_Client_TrackTotalHits_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.Equals(OpenSearch.Client.TrackTotalHits)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L32">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_Equals_" data-uid="OpenSearch.Client.TrackTotalHits.Equals*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_Equals_OpenSearch_Client_TrackTotalHits_" data-uid="OpenSearch.Client.TrackTotalHits.Equals(OpenSearch.Client.TrackTotalHits)">Equals(TrackTotalHits)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Equals(TrackTotalHits other)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a></td>
-        <td><span class="parametername">other</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_Equals_System_Object_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.Equals(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L64">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_Equals_" data-uid="OpenSearch.Client.TrackTotalHits.Equals*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_Equals_System_Object_" data-uid="OpenSearch.Client.TrackTotalHits.Equals(System.Object)">Equals(object)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
-        <td><span class="parametername">obj</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_GetHashCode.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L80">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_GetHashCode_" data-uid="OpenSearch.Client.TrackTotalHits.GetHashCode*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_GetHashCode" data-uid="OpenSearch.Client.TrackTotalHits.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_GetString_OpenSearch_Net_IConnectionConfigurationValues_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.GetString(OpenSearch.Net.IConnectionConfigurationValues)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L56">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_GetString_" data-uid="OpenSearch.Client.TrackTotalHits.GetString*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_GetString_OpenSearch_Net_IConnectionConfigurationValues_" data-uid="OpenSearch.Client.TrackTotalHits.GetString(OpenSearch.Net.IConnectionConfigurationValues)">GetString(IConnectionConfigurationValues)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetString(IConnectionConfigurationValues settings)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html">IConnectionConfigurationValues</a></td>
-        <td><span class="parametername">settings</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_ToString.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L54">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L25">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits_ToString_" data-uid="OpenSearch.Client.TrackTotalHits.ToString*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits_ToString" data-uid="OpenSearch.Client.TrackTotalHits.ToString">ToString()</h4>
@@ -393,62 +226,10 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Equality_OpenSearch_Client_TrackTotalHits_OpenSearch_Client_TrackTotalHits_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Equality(OpenSearch.Client.TrackTotalHits%2COpenSearch.Client.TrackTotalHits)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L91">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_op_Equality_" data-uid="OpenSearch.Client.TrackTotalHits.op_Equality*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_op_Equality_OpenSearch_Client_TrackTotalHits_OpenSearch_Client_TrackTotalHits_" data-uid="OpenSearch.Client.TrackTotalHits.op_Equality(OpenSearch.Client.TrackTotalHits,OpenSearch.Client.TrackTotalHits)">operator ==(TrackTotalHits, TrackTotalHits)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator ==(TrackTotalHits left, TrackTotalHits right)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a></td>
-        <td><span class="parametername">left</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a></td>
-        <td><span class="parametername">right</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Implicit_System_Boolean__OpenSearch_Client_TrackTotalHits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Implicit(System.Boolean)~OpenSearch.Client.TrackTotalHits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L58">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L19">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits_op_Implicit_" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits_op_Implicit_System_Boolean__OpenSearch_Client_TrackTotalHits" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit(System.Boolean)~OpenSearch.Client.TrackTotalHits">implicit operator TrackTotalHits(bool)</h4>
@@ -495,7 +276,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Implicit_System_Int64__OpenSearch_Client_TrackTotalHits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Implicit(System.Int64)~OpenSearch.Client.TrackTotalHits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L61">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L22">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits_op_Implicit_" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits_op_Implicit_System_Int64__OpenSearch_Client_TrackTotalHits" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit(System.Int64)~OpenSearch.Client.TrackTotalHits">implicit operator TrackTotalHits(long)</h4>
@@ -542,7 +323,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Implicit_System_Nullable_System_Boolean___OpenSearch_Client_TrackTotalHits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Implicit(System.Nullable%7BSystem.Boolean%7D)~OpenSearch.Client.TrackTotalHits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L59">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L20">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits_op_Implicit_" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits_op_Implicit_System_Nullable_System_Boolean___OpenSearch_Client_TrackTotalHits" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit(System.Nullable{System.Boolean})~OpenSearch.Client.TrackTotalHits">implicit operator TrackTotalHits(bool?)</h4>
@@ -589,7 +370,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Implicit_System_Nullable_System_Int64___OpenSearch_Client_TrackTotalHits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Implicit(System.Nullable%7BSystem.Int64%7D)~OpenSearch.Client.TrackTotalHits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L62">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L23">View Source</a>
   </span>
   <a id="OpenSearch_Client_TrackTotalHits_op_Implicit_" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit*"></a>
   <h4 id="OpenSearch_Client_TrackTotalHits_op_Implicit_System_Nullable_System_Int64___OpenSearch_Client_TrackTotalHits" data-uid="OpenSearch.Client.TrackTotalHits.op_Implicit(System.Nullable{System.Int64})~OpenSearch.Client.TrackTotalHits">implicit operator TrackTotalHits(long?)</h4>
@@ -631,65 +412,6 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits_op_Inequality_OpenSearch_Client_TrackTotalHits_OpenSearch_Client_TrackTotalHits_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits.op_Inequality(OpenSearch.Client.TrackTotalHits%2COpenSearch.Client.TrackTotalHits)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L93">View Source</a>
-  </span>
-  <a id="OpenSearch_Client_TrackTotalHits_op_Inequality_" data-uid="OpenSearch.Client.TrackTotalHits.op_Inequality*"></a>
-  <h4 id="OpenSearch_Client_TrackTotalHits_op_Inequality_OpenSearch_Client_TrackTotalHits_OpenSearch_Client_TrackTotalHits_" data-uid="OpenSearch.Client.TrackTotalHits.op_Inequality(OpenSearch.Client.TrackTotalHits,OpenSearch.Client.TrackTotalHits)">operator !=(TrackTotalHits, TrackTotalHits)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator !=(TrackTotalHits left, TrackTotalHits right)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a></td>
-        <td><span class="parametername">left</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OpenSearch.Client.TrackTotalHits.html">TrackTotalHits</a></td>
-        <td><span class="parametername">right</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="OpenSearch.Net.IUrlParameter.html">IUrlParameter</a>
-  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
@@ -706,7 +428,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_TrackTotalHits.md&amp;value=---%0Auid%3A%20OpenSearch.Client.TrackTotalHits%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/CommonAbstractions/Infer/TrackTotalHits/TrackTotalHits.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/TrackTotalHits/TrackTotalHits.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

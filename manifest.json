@@ -24332,6 +24332,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Slices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Slices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SlowLog.yml",
       "output": {
         ".html": {
