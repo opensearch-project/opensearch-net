@@ -8,11 +8,17 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
-- Added `.Strict(...)`, `.Verbatim(...)`, `.Name(...)` methods on `QueryContainer` to help modify contained query attributes  ([#509](https://github.com/opensearch-project/opensearch-net/pull/509))
 
 ### Removed
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
+
+### Dependencies
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
+
+## [1.7.0]
+### Added
+- Added `.Strict(...)`, `.Verbatim(...)`, `.Name(...)` methods on `QueryContainer` to help modify contained query attributes  ([#509](https://github.com/opensearch-project/opensearch-net/pull/509))
 
 ### Fixed
 - Fixed `HttpConnection.ConvertHttpMethod` to support `Patch` method ([#489](https://github.com/opensearch-project/opensearch-net/pull/489))
@@ -21,11 +27,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed passing `"auto"` to the `slices` parameter ([#553](https://github.com/opensearch-project/opensearch-net/pull/553))
 
 ### Dependencies
-- Bumps `Microsoft.CodeAnalysis.CSharp` from 4.2.0 to 4.6.0
 - Bumps `NSwag.Core.Yaml` from 13.19.0 to 14.0.3
 - Bumps `CSharpier.Core` from 0.25.0 to 0.27.3
-- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
-- Bumps `Spectre.Console` from 0.47.0 to 0.48.0
 - Bumps `System.Text.Encodings.Web` from 7.0.0 to 8.0.0
 - Bumps `xunit.runner.visualstudio` from 2.5.4 to 2.5.7
 - Bumps `xunit` from 2.6.2 to 2.7.0
@@ -148,7 +151,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...main
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...main
+[1.7.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.3.0...v1.4.0
