@@ -13,6 +13,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 
+### Changed
+- Changed `PluginStats.OpenSearchVersion` to support both a single value and a list returned by OpenSearch `>=2.13.0` ([#568](https://github.com/opensearch-project/opensearch-net/pull/568))
+
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
 
