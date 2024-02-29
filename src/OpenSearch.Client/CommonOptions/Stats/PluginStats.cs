@@ -27,7 +27,10 @@
 */
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
@@ -41,7 +44,15 @@ namespace OpenSearch.Client
 		public string Description { get; set; }
 
 		[DataMember(Name ="opensearch_version")]
-		public string OpenSearchVersion { get; set; }
+		[JsonFormatter(typeof(InterfaceReadOnlyCollectionSingleOrEnumerableFormatter<string>))]
+		public IReadOnlyCollection<string> OpenSearchVersions { get; set; }
+
+		[IgnoreDataMember]
+		public string OpenSearchVersion
+		{
+			get => OpenSearchVersions?.SingleOrDefault();
+			set => OpenSearchVersions = new [] { value };
+		}
 
 		[DataMember(Name ="extended_plugins")]
 		public IReadOnlyCollection<string> ExtendedPlugins { get; set; }
