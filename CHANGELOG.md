@@ -15,6 +15,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
+- Bumps `System.Text.Json` from 8.0.1 to 8.0.2
 
 ## [1.7.0]
 ### Added
