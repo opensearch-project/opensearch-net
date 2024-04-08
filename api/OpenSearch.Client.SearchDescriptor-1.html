@@ -187,7 +187,7 @@ public class SearchDescriptor&lt;TInferDocument&gt; : RequestDescriptorBase&lt;S
     <tbody>
       <tr>
         <td><span class="parametername">TInferDocument</span></td>
-        <td>Descriptor for Search https://opensearch.org/docs/latest/opensearch/rest-api/search/</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -2415,9 +2415,7 @@ why certain queries are slow, and take steps to improve their slow queries.</p>
   <a id="OpenSearch_Client_SearchDescriptor_1_Routing_" data-uid="OpenSearch.Client.SearchDescriptor`1.Routing*"></a>
   <h4 id="OpenSearch_Client_SearchDescriptor_1_Routing_OpenSearch_Client_Routing_" data-uid="OpenSearch.Client.SearchDescriptor`1.Routing(OpenSearch.Client.Routing)">Routing(Routing)</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p>
-<p>OpenSearch will use the document id if not provided. </p>
-<p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OSC will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
