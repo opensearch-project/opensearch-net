@@ -20,6 +20,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FSharp.Data` from 6.3.0 to 6.4.0
 - Bumps `NSwag.Core.Yaml` from 14.0.3 to 14.0.7
 - Bumps `DiffPlex` from 1.7.1 to 1.7.2
+- Bumps `JunitXml.TestLogger` from 3.0.134 to 3.1.12
 
 ## [1.7.0]
 ### Added
