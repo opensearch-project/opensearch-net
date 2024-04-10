@@ -13,6 +13,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 
+### Fixed
+- Fixed the deserialization of S3 snapshot repositories without settings ([#587](https://github.com/opensearch-project/opensearch-net/pull/587)) 
+
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.0
 - Bumps `System.Text.Json` from 8.0.1 to 8.0.3
