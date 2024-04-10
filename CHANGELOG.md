@@ -6,6 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Text.Json` from 8.0.1 to 8.0.2
 - Bumps `Argu` from 6.2.1 to 6.2.2
 - Bumps `FSharp.Data` from 6.3.0 to 6.4.0
+- Bumps `NSwag.Core.Yaml` from 14.0.3 to 14.0.7
 
 ## [1.7.0]
 ### Added
