@@ -2,6 +2,9 @@
 Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
+### Fixed
+- Fixed the deserialization of S3 snapshot repositories without settings ([#587](https://github.com/opensearch-project/opensearch-net/pull/587)) 
+
 ### Dependencies
 - Bumps `System.Text.Json` from 8.0.1 to 8.0.3
 - Bumps `Argu` from 6.2.1 to 6.2.3
