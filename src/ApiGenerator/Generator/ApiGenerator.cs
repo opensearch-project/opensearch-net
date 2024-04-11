@@ -29,16 +29,19 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
+using ApiGenerator.Domain.Specification;
 using ApiGenerator.Generator.Razor;
 using NJsonSchema;
 using NSwag;
 using ShellProgressBar;
+using YamlDotNet.Serialization;
 
 namespace ApiGenerator.Generator
 {
@@ -92,18 +95,48 @@ namespace ApiGenerator.Generator
 
 		public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
 		{
-			var document = await OpenApiYamlDocument.FromFileAsync(GeneratorLocations.OpenApiSpecFile, token);
+			var json = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
+			var document = await OpenApiDocument.FromJsonAsync(json, token);
             JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
 
 			var endpoints = document.Paths
 				.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
-				.SelectMany(p => p.PathItem.Select(kv => new { p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value }))
-				.GroupBy(o => o.Operation.ExtensionData["x-operation-group"].ToString())
+				.SelectMany(p => p.PathItem.Select(kv => new
+				{
+					p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value
+				}))
+				.GroupBy(o => o.Operation.ExtensionData!["x-operation-group"]!.ToString())
 				.Where(o => CodeConfiguration.IncludeOperation(o.Key))
-				.Select(o => ApiEndpointFactory.From(o.Key, o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
+				.Select(o => ApiEndpointFactory.From(
+					o.Key,
+					o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
 				.ToImmutableSortedDictionary(e => e.Name, e => e);
 
 			return new RestApiSpec { Endpoints = endpoints };
+		}
+
+		private static string PreprocessRawOpenApiSpec(string yaml)
+		{
+			// FIXME: work-around until NSwag adds support for requestBody references: https://github.com/RicoSuter/NSwag/pull/4747
+			dynamic doc = new DeserializerBuilder().Build().Deserialize(yaml)!;
+			var requestBodies = doc["components"]["requestBodies"];
+			foreach (KeyValuePair<object, dynamic> pathPair in doc["paths"])
+			{
+				foreach (KeyValuePair<object, dynamic> operationPair in pathPair.Value)
+				{
+					var operation = (Dictionary<object, dynamic>) operationPair.Value;
+					if (!operation.TryGetValue("requestBody", out var rb)) continue;
+
+					var requestBody = (Dictionary<object, dynamic>) rb;
+					if (!requestBody.TryGetValue("$ref", out var reference)) continue;
+
+					operation["requestBody"] = requestBodies[((string) reference).Split('/').Last()];
+				}
+			}
+			return new SerializerBuilder()
+				.JsonCompatible()
+				.Build()
+				.Serialize(doc);
 		}
 
 		private static void RecursiveDelete(string path)
