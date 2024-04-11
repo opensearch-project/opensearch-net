@@ -42,6 +42,8 @@ namespace OpenSearch.Client
 	/// <inheritdoc />
 	public class S3Repository : IS3Repository
 	{
+		public S3Repository() { }
+
 		public S3Repository(IS3RepositorySettings settings) => Settings = settings;
 
 		public IS3RepositorySettings Settings { get; set; }
