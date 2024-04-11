@@ -36,11 +36,6 @@ namespace ApiGenerator.Configuration.Overrides
 
 		private GlobalOverrides() { }
 
-        public IDictionary<string, Dictionary<string, string>> ObsoleteEnumMembers { get; set; } = new Dictionary<string, Dictionary<string, string>>()
-        {
-            { "VersionType", new Dictionary<string, string>() { { "force", "Force is no longer accepted by the server as of 7.5.0 and will result in an error when used" } } }
-        };
-
         public override IDictionary<string, string> ObsoleteQueryStringParams { get; set; } = new Dictionary<string, string>
         {
             { "copy_settings", "" }
