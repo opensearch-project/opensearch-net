@@ -2340,9 +2340,22 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/nodes.usage@200'
-  /_nodes/{node_id}:
+  /_nodes/{metric}:
     get:
       operationId: nodes.info.1
+      x-operation-group: nodes.info
+      x-version-added: '1.0'
+      description: Returns information about nodes in the cluster.
+      parameters:
+        - $ref: '#/components/parameters/nodes.info::path.metric'
+        - $ref: '#/components/parameters/nodes.info::query.flat_settings'
+        - $ref: '#/components/parameters/nodes.info::query.timeout'
+      responses:
+        '200':
+          $ref: '#/components/responses/nodes.info@200'
+  /_nodes/{node_id}:
+    get:
+      operationId: nodes.info.2
       x-operation-group: nodes.info
       x-version-added: '1.0'
       description: Returns information about nodes in the cluster.
@@ -2492,7 +2505,7 @@ paths:
           $ref: '#/components/responses/nodes.usage@200'
   /_nodes/{node_id}/{metric}:
     get:
-      operationId: nodes.info.2
+      operationId: nodes.info.3
       x-operation-group: nodes.info
       x-version-added: '1.0'
       description: Returns information about nodes in the cluster.
@@ -9253,7 +9266,7 @@ components:
     cluster.state::query.local:
       in: query
       name: local
-      description: 'Return local information, do not retrieve the state from master node (default: false)'
+      description: 'Return local information, do not retrieve the state from cluster-manager node (default: false)'
       schema:
         type: boolean
       style: form
@@ -11418,7 +11431,7 @@ components:
     indices.exists_template::query.local:
       in: query
       name: local
-      description: 'Return local information, do not retrieve the state from master node (default: false)'
+      description: 'Return local information, do not retrieve the state from cluster-manager node (default: false)'
       schema:
         type: boolean
       style: form
@@ -15651,7 +15664,7 @@ components:
     snapshot.get_repository::query.local:
       in: query
       name: local
-      description: 'Return local information, do not retrieve the state from master node (default: false)'
+      description: 'Return local information, do not retrieve the state from cluster-manager node (default: false)'
       schema:
         type: boolean
       style: form
@@ -33240,13 +33253,25 @@ components:
         node.role:
           description: |-
             The roles of the node.
-            Returned values include `c`(cold node), `d`(data node), `f`(frozen node), `h`(hot node), `i`(ingest node), `l`(machine learning node), `m` (master eligible node), `r`(remote cluster client node), `s`(content node), `t`(transform node), `v`(voting-only node), `w`(warm node),and `-`(coordinating node only).
+            Returned values include `c`(cold node), `d`(data node), `f`(frozen node), `h`(hot node), `i`(ingest node), `l`(machine learning node), `m` (cluster-manager eligible node), `r`(remote cluster client node), `s`(content node), `t`(transform node), `v`(voting-only node), `w`(warm node),and `-`(coordinating node only).
+          type: string
+        node.roles:
+          description: |-
+            A comma-separated list of the roles of the node.
+            Returned values may include but are not limited to: `data`, `ingest`, `master`, `cluster_manager`, `remote_cluster_client`, `search`, and `-`(coordinating node only).
+          type: string
+        cluster_manager:
+          description: |-
+            Indicates whether the node is the elected cluster-manager node.
+            Returned values include `*`(elected cluster-manager) and `-`(not elected cluster-manager).
           type: string
         master:
           description: |-
             Indicates whether the node is the elected master node.
             Returned values include `*`(elected master) and `-`(not elected master).
           type: string
+          x-version-deprecated: 2.0.0
+          x-deprecation-message: To promote inclusive language, use 'cluster_manager' instead.
         name:
           $ref: '#/components/schemas/_common:Name'
         completion.size:
