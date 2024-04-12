@@ -80,7 +80,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of alias names.</summary>
+        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</summary>
         public CatAliasesDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -165,12 +165,12 @@ namespace OpenSearch.Client
         // values part of the url path
         NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information.</summary>
+        /// <summary>Comma-separated list of node identifiers or names used to limit the returned information.</summary>
         public CatAllocationDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatAllocationDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -269,7 +269,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
         public CatCountDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -322,16 +322,16 @@ namespace OpenSearch.Client
         // values part of the url path
         Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
 
-        /// <summary>Comma-separated list of fields to return the fielddata size.</summary>
+        /// <summary>Comma-separated list of fields used to limit returned information. To retrieve all fields, omit this parameter.</summary>
         public CatFielddataDescriptor Fields(Fields fields) =>
             Assign(fields, (a, v) => a.RouteValues.Optional("fields", v));
 
-        /// <summary>Comma-separated list of fields to return the fielddata size.</summary>
+        /// <summary>Comma-separated list of fields used to limit returned information. To retrieve all fields, omit this parameter.</summary>
         public CatFielddataDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) =>
             Assign(fields, (a, v) => a.RouteValues.Optional("fields", (Fields)v));
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatFielddataDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
@@ -369,7 +369,7 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Set to false to disable timestamping.</summary>
+        /// <summary>If true, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
             Qs("ts", includetimestamp);
 
@@ -421,7 +421,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
         public CatIndicesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -434,7 +434,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatIndicesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -442,7 +442,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>The type of index that wildcard patterns can match.</summary>
         public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -458,7 +458,7 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
+        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
         public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
             Qs("include_unloaded_segments", includeunloadedsegments);
 
@@ -472,7 +472,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Set to true to return stats only for primary shards.</summary>
+        /// <summary>If true, the response only includes information from primary shards.</summary>
         public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
 
         /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
@@ -578,7 +578,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatNodesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -589,7 +589,7 @@ namespace OpenSearch.Client
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public CatNodesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Return the full node ID instead of the shortened version.</summary>
+        /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
         public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -765,7 +765,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
+        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
         public CatRecoveryDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -782,7 +782,7 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatRecoveryDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
@@ -964,7 +964,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
         public CatSegmentsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -977,7 +977,7 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -1028,7 +1028,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices to limit the returned information.</summary>
+        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
         public CatShardsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1041,7 +1041,7 @@ namespace OpenSearch.Client
         public CatShardsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public CatShardsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
@@ -1099,7 +1099,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
 
-        /// <summary>Comma-separated list of repository names.</summary>
+        /// <summary>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, Opensearch returns an error.</summary>
         public CatSnapshotsDescriptor RepositoryName(Names repository) =>
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 
@@ -1118,7 +1118,7 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatSnapshotsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>If `true`, the response does not include information from unavailable snapshots.</summary>
         public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -1146,10 +1146,10 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>The task action names, which are used to limit the response.</summary>
         public CatTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>Return detailed task information.</summary>
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
@@ -1164,7 +1164,7 @@ namespace OpenSearch.Client
         /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>The parent task identifier, which is used to limit the response.</summary>
         public CatTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
@@ -1199,7 +1199,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Name ICatTemplatesRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>The name of the template.</summary>
+        /// <summary>The name of the template to return. Accepts wildcard expressions. If omitted, all templates are returned.</summary>
         public CatTemplatesDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1260,7 +1260,7 @@ namespace OpenSearch.Client
         Names ICatThreadPoolRequest.ThreadPoolPatterns =>
             Self.RouteValues.Get<Names>("thread_pool_patterns");
 
-        /// <summary>Comma-separated list of regular-expressions to filter the thread pools in the output.</summary>
+        /// <summary>A comma-separated list of thread pool names used to limit the request. Accepts wildcard expressions.</summary>
         public CatThreadPoolDescriptor ThreadPoolPatterns(Names threadPoolPatterns) =>
             Assign(threadPoolPatterns, (a, v) => a.RouteValues.Optional("thread_pool_patterns", v));
 

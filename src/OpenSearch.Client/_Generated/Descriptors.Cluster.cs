@@ -70,11 +70,11 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Return information about disk usage and shard sizes.</summary>
+        /// <summary>If true, returns information about disk usage and shard sizes.</summary>
         public ClusterAllocationExplainDescriptor IncludeDiskInfo(bool? includediskinfo = true) =>
             Qs("include_disk_info", includediskinfo);
 
-        /// <summary>Return 'YES' decisions in explanation.</summary>
+        /// <summary>If true, returns YES decisions in explanation.</summary>
         public ClusterAllocationExplainDescriptor IncludeYesDecisions(
             bool? includeyesdecisions = true
         ) => Qs("include_yes_decisions", includeyesdecisions);
@@ -111,14 +111,14 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public DeleteComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeleteComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -135,7 +135,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.</summary>
+        /// <summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list. Defaults to true, meaning that all excluded nodes must be removed from the cluster before this API takes any action. If set to false then the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.</summary>
         public DeleteVotingConfigExclusionsDescriptor WaitForRemoval(bool? waitforremoval = true) =>
             Qs("wait_for_removal", waitforremoval);
     }
@@ -171,10 +171,10 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
         public ComponentTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -215,10 +215,10 @@ namespace OpenSearch.Client
         public GetComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
         public GetComponentTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -244,22 +244,22 @@ namespace OpenSearch.Client
         public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public ClusterGetSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Whether to return all default clusters setting.</summary>
+        /// <summary>If `true`, returns default cluster settings from the local node.</summary>
         public ClusterGetSettingsDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -286,7 +286,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Limit the information returned to specific indicies.</summary>
+        /// <summary>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use _all or *.</summary>
         public ClusterHealthDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -319,34 +319,34 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Wait until the specified number of shards is active.</summary>
+        /// <summary>A number controlling to how many active shards to wait for, all to wait for all shards in the cluster to be active, or 0 to not wait.</summary>
         public ClusterHealthDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
-        /// <summary>Wait until all currently queued events with the given priority are processed.</summary>
+        /// <summary>Can be one of immediate, urgent, high, normal, low, languid. Wait until all currently queued events with the given priority are processed.</summary>
         public ClusterHealthDescriptor WaitForEvents(WaitForEvents? waitforevents) =>
             Qs("wait_for_events", waitforevents);
 
-        /// <summary>Wait until the specified number of nodes is available.</summary>
+        /// <summary>The request waits until the specified number N of nodes is available. It also accepts >=N, <=N, >N and <N. Alternatively, it is possible to use ge(N), le(N), gt(N) and lt(N) notation.</summary>
         public ClusterHealthDescriptor WaitForNodes(string waitfornodes) =>
             Qs("wait_for_nodes", waitfornodes);
 
-        /// <summary>Whether to wait until there are no initializing shards in the cluster.</summary>
+        /// <summary>A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to false, which means it will not wait for initializing shards.</summary>
         public ClusterHealthDescriptor WaitForNoInitializingShards(
             bool? waitfornoinitializingshards = true
         ) => Qs("wait_for_no_initializing_shards", waitfornoinitializingshards);
 
-        /// <summary>Whether to wait until there are no relocating shards in the cluster.</summary>
+        /// <summary>A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to false, which means it will not wait for relocating shards.</summary>
         public ClusterHealthDescriptor WaitForNoRelocatingShards(
             bool? waitfornorelocatingshards = true
         ) => Qs("wait_for_no_relocating_shards", waitfornorelocatingshards);
@@ -374,10 +374,10 @@ namespace OpenSearch.Client
         public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
         public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -406,7 +406,7 @@ namespace OpenSearch.Client
         public PostVotingConfigExclusionsDescriptor NodeNames(string nodenames) =>
             Qs("node_names", nodenames);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>When adding a voting configuration exclusion, the API waits for the specified nodes to be excluded from the voting configuration before returning. If the timeout expires before the appropriate condition is satisfied, the request fails and returns an error.</summary>
         public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -440,10 +440,10 @@ namespace OpenSearch.Client
         public PutComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing component templates.</summary>
         public PutComponentTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -472,18 +472,18 @@ namespace OpenSearch.Client
         public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>Return settings in flat format (default: false).</summary>
         public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to master node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Explicit operation timeout.</summary>
         public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -519,27 +519,27 @@ namespace OpenSearch.Client
         public ClusterRerouteDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Simulate the operation only and return the resulting state.</summary>
+        /// <summary>If true, then the request simulates the operation only and returns the resulting state.</summary>
         public ClusterRerouteDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
 
-        /// <summary>Return an explanation of why the commands can or cannot be executed.</summary>
+        /// <summary>If true, then the response contains an explanation of why the commands can or cannot be executed.</summary>
         public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Limit the information returned to the specified metrics. Defaults to all but metadata.</summary>
+        /// <summary>Limits the information returned to the specified metrics.</summary>
         public ClusterRerouteDescriptor Metric(params string[] metric) => Qs("metric", metric);
 
-        /// <summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        /// <summary>If true, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
         public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) =>
             Qs("retry_failed", retryfailed);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -573,7 +573,7 @@ namespace OpenSearch.Client
         Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
-        /// <summary>Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
+        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
         public ClusterStateDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -603,7 +603,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>Return settings in flat format (default: false).</summary>
         public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -611,10 +611,10 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node (default: false).</summary>
         public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Specify timeout for connection to master.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -653,16 +653,16 @@ namespace OpenSearch.Client
         // values part of the url path
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</summary>
         public ClusterStatsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response’s `_nodes.failed` property. Defaults to no timeout.</summary>
         public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

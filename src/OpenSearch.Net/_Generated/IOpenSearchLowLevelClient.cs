@@ -131,7 +131,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body">The point-in-time ids to be deleted</param>
+        /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         TResponse DeletePit<TResponse>(
@@ -141,7 +141,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body">The point-in-time ids to be deleted</param>
+        /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<TResponse> DeletePitAsync<TResponse>(

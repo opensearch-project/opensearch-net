@@ -105,7 +105,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Specify timeout for connection to master.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -115,7 +115,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Explicit operation timeout.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -170,7 +170,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Specify timeout for connection to master.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -180,7 +180,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Explicit operation timeout.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");

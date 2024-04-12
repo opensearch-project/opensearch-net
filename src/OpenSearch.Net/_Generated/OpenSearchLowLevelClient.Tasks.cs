@@ -92,7 +92,7 @@ namespace OpenSearch.Net.Specification.TasksApi
             );
 
         /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        /// <param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
+        /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Cancel<TResponse>(
             string taskId,
@@ -107,7 +107,7 @@ namespace OpenSearch.Net.Specification.TasksApi
             );
 
         /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        /// <param name="taskId">Cancel the task with specified task id (node_id:task_number).</param>
+        /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.cancel", "task_id")]
         public Task<TResponse> CancelAsync<TResponse>(
@@ -125,7 +125,7 @@ namespace OpenSearch.Net.Specification.TasksApi
             );
 
         /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        /// <param name="taskId">Return the task with specified id (node_id:task_number).</param>
+        /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetTask<TResponse>(
             string taskId,
@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.TasksApi
             );
 
         /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        /// <param name="taskId">Return the task with specified id (node_id:task_number).</param>
+        /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.get", "task_id")]
         public Task<TResponse> GetTaskAsync<TResponse>(

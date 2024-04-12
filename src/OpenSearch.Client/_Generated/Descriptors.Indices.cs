@@ -88,14 +88,14 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public DeleteComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeleteComposableIndexTemplateDescriptor Timeout(Time timeout) =>
             Qs("timeout", timeout);
     }
@@ -139,7 +139,7 @@ namespace OpenSearch.Client
         public ComposableIndexTemplateExistsDescriptor Local(bool? local = true) =>
             Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -181,14 +181,14 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>If true, returns settings in flat format.</summary>
         public GetComposableIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
         public GetComposableIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -230,7 +230,7 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
         public PutComposableIndexTemplateDescriptor Create(bool? create = true) =>
             Qs("create", create);
 

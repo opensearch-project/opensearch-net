@@ -232,7 +232,7 @@ namespace OpenSearch.Client
         NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -482,7 +482,7 @@ namespace OpenSearch.Client
         Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -568,7 +568,7 @@ namespace OpenSearch.Client
             set => Q("help", value);
         }
 
-        /// <summary>Set to false to disable timestamping.</summary>
+        /// <summary>If true, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
@@ -648,7 +648,7 @@ namespace OpenSearch.Client
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -663,7 +663,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>The type of index that wildcard patterns can match.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -702,7 +702,7 @@ namespace OpenSearch.Client
             set => Q("help", value);
         }
 
-        /// <summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
+        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -726,7 +726,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Set to true to return stats only for primary shards.</summary>
+        /// <summary>If true, the response only includes information from primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
@@ -921,7 +921,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -947,7 +947,7 @@ namespace OpenSearch.Client
             }
         }
 
-        /// <summary>Return the full node ID instead of the shortened version.</summary>
+        /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
         public bool? FullId
         {
             get => Q<bool?>("full_id");
@@ -1259,7 +1259,7 @@ namespace OpenSearch.Client
             set => Q("active_only", value);
         }
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1565,7 +1565,7 @@ namespace OpenSearch.Client
         Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1659,7 +1659,7 @@ namespace OpenSearch.Client
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1793,7 +1793,7 @@ namespace OpenSearch.Client
             set => Q("help", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>If `true`, the response does not include information from unavailable snapshots.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1839,14 +1839,14 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>The task action names, which are used to limit the response.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        /// <summary>Return detailed task information.</summary>
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
@@ -1888,7 +1888,7 @@ namespace OpenSearch.Client
             set => Q("nodes", value);
         }
 
-        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>The parent task identifier, which is used to limit the response.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");

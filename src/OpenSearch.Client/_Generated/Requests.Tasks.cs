@@ -87,31 +87,28 @@ namespace OpenSearch.Client
         TaskId ICancelTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        /// <summary>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</summary>
+        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        /// <summary>
-        /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
-        /// connecting to, leave empty to get information from all nodes.
-        /// </summary>
+        /// <summary>Comma-separated list of node IDs or names used to limit the request.</summary>
         public string[] Nodes
         {
             get => Q<string[]>("nodes");
             set => Q("nodes", value);
         }
 
-        /// <summary>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</summary>
+        /// <summary>Parent task ID used to limit the tasks.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -149,14 +146,14 @@ namespace OpenSearch.Client
         TaskId IGetTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>If `true`, the request blocks until the task has completed.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -178,14 +175,14 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        /// <summary>Return detailed task information.</summary>
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
@@ -209,21 +206,21 @@ namespace OpenSearch.Client
             set => Q("nodes", value);
         }
 
-        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>Parent task ID used to limit returned information. To return all tasks, omit this parameter or use a value of `-1`.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");

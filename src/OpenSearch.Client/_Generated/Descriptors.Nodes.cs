@@ -137,20 +137,20 @@ namespace OpenSearch.Client
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of metrics you wish returned. Leave empty to return all.</summary>
+        /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</summary>
         public NodesInfoDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>Comma-separated list of node IDs or names used to limit returned information.</summary>
         public NodesInfoDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>If true, returns settings in flat format.</summary>
         public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -177,12 +177,12 @@ namespace OpenSearch.Client
         // values part of the url path
         NodeIds IReloadSecureSettingsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</summary>
+        /// <summary>The names of particular nodes in the cluster to target.</summary>
         public ReloadSecureSettingsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ReloadSecureSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -228,11 +228,10 @@ namespace OpenSearch.Client
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
         public NodesStatsDescriptor(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
-            : base(
-                r =>
-                    r.Optional("node_id", nodeId)
-                        .Optional("metric", metric)
-                        .Optional("index_metric", indexMetric)
+            : base(r =>
+                r.Optional("node_id", nodeId)
+                    .Optional("metric", metric)
+                    .Optional("index_metric", indexMetric)
             ) { }
 
         // values part of the url path
@@ -241,7 +240,7 @@ namespace OpenSearch.Client
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</summary>
+        /// <summary>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</summary>
         public NodesStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
             Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
 
@@ -249,38 +248,38 @@ namespace OpenSearch.Client
         public NodesStatsDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>Comma-separated list of node IDs or names used to limit returned information.</summary>
         public NodesStatsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields(Fields completionfields) =>
             Qs("completion_fields", completionfields);
 
-        /// <summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
         public NodesStatsDescriptor FielddataFields(Fields fielddatafields) =>
             Qs("fielddata_fields", fielddatafields);
 
-        /// <summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
         public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public NodesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public NodesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list of search groups for `search` index metric.</summary>
+        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
         public NodesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
-        /// <summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public NodesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
             Qs("include_segment_file_sizes", includesegmentfilesizes);
 
@@ -288,10 +287,10 @@ namespace OpenSearch.Client
         public NodesStatsDescriptor NodesStatLevel(NodesStatLevel? nodesstatlevel) =>
             Qs("level", nodesstatlevel);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
         public NodesStatsDescriptor Types(params string[] types) => Qs("types", types);
     }
 
@@ -330,16 +329,16 @@ namespace OpenSearch.Client
         Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limit the information returned to the specified metrics.</summary>
+        /// <summary>Limits the information returned to the specific metrics. A comma-separated list of the following options: `_all`, `rest_actions`.</summary>
         public NodesUsageDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public NodesUsageDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesUsageDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

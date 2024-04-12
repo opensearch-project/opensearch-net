@@ -108,14 +108,14 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>If true, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -130,7 +130,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -145,35 +145,35 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
         public string[] CompletionFields
         {
             get => Q<string[]>("completion_fields");
             set => Q("completion_fields", value);
         }
 
-        /// <summary>Comma-separated list of fields for `fielddata` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
         public string[] FielddataFields
         {
             get => Q<string[]>("fielddata_fields");
             set => Q("fielddata_fields", value);
         }
 
-        /// <summary>Comma-separated list of fields for `fielddata` and `completion` index metric (supports wildcards).</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
             set => Q("fields", value);
         }
 
-        /// <summary>Comma-separated list of search groups for `search` index metric.</summary>
+        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
         public string[] Groups
         {
             get => Q<string[]>("groups");
             set => Q("groups", value);
         }
 
-        /// <summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
@@ -187,14 +187,14 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("level", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>Comma-separated list of document types for the `indexing` index metric.</summary>
+        /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
         public string[] Types
         {
             get => Q<string[]>("types");
@@ -209,7 +209,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
