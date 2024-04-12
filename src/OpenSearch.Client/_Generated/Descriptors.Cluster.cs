@@ -199,14 +199,14 @@ namespace OpenSearch.Client
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComponentTemplateDescriptor(Names name)
+        public GetComponentTemplateDescriptor(Name name)
             : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
-        Names IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+        Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>The Comma-separated names of the component templates.</summary>
-        public GetComponentTemplateDescriptor Name(Names name) =>
+        /// <summary>Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</summary>
+        public GetComponentTemplateDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
@@ -316,7 +316,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
         public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>

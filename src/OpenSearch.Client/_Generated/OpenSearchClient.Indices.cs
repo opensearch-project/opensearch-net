@@ -191,7 +191,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public GetComposableIndexTemplateResponse GetComposableTemplate(
-            Names name = null,
+            Name name = null,
             Func<
                 GetComposableIndexTemplateDescriptor,
                 IGetComposableIndexTemplateRequest
@@ -209,7 +209,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
-            Names name = null,
+            Name name = null,
             Func<
                 GetComposableIndexTemplateDescriptor,
                 IGetComposableIndexTemplateRequest

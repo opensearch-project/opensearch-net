@@ -292,7 +292,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
         public GetComponentTemplateResponse GetComponentTemplate(
-            Names name = null,
+            Name name = null,
             Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null
         ) =>
             GetComponentTemplate(
@@ -305,7 +305,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
         public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
-            Names name = null,
+            Name name = null,
             Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null,
             CancellationToken ct = default
         ) =>

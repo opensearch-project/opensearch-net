@@ -243,7 +243,7 @@ namespace OpenSearch.Client
         : IRequest<GetComponentTemplateRequestParameters>
     {
         [IgnoreDataMember]
-        Names Name { get; }
+        Name Name { get; }
     }
 
     /// <summary>Request for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
@@ -260,12 +260,12 @@ namespace OpenSearch.Client
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComponentTemplateRequest(Names name)
+        public GetComponentTemplateRequest(Name name)
             : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Names IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+        Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>

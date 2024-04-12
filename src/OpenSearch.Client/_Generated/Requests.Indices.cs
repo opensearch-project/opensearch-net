@@ -190,7 +190,7 @@ namespace OpenSearch.Client
         : IRequest<GetComposableIndexTemplateRequestParameters>
     {
         [IgnoreDataMember]
-        Names Name { get; }
+        Name Name { get; }
     }
 
     /// <summary>Request for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
@@ -207,12 +207,12 @@ namespace OpenSearch.Client
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComposableIndexTemplateRequest(Names name)
+        public GetComposableIndexTemplateRequest(Name name)
             : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Names IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+        Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>

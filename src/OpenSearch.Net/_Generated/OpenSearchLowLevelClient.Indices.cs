@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             : base(client) { }
 
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteComposableTemplateForAll<TResponse>(
             string name,
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.delete_index_template", "name")]
         public Task<TResponse> DeleteComposableTemplateForAllAsync<TResponse>(
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ComposableTemplateExistsForAll<TResponse>(
             string name,
@@ -118,7 +118,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.exists_index_template", "name")]
         public Task<TResponse> ComposableTemplateExistsForAllAsync<TResponse>(
@@ -160,7 +160,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to retrieve. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetComposableTemplateForAll<TResponse>(
             string name,
@@ -175,7 +175,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the index template to retrieve. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_index_template", "name")]
         public Task<TResponse> GetComposableTemplateForAllAsync<TResponse>(

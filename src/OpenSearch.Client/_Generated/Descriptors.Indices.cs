@@ -164,14 +164,14 @@ namespace OpenSearch.Client
 
         /// <summary>/_index_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComposableIndexTemplateDescriptor(Names name)
+        public GetComposableIndexTemplateDescriptor(Name name)
             : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
-        Names IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+        Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Comma-separated names of the index templates.</summary>
-        public GetComposableIndexTemplateDescriptor Name(Names name) =>
+        /// <summary>Name of the index template to retrieve. Wildcard (*) expressions are supported.</summary>
+        public GetComposableIndexTemplateDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters

@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list or wildcard expression of component template names used to limit the request.</param>
+        /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteComponentTemplate<TResponse>(
             string name,
@@ -118,7 +118,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list or wildcard expression of component template names used to limit the request.</param>
+        /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_component_template", "name")]
         public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(
@@ -223,7 +223,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list of component template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ComponentTemplateExists<TResponse>(
             string name,
@@ -238,7 +238,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list of component template names used to limit the request. Wildcard (*) expressions are supported.</param>
+        /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.exists_component_template", "name")]
         public Task<TResponse> ComponentTemplateExistsAsync<TResponse>(
@@ -285,7 +285,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list of component template names used to limit the request. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetComponentTemplate<TResponse>(
             string name,
@@ -300,7 +300,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated list of component template names used to limit the request. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "name")]
         public Task<TResponse> GetComponentTemplateAsync<TResponse>(
