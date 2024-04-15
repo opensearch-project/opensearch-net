@@ -26,6 +26,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `JunitXml.TestLogger` from 3.0.134 to 3.1.12
 - Bumps `Octokit` from 10.0.0 to 11.0.0
 - Bumps `xunit` from 2.7.0 to 2.7.1
+- Bumps `xunit.runner.visualstudio` from 2.5.7 to 2.5.8
 
 ## [1.7.0]
 ### Added
