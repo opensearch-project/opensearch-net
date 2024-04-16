@@ -144,8 +144,8 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public ListTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>Group tasks by nodes or parent/child relationships.</summary>
-        public ListTasksDescriptor GroupBy(GroupBy? groupby) => Qs("group_by", groupby);
+        /// <summary>Key used to group tasks in the response.</summary>
+        public ListTasksDescriptor GroupBy(TasksGroupBy? groupby) => Qs("group_by", groupby);
 
         /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public ListTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);

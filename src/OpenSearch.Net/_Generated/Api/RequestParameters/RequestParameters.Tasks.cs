@@ -129,10 +129,10 @@ namespace OpenSearch.Net.Specification.TasksApi
             set => Q("detailed", value);
         }
 
-        /// <summary>Group tasks by nodes or parent/child relationships.</summary>
-        public GroupBy? GroupBy
+        /// <summary>Key used to group tasks in the response.</summary>
+        public TasksGroupBy? GroupBy
         {
-            get => Q<GroupBy?>("group_by");
+            get => Q<TasksGroupBy?>("group_by");
             set => Q("group_by", value);
         }
 
