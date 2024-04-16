@@ -92,10 +92,6 @@ namespace OpenSearch.Client
         /// <summary>The interval for the second sampling of threads.</summary>
         public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
 
-        /// <summary>The type to sample.</summary>
-        public NodesHotThreadsDescriptor SampleType(SampleType? sampletype) =>
-            Qs("type", sampletype);
-
         /// <summary>Number of samples of thread stacktrace.</summary>
         public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
 
@@ -104,6 +100,9 @@ namespace OpenSearch.Client
 
         /// <summary>Operation timeout.</summary>
         public NodesHotThreadsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>The type to sample.</summary>
+        public NodesHotThreadsDescriptor Type(NodesSampleType? type) => Qs("type", type);
     }
 
     /// <summary>Descriptor for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>

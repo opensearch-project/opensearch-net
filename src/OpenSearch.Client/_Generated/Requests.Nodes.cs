@@ -101,13 +101,6 @@ namespace OpenSearch.Client
             set => Q("interval", value);
         }
 
-        /// <summary>The type to sample.</summary>
-        public SampleType? SampleType
-        {
-            get => Q<SampleType?>("type");
-            set => Q("type", value);
-        }
-
         /// <summary>Number of samples of thread stacktrace.</summary>
         public long? Snapshots
         {
@@ -127,6 +120,13 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
+        }
+
+        /// <summary>The type to sample.</summary>
+        public NodesSampleType? Type
+        {
+            get => Q<NodesSampleType?>("type");
+            set => Q("type", value);
         }
     }
 
