@@ -8713,10 +8713,12 @@ components:
     cluster.delete_component_template::path.name:
       in: path
       name: name
-      description: Comma-separated list or wildcard expression of component template names used to limit the request.
+      description: |-
+        Name of the component template to delete.
+        Wildcard (*) expressions are supported.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Names'
+        $ref: '#/components/schemas/_common:Name'
       style: simple
     cluster.delete_component_template::query.cluster_manager_timeout:
       name: cluster_manager_timeout
@@ -8763,11 +8765,11 @@ components:
       in: path
       name: name
       description: |-
-        Comma-separated list of component template names used to limit the request.
+        Name of the component template to check existence of.
         Wildcard (*) expressions are supported.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Names'
+        $ref: '#/components/schemas/_common:Name'
       style: simple
     cluster.exists_component_template::query.cluster_manager_timeout:
       name: cluster_manager_timeout
@@ -8802,7 +8804,7 @@ components:
       in: path
       name: name
       description: |-
-        Comma-separated list of component template names used to limit the request.
+        Name of the component template to retrieve.
         Wildcard (`*`) expressions are supported.
       required: true
       schema:
@@ -8930,7 +8932,7 @@ components:
       name: level
       description: Can be one of cluster, indices or shards. Controls the details level of the health information returned.
       schema:
-        $ref: '#/components/schemas/_common:Level'
+        $ref: '#/components/schemas/cluster.health:Level'
       style: form
     cluster.health::query.local:
       in: query
@@ -9226,7 +9228,9 @@ components:
       description: Limit the information returned to the specified metrics
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Metrics'
+        type: array
+        items:
+          $ref: '#/components/schemas/cluster.state:Metric'
       style: simple
     cluster.state::query.allow_no_indices:
       in: query
@@ -11190,10 +11194,10 @@ components:
     indices.delete_index_template::path.name:
       in: path
       name: name
-      description: Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.
+      description: Name of the index template to delete. Wildcard (*) expressions are supported.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Names'
+        $ref: '#/components/schemas/_common:Name'
       style: simple
     indices.delete_index_template::query.cluster_manager_timeout:
       name: cluster_manager_timeout
@@ -11368,7 +11372,7 @@ components:
     indices.exists_index_template::path.name:
       in: path
       name: name
-      description: Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.
+      description: Name of the index template to check existence of. Wildcard (*) expressions are supported.
       required: true
       schema:
         $ref: '#/components/schemas/_common:Name'
@@ -11768,7 +11772,7 @@ components:
     indices.get_index_template::path.name:
       in: path
       name: name
-      description: Comma-separated list of index template names used to limit the request. Wildcard (*) expressions are supported.
+      description: Name of the index template to retrieve. Wildcard (*) expressions are supported.
       required: true
       schema:
         $ref: '#/components/schemas/_common:Name'
@@ -14039,7 +14043,9 @@ components:
       description: Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Metrics'
+        type: array
+        items:
+          $ref: '#/components/schemas/nodes.info:Metric'
       style: simple
     nodes.info::path.node_id:
       in: path
@@ -14086,7 +14092,9 @@ components:
       description: Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Metrics'
+        type: array
+        items:
+          $ref: '#/components/schemas/nodes.stats:IndexMetric'
       style: simple
     nodes.stats::path.metric:
       in: path
@@ -14094,7 +14102,9 @@ components:
       description: Limit the information returned to the specified metrics
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Metrics'
+        type: array
+        items:
+          $ref: '#/components/schemas/nodes.stats:Metric'
       style: simple
     nodes.stats::path.node_id:
       in: path
@@ -14172,7 +14182,9 @@ components:
         A comma-separated list of the following options: `_all`, `rest_actions`.
       required: true
       schema:
-        $ref: '#/components/schemas/_common:Metrics'
+        type: array
+        items:
+          $ref: '#/components/schemas/nodes.usage:Metric'
       style: simple
     nodes.usage::path.node_id:
       in: path
@@ -28765,10 +28777,15 @@ components:
       type: string
       enum:
         - b
+        - k
         - kb
+        - m
         - mb
+        - g
         - gb
+        - t
         - tb
+        - p
         - pb
     _common:ClusterDetails:
       type: object
@@ -34462,6 +34479,13 @@ components:
         - relocating_shards
         - status
         - unassigned_shards
+    cluster.health:Level:
+      type: string
+      enum:
+        - cluster
+        - indices
+        - shards
+        - awareness_attributes
     cluster.health:ShardHealthStats:
       type: object
       properties:
@@ -34700,6 +34724,18 @@ components:
         - index
         - node
         - shard
+    cluster.state:Metric:
+      type: string
+      enum:
+        - blocks
+        - metadata
+        - nodes
+        - routing_table
+        - routing_nodes
+        - master_node
+        - cluster_manager_node
+        - version
+        - _all
     cluster.stats:CharFilterTypes:
       type: object
       properties:
@@ -39396,6 +39432,22 @@ components:
             - type: string
       required:
         - enabled
+    nodes.info:Metric:
+      type: string
+      enum:
+        - settings
+        - os
+        - process
+        - jvm
+        - thread_pool
+        - transport
+        - http
+        - plugins
+        - ingest
+        - aggregations
+        - indices
+        - search_pipelines
+        - _all
     nodes.info:NodeInfo:
       type: object
       properties:
@@ -40052,6 +40104,43 @@ components:
           required:
             - cluster_name
             - nodes
+    nodes.stats:IndexMetric:
+      type: string
+      enum:
+        - store
+        - indexing
+        - get
+        - search
+        - merge
+        - flush
+        - refresh
+        - query_cache
+        - fielddata
+        - docs
+        - warmer
+        - completion
+        - segments
+        - translog
+        - suggest
+        - request_cache
+        - recovery
+        - _all
+    nodes.stats:Metric:
+      type: string
+      enum:
+        - breaker
+        - fs
+        - http
+        - indices
+        - jvm
+        - os
+        - process
+        - thread_pool
+        - transport
+        - discovery
+        - indexing_pressure
+        - search_pipeline
+        - _all
     nodes.stats:ResponseBase:
       allOf:
         - $ref: '#/components/schemas/nodes._common:NodesResponseBase'
@@ -40065,6 +40154,11 @@ components:
                 $ref: '#/components/schemas/nodes._common:Stats'
           required:
             - nodes
+    nodes.usage:Metric:
+      type: string
+      enum:
+        - rest_actions
+        - _all
     nodes.usage:NodeUsage:
       type: object
       properties:

@@ -36,6 +36,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
+using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Specification;
 using ApiGenerator.Generator.Razor;
 using NJsonSchema;
@@ -99,6 +100,8 @@ namespace ApiGenerator.Generator
 			var document = await OpenApiDocument.FromJsonAsync(json, token);
             JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
 
+			var enumsToGenerate = new Dictionary<string, bool>();
+
 			var endpoints = document.Paths
 				.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
 				.SelectMany(p => p.PathItem.Select(kv => new
@@ -109,10 +112,24 @@ namespace ApiGenerator.Generator
 				.Where(o => CodeConfiguration.IncludeOperation(o.Key))
 				.Select(o => ApiEndpointFactory.From(
 					o.Key,
-					o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList()))
+					o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList(),
+					(e, isFlag) =>
+					{
+						if (enumsToGenerate.TryGetValue(e, out var f)) isFlag |= f;
+						enumsToGenerate[e] = isFlag;
+					}))
 				.ToImmutableSortedDictionary(e => e.Name, e => e);
 
-			return new RestApiSpec { Endpoints = endpoints };
+			var enumsInSpec = enumsToGenerate.Select(kvp => new EnumDescription
+				{
+					Name = CsharpNames.GetEnumName(kvp.Key),
+					IsFlag = kvp.Value,
+					Options = document.Components.Schemas[kvp.Key].Enumeration.Where(e => e != null).Select(e => e.ToString()).ToImmutableList()
+				})
+				.OrderBy(e => e.Name)
+				.ToImmutableList();
+
+			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec };
 		}
 
 		private static string PreprocessRawOpenApiSpec(string yaml)

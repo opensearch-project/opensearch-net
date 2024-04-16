@@ -36,7 +36,6 @@ using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Specification;
-using Newtonsoft.Json;
 using NJsonSchema;
 using NJsonSchema.References;
 using NSwag;
@@ -48,7 +47,8 @@ namespace ApiGenerator.Generator
 	{
 		public static ApiEndpoint From(
 			string name,
-			List<(string HttpPath, OpenApiPathItem Path, string HttpMethod, OpenApiOperation Operation)> variants
+			List<(string HttpPath, OpenApiPathItem Path, string HttpMethod, OpenApiOperation Operation)> variants,
+			Action<string, bool> trackEnumToGenerate
 		)
 		{
 			var tokens = name.Split(".");
@@ -75,15 +75,14 @@ namespace ApiGenerator.Generator
 					var partName = param.Name;
 					if (!allParts.TryGetValue(partName, out var part))
 					{
-						var (type, options) = GetOpenSearchType(param.Schema);
+						var type = GetOpenSearchType(param.Schema, trackEnumToGenerate);
 						part = allParts[partName] = new UrlPart
 						{
 							ClrTypeNameOverride = null,
 							Deprecated = param.IsDeprecated,
 							Description = param.Description?.SanitizeDescription(),
 							Name = partName,
-							Type = type,
-							Options = options
+							Type = type
 						};
 					}
 					partNames.Add(partName);
@@ -128,7 +127,7 @@ namespace ApiGenerator.Generator
 				.Select(p => p.ActualParameter)
 				.Where(p => p.Kind == OpenApiParameterKind.Query)
 				.DistinctBy(p => p.Name)
-				.ToDictionary(p => p.Name, BuildQueryParam);
+				.ToDictionary(p => p.Name, p => BuildQueryParam(p, trackEnumToGenerate));
 			queryParams = ApiRequestParametersPatcher.PatchQueryParameters(name, queryParams, overrides);
 
 			Body body = null;
@@ -172,35 +171,18 @@ namespace ApiGenerator.Generator
 			return type != null && Activator.CreateInstance(type) is IEndpointOverrides overrides ? overrides : null;
 		}
 
-		private static QueryParameters BuildQueryParam(OpenApiParameter p)
-		{
-			var schema = p.Schema.ActualSchema;
-
-			var (type, options) = GetOpenSearchType(schema);
-
-			if (type == "enum" && p.Schema.HasReference)
+		private static QueryParameters BuildQueryParam(OpenApiParameter p, Action<string, bool> trackEnumToGenerate) =>
+			new()
 			{
-				type = ((IJsonReference)p.Schema).ReferencePath
-					!.Split('/')
-					.Last()
-					.Replace("_common", "")
-					.SplitPascalCase()
-					.ToPascalCase() + "?";
-			}
-
-			var param = new QueryParameters
-			{
-				Type = type,
+				Type = GetOpenSearchType(p.Schema, trackEnumToGenerate),
 				Description = p.Description?.SanitizeDescription(),
-				Deprecated = GetDeprecation(p) ?? GetDeprecation(schema),
+				Deprecated = GetDeprecation(p) ?? GetDeprecation(p.ActualSchema),
 				VersionAdded = p.XVersionAdded(),
 			};
 
-			return param;
-		}
-
-		private static (string Type, IEnumerable<string> EnumOptions) GetOpenSearchType(JsonSchema schema)
+		private static string GetOpenSearchType(JsonSchema schema, Action<string, bool> trackEnumToGenerate, bool isListContext = false)
 		{
+			var schemaKey = ((IJsonReference)schema).ReferencePath?.Split('/').Last();
 			schema = schema.ActualSchema;
 
 			if (schema.OneOf is { Count: > 0 })
@@ -209,31 +191,40 @@ namespace ApiGenerator.Generator
 
 				if (oneOf.Length == 2)
 				{
-					var first = GetOpenSearchType(oneOf[0]);
-					var second = GetOpenSearchType(oneOf[1]);
-					switch (first.Type, second.Type)
+					var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
+					var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
+					if (first.EndsWith("?")) return first;
+					if (first == second) return first;
+
+					switch (first, second)
 					{
-						case ("enum", "list"): return first;
 						case ("string", "list"): return second;
 						case ("boolean", "string"): return first;
 						case ("string", "number"): return first;
-						case ("number", "enum"): return ("string", null);
+						case ("number", _): return "string";
 					}
 				}
 			}
 
-			var enumOptions = (schema.XEnumOptions()
-				?? schema.Enumeration.Select(e => e.ToString())).ToList();
-
 			if (schema.XDataType() is { } dataType)
-				return (dataType == "array" ? "list" : dataType, enumOptions);
+				return dataType == "array" ? "list" : dataType;
+
+			var enumOptions = schema.Enumeration.Where(e => e != null).Select(e => e.ToString()).ToList();
+
+			if (schemaKey != null && schema.Type == JsonObjectType.String && enumOptions.Count > 0)
+			{
+				trackEnumToGenerate(schemaKey, isListContext);
+				return CsharpNames.GetEnumName(schemaKey) + "?";
+			}
+
+			if (schema.Type == JsonObjectType.Array && (schema.Item?.HasReference ?? false))
+				_ = GetOpenSearchType(schema.Item, trackEnumToGenerate, true);
 
 			return schema.Type switch
 			{
-				JsonObjectType.String when enumOptions is { Count: > 0 } => ("enum", enumOptions),
-				JsonObjectType.Integer => ("number", null),
-				JsonObjectType.Array => ("list", enumOptions),
-				var t => (t.ToString().ToLowerInvariant(), null)
+				JsonObjectType.Integer => "number",
+				JsonObjectType.Array => "list",
+				var t => t.ToString().ToLowerInvariant()
 			};
 		}
 
@@ -283,9 +274,6 @@ namespace ApiGenerator.Generator
 
 		private static string XDataType(this IJsonExtensionObject schema) =>
 			schema.GetExtension("x-data-type") as string;
-
-		private static IEnumerable<string> XEnumOptions(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-enum-options") is object[] opts ? opts.Cast<string>() : null;
 
 		private static object GetExtension(this IJsonExtensionObject schema, string key) =>
 			schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;

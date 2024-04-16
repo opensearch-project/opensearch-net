@@ -4,7 +4,8 @@
 @inherits CodeTemplatePage<RestApiSpec>
 @{ await IncludeLegacyGeneratorNotice(); }
 @functions {
-    private static bool IsFlag(string name) => name.EndsWith("Metric") || name.EndsWith("Feature");
+    private static bool IsFlag(EnumDescription e) =>
+	    e.IsFlag || e.Name.EndsWith("Metric") || e.Name.EndsWith("Feature");
 
     private static string GetEnumValue(string enumName, string value) =>
 	    enumName == "Size" && value == string.Empty
@@ -24,7 +25,7 @@ namespace OpenSearch.Net
 {
 @foreach (var e in Model.EnumsInTheSpec)
 {
-    var isFlag = IsFlag(e.Name);
+    var isFlag = IsFlag(e);
     <text>
 	@(isFlag ? "[Flags, StringEnum]" : "[StringEnum]")
 	public enum @e.Name
@@ -33,7 +34,7 @@ namespace OpenSearch.Net
 	{
 		<text>@(i > 0 ? "," : null)
 		[EnumMember(Value = "@(o)")]
-		@(GetEnumValue(e.Name, o))@(isFlag ? $" = 1 << {i}" : null)</text>
+		@(GetEnumValue(e.Name, o))@(isFlag ? Raw($" = 1 << {i}") : null)</text>
 	}
     }</text>
 }
@@ -51,7 +52,7 @@ namespace OpenSearch.Net
 
 	@foreach (var e in Model.EnumsInTheSpec)
     {
-	    if (IsFlag(e.Name))
+	    if (IsFlag(e))
 	    {
 		    <text>
 		    public static string GetStringValue(this @(e.Name) enumValue)
@@ -59,7 +60,7 @@ namespace OpenSearch.Net
 		    </text>
 		    if (e.Options.Any(o => o == "_all"))
 		    {
-			    <text>if ((enumValue & @(e.Name).All != 0) return "_all";
+			    <text>if ((enumValue & @(e.Name).All) != 0) return "_all";
 			    </text>
 		    }
 		    <text>var list = new @(Raw("List<string>()"));

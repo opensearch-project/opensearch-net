@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Configuration;
+using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Generator;
 
 namespace ApiGenerator.Domain.Code
@@ -103,6 +104,7 @@ namespace ApiGenerator.Domain.Code
         public const string LowLevelClientNamespacePrefix = "LowLevel";
         public const string HighLevelClientNamespacePrefix = "";
         public const string ClientNamespaceSuffix = "Namespace";
+
         private static string CreateCSharpNamespace(string endpointNamespace)
         {
             switch (endpointNamespace)
@@ -203,5 +205,12 @@ namespace ApiGenerator.Domain.Code
             : RequestName;
 
         public bool CustomResponseBuilderPerRequestOverride(out string call) => CodeConfiguration.ResponseBuilderInClientCalls.TryGetValue(RequestName, out call);
+
+		public static string GetEnumName(string schemaKey)
+		{
+			var enumName = schemaKey.Replace("_common", "").SplitPascalCase().ToPascalCase();
+			if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed)) enumName = renamed;
+			return enumName;
+		}
     }
 }

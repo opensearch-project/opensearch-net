@@ -36,6 +36,11 @@ namespace ApiGenerator.Configuration.Overrides
 
 		private GlobalOverrides() { }
 
+		public IDictionary<string, string> RenameEnums { get; } = new Dictionary<string, string>
+		{
+			{ "ExpandWildcard", "ExpandWildcards" }
+		};
+
         public override IDictionary<string, string> ObsoleteQueryStringParams { get; set; } = new Dictionary<string, string>
         {
             { "copy_settings", "" }
