@@ -398,12 +398,12 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_names.</summary>
-        public PostVotingConfigExclusionsDescriptor NodeIds(string nodeids) =>
+        /// <summary>A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify node_names.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeIds(params string[] nodeids) =>
             Qs("node_ids", nodeids);
 
-        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
-        public PostVotingConfigExclusionsDescriptor NodeNames(string nodenames) =>
+        /// <summary>A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify node_ids.</summary>
+        public PostVotingConfigExclusionsDescriptor NodeNames(params string[] nodenames) =>
             Qs("node_names", nodenames);
 
         /// <summary>When adding a voting configuration exclusion, the API waits for the specified nodes to be excluded from the voting configuration before returning. If the timeout expires before the appropriate condition is satisfied, the request fails and returns an error.</summary>

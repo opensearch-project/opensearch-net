@@ -38,9 +38,9 @@ namespace Tests.Cluster.VotingConfigExclusions.PostVotingConfigExclusions
 	{
 		[U] public override async Task Urls() =>
 			await POST("/_cluster/voting_config_exclusions?node_names=node1%2Cnode2")
-				.Fluent(c => c.Cluster.PostVotingConfigExclusions(f => f.NodeNames("node1,node2")))
-				.Request(c => c.Cluster.PostVotingConfigExclusions(new PostVotingConfigExclusionsRequest{ NodeNames = "node1,node2" }))
-				.FluentAsync(c => c.Cluster.PostVotingConfigExclusionsAsync(f => f.NodeNames("node1,node2")))
-				.RequestAsync(c => c.Cluster.PostVotingConfigExclusionsAsync(new PostVotingConfigExclusionsRequest{ NodeNames = "node1,node2" }));
+				.Fluent(c => c.Cluster.PostVotingConfigExclusions(f => f.NodeNames("node1", "node2")))
+				.Request(c => c.Cluster.PostVotingConfigExclusions(new PostVotingConfigExclusionsRequest{ NodeNames = new[] { "node1", "node2" } }))
+				.FluentAsync(c => c.Cluster.PostVotingConfigExclusionsAsync(f => f.NodeNames("node1", "node2")))
+				.RequestAsync(c => c.Cluster.PostVotingConfigExclusionsAsync(new PostVotingConfigExclusionsRequest{ NodeNames = new[] { "node1", "node2" } }));
 	}
 }

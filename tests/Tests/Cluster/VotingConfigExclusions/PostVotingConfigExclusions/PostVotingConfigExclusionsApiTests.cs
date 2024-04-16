@@ -50,10 +50,10 @@ namespace Tests.Cluster.VotingConfigExclusions.PostVotingConfigExclusions
 		protected override int ExpectStatusCode => 200;
 
 		protected override Func<PostVotingConfigExclusionsDescriptor, IPostVotingConfigExclusionsRequest> Fluent => s => s
-			.NodeNames("node1,node2");
+			.NodeNames("node1", "node2");
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override PostVotingConfigExclusionsRequest Initializer => new PostVotingConfigExclusionsRequest { NodeNames = "node1,node2" };
+		protected override PostVotingConfigExclusionsRequest Initializer => new() { NodeNames = new[] { "node1", "node2" } };
 		protected override string UrlPath => $"/_cluster/voting_config_exclusions?node_names=node1%2Cnode2";
 
 		protected override LazyResponses ClientUsage() => Calls(

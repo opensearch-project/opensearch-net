@@ -454,16 +454,19 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
         /// node_names.
         /// </summary>
-        public string NodeIds
+        public string[] NodeIds
         {
-            get => Q<string>("node_ids");
+            get => Q<string[]>("node_ids");
             set => Q("node_ids", value);
         }
 
-        /// <summary>Comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify ?node_ids.</summary>
-        public string NodeNames
+        /// <summary>
+        /// A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// node_ids.
+        /// </summary>
+        public string[] NodeNames
         {
-            get => Q<string>("node_names");
+            get => Q<string[]>("node_names");
             set => Q("node_names", value);
         }
 
