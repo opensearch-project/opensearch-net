@@ -1089,7 +1089,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
-        public string[] IndexQueryString
+        public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
@@ -1274,7 +1274,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
-        public string[] IndexQueryString
+        public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
