@@ -47,7 +47,7 @@ namespace OpenSearch.Client
 		public int RelocatingShards { get; internal set; }
 
 		[DataMember(Name ="status")]
-		public Health Status { get; internal set; }
+		public HealthStatus Status { get; internal set; }
 
 		[DataMember(Name ="unassigned_shards")]
 		public int UnassignedShards { get; internal set; }

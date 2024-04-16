@@ -60,7 +60,7 @@ namespace Tests.Indices.IndexManagement.OpenCloseIndex.OpenIndex
 			foreach (var index in values.Values)
 			{
 				client.Indices.Create(index);
-				client.Cluster.Health(index, h => h.WaitForStatus(WaitForStatus.Yellow));
+				client.Cluster.Health(index, h => h.WaitForStatus(HealthStatus.Yellow));
 				client.Indices.Close(index);
 			}
 		}

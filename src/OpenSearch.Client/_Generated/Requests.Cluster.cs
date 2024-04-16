@@ -484,10 +484,13 @@ namespace OpenSearch.Client
             set => Q("wait_for_no_relocating_shards", value);
         }
 
-        /// <summary>Wait until cluster is in a specific state.</summary>
-        public WaitForStatus? WaitForStatus
+        /// <summary>
+        /// One of green, yellow or red. Will wait (until the timeout provided) until the status of the cluster changes to the one provided or better,
+        /// i.e. green > yellow > red. By default, will not wait for any status.
+        /// </summary>
+        public HealthStatus? WaitForStatus
         {
-            get => Q<WaitForStatus?>("wait_for_status");
+            get => Q<HealthStatus?>("wait_for_status");
             set => Q("wait_for_status", value);
         }
     }

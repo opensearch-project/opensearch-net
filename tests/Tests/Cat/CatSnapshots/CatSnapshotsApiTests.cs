@@ -71,7 +71,7 @@ namespace Tests.Cat.CatSnapshots
 				throw new Exception("Setup: failed to create snapshot repository");
 
 			Client.Indices.Create(SnapshotIndexName);
-			Client.Cluster.Health(SnapshotIndexName, g => g.WaitForStatus(WaitForStatus.Yellow));
+			Client.Cluster.Health(SnapshotIndexName, g => g.WaitForStatus(HealthStatus.Yellow));
 			client.Snapshot.Snapshot(RepositoryName, SnapshotName, s => s.WaitForCompletion().Index(SnapshotIndexName));
 		}
 

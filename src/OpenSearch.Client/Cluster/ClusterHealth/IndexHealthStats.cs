@@ -59,7 +59,7 @@ namespace OpenSearch.Client
 		public IReadOnlyDictionary<string, ShardHealthStats> Shards { get; internal set; } = EmptyReadOnly<string, ShardHealthStats>.Dictionary;
 
 		[DataMember(Name = "status")]
-		public Health Status { get; internal set; }
+		public HealthStatus Status { get; internal set; }
 
 		[DataMember(Name = "unassigned_shards")]
 		public int UnassignedShards { get; internal set; }

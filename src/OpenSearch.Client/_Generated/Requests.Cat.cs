@@ -688,10 +688,10 @@ namespace OpenSearch.Client
             set => Q("h", value);
         }
 
-        /// <summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
-        public Health? Health
+        /// <summary>The health status used to limit returned indices. By default, the response includes indices of any health status.</summary>
+        public HealthStatus? Health
         {
-            get => Q<Health?>("health");
+            get => Q<HealthStatus?>("health");
             set => Q("health", value);
         }
 

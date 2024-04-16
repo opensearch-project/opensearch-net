@@ -52,7 +52,7 @@ namespace Tests.Framework.EndpointTests
 		{
 			foreach (var index in values.Values) client.Indices.Create(index, CreateIndexSettings).ShouldBeValid();
 			var indices = Infer.Indices(values.Values.Select(i => (IndexName)i));
-			client.Cluster.Health(indices, f => f.WaitForStatus(WaitForStatus.Yellow))
+			client.Cluster.Health(indices, f => f.WaitForStatus(HealthStatus.Yellow))
 				.ShouldBeValid();
 		}
 

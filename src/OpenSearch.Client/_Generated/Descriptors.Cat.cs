@@ -452,8 +452,8 @@ namespace OpenSearch.Client
         /// <summary>Comma-separated list of column names to display.</summary>
         public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
-        public CatIndicesDescriptor Health(Health? health) => Qs("health", health);
+        /// <summary>The health status used to limit returned indices. By default, the response includes indices of any health status.</summary>
+        public CatIndicesDescriptor Health(HealthStatus? health) => Qs("health", health);
 
         /// <summary>Return help information.</summary>
         public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
