@@ -334,10 +334,10 @@ namespace OpenSearch.Client
             set => Q("include_segment_file_sizes", value);
         }
 
-        /// <summary>Return indices stats aggregated at index, node or shard level.</summary>
-        public NodesStatLevel? NodesStatLevel
+        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+        public Level? Level
         {
-            get => Q<NodesStatLevel?>("level");
+            get => Q<Level?>("level");
             set => Q("level", value);
         }
 

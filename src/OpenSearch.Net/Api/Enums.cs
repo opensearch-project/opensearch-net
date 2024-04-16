@@ -148,17 +148,6 @@ namespace OpenSearch.Net
 		P
 	}
 
-	[StringEnum]
-	public enum Level
-	{
-		[EnumMember(Value = "cluster")]
-		Cluster,
-		[EnumMember(Value = "indices")]
-		Indices,
-		[EnumMember(Value = "shards")]
-		Shards
-	}
-
 	[Flags, StringEnum]
 	public enum ClusterRerouteMetric
 	{
@@ -243,7 +232,6 @@ namespace OpenSearch.Net
 			AddEnumStringResolver<SuggestMode>(GetStringValue);
 			AddEnumStringResolver<Refresh>(GetStringValue);
 			AddEnumStringResolver<Size>(GetStringValue);
-			AddEnumStringResolver<Level>(GetStringValue);
 			AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
 			AddEnumStringResolver<VersionType>(GetStringValue);
 			AddEnumStringResolver<Conflicts>(GetStringValue);
@@ -342,15 +330,6 @@ namespace OpenSearch.Net
 				Size.T => "t",
 				Size.P => "p",
 				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'")
-			};
-
-		public static string GetStringValue(this Level enumValue) =>
-			enumValue switch
-			{
-				Level.Cluster => "cluster",
-				Level.Indices => "indices",
-				Level.Shards => "shards",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'")
 			};
 
 		public static string GetStringValue(this ClusterRerouteMetric enumValue)

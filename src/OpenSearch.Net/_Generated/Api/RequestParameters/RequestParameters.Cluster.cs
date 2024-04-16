@@ -300,13 +300,6 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("awareness_attribute", value);
         }
 
-        /// <summary>Specify the level of detail for returned information.</summary>
-        public ClusterHealthLevel? ClusterHealthLevel
-        {
-            get => Q<ClusterHealthLevel?>("level");
-            set => Q("level", value);
-        }
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -320,6 +313,13 @@ namespace OpenSearch.Net.Specification.ClusterApi
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Can be one of cluster, indices or shards. Controls the details level of the health information returned.</summary>
+        public ClusterHealthLevel? Level
+        {
+            get => Q<ClusterHealthLevel?>("level");
+            set => Q("level", value);
         }
 
         /// <summary>

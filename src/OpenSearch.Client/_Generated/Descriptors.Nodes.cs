@@ -283,9 +283,8 @@ namespace OpenSearch.Client
         public NodesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
             Qs("include_segment_file_sizes", includesegmentfilesizes);
 
-        /// <summary>Return indices stats aggregated at index, node or shard level.</summary>
-        public NodesStatsDescriptor NodesStatLevel(NodesStatLevel? nodesstatlevel) =>
-            Qs("level", nodesstatlevel);
+        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+        public NodesStatsDescriptor Level(Level? level) => Qs("level", level);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);

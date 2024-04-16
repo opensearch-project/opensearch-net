@@ -303,10 +303,6 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor AwarenessAttribute(string awarenessattribute) =>
             Qs("awareness_attribute", awarenessattribute);
 
-        /// <summary>Specify the level of detail for returned information.</summary>
-        public ClusterHealthDescriptor ClusterHealthLevel(ClusterHealthLevel? clusterhealthlevel) =>
-            Qs("level", clusterhealthlevel);
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterHealthDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
@@ -315,6 +311,9 @@ namespace OpenSearch.Client
         /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
         public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>Can be one of cluster, indices or shards. Controls the details level of the health information returned.</summary>
+        public ClusterHealthDescriptor Level(ClusterHealthLevel? level) => Qs("level", level);
 
         /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
         public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
