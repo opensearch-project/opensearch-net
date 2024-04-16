@@ -13,6 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 
+## [1.7.1]
 ### Fixed
 - Fixed the deserialization of S3 snapshot repositories without settings ([#587](https://github.com/opensearch-project/opensearch-net/pull/587)) 
 
@@ -163,7 +164,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...main
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.1...main
+[1.7.1]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.4.0...v1.5.0
