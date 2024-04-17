@@ -39,7 +39,7 @@ namespace ApiGenerator
         /// <summary>
         /// Removes _ . but not an underscore at the start of the string, unless the string is _all or removeLeadingUnderscore == true.
         /// </summary>
-        private static readonly Regex RemovePunctuationExceptFirstUnderScore = new Regex(@"(?!^_(?!All$))[_\.]");
+        private static readonly Regex RemovePunctuationExceptFirstUnderScore = new(@"(?!^_(?!All$))[_\-\.: ]");
 
         public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> items, Func<T, TKey> property) =>
             items.GroupBy(property).Select(x => x.First());

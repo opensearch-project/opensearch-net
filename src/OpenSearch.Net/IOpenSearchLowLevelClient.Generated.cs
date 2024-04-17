@@ -52,12 +52,6 @@ namespace OpenSearch.Net
 	///</summary>
 	public partial interface IOpenSearchLowLevelClient
 	{
-		///<summary>Cat APIs</summary>
-		LowLevelCatNamespace Cat
-		{
-			get;
-		}
-
 		///<summary>Dangling Indices APIs</summary>
 		LowLevelDanglingIndicesNamespace DanglingIndices
 		{

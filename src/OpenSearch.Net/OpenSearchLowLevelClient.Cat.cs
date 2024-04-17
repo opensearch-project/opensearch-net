@@ -51,16 +51,6 @@ namespace OpenSearch.Net.Specification.CatApi
 	///</summary>
 	public partial class LowLevelCatNamespace : NamespacedClientProxy
 	{
-		internal LowLevelCatNamespace(OpenSearchLowLevelClient client): base(client)
-		{
-		}
-
-		protected override string ContentType
-		{
-			get;
-		}
-
-		= "text/plain";
 		///<summary>GET on /_cat/aliases <para>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-aliases/</para></summary>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
 		public TResponse Aliases<TResponse>(CatAliasesRequestParameters requestParameters = null)

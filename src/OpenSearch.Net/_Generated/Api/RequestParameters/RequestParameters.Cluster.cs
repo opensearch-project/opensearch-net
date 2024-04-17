@@ -67,7 +67,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -77,7 +80,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -100,14 +103,20 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>
+        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// master node.
+        /// </summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -133,14 +142,17 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -166,14 +178,17 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing component templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
             set => Q("create", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]

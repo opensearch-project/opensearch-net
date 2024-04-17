@@ -89,86 +89,109 @@ namespace OpenSearch.Net
         Pb
     }
 
-    [StringEnum]
+    [Flags, StringEnum]
     public enum ExpandWildcards
     {
         [EnumMember(Value = "all")]
-        All,
+        All = 1 << 0,
 
         [EnumMember(Value = "open")]
-        Open,
+        Open = 1 << 1,
 
         [EnumMember(Value = "closed")]
-        Closed,
+        Closed = 1 << 2,
 
         [EnumMember(Value = "hidden")]
-        Hidden,
+        Hidden = 1 << 3,
 
         [EnumMember(Value = "none")]
-        None
+        None = 1 << 4
+    }
+
+    [StringEnum]
+    public enum TimeUnit
+    {
+        [EnumMember(Value = "nanos")]
+        Nanos,
+
+        [EnumMember(Value = "micros")]
+        Micros,
+
+        [EnumMember(Value = "ms")]
+        Ms,
+
+        [EnumMember(Value = "s")]
+        S,
+
+        [EnumMember(Value = "m")]
+        M,
+
+        [EnumMember(Value = "h")]
+        H,
+
+        [EnumMember(Value = "d")]
+        D
     }
 
     public static partial class KnownEnums
     {
         static partial void RegisterEnumStringResolvers()
         {
-            EnumStringResolvers.TryAdd(typeof(Bytes), e => GetStringValue((Bytes)e));
-            EnumStringResolvers.TryAdd(
-                typeof(ExpandWildcards),
-                e => GetStringValue((ExpandWildcards)e)
-            );
+            AddEnumStringResolver<Bytes>(GetStringValue);
+            AddEnumStringResolver<ExpandWildcards>(GetStringValue);
+            AddEnumStringResolver<TimeUnit>(GetStringValue);
         }
 
-        public static string GetStringValue(this Bytes enumValue)
-        {
-            switch (enumValue)
+        public static string GetStringValue(this Bytes enumValue) =>
+            enumValue switch
             {
-                case Bytes.B:
-                    return "b";
-                case Bytes.K:
-                    return "k";
-                case Bytes.Kb:
-                    return "kb";
-                case Bytes.M:
-                    return "m";
-                case Bytes.Mb:
-                    return "mb";
-                case Bytes.G:
-                    return "g";
-                case Bytes.Gb:
-                    return "gb";
-                case Bytes.T:
-                    return "t";
-                case Bytes.Tb:
-                    return "tb";
-                case Bytes.P:
-                    return "p";
-                case Bytes.Pb:
-                    return "pb";
-            }
-            throw new ArgumentException(
-                $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
-            );
-        }
+                Bytes.B => "b",
+                Bytes.K => "k",
+                Bytes.Kb => "kb",
+                Bytes.M => "m",
+                Bytes.Mb => "mb",
+                Bytes.G => "g",
+                Bytes.Gb => "gb",
+                Bytes.T => "t",
+                Bytes.Tb => "tb",
+                Bytes.P => "p",
+                Bytes.Pb => "pb",
+                _
+                    => throw new ArgumentException(
+                        $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
+                    )
+            };
 
         public static string GetStringValue(this ExpandWildcards enumValue)
         {
-            switch (enumValue)
-            {
-                case ExpandWildcards.All:
-                    return "all";
-                case ExpandWildcards.Open:
-                    return "open";
-                case ExpandWildcards.Closed:
-                    return "closed";
-                case ExpandWildcards.Hidden:
-                    return "hidden";
-                case ExpandWildcards.None:
-                    return "none";
-            }
-            throw new ArgumentException(
-                $"'{enumValue.ToString()}' is not a valid value for enum 'ExpandWildcards'"
-            );
+            var list = new List<string>();
+            if ((enumValue & ExpandWildcards.All) != 0)
+                list.Add("all");
+            if ((enumValue & ExpandWildcards.Open) != 0)
+                list.Add("open");
+            if ((enumValue & ExpandWildcards.Closed) != 0)
+                list.Add("closed");
+            if ((enumValue & ExpandWildcards.Hidden) != 0)
+                list.Add("hidden");
+            if ((enumValue & ExpandWildcards.None) != 0)
+                list.Add("none");
+            return string.Join(",", list);
         }
+
+        public static string GetStringValue(this TimeUnit enumValue) =>
+            enumValue switch
+            {
+                TimeUnit.Nanos => "nanos",
+                TimeUnit.Micros => "micros",
+                TimeUnit.Ms => "ms",
+                TimeUnit.S => "s",
+                TimeUnit.M => "m",
+                TimeUnit.H => "h",
+                TimeUnit.D => "d",
+                _
+                    => throw new ArgumentException(
+                        $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
+                    )
+            };
     }
 }

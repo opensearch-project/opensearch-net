@@ -145,7 +145,6 @@ namespace ApiGenerator.Domain.Specification
 
 		public string Name { get; set; }
         public string NameAsArgument => Name.ToCamelCase();
-        public IEnumerable<string> Options { get; set; }
         public bool Required { get; set; }
         public bool Deprecated { get; set; }
         public string Type { get; set; }

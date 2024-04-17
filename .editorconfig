@@ -3,31 +3,19 @@ root=true
 [*]
 charset = utf-8
 end_of_line = lf
-indent_style = tab
+indent_style = space
 indent_size = 4
 insert_final_newline=true
 
-[*.cs]
-trim_trailing_whitespace=true
-
-[*.cshtml]
-indent_style = tab
-indent_size = 4
-
-[*.{fs,fsx}]
-indent_style = space
-indent_size = 4
-
 [*.yml]
-indent_style = space
 indent_size = 2
 
-[*.{md,markdown,json,js,csproj,fsproj,targets,targets,props}]
-indent_style = space
+[*.{md,markdown,json,js,csproj,fsproj,targets,props}]
 indent_size = 2
 
 # Dotnet code style settings:
 [*.{cs,vb}]
+trim_trailing_whitespace = true
 
 # ---
 # naming conventions https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions
@@ -171,7 +159,7 @@ csharp_new_line_before_else = true
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_object_initializers = true
-# just a suggestion do to our JSON tests that use anonymous types to 
+# just a suggestion do to our JSON tests that use anonymous types to
 # represent json quite a bit (makes copy paste easier).
 csharp_new_line_before_members_in_anonymous_types = true
 csharp_new_line_between_query_expression_clauses = true

@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             : base(client) { }
 
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The name of the template.</param>
+        /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteComponentTemplate<TResponse>(
             string name,
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The name of the template.</param>
+        /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_component_template", "name")]
         public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The name of the template.</param>
+        /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ComponentTemplateExists<TResponse>(
             string name,
@@ -118,7 +118,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The name of the template.</param>
+        /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.exists_component_template", "name")]
         public Task<TResponse> ComponentTemplateExistsAsync<TResponse>(
@@ -165,7 +165,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The Comma-separated names of the component templates.</param>
+        /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetComponentTemplate<TResponse>(
             string name,
@@ -180,7 +180,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">The Comma-separated names of the component templates.</param>
+        /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "name")]
         public Task<TResponse> GetComponentTemplateAsync<TResponse>(
@@ -198,8 +198,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_component_template/{name}</summary>
-        /// <param name="name">The name of the template.</param>
-        /// <param name="body">The template definition</param>
+        /// <param name="name">Name of the component template to create. Opensearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x2019;t use Opensearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutComponentTemplate<TResponse>(
             string name,
@@ -215,8 +215,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_component_template/{name}</summary>
-        /// <param name="name">The name of the template.</param>
-        /// <param name="body">The template definition</param>
+        /// <param name="name">Name of the component template to create. Opensearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x2019;t use Opensearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_component_template", "name, body")]
         public Task<TResponse> PutComponentTemplateAsync<TResponse>(
