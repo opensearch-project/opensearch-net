@@ -168,7 +168,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_CompletionFields_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.CompletionFields*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_CompletionFields" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.CompletionFields">CompletionFields</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of fields for <code>fielddata</code> and <code>suggest</code> index metric (supports wildcards).</p>
+  <div class="markdown level1 summary"><p>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -231,7 +231,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_FielddataFields_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.FielddataFields*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_FielddataFields" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.FielddataFields">FielddataFields</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of fields for <code>fielddata</code> index metric (supports wildcards).</p>
+  <div class="markdown level1 summary"><p>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -262,7 +262,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Fields_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Fields*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Fields" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Fields">Fields</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of fields for <code>fielddata</code> and <code>completion</code> index metric (supports wildcards).</p>
+  <div class="markdown level1 summary"><p>Comma-separated list or wildcard expressions of fields to include in the statistics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -293,7 +293,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Groups_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Groups*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Groups" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Groups">Groups</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of search groups for <code>search</code> index metric.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of search groups to include in the search statistics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -324,7 +324,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_IncludeSegmentFileSizes_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.IncludeSegmentFileSizes*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_IncludeSegmentFileSizes" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.IncludeSegmentFileSizes">IncludeSegmentFileSizes</h4>
-  <div class="markdown level1 summary"><p>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</p>
+  <div class="markdown level1 summary"><p>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -348,19 +348,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_NodesStatLevel.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.NodesStatLevel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Level.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Level%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Nodes.cs/#L184">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_NodesStatLevel_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.NodesStatLevel*"></a>
-  <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_NodesStatLevel" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.NodesStatLevel">NodesStatLevel</h4>
-  <div class="markdown level1 summary"><p>Return indices stats aggregated at index, node or shard level.</p>
+  <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Level_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Level*"></a>
+  <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Level" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Level">Level</h4>
+  <div class="markdown level1 summary"><p>Indicates whether statistics are aggregated at the cluster, index, or shard level.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NodesStatLevel? NodesStatLevel { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Level? Level { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -372,7 +372,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.NodesStatLevel.html">NodesStatLevel</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.Level.html">Level</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -418,7 +418,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Timeout_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Timeout*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Timeout" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Operation timeout.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -449,7 +449,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Types_" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Types*"></a>
   <h4 id="OpenSearch_Net_Specification_NodesApi_NodesStatsRequestParameters_Types" data-uid="OpenSearch.Net.Specification.NodesApi.NodesStatsRequestParameters.Types">Types</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of document types for the <code>indexing</code> index metric.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of document types for the indexing index metric.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

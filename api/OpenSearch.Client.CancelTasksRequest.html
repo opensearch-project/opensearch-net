@@ -232,7 +232,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksRequest_Actions_" data-uid="OpenSearch.Client.CancelTasksRequest.Actions*"></a>
   <h4 id="OpenSearch_Client_CancelTasksRequest_Actions" data-uid="OpenSearch.Client.CancelTasksRequest.Actions">Actions</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list or wildcard expression of actions used to limit the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -259,12 +259,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CancelTasksRequest_Nodes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CancelTasksRequest.Nodes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L101">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L98">View Source</a>
   </span>
   <a id="OpenSearch_Client_CancelTasksRequest_Nodes_" data-uid="OpenSearch.Client.CancelTasksRequest.Nodes*"></a>
   <h4 id="OpenSearch_Client_CancelTasksRequest_Nodes" data-uid="OpenSearch.Client.CancelTasksRequest.Nodes">Nodes</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're
-connecting to, leave empty to get information from all nodes.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names used to limit the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -291,11 +290,11 @@ connecting to, leave empty to get information from all nodes.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CancelTasksRequest_ParentTaskId.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CancelTasksRequest.ParentTaskId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L108">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L105">View Source</a>
   </span>
   <a id="OpenSearch_Client_CancelTasksRequest_ParentTaskId_" data-uid="OpenSearch.Client.CancelTasksRequest.ParentTaskId*"></a>
   <h4 id="OpenSearch_Client_CancelTasksRequest_ParentTaskId" data-uid="OpenSearch.Client.CancelTasksRequest.ParentTaskId">ParentTaskId</h4>
-  <div class="markdown level1 summary"><p>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</p>
+  <div class="markdown level1 summary"><p>Parent task ID used to limit the tasks.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -352,11 +351,11 @@ connecting to, leave empty to get information from all nodes.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CancelTasksRequest_WaitForCompletion.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CancelTasksRequest.WaitForCompletion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L115">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Tasks.cs/#L112">View Source</a>
   </span>
   <a id="OpenSearch_Client_CancelTasksRequest_WaitForCompletion_" data-uid="OpenSearch.Client.CancelTasksRequest.WaitForCompletion*"></a>
   <h4 id="OpenSearch_Client_CancelTasksRequest_WaitForCompletion" data-uid="OpenSearch.Client.CancelTasksRequest.WaitForCompletion">WaitForCompletion</h4>
-  <div class="markdown level1 summary"><p>Should this request wait until the operation has completed before returning.</p>
+  <div class="markdown level1 summary"><p>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

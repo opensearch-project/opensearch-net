@@ -440,7 +440,7 @@
   </span>
   <a id="OpenSearch_Client_CatSnapshotsDescriptor_IgnoreUnavailable_" data-uid="OpenSearch.Client.CatSnapshotsDescriptor.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_CatSnapshotsDescriptor_IgnoreUnavailable_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatSnapshotsDescriptor.IgnoreUnavailable(System.Nullable{System.Boolean})">IgnoreUnavailable(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the response does not include information from unavailable snapshots.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -537,7 +537,7 @@ public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_CatSnapshotsDescriptor_RepositoryName_" data-uid="OpenSearch.Client.CatSnapshotsDescriptor.RepositoryName*"></a>
   <h4 id="OpenSearch_Client_CatSnapshotsDescriptor_RepositoryName_OpenSearch_Client_Names_" data-uid="OpenSearch.Client.CatSnapshotsDescriptor.RepositoryName(OpenSearch.Client.Names)">RepositoryName(Names)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of repository names.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. <code>_all</code> returns all repositories. If any repository fails during the request, Opensearch returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

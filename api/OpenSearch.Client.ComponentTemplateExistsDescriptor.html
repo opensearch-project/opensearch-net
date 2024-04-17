@@ -296,7 +296,7 @@
   </span>
   <a id="OpenSearch_Client_ComponentTemplateExistsDescriptor_Local_" data-uid="OpenSearch.Client.ComponentTemplateExistsDescriptor.Local*"></a>
   <h4 id="OpenSearch_Client_ComponentTemplateExistsDescriptor_Local_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ComponentTemplateExistsDescriptor.Local(System.Nullable{System.Boolean})">Local(bool?)</h4>
-  <div class="markdown level1 summary"><p>Return local information, do not retrieve the state from cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -344,7 +344,7 @@
   </span>
   <a id="OpenSearch_Client_ComponentTemplateExistsDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.ComponentTemplateExistsDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_ComponentTemplateExistsDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ComponentTemplateExistsDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to master node.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

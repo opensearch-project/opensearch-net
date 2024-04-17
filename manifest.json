@@ -28322,20 +28322,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.GroupBy.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.HealthStatus.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.GroupBy.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Health.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.Health.html"
+          "relative_path": "api/OpenSearch.Net.HealthStatus.html"
         }
       },
       "version": ""
@@ -28692,10 +28682,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NodesStatLevel.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NodesSampleType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.NodesStatLevel.html"
+          "relative_path": "api/OpenSearch.Net.NodesSampleType.html"
         }
       },
       "version": ""
@@ -29026,16 +29016,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.RootNodeInfoRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SampleType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.SampleType.html"
         }
       },
       "version": ""
@@ -30692,6 +30672,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.TasksGroupBy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.TasksGroupBy.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.TermVectorsRequestParameters.yml",
       "output": {
         ".html": {
@@ -30706,6 +30696,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.ThreadType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.TimeUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.TimeUnit.html"
         }
       },
       "version": ""
@@ -31092,20 +31092,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.WaitForEvents.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.WaitForActiveShardOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.WaitForEvents.html"
+          "relative_path": "api/OpenSearch.Net.WaitForActiveShardOptions.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.WaitForStatus.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.WaitForEvents.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.WaitForStatus.html"
+          "relative_path": "api/OpenSearch.Net.WaitForEvents.html"
         }
       },
       "version": ""

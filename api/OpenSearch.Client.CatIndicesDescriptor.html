@@ -276,7 +276,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Bytes_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Bytes*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Bytes_System_Nullable_OpenSearch_Net_Bytes__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Bytes(System.Nullable{OpenSearch.Net.Bytes})">Bytes(Bytes?)</h4>
-  <div class="markdown level1 summary"><p>The unit in which to display byte values.</p>
+  <div class="markdown level1 summary"><p>The unit used to display byte values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -375,7 +375,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_ExpandWildcards_" data-uid="OpenSearch.Client.CatIndicesDescriptor.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_ExpandWildcards_System_Nullable_OpenSearch_Net_ExpandWildcards__" data-uid="OpenSearch.Client.CatIndicesDescriptor.ExpandWildcards(System.Nullable{OpenSearch.Net.ExpandWildcards})">ExpandWildcards(ExpandWildcards?)</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>The type of index that wildcard patterns can match.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -512,19 +512,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatIndicesDescriptor_Health_System_Nullable_OpenSearch_Net_Health__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatIndicesDescriptor.Health(System.Nullable%7BOpenSearch.Net.Health%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CatIndicesDescriptor_Health_System_Nullable_OpenSearch_Net_HealthStatus__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CatIndicesDescriptor.Health(System.Nullable%7BOpenSearch.Net.HealthStatus%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cat.cs/#L456">View Source</a>
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Health_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Health*"></a>
-  <h4 id="OpenSearch_Client_CatIndicesDescriptor_Health_System_Nullable_OpenSearch_Net_Health__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Health(System.Nullable{OpenSearch.Net.Health})">Health(Health?)</h4>
-  <div class="markdown level1 summary"><p>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</p>
+  <h4 id="OpenSearch_Client_CatIndicesDescriptor_Health_System_Nullable_OpenSearch_Net_HealthStatus__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Health(System.Nullable{OpenSearch.Net.HealthStatus})">Health(HealthStatus?)</h4>
+  <div class="markdown level1 summary"><p>The health status used to limit returned indices. By default, the response includes indices of any health status.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CatIndicesDescriptor Health(Health? health)</code></pre>
+    <pre><code class="lang-csharp hljs">public CatIndicesDescriptor Health(HealthStatus? health)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -537,7 +537,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.Health.html">Health</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.HealthStatus.html">HealthStatus</a>?</td>
         <td><span class="parametername">health</span></td>
         <td></td>
       </tr>
@@ -615,7 +615,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_IncludeUnloadedSegments_" data-uid="OpenSearch.Client.CatIndicesDescriptor.IncludeUnloadedSegments*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_IncludeUnloadedSegments_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.IncludeUnloadedSegments(System.Nullable{System.Boolean})">IncludeUnloadedSegments(bool?)</h4>
-  <div class="markdown level1 summary"><p>If set to true segment stats will include stats for segments that are not currently loaded into memory.</p>
+  <div class="markdown level1 summary"><p>If true, the response includes information from segments that are not loaded into memory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -663,7 +663,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Index_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of indices to limit the returned information.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -854,7 +854,7 @@ public CatIndicesDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Pri_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Pri*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Pri_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Pri(System.Nullable{System.Boolean})">Pri(bool?)</h4>
-  <div class="markdown level1 summary"><p>Set to true to return stats only for primary shards.</p>
+  <div class="markdown level1 summary"><p>If true, the response only includes information from primary shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

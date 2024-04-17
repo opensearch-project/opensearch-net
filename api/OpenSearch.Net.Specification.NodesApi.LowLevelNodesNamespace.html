@@ -450,7 +450,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -525,13 +525,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+        <td><p>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</p>
 </td>
       </tr>
       <tr>
@@ -675,7 +675,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+        <td><p>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</p>
 </td>
       </tr>
       <tr>
@@ -814,7 +814,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+        <td><p>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</p>
 </td>
       </tr>
       <tr>
@@ -884,7 +884,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -954,13 +954,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Comma-separated list of metrics you wish returned. Leave empty to return all.</p>
+        <td><p>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</p>
 </td>
       </tr>
       <tr>
@@ -1030,13 +1030,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
+        <td><p>The names of particular nodes in the cluster to target.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
         <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
+        <td><p>An object containing the password for the opensearch keystore.</p>
 </td>
       </tr>
       <tr>
@@ -1186,7 +1186,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
         <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
+        <td><p>An object containing the password for the opensearch keystore.</p>
 </td>
       </tr>
       <tr>
@@ -1330,7 +1330,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
         <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
+        <td><p>An object containing the password for the opensearch keystore.</p>
 </td>
       </tr>
       <tr>
@@ -1464,13 +1464,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs to span the reload/reinit call. Should stay empty because reloading usually involves all cluster nodes.</p>
+        <td><p>The names of particular nodes in the cluster to target.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
         <td><span class="parametername">body</span></td>
-        <td><p>An object containing the password for the opensearch keystore</p>
+        <td><p>An object containing the password for the opensearch keystore.</p>
 </td>
       </tr>
       <tr>
@@ -1610,7 +1610,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -1685,7 +1685,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -1766,7 +1766,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -1778,7 +1778,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+        <td><p>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</p>
 </td>
       </tr>
       <tr>
@@ -2003,7 +2003,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+        <td><p>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</p>
 </td>
       </tr>
       <tr>
@@ -2218,7 +2218,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+        <td><p>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</p>
 </td>
       </tr>
       <tr>
@@ -2288,7 +2288,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -2358,7 +2358,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -2434,7 +2434,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>Comma-separated list of node IDs or names used to limit returned information.</p>
 </td>
       </tr>
       <tr>
@@ -2446,7 +2446,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>Limit the information returned for <code>indices</code> metric to the specific index metrics. Isn't used if <code>indices</code> (or <code>all</code>) metric isn't specified.</p>
+        <td><p>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</p>
 </td>
       </tr>
       <tr>
@@ -2516,7 +2516,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
 </td>
       </tr>
       <tr>
@@ -2591,13 +2591,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics.</p>
+        <td><p>Limits the information returned to the specific metrics. A comma-separated list of the following options: <code>_all</code>, <code>rest_actions</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2741,7 +2741,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics.</p>
+        <td><p>Limits the information returned to the specific metrics. A comma-separated list of the following options: <code>_all</code>, <code>rest_actions</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2880,7 +2880,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics.</p>
+        <td><p>Limits the information returned to the specific metrics. A comma-separated list of the following options: <code>_all</code>, <code>rest_actions</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2950,7 +2950,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
 </td>
       </tr>
       <tr>
@@ -3020,13 +3020,13 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">nodeId</span></td>
-        <td><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+        <td><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limit the information returned to the specified metrics.</p>
+        <td><p>Limits the information returned to the specific metrics. A comma-separated list of the following options: <code>_all</code>, <code>rest_actions</code>.</p>
 </td>
       </tr>
       <tr>

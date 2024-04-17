@@ -168,7 +168,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Bytes_" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Bytes*"></a>
   <h4 id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Bytes" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Bytes">Bytes</h4>
-  <div class="markdown level1 summary"><p>The unit in which to display byte values.</p>
+  <div class="markdown level1 summary"><p>The unit used to display byte values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -265,7 +265,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>The type of index that wildcard patterns can match.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -358,12 +358,12 @@
   </span>
   <a id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Health_" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Health*"></a>
   <h4 id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Health" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Health">Health</h4>
-  <div class="markdown level1 summary"><p>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</p>
+  <div class="markdown level1 summary"><p>The health status used to limit returned indices. By default, the response includes indices of any health status.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Health? Health { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public HealthStatus? Health { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -375,7 +375,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OpenSearch.Net.Health.html">Health</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.HealthStatus.html">HealthStatus</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -420,7 +420,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_IncludeUnloadedSegments_" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.IncludeUnloadedSegments*"></a>
   <h4 id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_IncludeUnloadedSegments" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.IncludeUnloadedSegments">IncludeUnloadedSegments</h4>
-  <div class="markdown level1 summary"><p>If set to true segment stats will include stats for segments that are not currently loaded into memory.</p>
+  <div class="markdown level1 summary"><p>If true, the response includes information from segments that are not loaded into memory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -514,7 +514,7 @@ public TimeSpan MasterTimeout { get; set; }</code></pre>
   </span>
   <a id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Pri_" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Pri*"></a>
   <h4 id="OpenSearch_Net_Specification_CatApi_CatIndicesRequestParameters_Pri" data-uid="OpenSearch.Net.Specification.CatApi.CatIndicesRequestParameters.Pri">Pri</h4>
-  <div class="markdown level1 summary"><p>Set to true to return stats only for primary shards.</p>
+  <div class="markdown level1 summary"><p>If true, the response only includes information from primary shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

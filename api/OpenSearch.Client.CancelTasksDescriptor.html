@@ -245,7 +245,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksDescriptor_Actions_" data-uid="OpenSearch.Client.CancelTasksDescriptor.Actions*"></a>
   <h4 id="OpenSearch_Client_CancelTasksDescriptor_Actions_System_String___" data-uid="OpenSearch.Client.CancelTasksDescriptor.Actions(System.String[])">Actions(params string[])</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of actions that should be cancelled. Leave empty to cancel all.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list or wildcard expression of actions used to limit the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -293,7 +293,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksDescriptor_Nodes_" data-uid="OpenSearch.Client.CancelTasksDescriptor.Nodes*"></a>
   <h4 id="OpenSearch_Client_CancelTasksDescriptor_Nodes_System_String___" data-uid="OpenSearch.Client.CancelTasksDescriptor.Nodes(System.String[])">Nodes(params string[])</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names used to limit the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -341,7 +341,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksDescriptor_ParentTaskId_" data-uid="OpenSearch.Client.CancelTasksDescriptor.ParentTaskId*"></a>
   <h4 id="OpenSearch_Client_CancelTasksDescriptor_ParentTaskId_System_String_" data-uid="OpenSearch.Client.CancelTasksDescriptor.ParentTaskId(System.String)">ParentTaskId(string)</h4>
-  <div class="markdown level1 summary"><p>Cancel tasks with specified parent task id (node_id:task_number). Set to -1 to cancel all.</p>
+  <div class="markdown level1 summary"><p>Parent task ID used to limit the tasks.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -389,7 +389,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksDescriptor_TaskId_" data-uid="OpenSearch.Client.CancelTasksDescriptor.TaskId*"></a>
   <h4 id="OpenSearch_Client_CancelTasksDescriptor_TaskId_OpenSearch_Client_TaskId_" data-uid="OpenSearch.Client.CancelTasksDescriptor.TaskId(OpenSearch.Client.TaskId)">TaskId(TaskId)</h4>
-  <div class="markdown level1 summary"><p>Cancel the task with specified task id (node_id:task_number).</p>
+  <div class="markdown level1 summary"><p>ID of the task.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -437,7 +437,7 @@
   </span>
   <a id="OpenSearch_Client_CancelTasksDescriptor_WaitForCompletion_" data-uid="OpenSearch.Client.CancelTasksDescriptor.WaitForCompletion*"></a>
   <h4 id="OpenSearch_Client_CancelTasksDescriptor_WaitForCompletion_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CancelTasksDescriptor.WaitForCompletion(System.Nullable{System.Boolean})">WaitForCompletion(bool?)</h4>
-  <div class="markdown level1 summary"><p>Should this request wait until the operation has completed before returning.</p>
+  <div class="markdown level1 summary"><p>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

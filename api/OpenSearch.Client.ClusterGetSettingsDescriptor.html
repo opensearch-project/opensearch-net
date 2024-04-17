@@ -244,7 +244,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterGetSettingsDescriptor_FlatSettings_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_ClusterGetSettingsDescriptor_FlatSettings_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.FlatSettings(System.Nullable{System.Boolean})">FlatSettings(bool?)</h4>
-  <div class="markdown level1 summary"><p>Return settings in flat format.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -292,7 +292,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterGetSettingsDescriptor_IncludeDefaults_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.IncludeDefaults*"></a>
   <h4 id="OpenSearch_Client_ClusterGetSettingsDescriptor_IncludeDefaults_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.IncludeDefaults(System.Nullable{System.Boolean})">IncludeDefaults(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether to return all default clusters setting.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns default cluster settings from the local node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -340,7 +340,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterGetSettingsDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_ClusterGetSettingsDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to master node.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -389,7 +389,7 @@ public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout)</code></pr
   </span>
   <a id="OpenSearch_Client_ClusterGetSettingsDescriptor_Timeout_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_ClusterGetSettingsDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ClusterGetSettingsDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
