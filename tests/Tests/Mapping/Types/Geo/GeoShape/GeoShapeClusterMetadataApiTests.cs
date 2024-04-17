@@ -48,7 +48,7 @@ namespace Tests.Mapping.Types.Core.GeoShape
 		{
 			foreach (var index in values.Values) client.Indices.Create(index, CreateIndexSettings).ShouldBeValid();
 			var indices = Infer.Indices(values.Values.Select(i => (IndexName)i));
-			client.Cluster.Health(null, f => f.WaitForStatus(WaitForStatus.Yellow).Index(indices))
+			client.Cluster.Health(null, f => f.WaitForStatus(HealthStatus.Yellow).Index(indices))
 				.ShouldBeValid();
 		}
 

@@ -67,7 +67,10 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -77,7 +80,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -100,7 +103,10 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -134,7 +140,10 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -144,7 +153,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -159,7 +168,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Verbose mode. Display data output for each processor in executed pipeline.</summary>
+        /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");

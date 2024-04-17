@@ -58,7 +58,7 @@ namespace Tests.Modules.SnapshotAndRestore.Snapshot
 					{
 						await c.Snapshot.CreateRepositoryAsync($"{v}-repository", cr => cr.FileSystem(fs => fs.Settings(Path.Combine(cluster.FileSystem.RepositoryPath, v))));
 						await c.Indices.CreateAsync($"{v}-index");
-						await c.Cluster.HealthAsync($"{v}-index", ch => ch.WaitForStatus(WaitForStatus.Yellow));
+						await c.Cluster.HealthAsync($"{v}-index", ch => ch.WaitForStatus(HealthStatus.Yellow));
 					})
 			},
 			{

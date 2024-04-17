@@ -75,7 +75,7 @@ namespace OpenSearch.Client
 		public int RelocatingShards { get; internal set; }
 
 		[DataMember(Name = "status")]
-		public Health Status { get; internal set; }
+		public HealthStatus Status { get; internal set; }
 
 		[DataMember(Name = "task_max_waiting_in_queue_millis")]
 		public long TaskMaxWaitTimeInQueueInMilliseconds { get; internal set; }

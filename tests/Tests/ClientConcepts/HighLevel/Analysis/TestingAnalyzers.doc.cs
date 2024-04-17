@@ -228,7 +228,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 				)
 			);
 			//hide
-			client.Cluster.Health("analysis-index", h => h.WaitForStatus(WaitForStatus.Green).Timeout("5s"));
+			client.Cluster.Health("analysis-index", h => h.WaitForStatus(HealthStatus.Green).Timeout("5s"));
 
 			/**
 			 * In this example, we'll add a custom analyzer to an existing index. First,
@@ -271,7 +271,7 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 			 */
 			client.Indices.Open("analysis-index");
 			client.Cluster.Health("analysis-index",h => h
-				.WaitForStatus(WaitForStatus.Green)
+				.WaitForStatus(HealthStatus.Green)
 				.Timeout(TimeSpan.FromSeconds(5))
 			);
 

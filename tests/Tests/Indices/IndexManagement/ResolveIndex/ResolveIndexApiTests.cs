@@ -62,7 +62,7 @@ namespace Tests.Indices.IndexManagement.ResolveIndex
 				if (!createIndexResponse.IsValid)
 					throw new Exception($"exception whilst setting up integration test: {createIndexResponse.DebugInformation}");
 
-				var clusterResponse = client.Cluster.Health(value.Value, c => c.WaitForStatus(WaitForStatus.Green));
+				var clusterResponse = client.Cluster.Health(value.Value, c => c.WaitForStatus(HealthStatus.Green));
 
 				if (!clusterResponse.IsValid)
 					throw new Exception($"exception whilst setting up integration test: {clusterResponse.DebugInformation}");

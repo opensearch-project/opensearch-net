@@ -106,7 +106,6 @@ namespace ApiGenerator.Domain.Specification
 
         public Deprecation Deprecated { get; set; }
 
-        public IEnumerable<string> Options { get; set; }
         public string QueryStringKey { get; set; }
 
         public bool RenderPartial { get; set; }

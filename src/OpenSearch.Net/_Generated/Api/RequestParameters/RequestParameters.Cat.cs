@@ -174,7 +174,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -371,14 +371,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Comma-separated list of fields to return in the output.</summary>
+        /// <summary>Comma-separated list of fields used to limit returned information.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
@@ -456,7 +456,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>Set to false to disable timestamping.</summary>
+        /// <summary>If true, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
@@ -506,7 +506,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -521,7 +521,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>The type of index that wildcard patterns can match.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -546,10 +546,10 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("h", value);
         }
 
-        /// <summary>Health status ('green', 'yellow', or 'red') to filter only indices matching the specified health status.</summary>
-        public Health? Health
+        /// <summary>The health status used to limit returned indices. By default, the response includes indices of any health status.</summary>
+        public HealthStatus? Health
         {
-            get => Q<Health?>("health");
+            get => Q<HealthStatus?>("health");
             set => Q("health", value);
         }
 
@@ -560,7 +560,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>If set to true segment stats will include stats for segments that are not currently loaded into memory.</summary>
+        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -584,7 +584,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Set to true to return stats only for primary shards.</summary>
+        /// <summary>If true, the response only includes information from primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
@@ -755,7 +755,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -781,7 +781,7 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Return the full node ID instead of the shortened version.</summary>
+        /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
         public bool? FullId
         {
             get => Q<bool?>("full_id");
@@ -1049,7 +1049,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("active_only", value);
         }
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1089,7 +1089,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
-        public string[] IndexQueryString
+        public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
@@ -1274,7 +1274,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
-        public string[] IndexQueryString
+        public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
@@ -1316,7 +1316,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1387,7 +1387,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The unit used to display byte values.</summary>
         public Bytes? Bytes
         {
             get => Q<Bytes?>("bytes");
@@ -1499,7 +1499,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>If `true`, the response does not include information from unavailable snapshots.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1537,14 +1537,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list of actions that should be returned. Leave empty to return all.</summary>
+        /// <summary>The task action names, which are used to limit the response.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
             set => Q("actions", value);
         }
 
-        /// <summary>Return detailed task information.</summary>
+        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
@@ -1586,7 +1586,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("nodes", value);
         }
 
-        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>The parent task identifier, which is used to limit the response.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");

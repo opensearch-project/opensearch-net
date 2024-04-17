@@ -87,14 +87,14 @@ namespace OpenSearch.Client
         public DeletePipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public DeletePipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public DeletePipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -121,7 +121,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>Comma-separated list of pipeline ids. Wildcards supported.</summary>
+        /// <summary>Comma-separated list of pipeline IDs to retrieve. Wildcard (`*`) expressions are supported. To get all ingest pipelines, omit this parameter or use `*`.</summary>
         public GetPipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         public GetPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -183,14 +183,14 @@ namespace OpenSearch.Client
         public PutPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
         public PutPipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public PutPipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -217,12 +217,12 @@ namespace OpenSearch.Client
         // values part of the url path
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>Pipeline ID.</summary>
+        /// <summary>Pipeline to test. If you don’t specify a `pipeline` in the request body, this parameter is required.</summary>
         public SimulatePipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        /// <summary>Verbose mode. Display data output for each processor in executed pipeline.</summary>
+        /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
         public SimulatePipelineDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 }

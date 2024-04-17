@@ -59,7 +59,7 @@ namespace Tests.Cluster.ClusterHealth
 		protected override void ExpectResponse(ClusterHealthResponse response)
 		{
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
-			response.Status.Should().NotBe(Health.Red);
+			response.Status.Should().NotBe(HealthStatus.Red);
 			response.TimedOut.Should().BeFalse();
 			response.NumberOfNodes.Should().BeGreaterOrEqualTo(1);
 			response.NumberOfDataNodes.Should().BeGreaterOrEqualTo(1);
@@ -76,9 +76,9 @@ namespace Tests.Cluster.ClusterHealth
 		protected override bool ExpectIsValid => true;
 		protected override int ExpectStatusCode => 200;
 
-		protected override Func<ClusterHealthDescriptor, IClusterHealthRequest> Fluent => c => c.ClusterHealthLevel(ClusterHealthLevel.Shards);
+		protected override Func<ClusterHealthDescriptor, IClusterHealthRequest> Fluent => c => c.Level(ClusterHealthLevel.Shards);
 		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override ClusterHealthRequest Initializer => new ClusterHealthRequest { ClusterHealthLevel = ClusterHealthLevel.Shards };
+		protected override ClusterHealthRequest Initializer => new() { Level = ClusterHealthLevel.Shards };
 		protected override string UrlPath => "/_cluster/health?level=shards";
 
 		protected override LazyResponses ClientUsage() => Calls(
@@ -91,7 +91,7 @@ namespace Tests.Cluster.ClusterHealth
 		protected override void ExpectResponse(ClusterHealthResponse response)
 		{
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
-			response.Status.Should().NotBe(Health.Red);
+			response.Status.Should().NotBe(HealthStatus.Red);
 			response.TimedOut.Should().BeFalse();
 			response.NumberOfNodes.Should().BeGreaterOrEqualTo(1);
 			response.NumberOfDataNodes.Should().BeGreaterOrEqualTo(1);
@@ -109,7 +109,7 @@ namespace Tests.Cluster.ClusterHealth
 			var indexHealth = response.Indices[Index<Developer>()];
 			indexHealth.ActivePrimaryShards.Should().BeGreaterThan(0);
 			indexHealth.ActiveShards.Should().BeGreaterThan(0);
-			indexHealth.Shards["0"].Status.Should().Be(Health.Green);
+			indexHealth.Shards["0"].Status.Should().Be(HealthStatus.Green);
 		}
 	}
 }
