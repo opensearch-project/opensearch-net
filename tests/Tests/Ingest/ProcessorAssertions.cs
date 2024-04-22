@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using JetBrains.Annotations;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
 using Tests.Core.Client;
@@ -592,5 +593,43 @@ namespace Tests.Ingest
 
 			public override string Key => "pipeline";
 		}
+
+        public class TextEmbedding : ProcessorAssertion
+        {
+            private class NeuralSearchDoc
+            {
+                [PropertyName("text")]
+                public string Text { get; set; }
+
+                [PropertyName("passage_embedding")]
+                public float[] PassageEmbedding { get; set; }
+            }
+
+            public override ProcFunc Fluent => d => d
+                .TextEmbedding<NeuralSearchDoc>(te => te
+                    .ModelId("someModel-abcdef")
+                    .FieldMap(f => f
+                        .Map(doc => doc.Text, doc => doc.PassageEmbedding)));
+
+            public override IProcessor Initializer => new TextEmbeddingProcessor
+            {
+                ModelId = "someModel-abcdef",
+                FieldMap = new InferenceFieldMap
+                {
+                    {new Field((NeuralSearchDoc d) => d.Text), new Field((NeuralSearchDoc d) => d.PassageEmbedding)}
+                }
+            };
+
+            public override object Json => new
+            {
+                model_id = "someModel-abcdef",
+                field_map = new
+                {
+                    text = "passage_embedding"
+                }
+            };
+
+            public override string Key => "text_embedding";
+        }
 	}
 }
