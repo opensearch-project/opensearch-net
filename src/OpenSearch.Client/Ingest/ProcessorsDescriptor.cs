@@ -205,5 +205,9 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="INetworkDirectionProcessor"/>
 		public ProcessorsDescriptor NetworkDirection<T>(Func<NetworkDirectionProcessorDescriptor<T>, INetworkDirectionProcessor> selector) where T : class =>
 			Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new NetworkDirectionProcessorDescriptor<T>())));
-	}
+
+        /// <inheritdoc cref="ITextEmbeddingProcessor"/>
+        public ProcessorsDescriptor TextEmbedding<T>(Func<TextEmbeddingProcessorDescriptor<T>, ITextEmbeddingProcessor> selector) where T : class =>
+            Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new TextEmbeddingProcessorDescriptor<T>())));
+    }
 }
