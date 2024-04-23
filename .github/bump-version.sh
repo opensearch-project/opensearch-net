@@ -28,4 +28,6 @@ GLOBAL_JSON=$(jq \
 	global.json)
 echo "$GLOBAL_JSON" > global.json
 
-sed -i'' -E "s/<(Current(Assembly(File)?)?Version)>([0-9]+\.){2}[0-9]+<\/\1>/<\1>$VERSION<\/\1>/" Directory.Build.props
+gsed -i'' -E "s/<(Current(Assembly(File)?)?Version)>[0-9]+\.[0-9]+\.[0-9]+<\/\1>/<\1>$VERSION<\/\1>/" Directory.Build.props
+
+gsed -i'' -E "s/(next release of opensearch\-net, which should be \*\*)[0-9]+\.[0-9]+\.[0-9]+(\*\*\.)/\1$VERSION\2/" README.md
