@@ -4,6 +4,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### Dependencies
 - Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.303.18
+- Bumps `Bogus` from 35.3.0 to 35.5.1
 
 ## [1.7.1]
 ### Fixed
