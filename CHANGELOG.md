@@ -3,10 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
-### Dependencies
-- Bumps `Bogus` from 35.3.0 to 35.5.1
-- Bumps `xunit` from 2.7.1 to 2.8.0
-As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
+- As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
 
 ### Added
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
@@ -15,11 +12,14 @@ As part of [efforts to re-generate the client](https://github.com/opensearch-pro
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
-### Dependencies
-- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.303.18
 
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
+
+### Dependencies
+- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.303.18
+- Bumps `Bogus` from 35.3.0 to 35.5.1
+- Bumps `xunit` from 2.7.1 to 2.8.0
 
 ## [1.7.1]
 ### Fixed
