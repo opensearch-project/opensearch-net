@@ -79,6 +79,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 		{
 			Name = "named_query",
 			Boost = 1.1,
+            MinScore = 1.2,
 			Query = new NumericRangeQuery
 			{
 				Field = Infer.Field<Project>(f => f.NumberOfCommits),
@@ -102,6 +103,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 			{
 				_name = "named_query",
 				boost = 1.1,
+                min_score = 1.2,
 				query = new
 				{
 					range = new
@@ -130,6 +132,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 			.ScriptScore(sn => sn
 				.Name("named_query")
 				.Boost(1.1)
+                .MinScore(1.2)
 				.Query(qq => qq
 					.Range(r => r
 						.Field(f => f.NumberOfCommits)
