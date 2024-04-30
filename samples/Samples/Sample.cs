@@ -33,10 +33,29 @@ public abstract class Sample
 	{
 		var command = new Command(_name, _description);
 
-		command.SetHandler(Run, clientDescriptor);
+		command.SetHandler(async client =>
+        {
+            try
+            {
+                await Run(client);
+            }
+            finally
+            {
+                try
+                {
+                    await Cleanup(client);
+                }
+                catch (Exception e)
+                {
+                    await Console.Error.WriteLineAsync($"Cleanup Failed: {e}");
+                }
+            }
+        }, clientDescriptor);
 
 		return command;
 	}
 
 	protected abstract Task Run(IOpenSearchClient client);
+
+    protected virtual Task Cleanup(IOpenSearchClient client) => Task.CompletedTask;
 }
