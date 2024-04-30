@@ -68,7 +68,7 @@ namespace OpenSearch.Client
 		/// <inheritdoc />
 		public IScript Script { get; set; }
 
-		/// <inhertidoc />
+		/// <inheritdoc />
 		public double? MinScore { get; set;}
 
 		protected override bool Conditionless => IsConditionless(this);
