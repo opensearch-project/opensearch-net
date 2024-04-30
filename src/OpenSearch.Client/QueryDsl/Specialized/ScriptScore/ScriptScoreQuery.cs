@@ -52,6 +52,11 @@ namespace OpenSearch.Client
 		/// </summary>
 		[DataMember(Name = "script")]
 		IScript Script { get; set; }
+
+		/// <summary>
+		/// The minimum score above which hits are returned
+		/// </summary>
+		double? MinScore { get; set;}
 	}
 
 	/// <inheritdoc cref="IScriptScoreQuery" />
@@ -62,6 +67,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc />
 		public IScript Script { get; set; }
+
+		/// <inhertidoc />
+		public double? MinScore { get; set;}
 
 		protected override bool Conditionless => IsConditionless(this);
 
@@ -93,6 +101,8 @@ namespace OpenSearch.Client
 		QueryContainer IScriptScoreQuery.Query { get; set; }
 
 		IScript IScriptScoreQuery.Script { get; set; }
+
+		double? MinScore { get; set;}
 
 		/// <inheritdoc cref="IScriptScoreQuery.Query" />
 		public ScriptScoreQueryDescriptor<T> Query(Func<QueryContainerDescriptor<T>, QueryContainer> selector) =>

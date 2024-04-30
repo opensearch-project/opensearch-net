@@ -94,6 +94,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 					{ "offset", 0 }
 				}
 			},
+			MinScore = 0.2
 		};
 
 		protected override object QueryJson => new
@@ -122,7 +123,8 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 						decay = 0.5,
 						offset = 0
 					}
-				}
+				},
+				min_score = 0.2
 			}
 		};
 
@@ -145,6 +147,7 @@ namespace Tests.QueryDsl.Specialized.ScriptScore
 						.Add("offset", 0)
 					)
 				)
+				.MinScore(0.2)
 			);
 	}
 }
