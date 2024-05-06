@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Bogus` from 35.3.0 to 35.5.1
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.200
+- Bumps `xunit.runner.visualstudio` from 2.5.8 to 2.8.0
 
 ## [1.7.1]
 ### Fixed
