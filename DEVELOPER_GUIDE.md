@@ -14,7 +14,7 @@ dotnet 6.0 sdk is required
 
 ```
 $ dotnet --list-sdks
-6.0.421
+6.0.xxx
 ```
 
 
