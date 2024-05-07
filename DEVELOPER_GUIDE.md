@@ -2,8 +2,6 @@
   - [Prerequisites](#prerequisites)
   - [Install Docker Image](#install-docker-image)
   - [Running Tests](#running-tests)
-  - [Linter](#linter)
-  - [Documentation](#documentation)
   - [Client Code Generator](#client-code-generator)
 
 # Developer Guide
