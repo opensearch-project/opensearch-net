@@ -159,26 +159,18 @@ public class NeuralSearchSample : Sample
         Console.WriteLine($"Indexed {documents.Length} documents");
 
         // Perform the neural search
-        // TODO: Client does not yet contain typings for neural query type
         Console.WriteLine("Performing neural search for text 'wild west'");
-        var searchResp = await client.Http.PostAsync<SearchResponse<NeuralSearchDoc>>(
-            $"/{IndexName}/_search",
-            r => r.SerializableBody(new
-            {
-                _source = new { excludes = new[] { "passage_embedding" } },
-                query = new
-                {
-                    neural = new
-                    {
-                        passage_embedding = new
-                        {
-                            query_text = "wild west",
-                            model_id = _modelId,
-                            k = 5
-                        }
-                    }
-                }
-            }));
+        var searchResp = await client.SearchAsync<NeuralSearchDoc>(s => s
+            .Index(IndexName)
+            .Source(sf => sf
+                .Excludes(f => f
+                    .Field(d => d.PassageEmbedding)))
+            .Query(q => q
+                .Neural(n => n
+                    .Field(f => f.PassageEmbedding)
+                    .QueryText("wild west")
+                    .ModelId(_modelId)
+                    .K(5))));
         AssertValid(searchResp);
         Console.WriteLine($"Found {searchResp.Hits.Count} documents");
         foreach (var hit in searchResp.Hits) Console.WriteLine($"- Document id: {hit.Source.Id}, score: {hit.Score}, text: {hit.Source.Text}");

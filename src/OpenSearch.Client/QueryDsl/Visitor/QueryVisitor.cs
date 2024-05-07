@@ -100,6 +100,8 @@ namespace OpenSearch.Client
 
 		void Visit(INestedQuery query);
 
+        void Visit(INeuralQuery query);
+
 		void Visit(IPrefixQuery query);
 
 		void Visit(IQueryStringQuery query);
@@ -246,6 +248,8 @@ namespace OpenSearch.Client
 		public virtual void Visit(IMultiMatchQuery query) { }
 
 		public virtual void Visit(INestedQuery query) { }
+
+        public virtual void Visit(INeuralQuery query) { }
 
 		public virtual void Visit(IPrefixQuery query) { }
 
