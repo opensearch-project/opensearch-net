@@ -47,10 +47,13 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 				AnalysisIcu, AnalysisKuromoji, AnalysisNori, AnalysisPhonetic,
 				IngestAttachment, IngestGeoIp,
 				Knn,
+                MachineLearning,
 				MapperMurmur3,
+                NeuralSearch,
 				Security)
 			{
-				MaxConcurrency = 4
+				MaxConcurrency = 4,
+                ValidatePluginsToInstall = false
 			};
 
 		protected override void SeedNode()
