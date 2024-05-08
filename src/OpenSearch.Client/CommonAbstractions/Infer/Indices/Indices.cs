@@ -46,12 +46,12 @@ namespace OpenSearch.Client
 		internal Indices(IEnumerable<IndexName> indices) : base(new ManyIndices(indices)) { }
 
 		/// <summary>All indices. Represents _all</summary>
-		public static Indices All { get; } = new Indices(new AllIndicesMarker());
+		public static Indices All { get; } = new(new AllIndicesMarker());
 
 		/// <inheritdoc cref="All" />
-		public static Indices AllIndices { get; } = All;
+		public static Indices AllIndices => All;
 
-		private string DebugDisplay => Match(
+        private string DebugDisplay => Match(
 			all => "_all",
 			types => $"Count: {types.Indices.Count} [" + string.Join(",", types.Indices.Select((t, i) => $"({i + 1}: {t.DebugDisplay})")) + "]"
 		);
@@ -62,11 +62,13 @@ namespace OpenSearch.Client
 			all => "_all",
 			many =>
 			{
-				if (!(settings is IConnectionSettingsValues oscSettings))
-					throw new Exception(
-						"Tried to pass index names on querysting but it could not be resolved because no OpenSearch.Client settings are available");
+				if (settings is not IConnectionSettingsValues oscSettings)
+                {
+                    throw new Exception(
+                        "Tried to pass index names on querysting but it could not be resolved because no OpenSearch.Client settings are available");
+                }
 
-				var infer = oscSettings.Inferrer;
+                var infer = oscSettings.Inferrer;
 				var indices = many.Indices.Select(i => infer.IndexName(i)).Distinct();
 				return string.Join(",", indices);
 			}

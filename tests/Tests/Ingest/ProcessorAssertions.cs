@@ -63,11 +63,21 @@ namespace Tests.Ingest
 	public static class ProcessorAssertions
 	{
 		public static IEnumerable<IProcessorAssertion> All =>
-			from t in typeof(ProcessorAssertions).GetNestedTypes()
-			where typeof(IProcessorAssertion).IsAssignableFrom(t) && t.IsClass
-			let a = t.GetCustomAttributes(typeof(SkipVersionAttribute)).FirstOrDefault() as SkipVersionAttribute
-			where a == null || !a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion))
-			select (IProcessorAssertion)Activator.CreateInstance(t);
+            typeof(ProcessorAssertions).GetNestedTypes()
+                .Where(t =>
+                {
+                    if (!t.IsClass || !typeof(IProcessorAssertion).IsAssignableFrom(t)) return false;
+
+                    var skipVersion = t.GetCustomAttributes<SkipVersionAttribute>().FirstOrDefault();
+                    if (skipVersion != null && skipVersion.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion)))
+                        return false;
+
+                    var skipPrereleases = t.GetCustomAttributes<SkipPrereleaseVersionsAttribute>().FirstOrDefault();
+                    if (skipPrereleases != null && TestClient.Configuration.OpenSearchVersion.IsPreRelease) return false;
+
+                    return true;
+                })
+                .Select(t => (IProcessorAssertion)Activator.CreateInstance(t));
 
 		public static IProcessor[] Initializers => All.Select(a => a.Initializer).ToArray();
 
@@ -594,6 +604,8 @@ namespace Tests.Ingest
 			public override string Key => "pipeline";
 		}
 
+        [SkipVersion("<2.4.0", "neural search plugin was released with v2.4.0")]
+        [SkipPrereleaseVersions("Prerelease versions of OpenSearch do not include the ML & Neural Search plugins")]
         public class TextEmbedding : ProcessorAssertion
         {
             private class NeuralSearchDoc
