@@ -13,6 +13,7 @@
   - [OpenSearch.Client](#opensearch-client)
   - [Getting Started](#getting-started)
   - [Compatibility with OpenSearch](#compatibility-with-opensearch)
+  - [Developer Guide](#developer-guide)
   - [Code of Conduct](#code-of-conduct)
   - [License](#license)
   - [Copyright](#copyright)
@@ -54,6 +55,10 @@ See [USER_GUIDE](USER_GUIDE.md) to get started with the .NET client.
 ## Compatibility with OpenSearch
 
 See [COMPATIBILITY](COMPATIBILITY.md).
+
+## Developer Guide
+
+See [DEVELOPER_GUIDE](DEVELOPER_GUIDE.md).
 
 ## Code of Conduct
 
