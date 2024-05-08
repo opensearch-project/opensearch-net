@@ -5,7 +5,6 @@
 * compatible open source license.
 */
 
-using System.Diagnostics;
 using OpenSearch.Client;
 using OpenSearch.Net;
 
