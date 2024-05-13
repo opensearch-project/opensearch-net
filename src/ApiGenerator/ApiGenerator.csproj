@@ -16,7 +16,7 @@
     <PackageReference Include="YamlDotNet" Version="15.1.2" />
     <PackageReference Include="SemanticVersioning" Version="2.0.2" />
     <PackageReference Include="ShellProgressBar" Version="5.2.0" />
-    <PackageReference Include="Spectre.Console" Version="0.48.0" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
     <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20371.2" />
     <PackageReference Include="RazorLight" Version="2.3.1" />
     <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />
