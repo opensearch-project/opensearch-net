@@ -11,6 +11,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.200
 - Bumps `xunit.runner.visualstudio` from 2.5.8 to 2.8.0
+- Bumps `CSharpier.Core` from 0.27.3 to 0.28.2
 
 ## [1.7.1]
 ### Fixed
