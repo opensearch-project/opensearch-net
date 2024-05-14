@@ -1,0 +1,5 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Methods
+@inherits ApiGenerator.CodeTemplatePage<FluentSyntaxView>
+@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", Model.Syntax); }
+@{ await IncludeAsync("HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml", Model);}@Raw(";")

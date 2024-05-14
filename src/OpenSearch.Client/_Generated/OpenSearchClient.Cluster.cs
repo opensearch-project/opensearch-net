@@ -53,11 +53,594 @@ namespace OpenSearch.Client.Specification.ClusterApi
 {
     /// <summary>
     /// Cluster APIs.
+    /// <para>Use the <see cref="IOpenSearchClient.Cluster"/> property on <see cref="IOpenSearchClient"/>.</para>
+    /// </summary>
+    public partial interface IClusterNamespace
+    {
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// </summary>
+        ClusterAllocationExplainResponse AllocationExplain(
+            Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
+                null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// </summary>
+        Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
+            Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
+                null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// </summary>
+        ClusterAllocationExplainResponse AllocationExplain(
+            IClusterAllocationExplainRequest request
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// </summary>
+        Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
+            IClusterAllocationExplainRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        DeleteComponentTemplateResponse DeleteComponentTemplate(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            Name name,
+            Func<DeleteComponentTemplateDescriptor, IDeleteComponentTemplateRequest> selector =
+                null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        DeleteComponentTemplateResponse DeleteComponentTemplate(
+            IDeleteComponentTemplateRequest request
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
+            IDeleteComponentTemplateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
+            Func<
+                DeleteVotingConfigExclusionsDescriptor,
+                IDeleteVotingConfigExclusionsRequest
+            > selector = null
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
+            Func<
+                DeleteVotingConfigExclusionsDescriptor,
+                IDeleteVotingConfigExclusionsRequest
+            > selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
+            IDeleteVotingConfigExclusionsRequest request
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
+            IDeleteVotingConfigExclusionsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ExistsResponse ComponentTemplateExists(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ExistsResponse> ComponentTemplateExistsAsync(
+            Name name,
+            Func<ComponentTemplateExistsDescriptor, IComponentTemplateExistsRequest> selector =
+                null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ExistsResponse ComponentTemplateExists(IComponentTemplateExistsRequest request);
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ExistsResponse> ComponentTemplateExistsAsync(
+            IComponentTemplateExistsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        GetComponentTemplateResponse GetComponentTemplate(
+            Name name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            Name name = null,
+            Func<GetComponentTemplateDescriptor, IGetComponentTemplateRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        GetComponentTemplateResponse GetComponentTemplate(IGetComponentTemplateRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
+            IGetComponentTemplateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        ClusterGetSettingsResponse GetSettings(
+            Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        Task<ClusterGetSettingsResponse> GetSettingsAsync(
+            Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        ClusterGetSettingsResponse GetSettings(IClusterGetSettingsRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// </summary>
+        Task<ClusterGetSettingsResponse> GetSettingsAsync(
+            IClusterGetSettingsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        ClusterHealthResponse Health(
+            Indices index = null,
+            Func<ClusterHealthDescriptor, IClusterHealthRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        Task<ClusterHealthResponse> HealthAsync(
+            Indices index = null,
+            Func<ClusterHealthDescriptor, IClusterHealthRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        ClusterHealthResponse Health(IClusterHealthRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// </summary>
+        Task<ClusterHealthResponse> HealthAsync(
+            IClusterHealthRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterPendingTasksResponse PendingTasks(
+            Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterPendingTasksResponse> PendingTasksAsync(
+            Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterPendingTasksResponse PendingTasks(IClusterPendingTasksRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterPendingTasksResponse> PendingTasksAsync(
+            IClusterPendingTasksRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
+            Func<
+                PostVotingConfigExclusionsDescriptor,
+                IPostVotingConfigExclusionsRequest
+            > selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
+            Func<
+                PostVotingConfigExclusionsDescriptor,
+                IPostVotingConfigExclusionsRequest
+            > selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
+            IPostVotingConfigExclusionsRequest request
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
+            IPostVotingConfigExclusionsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        PutComponentTemplateResponse PutComponentTemplate(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            Name name,
+            Func<PutComponentTemplateDescriptor, IPutComponentTemplateRequest> selector,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        PutComponentTemplateResponse PutComponentTemplate(IPutComponentTemplateRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
+            IPutComponentTemplateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        ClusterPutSettingsResponse PutSettings(
+            Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        Task<ClusterPutSettingsResponse> PutSettingsAsync(
+            Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        ClusterPutSettingsResponse PutSettings(IClusterPutSettingsRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// </summary>
+        Task<ClusterPutSettingsResponse> PutSettingsAsync(
+            IClusterPutSettingsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        RemoteInfoResponse RemoteInfo(
+            Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        Task<RemoteInfoResponse> RemoteInfoAsync(
+            Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        RemoteInfoResponse RemoteInfo(IRemoteInfoRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// </summary>
+        Task<RemoteInfoResponse> RemoteInfoAsync(
+            IRemoteInfoRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterRerouteResponse Reroute(
+            Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterRerouteResponse> RerouteAsync(
+            Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterRerouteResponse Reroute(IClusterRerouteRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterRerouteResponse> RerouteAsync(
+            IClusterRerouteRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterStateResponse State(
+            Indices index = null,
+            Func<ClusterStateDescriptor, IClusterStateRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterStateResponse> StateAsync(
+            Indices index = null,
+            Func<ClusterStateDescriptor, IClusterStateRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        ClusterStateResponse State(IClusterStateRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<ClusterStateResponse> StateAsync(
+            IClusterStateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        ClusterStatsResponse Stats(
+            Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        Task<ClusterStatsResponse> StatsAsync(
+            Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        ClusterStatsResponse Stats(IClusterStatsRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// </summary>
+        Task<ClusterStatsResponse> StatsAsync(
+            IClusterStatsRequest request,
+            CancellationToken ct = default
+        );
+    }
+
+    /// <summary>
+    /// Cluster implementation.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Cluster"/> property
     /// on <see cref="IOpenSearchClient"/>.
     /// </para>
     /// </summary>
-    public partial class ClusterNamespace : NamespacedClientProxy
+    public partial class ClusterNamespace : NamespacedClientProxy, IClusterNamespace
     {
         internal ClusterNamespace(OpenSearchClient client)
             : base(client) { }

@@ -53,11 +53,123 @@ namespace OpenSearch.Client.Specification.TasksApi
 {
     /// <summary>
     /// Tasks APIs.
+    /// <para>Use the <see cref="IOpenSearchClient.Tasks"/> property on <see cref="IOpenSearchClient"/>.</para>
+    /// </summary>
+    public partial interface ITasksNamespace
+    {
+        /// <summary>
+        /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// </summary>
+        CancelTasksResponse Cancel(
+            Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// </summary>
+        Task<CancelTasksResponse> CancelAsync(
+            Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// </summary>
+        CancelTasksResponse Cancel(ICancelTasksRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// </summary>
+        Task<CancelTasksResponse> CancelAsync(
+            ICancelTasksRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        GetTaskResponse GetTask(
+            TaskId taskId,
+            Func<GetTaskDescriptor, IGetTaskRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        Task<GetTaskResponse> GetTaskAsync(
+            TaskId taskId,
+            Func<GetTaskDescriptor, IGetTaskRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        GetTaskResponse GetTask(IGetTaskRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        Task<GetTaskResponse> GetTaskAsync(IGetTaskRequest request, CancellationToken ct = default);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        ListTasksResponse List(Func<ListTasksDescriptor, IListTasksRequest> selector = null);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        Task<ListTasksResponse> ListAsync(
+            Func<ListTasksDescriptor, IListTasksRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        ListTasksResponse List(IListTasksRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// </summary>
+        Task<ListTasksResponse> ListAsync(
+            IListTasksRequest request,
+            CancellationToken ct = default
+        );
+    }
+
+    /// <summary>
+    /// Tasks implementation.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Tasks"/> property
     /// on <see cref="IOpenSearchClient"/>.
     /// </para>
     /// </summary>
-    public partial class TasksNamespace : NamespacedClientProxy
+    public partial class TasksNamespace : NamespacedClientProxy, ITasksNamespace
     {
         internal TasksNamespace(OpenSearchClient client)
             : base(client) { }

@@ -53,11 +53,441 @@ namespace OpenSearch.Client.Specification.SnapshotApi
 {
     /// <summary>
     /// Snapshot APIs.
+    /// <para>Use the <see cref="IOpenSearchClient.Snapshot"/> property on <see cref="IOpenSearchClient"/>.</para>
+    /// </summary>
+    public partial interface ISnapshotNamespace
+    {
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        CleanupRepositoryResponse CleanupRepository(
+            Name repository,
+            Func<CleanupRepositoryDescriptor, ICleanupRepositoryRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
+            Name repository,
+            Func<CleanupRepositoryDescriptor, ICleanupRepositoryRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        CleanupRepositoryResponse CleanupRepository(ICleanupRepositoryRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
+            ICleanupRepositoryRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        CloneSnapshotResponse Clone(
+            Name repository,
+            Name snapshot,
+            Name targetSnapshot,
+            Func<CloneSnapshotDescriptor, ICloneSnapshotRequest> selector
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<CloneSnapshotResponse> CloneAsync(
+            Name repository,
+            Name snapshot,
+            Name targetSnapshot,
+            Func<CloneSnapshotDescriptor, ICloneSnapshotRequest> selector,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        CloneSnapshotResponse Clone(ICloneSnapshotRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<CloneSnapshotResponse> CloneAsync(
+            ICloneSnapshotRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        SnapshotResponse Snapshot(
+            Name repository,
+            Name snapshot,
+            Func<SnapshotDescriptor, ISnapshotRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<SnapshotResponse> SnapshotAsync(
+            Name repository,
+            Name snapshot,
+            Func<SnapshotDescriptor, ISnapshotRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        SnapshotResponse Snapshot(ISnapshotRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<SnapshotResponse> SnapshotAsync(
+            ISnapshotRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        CreateRepositoryResponse CreateRepository(
+            Name repository,
+            Func<CreateRepositoryDescriptor, ICreateRepositoryRequest> selector
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<CreateRepositoryResponse> CreateRepositoryAsync(
+            Name repository,
+            Func<CreateRepositoryDescriptor, ICreateRepositoryRequest> selector,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<CreateRepositoryResponse> CreateRepositoryAsync(
+            ICreateRepositoryRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// </summary>
+        DeleteSnapshotResponse Delete(
+            Name repository,
+            Name snapshot,
+            Func<DeleteSnapshotDescriptor, IDeleteSnapshotRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// </summary>
+        Task<DeleteSnapshotResponse> DeleteAsync(
+            Name repository,
+            Name snapshot,
+            Func<DeleteSnapshotDescriptor, IDeleteSnapshotRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// </summary>
+        DeleteSnapshotResponse Delete(IDeleteSnapshotRequest request);
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// </summary>
+        Task<DeleteSnapshotResponse> DeleteAsync(
+            IDeleteSnapshotRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// </summary>
+        DeleteRepositoryResponse DeleteRepository(
+            Names repository,
+            Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// </summary>
+        Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
+            Names repository,
+            Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// </summary>
+        DeleteRepositoryResponse DeleteRepository(IDeleteRepositoryRequest request);
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// </summary>
+        Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
+            IDeleteRepositoryRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        GetSnapshotResponse Get(
+            Name repository,
+            Names snapshot,
+            Func<GetSnapshotDescriptor, IGetSnapshotRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<GetSnapshotResponse> GetAsync(
+            Name repository,
+            Names snapshot,
+            Func<GetSnapshotDescriptor, IGetSnapshotRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        GetSnapshotResponse Get(IGetSnapshotRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<GetSnapshotResponse> GetAsync(
+            IGetSnapshotRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// </summary>
+        GetRepositoryResponse GetRepository(
+            Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// </summary>
+        Task<GetRepositoryResponse> GetRepositoryAsync(
+            Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// </summary>
+        GetRepositoryResponse GetRepository(IGetRepositoryRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// </summary>
+        Task<GetRepositoryResponse> GetRepositoryAsync(
+            IGetRepositoryRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// </summary>
+        RestoreResponse Restore(
+            Name repository,
+            Name snapshot,
+            Func<RestoreDescriptor, IRestoreRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// </summary>
+        Task<RestoreResponse> RestoreAsync(
+            Name repository,
+            Name snapshot,
+            Func<RestoreDescriptor, IRestoreRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// </summary>
+        RestoreResponse Restore(IRestoreRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// </summary>
+        Task<RestoreResponse> RestoreAsync(IRestoreRequest request, CancellationToken ct = default);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// </summary>
+        SnapshotStatusResponse Status(
+            Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// </summary>
+        Task<SnapshotStatusResponse> StatusAsync(
+            Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// </summary>
+        SnapshotStatusResponse Status(ISnapshotStatusRequest request);
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// </summary>
+        Task<SnapshotStatusResponse> StatusAsync(
+            ISnapshotStatusRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// </summary>
+        VerifyRepositoryResponse VerifyRepository(
+            Name repository,
+            Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// </summary>
+        Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
+            Name repository,
+            Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// </summary>
+        VerifyRepositoryResponse VerifyRepository(IVerifyRepositoryRequest request);
+
+        /// <summary>
+        /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// </summary>
+        Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
+            IVerifyRepositoryRequest request,
+            CancellationToken ct = default
+        );
+    }
+
+    /// <summary>
+    /// Snapshot implementation.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Snapshot"/> property
     /// on <see cref="IOpenSearchClient"/>.
     /// </para>
     /// </summary>
-    public partial class SnapshotNamespace : NamespacedClientProxy
+    public partial class SnapshotNamespace : NamespacedClientProxy, ISnapshotNamespace
     {
         internal SnapshotNamespace(OpenSearchClient client)
             : base(client) { }

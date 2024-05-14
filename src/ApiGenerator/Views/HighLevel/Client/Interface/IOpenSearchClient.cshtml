@@ -27,8 +27,9 @@ namespace OpenSearch.Client
 
 			foreach (var ns in namespaces)
 			{
+                var prefix = ns == "Http" ? "" : "I";
 <text>      /// <summary>@ns.SplitPascalCase() APIs</summary>
-			@CsharpNames.HighLevelClientNamespacePrefix@(ns)@CsharpNames.ClientNamespaceSuffix @ns { get; }
+			@(CsharpNames.HighLevelClientNamespacePrefix)@(prefix)@(ns)@(CsharpNames.ClientNamespaceSuffix) @ns { get; }
 </text>
 			}
 
