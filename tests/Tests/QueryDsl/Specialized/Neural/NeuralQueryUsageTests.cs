@@ -6,19 +6,43 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.Stack.ArtifactsApi.Products;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 using Version = SemanticVersioning.Version;
 
 namespace Tests.QueryDsl.Specialized.Neural;
+
+public class NeuralQueryCluster : ClientTestClusterBase
+{
+    public NeuralQueryCluster() : base(CreateConfiguration()) { }
+
+    private static ClientTestClusterConfiguration CreateConfiguration()
+    {
+        var config = new ClientTestClusterConfiguration(
+            OpenSearchPlugin.Knn,
+            OpenSearchPlugin.MachineLearning,
+            OpenSearchPlugin.NeuralSearch,
+            OpenSearchPlugin.Security)
+        {
+            MaxConcurrency = 4,
+            ValidatePluginsToInstall = false,
+        };
+
+        config.DefaultNodeSettings.Add("plugins.ml_commons.only_run_on_ml_node", "false");
+        config.DefaultNodeSettings.Add("plugins.ml_commons.native_memory_threshold", "99");
+        config.DefaultNodeSettings.Add("plugins.ml_commons.model_access_control_enabled", "true", ">=2.8.0");
+
+        return config;
+    }
+}
 
 public class NeuralSearchDoc
 {
@@ -28,16 +52,15 @@ public class NeuralSearchDoc
 }
 
 [SkipVersion("<2.6.0", "Avoid the various early permutations of the ML APIs")]
-[SkipPrereleaseVersions("Prerelease versions of OpenSearch do not include the ML & Neural Search plugins")]
 public class NeuralQueryUsageTests
-    : QueryDslUsageTestsBase<WritableCluster, NeuralSearchDoc>
+    : QueryDslUsageTestsBase<NeuralQueryCluster, NeuralSearchDoc>
 {
     private static readonly string TestName = nameof(NeuralQueryUsageTests).ToLowerInvariant();
 
     private string _modelGroupId;
     private string _modelId = "default-for-unit-tests";
 
-    public NeuralQueryUsageTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public NeuralQueryUsageTests(NeuralQueryCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
     protected override IndexName IndexName => TestName;
     protected override string ExpectedIndexString => TestName;
@@ -128,24 +151,6 @@ public class NeuralQueryUsageTests
         var baseVersion = Cluster.ClusterConfiguration.Version.BaseVersion();
         var renamedToRegisterDeploy = baseVersion >= new Version("2.7.0");
         var hasModelAccessControl = baseVersion >= new Version("2.8.0");
-
-        var settings = new Dictionary<string, object>
-        {
-            ["plugins.ml_commons.only_run_on_ml_node"] = false,
-            ["plugins.ml_commons.native_memory_threshold"] = 99
-        };
-
-        if (hasModelAccessControl)
-            settings["plugins.ml_commons.model_access_control_enabled"] = true;
-
-        if (settings.Count > 0)
-        {
-            var putSettingsResp = client.Cluster.PutSettings(new ClusterPutSettingsRequest
-            {
-                Transient = settings
-            });
-            putSettingsResp.ShouldBeValid();
-        }
 
         if (hasModelAccessControl)
         {

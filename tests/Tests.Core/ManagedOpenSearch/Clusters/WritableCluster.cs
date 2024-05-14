@@ -49,7 +49,6 @@ namespace Tests.Core.ManagedOpenSearch.Clusters
 				Knn,
                 MachineLearning,
 				MapperMurmur3,
-                NeuralSearch,
 				Security)
 			{
 				MaxConcurrency = 4,
