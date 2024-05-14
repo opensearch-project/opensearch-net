@@ -52,6 +52,11 @@ jobs:
         name: Integration Tests
         working-directory: client
 
+      # Run neural query integration tests separately as they use a significant amount of memory on their own
+      - run: "./build.sh integrate ${{ matrix.version }} neuralquery random:test_only_one --report"
+        name: Neural Query Integration Tests
+        working-directory: client
+
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@v3
