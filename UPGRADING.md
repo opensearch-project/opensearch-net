@@ -1,5 +1,8 @@
 <!-- TOC -->
 * [Upgrading OpenSearch.Net & OpenSearch.Client](#upgrading-opensearchnet--opensearchclient)
+  * [2.0.0 to unreleased](#200-to-unreleased)
+    * [OpenSearch.Client](#opensearchclient-1)
+      * [General](#general-2)
   * [1.x.y to 2.0.0](#1xy-to-200)
     * [OpenSearch.Net](#opensearchnet)
       * [General](#general)
@@ -35,6 +38,13 @@
 <!-- TOC -->
 
 # Upgrading OpenSearch.Net & OpenSearch.Client
+
+## [Unreleased]
+
+### OpenSearch.Client
+
+#### General
+- Namespaced APIs, exposed in `IOpenSearchClient`, have gained an interface, and the properties on `IOpenSearchClient` and `OpenSearchClient` have been changed to the new interfaces. For example, `IOpenSearchClient.Cluster` was `ClusterNamespace` and now is `IClusterNamespace`.
 
 ## 1.x.y to 2.0.0
 
