@@ -66,31 +66,31 @@ namespace OpenSearch.Client
     public partial interface IOpenSearchClient
     {
         /// <summary>Cat APIs</summary>
-        CatNamespace Cat { get; }
+        ICatNamespace Cat { get; }
 
         /// <summary>Cluster APIs</summary>
-        ClusterNamespace Cluster { get; }
+        IClusterNamespace Cluster { get; }
 
         /// <summary>Dangling Indices APIs</summary>
-        DanglingIndicesNamespace DanglingIndices { get; }
+        IDanglingIndicesNamespace DanglingIndices { get; }
 
         /// <summary>Indices APIs</summary>
-        IndicesNamespace Indices { get; }
+        IIndicesNamespace Indices { get; }
 
         /// <summary>Ingest APIs</summary>
-        IngestNamespace Ingest { get; }
+        IIngestNamespace Ingest { get; }
 
         /// <summary>Nodes APIs</summary>
-        NodesNamespace Nodes { get; }
+        INodesNamespace Nodes { get; }
 
         /// <summary>Http APIs</summary>
-        HttpNamespace Http { get; }
+        IHttpNamespace Http { get; }
 
         /// <summary>Snapshot APIs</summary>
-        SnapshotNamespace Snapshot { get; }
+        ISnapshotNamespace Snapshot { get; }
 
         /// <summary>Tasks APIs</summary>
-        TasksNamespace Tasks { get; }
+        ITasksNamespace Tasks { get; }
 
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:

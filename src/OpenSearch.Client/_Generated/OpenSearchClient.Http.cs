@@ -30,11 +30,129 @@ namespace OpenSearch.Client.Specification.HttpApi;
 
 /// <summary>
 /// Http APIs.
+/// <para>Use the <see cref="IOpenSearchClient.Http"/> property on <see cref="IOpenSearchClient"/>.</para>
+/// </summary>
+public interface IHttpNamespace
+{
+    TResponse Delete<TResponse>(
+        string path,
+        Func<HttpDeleteDescriptor, IHttpDeleteRequest> selector = null
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> DeleteAsync<TResponse>(
+        string path,
+        Func<HttpDeleteDescriptor, IHttpDeleteRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Delete<TResponse>(IHttpDeleteRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> DeleteAsync<TResponse>(
+        IHttpDeleteRequest request,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Get<TResponse>(string path, Func<HttpGetDescriptor, IHttpGetRequest> selector = null)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> GetAsync<TResponse>(
+        string path,
+        Func<HttpGetDescriptor, IHttpGetRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Get<TResponse>(IHttpGetRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> GetAsync<TResponse>(IHttpGetRequest request, CancellationToken ct = default)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Head<TResponse>(
+        string path,
+        Func<HttpHeadDescriptor, IHttpHeadRequest> selector = null
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> HeadAsync<TResponse>(
+        string path,
+        Func<HttpHeadDescriptor, IHttpHeadRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Head<TResponse>(IHttpHeadRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> HeadAsync<TResponse>(IHttpHeadRequest request, CancellationToken ct = default)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Patch<TResponse>(
+        string path,
+        Func<HttpPatchDescriptor, IHttpPatchRequest> selector = null
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PatchAsync<TResponse>(
+        string path,
+        Func<HttpPatchDescriptor, IHttpPatchRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Patch<TResponse>(IHttpPatchRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PatchAsync<TResponse>(IHttpPatchRequest request, CancellationToken ct = default)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Post<TResponse>(
+        string path,
+        Func<HttpPostDescriptor, IHttpPostRequest> selector = null
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PostAsync<TResponse>(
+        string path,
+        Func<HttpPostDescriptor, IHttpPostRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Post<TResponse>(IHttpPostRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PostAsync<TResponse>(IHttpPostRequest request, CancellationToken ct = default)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Put<TResponse>(string path, Func<HttpPutDescriptor, IHttpPutRequest> selector = null)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PutAsync<TResponse>(
+        string path,
+        Func<HttpPutDescriptor, IHttpPutRequest> selector = null,
+        CancellationToken ct = default
+    )
+        where TResponse : class, IOpenSearchResponse, new();
+
+    TResponse Put<TResponse>(IHttpPutRequest request)
+        where TResponse : class, IOpenSearchResponse, new();
+
+    Task<TResponse> PutAsync<TResponse>(IHttpPutRequest request, CancellationToken ct = default)
+        where TResponse : class, IOpenSearchResponse, new();
+}
+
+/// <summary>
+/// Http implementation.
 /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Http"/> property
 /// on <see cref="IOpenSearchClient"/>.
 /// </para>
 /// </summary>
-public class HttpNamespace : NamespacedClientProxy
+public class HttpNamespace : NamespacedClientProxy, IHttpNamespace
 {
     internal HttpNamespace(OpenSearchClient client)
         : base(client) { }

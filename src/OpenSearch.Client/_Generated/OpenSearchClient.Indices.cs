@@ -53,11 +53,194 @@ namespace OpenSearch.Client.Specification.IndicesApi
 {
     /// <summary>
     /// Indices APIs.
+    /// <para>Use the <see cref="IOpenSearchClient.Indices"/> property on <see cref="IOpenSearchClient"/>.</para>
+    /// </summary>
+    public partial interface IIndicesNamespace
+    {
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// </summary>
+        DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
+            Name name,
+            Func<
+                DeleteComposableIndexTemplateDescriptor,
+                IDeleteComposableIndexTemplateRequest
+            > selector = null
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// </summary>
+        Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
+            Name name,
+            Func<
+                DeleteComposableIndexTemplateDescriptor,
+                IDeleteComposableIndexTemplateRequest
+            > selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// </summary>
+        DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
+            IDeleteComposableIndexTemplateRequest request
+        );
+
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// </summary>
+        Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
+            IDeleteComposableIndexTemplateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        ExistsResponse ComposableTemplateExists(
+            Name name,
+            Func<
+                ComposableIndexTemplateExistsDescriptor,
+                IComposableIndexTemplateExistsRequest
+            > selector = null
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        Task<ExistsResponse> ComposableTemplateExistsAsync(
+            Name name,
+            Func<
+                ComposableIndexTemplateExistsDescriptor,
+                IComposableIndexTemplateExistsRequest
+            > selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        ExistsResponse ComposableTemplateExists(IComposableIndexTemplateExistsRequest request);
+
+        /// <summary>
+        /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        Task<ExistsResponse> ComposableTemplateExistsAsync(
+            IComposableIndexTemplateExistsRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        GetComposableIndexTemplateResponse GetComposableTemplate(
+            Name name = null,
+            Func<
+                GetComposableIndexTemplateDescriptor,
+                IGetComposableIndexTemplateRequest
+            > selector = null
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
+            Name name = null,
+            Func<
+                GetComposableIndexTemplateDescriptor,
+                IGetComposableIndexTemplateRequest
+            > selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        GetComposableIndexTemplateResponse GetComposableTemplate(
+            IGetComposableIndexTemplateRequest request
+        );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// </summary>
+        Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
+            IGetComposableIndexTemplateRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        PutComposableIndexTemplateResponse PutComposableTemplate(
+            Name name,
+            Func<PutComposableIndexTemplateDescriptor, IPutComposableIndexTemplateRequest> selector
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
+            Name name,
+            Func<PutComposableIndexTemplateDescriptor, IPutComposableIndexTemplateRequest> selector,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        PutComposableIndexTemplateResponse PutComposableTemplate(
+            IPutComposableIndexTemplateRequest request
+        );
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
+            IPutComposableIndexTemplateRequest request,
+            CancellationToken ct = default
+        );
+    }
+
+    /// <summary>
+    /// Indices implementation.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.Indices"/> property
     /// on <see cref="IOpenSearchClient"/>.
     /// </para>
     /// </summary>
-    public partial class IndicesNamespace : NamespacedClientProxy
+    public partial class IndicesNamespace : NamespacedClientProxy, IIndicesNamespace
     {
         internal IndicesNamespace(OpenSearchClient client)
             : base(client) { }

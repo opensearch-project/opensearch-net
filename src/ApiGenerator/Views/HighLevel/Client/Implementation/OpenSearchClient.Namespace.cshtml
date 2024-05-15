@@ -20,11 +20,23 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiName
 {
     /// <summary>
     /// @ns.SplitPascalCase() APIs.
+    /// <para>Use the <see cref="IOpenSearchClient.@ns"/> property on <see cref="IOpenSearchClient"/>.</para>
+    /// </summary>
+    public partial interface I@(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)
+    {
+        @foreach(var e in endpoints)
+        {
+            await IncludeAsync("HighLevel/Client/Implementation/MethodInterface.cshtml", e.HighLevelModel);
+        }
+    }
+
+    /// <summary>
+    /// @ns.SplitPascalCase() implementation.
     /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.@ns"/> property
     /// on <see cref="IOpenSearchClient"/>.
     /// </para>
     /// </summary>
-    public partial class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+    public partial class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy, I@(CsharpNames.HighLevelClientNamespacePrefix)@(ns)@(CsharpNames.ClientNamespaceSuffix)
     {
         internal @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
         @foreach(var e in endpoints)

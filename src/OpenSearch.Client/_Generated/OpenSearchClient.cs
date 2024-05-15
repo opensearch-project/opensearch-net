@@ -65,31 +65,31 @@ namespace OpenSearch.Client
     public partial class OpenSearchClient : IOpenSearchClient
     {
         /// <summary>Cat APIs</summary>
-        public CatNamespace Cat { get; private set; }
+        public ICatNamespace Cat { get; private set; }
 
         /// <summary>Cluster APIs</summary>
-        public ClusterNamespace Cluster { get; private set; }
+        public IClusterNamespace Cluster { get; private set; }
 
         /// <summary>Dangling Indices APIs</summary>
-        public DanglingIndicesNamespace DanglingIndices { get; private set; }
+        public IDanglingIndicesNamespace DanglingIndices { get; private set; }
 
         /// <summary>Indices APIs</summary>
-        public IndicesNamespace Indices { get; private set; }
+        public IIndicesNamespace Indices { get; private set; }
 
         /// <summary>Ingest APIs</summary>
-        public IngestNamespace Ingest { get; private set; }
+        public IIngestNamespace Ingest { get; private set; }
 
         /// <summary>Nodes APIs</summary>
-        public NodesNamespace Nodes { get; private set; }
+        public INodesNamespace Nodes { get; private set; }
 
         /// <summary>Http APIs</summary>
-        public HttpNamespace Http { get; private set; }
+        public IHttpNamespace Http { get; private set; }
 
         /// <summary>Snapshot APIs</summary>
-        public SnapshotNamespace Snapshot { get; private set; }
+        public ISnapshotNamespace Snapshot { get; private set; }
 
         /// <summary>Tasks APIs</summary>
-        public TasksNamespace Tasks { get; private set; }
+        public ITasksNamespace Tasks { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {

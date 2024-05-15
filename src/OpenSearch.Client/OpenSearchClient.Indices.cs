@@ -51,8 +51,819 @@ using OpenSearch.Net.Specification.IndicesApi;
 // ReSharper disable RedundantTypeArgumentsOfMethod
 namespace OpenSearch.Client.Specification.IndicesApi
 {
+
 	///<summary>
-	/// Indices APIs.
+	/// Indices API.
+	/// <para>Not intended to be instantiated directly. Use the <see cref = "IOpenSearchClient.Indices"/> property
+	/// on <see cref = "IOpenSearchClient"/>.
+	///</para>
+	///</summary>
+	public partial interface IIndicesNamespace
+	{
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		AddIndexBlockResponse AddBlock(Indices index, IndexBlock block, Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<AddIndexBlockResponse> AddBlockAsync(Indices index, IndexBlock block, Func<AddIndexBlockDescriptor, IAddIndexBlockRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		AddIndexBlockResponse AddBlock(IAddIndexBlockRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<AddIndexBlockResponse> AddBlockAsync(IAddIndexBlockRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		AnalyzeResponse Analyze(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<AnalyzeResponse> AnalyzeAsync(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		AnalyzeResponse Analyze(IAnalyzeRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<AnalyzeResponse> AnalyzeAsync(IAnalyzeRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ClearCacheResponse ClearCache(Indices index = null, Func<ClearCacheDescriptor, IClearCacheRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ClearCacheResponse> ClearCacheAsync(Indices index = null, Func<ClearCacheDescriptor, IClearCacheRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ClearCacheResponse ClearCache(IClearCacheRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ClearCacheResponse> ClearCacheAsync(IClearCacheRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
+		/// </summary>
+		CloneIndexResponse Clone(IndexName index, IndexName target, Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
+		/// </summary>
+		Task<CloneIndexResponse> CloneAsync(IndexName index, IndexName target, Func<CloneIndexDescriptor, ICloneIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
+		/// </summary>
+		CloneIndexResponse Clone(ICloneIndexRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</a>
+		/// </summary>
+		Task<CloneIndexResponse> CloneAsync(ICloneIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		CloseIndexResponse Close(Indices index, Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		Task<CloseIndexResponse> CloseAsync(Indices index, Func<CloseIndexDescriptor, ICloseIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		CloseIndexResponse Close(ICloseIndexRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		Task<CloseIndexResponse> CloseAsync(ICloseIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
+		/// </summary>
+		CreateIndexResponse Create(IndexName index, Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
+		/// </summary>
+		Task<CreateIndexResponse> CreateAsync(IndexName index, Func<CreateIndexDescriptor, ICreateIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
+		/// </summary>
+		CreateIndexResponse Create(ICreateIndexRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/create-index/</a>
+		/// </summary>
+		Task<CreateIndexResponse> CreateAsync(ICreateIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</a>
+		/// </summary>
+		DeleteIndexResponse Delete(Indices index, Func<DeleteIndexDescriptor, IDeleteIndexRequest> selector = null);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</a>
+		/// </summary>
+		Task<DeleteIndexResponse> DeleteAsync(Indices index, Func<DeleteIndexDescriptor, IDeleteIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</a>
+		/// </summary>
+		DeleteIndexResponse Delete(IDeleteIndexRequest request);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/</a>
+		/// </summary>
+		Task<DeleteIndexResponse> DeleteAsync(IDeleteIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		DeleteAliasResponse DeleteAlias(Indices index, Names name, Func<DeleteAliasDescriptor, IDeleteAliasRequest> selector = null);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<DeleteAliasResponse> DeleteAliasAsync(Indices index, Names name, Func<DeleteAliasDescriptor, IDeleteAliasRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		DeleteAliasResponse DeleteAlias(IDeleteAliasRequest request);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<DeleteAliasResponse> DeleteAliasAsync(IDeleteAliasRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		DeleteIndexTemplateResponse DeleteTemplate(Name name, Func<DeleteIndexTemplateDescriptor, IDeleteIndexTemplateRequest> selector = null);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(Name name, Func<DeleteIndexTemplateDescriptor, IDeleteIndexTemplateRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		DeleteIndexTemplateResponse DeleteTemplate(IDeleteIndexTemplateRequest request);
+		/// <summary>
+		/// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(IDeleteIndexTemplateRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		ExistsResponse Exists(Indices index, Func<IndexExistsDescriptor, IIndexExistsRequest> selector = null);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		Task<ExistsResponse> ExistsAsync(Indices index, Func<IndexExistsDescriptor, IIndexExistsRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		ExistsResponse Exists(IIndexExistsRequest request);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		Task<ExistsResponse> ExistsAsync(IIndexExistsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		ExistsResponse AliasExists(Names name, Func<AliasExistsDescriptor, IAliasExistsRequest> selector = null);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<ExistsResponse> AliasExistsAsync(Names name, Func<AliasExistsDescriptor, IAliasExistsRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		ExistsResponse AliasExists(IAliasExistsRequest request);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<ExistsResponse> AliasExistsAsync(IAliasExistsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		ExistsResponse TemplateExists(Names name, Func<IndexTemplateExistsDescriptor, IIndexTemplateExistsRequest> selector = null);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<ExistsResponse> TemplateExistsAsync(Names name, Func<IndexTemplateExistsDescriptor, IIndexTemplateExistsRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		ExistsResponse TemplateExists(IIndexTemplateExistsRequest request);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<ExistsResponse> TemplateExistsAsync(IIndexTemplateExistsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_type</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
+		ExistsResponse TypeExists(Indices index, Names type, Func<TypeExistsDescriptor, ITypeExistsRequest> selector = null);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_type</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
+		Task<ExistsResponse> TypeExistsAsync(Indices index, Names type, Func<TypeExistsDescriptor, ITypeExistsRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_type</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
+		ExistsResponse TypeExists(ITypeExistsRequest request);
+		/// <summary>
+		/// <c>HEAD</c> request to the <c>indices.exists_type</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</a>
+		/// </summary>
+		/// <remarks>Deprecated as of OpenSearch 2.0</remarks>
+		Task<ExistsResponse> TypeExistsAsync(ITypeExistsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		FlushResponse Flush(Indices index = null, Func<FlushDescriptor, IFlushRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<FlushResponse> FlushAsync(Indices index = null, Func<FlushDescriptor, IFlushRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		FlushResponse Flush(IFlushRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<FlushResponse> FlushAsync(IFlushRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ForceMergeResponse ForceMerge(Indices index = null, Func<ForceMergeDescriptor, IForceMergeRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ForceMergeResponse> ForceMergeAsync(Indices index = null, Func<ForceMergeDescriptor, IForceMergeRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ForceMergeResponse ForceMerge(IForceMergeRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ForceMergeResponse> ForceMergeAsync(IForceMergeRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/</a>
+		/// </summary>
+		GetIndexResponse Get(Indices index, Func<GetIndexDescriptor, IGetIndexRequest> selector = null);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/</a>
+		/// </summary>
+		Task<GetIndexResponse> GetAsync(Indices index, Func<GetIndexDescriptor, IGetIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/</a>
+		/// </summary>
+		GetIndexResponse Get(IGetIndexRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/get-index/</a>
+		/// </summary>
+		Task<GetIndexResponse> GetAsync(IGetIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		GetAliasResponse GetAlias(Indices index = null, Func<GetAliasDescriptor, IGetAliasRequest> selector = null);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<GetAliasResponse> GetAliasAsync(Indices index = null, Func<GetAliasDescriptor, IGetAliasRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		GetAliasResponse GetAlias(IGetAliasRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<GetAliasResponse> GetAliasAsync(IGetAliasRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		GetFieldMappingResponse GetFieldMapping<TDocument>(Fields fields, Func<GetFieldMappingDescriptor<TDocument>, IGetFieldMappingRequest> selector = null)
+			where TDocument : class;
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<GetFieldMappingResponse> GetFieldMappingAsync<TDocument>(Fields fields, Func<GetFieldMappingDescriptor<TDocument>, IGetFieldMappingRequest> selector = null, CancellationToken ct = default)
+			where TDocument : class;
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		GetFieldMappingResponse GetFieldMapping(IGetFieldMappingRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<GetFieldMappingResponse> GetFieldMappingAsync(IGetFieldMappingRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		GetMappingResponse GetMapping<TDocument>(Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null)
+			where TDocument : class;
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<GetMappingResponse> GetMappingAsync<TDocument>(Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null, CancellationToken ct = default)
+			where TDocument : class;
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		GetMappingResponse GetMapping(IGetMappingRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<GetMappingResponse> GetMappingAsync(IGetMappingRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		GetIndexSettingsResponse GetSettings(Indices index = null, Func<GetIndexSettingsDescriptor, IGetIndexSettingsRequest> selector = null);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<GetIndexSettingsResponse> GetSettingsAsync(Indices index = null, Func<GetIndexSettingsDescriptor, IGetIndexSettingsRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		GetIndexSettingsResponse GetSettings(IGetIndexSettingsRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<GetIndexSettingsResponse> GetSettingsAsync(IGetIndexSettingsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		GetIndexTemplateResponse GetTemplate(Names name = null, Func<GetIndexTemplateDescriptor, IGetIndexTemplateRequest> selector = null);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<GetIndexTemplateResponse> GetTemplateAsync(Names name = null, Func<GetIndexTemplateDescriptor, IGetIndexTemplateRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		GetIndexTemplateResponse GetTemplate(IGetIndexTemplateRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<GetIndexTemplateResponse> GetTemplateAsync(IGetIndexTemplateRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		OpenIndexResponse Open(Indices index, Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		Task<OpenIndexResponse> OpenAsync(Indices index, Func<OpenIndexDescriptor, IOpenIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		OpenIndexResponse Open(IOpenIndexRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/close-index/</a>
+		/// </summary>
+		Task<OpenIndexResponse> OpenAsync(IOpenIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		PutAliasResponse PutAlias(Indices index, Name name, Func<PutAliasDescriptor, IPutAliasRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<PutAliasResponse> PutAliasAsync(Indices index, Name name, Func<PutAliasDescriptor, IPutAliasRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		PutAliasResponse PutAlias(IPutAliasRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<PutAliasResponse> PutAliasAsync(IPutAliasRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		PutMappingResponse PutMapping<TDocument>(Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector)
+			where TDocument : class;
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<PutMappingResponse> PutMappingAsync<TDocument>(Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector, CancellationToken ct = default)
+			where TDocument : class;
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		PutMappingResponse PutMapping(IPutMappingRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</a>
+		/// </summary>
+		Task<PutMappingResponse> PutMappingAsync(IPutMappingRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		UpdateIndexSettingsResponse UpdateSettings(Indices index, Func<UpdateIndexSettingsDescriptor, IUpdateIndexSettingsRequest> selector);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(Indices index, Func<UpdateIndexSettingsDescriptor, IUpdateIndexSettingsRequest> selector, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		UpdateIndexSettingsResponse UpdateSettings(IUpdateIndexSettingsRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(IUpdateIndexSettingsRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		PutIndexTemplateResponse PutTemplate(Name name, Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> selector);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<PutIndexTemplateResponse> PutTemplateAsync(Name name, Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> selector, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		PutIndexTemplateResponse PutTemplate(IPutIndexTemplateRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</a>
+		/// </summary>
+		Task<PutIndexTemplateResponse> PutTemplateAsync(IPutIndexTemplateRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.recovery</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		RefreshResponse Refresh(Indices index = null, Func<RefreshDescriptor, IRefreshRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/">https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</a>
+		/// </summary>
+		Task<RefreshResponse> RefreshAsync(Indices index = null, Func<RefreshDescriptor, IRefreshRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/">https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</a>
+		/// </summary>
+		RefreshResponse Refresh(IRefreshRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/">https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/get-documents/</a>
+		/// </summary>
+		Task<RefreshResponse> RefreshAsync(IRefreshRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
+		/// <para></para>
+		/// </summary>
+		ResolveIndexResponse Resolve(Names name, Func<ResolveIndexDescriptor, IResolveIndexRequest> selector = null);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
+		/// <para></para>
+		/// </summary>
+		Task<ResolveIndexResponse> ResolveAsync(Names name, Func<ResolveIndexDescriptor, IResolveIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
+		/// <para></para>
+		/// </summary>
+		ResolveIndexResponse Resolve(IResolveIndexRequest request);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
+		/// <para></para>
+		/// </summary>
+		Task<ResolveIndexResponse> ResolveAsync(IResolveIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream">https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</a>
+		/// </summary>
+		RolloverIndexResponse Rollover(Name alias, Func<RolloverIndexDescriptor, IRolloverIndexRequest> selector = null);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream">https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</a>
+		/// </summary>
+		Task<RolloverIndexResponse> RolloverAsync(Name alias, Func<RolloverIndexDescriptor, IRolloverIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream">https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</a>
+		/// </summary>
+		RolloverIndexResponse Rollover(IRolloverIndexRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream">https://opensearch.org/docs/latest/opensearch/data-streams/#step-5-rollover-a-data-stream</a>
+		/// </summary>
+		Task<RolloverIndexResponse> RolloverAsync(IRolloverIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.segments</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/">https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-segments/</a>
+		/// </summary>
+		ShrinkIndexResponse Shrink(IndexName index, IndexName target, Func<ShrinkIndexDescriptor, IShrinkIndexRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/</a>
+		/// </summary>
+		Task<ShrinkIndexResponse> ShrinkAsync(IndexName index, IndexName target, Func<ShrinkIndexDescriptor, IShrinkIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/</a>
+		/// </summary>
+		ShrinkIndexResponse Shrink(IShrinkIndexRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/shrink-index/</a>
+		/// </summary>
+		Task<ShrinkIndexResponse> ShrinkAsync(IShrinkIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</a>
+		/// </summary>
+		SplitIndexResponse Split(IndexName index, IndexName target, Func<SplitIndexDescriptor, ISplitIndexRequest> selector = null);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</a>
+		/// </summary>
+		Task<SplitIndexResponse> SplitAsync(IndexName index, IndexName target, Func<SplitIndexDescriptor, ISplitIndexRequest> selector = null, CancellationToken ct = default);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</a>
+		/// </summary>
+		SplitIndexResponse Split(ISplitIndexRequest request);
+		/// <summary>
+		/// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/">https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</a>
+		/// </summary>
+		Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
+		/// </summary>
+		BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<BulkAliasResponse> BulkAliasAsync(Func<BulkAliasDescriptor, IBulkAliasRequest> selector, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		BulkAliasResponse BulkAlias(IBulkAliasRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
+		/// </summary>
+		Task<BulkAliasResponse> BulkAliasAsync(IBulkAliasRequest request, CancellationToken ct = default);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ValidateQueryResponse ValidateQuery<TDocument>(Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null)
+			where TDocument : class;
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ValidateQueryResponse> ValidateQueryAsync<TDocument>(Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null, CancellationToken ct = default)
+			where TDocument : class;
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		ValidateQueryResponse ValidateQuery(IValidateQueryRequest request);
+		/// <summary>
+		/// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
+		/// <para></para>
+		/// <a href = ""></a>
+		/// </summary>
+		Task<ValidateQueryResponse> ValidateQueryAsync(IValidateQueryRequest request, CancellationToken ct = default);
+	}
+
+	///<summary>
+	/// Indices implementation.
 	/// <para>Not intended to be instantiated directly. Use the <see cref = "IOpenSearchClient.Indices"/> property
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>

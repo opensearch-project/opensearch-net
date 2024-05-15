@@ -1,0 +1,6 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Methods
+@inherits ApiGenerator.CodeTemplatePage<InitializerSyntaxView>
+@{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", Model.Syntax); }
+@{ await IncludeAsync("HighLevel/Client/InitializerSyntax/InitializerMethodHeader.cshtml", Model); }@Raw(";")
+
