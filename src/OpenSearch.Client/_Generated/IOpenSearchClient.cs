@@ -84,7 +84,7 @@ namespace OpenSearch.Client
         INodesNamespace Nodes { get; }
 
         /// <summary>Http APIs</summary>
-        HttpNamespace Http { get; }
+        IHttpNamespace Http { get; }
 
         /// <summary>Snapshot APIs</summary>
         ISnapshotNamespace Snapshot { get; }

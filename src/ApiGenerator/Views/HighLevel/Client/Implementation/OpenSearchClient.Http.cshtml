@@ -3,6 +3,7 @@
 @inherits ApiGenerator.CodeTemplatePage<IEnumerable<HttpMethod>>
 @{
 	const string ns = "Http";
+	var generic = Raw("<TResponse>");
 }
 @{ await IncludeGeneratorNotice(); }
 
@@ -15,16 +16,43 @@ namespace OpenSearch.Client.@(CsharpNames.ApiNamespace).@ns@(CsharpNames.ApiName
 
 /// <summary>
 /// @ns.SplitPascalCase() APIs.
+/// <para>Use the <see cref="IOpenSearchClient.@ns"/> property on <see cref="IOpenSearchClient"/>.</para>
+/// </summary>
+public interface @(CsharpNames.HighLevelClientNamespacePrefix)I@(ns)@(CsharpNames.ClientNamespaceSuffix)
+{
+@{
+	foreach (var m in Model)
+	{
+		var selector = Raw($"Func<{m.Descriptor}, {m.IRequest}> selector = null");
+	<text>
+
+		TResponse @(m)@(generic)(string path, @(selector))
+			where TResponse : class, IOpenSearchResponse, new();
+
+		Task@(generic) @(m)Async@(generic)(string path, @(selector), CancellationToken ct = default)
+			where TResponse : class, IOpenSearchResponse, new();
+
+		TResponse @(m)@(generic)(@m.IRequest request)
+			where TResponse : class, IOpenSearchResponse, new();
+
+		Task@(generic) @(m)Async@(generic)(@m.IRequest request, CancellationToken ct = default)
+			where TResponse : class, IOpenSearchResponse, new();
+
+	</text>
+	}
+}
+}
+
+/// <summary>
+/// @ns.SplitPascalCase() implementation.
 /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchClient.@ns"/> property
 /// on <see cref="IOpenSearchClient"/>.
 /// </para>
 /// </summary>
-public class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy
+public class @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix) : NamespacedClientProxy, @(CsharpNames.HighLevelClientNamespacePrefix)I@(ns)@(CsharpNames.ClientNamespaceSuffix)
 {
     internal @(CsharpNames.HighLevelClientNamespacePrefix)@ns@(CsharpNames.ClientNamespaceSuffix)(OpenSearchClient client) : base(client) {}
 @{
-	var generic = Raw("<TResponse>");
-
 	foreach (var m in Model)
 	{
 		var bodySelector = Raw(m.TakesBody ? "r => r.Body" : "_ => null");
