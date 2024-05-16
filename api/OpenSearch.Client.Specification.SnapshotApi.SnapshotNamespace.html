@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class SnapshotNamespace | OpenSearch.Net ">
     
-    <meta name="description" content="Snapshot APIs. Not intended to be instantiated directly. Use the  property on .">
+    <meta name="description" content="Snapshot implementation. Not intended to be instantiated directly. Use the  property on .">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace" class="text-break">Class SnapshotNamespace</h1>
-  <div class="markdown level0 summary"><p>Snapshot APIs.</p>
+  <div class="markdown level0 summary"><p>Snapshot implementation.</p>
 <p>Not intended to be instantiated directly. Use the <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_Snapshot">Snapshot</a> property
 on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a>.
 </p>
@@ -92,6 +92,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="OpenSearch.Client.NamespacedClientProxy.html">NamespacedClientProxy</a></div>
     <div class="level2"><span class="xref">SnapshotNamespace</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.Specification.SnapshotApi.ISnapshotNamespace.html">ISnapshotNamespace</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -127,7 +131,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SnapshotNamespace : NamespacedClientProxy</code></pre>
+    <pre><code class="lang-csharp hljs">public class SnapshotNamespace : NamespacedClientProxy, ISnapshotNamespace</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
@@ -136,7 +140,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_OpenSearch_Client_ICleanupRepositoryRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository(OpenSearch.Client.ICleanupRepositoryRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L98">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L528">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_OpenSearch_Client_ICleanupRepositoryRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository(OpenSearch.Client.ICleanupRepositoryRequest)">CleanupRepository(ICleanupRepositoryRequest)</h4>
@@ -185,7 +189,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CleanupRepositoryDescriptor_OpenSearch_Client_ICleanupRepositoryRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CleanupRepositoryDescriptor%2COpenSearch.Client.ICleanupRepositoryRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L70">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L500">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CleanupRepositoryDescriptor_OpenSearch_Client_ICleanupRepositoryRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepository(OpenSearch.Client.Name,System.Func{OpenSearch.Client.CleanupRepositoryDescriptor,OpenSearch.Client.ICleanupRepositoryRequest})">CleanupRepository(Name, Func&lt;CleanupRepositoryDescriptor, ICleanupRepositoryRequest&gt;)</h4>
@@ -239,7 +243,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_OpenSearch_Client_ICleanupRepositoryRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync(OpenSearch.Client.ICleanupRepositoryRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L109">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L539">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_OpenSearch_Client_ICleanupRepositoryRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync(OpenSearch.Client.ICleanupRepositoryRequest,System.Threading.CancellationToken)">CleanupRepositoryAsync(ICleanupRepositoryRequest, CancellationToken)</h4>
@@ -293,7 +297,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CleanupRepositoryDescriptor_OpenSearch_Client_ICleanupRepositoryRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CleanupRepositoryDescriptor%2COpenSearch.Client.ICleanupRepositoryRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L83">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L513">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CleanupRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CleanupRepositoryDescriptor_OpenSearch_Client_ICleanupRepositoryRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CleanupRepositoryAsync(OpenSearch.Client.Name,System.Func{OpenSearch.Client.CleanupRepositoryDescriptor,OpenSearch.Client.ICleanupRepositoryRequest},System.Threading.CancellationToken)">CleanupRepositoryAsync(Name, Func&lt;CleanupRepositoryDescriptor, ICleanupRepositoryRequest&gt;, CancellationToken)</h4>
@@ -352,7 +356,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_OpenSearch_Client_ICloneSnapshotRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone(OpenSearch.Client.ICloneSnapshotRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L168">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L598">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_OpenSearch_Client_ICloneSnapshotRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone(OpenSearch.Client.ICloneSnapshotRequest)">Clone(ICloneSnapshotRequest)</h4>
@@ -401,7 +405,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_OpenSearch_Client_Name_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CloneSnapshotDescriptor_OpenSearch_Client_ICloneSnapshotRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone(OpenSearch.Client.Name%2COpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CloneSnapshotDescriptor%2COpenSearch.Client.ICloneSnapshotRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L124">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L554">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Clone_OpenSearch_Client_Name_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CloneSnapshotDescriptor_OpenSearch_Client_ICloneSnapshotRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Clone(OpenSearch.Client.Name,OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.CloneSnapshotDescriptor,OpenSearch.Client.ICloneSnapshotRequest})">Clone(Name, Name, Name, Func&lt;CloneSnapshotDescriptor, ICloneSnapshotRequest&gt;)</h4>
@@ -465,7 +469,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_OpenSearch_Client_ICloneSnapshotRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync(OpenSearch.Client.ICloneSnapshotRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L179">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L609">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_OpenSearch_Client_ICloneSnapshotRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync(OpenSearch.Client.ICloneSnapshotRequest,System.Threading.CancellationToken)">CloneAsync(ICloneSnapshotRequest, CancellationToken)</h4>
@@ -519,7 +523,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CloneSnapshotDescriptor_OpenSearch_Client_ICloneSnapshotRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync(OpenSearch.Client.Name%2COpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CloneSnapshotDescriptor%2COpenSearch.Client.ICloneSnapshotRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L145">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L575">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CloneAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CloneSnapshotDescriptor_OpenSearch_Client_ICloneSnapshotRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CloneAsync(OpenSearch.Client.Name,OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.CloneSnapshotDescriptor,OpenSearch.Client.ICloneSnapshotRequest},System.Threading.CancellationToken)">CloneAsync(Name, Name, Name, Func&lt;CloneSnapshotDescriptor, ICloneSnapshotRequest&gt;, CancellationToken)</h4>
@@ -588,7 +592,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_OpenSearch_Client_ICreateRepositoryRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository(OpenSearch.Client.ICreateRepositoryRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L279">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L709">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_OpenSearch_Client_ICreateRepositoryRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository(OpenSearch.Client.ICreateRepositoryRequest)">CreateRepository(ICreateRepositoryRequest)</h4>
@@ -637,7 +641,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CreateRepositoryDescriptor_OpenSearch_Client_ICreateRepositoryRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CreateRepositoryDescriptor%2COpenSearch.Client.ICreateRepositoryRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L251">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L681">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CreateRepositoryDescriptor_OpenSearch_Client_ICreateRepositoryRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepository(OpenSearch.Client.Name,System.Func{OpenSearch.Client.CreateRepositoryDescriptor,OpenSearch.Client.ICreateRepositoryRequest})">CreateRepository(Name, Func&lt;CreateRepositoryDescriptor, ICreateRepositoryRequest&gt;)</h4>
@@ -691,7 +695,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_OpenSearch_Client_ICreateRepositoryRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync(OpenSearch.Client.ICreateRepositoryRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L290">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L720">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_OpenSearch_Client_ICreateRepositoryRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync(OpenSearch.Client.ICreateRepositoryRequest,System.Threading.CancellationToken)">CreateRepositoryAsync(ICreateRepositoryRequest, CancellationToken)</h4>
@@ -745,7 +749,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CreateRepositoryDescriptor_OpenSearch_Client_ICreateRepositoryRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.CreateRepositoryDescriptor%2COpenSearch.Client.ICreateRepositoryRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L264">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L694">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_CreateRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_CreateRepositoryDescriptor_OpenSearch_Client_ICreateRepositoryRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.CreateRepositoryAsync(OpenSearch.Client.Name,System.Func{OpenSearch.Client.CreateRepositoryDescriptor,OpenSearch.Client.ICreateRepositoryRequest},System.Threading.CancellationToken)">CreateRepositoryAsync(Name, Func&lt;CreateRepositoryDescriptor, ICreateRepositoryRequest&gt;, CancellationToken)</h4>
@@ -804,7 +808,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_OpenSearch_Client_IDeleteSnapshotRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete(OpenSearch.Client.IDeleteSnapshotRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L339">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L769">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_OpenSearch_Client_IDeleteSnapshotRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete(OpenSearch.Client.IDeleteSnapshotRequest)">Delete(IDeleteSnapshotRequest)</h4>
@@ -853,7 +857,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_DeleteSnapshotDescriptor_OpenSearch_Client_IDeleteSnapshotRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.DeleteSnapshotDescriptor%2COpenSearch.Client.IDeleteSnapshotRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L305">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L735">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Delete_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_DeleteSnapshotDescriptor_OpenSearch_Client_IDeleteSnapshotRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Delete(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.DeleteSnapshotDescriptor,OpenSearch.Client.IDeleteSnapshotRequest})">Delete(Name, Name, Func&lt;DeleteSnapshotDescriptor, IDeleteSnapshotRequest&gt;)</h4>
@@ -912,7 +916,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_OpenSearch_Client_IDeleteSnapshotRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync(OpenSearch.Client.IDeleteSnapshotRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L350">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L780">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_OpenSearch_Client_IDeleteSnapshotRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync(OpenSearch.Client.IDeleteSnapshotRequest,System.Threading.CancellationToken)">DeleteAsync(IDeleteSnapshotRequest, CancellationToken)</h4>
@@ -966,7 +970,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_DeleteSnapshotDescriptor_OpenSearch_Client_IDeleteSnapshotRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.DeleteSnapshotDescriptor%2COpenSearch.Client.IDeleteSnapshotRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L321">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L751">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_DeleteSnapshotDescriptor_OpenSearch_Client_IDeleteSnapshotRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteAsync(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.DeleteSnapshotDescriptor,OpenSearch.Client.IDeleteSnapshotRequest},System.Threading.CancellationToken)">DeleteAsync(Name, Name, Func&lt;DeleteSnapshotDescriptor, IDeleteSnapshotRequest&gt;, CancellationToken)</h4>
@@ -1030,7 +1034,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_OpenSearch_Client_IDeleteRepositoryRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository(OpenSearch.Client.IDeleteRepositoryRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L393">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L823">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_OpenSearch_Client_IDeleteRepositoryRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository(OpenSearch.Client.IDeleteRepositoryRequest)">DeleteRepository(IDeleteRepositoryRequest)</h4>
@@ -1079,7 +1083,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_OpenSearch_Client_Names_System_Func_OpenSearch_Client_DeleteRepositoryDescriptor_OpenSearch_Client_IDeleteRepositoryRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository(OpenSearch.Client.Names%2CSystem.Func%7BOpenSearch.Client.DeleteRepositoryDescriptor%2COpenSearch.Client.IDeleteRepositoryRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L365">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L795">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepository_OpenSearch_Client_Names_System_Func_OpenSearch_Client_DeleteRepositoryDescriptor_OpenSearch_Client_IDeleteRepositoryRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepository(OpenSearch.Client.Names,System.Func{OpenSearch.Client.DeleteRepositoryDescriptor,OpenSearch.Client.IDeleteRepositoryRequest})">DeleteRepository(Names, Func&lt;DeleteRepositoryDescriptor, IDeleteRepositoryRequest&gt;)</h4>
@@ -1133,7 +1137,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_OpenSearch_Client_IDeleteRepositoryRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync(OpenSearch.Client.IDeleteRepositoryRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L404">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L834">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_OpenSearch_Client_IDeleteRepositoryRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync(OpenSearch.Client.IDeleteRepositoryRequest,System.Threading.CancellationToken)">DeleteRepositoryAsync(IDeleteRepositoryRequest, CancellationToken)</h4>
@@ -1187,7 +1191,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_OpenSearch_Client_Names_System_Func_OpenSearch_Client_DeleteRepositoryDescriptor_OpenSearch_Client_IDeleteRepositoryRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync(OpenSearch.Client.Names%2CSystem.Func%7BOpenSearch.Client.DeleteRepositoryDescriptor%2COpenSearch.Client.IDeleteRepositoryRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L378">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L808">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_DeleteRepositoryAsync_OpenSearch_Client_Names_System_Func_OpenSearch_Client_DeleteRepositoryDescriptor_OpenSearch_Client_IDeleteRepositoryRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.DeleteRepositoryAsync(OpenSearch.Client.Names,System.Func{OpenSearch.Client.DeleteRepositoryDescriptor,OpenSearch.Client.IDeleteRepositoryRequest},System.Threading.CancellationToken)">DeleteRepositoryAsync(Names, Func&lt;DeleteRepositoryDescriptor, IDeleteRepositoryRequest&gt;, CancellationToken)</h4>
@@ -1246,7 +1250,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_OpenSearch_Client_IGetSnapshotRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get(OpenSearch.Client.IGetSnapshotRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L453">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L883">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_OpenSearch_Client_IGetSnapshotRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get(OpenSearch.Client.IGetSnapshotRequest)">Get(IGetSnapshotRequest)</h4>
@@ -1295,7 +1299,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_OpenSearch_Client_Name_OpenSearch_Client_Names_System_Func_OpenSearch_Client_GetSnapshotDescriptor_OpenSearch_Client_IGetSnapshotRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get(OpenSearch.Client.Name%2COpenSearch.Client.Names%2CSystem.Func%7BOpenSearch.Client.GetSnapshotDescriptor%2COpenSearch.Client.IGetSnapshotRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L419">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L849">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Get_OpenSearch_Client_Name_OpenSearch_Client_Names_System_Func_OpenSearch_Client_GetSnapshotDescriptor_OpenSearch_Client_IGetSnapshotRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Get(OpenSearch.Client.Name,OpenSearch.Client.Names,System.Func{OpenSearch.Client.GetSnapshotDescriptor,OpenSearch.Client.IGetSnapshotRequest})">Get(Name, Names, Func&lt;GetSnapshotDescriptor, IGetSnapshotRequest&gt;)</h4>
@@ -1354,7 +1358,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_OpenSearch_Client_IGetSnapshotRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync(OpenSearch.Client.IGetSnapshotRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L461">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L891">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_OpenSearch_Client_IGetSnapshotRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync(OpenSearch.Client.IGetSnapshotRequest,System.Threading.CancellationToken)">GetAsync(IGetSnapshotRequest, CancellationToken)</h4>
@@ -1408,7 +1412,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_OpenSearch_Client_Name_OpenSearch_Client_Names_System_Func_OpenSearch_Client_GetSnapshotDescriptor_OpenSearch_Client_IGetSnapshotRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync(OpenSearch.Client.Name%2COpenSearch.Client.Names%2CSystem.Func%7BOpenSearch.Client.GetSnapshotDescriptor%2COpenSearch.Client.IGetSnapshotRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L435">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L865">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetAsync_OpenSearch_Client_Name_OpenSearch_Client_Names_System_Func_OpenSearch_Client_GetSnapshotDescriptor_OpenSearch_Client_IGetSnapshotRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetAsync(OpenSearch.Client.Name,OpenSearch.Client.Names,System.Func{OpenSearch.Client.GetSnapshotDescriptor,OpenSearch.Client.IGetSnapshotRequest},System.Threading.CancellationToken)">GetAsync(Name, Names, Func&lt;GetSnapshotDescriptor, IGetSnapshotRequest&gt;, CancellationToken)</h4>
@@ -1472,7 +1476,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_OpenSearch_Client_IGetRepositoryRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository(OpenSearch.Client.IGetRepositoryRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L495">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L925">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_OpenSearch_Client_IGetRepositoryRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository(OpenSearch.Client.IGetRepositoryRequest)">GetRepository(IGetRepositoryRequest)</h4>
@@ -1521,7 +1525,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_System_Func_OpenSearch_Client_GetRepositoryDescriptor_OpenSearch_Client_IGetRepositoryRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository(System.Func%7BOpenSearch.Client.GetRepositoryDescriptor%2COpenSearch.Client.IGetRepositoryRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L476">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L906">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepository_System_Func_OpenSearch_Client_GetRepositoryDescriptor_OpenSearch_Client_IGetRepositoryRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepository(System.Func{OpenSearch.Client.GetRepositoryDescriptor,OpenSearch.Client.IGetRepositoryRequest})">GetRepository(Func&lt;GetRepositoryDescriptor, IGetRepositoryRequest&gt;)</h4>
@@ -1570,7 +1574,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_OpenSearch_Client_IGetRepositoryRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync(OpenSearch.Client.IGetRepositoryRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L506">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L936">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_OpenSearch_Client_IGetRepositoryRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync(OpenSearch.Client.IGetRepositoryRequest,System.Threading.CancellationToken)">GetRepositoryAsync(IGetRepositoryRequest, CancellationToken)</h4>
@@ -1624,7 +1628,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_System_Func_OpenSearch_Client_GetRepositoryDescriptor_OpenSearch_Client_IGetRepositoryRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync(System.Func%7BOpenSearch.Client.GetRepositoryDescriptor%2COpenSearch.Client.IGetRepositoryRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L485">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L915">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_GetRepositoryAsync_System_Func_OpenSearch_Client_GetRepositoryDescriptor_OpenSearch_Client_IGetRepositoryRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.GetRepositoryAsync(System.Func{OpenSearch.Client.GetRepositoryDescriptor,OpenSearch.Client.IGetRepositoryRequest},System.Threading.CancellationToken)">GetRepositoryAsync(Func&lt;GetRepositoryDescriptor, IGetRepositoryRequest&gt;, CancellationToken)</h4>
@@ -1678,7 +1682,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_OpenSearch_Client_IRestoreRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore(OpenSearch.Client.IRestoreRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L555">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L985">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_OpenSearch_Client_IRestoreRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore(OpenSearch.Client.IRestoreRequest)">Restore(IRestoreRequest)</h4>
@@ -1727,7 +1731,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_RestoreDescriptor_OpenSearch_Client_IRestoreRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.RestoreDescriptor%2COpenSearch.Client.IRestoreRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L521">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L951">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Restore_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_RestoreDescriptor_OpenSearch_Client_IRestoreRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Restore(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.RestoreDescriptor,OpenSearch.Client.IRestoreRequest})">Restore(Name, Name, Func&lt;RestoreDescriptor, IRestoreRequest&gt;)</h4>
@@ -1786,7 +1790,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_OpenSearch_Client_IRestoreRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync(OpenSearch.Client.IRestoreRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L563">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L993">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_OpenSearch_Client_IRestoreRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync(OpenSearch.Client.IRestoreRequest,System.Threading.CancellationToken)">RestoreAsync(IRestoreRequest, CancellationToken)</h4>
@@ -1840,7 +1844,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_RestoreDescriptor_OpenSearch_Client_IRestoreRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.RestoreDescriptor%2COpenSearch.Client.IRestoreRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L537">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L967">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_RestoreAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_RestoreDescriptor_OpenSearch_Client_IRestoreRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.RestoreAsync(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.RestoreDescriptor,OpenSearch.Client.IRestoreRequest},System.Threading.CancellationToken)">RestoreAsync(Name, Name, Func&lt;RestoreDescriptor, IRestoreRequest&gt;, CancellationToken)</h4>
@@ -1904,7 +1908,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_OpenSearch_Client_ISnapshotRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot(OpenSearch.Client.ISnapshotRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L228">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L658">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_OpenSearch_Client_ISnapshotRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot(OpenSearch.Client.ISnapshotRequest)">Snapshot(ISnapshotRequest)</h4>
@@ -1953,7 +1957,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_SnapshotDescriptor_OpenSearch_Client_ISnapshotRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.SnapshotDescriptor%2COpenSearch.Client.ISnapshotRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L194">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L624">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Snapshot_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_SnapshotDescriptor_OpenSearch_Client_ISnapshotRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Snapshot(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.SnapshotDescriptor,OpenSearch.Client.ISnapshotRequest})">Snapshot(Name, Name, Func&lt;SnapshotDescriptor, ISnapshotRequest&gt;)</h4>
@@ -2012,7 +2016,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_OpenSearch_Client_ISnapshotRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync(OpenSearch.Client.ISnapshotRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L236">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L666">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_OpenSearch_Client_ISnapshotRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync(OpenSearch.Client.ISnapshotRequest,System.Threading.CancellationToken)">SnapshotAsync(ISnapshotRequest, CancellationToken)</h4>
@@ -2066,7 +2070,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_SnapshotDescriptor_OpenSearch_Client_ISnapshotRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync(OpenSearch.Client.Name%2COpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.SnapshotDescriptor%2COpenSearch.Client.ISnapshotRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L210">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L640">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_SnapshotAsync_OpenSearch_Client_Name_OpenSearch_Client_Name_System_Func_OpenSearch_Client_SnapshotDescriptor_OpenSearch_Client_ISnapshotRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.SnapshotAsync(OpenSearch.Client.Name,OpenSearch.Client.Name,System.Func{OpenSearch.Client.SnapshotDescriptor,OpenSearch.Client.ISnapshotRequest},System.Threading.CancellationToken)">SnapshotAsync(Name, Name, Func&lt;SnapshotDescriptor, ISnapshotRequest&gt;, CancellationToken)</h4>
@@ -2130,7 +2134,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_OpenSearch_Client_ISnapshotStatusRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status(OpenSearch.Client.ISnapshotStatusRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L597">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1027">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_OpenSearch_Client_ISnapshotStatusRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status(OpenSearch.Client.ISnapshotStatusRequest)">Status(ISnapshotStatusRequest)</h4>
@@ -2179,7 +2183,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_System_Func_OpenSearch_Client_SnapshotStatusDescriptor_OpenSearch_Client_ISnapshotStatusRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status(System.Func%7BOpenSearch.Client.SnapshotStatusDescriptor%2COpenSearch.Client.ISnapshotStatusRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L578">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1008">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_Status_System_Func_OpenSearch_Client_SnapshotStatusDescriptor_OpenSearch_Client_ISnapshotStatusRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.Status(System.Func{OpenSearch.Client.SnapshotStatusDescriptor,OpenSearch.Client.ISnapshotStatusRequest})">Status(Func&lt;SnapshotStatusDescriptor, ISnapshotStatusRequest&gt;)</h4>
@@ -2228,7 +2232,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_OpenSearch_Client_ISnapshotStatusRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync(OpenSearch.Client.ISnapshotStatusRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L608">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1038">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_OpenSearch_Client_ISnapshotStatusRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync(OpenSearch.Client.ISnapshotStatusRequest,System.Threading.CancellationToken)">StatusAsync(ISnapshotStatusRequest, CancellationToken)</h4>
@@ -2282,7 +2286,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_System_Func_OpenSearch_Client_SnapshotStatusDescriptor_OpenSearch_Client_ISnapshotStatusRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync(System.Func%7BOpenSearch.Client.SnapshotStatusDescriptor%2COpenSearch.Client.ISnapshotStatusRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L587">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1017">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_StatusAsync_System_Func_OpenSearch_Client_SnapshotStatusDescriptor_OpenSearch_Client_ISnapshotStatusRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.StatusAsync(System.Func{OpenSearch.Client.SnapshotStatusDescriptor,OpenSearch.Client.ISnapshotStatusRequest},System.Threading.CancellationToken)">StatusAsync(Func&lt;SnapshotStatusDescriptor, ISnapshotStatusRequest&gt;, CancellationToken)</h4>
@@ -2336,7 +2340,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_OpenSearch_Client_IVerifyRepositoryRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository(OpenSearch.Client.IVerifyRepositoryRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L651">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1081">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_OpenSearch_Client_IVerifyRepositoryRequest_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository(OpenSearch.Client.IVerifyRepositoryRequest)">VerifyRepository(IVerifyRepositoryRequest)</h4>
@@ -2385,7 +2389,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_VerifyRepositoryDescriptor_OpenSearch_Client_IVerifyRepositoryRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.VerifyRepositoryDescriptor%2COpenSearch.Client.IVerifyRepositoryRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L623">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1053">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepository_OpenSearch_Client_Name_System_Func_OpenSearch_Client_VerifyRepositoryDescriptor_OpenSearch_Client_IVerifyRepositoryRequest__" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepository(OpenSearch.Client.Name,System.Func{OpenSearch.Client.VerifyRepositoryDescriptor,OpenSearch.Client.IVerifyRepositoryRequest})">VerifyRepository(Name, Func&lt;VerifyRepositoryDescriptor, IVerifyRepositoryRequest&gt;)</h4>
@@ -2439,7 +2443,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_OpenSearch_Client_IVerifyRepositoryRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync(OpenSearch.Client.IVerifyRepositoryRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L662">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1092">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_OpenSearch_Client_IVerifyRepositoryRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync(OpenSearch.Client.IVerifyRepositoryRequest,System.Threading.CancellationToken)">VerifyRepositoryAsync(IVerifyRepositoryRequest, CancellationToken)</h4>
@@ -2493,7 +2497,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_VerifyRepositoryDescriptor_OpenSearch_Client_IVerifyRepositoryRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync(OpenSearch.Client.Name%2CSystem.Func%7BOpenSearch.Client.VerifyRepositoryDescriptor%2COpenSearch.Client.IVerifyRepositoryRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L636">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L1066">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace_VerifyRepositoryAsync_OpenSearch_Client_Name_System_Func_OpenSearch_Client_VerifyRepositoryDescriptor_OpenSearch_Client_IVerifyRepositoryRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.VerifyRepositoryAsync(OpenSearch.Client.Name,System.Func{OpenSearch.Client.VerifyRepositoryDescriptor,OpenSearch.Client.IVerifyRepositoryRequest},System.Threading.CancellationToken)">VerifyRepositoryAsync(Name, Func&lt;VerifyRepositoryDescriptor, IVerifyRepositoryRequest&gt;, CancellationToken)</h4>
@@ -2547,6 +2551,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.Specification.SnapshotApi.ISnapshotNamespace.html">ISnapshotNamespace</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
@@ -2563,7 +2571,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_SnapshotApi_SnapshotNamespace.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L60" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Snapshot.cs/#L490" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

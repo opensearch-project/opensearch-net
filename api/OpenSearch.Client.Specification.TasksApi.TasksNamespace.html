@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TasksNamespace | OpenSearch.Net ">
     
-    <meta name="description" content="Tasks APIs. Not intended to be instantiated directly. Use the  property on .">
+    <meta name="description" content="Tasks implementation. Not intended to be instantiated directly. Use the  property on .">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace" class="text-break">Class TasksNamespace</h1>
-  <div class="markdown level0 summary"><p>Tasks APIs.</p>
+  <div class="markdown level0 summary"><p>Tasks implementation.</p>
 <p>Not intended to be instantiated directly. Use the <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_Tasks">Tasks</a> property
 on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a>.
 </p>
@@ -92,6 +92,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="OpenSearch.Client.NamespacedClientProxy.html">NamespacedClientProxy</a></div>
     <div class="level2"><span class="xref">TasksNamespace</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.Specification.TasksApi.ITasksNamespace.html">ITasksNamespace</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -127,7 +131,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TasksNamespace : NamespacedClientProxy</code></pre>
+    <pre><code class="lang-csharp hljs">public class TasksNamespace : NamespacedClientProxy, ITasksNamespace</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
@@ -136,7 +140,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_OpenSearch_Client_ICancelTasksRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel(OpenSearch.Client.ICancelTasksRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L89">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L201">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_OpenSearch_Client_ICancelTasksRequest_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel(OpenSearch.Client.ICancelTasksRequest)">Cancel(ICancelTasksRequest)</h4>
@@ -185,7 +189,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_System_Func_OpenSearch_Client_CancelTasksDescriptor_OpenSearch_Client_ICancelTasksRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel(System.Func%7BOpenSearch.Client.CancelTasksDescriptor%2COpenSearch.Client.ICancelTasksRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L70">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L182">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_Cancel_System_Func_OpenSearch_Client_CancelTasksDescriptor_OpenSearch_Client_ICancelTasksRequest__" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.Cancel(System.Func{OpenSearch.Client.CancelTasksDescriptor,OpenSearch.Client.ICancelTasksRequest})">Cancel(Func&lt;CancelTasksDescriptor, ICancelTasksRequest&gt;)</h4>
@@ -234,7 +238,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_OpenSearch_Client_ICancelTasksRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync(OpenSearch.Client.ICancelTasksRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L97">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L209">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_OpenSearch_Client_ICancelTasksRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync(OpenSearch.Client.ICancelTasksRequest,System.Threading.CancellationToken)">CancelAsync(ICancelTasksRequest, CancellationToken)</h4>
@@ -288,7 +292,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_System_Func_OpenSearch_Client_CancelTasksDescriptor_OpenSearch_Client_ICancelTasksRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync(System.Func%7BOpenSearch.Client.CancelTasksDescriptor%2COpenSearch.Client.ICancelTasksRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L79">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L191">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_CancelAsync_System_Func_OpenSearch_Client_CancelTasksDescriptor_OpenSearch_Client_ICancelTasksRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.CancelAsync(System.Func{OpenSearch.Client.CancelTasksDescriptor,OpenSearch.Client.ICancelTasksRequest},System.Threading.CancellationToken)">CancelAsync(Func&lt;CancelTasksDescriptor, ICancelTasksRequest&gt;, CancellationToken)</h4>
@@ -342,7 +346,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_OpenSearch_Client_IGetTaskRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask(OpenSearch.Client.IGetTaskRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L133">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L245">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_OpenSearch_Client_IGetTaskRequest_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask(OpenSearch.Client.IGetTaskRequest)">GetTask(IGetTaskRequest)</h4>
@@ -391,7 +395,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_OpenSearch_Client_TaskId_System_Func_OpenSearch_Client_GetTaskDescriptor_OpenSearch_Client_IGetTaskRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask(OpenSearch.Client.TaskId%2CSystem.Func%7BOpenSearch.Client.GetTaskDescriptor%2COpenSearch.Client.IGetTaskRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L112">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L224">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTask_OpenSearch_Client_TaskId_System_Func_OpenSearch_Client_GetTaskDescriptor_OpenSearch_Client_IGetTaskRequest__" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTask(OpenSearch.Client.TaskId,System.Func{OpenSearch.Client.GetTaskDescriptor,OpenSearch.Client.IGetTaskRequest})">GetTask(TaskId, Func&lt;GetTaskDescriptor, IGetTaskRequest&gt;)</h4>
@@ -445,7 +449,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_OpenSearch_Client_IGetTaskRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync(OpenSearch.Client.IGetTaskRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L141">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L253">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_OpenSearch_Client_IGetTaskRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync(OpenSearch.Client.IGetTaskRequest,System.Threading.CancellationToken)">GetTaskAsync(IGetTaskRequest, CancellationToken)</h4>
@@ -499,7 +503,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_OpenSearch_Client_TaskId_System_Func_OpenSearch_Client_GetTaskDescriptor_OpenSearch_Client_IGetTaskRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync(OpenSearch.Client.TaskId%2CSystem.Func%7BOpenSearch.Client.GetTaskDescriptor%2COpenSearch.Client.IGetTaskRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L122">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L234">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_GetTaskAsync_OpenSearch_Client_TaskId_System_Func_OpenSearch_Client_GetTaskDescriptor_OpenSearch_Client_IGetTaskRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.GetTaskAsync(OpenSearch.Client.TaskId,System.Func{OpenSearch.Client.GetTaskDescriptor,OpenSearch.Client.IGetTaskRequest},System.Threading.CancellationToken)">GetTaskAsync(TaskId, Func&lt;GetTaskDescriptor, IGetTaskRequest&gt;, CancellationToken)</h4>
@@ -558,7 +562,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_OpenSearch_Client_IListTasksRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.List(OpenSearch.Client.IListTasksRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L175">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L287">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.List*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_OpenSearch_Client_IListTasksRequest_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.List(OpenSearch.Client.IListTasksRequest)">List(IListTasksRequest)</h4>
@@ -607,7 +611,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_System_Func_OpenSearch_Client_ListTasksDescriptor_OpenSearch_Client_IListTasksRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.List(System.Func%7BOpenSearch.Client.ListTasksDescriptor%2COpenSearch.Client.IListTasksRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L156">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L268">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.List*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_List_System_Func_OpenSearch_Client_ListTasksDescriptor_OpenSearch_Client_IListTasksRequest__" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.List(System.Func{OpenSearch.Client.ListTasksDescriptor,OpenSearch.Client.IListTasksRequest})">List(Func&lt;ListTasksDescriptor, IListTasksRequest&gt;)</h4>
@@ -656,7 +660,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_OpenSearch_Client_IListTasksRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync(OpenSearch.Client.IListTasksRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L183">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L295">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_OpenSearch_Client_IListTasksRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync(OpenSearch.Client.IListTasksRequest,System.Threading.CancellationToken)">ListAsync(IListTasksRequest, CancellationToken)</h4>
@@ -710,7 +714,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_System_Func_OpenSearch_Client_ListTasksDescriptor_OpenSearch_Client_IListTasksRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync(System.Func%7BOpenSearch.Client.ListTasksDescriptor%2COpenSearch.Client.IListTasksRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L165">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L277">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_TasksApi_TasksNamespace_ListAsync_System_Func_OpenSearch_Client_ListTasksDescriptor_OpenSearch_Client_IListTasksRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.TasksApi.TasksNamespace.ListAsync(System.Func{OpenSearch.Client.ListTasksDescriptor,OpenSearch.Client.IListTasksRequest},System.Threading.CancellationToken)">ListAsync(Func&lt;ListTasksDescriptor, IListTasksRequest&gt;, CancellationToken)</h4>
@@ -759,6 +763,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.Specification.TasksApi.ITasksNamespace.html">ITasksNamespace</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
@@ -775,7 +783,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_TasksApi_TasksNamespace.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.TasksApi.TasksNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L60" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.Tasks.cs/#L172" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

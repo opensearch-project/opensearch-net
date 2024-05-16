@@ -25242,6 +25242,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.ICatNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.CatApi.ICatNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.CatApi.yml",
       "output": {
         ".html": {
@@ -25256,6 +25266,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.ClusterNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.ClusterApi.IClusterNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.ClusterApi.IClusterNamespace.html"
         }
       },
       "version": ""
@@ -25282,6 +25302,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.IDanglingIndicesNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.DanglingIndicesApi.IDanglingIndicesNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.DanglingIndicesApi.yml",
       "output": {
         ".html": {
@@ -25302,10 +25332,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.HttpApi.IHttpNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.HttpApi.IHttpNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.HttpApi.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.HttpApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IndicesApi.IIndicesNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IndicesApi.IIndicesNamespace.html"
         }
       },
       "version": ""
@@ -25332,6 +25382,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IIngestNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.IngestApi.IIngestNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.IngestApi.IngestNamespace.yml",
       "output": {
         ".html": {
@@ -25346,6 +25406,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.IngestApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.NodesApi.INodesNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.NodesApi.INodesNamespace.html"
         }
       },
       "version": ""
@@ -25372,6 +25442,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.ISnapshotNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.ISnapshotNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.SnapshotApi.SnapshotNamespace.yml",
       "output": {
         ".html": {
@@ -25386,6 +25466,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Specification.SnapshotApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.Specification.TasksApi.ITasksNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.Specification.TasksApi.ITasksNamespace.html"
         }
       },
       "version": ""

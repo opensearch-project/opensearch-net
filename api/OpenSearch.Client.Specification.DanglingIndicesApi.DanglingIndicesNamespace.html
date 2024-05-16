@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class DanglingIndicesNamespace | OpenSearch.Net ">
     
-    <meta name="description" content="Dangling Indices APIs. Not intended to be instantiated directly. Use the  property on .">
+    <meta name="description" content="Dangling Indices implementation. Not intended to be instantiated directly. Use the  property on .">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace" class="text-break">Class DanglingIndicesNamespace</h1>
-  <div class="markdown level0 summary"><p>Dangling Indices APIs.</p>
+  <div class="markdown level0 summary"><p>Dangling Indices implementation.</p>
 <p>Not intended to be instantiated directly. Use the <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_DanglingIndices">DanglingIndices</a> property
 on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchClient</a>.
 </p>
@@ -92,6 +92,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><a class="xref" href="OpenSearch.Client.NamespacedClientProxy.html">NamespacedClientProxy</a></div>
     <div class="level2"><span class="xref">DanglingIndicesNamespace</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OpenSearch.Client.Specification.DanglingIndicesApi.IDanglingIndicesNamespace.html">IDanglingIndicesNamespace</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -127,7 +131,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DanglingIndicesNamespace : NamespacedClientProxy</code></pre>
+    <pre><code class="lang-csharp hljs">public class DanglingIndicesNamespace : NamespacedClientProxy, IDanglingIndicesNamespace</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
@@ -136,7 +140,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_OpenSearch_Client_IDeleteDanglingIndexRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex(OpenSearch.Client.IDeleteDanglingIndexRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L98">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L217">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_OpenSearch_Client_IDeleteDanglingIndexRequest_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex(OpenSearch.Client.IDeleteDanglingIndexRequest)">DeleteDanglingIndex(IDeleteDanglingIndexRequest)</h4>
@@ -185,7 +189,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_DeleteDanglingIndexDescriptor_OpenSearch_Client_IDeleteDanglingIndexRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex(OpenSearch.Client.IndexUuid%2CSystem.Func%7BOpenSearch.Client.DeleteDanglingIndexDescriptor%2COpenSearch.Client.IDeleteDanglingIndexRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L70">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L189">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndex_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_DeleteDanglingIndexDescriptor_OpenSearch_Client_IDeleteDanglingIndexRequest__" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndex(OpenSearch.Client.IndexUuid,System.Func{OpenSearch.Client.DeleteDanglingIndexDescriptor,OpenSearch.Client.IDeleteDanglingIndexRequest})">DeleteDanglingIndex(IndexUuid, Func&lt;DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest&gt;)</h4>
@@ -239,7 +243,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_OpenSearch_Client_IDeleteDanglingIndexRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync(OpenSearch.Client.IDeleteDanglingIndexRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L111">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L230">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_OpenSearch_Client_IDeleteDanglingIndexRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync(OpenSearch.Client.IDeleteDanglingIndexRequest,System.Threading.CancellationToken)">DeleteDanglingIndexAsync(IDeleteDanglingIndexRequest, CancellationToken)</h4>
@@ -293,7 +297,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_DeleteDanglingIndexDescriptor_OpenSearch_Client_IDeleteDanglingIndexRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync(OpenSearch.Client.IndexUuid%2CSystem.Func%7BOpenSearch.Client.DeleteDanglingIndexDescriptor%2COpenSearch.Client.IDeleteDanglingIndexRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L83">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L202">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_DeleteDanglingIndexAsync_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_DeleteDanglingIndexDescriptor_OpenSearch_Client_IDeleteDanglingIndexRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.DeleteDanglingIndexAsync(OpenSearch.Client.IndexUuid,System.Func{OpenSearch.Client.DeleteDanglingIndexDescriptor,OpenSearch.Client.IDeleteDanglingIndexRequest},System.Threading.CancellationToken)">DeleteDanglingIndexAsync(IndexUuid, Func&lt;DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest&gt;, CancellationToken)</h4>
@@ -352,7 +356,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_OpenSearch_Client_IImportDanglingIndexRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex(OpenSearch.Client.IImportDanglingIndexRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L154">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L273">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_OpenSearch_Client_IImportDanglingIndexRequest_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex(OpenSearch.Client.IImportDanglingIndexRequest)">ImportDanglingIndex(IImportDanglingIndexRequest)</h4>
@@ -401,7 +405,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_ImportDanglingIndexDescriptor_OpenSearch_Client_IImportDanglingIndexRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex(OpenSearch.Client.IndexUuid%2CSystem.Func%7BOpenSearch.Client.ImportDanglingIndexDescriptor%2COpenSearch.Client.IImportDanglingIndexRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L126">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L245">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndex_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_ImportDanglingIndexDescriptor_OpenSearch_Client_IImportDanglingIndexRequest__" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndex(OpenSearch.Client.IndexUuid,System.Func{OpenSearch.Client.ImportDanglingIndexDescriptor,OpenSearch.Client.IImportDanglingIndexRequest})">ImportDanglingIndex(IndexUuid, Func&lt;ImportDanglingIndexDescriptor, IImportDanglingIndexRequest&gt;)</h4>
@@ -455,7 +459,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_OpenSearch_Client_IImportDanglingIndexRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync(OpenSearch.Client.IImportDanglingIndexRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L167">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L286">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_OpenSearch_Client_IImportDanglingIndexRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync(OpenSearch.Client.IImportDanglingIndexRequest,System.Threading.CancellationToken)">ImportDanglingIndexAsync(IImportDanglingIndexRequest, CancellationToken)</h4>
@@ -509,7 +513,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_ImportDanglingIndexDescriptor_OpenSearch_Client_IImportDanglingIndexRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync(OpenSearch.Client.IndexUuid%2CSystem.Func%7BOpenSearch.Client.ImportDanglingIndexDescriptor%2COpenSearch.Client.IImportDanglingIndexRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L139">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L258">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ImportDanglingIndexAsync_OpenSearch_Client_IndexUuid_System_Func_OpenSearch_Client_ImportDanglingIndexDescriptor_OpenSearch_Client_IImportDanglingIndexRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ImportDanglingIndexAsync(OpenSearch.Client.IndexUuid,System.Func{OpenSearch.Client.ImportDanglingIndexDescriptor,OpenSearch.Client.IImportDanglingIndexRequest},System.Threading.CancellationToken)">ImportDanglingIndexAsync(IndexUuid, Func&lt;ImportDanglingIndexDescriptor, IImportDanglingIndexRequest&gt;, CancellationToken)</h4>
@@ -568,7 +572,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_OpenSearch_Client_IListDanglingIndicesRequest_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List(OpenSearch.Client.IListDanglingIndicesRequest)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L201">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L320">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_OpenSearch_Client_IListDanglingIndicesRequest_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List(OpenSearch.Client.IListDanglingIndicesRequest)">List(IListDanglingIndicesRequest)</h4>
@@ -617,7 +621,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_System_Func_OpenSearch_Client_ListDanglingIndicesDescriptor_OpenSearch_Client_IListDanglingIndicesRequest__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List(System.Func%7BOpenSearch.Client.ListDanglingIndicesDescriptor%2COpenSearch.Client.IListDanglingIndicesRequest%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L182">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L301">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_List_System_Func_OpenSearch_Client_ListDanglingIndicesDescriptor_OpenSearch_Client_IListDanglingIndicesRequest__" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.List(System.Func{OpenSearch.Client.ListDanglingIndicesDescriptor,OpenSearch.Client.IListDanglingIndicesRequest})">List(Func&lt;ListDanglingIndicesDescriptor, IListDanglingIndicesRequest&gt;)</h4>
@@ -666,7 +670,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_OpenSearch_Client_IListDanglingIndicesRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync(OpenSearch.Client.IListDanglingIndicesRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L212">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L331">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_OpenSearch_Client_IListDanglingIndicesRequest_System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync(OpenSearch.Client.IListDanglingIndicesRequest,System.Threading.CancellationToken)">ListAsync(IListDanglingIndicesRequest, CancellationToken)</h4>
@@ -720,7 +724,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_System_Func_OpenSearch_Client_ListDanglingIndicesDescriptor_OpenSearch_Client_IListDanglingIndicesRequest__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync(System.Func%7BOpenSearch.Client.ListDanglingIndicesDescriptor%2COpenSearch.Client.IListDanglingIndicesRequest%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L191">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L310">View Source</a>
   </span>
   <a id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync*"></a>
   <h4 id="OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace_ListAsync_System_Func_OpenSearch_Client_ListDanglingIndicesDescriptor_OpenSearch_Client_IListDanglingIndicesRequest__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace.ListAsync(System.Func{OpenSearch.Client.ListDanglingIndicesDescriptor,OpenSearch.Client.IListDanglingIndicesRequest},System.Threading.CancellationToken)">ListAsync(Func&lt;ListDanglingIndicesDescriptor, IListDanglingIndicesRequest&gt;, CancellationToken)</h4>
@@ -769,6 +773,10 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OpenSearch.Client.Specification.DanglingIndicesApi.IDanglingIndicesNamespace.html">IDanglingIndicesNamespace</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.SuffixExtensions.html#OpenSearch_Client_SuffixExtensions_Suffix_System_Object_System_String_">SuffixExtensions.Suffix(object, string)</a>
@@ -785,7 +793,7 @@ on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html">IOpenSearchCl
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_Specification_DanglingIndicesApi_DanglingIndicesNamespace.md&amp;value=---%0Auid%3A%20OpenSearch.Client.Specification.DanglingIndicesApi.DanglingIndicesNamespace%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L60" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/OpenSearchClient.DanglingIndices.cs/#L179" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
