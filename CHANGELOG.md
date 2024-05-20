@@ -9,7 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.304.3
 - Bumps `Bogus` from 35.3.0 to 35.5.1
 - Bumps `xunit` from 2.7.1 to 2.8.0
-- Bumps `FSharp.Core` from 8.0.100 to 8.0.200
+- Bumps `FSharp.Core` from 8.0.100 to 8.0.300
 - Bumps `xunit.runner.visualstudio` from 2.5.8 to 2.8.0
 - Bumps `CSharpier.Core` from 0.27.3 to 0.28.2
 - Bumps `Spectre.Console` from 0.48.0 to 0.49.1
