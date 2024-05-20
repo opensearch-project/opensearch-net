@@ -15,7 +15,6 @@ $ dotnet --list-sdks
 6.0.xxx
 ```
 
-
 ## Running Tests
 
 The integration tests will download opensearch and run a local cluster for you. To run the full suite of tests, all you need to do is call the below script.
