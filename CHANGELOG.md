@@ -21,7 +21,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 
 ### Dependencies
-- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.303.26
+- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.304.3
 - Bumps `Bogus` from 35.3.0 to 35.5.1
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.200
