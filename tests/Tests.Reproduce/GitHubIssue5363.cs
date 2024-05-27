@@ -34,64 +34,65 @@ using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
+using Tests.Core.Xunit;
 using Xunit;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+[Skip("When run in parallel with other tests the diagnostic listener may throw null pointer exceptions")]
+public class GitHubIssue5363
 {
-	public class GitHubIssue5363
-	{
-		internal class TestDiagnosticListener : IObserver<DiagnosticListener>, IDisposable
-		{
-			private ConcurrentBag<IDisposable> Disposables { get; } = new();
+    internal class TestDiagnosticListener : IObserver<DiagnosticListener>, IDisposable
+    {
+        private ConcurrentBag<IDisposable> Disposables { get; } = new();
 
-			public Action<IApiCallDetails> OnEnded { get; }
+        public Action<IApiCallDetails> OnEnded { get; }
 
-			public TestDiagnosticListener(Action<IApiCallDetails> onEnded) => OnEnded = onEnded;
+        public TestDiagnosticListener(Action<IApiCallDetails> onEnded) => OnEnded = onEnded;
 
-			public void OnError(Exception error) { }
-			public void OnCompleted() { }
+        public void OnError(Exception error) { }
+        public void OnCompleted() { }
 
-			public void OnNext(DiagnosticListener value) =>
-				TrySubscribe(DiagnosticSources.RequestPipeline.SourceName,
-					() => new RequestPipelineDiagnosticObserver(null, v => OnEnded(v.Value)), value);
+        public void OnNext(DiagnosticListener value) =>
+            TrySubscribe(DiagnosticSources.RequestPipeline.SourceName,
+                () => new RequestPipelineDiagnosticObserver(null, v => OnEnded(v.Value)), value);
 
-			private void TrySubscribe(string sourceName, Func<IObserver<KeyValuePair<string, object>>> listener, DiagnosticListener value)
-			{
-				if (value.Name != sourceName)
-					return;
-				var d = value.Subscribe(listener());
+        private void TrySubscribe(string sourceName, Func<IObserver<KeyValuePair<string, object>>> listener, DiagnosticListener value)
+        {
+            if (value.Name != sourceName)
+                return;
+            var d = value.Subscribe(listener());
 
-				Disposables.Add(d);
-			}
+            Disposables.Add(d);
+        }
 
-			public void Dispose()
-			{
-				foreach (var d in Disposables)
-				{
-					d.Dispose();
-				}
-			}
-		}
+        public void Dispose()
+        {
+            foreach (var d in Disposables)
+            {
+                d.Dispose();
+            }
+        }
+    }
 
-		[U]
-		public async Task DiagnosticListener_AuditTrailIsValid()
-		{
-			using var listener = new TestDiagnosticListener(data =>
-			{
-				var auditTrailEvent = data.AuditTrail[0];
-				
-				Assert.True(auditTrailEvent.Ended != default);
-			});
-			
-			using var foo = DiagnosticListener.AllListeners.Subscribe(listener);
+    [U]
+    public async Task DiagnosticListener_AuditTrailIsValid()
+    {
+        using var listener = new TestDiagnosticListener(data =>
+        {
+            var auditTrailEvent = data.AuditTrail[0];
 
-			var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new ConnectionConfiguration(connectionPool, new InMemoryConnection());
+            Assert.True(auditTrailEvent.Ended != default);
+        });
 
-			var client = new OpenSearchLowLevelClient(settings);
-			var person = new { Id = "1" };
+        using var foo = DiagnosticListener.AllListeners.Subscribe(listener);
 
-			await client.IndexAsync<BytesResponse>("test-index", PostData.Serializable(person));
-		}
-	}
+        var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var settings = new ConnectionConfiguration(connectionPool, new InMemoryConnection());
+
+        var client = new OpenSearchLowLevelClient(settings);
+        var person = new { Id = "1" };
+
+        await client.IndexAsync<BytesResponse>("test-index", PostData.Serializable(person));
+    }
 }
