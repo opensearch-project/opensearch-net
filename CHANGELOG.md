@@ -19,6 +19,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 11.0.0 to 11.0.1
 - Bumps `System.Reactive` from 6.0.0 to 6.0.1
 - Bumps `Argu` from 6.2.3 to 6.2.4
+- Bumps `YamlDotNet` from 15.1.2 to 15.1.6
 
 ## [1.7.1]
 ### Fixed

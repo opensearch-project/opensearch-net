@@ -12,7 +12,8 @@
     <PackageReference Include="CSharpier.Core" Version="0.28.2" />
     <PackageReference Include="Glob" Version="1.1.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NSwag.Core.Yaml" Version="14.0.7" />
+    <PackageReference Include="NSwag.Core" Version="14.0.7" />
+    <PackageReference Include="YamlDotNet" Version="15.1.6" />
     <PackageReference Include="SemanticVersioning" Version="2.0.2" />
     <PackageReference Include="ShellProgressBar" Version="5.2.0" />
     <PackageReference Include="Spectre.Console" Version="0.49.1" />
