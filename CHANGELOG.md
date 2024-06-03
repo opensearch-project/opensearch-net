@@ -22,6 +22,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 11.0.0 to 13.0.1
 - Bumps `System.Reactive` from 6.0.0 to 6.0.1
 - Bumps `Argu` from 6.2.3 to 6.2.4
+- Bumps `YamlDotNet` from 15.1.2 to 15.1.6
 - Bumps `System.Text.Json` from 8.0.3 to 8.0.4
 - Bumps `JetBrains.Annotations` from 2023.3.0 to 2024.2.0
 - Bumps `JunitXml.TestLogger` from 3.1.12 to 4.0.254
