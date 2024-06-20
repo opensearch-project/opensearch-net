@@ -5,7 +5,6 @@
 * compatible open source license.
 */
 
-using System.Diagnostics;
 using OpenSearch.Client;
 using OpenSearch.Net;
 
@@ -46,7 +45,7 @@ public class NeuralSearchSample : Sample
                 .Add("plugins.ml_commons.only_run_on_ml_node", false)
                 .Add("plugins.ml_commons.model_access_control_enabled", true)
                 .Add("plugins.ml_commons.native_memory_threshold", 99)));
-        Debug.Assert(putSettingsResp.IsValid, putSettingsResp.DebugInformation);
+        Assert(putSettingsResp, r => r.IsValid);
         Console.WriteLine("Configured cluster to allow local execution of the ML model");
 
         // Register an ML model group
@@ -58,7 +57,7 @@ public class NeuralSearchSample : Sample
                 description = $"A model group for the opensearch-net {SampleName} sample",
                 access_mode = "public"
             }));
-        Debug.Assert(registerModelGroupResp.Success && (string) registerModelGroupResp.Body.status == "CREATED", registerModelGroupResp.DebugInformation);
+        AssertCreatedStatus(registerModelGroupResp);
         Console.WriteLine($"Model group named {MlModelGroupName} {registerModelGroupResp.Body.status}: {registerModelGroupResp.Body.model_group_id}");
         _modelGroupId = (string) registerModelGroupResp.Body.model_group_id;
 
@@ -72,7 +71,7 @@ public class NeuralSearchSample : Sample
                 model_group_id = _modelGroupId,
                 model_format = "TORCH_SCRIPT"
             }));
-        Debug.Assert(registerModelResp.Success && (string) registerModelResp.Body.status == "CREATED", registerModelResp.DebugInformation);
+        AssertCreatedStatus(registerModelResp);
         Console.WriteLine($"Model registration task {registerModelResp.Body.status}: {registerModelResp.Body.task_id}");
         _modelRegistrationTaskId = (string) registerModelResp.Body.task_id;
 
@@ -81,7 +80,7 @@ public class NeuralSearchSample : Sample
         {
             var getTaskResp = await client.Http.GetAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelRegistrationTaskId}");
             Console.WriteLine($"Model registration: {getTaskResp.Body.state}");
-            Debug.Assert(getTaskResp.Success && (string) getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
+            AssertNotFailedState(getTaskResp);
             if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
             {
                 _modelId = getTaskResp.Body.model_id;
@@ -93,7 +92,7 @@ public class NeuralSearchSample : Sample
 
         // Deploy the ML model
         var deployModelResp = await client.Http.PostAsync<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_deploy");
-        Debug.Assert(deployModelResp.Success && (string) deployModelResp.Body.status == "CREATED", deployModelResp.DebugInformation);
+        AssertCreatedStatus(deployModelResp);
         Console.WriteLine($"Model deployment task {deployModelResp.Body.status}: {deployModelResp.Body.task_id}");
         _modelDeployTaskId = (string) deployModelResp.Body.task_id;
 
@@ -102,35 +101,21 @@ public class NeuralSearchSample : Sample
         {
             var getTaskResp = await client.Http.GetAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelDeployTaskId}");
             Console.WriteLine($"Model deployment: {getTaskResp.Body.state}");
-            Debug.Assert(getTaskResp.Success && (string) getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
+            AssertNotFailedState(getTaskResp);
             if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
             await Task.Delay(10000);
         }
         Console.WriteLine($"Model deployed: {_modelId}");
 
         // Create the text_embedding ingest pipeline
-        // TODO: Client does not yet contain typings for the text_embedding processor
-        var putIngestPipelineResp = await client.Http.PutAsync<PutPipelineResponse>(
-            $"/_ingest/pipeline/{IngestPipelineName}",
-            r => r.SerializableBody(new
-            {
-                description = $"A text_embedding ingest pipeline for the opensearch-net {SampleName} sample",
-                processors = new[]
-                {
-                    new
-                    {
-                        text_embedding = new
-                        {
-                            model_id = _modelId,
-                            field_map = new
-                            {
-                                text = "passage_embedding"
-                            }
-                        }
-                    }
-                }
-            }));
-        Debug.Assert(putIngestPipelineResp.IsValid, putIngestPipelineResp.DebugInformation);
+        var putIngestPipelineResp = await client.Ingest.PutPipelineAsync(IngestPipelineName, p => p
+            .Description($"A text_embedding ingest pipeline for the opensearch-net {SampleName} sample")
+            .Processors(pp => pp
+                .TextEmbedding<NeuralSearchDoc>(te => te
+                    .ModelId(_modelId)
+                    .FieldMap(fm => fm
+                        .Map(d => d.Text, d => d.PassageEmbedding)))));
+        AssertValid(putIngestPipelineResp);
         Console.WriteLine($"Put ingest pipeline {IngestPipelineName}: {putIngestPipelineResp.Acknowledged}");
         _putIngestPipeline = true;
 
@@ -152,7 +137,7 @@ public class NeuralSearchSample : Sample
                                 .Engine("lucene")
                                 .SpaceType("l2")
                                 .Name("hnsw"))))));
-        Debug.Assert(createIndexResp.IsValid, createIndexResp.DebugInformation);
+        AssertValid(createIndexResp);
         Console.WriteLine($"Created index {IndexName}: {createIndexResp.Acknowledged}");
         _createdIndex = true;
 
@@ -169,31 +154,23 @@ public class NeuralSearchSample : Sample
             .Index(IndexName)
             .IndexMany(documents)
             .Refresh(Refresh.WaitFor));
-        Debug.Assert(bulkResp.IsValid, bulkResp.DebugInformation);
+        AssertValid(bulkResp);
         Console.WriteLine($"Indexed {documents.Length} documents");
 
         // Perform the neural search
-        // TODO: Client does not yet contain typings for neural query type
         Console.WriteLine("Performing neural search for text 'wild west'");
-        var searchResp = await client.Http.PostAsync<SearchResponse<NeuralSearchDoc>>(
-            $"/{IndexName}/_search",
-            r => r.SerializableBody(new
-            {
-                _source = new { excludes = new[] { "passage_embedding" } },
-                query = new
-                {
-                    neural = new
-                    {
-                        passage_embedding = new
-                        {
-                            query_text = "wild west",
-                            model_id = _modelId,
-                            k = 5
-                        }
-                    }
-                }
-            }));
-        Debug.Assert(searchResp.IsValid, searchResp.DebugInformation);
+        var searchResp = await client.SearchAsync<NeuralSearchDoc>(s => s
+            .Index(IndexName)
+            .Source(sf => sf
+                .Excludes(f => f
+                    .Field(d => d.PassageEmbedding)))
+            .Query(q => q
+                .Neural(n => n
+                    .Field(f => f.PassageEmbedding)
+                    .QueryText("wild west")
+                    .ModelId(_modelId)
+                    .K(5))));
+        AssertValid(searchResp);
         Console.WriteLine($"Found {searchResp.Hits.Count} documents");
         foreach (var hit in searchResp.Hits) Console.WriteLine($"- Document id: {hit.Source.Id}, score: {hit.Score}, text: {hit.Source.Text}");
     }
@@ -205,7 +182,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the index
             var deleteIndexResp = await client.Indices.DeleteAsync(IndexName);
-            Debug.Assert(deleteIndexResp.IsValid, deleteIndexResp.DebugInformation);
+            AssertValid(deleteIndexResp);
             Console.WriteLine($"Deleted index: {deleteIndexResp.Acknowledged}");
         }
 
@@ -213,7 +190,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the ingest pipeline
             var deleteIngestPipelineResp = await client.Ingest.DeletePipelineAsync(IngestPipelineName);
-            Debug.Assert(deleteIngestPipelineResp.IsValid, deleteIngestPipelineResp.DebugInformation);
+            AssertValid(deleteIngestPipelineResp);
             Console.WriteLine($"Deleted ingest pipeline: {deleteIngestPipelineResp.Acknowledged}");
         }
 
@@ -221,7 +198,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model deployment task
             var deleteModelDeployTaskResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelDeployTaskId}");
-            Debug.Assert(deleteModelDeployTaskResp.Success && (string) deleteModelDeployTaskResp.Body.result == "deleted", deleteModelDeployTaskResp.DebugInformation);
+            AssertDeletedResult(deleteModelDeployTaskResp);
             Console.WriteLine($"Deleted model deployment task: {deleteModelDeployTaskResp.Body.result}");
         }
 
@@ -237,11 +214,11 @@ public class NeuralSearchSample : Sample
                     break;
                 }
 
-                Debug.Assert(((string?)deleteModelResp.Body.error?.reason)?.Contains("Try undeploy") ?? false, deleteModelResp.DebugInformation);
+                Assert(deleteModelResp, r => ((string?) r.Body.error?.reason)?.Contains("Try undeploy") ?? false);
 
                 // Undeploy the ML model
                 var undeployModelResp = await client.Http.PostAsync<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_undeploy");
-                Debug.Assert(undeployModelResp.Success, undeployModelResp.DebugInformation);
+                Assert(undeployModelResp, r => r.Success);
                 Console.WriteLine("Undeployed model");
                 await Task.Delay(10000);
             }
@@ -251,7 +228,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model registration task
             var deleteModelRegistrationTaskResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelRegistrationTaskId}");
-            Debug.Assert(deleteModelRegistrationTaskResp.Success && (string) deleteModelRegistrationTaskResp.Body.result == "deleted", deleteModelRegistrationTaskResp.DebugInformation);
+            AssertDeletedResult(deleteModelRegistrationTaskResp);
             Console.WriteLine($"Deleted model registration task: {deleteModelRegistrationTaskResp.Body.result}");
         }
 
@@ -259,8 +236,17 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model group
             var deleteModelGroupResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/model_groups/{_modelGroupId}");
-            Debug.Assert(deleteModelGroupResp.Success && (string) deleteModelGroupResp.Body.result == "deleted", deleteModelGroupResp.DebugInformation);
+            AssertDeletedResult(deleteModelGroupResp);
             Console.WriteLine($"Deleted model group: {deleteModelGroupResp.Body.result}");
         }
     }
+
+    private static void AssertCreatedStatus(DynamicResponse response) =>
+        Assert(response, r => r.Success && (string)r.Body.status == "CREATED");
+
+    private static void AssertNotFailedState(DynamicResponse response) =>
+        Assert(response, r => r.Success && (string) r.Body.state != "FAILED");
+
+    private static void AssertDeletedResult(DynamicResponse response) =>
+        Assert(response, r => r.Success && (string) r.Body.result == "deleted");
 }

@@ -34,6 +34,7 @@ using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
 using Newtonsoft.Json;
+using OpenSearch.OpenSearch.Ephemeral;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -41,105 +42,111 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl
+namespace Tests.QueryDsl;
+
+public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
+    : ApiTestBase<TCluster, ISearchResponse<TDocument>, ISearchRequest, SearchDescriptor<TDocument>, SearchRequest<TDocument>>
+    where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
+    where TDocument : class
 {
-	public abstract class QueryDslUsageTestsBase
-		: ApiTestBase<ReadOnlyCluster, ISearchResponse<Project>, ISearchRequest, SearchDescriptor<Project>, SearchRequest<Project>>
-	{
-		protected readonly QueryContainer ConditionlessQuery = new QueryContainer(new TermQuery());
+    protected QueryDslUsageTestsBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected readonly QueryContainer VerbatimQuery = new QueryContainer(new TermQuery { IsVerbatim = true });
+    protected abstract IndexName IndexName { get; }
+    protected abstract string ExpectedIndexString { get; }
 
-		protected byte[] ShortFormQuery => Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { description = "project description" }));
+    protected virtual ConditionlessWhen ConditionlessWhen => null;
 
-		protected QueryDslUsageTestsBase(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    protected override object ExpectJson => new { query = QueryJson };
 
-		protected virtual ConditionlessWhen ConditionlessWhen => null;
+    protected override Func<SearchDescriptor<TDocument>, ISearchRequest> Fluent => s => s
+        .Index(IndexName)
+        .Query(QueryFluent);
 
-		protected override object ExpectJson => new { query = QueryJson };
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.Query(q => QueryFluent(q));
+    protected override SearchRequest<TDocument> Initializer =>
+        new(IndexName)
+        {
+            Query = QueryInitializer
+        };
 
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+    protected virtual NotConditionlessWhen NotConditionlessWhen => null;
 
-		protected override SearchRequest<Project> Initializer =>
-			new SearchRequest<Project>
-			{
-				Query = QueryInitializer
-			};
+    protected abstract QueryContainer QueryInitializer { get; }
 
-		protected virtual bool KnownParseException => false;
+    protected abstract object QueryJson { get; }
+    protected override string UrlPath => $"/{ExpectedIndexString}/_search";
 
-		protected virtual NotConditionlessWhen NotConditionlessWhen => null;
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Search(f),
+        (client, f) => client.SearchAsync(f),
+        (client, r) => client.Search<TDocument>(r),
+        (client, r) => client.SearchAsync<TDocument>(r)
+    );
 
-		protected abstract QueryContainer QueryInitializer { get; }
+    protected abstract QueryContainer QueryFluent(QueryContainerDescriptor<TDocument> q);
 
-		protected abstract object QueryJson { get; }
-		protected override string UrlPath => "/project/_search";
+    [U] public void FluentIsNotConditionless() =>
+        AssertIsNotConditionless(QueryFluent(new QueryContainerDescriptor<TDocument>()));
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Search(f),
-			(client, f) => client.SearchAsync(f),
-			(client, r) => client.Search<Project>(r),
-			(client, r) => client.SearchAsync<Project>(r)
-		);
+    [U] public void InitializerIsNotConditionless() => AssertIsNotConditionless(QueryInitializer);
 
-		protected abstract QueryContainer QueryFluent(QueryContainerDescriptor<Project> q);
+    private void AssertIsNotConditionless(IQueryContainer c)
+    {
+        if (!c.IsVerbatim)
+            c.IsConditionless.Should().BeFalse();
+    }
 
-		[U] public void FluentIsNotConditionless() =>
-			AssertIsNotConditionless(QueryFluent(new QueryContainerDescriptor<Project>()));
+    [U] public void SeenByVisitor()
+    {
+        var visitor = new DslPrettyPrintVisitor(TestClient.DefaultInMemoryClient.ConnectionSettings);
+        var query = QueryFluent(new QueryContainerDescriptor<TDocument>());
+        query.Should().NotBeNull("query evaluated to null which implies it may be conditionless");
+        query.Accept(visitor);
+        var pretty = visitor.PrettyPrint;
+        pretty.Should().NotBeNullOrWhiteSpace();
+    }
 
-		[U] public void InitializerIsNotConditionless() => AssertIsNotConditionless(QueryInitializer);
+    [U] public void ConditionlessWhenExpectedToBe()
+    {
+        if (ConditionlessWhen == null) return;
 
-		private void AssertIsNotConditionless(IQueryContainer c)
-		{
-			if (!c.IsVerbatim)
-				c.IsConditionless.Should().BeFalse();
-		}
+        foreach (var when in ConditionlessWhen)
+        {
+            when(QueryFluent(new QueryContainerDescriptor<TDocument>()));
+            when(QueryInitializer);
+        }
 
-		[U] public void SeenByVisitor()
-		{
-			var visitor = new DslPrettyPrintVisitor(TestClient.DefaultInMemoryClient.ConnectionSettings);
-			var query = QueryFluent(new QueryContainerDescriptor<Project>());
-			query.Should().NotBeNull("query evaluated to null which implies it may be conditionless");
-			query.Accept(visitor);
-			var pretty = visitor.PrettyPrint;
-			pretty.Should().NotBeNullOrWhiteSpace();
-		}
+        ((IQueryContainer)QueryInitializer).IsConditionless.Should().BeFalse();
+    }
 
-		[U] public void ConditionlessWhenExpectedToBe()
-		{
-			if (ConditionlessWhen == null) return;
+    [U] public void NotConditionlessWhenExpectedToBe()
+    {
+        if (NotConditionlessWhen == null) return;
 
-			foreach (var when in ConditionlessWhen)
-			{
-				when(QueryFluent(new QueryContainerDescriptor<Project>()));
-				//this.JsonEquals(query, new { });
-				when(QueryInitializer);
-				//this.JsonEquals(query, new { });
-			}
+        foreach (var when in NotConditionlessWhen)
+        {
+            when(QueryFluent(new QueryContainerDescriptor<TDocument>()));
+            when(QueryInitializer);
+        }
+    }
 
-			((IQueryContainer)QueryInitializer).IsConditionless.Should().BeFalse();
-		}
+    [I] protected async Task AssertQueryResponse() => await AssertOnAllResponses(AssertQueryResponseValid);
 
-		[U] public void NotConditionlessWhenExpectedToBe()
-		{
-			if (NotConditionlessWhen == null) return;
+    protected virtual void AssertQueryResponseValid(ISearchResponse<TDocument> response) => response.ShouldBeValid();
+}
 
-			foreach (var when in NotConditionlessWhen)
-			{
-				var query = QueryFluent(new QueryContainerDescriptor<Project>());
-				when(query);
+public abstract class QueryDslUsageTestsBase
+    : QueryDslUsageTestsBase<ReadOnlyCluster, Project>
+{
+    protected static byte[] ShortFormQuery => Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { description = "project description" }));
 
-				query = QueryInitializer;
-				when(query);
-			}
-		}
+    protected static readonly QueryContainer ConditionlessQuery = new(new TermQuery());
 
-		[I] protected async Task AssertQueryResponse() => await AssertOnAllResponses(r =>
-		{
-			r.ShouldBeValid();
-		});
-	}
+    protected static readonly QueryContainer VerbatimQuery = new(new TermQuery { IsVerbatim = true });
+
+    protected QueryDslUsageTestsBase(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override IndexName IndexName => typeof(Project);
+    protected override string ExpectedIndexString => "project";
 }

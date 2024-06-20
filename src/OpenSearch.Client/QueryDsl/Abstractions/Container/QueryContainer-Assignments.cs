@@ -61,6 +61,7 @@ namespace OpenSearch.Client
 		private IMoreLikeThisQuery _moreLikeThis;
 		private IMultiMatchQuery _multiMatch;
 		private INestedQuery _nested;
+        private INeuralQuery _neural;
 		private IParentIdQuery _parentId;
 		private IPercolateQuery _percolate;
 		private IPrefixQuery _prefix;
@@ -253,6 +254,12 @@ namespace OpenSearch.Client
 			get => _nested;
 			set => _nested = Set(value);
 		}
+
+        INeuralQuery IQueryContainer.Neural
+        {
+            get => _neural;
+            set => _neural = Set(value);
+        }
 
 		IParentIdQuery IQueryContainer.ParentId
 		{

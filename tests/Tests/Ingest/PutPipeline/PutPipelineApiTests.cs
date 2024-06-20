@@ -55,7 +55,7 @@ namespace Tests.Ingest.PutPipeline
 			processors = ProcessorAssertions.AllAsJson
 		};
 
-protected override int ExpectStatusCode => 200;
+        protected override int ExpectStatusCode => 200;
 
 		protected override Func<PutPipelineDescriptor, IPutPipelineRequest> Fluent => d => d
 			.Description("My test pipeline")

@@ -15,7 +15,7 @@ inputs:
   plugins_output_directory:
     description: The directory to output the plugins to
     default: ""
-outputs: 
+outputs:
     distribution:
       description: The path to the OpenSearch distribution
       value: ${{ steps.determine.outputs.distribution }}
