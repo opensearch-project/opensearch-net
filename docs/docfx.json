@@ -47,7 +47,9 @@
     "template": ["default", "./custom_template"],
     "dest": "_site",
     "markdownEngineName": "markdig",
-    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "xref": [
+      "https://github.com/dotnet/docfx/raw/main/.xrefmap.json"
+    ],
     "globalMetadata": {
       "_appTitle": "OpenSearch.Net",
       "_appLogoPath": "OpenSearch.svg",
