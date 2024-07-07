@@ -104,6 +104,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: 'temurin'
+
       - name: Restore or Build OpenSearch
         id: opensearch_build
         uses: ./client/.github/actions/build-opensearch
