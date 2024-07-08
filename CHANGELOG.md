@@ -32,7 +32,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Nullean.VsTest.Pretty.TestLogger` from 0.3.0 to 0.4.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.9.0 to 17.10.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.9.0 to 17.10.0
-- Bumps `Octokit` from 11.0.0 to 13.0.0
+- Bumps `Octokit` from 11.0.0 to 13.0.1
 - Bumps `System.Reactive` from 6.0.0 to 6.0.1
 - Bumps `Argu` from 6.2.3 to 6.2.4
 - Bumps `YamlDotNet` from 15.1.2 to 15.3.0
