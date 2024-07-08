@@ -26,17 +26,17 @@ jobs:
           - 1.1.0
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -87,17 +87,17 @@ jobs:
         opensearch_ref: ['1.x', '2.x', 'main']
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}

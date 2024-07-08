@@ -18,7 +18,7 @@ runs:
   using: composite
   steps:
     - name: Clone Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
@@ -32,7 +32,7 @@ runs:
     
     - name: Restore from cache
       id: restore
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       with:
         path: ${{ inputs.cached_paths }}
         key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}${{ inputs.cache_key_suffix }}
@@ -45,7 +45,7 @@ runs:
 
     - name: Save to cache
       if: steps.restore.outputs.cache-hit != 'true'
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: ${{ inputs.cached_paths }}
         key: ${{ inputs.repository }}-${{ steps.get-sha.outputs.sha }}${{ inputs.cache_key_suffix }}
