@@ -1,0 +1,42 @@
+name: Code Generation
+
+on: [pull_request]
+
+jobs:
+  up_to_date:
+    name: Ensure Generated Code Up To Date
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout .NET Client
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+
+      - name: Cache Nuget Packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Run Code Generator
+        run: ./build.sh codegen --branch main
+
+      - name: Check For Uncommitted Changes
+        shell: bash -eo pipefail {0}
+        run: |
+          output=$(git status --porcelain)
+          if [ -z "$output" ]; then
+            echo "Clean working directory"
+            exit 0
+          else
+            echo "Dirty working directory"
+            echo "$output"
+            exit 1
+          fi
