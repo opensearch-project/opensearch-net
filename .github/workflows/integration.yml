@@ -30,17 +30,17 @@ jobs:
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: client
 
@@ -81,13 +81,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - uses: actions/setup-dotnet@v3
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
