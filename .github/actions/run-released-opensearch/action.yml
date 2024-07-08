@@ -19,7 +19,7 @@ runs:
   steps:
     - name: Restore cached OpenSearch distro
       id: cache-restore
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       with:
         path: opensearch-*
         key: opensearch-${{ inputs.version }}-${{ runner.os }}
@@ -40,7 +40,7 @@ runs:
 
     - name: Save cached OpenSearch distro
       if: steps.cache-restore.outputs.cache-hit != 'true'
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: opensearch-*
         key: opensearch-${{ inputs.version }}-${{ runner.os }}
