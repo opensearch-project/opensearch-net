@@ -23,13 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -53,7 +53,7 @@ jobs:
           name: unit-test-report
           path: build/output/*
 
-          
+
   # Packages nuget packages first and then uses the nuget packages to test
   # Also builds versioned nuget packages
   canary-tests:
@@ -61,13 +61,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             5.0.x
             6.0.x
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
