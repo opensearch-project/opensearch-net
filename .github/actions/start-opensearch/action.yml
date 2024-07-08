@@ -14,12 +14,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Install Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: zulu
-        java-version: 11
-
     - name: Start OpenSearch
       id: opensearch
       shell: bash -eo pipefail {0}
@@ -27,6 +21,7 @@ runs:
         if [[ "$RUNNER_OS" == "macOS" ]]; then
           brew install -q coreutils
         fi
+        unset JAVA_HOME
         OPENSEARCH_HOME=$(realpath ./opensearch-[1-9]*)
         CONFIG_DIR=$OPENSEARCH_HOME/config
         CONFIG_FILE=$CONFIG_DIR/opensearch.yml
@@ -48,7 +43,7 @@ runs:
             SECURITY_MINOR="${SECURITY_VERSION_COMPONENTS[1]}"
         
             if (( $SECURITY_MAJOR > 2 || ( $SECURITY_MAJOR == 2 && $SECURITY_MINOR >= 12 ) )); then
-              export OPENSEARCH_INITIAL_ADMIN_PASSWORD=$(LC_ALL=C tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
+              export OPENSEARCH_INITIAL_ADMIN_PASSWORD="myStrongPassword123!"
             fi
         
             bash "$SECURITY_DIR/tools/install_demo_configuration.sh" -y -i -s
