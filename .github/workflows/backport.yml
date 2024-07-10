@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: GitHub App token
         id: github_app_token
+        if: github.repository == 'opensearch-project/opensearch-net'
         uses: tibdex/github-app-token@v1.5.0
         with:
           app_id: ${{ secrets.APP_ID }}
@@ -24,5 +25,5 @@ jobs:
       - name: Backport
         uses: VachaShah/backport@v1.1.4
         with:
-          github_token: ${{ steps.github_app_token.outputs.token }}
+          github_token: ${{ steps.github_app_token.outputs.token || secrets.GITHUB_TOKEN }}
           branch_name: backport/backport-${{ github.event.number }}
