@@ -20,6 +20,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Reactive` from 6.0.0 to 6.0.1
 - Bumps `Argu` from 6.2.3 to 6.2.4
 - Bumps `System.Text.Json` from 8.0.3 to 8.0.4
+- Bumps `JetBrains.Annotations` from 2023.3.0 to 2024.2.0
 
 ## [1.7.1]
 ### Fixed
