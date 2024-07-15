@@ -38,6 +38,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `YamlDotNet` from 15.1.2 to 15.3.0
 - Bumps `NSwag.Core` from 14.0.7 to 14.0.8
 - Bumps `System.Text.Json` from 8.0.3 to 8.0.4
+- Bumps `JetBrains.Annotations` from 2023.3.0 to 2024.2.0
 
 ## [1.7.1]
 ### Fixed
