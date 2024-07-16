@@ -177,7 +177,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for PutComposableTemplate</summary>
+    /// <summary>Request options for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateRequestParameters
         : RequestParameters<PutComposableIndexTemplateRequestParameters>
     {

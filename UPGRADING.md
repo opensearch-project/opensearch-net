@@ -3,6 +3,7 @@
   * [1.x.y to 2.0.0](#1xy-to-200)
     * [OpenSearch.Net](#opensearchnet)
       * [General](#general)
+      * [Cat.Help Action](#cathelp-action)
       * [Cat.Indices Action](#catindices-action)
       * [Cat.Master Action](#catmaster-action)
       * [Cat.Plugins Action](#catplugins-action)
@@ -21,6 +22,7 @@
       * [Tasks.List Action](#taskslist-action)
     * [OpenSearch.Client](#opensearchclient)
       * [General](#general-1)
+      * [Cat.Help Action](#cathelp-action-1)
       * [Cat.Indices Action](#catindices-action-1)
       * [Cat.Master Action](#catmaster-action-1)
       * [Cat.Plugins Action](#catplugins-action-1)
@@ -45,6 +47,9 @@
 - The `MasterTimeSpanout` & `ClusterManagerTimeSpanout` parameters on all actions have been corrected to `MasterTimeout` and `ClusterManagerTimeout` respectively.
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
+
+#### Cat.Help Action
+- The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
 
 #### Cat.Indices Action
 - The `Health` parameter now accepts a new `HealthStatus` enum instead of the `Health` enum. The values are identical and are now unified with other parts of the API that utilize the same enum.
@@ -103,6 +108,9 @@
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The namespaced APIs exposed in `IOpenSearchClient` have each gained a corresponding interface and the types of the properties on `IOpenSearchClient` and `OpenSearchClient` have been changed from the concrete implementations to the matching interfaces. For example, `IOpenSearchClient.Cluster` was `ClusterNamespace` and now is `IClusterNamespace`.
+
+#### Cat.Help Action
+- The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
 
 #### Cat.Indices Action
 - The `Health` parameter now accepts a new `HealthStatus` enum instead of the `Health` enum. The values are identical and are now unified with other parts of the API that utilize the same enum.

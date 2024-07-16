@@ -192,7 +192,7 @@ namespace OpenSearch.Client
         Name Snapshot { get; }
     }
 
-    /// <summary>Request for Snapshot</summary>
+    /// <summary>Request for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotRequest
         : PlainRequestBase<SnapshotRequestParameters>,
             ISnapshotRequest
@@ -258,7 +258,7 @@ namespace OpenSearch.Client
         Name RepositoryName { get; }
     }
 
-    /// <summary>Request for CreateRepository</summary>
+    /// <summary>Request for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequest
         : PlainRequestBase<CreateRepositoryRequestParameters>,
             ICreateRepositoryRequest
@@ -492,7 +492,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If true, returns additional information about each snapshot such as the version of Opensearch which took the snapshot, the start and end
+        /// If true, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end
         /// times of the snapshot, and the number of shards snapshotted.
         /// </summary>
         public bool? Verbose
@@ -539,7 +539,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node (default: false).</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");

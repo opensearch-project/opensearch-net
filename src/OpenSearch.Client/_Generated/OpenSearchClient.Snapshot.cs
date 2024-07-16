@@ -140,7 +140,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         SnapshotResponse Snapshot(
             Name repository,
@@ -151,7 +151,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         Task<SnapshotResponse> SnapshotAsync(
             Name repository,
@@ -163,14 +163,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         SnapshotResponse Snapshot(ISnapshotRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         Task<SnapshotResponse> SnapshotAsync(
             ISnapshotRequest request,
@@ -180,7 +180,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         CreateRepositoryResponse CreateRepository(
             Name repository,
@@ -190,7 +190,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         Task<CreateRepositoryResponse> CreateRepositoryAsync(
             Name repository,
@@ -201,14 +201,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         Task<CreateRepositoryResponse> CreateRepositoryAsync(
             ICreateRepositoryRequest request,
@@ -619,7 +619,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public SnapshotResponse Snapshot(
             Name repository,
@@ -635,7 +635,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public Task<SnapshotResponse> SnapshotAsync(
             Name repository,
@@ -653,7 +653,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public SnapshotResponse Snapshot(ISnapshotRequest request) =>
             DoRequest<ISnapshotRequest, SnapshotResponse>(request, request.RequestParameters);
@@ -661,7 +661,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public Task<SnapshotResponse> SnapshotAsync(
             ISnapshotRequest request,
@@ -676,7 +676,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public CreateRepositoryResponse CreateRepository(
             Name repository,
@@ -689,7 +689,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public Task<CreateRepositoryResponse> CreateRepositoryAsync(
             Name repository,
@@ -704,7 +704,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request) =>
             DoRequest<ICreateRepositoryRequest, CreateRepositoryResponse>(
@@ -715,7 +715,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public Task<CreateRepositoryResponse> CreateRepositoryAsync(
             ICreateRepositoryRequest request,

@@ -151,7 +151,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
         /// <param name="repository">Repository for the snapshot.</param>
         /// <param name="snapshot">Name of the snapshot. Must be unique in the repository.</param>
         /// <param name="body">The snapshot definition.</param>
@@ -170,7 +170,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_snapshot/{repository}/{snapshot}</summary>
+        /// <summary>PUT on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
         /// <param name="repository">Repository for the snapshot.</param>
         /// <param name="snapshot">Name of the snapshot. Must be unique in the repository.</param>
         /// <param name="body">The snapshot definition.</param>
@@ -192,7 +192,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_snapshot/{repository}</summary>
+        /// <summary>PUT on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
         /// <param name="repository">A repository name.</param>
         /// <param name="body">The repository definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -209,7 +209,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_snapshot/{repository}</summary>
+        /// <summary>PUT on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
         /// <param name="repository">A repository name.</param>
         /// <param name="body">The repository definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

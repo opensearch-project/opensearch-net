@@ -387,15 +387,8 @@ namespace OpenSearch.Client
             ICatHelpRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
-
         // values part of the url path
         // Request parameters
-        /// <summary>Return help information.</summary>
-        public CatHelpDescriptor Help(bool? help = true) => Qs("help", help);
-
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
-        public CatHelpDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
     }
 
     /// <summary>Descriptor for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
@@ -1099,7 +1092,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
 
-        /// <summary>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, Opensearch returns an error.</summary>
+        /// <summary>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, OpenSearch returns an error.</summary>
         public CatSnapshotsDescriptor RepositoryName(Names repository) =>
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 

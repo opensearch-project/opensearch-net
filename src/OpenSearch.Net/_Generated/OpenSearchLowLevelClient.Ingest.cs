@@ -259,7 +259,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             );
 
         /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
-        /// <param name="id">Pipeline to test. If you don&#x2019;t specify a `pipeline` in the request body, this parameter is required.</param>
+        /// <param name="id">Pipeline to test. If you don&#x27;t specify a `pipeline` in the request body, this parameter is required.</param>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse SimulatePipeline<TResponse>(
@@ -276,7 +276,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             );
 
         /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
-        /// <param name="id">Pipeline to test. If you don&#x2019;t specify a `pipeline` in the request body, this parameter is required.</param>
+        /// <param name="id">Pipeline to test. If you don&#x27;t specify a `pipeline` in the request body, this parameter is required.</param>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.simulate", "id, body")]

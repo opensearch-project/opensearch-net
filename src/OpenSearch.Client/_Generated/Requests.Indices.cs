@@ -262,7 +262,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutComposableTemplate</summary>
+    /// <summary>Request for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateRequest
         : PlainRequestBase<PutComposableIndexTemplateRequestParameters>,
             IPutComposableIndexTemplateRequest
