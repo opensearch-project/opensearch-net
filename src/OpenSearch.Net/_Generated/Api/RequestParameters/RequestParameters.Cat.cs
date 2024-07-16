@@ -483,20 +483,6 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-
-        /// <summary>Return help information.</summary>
-        public bool? Help
-        {
-            get => Q<bool?>("help");
-            set => Q("help", value);
-        }
-
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
-        public string[] SortByColumns
-        {
-            get => Q<string[]>("s");
-            set => Q("s", value);
-        }
     }
 
     /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>

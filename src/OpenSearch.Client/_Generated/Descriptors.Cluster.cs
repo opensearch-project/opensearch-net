@@ -286,7 +286,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use _all or *.</summary>
+        /// <summary>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use `_all` or `*`.</summary>
         public ClusterHealthDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -409,7 +409,7 @@ namespace OpenSearch.Client
         public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for PutComponentTemplate</summary>
+    /// <summary>Descriptor for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateDescriptor
         : RequestDescriptorBase<
             PutComponentTemplateDescriptor,
@@ -471,7 +471,7 @@ namespace OpenSearch.Client
         public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return settings in flat format (default: false).</summary>
+        /// <summary>Return settings in flat format.</summary>
         public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -602,7 +602,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Return settings in flat format (default: false).</summary>
+        /// <summary>Return settings in flat format.</summary>
         public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -610,7 +610,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node (default: false).</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Specify timeout for connection to master.</summary>
@@ -661,7 +661,7 @@ namespace OpenSearch.Client
         public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Period to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response’s `_nodes.failed` property. Defaults to no timeout.</summary>
+        /// <summary>Period to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.</summary>
         public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

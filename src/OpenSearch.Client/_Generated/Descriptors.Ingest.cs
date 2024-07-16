@@ -217,7 +217,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>Pipeline to test. If you don’t specify a `pipeline` in the request body, this parameter is required.</summary>
+        /// <summary>Pipeline to test. If you don't specify a `pipeline` in the request body, this parameter is required.</summary>
         public SimulatePipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 

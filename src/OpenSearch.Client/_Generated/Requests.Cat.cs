@@ -600,23 +600,9 @@ namespace OpenSearch.Client
     {
         protected ICatHelpRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
-
         // values part of the url path
 
         // Request parameters
-        /// <summary>Return help information.</summary>
-        public bool? Help
-        {
-            get => Q<bool?>("help");
-            set => Q("help", value);
-        }
-
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
-        public string[] SortByColumns
-        {
-            get => Q<string[]>("s");
-            set => Q("s", value);
-        }
     }
 
     [InterfaceDataContract]

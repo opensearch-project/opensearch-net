@@ -144,7 +144,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Snapshot</summary>
+    /// <summary>Descriptor for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotDescriptor
         : RequestDescriptorBase<SnapshotDescriptor, SnapshotRequestParameters, ISnapshotRequest>,
             ISnapshotRequest
@@ -184,7 +184,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for CreateRepository</summary>
+    /// <summary>Descriptor for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryDescriptor
         : RequestDescriptorBase<
             CreateRepositoryDescriptor,
@@ -352,7 +352,7 @@ namespace OpenSearch.Client
         public GetSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If true, returns additional information about each snapshot such as the version of Opensearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</summary>
+        /// <summary>If true, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</summary>
         public GetSnapshotDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 
@@ -389,7 +389,7 @@ namespace OpenSearch.Client
         public GetRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node (default: false).</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public GetRepositoryDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Explicit operation timeout for connection to master node.</summary>

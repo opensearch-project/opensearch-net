@@ -596,7 +596,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutComponentTemplate</summary>
+    /// <summary>Request for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateRequest
         : PlainRequestBase<PutComponentTemplateRequestParameters>,
             IPutComponentTemplateRequest
@@ -678,7 +678,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return settings in flat format (default: false).</summary>
+        /// <summary>Return settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -855,7 +855,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Return settings in flat format (default: false).</summary>
+        /// <summary>Return settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -869,7 +869,7 @@ namespace OpenSearch.Client
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node (default: false).</summary>
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -939,7 +939,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Period to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats.
-        /// However, timed out nodes are included in the response’s `_nodes.failed` property. Defaults to no timeout.
+        /// However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.
         /// </summary>
         public Time Timeout
         {

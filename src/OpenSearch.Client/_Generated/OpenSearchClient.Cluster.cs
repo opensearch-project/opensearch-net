@@ -416,7 +416,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         PutComponentTemplateResponse PutComponentTemplate(
             Name name,
@@ -426,7 +426,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             Name name,
@@ -437,14 +437,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         PutComponentTemplateResponse PutComponentTemplate(IPutComponentTemplateRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             IPutComponentTemplateRequest request,
@@ -1129,7 +1129,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public PutComponentTemplateResponse PutComponentTemplate(
             Name name,
@@ -1142,7 +1142,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             Name name,
@@ -1157,7 +1157,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public PutComponentTemplateResponse PutComponentTemplate(
             IPutComponentTemplateRequest request
@@ -1170,7 +1170,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             IPutComponentTemplateRequest request,

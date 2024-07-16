@@ -58,6 +58,12 @@ namespace OpenSearch.Net
         [EnumMember(Value = "b")]
         B,
 
+        [EnumMember(Value = "g")]
+        G,
+
+        [EnumMember(Value = "gb")]
+        Gb,
+
         [EnumMember(Value = "k")]
         K,
 
@@ -70,28 +76,25 @@ namespace OpenSearch.Net
         [EnumMember(Value = "mb")]
         Mb,
 
-        [EnumMember(Value = "g")]
-        G,
+        [EnumMember(Value = "p")]
+        P,
 
-        [EnumMember(Value = "gb")]
-        Gb,
+        [EnumMember(Value = "pb")]
+        Pb,
 
         [EnumMember(Value = "t")]
         T,
 
         [EnumMember(Value = "tb")]
-        Tb,
-
-        [EnumMember(Value = "p")]
-        P,
-
-        [EnumMember(Value = "pb")]
-        Pb
+        Tb
     }
 
     [StringEnum]
     public enum ClusterHealthLevel
     {
+        [EnumMember(Value = "awareness_attributes")]
+        AwarenessAttributes,
+
         [EnumMember(Value = "cluster")]
         Cluster,
 
@@ -99,10 +102,7 @@ namespace OpenSearch.Net
         Indices,
 
         [EnumMember(Value = "shards")]
-        Shards,
-
-        [EnumMember(Value = "awareness_attributes")]
-        AwarenessAttributes
+        Shards
     }
 
     [Flags, StringEnum]
@@ -111,23 +111,23 @@ namespace OpenSearch.Net
         [EnumMember(Value = "blocks")]
         Blocks = 1 << 0,
 
-        [EnumMember(Value = "metadata")]
-        Metadata = 1 << 1,
-
-        [EnumMember(Value = "nodes")]
-        Nodes = 1 << 2,
-
-        [EnumMember(Value = "routing_table")]
-        RoutingTable = 1 << 3,
-
-        [EnumMember(Value = "routing_nodes")]
-        RoutingNodes = 1 << 4,
+        [EnumMember(Value = "cluster_manager_node")]
+        ClusterManagerNode = 1 << 1,
 
         [EnumMember(Value = "master_node")]
-        MasterNode = 1 << 5,
+        MasterNode = 1 << 2,
 
-        [EnumMember(Value = "cluster_manager_node")]
-        ClusterManagerNode = 1 << 6,
+        [EnumMember(Value = "metadata")]
+        Metadata = 1 << 3,
+
+        [EnumMember(Value = "nodes")]
+        Nodes = 1 << 4,
+
+        [EnumMember(Value = "routing_nodes")]
+        RoutingNodes = 1 << 5,
+
+        [EnumMember(Value = "routing_table")]
+        RoutingTable = 1 << 6,
 
         [EnumMember(Value = "version")]
         Version = 1 << 7,
@@ -142,17 +142,17 @@ namespace OpenSearch.Net
         [EnumMember(Value = "all")]
         All = 1 << 0,
 
-        [EnumMember(Value = "open")]
-        Open = 1 << 1,
-
         [EnumMember(Value = "closed")]
-        Closed = 1 << 2,
+        Closed = 1 << 1,
 
         [EnumMember(Value = "hidden")]
-        Hidden = 1 << 3,
+        Hidden = 1 << 2,
 
         [EnumMember(Value = "none")]
-        None = 1 << 4
+        None = 1 << 3,
+
+        [EnumMember(Value = "open")]
+        Open = 1 << 4
     }
 
     [StringEnum]
@@ -161,11 +161,11 @@ namespace OpenSearch.Net
         [EnumMember(Value = "green")]
         Green,
 
-        [EnumMember(Value = "yellow")]
-        Yellow,
-
         [EnumMember(Value = "red")]
-        Red
+        Red,
+
+        [EnumMember(Value = "yellow")]
+        Yellow
     }
 
     [StringEnum]
@@ -184,41 +184,41 @@ namespace OpenSearch.Net
     [Flags, StringEnum]
     public enum NodesInfoMetric
     {
-        [EnumMember(Value = "settings")]
-        Settings = 1 << 0,
-
-        [EnumMember(Value = "os")]
-        Os = 1 << 1,
-
-        [EnumMember(Value = "process")]
-        Process = 1 << 2,
-
-        [EnumMember(Value = "jvm")]
-        Jvm = 1 << 3,
-
-        [EnumMember(Value = "thread_pool")]
-        ThreadPool = 1 << 4,
-
-        [EnumMember(Value = "transport")]
-        Transport = 1 << 5,
+        [EnumMember(Value = "aggregations")]
+        Aggregations = 1 << 0,
 
         [EnumMember(Value = "http")]
-        Http = 1 << 6,
-
-        [EnumMember(Value = "plugins")]
-        Plugins = 1 << 7,
-
-        [EnumMember(Value = "ingest")]
-        Ingest = 1 << 8,
-
-        [EnumMember(Value = "aggregations")]
-        Aggregations = 1 << 9,
+        Http = 1 << 1,
 
         [EnumMember(Value = "indices")]
-        Indices = 1 << 10,
+        Indices = 1 << 2,
+
+        [EnumMember(Value = "ingest")]
+        Ingest = 1 << 3,
+
+        [EnumMember(Value = "jvm")]
+        Jvm = 1 << 4,
+
+        [EnumMember(Value = "os")]
+        Os = 1 << 5,
+
+        [EnumMember(Value = "plugins")]
+        Plugins = 1 << 6,
+
+        [EnumMember(Value = "process")]
+        Process = 1 << 7,
 
         [EnumMember(Value = "search_pipelines")]
-        SearchPipelines = 1 << 11,
+        SearchPipelines = 1 << 8,
+
+        [EnumMember(Value = "settings")]
+        Settings = 1 << 9,
+
+        [EnumMember(Value = "thread_pool")]
+        ThreadPool = 1 << 10,
+
+        [EnumMember(Value = "transport")]
+        Transport = 1 << 11,
 
         [EnumMember(Value = "_all")]
         All = 1 << 12
@@ -227,69 +227,69 @@ namespace OpenSearch.Net
     [StringEnum]
     public enum NodesSampleType
     {
+        [EnumMember(Value = "block")]
+        Block,
+
         [EnumMember(Value = "cpu")]
         Cpu,
 
         [EnumMember(Value = "wait")]
-        Wait,
-
-        [EnumMember(Value = "block")]
-        Block
+        Wait
     }
 
     [Flags, StringEnum]
     public enum NodesStatsIndexMetric
     {
-        [EnumMember(Value = "store")]
-        Store = 1 << 0,
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 0,
 
-        [EnumMember(Value = "indexing")]
-        Indexing = 1 << 1,
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 1,
 
-        [EnumMember(Value = "get")]
-        Get = 1 << 2,
-
-        [EnumMember(Value = "search")]
-        Search = 1 << 3,
-
-        [EnumMember(Value = "merge")]
-        Merge = 1 << 4,
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 2,
 
         [EnumMember(Value = "flush")]
-        Flush = 1 << 5,
+        Flush = 1 << 3,
 
-        [EnumMember(Value = "refresh")]
-        Refresh = 1 << 6,
+        [EnumMember(Value = "get")]
+        Get = 1 << 4,
+
+        [EnumMember(Value = "indexing")]
+        Indexing = 1 << 5,
+
+        [EnumMember(Value = "merge")]
+        Merge = 1 << 6,
 
         [EnumMember(Value = "query_cache")]
         QueryCache = 1 << 7,
 
-        [EnumMember(Value = "fielddata")]
-        Fielddata = 1 << 8,
+        [EnumMember(Value = "recovery")]
+        Recovery = 1 << 8,
 
-        [EnumMember(Value = "docs")]
-        Docs = 1 << 9,
+        [EnumMember(Value = "refresh")]
+        Refresh = 1 << 9,
 
-        [EnumMember(Value = "warmer")]
-        Warmer = 1 << 10,
+        [EnumMember(Value = "request_cache")]
+        RequestCache = 1 << 10,
 
-        [EnumMember(Value = "completion")]
-        Completion = 1 << 11,
+        [EnumMember(Value = "search")]
+        Search = 1 << 11,
 
         [EnumMember(Value = "segments")]
         Segments = 1 << 12,
 
-        [EnumMember(Value = "translog")]
-        Translog = 1 << 13,
+        [EnumMember(Value = "store")]
+        Store = 1 << 13,
 
         [EnumMember(Value = "suggest")]
         Suggest = 1 << 14,
 
-        [EnumMember(Value = "request_cache")]
-        RequestCache = 1 << 15,
+        [EnumMember(Value = "translog")]
+        Translog = 1 << 15,
 
-        [EnumMember(Value = "recovery")]
-        Recovery = 1 << 16,
+        [EnumMember(Value = "warmer")]
+        Warmer = 1 << 16,
 
         [EnumMember(Value = "_all")]
         All = 1 << 17
@@ -298,44 +298,89 @@ namespace OpenSearch.Net
     [Flags, StringEnum]
     public enum NodesStatsMetric
     {
+        [EnumMember(Value = "adaptive_selection")]
+        AdaptiveSelection = 1 << 0,
+
+        [EnumMember(Value = "admission_control")]
+        AdmissionControl = 1 << 1,
+
         [EnumMember(Value = "breaker")]
-        Breaker = 1 << 0,
+        Breaker = 1 << 2,
 
-        [EnumMember(Value = "fs")]
-        Fs = 1 << 1,
+        [EnumMember(Value = "caches")]
+        Caches = 1 << 3,
 
-        [EnumMember(Value = "http")]
-        Http = 1 << 2,
-
-        [EnumMember(Value = "indices")]
-        Indices = 1 << 3,
-
-        [EnumMember(Value = "jvm")]
-        Jvm = 1 << 4,
-
-        [EnumMember(Value = "os")]
-        Os = 1 << 5,
-
-        [EnumMember(Value = "process")]
-        Process = 1 << 6,
-
-        [EnumMember(Value = "thread_pool")]
-        ThreadPool = 1 << 7,
-
-        [EnumMember(Value = "transport")]
-        Transport = 1 << 8,
+        [EnumMember(Value = "cluster_manager_throttling")]
+        ClusterManagerThrottling = 1 << 4,
 
         [EnumMember(Value = "discovery")]
-        Discovery = 1 << 9,
+        Discovery = 1 << 5,
+
+        [EnumMember(Value = "file_cache")]
+        FileCache = 1 << 6,
+
+        [EnumMember(Value = "fs")]
+        Fs = 1 << 7,
+
+        [EnumMember(Value = "http")]
+        Http = 1 << 8,
 
         [EnumMember(Value = "indexing_pressure")]
-        IndexingPressure = 1 << 10,
+        IndexingPressure = 1 << 9,
+
+        [EnumMember(Value = "indices")]
+        Indices = 1 << 10,
+
+        [EnumMember(Value = "ingest")]
+        Ingest = 1 << 11,
+
+        [EnumMember(Value = "jvm")]
+        Jvm = 1 << 12,
+
+        [EnumMember(Value = "os")]
+        Os = 1 << 13,
+
+        [EnumMember(Value = "process")]
+        Process = 1 << 14,
+
+        [EnumMember(Value = "repositories")]
+        Repositories = 1 << 15,
+
+        [EnumMember(Value = "resource_usage_stats")]
+        ResourceUsageStats = 1 << 16,
+
+        [EnumMember(Value = "script")]
+        Script = 1 << 17,
+
+        [EnumMember(Value = "script_cache")]
+        ScriptCache = 1 << 18,
+
+        [EnumMember(Value = "search_backpressure")]
+        SearchBackpressure = 1 << 19,
 
         [EnumMember(Value = "search_pipeline")]
-        SearchPipeline = 1 << 11,
+        SearchPipeline = 1 << 20,
+
+        [EnumMember(Value = "segment_replication_backpressure")]
+        SegmentReplicationBackpressure = 1 << 21,
+
+        [EnumMember(Value = "shard_indexing_pressure")]
+        ShardIndexingPressure = 1 << 22,
+
+        [EnumMember(Value = "task_cancellation")]
+        TaskCancellation = 1 << 23,
+
+        [EnumMember(Value = "thread_pool")]
+        ThreadPool = 1 << 24,
+
+        [EnumMember(Value = "transport")]
+        Transport = 1 << 25,
+
+        [EnumMember(Value = "weighted_routing")]
+        WeightedRouting = 1 << 26,
 
         [EnumMember(Value = "_all")]
-        All = 1 << 12
+        All = 1 << 27
     }
 
     [Flags, StringEnum]
@@ -354,18 +399,24 @@ namespace OpenSearch.Net
         [EnumMember(Value = "nodes")]
         Nodes,
 
-        [EnumMember(Value = "parents")]
-        Parents,
-
         [EnumMember(Value = "none")]
-        None
+        None,
+
+        [EnumMember(Value = "parents")]
+        Parents
     }
 
     [StringEnum]
     public enum TimeUnit
     {
-        [EnumMember(Value = "nanos")]
-        Nanos,
+        [EnumMember(Value = "d")]
+        D,
+
+        [EnumMember(Value = "h")]
+        H,
+
+        [EnumMember(Value = "m")]
+        M,
 
         [EnumMember(Value = "micros")]
         Micros,
@@ -373,17 +424,11 @@ namespace OpenSearch.Net
         [EnumMember(Value = "ms")]
         Ms,
 
+        [EnumMember(Value = "nanos")]
+        Nanos,
+
         [EnumMember(Value = "s")]
-        S,
-
-        [EnumMember(Value = "m")]
-        M,
-
-        [EnumMember(Value = "h")]
-        H,
-
-        [EnumMember(Value = "d")]
-        D
+        S
     }
 
     [StringEnum]
@@ -399,23 +444,23 @@ namespace OpenSearch.Net
     [StringEnum]
     public enum WaitForEvents
     {
-        [EnumMember(Value = "immediate")]
-        Immediate,
-
-        [EnumMember(Value = "urgent")]
-        Urgent,
-
         [EnumMember(Value = "high")]
         High,
 
-        [EnumMember(Value = "normal")]
-        Normal,
+        [EnumMember(Value = "immediate")]
+        Immediate,
+
+        [EnumMember(Value = "languid")]
+        Languid,
 
         [EnumMember(Value = "low")]
         Low,
 
-        [EnumMember(Value = "languid")]
-        Languid
+        [EnumMember(Value = "normal")]
+        Normal,
+
+        [EnumMember(Value = "urgent")]
+        Urgent
     }
 
     public static partial class KnownEnums
@@ -443,16 +488,16 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 Bytes.B => "b",
+                Bytes.G => "g",
+                Bytes.Gb => "gb",
                 Bytes.K => "k",
                 Bytes.Kb => "kb",
                 Bytes.M => "m",
                 Bytes.Mb => "mb",
-                Bytes.G => "g",
-                Bytes.Gb => "gb",
-                Bytes.T => "t",
-                Bytes.Tb => "tb",
                 Bytes.P => "p",
                 Bytes.Pb => "pb",
+                Bytes.T => "t",
+                Bytes.Tb => "tb",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
@@ -462,10 +507,10 @@ namespace OpenSearch.Net
         public static string GetStringValue(this ClusterHealthLevel enumValue) =>
             enumValue switch
             {
+                ClusterHealthLevel.AwarenessAttributes => "awareness_attributes",
                 ClusterHealthLevel.Cluster => "cluster",
                 ClusterHealthLevel.Indices => "indices",
                 ClusterHealthLevel.Shards => "shards",
-                ClusterHealthLevel.AwarenessAttributes => "awareness_attributes",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'"
@@ -479,18 +524,18 @@ namespace OpenSearch.Net
             var list = new List<string>();
             if ((enumValue & ClusterStateMetric.Blocks) != 0)
                 list.Add("blocks");
+            if ((enumValue & ClusterStateMetric.ClusterManagerNode) != 0)
+                list.Add("cluster_manager_node");
+            if ((enumValue & ClusterStateMetric.MasterNode) != 0)
+                list.Add("master_node");
             if ((enumValue & ClusterStateMetric.Metadata) != 0)
                 list.Add("metadata");
             if ((enumValue & ClusterStateMetric.Nodes) != 0)
                 list.Add("nodes");
-            if ((enumValue & ClusterStateMetric.RoutingTable) != 0)
-                list.Add("routing_table");
             if ((enumValue & ClusterStateMetric.RoutingNodes) != 0)
                 list.Add("routing_nodes");
-            if ((enumValue & ClusterStateMetric.MasterNode) != 0)
-                list.Add("master_node");
-            if ((enumValue & ClusterStateMetric.ClusterManagerNode) != 0)
-                list.Add("cluster_manager_node");
+            if ((enumValue & ClusterStateMetric.RoutingTable) != 0)
+                list.Add("routing_table");
             if ((enumValue & ClusterStateMetric.Version) != 0)
                 list.Add("version");
             return string.Join(",", list);
@@ -501,14 +546,14 @@ namespace OpenSearch.Net
             var list = new List<string>();
             if ((enumValue & ExpandWildcards.All) != 0)
                 list.Add("all");
-            if ((enumValue & ExpandWildcards.Open) != 0)
-                list.Add("open");
             if ((enumValue & ExpandWildcards.Closed) != 0)
                 list.Add("closed");
             if ((enumValue & ExpandWildcards.Hidden) != 0)
                 list.Add("hidden");
             if ((enumValue & ExpandWildcards.None) != 0)
                 list.Add("none");
+            if ((enumValue & ExpandWildcards.Open) != 0)
+                list.Add("open");
             return string.Join(",", list);
         }
 
@@ -516,8 +561,8 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 HealthStatus.Green => "green",
-                HealthStatus.Yellow => "yellow",
                 HealthStatus.Red => "red",
+                HealthStatus.Yellow => "yellow",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
@@ -541,39 +586,39 @@ namespace OpenSearch.Net
             if ((enumValue & NodesInfoMetric.All) != 0)
                 return "_all";
             var list = new List<string>();
-            if ((enumValue & NodesInfoMetric.Settings) != 0)
-                list.Add("settings");
-            if ((enumValue & NodesInfoMetric.Os) != 0)
-                list.Add("os");
-            if ((enumValue & NodesInfoMetric.Process) != 0)
-                list.Add("process");
+            if ((enumValue & NodesInfoMetric.Aggregations) != 0)
+                list.Add("aggregations");
+            if ((enumValue & NodesInfoMetric.Http) != 0)
+                list.Add("http");
+            if ((enumValue & NodesInfoMetric.Indices) != 0)
+                list.Add("indices");
+            if ((enumValue & NodesInfoMetric.Ingest) != 0)
+                list.Add("ingest");
             if ((enumValue & NodesInfoMetric.Jvm) != 0)
                 list.Add("jvm");
+            if ((enumValue & NodesInfoMetric.Os) != 0)
+                list.Add("os");
+            if ((enumValue & NodesInfoMetric.Plugins) != 0)
+                list.Add("plugins");
+            if ((enumValue & NodesInfoMetric.Process) != 0)
+                list.Add("process");
+            if ((enumValue & NodesInfoMetric.SearchPipelines) != 0)
+                list.Add("search_pipelines");
+            if ((enumValue & NodesInfoMetric.Settings) != 0)
+                list.Add("settings");
             if ((enumValue & NodesInfoMetric.ThreadPool) != 0)
                 list.Add("thread_pool");
             if ((enumValue & NodesInfoMetric.Transport) != 0)
                 list.Add("transport");
-            if ((enumValue & NodesInfoMetric.Http) != 0)
-                list.Add("http");
-            if ((enumValue & NodesInfoMetric.Plugins) != 0)
-                list.Add("plugins");
-            if ((enumValue & NodesInfoMetric.Ingest) != 0)
-                list.Add("ingest");
-            if ((enumValue & NodesInfoMetric.Aggregations) != 0)
-                list.Add("aggregations");
-            if ((enumValue & NodesInfoMetric.Indices) != 0)
-                list.Add("indices");
-            if ((enumValue & NodesInfoMetric.SearchPipelines) != 0)
-                list.Add("search_pipelines");
             return string.Join(",", list);
         }
 
         public static string GetStringValue(this NodesSampleType enumValue) =>
             enumValue switch
             {
+                NodesSampleType.Block => "block",
                 NodesSampleType.Cpu => "cpu",
                 NodesSampleType.Wait => "wait",
-                NodesSampleType.Block => "block",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'NodesSampleType'"
@@ -585,40 +630,40 @@ namespace OpenSearch.Net
             if ((enumValue & NodesStatsIndexMetric.All) != 0)
                 return "_all";
             var list = new List<string>();
-            if ((enumValue & NodesStatsIndexMetric.Store) != 0)
-                list.Add("store");
-            if ((enumValue & NodesStatsIndexMetric.Indexing) != 0)
-                list.Add("indexing");
-            if ((enumValue & NodesStatsIndexMetric.Get) != 0)
-                list.Add("get");
-            if ((enumValue & NodesStatsIndexMetric.Search) != 0)
-                list.Add("search");
-            if ((enumValue & NodesStatsIndexMetric.Merge) != 0)
-                list.Add("merge");
-            if ((enumValue & NodesStatsIndexMetric.Flush) != 0)
-                list.Add("flush");
-            if ((enumValue & NodesStatsIndexMetric.Refresh) != 0)
-                list.Add("refresh");
-            if ((enumValue & NodesStatsIndexMetric.QueryCache) != 0)
-                list.Add("query_cache");
-            if ((enumValue & NodesStatsIndexMetric.Fielddata) != 0)
-                list.Add("fielddata");
-            if ((enumValue & NodesStatsIndexMetric.Docs) != 0)
-                list.Add("docs");
-            if ((enumValue & NodesStatsIndexMetric.Warmer) != 0)
-                list.Add("warmer");
             if ((enumValue & NodesStatsIndexMetric.Completion) != 0)
                 list.Add("completion");
-            if ((enumValue & NodesStatsIndexMetric.Segments) != 0)
-                list.Add("segments");
-            if ((enumValue & NodesStatsIndexMetric.Translog) != 0)
-                list.Add("translog");
-            if ((enumValue & NodesStatsIndexMetric.Suggest) != 0)
-                list.Add("suggest");
-            if ((enumValue & NodesStatsIndexMetric.RequestCache) != 0)
-                list.Add("request_cache");
+            if ((enumValue & NodesStatsIndexMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & NodesStatsIndexMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & NodesStatsIndexMetric.Flush) != 0)
+                list.Add("flush");
+            if ((enumValue & NodesStatsIndexMetric.Get) != 0)
+                list.Add("get");
+            if ((enumValue & NodesStatsIndexMetric.Indexing) != 0)
+                list.Add("indexing");
+            if ((enumValue & NodesStatsIndexMetric.Merge) != 0)
+                list.Add("merge");
+            if ((enumValue & NodesStatsIndexMetric.QueryCache) != 0)
+                list.Add("query_cache");
             if ((enumValue & NodesStatsIndexMetric.Recovery) != 0)
                 list.Add("recovery");
+            if ((enumValue & NodesStatsIndexMetric.Refresh) != 0)
+                list.Add("refresh");
+            if ((enumValue & NodesStatsIndexMetric.RequestCache) != 0)
+                list.Add("request_cache");
+            if ((enumValue & NodesStatsIndexMetric.Search) != 0)
+                list.Add("search");
+            if ((enumValue & NodesStatsIndexMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & NodesStatsIndexMetric.Store) != 0)
+                list.Add("store");
+            if ((enumValue & NodesStatsIndexMetric.Suggest) != 0)
+                list.Add("suggest");
+            if ((enumValue & NodesStatsIndexMetric.Translog) != 0)
+                list.Add("translog");
+            if ((enumValue & NodesStatsIndexMetric.Warmer) != 0)
+                list.Add("warmer");
             return string.Join(",", list);
         }
 
@@ -627,30 +672,60 @@ namespace OpenSearch.Net
             if ((enumValue & NodesStatsMetric.All) != 0)
                 return "_all";
             var list = new List<string>();
+            if ((enumValue & NodesStatsMetric.AdaptiveSelection) != 0)
+                list.Add("adaptive_selection");
+            if ((enumValue & NodesStatsMetric.AdmissionControl) != 0)
+                list.Add("admission_control");
             if ((enumValue & NodesStatsMetric.Breaker) != 0)
                 list.Add("breaker");
+            if ((enumValue & NodesStatsMetric.Caches) != 0)
+                list.Add("caches");
+            if ((enumValue & NodesStatsMetric.ClusterManagerThrottling) != 0)
+                list.Add("cluster_manager_throttling");
+            if ((enumValue & NodesStatsMetric.Discovery) != 0)
+                list.Add("discovery");
+            if ((enumValue & NodesStatsMetric.FileCache) != 0)
+                list.Add("file_cache");
             if ((enumValue & NodesStatsMetric.Fs) != 0)
                 list.Add("fs");
             if ((enumValue & NodesStatsMetric.Http) != 0)
                 list.Add("http");
+            if ((enumValue & NodesStatsMetric.IndexingPressure) != 0)
+                list.Add("indexing_pressure");
             if ((enumValue & NodesStatsMetric.Indices) != 0)
                 list.Add("indices");
+            if ((enumValue & NodesStatsMetric.Ingest) != 0)
+                list.Add("ingest");
             if ((enumValue & NodesStatsMetric.Jvm) != 0)
                 list.Add("jvm");
             if ((enumValue & NodesStatsMetric.Os) != 0)
                 list.Add("os");
             if ((enumValue & NodesStatsMetric.Process) != 0)
                 list.Add("process");
+            if ((enumValue & NodesStatsMetric.Repositories) != 0)
+                list.Add("repositories");
+            if ((enumValue & NodesStatsMetric.ResourceUsageStats) != 0)
+                list.Add("resource_usage_stats");
+            if ((enumValue & NodesStatsMetric.Script) != 0)
+                list.Add("script");
+            if ((enumValue & NodesStatsMetric.ScriptCache) != 0)
+                list.Add("script_cache");
+            if ((enumValue & NodesStatsMetric.SearchBackpressure) != 0)
+                list.Add("search_backpressure");
+            if ((enumValue & NodesStatsMetric.SearchPipeline) != 0)
+                list.Add("search_pipeline");
+            if ((enumValue & NodesStatsMetric.SegmentReplicationBackpressure) != 0)
+                list.Add("segment_replication_backpressure");
+            if ((enumValue & NodesStatsMetric.ShardIndexingPressure) != 0)
+                list.Add("shard_indexing_pressure");
+            if ((enumValue & NodesStatsMetric.TaskCancellation) != 0)
+                list.Add("task_cancellation");
             if ((enumValue & NodesStatsMetric.ThreadPool) != 0)
                 list.Add("thread_pool");
             if ((enumValue & NodesStatsMetric.Transport) != 0)
                 list.Add("transport");
-            if ((enumValue & NodesStatsMetric.Discovery) != 0)
-                list.Add("discovery");
-            if ((enumValue & NodesStatsMetric.IndexingPressure) != 0)
-                list.Add("indexing_pressure");
-            if ((enumValue & NodesStatsMetric.SearchPipeline) != 0)
-                list.Add("search_pipeline");
+            if ((enumValue & NodesStatsMetric.WeightedRouting) != 0)
+                list.Add("weighted_routing");
             return string.Join(",", list);
         }
 
@@ -668,8 +743,8 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 TasksGroupBy.Nodes => "nodes",
-                TasksGroupBy.Parents => "parents",
                 TasksGroupBy.None => "none",
+                TasksGroupBy.Parents => "parents",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'TasksGroupBy'"
@@ -679,13 +754,13 @@ namespace OpenSearch.Net
         public static string GetStringValue(this TimeUnit enumValue) =>
             enumValue switch
             {
-                TimeUnit.Nanos => "nanos",
+                TimeUnit.D => "d",
+                TimeUnit.H => "h",
+                TimeUnit.M => "m",
                 TimeUnit.Micros => "micros",
                 TimeUnit.Ms => "ms",
+                TimeUnit.Nanos => "nanos",
                 TimeUnit.S => "s",
-                TimeUnit.M => "m",
-                TimeUnit.H => "h",
-                TimeUnit.D => "d",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
@@ -706,12 +781,12 @@ namespace OpenSearch.Net
         public static string GetStringValue(this WaitForEvents enumValue) =>
             enumValue switch
             {
-                WaitForEvents.Immediate => "immediate",
-                WaitForEvents.Urgent => "urgent",
                 WaitForEvents.High => "high",
-                WaitForEvents.Normal => "normal",
-                WaitForEvents.Low => "low",
+                WaitForEvents.Immediate => "immediate",
                 WaitForEvents.Languid => "languid",
+                WaitForEvents.Low => "low",
+                WaitForEvents.Normal => "normal",
+                WaitForEvents.Urgent => "urgent",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'"
