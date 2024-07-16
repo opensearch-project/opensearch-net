@@ -44,11 +44,10 @@ namespace Tests.Cluster.ClusterState
 					.Request(c => c.Cluster.State(new ClusterStateRequest()))
 					.FluentAsync(c => c.Cluster.StateAsync())
 					.RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest()))
-
 				;
 
 			var metrics = ClusterStateMetric.ClusterManagerNode | ClusterStateMetric.Metadata;
-			await GET("/_cluster/state/metadata%2Ccluster_manager_node")
+			await GET("/_cluster/state/cluster_manager_node%2Cmetadata")
 					.Fluent(c => c.Cluster.State(null, p => p.Metric(metrics)))
 					.Request(c => c.Cluster.State(new ClusterStateRequest(metrics)))
 					.FluentAsync(c => c.Cluster.StateAsync(null, p => p.Metric(metrics)))
