@@ -1776,7 +1776,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use _all or *.</p>
+        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use <code>_all</code> or <code>*</code>.</p>
 </td>
       </tr>
       <tr>
@@ -1915,7 +1915,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use _all or *.</p>
+        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use <code>_all</code> or <code>*</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2231,7 +2231,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_LowLevelClusterNamespace_PutComponentTemplateAsync_" data-uid="OpenSearch.Net.Specification.ClusterApi.LowLevelClusterNamespace.PutComponentTemplateAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_LowLevelClusterNamespace_PutComponentTemplateAsync__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_ClusterApi_PutComponentTemplateRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.ClusterApi.LowLevelClusterNamespace.PutComponentTemplateAsync``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.ClusterApi.PutComponentTemplateRequestParameters,System.Threading.CancellationToken)">PutComponentTemplateAsync&lt;TResponse&gt;(string, PostData, PutComponentTemplateRequestParameters, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>PUT on /_component_template/{name}</p>
+  <div class="markdown level1 summary"><p>PUT on /_component_template/{name} <p>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2251,7 +2251,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Name of the component template to create. Opensearch includes the following built-in component templates: <code>logs-mappings</code>; 'logs-settings<code>; </code>metrics-mappings<code>; </code>metrics-settings<code>;</code>synthetics-mapping<code>; </code>synthetics-settings<code>. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the </code>version<code>for your replacement template higher than the current version. If you don’t use Opensearch Agent and want to disable all built-in component and index templates, set</code>stack.templates.enabled<code>to</code>false` using the cluster update settings API.</p>
+        <td><p>Name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>; 'logs-settings<code>; </code>metrics-mappings<code>; </code>metrics-settings<code>;</code>synthetics-mapping<code>; </code>synthetics-settings<code>. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the </code>version<code>for your replacement template higher than the current version. If you don't use OpenSearch Agent and want to disable all built-in component and index templates, set</code>stack.templates.enabled<code>to</code>false` using the cluster update settings API.</p>
 </td>
       </tr>
       <tr>
@@ -2312,7 +2312,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_LowLevelClusterNamespace_PutComponentTemplate_" data-uid="OpenSearch.Net.Specification.ClusterApi.LowLevelClusterNamespace.PutComponentTemplate*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_LowLevelClusterNamespace_PutComponentTemplate__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_ClusterApi_PutComponentTemplateRequestParameters_" data-uid="OpenSearch.Net.Specification.ClusterApi.LowLevelClusterNamespace.PutComponentTemplate``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.ClusterApi.PutComponentTemplateRequestParameters)">PutComponentTemplate&lt;TResponse&gt;(string, PostData, PutComponentTemplateRequestParameters)</h4>
-  <div class="markdown level1 summary"><p>PUT on /_component_template/{name}</p>
+  <div class="markdown level1 summary"><p>PUT on /_component_template/{name} <p>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2332,7 +2332,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Name of the component template to create. Opensearch includes the following built-in component templates: <code>logs-mappings</code>; 'logs-settings<code>; </code>metrics-mappings<code>; </code>metrics-settings<code>;</code>synthetics-mapping<code>; </code>synthetics-settings<code>. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the </code>version<code>for your replacement template higher than the current version. If you don’t use Opensearch Agent and want to disable all built-in component and index templates, set</code>stack.templates.enabled<code>to</code>false` using the cluster update settings API.</p>
+        <td><p>Name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>; 'logs-settings<code>; </code>metrics-mappings<code>; </code>metrics-settings<code>;</code>synthetics-mapping<code>; </code>synthetics-settings<code>. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the </code>version<code>for your replacement template higher than the current version. If you don't use OpenSearch Agent and want to disable all built-in component and index templates, set</code>stack.templates.enabled<code>to</code>false` using the cluster update settings API.</p>
 </td>
       </tr>
       <tr>
