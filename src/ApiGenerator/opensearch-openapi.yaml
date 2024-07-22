@@ -58,6 +58,27 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/indices.get_alias@200'
+    put:
+      operationId: indices.put_alias.0
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
   /_alias/{name}:
     get:
       operationId: indices.get_alias.1
@@ -101,6 +122,50 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/indices.exists_alias@200'
+    post:
+      operationId: indices.put_alias.1
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.name'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
+    put:
+      operationId: indices.put_alias.2
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.name'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
   /_aliases:
     post:
       operationId: indices.update_aliases.0
@@ -123,6 +188,51 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/indices.update_aliases@200'
+  /_aliases/{name}:
+    post:
+      operationId: indices.put_alias.3
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.name'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
+    put:
+      operationId: indices.put_alias.4
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.name'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
   /_analyze:
     get:
       operationId: indices.analyze.0
@@ -7680,6 +7790,28 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/indices.get_alias@200'
+    put:
+      operationId: indices.put_alias.5
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.index'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
   /{index}/_alias/{name}:
     delete:
       operationId: indices.delete_alias.0
@@ -7747,7 +7879,7 @@ paths:
         '200':
           $ref: '#/components/responses/indices.exists_alias@200'
     post:
-      operationId: indices.put_alias.0
+      operationId: indices.put_alias.6
       x-operation-group: indices.put_alias
       x-version-added: '1.0'
       description: Creates or updates an alias.
@@ -7770,7 +7902,7 @@ paths:
         '200':
           $ref: '#/components/responses/indices.put_alias@200'
     put:
-      operationId: indices.put_alias.1
+      operationId: indices.put_alias.7
       x-operation-group: indices.put_alias
       x-version-added: '1.0'
       description: Creates or updates an alias.
@@ -7779,6 +7911,29 @@ paths:
       parameters:
         - $ref: '#/components/parameters/indices.put_alias::path.index'
         - $ref: '#/components/parameters/indices.put_alias::path.name'
+        - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
+        - $ref: '#/components/parameters/indices.put_alias::query.timeout'
+        - $ref: '#/components/parameters/_global::query.pretty'
+        - $ref: '#/components/parameters/_global::query.human'
+        - $ref: '#/components/parameters/_global::query.error_trace'
+        - $ref: '#/components/parameters/_global::query.source'
+        - $ref: '#/components/parameters/_global::query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.put_alias'
+      responses:
+        '200':
+          $ref: '#/components/responses/indices.put_alias@200'
+  /{index}/_aliases:
+    put:
+      operationId: indices.put_alias.8
+      x-operation-group: indices.put_alias
+      x-version-added: '1.0'
+      description: Creates or updates an alias.
+      externalDocs:
+        url: https://opensearch.org/docs/latest/im-plugin/index-alias/#create-aliases
+      parameters:
+        - $ref: '#/components/parameters/indices.put_alias::path.index'
         - $ref: '#/components/parameters/indices.put_alias::query.cluster_manager_timeout'
         - $ref: '#/components/parameters/indices.put_alias::query.master_timeout'
         - $ref: '#/components/parameters/indices.put_alias::query.timeout'
@@ -7815,7 +7970,7 @@ paths:
         '200':
           $ref: '#/components/responses/indices.delete_alias@200'
     post:
-      operationId: indices.put_alias.2
+      operationId: indices.put_alias.9
       x-operation-group: indices.put_alias
       x-version-added: '1.0'
       description: Creates or updates an alias.
@@ -7838,7 +7993,7 @@ paths:
         '200':
           $ref: '#/components/responses/indices.put_alias@200'
     put:
-      operationId: indices.put_alias.3
+      operationId: indices.put_alias.10
       x-operation-group: indices.put_alias
       x-version-added: '1.0'
       description: Creates or updates an alias.
@@ -21936,8 +22091,12 @@ components:
           schema:
             type: object
             properties:
+              alias:
+                type: string
               filter:
                 $ref: '#/components/schemas/_common.query_dsl:QueryContainer'
+              index:
+                type: string
               index_routing:
                 $ref: '#/components/schemas/_common:Routing'
               is_write_index:
@@ -21951,6 +22110,11 @@ components:
                 $ref: '#/components/schemas/_common:Routing'
               search_routing:
                 $ref: '#/components/schemas/_common:Routing'
+              is_hidden:
+                x-version-added: '2.16'
+                description: If `true`, the alias will be hidden`.
+                type: boolean
+                default: false
             description: The settings for the alias, such as `routing` or `filter`
     indices.put_index_template:
       content:
@@ -26353,14 +26517,12 @@ components:
         - size_in_bytes
     _common:FieldValue:
       description: A field value.
-      oneOf:
-        - type: number
-        - type: number
-        - type: string
-        - type: boolean
-        - nullable: true
-          type: string
-        - type: object
+      type:
+        - boolean
+        - 'null'
+        - number
+        - object
+        - string
     _common:FlushStats:
       type: object
       properties:
@@ -26895,8 +27057,7 @@ components:
         relocating_node:
           oneOf:
             - $ref: '#/components/schemas/_common:NodeId'
-            - nullable: true
-              type: string
+            - type: 'null'
         relocation_failure_info:
           $ref: '#/components/schemas/_common:RelocationFailureInfo'
       required:
@@ -27032,8 +27193,9 @@ components:
         licensed:
           type: boolean
         custom_foldername:
-          nullable: true
-          type: string
+          type:
+            - 'null'
+            - string
         opensearch_version:
           $ref: '#/components/schemas/_common:VersionString'
       required:
@@ -27925,6 +28087,9 @@ components:
         - uncommitted_size_in_bytes
     _common:TransportAddress:
       type: string
+    _common:Type:
+      type: string
+      x-version-removed: '2.0'
     _common:uint:
       type: number
     _common:ulong:
@@ -28005,6 +28170,8 @@ components:
     _common:WriteResponseBase:
       type: object
       properties:
+        _type:
+          $ref: '#/components/schemas/_common:Type'
         _id:
           $ref: '#/components/schemas/_common:Id'
         _index:
@@ -28325,31 +28492,29 @@ components:
       properties:
         from:
           description: Start of the range (inclusive).
-          oneOf:
-            - type: number
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         key:
           description: Custom key to return the range with.
           type: string
         to:
           description: End of the range (exclusive).
-          oneOf:
-            - type: number
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
     _common.aggregations:ArrayPercentilesItem:
       type: object
       properties:
         key:
           type: string
         value:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         value_as_string:
           type: string
       required:
@@ -29314,40 +29479,40 @@ components:
         - type: object
           properties:
             sum_of_squares:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             variance:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             variance_population:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             variance_sampling:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             std_deviation:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             std_deviation_population:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             std_deviation_sampling:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             std_deviation_bounds:
               $ref: '#/components/schemas/_common.aggregations:StandardDeviationBounds'
             sum_of_squares_as_string:
@@ -29984,19 +30149,17 @@ components:
       properties:
         from:
           description: Start of the range.
-          oneOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         mask:
           description: IP range defined as a CIDR mask.
           type: string
         to:
           description: End of the range.
-          oneOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
     _common.aggregations:IpRangeBucket:
       allOf:
         - $ref: '#/components/schemas/_common.aggregations:MultiBucketBase'
@@ -30011,11 +30174,10 @@ components:
     _common.aggregations:KeyedPercentiles:
       type: object
       additionalProperties:
-        oneOf:
-          - type: string
-          - type: number
-          - nullable: true
-            type: string
+        type:
+          - 'null'
+          - number
+          - string
     _common.aggregations:LinearMovingAverageAggregation:
       allOf:
         - $ref: '#/components/schemas/_common.aggregations:MovingAverageAggregationBase'
@@ -30588,8 +30750,8 @@ components:
                 - type: array
                   items:
                     type: number
-                - nullable: true
-                  type: string
+                - type: 'null'
+                - type: string
             hdr:
               $ref: '#/components/schemas/_common.aggregations:HdrMethod'
             tdigest:
@@ -31023,10 +31185,10 @@ components:
               description: |-
                 The metric value. A missing value generally means that there was no data to aggregate,
                 unless specified otherwise.
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             value_as_string:
               type: string
           required:
@@ -31035,35 +31197,35 @@ components:
       type: object
       properties:
         upper:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         lower:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         upper_population:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         lower_population:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         upper_sampling:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         lower_sampling:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
       required:
         - lower
         - lower_population
@@ -31101,20 +31263,20 @@ components:
             count:
               type: number
             min:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             max:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             avg:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             sum:
               type: number
             min_as_string:
@@ -31164,32 +31326,32 @@ components:
             count:
               type: number
             min_length:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             max_length:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             avg_length:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             entropy:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             distribution:
               oneOf:
+                - type: 'null'
                 - type: object
                   additionalProperties:
                     type: number
-                - nullable: true
-                  type: string
+                - type: string
             min_length_as_string:
               type: string
             max_length_as_string:
@@ -31446,17 +31608,11 @@ components:
         sort:
           type: array
           items:
-            oneOf:
-              - $ref: '#/components/schemas/_common:FieldValue'
-              - nullable: true
-                type: string
+            $ref: '#/components/schemas/_common:FieldValue'
         metrics:
           type: object
           additionalProperties:
-            oneOf:
-              - $ref: '#/components/schemas/_common:FieldValue'
-              - nullable: true
-                type: string
+            $ref: '#/components/schemas/_common:FieldValue'
       required:
         - metrics
         - sort
@@ -31501,10 +31657,10 @@ components:
         - type: object
           properties:
             value:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             value_as_string:
               type: string
           required:
@@ -34809,13 +34965,11 @@ components:
             from:
               oneOf:
                 - $ref: '#/components/schemas/_common:DateMath'
-                - nullable: true
-                  type: string
+                - type: 'null'
             to:
               oneOf:
                 - $ref: '#/components/schemas/_common:DateMath'
-                - nullable: true
-                  type: string
+                - type: 'null'
             format:
               $ref: '#/components/schemas/_common:DateFormat'
             time_zone:
@@ -35056,8 +35210,17 @@ components:
               $ref: '#/components/schemas/_common:GeoDistanceType'
             validation_method:
               $ref: '#/components/schemas/_common.query_dsl:GeoValidationMethod'
+            ignore_unmapped:
+              description: |-
+                Set to `true` to ignore an unmapped field and not match any documents for this query.
+                Set to `false` to throw an exception if the field is not mapped.
+              type: boolean
+              default: false
+            field:
+              type: object
           required:
             - distance
+            - field
     _common.query_dsl:GeoExecution:
       type: string
       enum:
@@ -35644,15 +35807,15 @@ components:
               description: Less than or equal to.
               type: number
             from:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
             to:
-              oneOf:
-                - type: number
-                - nullable: true
-                  type: string
+              type:
+                - 'null'
+                - number
+                - string
     _common.query_dsl:NumericDecayFunction:
       allOf:
         - $ref: '#/components/schemas/_common.query_dsl:DecayFunctionBase'
@@ -36659,12 +36822,15 @@ components:
     _core.bulk:ResponseItem:
       type: object
       properties:
+        _type:
+          description: The document type.
+          type: string
+          x-version-removed: '2.0'
         _id:
           description: The document ID associated with the operation.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         _index:
           description: |-
             Name of the index associated with the operation.
@@ -36881,6 +37047,8 @@ components:
     _core.get:GetResult:
       type: object
       properties:
+        _type:
+          $ref: '#/components/schemas/_common:Type'
         _index:
           $ref: '#/components/schemas/_common:IndexName'
         fields:
@@ -37242,10 +37410,10 @@ components:
         hit:
           $ref: '#/components/schemas/_core.rank_eval:RankEvalHit'
         rating:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
       required:
         - hit
     _core.rank_eval:RankEvalMetric:
@@ -37964,15 +38132,17 @@ components:
     _core.search:Hit:
       type: object
       properties:
+        _type:
+          $ref: '#/components/schemas/_common:Type'
         _index:
           $ref: '#/components/schemas/_common:IndexName'
         _id:
           $ref: '#/components/schemas/_common:Id'
         _score:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
         _explanation:
           $ref: '#/components/schemas/_core.explain:Explanation'
         fields:
@@ -38037,10 +38207,10 @@ components:
           items:
             $ref: '#/components/schemas/_core.search:Hit'
         max_score:
-          oneOf:
-            - type: number
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - number
+            - string
       required:
         - hits
     _core.search:InnerHits:
@@ -38345,6 +38515,9 @@ components:
       description: Defines how to fetch a source. Fetching can be disabled entirely, or the source can be filtered.
       oneOf:
         - type: boolean
+        - type: array
+          items:
+            $ref: '#/components/schemas/_common:Field'
         - $ref: '#/components/schemas/_core.search:SourceFilter'
     _core.search:SourceConfigParam:
       description: |-
@@ -38657,8 +38830,7 @@ components:
             IMPORTANT: This metric double-counts disk space for hard-linked files, such as those created when shrinking, splitting, or cloning an index.
           anyOf:
             - $ref: '#/components/schemas/_common:ByteSize'
-            - nullable: true
-              type: string
+            - type: 'null'
         disk.used:
           description: |-
             Total disk space in use.
@@ -38667,8 +38839,7 @@ components:
             Unlike `disk.indices`, this metric does not double-count disk space for hard-linked files.
           anyOf:
             - $ref: '#/components/schemas/_common:ByteSize'
-            - nullable: true
-              type: string
+            - type: 'null'
         disk.avail:
           description: |-
             Free disk space available to OpenSearch.
@@ -38676,32 +38847,27 @@ components:
             Disk-based shard allocation uses this metric to assign shards to nodes based on available disk space.
           anyOf:
             - $ref: '#/components/schemas/_common:ByteSize'
-            - nullable: true
-              type: string
+            - type: 'null'
         disk.total:
           description: Total disk space for the node, including in-use and available space.
           anyOf:
             - $ref: '#/components/schemas/_common:ByteSize'
-            - nullable: true
-              type: string
+            - type: 'null'
         disk.percent:
           description: Total percentage of disk space in use. Calculated as `disk.used / disk.total`.
           anyOf:
             - $ref: '#/components/schemas/_common:Percentage'
-            - nullable: true
-              type: string
+            - type: 'null'
         host:
           description: Network host for the node. Set using the `network.host` setting.
           anyOf:
             - $ref: '#/components/schemas/_common:Host'
-            - nullable: true
-              type: string
+            - type: 'null'
         ip:
           description: IP address and port for the node.
           anyOf:
             - $ref: '#/components/schemas/_common:Ip'
-            - nullable: true
-              type: string
+            - type: 'null'
         node:
           description: Name for the node. Set using the `node.name` setting.
           type: string
@@ -38797,6 +38963,10 @@ components:
         discovered_cluster_manager:
           description: cluster manager is discovered or not
           type: string
+        discovered_master:
+          x-version-removed: '2.0'
+          description: cluster manager is discovered or not
+          type: string
     cat.indices:IndicesRecord:
       type: object
       properties:
@@ -38820,16 +38990,14 @@ components:
           type: string
         docs.count:
           description: available docs
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         docs.deleted:
           description: deleted docs
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         creation.date:
           description: index creation date (millisecond value)
           type: string
@@ -38838,16 +39006,14 @@ components:
           type: string
         store.size:
           description: store size of primaries & replicas
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         pri.store.size:
           description: store size of primaries
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         completion.size:
           description: size of completion
           type: string
@@ -39770,31 +39936,27 @@ components:
           type: string
         docs:
           description: The number of documents in the shard.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         store:
           description: The disk space used by the shard.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         ip:
           description: The IP address of the node.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         id:
           description: The unique identifier for the node.
           type: string
         node:
           description: The name of node.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         sync_id:
           description: The sync identifier.
           type: string
@@ -40124,8 +40286,7 @@ components:
           description: The template version.
           anyOf:
             - $ref: '#/components/schemas/_common:VersionString'
-            - nullable: true
-              type: string
+            - type: 'null'
         composed_of:
           description: The component templates that comprise the index template.
           type: string
@@ -40183,28 +40344,24 @@ components:
           type: string
         core:
           description: The core number of active threads allowed in a scaling thread pool.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         max:
           description: The maximum number of active threads allowed in a scaling thread pool.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         size:
           description: The number of active threads allowed in a fixed thread pool.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         keep_alive:
           description: The thread keep alive time.
-          anyOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
     cluster._common:ComponentTemplate:
       type: object
       properties:
@@ -43422,10 +43579,9 @@ components:
         primary:
           type: boolean
         relocating_node:
-          oneOf:
-            - type: string
-            - nullable: true
-              type: string
+          type:
+            - 'null'
+            - string
         state:
           $ref: '#/components/schemas/indices.stats:ShardRoutingState'
       required:
