@@ -90,7 +90,7 @@ namespace OpenSearch.Net.Extensions
 
 		internal static bool IsNullOrEmpty(this string value) => string.IsNullOrEmpty(value);
 
-		internal static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> items, Func<T, TKey> property) =>
+		internal static IEnumerable<T> DistinctByInternal<T, TKey>(this IEnumerable<T> items, Func<T, TKey> property) =>
 			items.GroupBy(property).Select(x => x.First());
 
 		internal static string ToTimeUnit(this TimeSpan timeSpan)

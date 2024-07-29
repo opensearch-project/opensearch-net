@@ -82,7 +82,7 @@ namespace OpenSearch.Net
 			}
 
 			InternalNodes = SortNodes(nodesProvided)
-				.DistinctBy(n => n.Uri)
+				.DistinctByInternal(n => n.Uri)
 				.ToList();
 			LastUpdate = DateTimeProvider.Now();
 		}

@@ -85,8 +85,8 @@ namespace OpenSearch.Net
 
 		public static PostData Bytes(byte[] bytes) => new PostData<object>(bytes);
 
-#if NETSTANDARD2_1
-		public static PostData ReadOnlyMemory(ReadOnlyMemory<byte> bytes) => new PostData<object>(bytes);
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
+		public static PostData ReadOnlyMemory(ReadOnlyMemory<byte> bytes) => new PostData<object>(bytes.ToArray());
 #endif
 
 		public static PostData String(string serializedString) => new PostData<object>(serializedString);
