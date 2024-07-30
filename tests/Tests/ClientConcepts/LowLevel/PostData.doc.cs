@@ -1,5 +1,3 @@
-#pragma warning disable IDE1006 // Naming Styles
-#pragma warning disable IDE0044 // Add readonly modifier
 /* SPDX-License-Identifier: Apache-2.0
 *
 * The OpenSearch Contributors require contributions made to
@@ -27,6 +25,9 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable IDE0044 // Add readonly modifier
 
 using System;
 using System.Collections.Generic;
