@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 
 ### Added
+- Added support for `DateOnly` and `TimeOnly` APIs ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
 - Added support for `MinScore` on `ScriptScoreQuery` ([#624](https://github.com/opensearch-project/opensearch-net/pull/624))
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
 

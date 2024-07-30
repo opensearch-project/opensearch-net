@@ -114,9 +114,9 @@ namespace OpenSearch.Net
 		}
 
 		protected async
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 			ValueTask
-			#else
+#else
 			Task
 #endif
 			FinishStreamAsync(Stream writableStream, MemoryStream buffer, IConnectionConfigurationValues settings, CancellationToken ctx)
