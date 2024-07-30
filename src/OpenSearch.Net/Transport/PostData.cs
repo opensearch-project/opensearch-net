@@ -46,7 +46,7 @@ namespace OpenSearch.Net
 	public enum PostType
 	{
 		ByteArray,
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 		ReadOnlyMemory,
 #endif
 		LiteralString,
@@ -86,7 +86,7 @@ namespace OpenSearch.Net
 		public static PostData Bytes(byte[] bytes) => new PostData<object>(bytes);
 
 #if NETSTANDARD2_1 || NET6_0_OR_GREATER
-		public static PostData ReadOnlyMemory(ReadOnlyMemory<byte> bytes) => new PostData<object>(bytes.ToArray());
+		public static PostData ReadOnlyMemory(ReadOnlyMemory<byte> bytes) => new PostData<object>(bytes);
 #endif
 
 		public static PostData String(string serializedString) => new PostData<object>(serializedString);
@@ -135,7 +135,7 @@ namespace OpenSearch.Net
 		private readonly IEnumerable<object> _enumerableOfObject;
 		private readonly IEnumerable<string> _enumerableOfStrings;
 		private readonly string _literalString;
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 		private readonly ReadOnlyMemory<byte> _memoryOfBytes;
 #endif
 
@@ -145,7 +145,7 @@ namespace OpenSearch.Net
 			Type = PostType.ByteArray;
 		}
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 		protected internal PostData(ReadOnlyMemory<byte> item)
 		{
 			_memoryOfBytes = item;
@@ -188,7 +188,7 @@ namespace OpenSearch.Net
 						buffer = settings.MemoryStreamFactory.Create(WrittenBytes);
 					break;
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 				case PostType.ReadOnlyMemory:
 					if (_memoryOfBytes.IsEmpty) return;
 
@@ -281,7 +281,7 @@ namespace OpenSearch.Net
 						buffer = settings.MemoryStreamFactory.Create(WrittenBytes);
 					break;
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 				case PostType.ReadOnlyMemory:
 					if (_memoryOfBytes.IsEmpty) return;
 
