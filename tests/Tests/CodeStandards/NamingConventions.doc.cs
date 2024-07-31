@@ -197,6 +197,7 @@ namespace Tests.CodeStandards
 				oscAssembly.GetType("System.ComponentModel.Browsable", throwOnError: false),
 				oscAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute", throwOnError: false),
 				oscAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute", throwOnError: false),
+                oscAssembly.GetType("System.Runtime.CompilerServices.RefSafetyRulesAttribute", throwOnError: false)
 			};
 
 			var types = oscAssembly.GetTypes();
@@ -233,7 +234,10 @@ namespace Tests.CodeStandards
 				opensearchNetAssembly.GetType("Purify.Purifier+PurifierDotNet"),
 				opensearchNetAssembly.GetType("Purify.Purifier+PurifierMono"),
 				opensearchNetAssembly.GetType("Purify.Purifier+UriInfo"),
-				opensearchNetAssembly.GetType("System.ComponentModel.Browsable")
+				opensearchNetAssembly.GetType("System.ComponentModel.Browsable"),
+                opensearchNetAssembly.GetType("System.Runtime.CompilerServices.NullableAttribute"),
+                opensearchNetAssembly.GetType("System.Runtime.CompilerServices.NullableContextAttribute"),
+                opensearchNetAssembly.GetType("System.Runtime.CompilerServices.RefSafetyRulesAttribute")
 			};
 
 			var types = opensearchNetAssembly.GetTypes();

@@ -46,7 +46,7 @@ namespace OpenSearch.Net
 		{
 			_metaDataItems ??= new Dictionary<string, string>();
 
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 			return _metaDataItems.TryAdd(key, value);
 #else
 			if (_metaDataItems.ContainsKey(key))
@@ -55,7 +55,7 @@ namespace OpenSearch.Net
 			_metaDataItems.Add(key, value);
 			return true;
 #endif
-		}		
+		}
 
 		public IReadOnlyDictionary<string, string> Items => _metaDataItems ?? EmptyReadOnly<string, string>.Dictionary;
 	}
