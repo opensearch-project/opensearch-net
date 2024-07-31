@@ -150,7 +150,7 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 
 				if (isNullable && nullableElementType.IsConstructedGenericType && nullableElementType.GetGenericTypeDefinition() == typeof(KeyValuePair<,>))
 					return CreateInstance(typeof(NullableFormatter<>), new[] { nullableElementType });
-#if NETSTANDARD2_1
+#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 				// ValueTask
 				if (genericType == typeof(ValueTask<>))
 					return CreateInstance(typeof(ValueTaskFormatter<>), t.GenericTypeArguments);
@@ -196,7 +196,7 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 					return CreateInstance(tupleFormatterType, t.GenericTypeArguments);
 				}
 
-#if NETSTANDARD
+#if NETSTANDARD || NET6_0_OR_GREATER
 				// ValueTuple
 				if (t.FullName.StartsWith("System.ValueTuple"))
 				{

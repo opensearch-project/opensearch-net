@@ -112,7 +112,7 @@ namespace OpenSearch.Net
 		{
 			if (requestData == null) throw new ArgumentNullException(nameof(requestData));
 
-			#if NETSTANDARD2_1
+			#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 			var entry = _activeHandlers.GetOrAdd(key, (k, r) => _entryFactory(k, r), requestData).Value;
 			#else
 			var entry = _activeHandlers.GetOrAdd(key, (k) => _entryFactory(k, requestData)).Value;

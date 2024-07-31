@@ -56,7 +56,7 @@ using System.Threading;
 
 namespace OpenSearch.Net
 {
-#if !NETSTANDARD2_1
+#if !NETSTANDARD2_1 && !NET6_0_OR_GREATER
 	internal class PollingCounter : IDisposable
 	{
 		// ReSharper disable UnusedParameter.Local
