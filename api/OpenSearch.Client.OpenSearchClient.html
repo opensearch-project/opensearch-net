@@ -866,7 +866,7 @@ Out of the box <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#Op
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_OpenSearch_Client_IBulkAllRequest___0__System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(OpenSearch.Client.IBulkAllRequest{``0},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IBulkAllRequest&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests</p>
 <p></p>
-The index to target will be inferred from T. If no default index has been mapped for T
+The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch_Client_ConnectionSettingsBase_1_DefaultMappingFor__1_System_Func_OpenSearch_Client_ClrTypeMappingDescriptor___0__OpenSearch_Client_IClrTypeMapping___0___">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.
@@ -939,7 +939,7 @@ an index can be specified for each document using <a class="xref" href="OpenSear
   <h4 id="OpenSearch_Client_OpenSearchClient_BulkAll__1_System_Collections_Generic_IEnumerable___0__System_Func_OpenSearch_Client_BulkAllDescriptor___0__OpenSearch_Client_IBulkAllRequest___0___System_Threading_CancellationToken_" data-uid="OpenSearch.Client.OpenSearchClient.BulkAll``1(System.Collections.Generic.IEnumerable{``0},System.Func{OpenSearch.Client.BulkAllDescriptor{``0},OpenSearch.Client.IBulkAllRequest{``0}},System.Threading.CancellationToken)">BulkAll&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;BulkAllDescriptor&lt;T&gt;, IBulkAllRequest&lt;T&gt;&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.</p>
 <p></p>
-The index to target will be inferred from T. If no default index has been mapped for T
+The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
 using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch_Client_ConnectionSettingsBase_1_DefaultMappingFor__1_System_Func_OpenSearch_Client_ClrTypeMappingDescriptor___0__OpenSearch_Client_IClrTypeMapping___0___">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_Index_OpenSearch_Client_IndexName_">Index(IndexName)</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.
@@ -1731,9 +1731,9 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be created. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-TDocument</p><p>3. A property named Id on TDocument</p>
+<code class="typeparamref">TDocument</code></p><p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
       <tr>
@@ -1805,9 +1805,9 @@ A 409 Conflict HTTP response status code and error will be returned.</p>
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be created. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-TDocument</p><p>3. A property named Id on TDocument</p>
+<code class="typeparamref">TDocument</code></p><p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
     </tbody>
@@ -5443,9 +5443,9 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be indexed. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-TDocument</p><p>3. A property named Id on TDocument</p>
+<code class="typeparamref">TDocument</code></p><p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
       <tr>
@@ -5518,9 +5518,9 @@ https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/index-docum
         <td><span class="xref">TDocument</span></td>
         <td><span class="parametername">document</span></td>
         <td><p>The document to be indexed. Id will be inferred from (in order):</p>
-<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for TDocument</p><p>
+<p>1. Id property set up on <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#OpenSearch_Client_IOpenSearchClient_ConnectionSettings">ConnectionSettings</a> for <code class="typeparamref">TDocument</code></p><p>
 2. <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html#OpenSearch_Client_OpenSearchTypeAttribute_IdProperty">IdProperty</a> property on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> applied to
-TDocument</p><p>3. A property named Id on TDocument</p>
+<code class="typeparamref">TDocument</code></p><p>3. A property named Id on <code class="typeparamref">TDocument</code></p>
 </td>
       </tr>
     </tbody>
