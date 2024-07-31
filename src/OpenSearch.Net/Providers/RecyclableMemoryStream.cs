@@ -565,7 +565,7 @@ namespace OpenSearch.Net
 			return amountRead;
 		}
 
-#if NETCOREAPP2_1 || NETSTANDARD2_1
+#if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1
         /// <summary>
         /// Reads from the current position into the provided buffer
         /// </summary>
@@ -649,7 +649,7 @@ namespace OpenSearch.Net
 			_length = Math.Max(_position, _length);
 		}
 
-#if NETCOREAPP2_1 || NETSTANDARD2_1
+#if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1
         /// <summary>
         /// Writes the buffer to the stream
         /// </summary>
@@ -866,7 +866,7 @@ namespace OpenSearch.Net
 			return amountToCopy;
 		}
 
-#if NETCOREAPP2_1 || NETSTANDARD2_1
+#if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1
         private int InternalRead(Span<byte> buffer, int fromPosition)
         {
             if (_length - fromPosition <= 0) return 0;

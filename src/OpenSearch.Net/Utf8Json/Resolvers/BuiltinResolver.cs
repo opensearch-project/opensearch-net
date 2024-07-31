@@ -121,6 +121,13 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 				{typeof(TimeSpan?), new StaticNullableFormatter<TimeSpan>(ISO8601TimeSpanFormatter.Default)},
 				{typeof(DateTimeOffset?),new StaticNullableFormatter<DateTimeOffset>(ISO8601DateTimeOffsetFormatter.Default)},
 
+#if NET6_0_OR_GREATER
+				{typeof(DateOnly), DateOnlyFormatter.Default},
+				{typeof(TimeOnly), TimeOnlyFormatter.Default},
+				{typeof(DateOnly?), new StaticNullableFormatter<DateOnly>(DateOnlyFormatter.Default)},
+				{typeof(TimeOnly?), new StaticNullableFormatter<TimeOnly>(TimeOnlyFormatter.Default)},
+#endif
+
 				{typeof(string), NullableStringFormatter.Default},
 				{typeof(char), CharFormatter.Default},
 				{typeof(char?), NullableCharFormatter.Default},

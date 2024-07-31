@@ -75,10 +75,21 @@ namespace OpenSearch.Net
 		private static Dictionary<string, object> ToDictionary(Exception e, int depth)
 		{
 			var o = new Dictionary<string, object>(10);
+
+#if NET8_0_OR_GREATER
+    //NOTE: This is a workaround for the obsolete warning in .NET 8.0. We need to find a work around and remove this pragma
+#pragma warning disable SYSLIB0050 // Type or member is obsolete
+			var si = new SerializationInfo(e.GetType(), new FormatterConverter());
+#pragma warning restore SYSLIB0050 // Type or member is obsolete
+			var sc = new StreamingContext();
+#pragma warning disable SYSLIB0051 // Type or member is obsolete
+			e.GetObjectData(si, sc);
+#pragma warning restore SYSLIB0051 // Type or member is obsolete
+#else
 			var si = new SerializationInfo(e.GetType(), new FormatterConverter());
 			var sc = new StreamingContext();
 			e.GetObjectData(si, sc);
-
+#endif
 			var helpUrl = si.GetString("HelpURL");
 			var stackTrace = si.GetString("StackTraceString");
 			var remoteStackTrace = si.GetString("RemoteStackTraceString");

@@ -610,7 +610,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 		}
 	}
 
-	#if NETSTANDARD2_1
+	#if NETSTANDARD2_1 || NET6_0_OR_GREATER
 	internal sealed class ValueTaskFormatter<T> : IJsonFormatter<ValueTask<T>>
 	{
 		public void Serialize(ref JsonWriter writer, ValueTask<T> value, IJsonFormatterResolver formatterResolver) =>
