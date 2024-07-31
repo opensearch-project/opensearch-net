@@ -948,4 +948,51 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 			throw new InvalidOperationException("invalid TimeSpan format. value:" + StringEncoding.UTF8.GetString(str.Array, str.Offset, str.Count));
 		}
 	}
+
+#if NET6_0_OR_GREATER
+	internal sealed class DateOnlyFormatter : IJsonFormatter<DateOnly>
+	{
+		public static readonly IJsonFormatter<DateOnly> Default = new DateOnlyFormatter();
+
+		private readonly string _formatString;
+
+		public DateOnlyFormatter() => _formatString = "o"; //we are choosing the ISO 8601 format as the default
+
+		public DateOnlyFormatter(string formatString) => _formatString = formatString;
+
+		public void Serialize(ref JsonWriter writer, DateOnly value, IJsonFormatterResolver formatterResolver) =>
+			writer.WriteString(value.ToString(_formatString));
+
+		public DateOnly Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+		{
+			var str = reader.ReadString();
+			return _formatString == null || _formatString == "o"
+				? DateOnly.Parse(str, CultureInfo.InvariantCulture)
+				: DateOnly.ParseExact(str, _formatString, CultureInfo.InvariantCulture);
+		}
+	}
+
+	internal sealed class TimeOnlyFormatter : IJsonFormatter<TimeOnly>
+	{
+		public static readonly IJsonFormatter<TimeOnly> Default = new TimeOnlyFormatter();
+
+		private readonly string _formatString;
+
+		public TimeOnlyFormatter() => _formatString = "o"; //if we do not use o, you loose the milliseconds and microseconds
+
+		public TimeOnlyFormatter(string formatString) => _formatString = formatString;
+
+		public void Serialize(ref JsonWriter writer, TimeOnly value, IJsonFormatterResolver formatterResolver) =>
+			writer.WriteString(value.ToString(_formatString));
+
+		public TimeOnly Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+		{
+			var str = reader.ReadString();
+			return _formatString == null || _formatString == "o"
+				? TimeOnly.Parse(str, CultureInfo.InvariantCulture)
+				: TimeOnly.ParseExact(str, _formatString, CultureInfo.InvariantCulture);
+		}
+	}
+#endif
+
 }

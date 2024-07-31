@@ -301,8 +301,8 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 					il.EmitLdfld(stringByteKeysField);
 				}, (index, member) =>
 				{
-					FieldInfo fi;
-					if (!customFormatterLookup.TryGetValue(member, out fi)) return false;
+					if (!customFormatterLookup.TryGetValue(member, out var fi))
+						return false;
 
 					il.EmitLoadThis();
 					il.EmitLdfld(fi);
@@ -318,8 +318,8 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 				var il = method.GetILGenerator();
 				BuildDeserialize(type, serializationInfo, il, (index, member) =>
 				{
-					FieldInfo fi;
-					if (!customFormatterLookup.TryGetValue(member, out fi)) return false;
+					if (!customFormatterLookup.TryGetValue(member, out var fi))
+						return false;
 
 					il.EmitLoadThis();
 					il.EmitLdfld(fi);
@@ -343,10 +343,12 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 				}.Select(x => nameMutator(x)));
 
 				// special case for exception, modify
-				serializationInfo = new MetaType(type, nameMutator, propertyMapper, false);
+				serializationInfo = new MetaType(type, nameMutator, propertyMapper, false)
+				{
+					BestMatchConstructor = null,
+					ConstructorParameters = []
+				};
 
-				serializationInfo.BestMatchConstructor = null;
-				serializationInfo.ConstructorParameters = new MetaMember[0];
 				serializationInfo.Members = new[] { new StringConstantValueMetaMember(nameMutator("ClassName"), type.FullName) }
 					.Concat(serializationInfo.Members.Where(x => !ignoreSet.Contains(x.Name)))
 					.Concat(new[] { new InnerExceptionMetaMember(nameMutator("InnerException")) })
@@ -1256,7 +1258,12 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 			public static readonly MethodInfo GetCustomAttributeJsonFormatterAttribute = ExpressionUtility.GetMethodInfo(() => CustomAttributeExtensions.GetCustomAttribute<JsonFormatterAttribute>(default(MemberInfo), default(bool)));
 
 			public static readonly MethodInfo ActivatorCreateInstance = ExpressionUtility.GetMethodInfo(() => Activator.CreateInstance(default(Type), default(object[])));
+
+#if NET5_0_OR_GREATER
+			public static readonly MethodInfo GetUninitializedObject = ExpressionUtility.GetMethodInfo(() => System.Runtime.CompilerServices.RuntimeHelpers.GetUninitializedObject(default(Type)));
+#else
 			public static readonly MethodInfo GetUninitializedObject = ExpressionUtility.GetMethodInfo(() => System.Runtime.Serialization.FormatterServices.GetUninitializedObject(default(Type)));
+#endif
 
 			public static readonly MethodInfo GetTypeMethod = ExpressionUtility.GetMethodInfo((object o) => o.GetType());
 			public static readonly MethodInfo TypeGetGenericArguments = ExpressionUtility.GetPropertyInfo((Type t) => t.GenericTypeArguments).GetMethod;

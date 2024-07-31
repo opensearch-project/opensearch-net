@@ -29,6 +29,7 @@ jobs:
           dotnet-version: |
             5.0.x
             6.0.x
+            8.0.x
       - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
@@ -67,6 +68,7 @@ jobs:
           dotnet-version: |
             5.0.x
             6.0.x
+            8.0.x
       - uses: actions/cache@v4
         with:
           path: ~/.nuget/packages

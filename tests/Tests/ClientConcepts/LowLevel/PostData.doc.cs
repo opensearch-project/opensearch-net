@@ -26,6 +26,9 @@
 *  under the License.
 */
 
+#pragma warning disable IDE1006 // Naming Styles
+#pragma warning disable IDE0044 // Add readonly modifier
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -64,12 +67,12 @@ namespace Tests.ClientConcepts.LowLevel
 
 		public PostingData()
 		{
-			this.@object = new { my_object = "value" };
-			this.collectionOfObjects = Enumerable.Range(0, 5).Select(i => @object).Cast<object>().ToList();
+			@object = new { my_object = "value" };
+			collectionOfObjects = Enumerable.Range(0, 5).Select(i => @object).Cast<object>().ToList();
 			var json = "{\"my_object\":\"value\"}";
-			this.utf8ObjectBytes = Utf8Bytes(json);
-			this.utf8BytesOfListOfStrings = Utf8Bytes(string.Join("\n", collectionOfStrings) + "\n");
-			this.utf8BytesOfCollectionOfObjects = Utf8Bytes(string.Join("\n", collectionOfObjects.Select(o=> json)) + "\n");
+			utf8ObjectBytes = Utf8Bytes(json);
+			utf8BytesOfListOfStrings = Utf8Bytes(string.Join("\n", collectionOfStrings) + "\n");
+			utf8BytesOfCollectionOfObjects = Utf8Bytes(string.Join("\n", collectionOfObjects.Select(o=> json)) + "\n");
 		}
 
 		[U] public void ImplicitConversions()
@@ -118,9 +121,9 @@ namespace Tests.ClientConcepts.LowLevel
 			* Let's demonstrate how to use the static helper on `PostData` for these:
 			*/
 
-			PostData fromObject = PostData.Serializable(@object);
-			PostData fromListOfString = PostData.MultiJson(collectionOfStrings);
-			PostData fromListOfObject = PostData.MultiJson(collectionOfObjects);
+			var fromObject = PostData.Serializable(@object);
+			var fromListOfString = PostData.MultiJson(collectionOfStrings);
+			var fromListOfObject = PostData.MultiJson(collectionOfObjects);
 
 			/** The `Type` property is representative of the original type from which post data is constructed */
 			fromListOfString.Type.Should().Be(PostType.EnumerableOfString);
@@ -139,8 +142,8 @@ namespace Tests.ClientConcepts.LowLevel
 		//hide
 		[U] public async Task WritesCorrectlyUsingBothLowAndHighLevelSettings()
 		{
-			await this.AssertOn(new ConnectionSettings());
-			await this.AssertOn(new ConnectionConfiguration());
+			await AssertOn(new ConnectionSettings());
+			await AssertOn(new ConnectionConfiguration());
 		}
 
 		private async Task AssertOn(IConnectionConfigurationValues settings)
@@ -260,3 +263,5 @@ namespace Tests.ClientConcepts.LowLevel
 
 	}
 }
+#pragma warning restore IDE0044 // Add readonly modifier
+#pragma warning restore IDE1006 // Naming Styles

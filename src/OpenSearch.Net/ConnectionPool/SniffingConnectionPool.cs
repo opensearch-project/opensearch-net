@@ -81,7 +81,7 @@ namespace OpenSearch.Net
 			{
 				_readerWriter.EnterWriteLock();
 				var sortedNodes = SortNodes(nodesArray)
-					.DistinctBy(n => n.Uri)
+					.DistinctByInternal(n => n.Uri)
 					.ToList();
 
 				InternalNodes = sortedNodes;
