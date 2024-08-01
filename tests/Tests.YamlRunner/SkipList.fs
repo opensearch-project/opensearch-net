@@ -35,7 +35,11 @@ let SkipList = dict<SkipFile,SkipSection> [
     // Incorrectly being run due to OpenSearch 1.x/2.x being numerically <7.2.0, but feature-wise >7.10
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
     SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
-    
+
+    // Variations of `indices.put_alias` that accept index/alias in request body rather than path which are not supported by .NET client
+    // https://github.com/opensearch-project/opensearch-net/issues/718
+    SkipFile "indices.put_alias/10_basic.yml", All
+
     // .NET method arg typings make this not possible, index is a required parameter
     SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
     
