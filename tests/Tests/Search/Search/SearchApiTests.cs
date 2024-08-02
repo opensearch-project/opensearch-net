@@ -75,7 +75,15 @@ namespace Tests.Search.Search
 						value = "Stable"
 					}
 				}
-			}
+			},
+            ext = new
+            {
+                personalize_request_parameters = new
+                {
+                    user_id = "<USER_ID>",
+                    context = new { DEVICE = "mobile phone"}
+                }
+            }
 		};
 
 		protected override int ExpectStatusCode => 200;
@@ -93,7 +101,13 @@ namespace Tests.Search.Search
 			)
 			.PostFilter(f => f
 				.Term(p => p.State, StateOfBeing.Stable)
-			);
+			)
+            .Ext(e => e
+                .Add("personalize_request_parameters", new Dictionary<string, object>
+                {
+                    ["user_id"] = "<USER_ID>",
+                    ["context"] = new Dictionary<string, string>{ ["DEVICE"] = "mobile phone" }
+                }));
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
@@ -110,7 +124,18 @@ namespace Tests.Search.Search
 			{
 				Field = "state",
 				Value = "Stable"
-			})
+			}),
+            Ext = new Dictionary<string, object>
+            {
+                ["personalize_request_parameters"] = new Dictionary<string, object>
+                {
+                    ["user_id"] = "<USER_ID>",
+                    ["context"] = new Dictionary<string, string>
+                    {
+                        ["DEVICE"] = "mobile phone"
+                    }
+                }
+            }
 		};
 
 		protected override string UrlPath => $"/project/_search";
