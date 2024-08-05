@@ -7,7 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added support for serializing the `DateOnly` and `TimeOnly` types ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
 
 ### Dependencies
-- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.400
+- Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.400.2
 - Bumps `Bogus` from 35.3.0 to 35.6.0
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.301
