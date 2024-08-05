@@ -214,6 +214,10 @@ namespace OpenSearch.Client
 		/// </summary>
 		[DataMember(Name = "runtime_mappings")]
 		IRuntimeFields RuntimeFields { get; set; }
+
+        [DataMember(Name = "ext")]
+        [JsonFormatter(typeof(VerbatimDictionaryInterfaceKeysFormatter<string, object>))]
+        IDictionary<string, object> Ext { get; set; }
 	}
 
 	[ReadAs(typeof(SearchRequest<>))]
@@ -288,6 +292,8 @@ namespace OpenSearch.Client
 		public bool? Version { get; set; }
 		/// <inheritdoc />
 		public IRuntimeFields RuntimeFields { get; set; }
+        /// <inheritdoc />
+        public IDictionary<string, object> Ext { get; set; }
 
 		protected override HttpMethod HttpMethod =>
 			RequestState.RequestParameters?.ContainsQueryString("source") == true
@@ -347,6 +353,7 @@ namespace OpenSearch.Client
 		TrackTotalHits ISearchRequest.TrackTotalHits { get; set; }
 		bool? ISearchRequest.Version { get; set; }
 		IRuntimeFields ISearchRequest.RuntimeFields { get; set; }
+        IDictionary<string, object> ISearchRequest.Ext { get; set; }
 
 		protected sealed override void RequestDefaults(SearchRequestParameters parameters) => TypedKeys();
 
@@ -537,6 +544,14 @@ namespace OpenSearch.Client
 				a.PointInTime = v?.Invoke(new PointInTimeDescriptor());
 				if (a.PointInTime != null) a.RouteValues.Remove("index");
 			});
+
+        /// <inheritdoc cref="ISearchRequest.Ext"/>
+        public SearchDescriptor<TInferDocument> Ext(Func<FluentDictionary<string, object>, FluentDictionary<string, object>> selector) =>
+            Assign(selector(new FluentDictionary<string, object>()), (a, v) => a.Ext = v);
+
+        /// <inheritdoc cref="ISearchRequest.Ext"/>
+        public SearchDescriptor<TInferDocument> Ext(IDictionary<string, object> dictionary) =>
+            Assign(dictionary, (a, v) => a.Ext = v);
 
 		protected override string ResolveUrl(RouteValues routeValues, IConnectionSettingsValues settings) => base.ResolveUrl(routeValues, settings);
 	}
