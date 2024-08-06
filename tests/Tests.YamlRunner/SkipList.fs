@@ -36,6 +36,9 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
     SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
 
+    // TODO: Uses `indices.create_data_stream` which doesn't yet exist in the client
+    SkipFile "indices.delete_index_template/10_basic.yml", Section "Delete index template which is not used by data stream but index pattern matches"
+
     // Variations of `indices.put_alias` that accept index/alias in request body rather than path which are not supported by .NET client
     // https://github.com/opensearch-project/opensearch-net/issues/718
     SkipFile "indices.put_alias/10_basic.yml", All
