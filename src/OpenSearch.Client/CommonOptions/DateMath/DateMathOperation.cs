@@ -32,29 +32,29 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum DateMathOperation
-	{
-		[EnumMember(Value = "+")]
-		Add,
+    [StringEnum]
+    public enum DateMathOperation
+    {
+        [EnumMember(Value = "+")]
+        Add,
 
-		[EnumMember(Value = "-")]
-		Subtract
-	}
+        [EnumMember(Value = "-")]
+        Subtract
+    }
 
-	public static class DateMathOperationExtensions
-	{
-		public static string GetStringValue(this DateMathOperation value)
-		{
-			switch (value)
-			{
-				case DateMathOperation.Add:
-					return "+";
-				case DateMathOperation.Subtract:
-					return "-";
-				default:
-					throw new ArgumentOutOfRangeException(nameof(value), value, null);
-			}
-		}
-	}
+    public static class DateMathOperationExtensions
+    {
+        public static string GetStringValue(this DateMathOperation value)
+        {
+            switch (value)
+            {
+                case DateMathOperation.Add:
+                    return "+";
+                case DateMathOperation.Subtract:
+                    return "-";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
+            }
+        }
+    }
 }

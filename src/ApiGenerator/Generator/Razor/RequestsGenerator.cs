@@ -48,21 +48,21 @@ namespace ApiGenerator.Generator.Razor
         {
             await DoRazor(spec, View("PlainRequestBase"), Target(), token);
 
-			await DoRazor(HttpMethod.All, View("Requests.Http"), Target("Http"), token);
+            await DoRazor(HttpMethod.All, View("Requests.Http"), Target("Http"), token);
 
-			await DoRazorDependantFiles(
-				progressBar,
-				spec.EndpointsPerNamespaceHighLevel.ToList(),
-				View("Requests"),
-				kv => kv.Key,
-				Target,
-				token);
+            await DoRazorDependantFiles(
+                progressBar,
+                spec.EndpointsPerNamespaceHighLevel.ToList(),
+                View("Requests"),
+                kv => kv.Key,
+                Target,
+                token);
 
-			return;
+            return;
 
-			string View(string name) => ViewLocations.HighLevel("Requests", $"{name}.cshtml");
+            string View(string name) => ViewLocations.HighLevel("Requests", $"{name}.cshtml");
 
-			string Target(string id = null) => GeneratorLocations.HighLevel($"Requests{(id != null ? $".{id}" : string.Empty)}.cs");
-		}
+            string Target(string id = null) => GeneratorLocations.HighLevel($"Requests{(id != null ? $".{id}" : string.Empty)}.cs");
+        }
     }
 }

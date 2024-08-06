@@ -54,33 +54,33 @@ using System;
 
 namespace OpenSearch.Net.Utf8Json.Internal
 {
-	internal struct ArrayBuffer<T>
-	{
-		public T[] Buffer;
-		public int Size;
+    internal struct ArrayBuffer<T>
+    {
+        public T[] Buffer;
+        public int Size;
 
-		public ArrayBuffer(int initialSize)
-		{
-			Buffer = new T[initialSize];
-			Size = 0;
-		}
+        public ArrayBuffer(int initialSize)
+        {
+            Buffer = new T[initialSize];
+            Size = 0;
+        }
 
-		public void Add(T value)
-		{
-			if (Size >= Buffer.Length)
-				Array.Resize(ref Buffer, Size * 2);
+        public void Add(T value)
+        {
+            if (Size >= Buffer.Length)
+                Array.Resize(ref Buffer, Size * 2);
 
-			Buffer[Size++] = value;
-		}
+            Buffer[Size++] = value;
+        }
 
-		public T[] ToArray()
-		{
-			if (Buffer.Length == Size)
-				return Buffer;
+        public T[] ToArray()
+        {
+            if (Buffer.Length == Size)
+                return Buffer;
 
-			var result = new T[Size];
-			Array.Copy(Buffer, result, Size);
-			return result;
-		}
-	}
+            var result = new T[Size];
+            Array.Copy(Buffer, result, Size);
+            return result;
+        }
+    }
 }

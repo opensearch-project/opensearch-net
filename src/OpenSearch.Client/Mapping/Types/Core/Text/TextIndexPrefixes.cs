@@ -31,31 +31,31 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(TextIndexPrefixes))]
-	public interface ITextIndexPrefixes
-	{
-		[DataMember(Name ="max_chars")]
-		int? MaxCharacters { get; set; }
+    [InterfaceDataContract]
+    [ReadAs(typeof(TextIndexPrefixes))]
+    public interface ITextIndexPrefixes
+    {
+        [DataMember(Name = "max_chars")]
+        int? MaxCharacters { get; set; }
 
-		[DataMember(Name ="min_chars")]
-		int? MinCharacters { get; set; }
-	}
+        [DataMember(Name = "min_chars")]
+        int? MinCharacters { get; set; }
+    }
 
-	public class TextIndexPrefixes : ITextIndexPrefixes
-	{
-		public int? MaxCharacters { get; set; }
-		public int? MinCharacters { get; set; }
-	}
+    public class TextIndexPrefixes : ITextIndexPrefixes
+    {
+        public int? MaxCharacters { get; set; }
+        public int? MinCharacters { get; set; }
+    }
 
-	public class TextIndexPrefixesDescriptor
-		: DescriptorBase<TextIndexPrefixesDescriptor, ITextIndexPrefixes>, ITextIndexPrefixes
-	{
-		int? ITextIndexPrefixes.MaxCharacters { get; set; }
-		int? ITextIndexPrefixes.MinCharacters { get; set; }
+    public class TextIndexPrefixesDescriptor
+        : DescriptorBase<TextIndexPrefixesDescriptor, ITextIndexPrefixes>, ITextIndexPrefixes
+    {
+        int? ITextIndexPrefixes.MaxCharacters { get; set; }
+        int? ITextIndexPrefixes.MinCharacters { get; set; }
 
-		public TextIndexPrefixesDescriptor MinCharacters(int? min) => Assign(min, (a, v) => a.MinCharacters = v);
+        public TextIndexPrefixesDescriptor MinCharacters(int? min) => Assign(min, (a, v) => a.MinCharacters = v);
 
-		public TextIndexPrefixesDescriptor MaxCharacters(int? max) => Assign(max, (a, v) => a.MaxCharacters = v);
-	}
+        public TextIndexPrefixesDescriptor MaxCharacters(int? max) => Assign(max, (a, v) => a.MaxCharacters = v);
+    }
 }

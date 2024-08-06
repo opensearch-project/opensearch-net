@@ -28,13 +28,13 @@
 
 namespace OpenSearch.Client
 {
-	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-	[MapsApi("indices.exists_type.json")]
-	public partial interface ITypeExistsRequest { }
+    ///<remarks>Deprecated as of OpenSearch 2.0</remarks>
+    [MapsApi("indices.exists_type.json")]
+    public partial interface ITypeExistsRequest { }
 
-	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-	public partial class TypeExistsRequest { }
+    ///<remarks>Deprecated as of OpenSearch 2.0</remarks>
+    public partial class TypeExistsRequest { }
 
-	///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-	public partial class TypeExistsDescriptor { }
+    ///<remarks>Deprecated as of OpenSearch 2.0</remarks>
+    public partial class TypeExistsDescriptor { }
 }

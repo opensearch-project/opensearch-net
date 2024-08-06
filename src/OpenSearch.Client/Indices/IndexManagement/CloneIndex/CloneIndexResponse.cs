@@ -30,15 +30,15 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public class CloneIndexResponse : AcknowledgedResponseBase
-	{
-		[DataMember(Name = "shards_acknowledged")]
-		public bool ShardsAcknowledged { get; set; }
+    public class CloneIndexResponse : AcknowledgedResponseBase
+    {
+        [DataMember(Name = "shards_acknowledged")]
+        public bool ShardsAcknowledged { get; set; }
 
-		/// <summary>
-		/// The target index created
-		/// </summary>
-		[DataMember(Name = "index")]
-		public string Index { get; set; }
-	}
+        /// <summary>
+        /// The target index created
+        /// </summary>
+        [DataMember(Name = "index")]
+        public string Index { get; set; }
+    }
 }

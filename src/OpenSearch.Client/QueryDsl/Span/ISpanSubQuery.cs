@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public interface ISpanSubQuery : IQuery { }
+    public interface ISpanSubQuery : IQuery { }
 }

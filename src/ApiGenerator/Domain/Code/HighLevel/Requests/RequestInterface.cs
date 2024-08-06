@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Requests 
+namespace ApiGenerator.Domain.Code.HighLevel.Requests
 {
     public class RequestInterface
     {
@@ -42,9 +42,9 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
         /// implementations
         /// </summary>
         public IReadOnlyCollection<QueryParameters> PartialParameters { get; set; }
-        
+
         public string OfficialDocumentationLink { get; set; }
-        
+
         public CsharpNames CsharpNames { get; set; }
 
         private bool GenerateOnlyGenericInterface => CodeConfiguration.GenericOnlyInterfaces.Contains(CsharpNames.RequestInterfaceName);

@@ -29,9 +29,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;

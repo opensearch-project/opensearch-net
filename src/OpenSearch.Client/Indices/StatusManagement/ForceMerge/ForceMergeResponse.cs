@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class ForceMergeResponse : ShardsOperationResponseBase { }
+    public class ForceMergeResponse : ShardsOperationResponseBase { }
 }

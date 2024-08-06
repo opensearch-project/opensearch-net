@@ -35,37 +35,37 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	/// <summary>The built in internal serializer that the high level client OpenSearch.Client uses.</summary>
-	internal class DefaultHighLevelSerializer : IOpenSearchSerializer, IInternalSerializer
-	{
-		public DefaultHighLevelSerializer(IJsonFormatterResolver formatterResolver) => FormatterResolver = formatterResolver;
+    /// <summary>The built in internal serializer that the high level client OpenSearch.Client uses.</summary>
+    internal class DefaultHighLevelSerializer : IOpenSearchSerializer, IInternalSerializer
+    {
+        public DefaultHighLevelSerializer(IJsonFormatterResolver formatterResolver) => FormatterResolver = formatterResolver;
 
-		private IJsonFormatterResolver FormatterResolver { get; }
+        private IJsonFormatterResolver FormatterResolver { get; }
 
-		bool IInternalSerializer.TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
-		{
-			formatterResolver = FormatterResolver;
-			return true;
-		}
+        bool IInternalSerializer.TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
+        {
+            formatterResolver = FormatterResolver;
+            return true;
+        }
 
-		public T Deserialize<T>(Stream stream) =>
-			JsonSerializer.Deserialize<T>(stream, FormatterResolver);
+        public T Deserialize<T>(Stream stream) =>
+            JsonSerializer.Deserialize<T>(stream, FormatterResolver);
 
-		public object Deserialize(Type type, Stream stream) =>
-			JsonSerializer.NonGeneric.Deserialize(type, stream, FormatterResolver);
+        public object Deserialize(Type type, Stream stream) =>
+            JsonSerializer.NonGeneric.Deserialize(type, stream, FormatterResolver);
 
-		public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
-			JsonSerializer.DeserializeAsync<T>(stream, FormatterResolver);
+        public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
+            JsonSerializer.DeserializeAsync<T>(stream, FormatterResolver);
 
-		public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
-			JsonSerializer.NonGeneric.DeserializeAsync(type, stream, FormatterResolver);
+        public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
+            JsonSerializer.NonGeneric.DeserializeAsync(type, stream, FormatterResolver);
 
-		public virtual void Serialize<T>(T data, Stream writableStream, SerializationFormatting formatting = SerializationFormatting.None) =>
-			JsonSerializer.Serialize(writableStream, data, FormatterResolver);
+        public virtual void Serialize<T>(T data, Stream writableStream, SerializationFormatting formatting = SerializationFormatting.None) =>
+            JsonSerializer.Serialize(writableStream, data, FormatterResolver);
 
-		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
-			CancellationToken cancellationToken = default
-		) => JsonSerializer.SerializeAsync(stream, data, FormatterResolver);
+        public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+            CancellationToken cancellationToken = default
+        ) => JsonSerializer.SerializeAsync(stream, data, FormatterResolver);
 
-	}
+    }
 }

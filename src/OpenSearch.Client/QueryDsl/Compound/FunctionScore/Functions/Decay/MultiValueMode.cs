@@ -32,19 +32,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum MultiValueMode
-	{
-		[EnumMember(Value = "min")]
-		Min,
+    [StringEnum]
+    public enum MultiValueMode
+    {
+        [EnumMember(Value = "min")]
+        Min,
 
-		[EnumMember(Value = "max")]
-		Max,
+        [EnumMember(Value = "max")]
+        Max,
 
-		[EnumMember(Value = "avg")]
-		Average,
+        [EnumMember(Value = "avg")]
+        Average,
 
-		[EnumMember(Value = "sum")]
-		Sum
-	}
+        [EnumMember(Value = "sum")]
+        Sum
+    }
 }

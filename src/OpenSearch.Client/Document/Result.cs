@@ -31,24 +31,24 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum Result
-	{
-		Error,
+    [StringEnum]
+    public enum Result
+    {
+        Error,
 
-		[EnumMember(Value = "created")]
-		Created,
+        [EnumMember(Value = "created")]
+        Created,
 
-		[EnumMember(Value = "updated")]
-		Updated,
+        [EnumMember(Value = "updated")]
+        Updated,
 
-		[EnumMember(Value = "deleted")]
-		Deleted,
+        [EnumMember(Value = "deleted")]
+        Deleted,
 
-		[EnumMember(Value = "not_found")]
-		NotFound,
+        [EnumMember(Value = "not_found")]
+        NotFound,
 
-		[EnumMember(Value = "noop")]
-		Noop
-	}
+        [EnumMember(Value = "noop")]
+        Noop
+    }
 }

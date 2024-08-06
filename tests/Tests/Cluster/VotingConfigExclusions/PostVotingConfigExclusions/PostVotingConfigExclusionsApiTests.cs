@@ -28,10 +28,10 @@
 
 using System;
 using System.Threading;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Cluster.TaskManagement.GetTask;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -42,27 +42,27 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Cluster.VotingConfigExclusions.PostVotingConfigExclusions
 {
-	public class PostVotingConfigExclusionsApiTests : ApiIntegrationTestBase<WritableCluster, PostVotingConfigExclusionsResponse, IPostVotingConfigExclusionsRequest, PostVotingConfigExclusionsDescriptor, PostVotingConfigExclusionsRequest>
-	{
-		public PostVotingConfigExclusionsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class PostVotingConfigExclusionsApiTests : ApiIntegrationTestBase<WritableCluster, PostVotingConfigExclusionsResponse, IPostVotingConfigExclusionsRequest, PostVotingConfigExclusionsDescriptor, PostVotingConfigExclusionsRequest>
+    {
+        public PostVotingConfigExclusionsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
 
-		protected override Func<PostVotingConfigExclusionsDescriptor, IPostVotingConfigExclusionsRequest> Fluent => s => s
-			.NodeNames("node1", "node2");
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+        protected override Func<PostVotingConfigExclusionsDescriptor, IPostVotingConfigExclusionsRequest> Fluent => s => s
+            .NodeNames("node1", "node2");
+        protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override PostVotingConfigExclusionsRequest Initializer => new() { NodeNames = new[] { "node1", "node2" } };
-		protected override string UrlPath => $"/_cluster/voting_config_exclusions?node_names=node1%2Cnode2";
+        protected override PostVotingConfigExclusionsRequest Initializer => new() { NodeNames = new[] { "node1", "node2" } };
+        protected override string UrlPath => $"/_cluster/voting_config_exclusions?node_names=node1%2Cnode2";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.PostVotingConfigExclusions(f),
-			(client, f) => client.Cluster.PostVotingConfigExclusionsAsync(f),
-			(client, r) => client.Cluster.PostVotingConfigExclusions(r),
-			(client, r) => client.Cluster.PostVotingConfigExclusionsAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Cluster.PostVotingConfigExclusions(f),
+            (client, f) => client.Cluster.PostVotingConfigExclusionsAsync(f),
+            (client, r) => client.Cluster.PostVotingConfigExclusions(r),
+            (client, r) => client.Cluster.PostVotingConfigExclusionsAsync(r)
+        );
 
-		protected override void ExpectResponse(PostVotingConfigExclusionsResponse response) => response.ShouldBeValid();
-	}
+        protected override void ExpectResponse(PostVotingConfigExclusionsResponse response) => response.ShouldBeValid();
+    }
 }

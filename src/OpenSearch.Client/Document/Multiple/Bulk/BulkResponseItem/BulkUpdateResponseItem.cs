@@ -31,10 +31,10 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	[JsonFormatter(typeof(ConcreteBulkIndexResponseItemFormatter<BulkUpdateResponseItem>))]
-	public class BulkUpdateResponseItem : BulkResponseItemBase
-	{
-		public override string Operation { get; } = "update";
-	}
+    [DataContract]
+    [JsonFormatter(typeof(ConcreteBulkIndexResponseItemFormatter<BulkUpdateResponseItem>))]
+    public class BulkUpdateResponseItem : BulkResponseItemBase
+    {
+        public override string Operation { get; } = "update";
+    }
 }

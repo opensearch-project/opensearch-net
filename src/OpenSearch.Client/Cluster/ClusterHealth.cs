@@ -31,16 +31,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum ClusterStatus
-	{
-		[EnumMember(Value = "green")]
-		Green,
+    [StringEnum]
+    public enum ClusterStatus
+    {
+        [EnumMember(Value = "green")]
+        Green,
 
-		[EnumMember(Value = "yellow")]
-		Yellow,
+        [EnumMember(Value = "yellow")]
+        Yellow,
 
-		[EnumMember(Value = "red")]
-		Red
-	}
+        [EnumMember(Value = "red")]
+        Red
+    }
 }

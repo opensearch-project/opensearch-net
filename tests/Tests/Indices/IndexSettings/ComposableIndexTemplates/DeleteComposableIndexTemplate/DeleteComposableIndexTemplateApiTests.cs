@@ -14,20 +14,20 @@ using Tests.Framework.EndpointTests.TestState;
 namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.DeleteComposableIndexTemplate;
 
 public class DeleteComposableIndexTemplateApiTests
-	: ApiTestBase<WritableCluster, DeleteComposableIndexTemplateResponse, IDeleteComposableIndexTemplateRequest,
-		DeleteComposableIndexTemplateDescriptor, DeleteComposableIndexTemplateRequest>
+    : ApiTestBase<WritableCluster, DeleteComposableIndexTemplateResponse, IDeleteComposableIndexTemplateRequest,
+        DeleteComposableIndexTemplateDescriptor, DeleteComposableIndexTemplateRequest>
 {
-	public DeleteComposableIndexTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DeleteComposableIndexTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-	protected override DeleteComposableIndexTemplateRequest Initializer => new(CallIsolatedValue);
-	protected override string UrlPath => $"/_index_template/{CallIsolatedValue}";
+    protected override DeleteComposableIndexTemplateRequest Initializer => new(CallIsolatedValue);
+    protected override string UrlPath => $"/_index_template/{CallIsolatedValue}";
 
-	protected override LazyResponses ClientUsage() => Calls(
-		(client, f) => client.Indices.DeleteComposableTemplate(CallIsolatedValue),
-		(client, f) => client.Indices.DeleteComposableTemplateAsync(CallIsolatedValue),
-		(client, r) => client.Indices.DeleteComposableTemplate(r),
-		(client, r) => client.Indices.DeleteComposableTemplateAsync(r)
-	);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.DeleteComposableTemplate(CallIsolatedValue),
+        (client, f) => client.Indices.DeleteComposableTemplateAsync(CallIsolatedValue),
+        (client, r) => client.Indices.DeleteComposableTemplate(r),
+        (client, r) => client.Indices.DeleteComposableTemplateAsync(r)
+    );
 }

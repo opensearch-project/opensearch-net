@@ -31,26 +31,26 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class GeoLineAggregate : MetricAggregateBase
-	{
-		[DataMember(Name = "type")]
-		public string Type { get; set; }
+    [DataContract]
+    public class GeoLineAggregate : MetricAggregateBase
+    {
+        [DataMember(Name = "type")]
+        public string Type { get; set; }
 
-		[DataMember(Name = "geometry")]
-		public LineStringGeoShape Geometry { get; set; }
+        [DataMember(Name = "geometry")]
+        public LineStringGeoShape Geometry { get; set; }
 
-		[DataMember(Name = "properties")]
-		public GeoLineProperties Properties { get; set; }
-	}
+        [DataMember(Name = "properties")]
+        public GeoLineProperties Properties { get; set; }
+    }
 
-	[DataContract]
-	public class GeoLineProperties
-	{
-		[DataMember(Name = "complete")]
-		public bool Complete { get; set; }
+    [DataContract]
+    public class GeoLineProperties
+    {
+        [DataMember(Name = "complete")]
+        public bool Complete { get; set; }
 
-		[DataMember(Name = "sort_values")]
-		public IEnumerable<double> SortValues { get; set; }
-	}
+        [DataMember(Name = "sort_values")]
+        public IEnumerable<double> SortValues { get; set; }
+    }
 }

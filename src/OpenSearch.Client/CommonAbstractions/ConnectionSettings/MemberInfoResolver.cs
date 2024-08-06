@@ -32,20 +32,20 @@ using System.Reflection;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// Resolves member infos in an expression, instance may NOT be shared.
-	/// </summary>
-	public class MemberInfoResolver : ExpressionVisitor
-	{
-		// ReSharper disable once VirtualMemberCallInConstructor
-		public MemberInfoResolver(Expression expression) => Visit(expression);
+    /// <summary>
+    /// Resolves member infos in an expression, instance may NOT be shared.
+    /// </summary>
+    public class MemberInfoResolver : ExpressionVisitor
+    {
+        // ReSharper disable once VirtualMemberCallInConstructor
+        public MemberInfoResolver(Expression expression) => Visit(expression);
 
-		public IList<MemberInfo> Members { get; } = new List<MemberInfo>();
+        public IList<MemberInfo> Members { get; } = new List<MemberInfo>();
 
-		protected override Expression VisitMember(MemberExpression expression)
-		{
-			Members.Add(expression.Member);
-			return base.VisitMember(expression);
-		}
-	}
+        protected override Expression VisitMember(MemberExpression expression)
+        {
+            Members.Add(expression.Member);
+            return base.VisitMember(expression);
+        }
+    }
 }

@@ -24,61 +24,61 @@ namespace Tests.Search.PointInTime;
 [Collection("PitApiTests")]
 [SkipVersion("<2.4.0", "Point-In-Time search support was added in version 2.4.0")]
 public class DeleteAllPitsApiTests
-	: ApiIntegrationTestBase<WritableCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
+    : ApiIntegrationTestBase<WritableCluster, DeleteAllPitsResponse, IDeleteAllPitsRequest, DeleteAllPitsDescriptor, DeleteAllPitsRequest>
 {
-	public DeleteAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DeleteAllPitsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	private List<string> PitIds
-	{
-		get => ExtendedValue<List<string>>(nameof(PitIds));
-		set => ExtendedValue(nameof(PitIds), value);
-	}
+    private List<string> PitIds
+    {
+        get => ExtendedValue<List<string>>(nameof(PitIds));
+        set => ExtendedValue(nameof(PitIds), value);
+    }
 
-	protected override bool ExpectIsValid => true;
+    protected override bool ExpectIsValid => true;
 
-	protected override object ExpectJson => null;
+    protected override object ExpectJson => null;
 
-	protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-	protected override Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> Fluent => d => d;
-	protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> Fluent => d => d;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-	protected override DeleteAllPitsRequest Initializer => new();
-	protected override bool SupportsDeserialization => false;
-	protected override string UrlPath => "/_search/point_in_time/_all";
+    protected override DeleteAllPitsRequest Initializer => new();
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => "/_search/point_in_time/_all";
 
-	protected override LazyResponses ClientUsage() => Calls(
-		(c, f) => c.DeleteAllPits(f),
-		(c, f) => c.DeleteAllPitsAsync(f),
-		(c, r) => c.DeleteAllPits(r),
-		(c, r) => c.DeleteAllPitsAsync(r)
-	);
+    protected override LazyResponses ClientUsage() => Calls(
+        (c, f) => c.DeleteAllPits(f),
+        (c, f) => c.DeleteAllPitsAsync(f),
+        (c, r) => c.DeleteAllPits(r),
+        (c, r) => c.DeleteAllPitsAsync(r)
+    );
 
-	protected override DeleteAllPitsDescriptor NewDescriptor() => new();
+    protected override DeleteAllPitsDescriptor NewDescriptor() => new();
 
-	protected override void ExpectResponse(DeleteAllPitsResponse response)
-	{
-		response.ShouldBeValid();
-		response.Pits.Should()
-			.NotBeNull()
-			.And.HaveCount(5)
-			.And.BeEquivalentTo(PitIds.Select(p => new DeletedPit
-			{
-				PitId = p,
-				Successful = true
-			}));
-	}
+    protected override void ExpectResponse(DeleteAllPitsResponse response)
+    {
+        response.ShouldBeValid();
+        response.Pits.Should()
+            .NotBeNull()
+            .And.HaveCount(5)
+            .And.BeEquivalentTo(PitIds.Select(p => new DeletedPit
+            {
+                PitId = p,
+                Successful = true
+            }));
+    }
 
-	protected override void OnBeforeCall(IOpenSearchClient client)
-	{
-		PitIds = new List<string>();
-		for (var i = 0; i < 5; i++)
-		{
-			var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
-			if (!pit.IsValid)
-				throw new Exception("Setup: Initial PIT failed.");
+    protected override void OnBeforeCall(IOpenSearchClient client)
+    {
+        PitIds = new List<string>();
+        for (var i = 0; i < 5; i++)
+        {
+            var pit = Client.CreatePit(OpenSearch.Client.Indices.Index<Project>(), c => c.KeepAlive("1h"));
+            if (!pit.IsValid)
+                throw new Exception("Setup: Initial PIT failed.");
 
-			PitIds.Add(pit.PitId);
-		}
-	}
+            PitIds.Add(pit.PitId);
+        }
+    }
 }

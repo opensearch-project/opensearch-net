@@ -30,21 +30,22 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(MaxAggregation))]
-	public interface IMaxAggregation : IFormattableMetricAggregation { }
+    [InterfaceDataContract]
+    [ReadAs(typeof(MaxAggregation))]
+    public interface IMaxAggregation : IFormattableMetricAggregation { }
 
-	public class MaxAggregation : FormattableMetricAggregationBase, IMaxAggregation
-	{
-		internal MaxAggregation() { }
+    public class MaxAggregation : FormattableMetricAggregationBase, IMaxAggregation
+    {
+        internal MaxAggregation() { }
 
-		public MaxAggregation(string name, Field field) : base(name, field) { }
+        public MaxAggregation(string name, Field field) : base(name, field) { }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.Max = this;
-	}
+        internal override void WrapInContainer(AggregationContainer c) => c.Max = this;
+    }
 
-	public class MaxAggregationDescriptor<T>
-		: FormattableMetricAggregationDescriptorBase<MaxAggregationDescriptor<T>, IMaxAggregation, T>
-			, IMaxAggregation
-		where T : class { }
+    public class MaxAggregationDescriptor<T>
+        : FormattableMetricAggregationDescriptorBase<MaxAggregationDescriptor<T>, IMaxAggregation, T>
+            , IMaxAggregation
+        where T : class
+    { }
 }

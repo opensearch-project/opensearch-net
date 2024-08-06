@@ -26,28 +26,28 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Mapping.Types.Core.Range.LongRange
 {
-	public class LongRangeTest
-	{
-		[LongRange]
-		public OpenSearch.Client.LongRange Range { get; set; }
-	}
+    public class LongRangeTest
+    {
+        [LongRange]
+        public OpenSearch.Client.LongRange Range { get; set; }
+    }
 
-	public class LongRangeAttributeTests : AttributeTestsBase<LongRangeTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				range = new
-				{
-					type = "long_range"
-				}
-			}
-		};
-	}
+    public class LongRangeAttributeTests : AttributeTestsBase<LongRangeTest>
+    {
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                range = new
+                {
+                    type = "long_range"
+                }
+            }
+        };
+    }
 }

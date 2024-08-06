@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("nodes.stats.json")]
-	public partial interface INodesStatsRequest { }
+    [MapsApi("nodes.stats.json")]
+    public partial interface INodesStatsRequest { }
 
-	public partial class NodesStatsRequest { }
+    public partial class NodesStatsRequest { }
 
-	public partial class NodesStatsDescriptor { }
+    public partial class NodesStatsDescriptor { }
 }

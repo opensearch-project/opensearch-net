@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.thread_pool.json")]
-	public partial interface ICatThreadPoolRequest { }
+    [MapsApi("cat.thread_pool.json")]
+    public partial interface ICatThreadPoolRequest { }
 
-	public partial class CatThreadPoolRequest { }
+    public partial class CatThreadPoolRequest { }
 
-	public partial class CatThreadPoolDescriptor { }
+    public partial class CatThreadPoolDescriptor { }
 }

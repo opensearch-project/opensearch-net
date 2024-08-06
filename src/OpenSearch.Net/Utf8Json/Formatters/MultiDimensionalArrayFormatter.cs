@@ -54,239 +54,239 @@ using OpenSearch.Net.Utf8Json.Internal;
 
 namespace OpenSearch.Net.Utf8Json.Formatters
 {
-	// multi dimensional array serialize to [[seq], [seq]]
+    // multi dimensional array serialize to [[seq], [seq]]
 
-	internal sealed class TwoDimensionalArrayFormatter<T> : IJsonFormatter<T[,]>
-	{
-		public void Serialize(ref JsonWriter writer, T[,] value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
-				var formatter = formatterResolver.GetFormatterWithVerify<T>();
+    internal sealed class TwoDimensionalArrayFormatter<T> : IJsonFormatter<T[,]>
+    {
+        public void Serialize(ref JsonWriter writer, T[,] value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else
+            {
+                var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-				var iLength = value.GetLength(0);
-				var jLength = value.GetLength(1);
+                var iLength = value.GetLength(0);
+                var jLength = value.GetLength(1);
 
-				writer.WriteBeginArray();
-				for (var i = 0; i < iLength; i++)
-				{
-					if (i != 0) writer.WriteValueSeparator();
-					writer.WriteBeginArray();
-					for (var j = 0; j < jLength; j++)
-					{
-						if (j != 0) writer.WriteValueSeparator();
-						formatter.Serialize(ref writer, value[i, j], formatterResolver);
-					}
-					writer.WriteEndArray();
-				}
-				writer.WriteEndArray();
-			}
-		}
+                writer.WriteBeginArray();
+                for (var i = 0; i < iLength; i++)
+                {
+                    if (i != 0) writer.WriteValueSeparator();
+                    writer.WriteBeginArray();
+                    for (var j = 0; j < jLength; j++)
+                    {
+                        if (j != 0) writer.WriteValueSeparator();
+                        formatter.Serialize(ref writer, value[i, j], formatterResolver);
+                    }
+                    writer.WriteEndArray();
+                }
+                writer.WriteEndArray();
+            }
+        }
 
-		public T[,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull()) return null;
+        public T[,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull()) return null;
 
-			var buffer = new ArrayBuffer<ArrayBuffer<T>>(4);
-			var formatter = formatterResolver.GetFormatterWithVerify<T>();
+            var buffer = new ArrayBuffer<ArrayBuffer<T>>(4);
+            var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-			var guessInnerLength = 0;
-			var outerCount = 0;
-			reader.ReadIsBeginArrayWithVerify();
-			while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
-			{
-				var innerArray = new ArrayBuffer<T>(guessInnerLength == 0 ? 4 : guessInnerLength);
-				var innerCount = 0;
-				reader.ReadIsBeginArrayWithVerify();
-				while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
-					innerArray.Add(formatter.Deserialize(ref reader, formatterResolver));
+            var guessInnerLength = 0;
+            var outerCount = 0;
+            reader.ReadIsBeginArrayWithVerify();
+            while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
+            {
+                var innerArray = new ArrayBuffer<T>(guessInnerLength == 0 ? 4 : guessInnerLength);
+                var innerCount = 0;
+                reader.ReadIsBeginArrayWithVerify();
+                while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
+                    innerArray.Add(formatter.Deserialize(ref reader, formatterResolver));
 
-				guessInnerLength = innerArray.Size;
-				buffer.Add(innerArray);
-			}
+                guessInnerLength = innerArray.Size;
+                buffer.Add(innerArray);
+            }
 
-			var t = new T[buffer.Size, guessInnerLength];
-			for (var i = 0; i < buffer.Size; i++)
-			for (var j = 0; j < guessInnerLength; j++)
-				t[i, j] = buffer.Buffer[i].Buffer[j];
+            var t = new T[buffer.Size, guessInnerLength];
+            for (var i = 0; i < buffer.Size; i++)
+                for (var j = 0; j < guessInnerLength; j++)
+                    t[i, j] = buffer.Buffer[i].Buffer[j];
 
-			return t;
-		}
-	}
+            return t;
+        }
+    }
 
-	internal sealed class ThreeDimensionalArrayFormatter<T> : IJsonFormatter<T[,,]>
-	{
-		public void Serialize(ref JsonWriter writer, T[,,] value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
-				var formatter = formatterResolver.GetFormatterWithVerify<T>();
+    internal sealed class ThreeDimensionalArrayFormatter<T> : IJsonFormatter<T[,,]>
+    {
+        public void Serialize(ref JsonWriter writer, T[,,] value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else
+            {
+                var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-				var iLength = value.GetLength(0);
-				var jLength = value.GetLength(1);
-				var kLength = value.GetLength(2);
+                var iLength = value.GetLength(0);
+                var jLength = value.GetLength(1);
+                var kLength = value.GetLength(2);
 
-				writer.WriteBeginArray();
-				for (var i = 0; i < iLength; i++)
-				{
-					if (i != 0) writer.WriteValueSeparator();
-					writer.WriteBeginArray();
-					for (var j = 0; j < jLength; j++)
-					{
-						if (j != 0) writer.WriteValueSeparator();
-						writer.WriteBeginArray();
-						for (var k = 0; k < kLength; k++)
-						{
-							if (k != 0) writer.WriteValueSeparator();
-							formatter.Serialize(ref writer, value[i, j, k], formatterResolver);
-						}
-						writer.WriteEndArray();
-					}
-					writer.WriteEndArray();
-				}
-				writer.WriteEndArray();
-			}
-		}
+                writer.WriteBeginArray();
+                for (var i = 0; i < iLength; i++)
+                {
+                    if (i != 0) writer.WriteValueSeparator();
+                    writer.WriteBeginArray();
+                    for (var j = 0; j < jLength; j++)
+                    {
+                        if (j != 0) writer.WriteValueSeparator();
+                        writer.WriteBeginArray();
+                        for (var k = 0; k < kLength; k++)
+                        {
+                            if (k != 0) writer.WriteValueSeparator();
+                            formatter.Serialize(ref writer, value[i, j, k], formatterResolver);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    writer.WriteEndArray();
+                }
+                writer.WriteEndArray();
+            }
+        }
 
-		public T[,,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull()) return null;
+        public T[,,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull()) return null;
 
-			var buffer = new ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>(4);
-			var formatter = formatterResolver.GetFormatterWithVerify<T>();
+            var buffer = new ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>(4);
+            var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-			var guessInnerLength2 = 0;
-			var guessInnerLength = 0;
-			var outerCount = 0;
-			reader.ReadIsBeginArrayWithVerify();
-			while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
-			{
-				var innerArray = new ArrayBuffer<ArrayBuffer<T>>(guessInnerLength == 0 ? 4 : guessInnerLength);
-				var innerCount = 0;
-				reader.ReadIsBeginArrayWithVerify();
-				while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
-				{
-					var innerArray2 = new ArrayBuffer<T>(guessInnerLength2 == 0 ? 4 : guessInnerLength2);
-					var innerCount2 = 0;
-					reader.ReadIsBeginArrayWithVerify();
-					while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount2))
-						innerArray2.Add(formatter.Deserialize(ref reader, formatterResolver));
+            var guessInnerLength2 = 0;
+            var guessInnerLength = 0;
+            var outerCount = 0;
+            reader.ReadIsBeginArrayWithVerify();
+            while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
+            {
+                var innerArray = new ArrayBuffer<ArrayBuffer<T>>(guessInnerLength == 0 ? 4 : guessInnerLength);
+                var innerCount = 0;
+                reader.ReadIsBeginArrayWithVerify();
+                while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
+                {
+                    var innerArray2 = new ArrayBuffer<T>(guessInnerLength2 == 0 ? 4 : guessInnerLength2);
+                    var innerCount2 = 0;
+                    reader.ReadIsBeginArrayWithVerify();
+                    while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount2))
+                        innerArray2.Add(formatter.Deserialize(ref reader, formatterResolver));
 
-					guessInnerLength2 = innerArray2.Size;
-					innerArray.Add(innerArray2);
-				}
+                    guessInnerLength2 = innerArray2.Size;
+                    innerArray.Add(innerArray2);
+                }
 
-				guessInnerLength = innerArray.Size;
-				buffer.Add(innerArray);
-			}
+                guessInnerLength = innerArray.Size;
+                buffer.Add(innerArray);
+            }
 
-			var t = new T[buffer.Size, guessInnerLength, guessInnerLength2];
-			for (var i = 0; i < buffer.Size; i++)
-			for (var j = 0; j < guessInnerLength; j++)
-			for (var k = 0; k < guessInnerLength2; k++)
-				t[i, j, k] = buffer.Buffer[i].Buffer[j].Buffer[k];
+            var t = new T[buffer.Size, guessInnerLength, guessInnerLength2];
+            for (var i = 0; i < buffer.Size; i++)
+                for (var j = 0; j < guessInnerLength; j++)
+                    for (var k = 0; k < guessInnerLength2; k++)
+                        t[i, j, k] = buffer.Buffer[i].Buffer[j].Buffer[k];
 
-			return t;
-		}
-	}
+            return t;
+        }
+    }
 
-	internal sealed class FourDimensionalArrayFormatter<T> : IJsonFormatter<T[,,,]>
-	{
-		public void Serialize(ref JsonWriter writer, T[,,,] value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
-				var formatter = formatterResolver.GetFormatterWithVerify<T>();
+    internal sealed class FourDimensionalArrayFormatter<T> : IJsonFormatter<T[,,,]>
+    {
+        public void Serialize(ref JsonWriter writer, T[,,,] value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else
+            {
+                var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-				var iLength = value.GetLength(0);
-				var jLength = value.GetLength(1);
-				var kLength = value.GetLength(2);
-				var lLength = value.GetLength(3);
+                var iLength = value.GetLength(0);
+                var jLength = value.GetLength(1);
+                var kLength = value.GetLength(2);
+                var lLength = value.GetLength(3);
 
-				writer.WriteBeginArray();
-				for (var i = 0; i < iLength; i++)
-				{
-					if (i != 0) writer.WriteValueSeparator();
-					writer.WriteBeginArray();
-					for (var j = 0; j < jLength; j++)
-					{
-						if (j != 0) writer.WriteValueSeparator();
-						writer.WriteBeginArray();
-						for (var k = 0; k < kLength; k++)
-						{
-							if (k != 0) writer.WriteValueSeparator();
-							writer.WriteBeginArray();
-							for (var l = 0; l < lLength; l++)
-							{
-								if (l != 0) writer.WriteValueSeparator();
-								formatter.Serialize(ref writer, value[i, j, k, l], formatterResolver);
-							}
-							writer.WriteEndArray();
-						}
-						writer.WriteEndArray();
-					}
-					writer.WriteEndArray();
-				}
-				writer.WriteEndArray();
-			}
-		}
+                writer.WriteBeginArray();
+                for (var i = 0; i < iLength; i++)
+                {
+                    if (i != 0) writer.WriteValueSeparator();
+                    writer.WriteBeginArray();
+                    for (var j = 0; j < jLength; j++)
+                    {
+                        if (j != 0) writer.WriteValueSeparator();
+                        writer.WriteBeginArray();
+                        for (var k = 0; k < kLength; k++)
+                        {
+                            if (k != 0) writer.WriteValueSeparator();
+                            writer.WriteBeginArray();
+                            for (var l = 0; l < lLength; l++)
+                            {
+                                if (l != 0) writer.WriteValueSeparator();
+                                formatter.Serialize(ref writer, value[i, j, k, l], formatterResolver);
+                            }
+                            writer.WriteEndArray();
+                        }
+                        writer.WriteEndArray();
+                    }
+                    writer.WriteEndArray();
+                }
+                writer.WriteEndArray();
+            }
+        }
 
-		public T[,,,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull()) return null;
+        public T[,,,] Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull()) return null;
 
-			var buffer = new ArrayBuffer<ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>>(4);
-			var formatter = formatterResolver.GetFormatterWithVerify<T>();
+            var buffer = new ArrayBuffer<ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>>(4);
+            var formatter = formatterResolver.GetFormatterWithVerify<T>();
 
-			var guessInnerLength3 = 0;
-			var guessInnerLength2 = 0;
-			var guessInnerLength = 0;
-			var outerCount = 0;
-			reader.ReadIsBeginArrayWithVerify();
-			while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
-			{
-				var innerArray = new ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>(guessInnerLength == 0 ? 4 : guessInnerLength);
-				var innerCount = 0;
-				reader.ReadIsBeginArrayWithVerify();
-				while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
-				{
-					var innerArray2 = new ArrayBuffer<ArrayBuffer<T>>(guessInnerLength2 == 0 ? 4 : guessInnerLength2);
-					var innerCount2 = 0;
-					reader.ReadIsBeginArrayWithVerify();
-					while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount2))
-					{
-						var innerArray3 = new ArrayBuffer<T>(guessInnerLength3 == 0 ? 4 : guessInnerLength3);
-						var innerCount3 = 0;
-						reader.ReadIsBeginArrayWithVerify();
-						while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount3))
-							innerArray3.Add(formatter.Deserialize(ref reader, formatterResolver));
+            var guessInnerLength3 = 0;
+            var guessInnerLength2 = 0;
+            var guessInnerLength = 0;
+            var outerCount = 0;
+            reader.ReadIsBeginArrayWithVerify();
+            while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref outerCount))
+            {
+                var innerArray = new ArrayBuffer<ArrayBuffer<ArrayBuffer<T>>>(guessInnerLength == 0 ? 4 : guessInnerLength);
+                var innerCount = 0;
+                reader.ReadIsBeginArrayWithVerify();
+                while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount))
+                {
+                    var innerArray2 = new ArrayBuffer<ArrayBuffer<T>>(guessInnerLength2 == 0 ? 4 : guessInnerLength2);
+                    var innerCount2 = 0;
+                    reader.ReadIsBeginArrayWithVerify();
+                    while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount2))
+                    {
+                        var innerArray3 = new ArrayBuffer<T>(guessInnerLength3 == 0 ? 4 : guessInnerLength3);
+                        var innerCount3 = 0;
+                        reader.ReadIsBeginArrayWithVerify();
+                        while (!reader.ReadIsEndArrayWithSkipValueSeparator(ref innerCount3))
+                            innerArray3.Add(formatter.Deserialize(ref reader, formatterResolver));
 
-						guessInnerLength3 = innerArray3.Size;
-						innerArray2.Add(innerArray3);
-					}
+                        guessInnerLength3 = innerArray3.Size;
+                        innerArray2.Add(innerArray3);
+                    }
 
-					guessInnerLength2 = innerArray2.Size;
-					innerArray.Add(innerArray2);
-				}
+                    guessInnerLength2 = innerArray2.Size;
+                    innerArray.Add(innerArray2);
+                }
 
-				guessInnerLength = innerArray.Size;
-				buffer.Add(innerArray);
-			}
+                guessInnerLength = innerArray.Size;
+                buffer.Add(innerArray);
+            }
 
-			var t = new T[buffer.Size, guessInnerLength, guessInnerLength2, guessInnerLength3];
-			for (var i = 0; i < buffer.Size; i++)
-			for (var j = 0; j < guessInnerLength; j++)
-			for (var k = 0; k < guessInnerLength2; k++)
-			for (var l = 0; l < guessInnerLength3; l++)
-				t[i, j, k, l] = buffer.Buffer[i].Buffer[j].Buffer[k].Buffer[l];
+            var t = new T[buffer.Size, guessInnerLength, guessInnerLength2, guessInnerLength3];
+            for (var i = 0; i < buffer.Size; i++)
+                for (var j = 0; j < guessInnerLength; j++)
+                    for (var k = 0; k < guessInnerLength2; k++)
+                        for (var l = 0; l < guessInnerLength3; l++)
+                            t[i, j, k, l] = buffer.Buffer[i].Buffer[j].Buffer[k].Buffer[l];
 
-			return t;
-		}
-	}
+            return t;
+        }
+    }
 }

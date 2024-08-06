@@ -30,9 +30,9 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class DeleteResponse : WriteResponseBase
-	{
-		public override bool IsValid => base.IsValid && Result == Result.Deleted;
-	}
+    [DataContract]
+    public class DeleteResponse : WriteResponseBase
+    {
+        public override bool IsValid => base.IsValid && Result == Result.Deleted;
+    }
 }

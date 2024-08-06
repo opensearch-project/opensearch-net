@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.delete.json")]
-	public partial interface IDeleteIndexRequest { }
+    [MapsApi("indices.delete.json")]
+    public partial interface IDeleteIndexRequest { }
 
-	public partial class DeleteIndexRequest { }
+    public partial class DeleteIndexRequest { }
 
-	public partial class DeleteIndexDescriptor { }
+    public partial class DeleteIndexDescriptor { }
 }

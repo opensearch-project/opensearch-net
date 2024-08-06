@@ -54,27 +54,27 @@ using System;
 
 namespace OpenSearch.Net.Utf8Json.Formatters
 {
-	internal sealed class AnonymousFormatter<T> : IJsonFormatter<T>
-	{
-		private readonly JsonSerializeAction<T> _serialize;
-		private readonly JsonDeserializeFunc<T> _deserialize;
+    internal sealed class AnonymousFormatter<T> : IJsonFormatter<T>
+    {
+        private readonly JsonSerializeAction<T> _serialize;
+        private readonly JsonDeserializeFunc<T> _deserialize;
 
-		public AnonymousFormatter(JsonSerializeAction<T> serialize, JsonDeserializeFunc<T> deserialize)
-		{
-			_serialize = serialize;
-			_deserialize = deserialize;
-		}
+        public AnonymousFormatter(JsonSerializeAction<T> serialize, JsonDeserializeFunc<T> deserialize)
+        {
+            _serialize = serialize;
+            _deserialize = deserialize;
+        }
 
-		public void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
-		{
-			if (_serialize == null) throw new InvalidOperationException(GetType().Name + " does not support Serialize.");
-			_serialize(ref writer, value, formatterResolver);
-		}
+        public void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
+        {
+            if (_serialize == null) throw new InvalidOperationException(GetType().Name + " does not support Serialize.");
+            _serialize(ref writer, value, formatterResolver);
+        }
 
-		public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (_deserialize == null) throw new InvalidOperationException(GetType().Name + " does not support Deserialize.");
-			return _deserialize(ref reader, formatterResolver);
-		}
-	}
+        public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (_deserialize == null) throw new InvalidOperationException(GetType().Name + " does not support Deserialize.");
+            return _deserialize(ref reader, formatterResolver);
+        }
+    }
 }

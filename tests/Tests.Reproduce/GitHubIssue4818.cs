@@ -27,20 +27,20 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-	public class GitHubIssue4818
-	{
-		[U]
-		public void ConnectionSettingsDoesNotThrowNullReferenceException()
-		{
-			IDisposable settings = new ConnectionSettings();
-			Action func = () => settings.Dispose();
-			func.Should().NotThrow<NullReferenceException>();
-		}
-	}
+    public class GitHubIssue4818
+    {
+        [U]
+        public void ConnectionSettingsDoesNotThrowNullReferenceException()
+        {
+            IDisposable settings = new ConnectionSettings();
+            Action func = () => settings.Dispose();
+            func.Should().NotThrow<NullReferenceException>();
+        }
+    }
 }

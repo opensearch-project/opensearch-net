@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	public class PercolatorAttribute : OpenSearchPropertyAttributeBase, IPercolatorProperty
-	{
-		public PercolatorAttribute() : base(FieldType.Percolator) { }
-	}
+    public class PercolatorAttribute : OpenSearchPropertyAttributeBase, IPercolatorProperty
+    {
+        public PercolatorAttribute() : base(FieldType.Percolator) { }
+    }
 }

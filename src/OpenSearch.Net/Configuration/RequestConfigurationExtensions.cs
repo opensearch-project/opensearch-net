@@ -30,17 +30,17 @@ using System;
 
 namespace OpenSearch.Net
 {
-	internal static class RequestConfigurationExtensions
-	{
-		internal static void SetRequestMetaData(this IRequestConfiguration requestConfiguration, RequestMetaData requestMetaData)
-		{
-			if (requestConfiguration is null)
-				throw new ArgumentNullException(nameof(requestConfiguration));
+    internal static class RequestConfigurationExtensions
+    {
+        internal static void SetRequestMetaData(this IRequestConfiguration requestConfiguration, RequestMetaData requestMetaData)
+        {
+            if (requestConfiguration is null)
+                throw new ArgumentNullException(nameof(requestConfiguration));
 
-			if (requestMetaData is null)
-				throw new ArgumentNullException(nameof(requestMetaData));
+            if (requestMetaData is null)
+                throw new ArgumentNullException(nameof(requestMetaData));
 
-			requestConfiguration.RequestMetaData = requestMetaData;
-		}
-	}
+            requestConfiguration.RequestMetaData = requestMetaData;
+        }
+    }
 }

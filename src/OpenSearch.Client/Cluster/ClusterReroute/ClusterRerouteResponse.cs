@@ -32,14 +32,14 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class ClusterRerouteResponse : ResponseBase
-	{
-		[DataMember(Name ="explanations")]
-		public IReadOnlyCollection<ClusterRerouteExplanation> Explanations { get; internal set; } =
-			EmptyReadOnly<ClusterRerouteExplanation>.Collection;
+    [DataContract]
+    public class ClusterRerouteResponse : ResponseBase
+    {
+        [DataMember(Name = "explanations")]
+        public IReadOnlyCollection<ClusterRerouteExplanation> Explanations { get; internal set; } =
+            EmptyReadOnly<ClusterRerouteExplanation>.Collection;
 
-		[DataMember(Name ="state")]
-		public DynamicDictionary State { get; internal set; }
-	}
+        [DataMember(Name = "state")]
+        public DynamicDictionary State { get; internal set; }
+    }
 }

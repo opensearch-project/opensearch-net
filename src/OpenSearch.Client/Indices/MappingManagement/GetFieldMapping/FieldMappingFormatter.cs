@@ -34,83 +34,83 @@ using OpenSearch.Net.Utf8Json.Resolvers;
 
 namespace OpenSearch.Client
 {
-	internal class FieldMappingFormatter : IJsonFormatter<IReadOnlyDictionary<Field, IFieldMapping>>
-	{
-		private static readonly AutomataDictionary Fields = new AutomataDictionary
-		{
-			{ "_all", 0 },
-			{ "_source", 1 },
-			{ "_routing", 2 },
-			{ "_index", 3 },
-			{ "_size", 4 }
-		};
+    internal class FieldMappingFormatter : IJsonFormatter<IReadOnlyDictionary<Field, IFieldMapping>>
+    {
+        private static readonly AutomataDictionary Fields = new AutomataDictionary
+        {
+            { "_all", 0 },
+            { "_source", 1 },
+            { "_routing", 2 },
+            { "_index", 3 },
+            { "_size", 4 }
+        };
 
-		public IReadOnlyDictionary<Field, IFieldMapping> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var fieldMappings = new Dictionary<Field, IFieldMapping>();
+        public IReadOnlyDictionary<Field, IFieldMapping> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            var fieldMappings = new Dictionary<Field, IFieldMapping>();
 
-			if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-			{
-				reader.ReadNext();
-				return fieldMappings;
-			}
+            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
+            {
+                reader.ReadNext();
+                return fieldMappings;
+            }
 
-			var count = 0;
-			IFieldMapping mapping = null;
+            var count = 0;
+            IFieldMapping mapping = null;
 
-			while (reader.ReadIsInObject(ref count))
-			{
-				var propertyName = reader.ReadPropertyNameSegmentRaw();
-				if (Fields.TryGetValue(propertyName, out var value))
-				{
-					switch (value)
-					{
-						case 0:
-							break;
-						case 1:
-							mapping = formatterResolver.GetFormatter<SourceField>()
-								.Deserialize(ref reader, formatterResolver);
-							break;
-						case 2:
-							mapping = formatterResolver.GetFormatter<RoutingField>()
-								.Deserialize(ref reader, formatterResolver);
-							break;
-						case 3:
-							break;
-						case 4:
-							mapping = formatterResolver.GetFormatter<SizeField>()
-								.Deserialize(ref reader, formatterResolver);
-							break;
-					}
-				}
-				else
-				{
-					var property = formatterResolver.GetFormatter<IProperty>()
-						.Deserialize(ref reader, formatterResolver);
+            while (reader.ReadIsInObject(ref count))
+            {
+                var propertyName = reader.ReadPropertyNameSegmentRaw();
+                if (Fields.TryGetValue(propertyName, out var value))
+                {
+                    switch (value)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            mapping = formatterResolver.GetFormatter<SourceField>()
+                                .Deserialize(ref reader, formatterResolver);
+                            break;
+                        case 2:
+                            mapping = formatterResolver.GetFormatter<RoutingField>()
+                                .Deserialize(ref reader, formatterResolver);
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            mapping = formatterResolver.GetFormatter<SizeField>()
+                                .Deserialize(ref reader, formatterResolver);
+                            break;
+                    }
+                }
+                else
+                {
+                    var property = formatterResolver.GetFormatter<IProperty>()
+                        .Deserialize(ref reader, formatterResolver);
 
-					if (property != null)
-						property.Name =
-							propertyName.Utf8String();
+                    if (property != null)
+                        property.Name =
+                            propertyName.Utf8String();
 
-					mapping = property;
-				}
+                    mapping = property;
+                }
 
-				if (mapping != null)
-				{
-					var name = propertyName.Utf8String();
-					fieldMappings.Add(name, mapping);
-				}
-			}
+                if (mapping != null)
+                {
+                    var name = propertyName.Utf8String();
+                    fieldMappings.Add(name, mapping);
+                }
+            }
 
-			var settings = formatterResolver.GetConnectionSettings();
-			var resolvableDictionary = new ResolvableDictionaryProxy<Field, IFieldMapping>(settings, fieldMappings);
-			return resolvableDictionary;
-		}
+            var settings = formatterResolver.GetConnectionSettings();
+            var resolvableDictionary = new ResolvableDictionaryProxy<Field, IFieldMapping>(settings, fieldMappings);
+            return resolvableDictionary;
+        }
 
-		public void Serialize(ref JsonWriter writer, IReadOnlyDictionary<Field, IFieldMapping> value, IJsonFormatterResolver formatterResolver)
-		{
-			var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IReadOnlyDictionary<Field, IFieldMapping>>();
-			formatter.Serialize(ref writer, value, formatterResolver);
-		}
-	}
+        public void Serialize(ref JsonWriter writer, IReadOnlyDictionary<Field, IFieldMapping> value, IJsonFormatterResolver formatterResolver)
+        {
+            var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IReadOnlyDictionary<Field, IFieldMapping>>();
+            formatter.Serialize(ref writer, value, formatterResolver);
+        }
+    }
 }

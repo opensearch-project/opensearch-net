@@ -28,19 +28,19 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("dangling_indices.delete_dangling_index.json")]
-	public partial interface IDeleteDanglingIndexRequest
-	{
+    [MapsApi("dangling_indices.delete_dangling_index.json")]
+    public partial interface IDeleteDanglingIndexRequest
+    {
 
-	}
+    }
 
-	public partial class DeleteDanglingIndexRequest : IDeleteDanglingIndexRequest
-	{
+    public partial class DeleteDanglingIndexRequest : IDeleteDanglingIndexRequest
+    {
 
-	}
+    }
 
-	public partial class DeleteDanglingIndexDescriptor : IDeleteDanglingIndexRequest
-	{
+    public partial class DeleteDanglingIndexDescriptor : IDeleteDanglingIndexRequest
+    {
 
-	}
+    }
 }

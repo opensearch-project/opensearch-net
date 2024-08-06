@@ -33,21 +33,21 @@ using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi.Resolvers
 {
-	public static class ReleasedVersionResolver
-	{
-		private const string ArtifactsUrl = "https://artifacts.opensearch.org";
+    public static class ReleasedVersionResolver
+    {
+        private const string ArtifactsUrl = "https://artifacts.opensearch.org";
 
-		public static bool TryResolve(Product product, Version version, OSPlatform platform, Architecture architecture, out Artifact artifact)
-		{
-			var productMoniker = product.Moniker;
-			var platformMoniker = OsMonikers.GetOpenSearchPlatformMoniker(platform, architecture);
-			var downloadPath = $"{ArtifactsUrl}/releases/bundle/{product}/{version}";
-			var extension = OsMonikers.GetPlatformArchiveExtension(platform);
-			var archive = $"{productMoniker}-{version}-{platformMoniker}.{extension}";
-			var downloadUrl = $"{downloadPath}/{archive}";
+        public static bool TryResolve(Product product, Version version, OSPlatform platform, Architecture architecture, out Artifact artifact)
+        {
+            var productMoniker = product.Moniker;
+            var platformMoniker = OsMonikers.GetOpenSearchPlatformMoniker(platform, architecture);
+            var downloadPath = $"{ArtifactsUrl}/releases/bundle/{product}/{version}";
+            var extension = OsMonikers.GetPlatformArchiveExtension(platform);
+            var archive = $"{productMoniker}-{version}-{platformMoniker}.{extension}";
+            var downloadUrl = $"{downloadPath}/{archive}";
 
-			artifact = new Artifact(product, version, downloadUrl, null);
-			return true;
-		}
-	}
+            artifact = new Artifact(product, version, downloadUrl, null);
+            return true;
+        }
+    }
 }

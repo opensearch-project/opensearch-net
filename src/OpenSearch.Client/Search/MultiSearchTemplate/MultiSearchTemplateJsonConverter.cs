@@ -31,52 +31,52 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	internal class MultiSearchTemplateFormatter : IJsonFormatter<IMultiSearchTemplateRequest>
-	{
-		private const byte Newline = (byte)'\n';
+    internal class MultiSearchTemplateFormatter : IJsonFormatter<IMultiSearchTemplateRequest>
+    {
+        private const byte Newline = (byte)'\n';
 
-		public IMultiSearchTemplateRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
-			formatterResolver.GetFormatter<MultiSearchTemplateRequest>().Deserialize(ref reader, formatterResolver);
+        public IMultiSearchTemplateRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
+            formatterResolver.GetFormatter<MultiSearchTemplateRequest>().Deserialize(ref reader, formatterResolver);
 
-		public void Serialize(ref JsonWriter writer, IMultiSearchTemplateRequest value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value?.Operations == null) return;
+        public void Serialize(ref JsonWriter writer, IMultiSearchTemplateRequest value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value?.Operations == null) return;
 
-			var settings = formatterResolver.GetConnectionSettings();
-			var memoryStreamFactory = settings.MemoryStreamFactory;
-			var serializer = settings.RequestResponseSerializer;
+            var settings = formatterResolver.GetConnectionSettings();
+            var memoryStreamFactory = settings.MemoryStreamFactory;
+            var serializer = settings.RequestResponseSerializer;
 
-			foreach (var operation in value.Operations.Values)
-			{
-				var p = operation.RequestParameters;
+            foreach (var operation in value.Operations.Values)
+            {
+                var p = operation.RequestParameters;
 
-				string GetString(string key)
-				{
-					return p.GetResolvedQueryStringValue(key, settings);
-				}
+                string GetString(string key)
+                {
+                    return p.GetResolvedQueryStringValue(key, settings);
+                }
 
-				IUrlParameter indices = value.Index == null || !value.Index.Equals(operation.Index)
-					? operation.Index
-					: null;
+                IUrlParameter indices = value.Index == null || !value.Index.Equals(operation.Index)
+                    ? operation.Index
+                    : null;
 
-				var searchType = GetString("search_type");
-				if (searchType == "query_then_fetch")
-					searchType = null;
+                var searchType = GetString("search_type");
+                if (searchType == "query_then_fetch")
+                    searchType = null;
 
-				var header = new
-				{
-					index = indices?.GetString(settings),
-					search_type = searchType,
-					preference = GetString("preference"),
-					routing = GetString("routing"),
-					ignore_unavailable = GetString("ignore_unavailable")
-				};
+                var header = new
+                {
+                    index = indices?.GetString(settings),
+                    search_type = searchType,
+                    preference = GetString("preference"),
+                    routing = GetString("routing"),
+                    ignore_unavailable = GetString("ignore_unavailable")
+                };
 
-				writer.WriteSerialized(header, serializer, settings, SerializationFormatting.None);
-				writer.WriteRaw(Newline);
-				writer.WriteSerialized(operation, serializer, settings, SerializationFormatting.None);
-				writer.WriteRaw(Newline);
-			}
-		}
-	}
+                writer.WriteSerialized(header, serializer, settings, SerializationFormatting.None);
+                writer.WriteRaw(Newline);
+                writer.WriteSerialized(operation, serializer, settings, SerializationFormatting.None);
+                writer.WriteRaw(Newline);
+            }
+        }
+    }
 }

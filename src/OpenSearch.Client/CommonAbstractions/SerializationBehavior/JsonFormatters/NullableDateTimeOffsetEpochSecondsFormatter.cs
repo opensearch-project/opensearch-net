@@ -31,31 +31,31 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	internal class NullableDateTimeOffsetEpochSecondsFormatter : IJsonFormatter<DateTimeOffset?>
-	{
-		public DateTimeOffset? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.Number)
-			{
-				reader.ReadNextBlock();
-				return null;
-			}
+    internal class NullableDateTimeOffsetEpochSecondsFormatter : IJsonFormatter<DateTimeOffset?>
+    {
+        public DateTimeOffset? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.GetCurrentJsonToken() != JsonToken.Number)
+            {
+                reader.ReadNextBlock();
+                return null;
+            }
 
-			var secondsSinceEpoch = reader.ReadDouble();
-			var dateTimeOffset = DateTimeUtil.UnixEpoch.AddSeconds(secondsSinceEpoch);
-			return dateTimeOffset;
-		}
+            var secondsSinceEpoch = reader.ReadDouble();
+            var dateTimeOffset = DateTimeUtil.UnixEpoch.AddSeconds(secondsSinceEpoch);
+            return dateTimeOffset;
+        }
 
-		public void Serialize(ref JsonWriter writer, DateTimeOffset? value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+        public void Serialize(ref JsonWriter writer, DateTimeOffset? value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+            {
+                writer.WriteNull();
+                return;
+            }
 
-			var dateTimeOffsetDifference = (value.Value - DateTimeUtil.UnixEpoch).TotalSeconds;
-			writer.WriteInt64((long)dateTimeOffsetDifference);
-		}
-	}
+            var dateTimeOffsetDifference = (value.Value - DateTimeUtil.UnixEpoch).TotalSeconds;
+            writer.WriteInt64((long)dateTimeOffsetDifference);
+        }
+    }
 }

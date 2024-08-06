@@ -32,37 +32,37 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(IndexRequestFormatter<>))]
-	[MapsApi("index.json")]
-	public partial interface IIndexRequest<TDocument> : IProxyRequest, IDocumentRequest where TDocument : class
-	{
-		TDocument Document { get; set; }
-	}
+    [JsonFormatter(typeof(IndexRequestFormatter<>))]
+    [MapsApi("index.json")]
+    public partial interface IIndexRequest<TDocument> : IProxyRequest, IDocumentRequest where TDocument : class
+    {
+        TDocument Document { get; set; }
+    }
 
-	public partial class IndexRequest<TDocument>
-		where TDocument : class
-	{
-		public TDocument Document { get; set; }
+    public partial class IndexRequest<TDocument>
+        where TDocument : class
+    {
+        public TDocument Document { get; set; }
 
-		protected override HttpMethod HttpMethod => GetHttpMethod(this);
+        protected override HttpMethod HttpMethod => GetHttpMethod(this);
 
-		void IProxyRequest.WriteJson(IOpenSearchSerializer sourceSerializer, Stream stream, SerializationFormatting formatting) =>
-			sourceSerializer.Serialize(Document, stream, formatting);
+        void IProxyRequest.WriteJson(IOpenSearchSerializer sourceSerializer, Stream stream, SerializationFormatting formatting) =>
+            sourceSerializer.Serialize(Document, stream, formatting);
 
-		internal static HttpMethod GetHttpMethod(IIndexRequest<TDocument> request) =>
-			request.Id?.StringOrLongValue != null || request.RouteValues.ContainsId ? HttpMethod.PUT : HttpMethod.POST;
+        internal static HttpMethod GetHttpMethod(IIndexRequest<TDocument> request) =>
+            request.Id?.StringOrLongValue != null || request.RouteValues.ContainsId ? HttpMethod.PUT : HttpMethod.POST;
 
-		partial void DocumentFromPath(TDocument document) => Document = document;
-	}
+        partial void DocumentFromPath(TDocument document) => Document = document;
+    }
 
-	public partial class IndexDescriptor<TDocument> where TDocument : class
-	{
-		protected override HttpMethod HttpMethod => IndexRequest<TDocument>.GetHttpMethod(this);
-		TDocument IIndexRequest<TDocument>.Document { get; set; }
+    public partial class IndexDescriptor<TDocument> where TDocument : class
+    {
+        protected override HttpMethod HttpMethod => IndexRequest<TDocument>.GetHttpMethod(this);
+        TDocument IIndexRequest<TDocument>.Document { get; set; }
 
-		void IProxyRequest.WriteJson(IOpenSearchSerializer sourceSerializer, Stream stream, SerializationFormatting formatting) =>
-			sourceSerializer.Serialize(Self.Document, stream, formatting);
+        void IProxyRequest.WriteJson(IOpenSearchSerializer sourceSerializer, Stream stream, SerializationFormatting formatting) =>
+            sourceSerializer.Serialize(Self.Document, stream, formatting);
 
-		partial void DocumentFromPath(TDocument document) => Assign(document, (a, v) => a.Document = v);
-	}
+        partial void DocumentFromPath(TDocument document) => Assign(document, (a, v) => a.Document = v);
+    }
 }

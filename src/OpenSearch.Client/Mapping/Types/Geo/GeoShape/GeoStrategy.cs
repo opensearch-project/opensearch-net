@@ -32,19 +32,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GeoStrategy
-	{
-		/// <summary>
-		/// supports all shape types
-		/// </summary>
-		[EnumMember(Value = "recursive")]
-		Recursive,
+    [StringEnum]
+    public enum GeoStrategy
+    {
+        /// <summary>
+        /// supports all shape types
+        /// </summary>
+        [EnumMember(Value = "recursive")]
+        Recursive,
 
-		/// <summary>
-		/// supports point types only
-		/// </summary>
-		[EnumMember(Value = "term")]
-		Term
-	}
+        /// <summary>
+        /// supports point types only
+        /// </summary>
+        [EnumMember(Value = "term")]
+        Term
+    }
 }

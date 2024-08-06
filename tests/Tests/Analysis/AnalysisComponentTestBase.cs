@@ -28,10 +28,10 @@
 
 using System;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Serialization;
@@ -39,74 +39,76 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Analysis
 {
-	public interface IAnalysisAssertion
-	{
-		object Json { get; }
-		string Name { get; }
-	}
+    public interface IAnalysisAssertion
+    {
+        object Json { get; }
+        string Name { get; }
+    }
 
-	public interface IAnalysisAssertion<out TComponent, out TContainer, in TDescriptor> : IAnalysisAssertion
-		where TContainer : class
-	{
-		Func<string, TDescriptor, IPromise<TContainer>> Fluent { get; }
-		TComponent Initializer { get; }
-	}
+    public interface IAnalysisAssertion<out TComponent, out TContainer, in TDescriptor> : IAnalysisAssertion
+        where TContainer : class
+    {
+        Func<string, TDescriptor, IPromise<TContainer>> Fluent { get; }
+        TComponent Initializer { get; }
+    }
 
-	[IntegrationTestCluster(typeof(WritableCluster))]
-	public abstract class AnalysisComponentTestBase<TAssertion, TComponent, TContainer, TDescriptor>
-		: IAnalysisAssertion<TComponent, TContainer, TDescriptor>
-		where TAssertion : AnalysisComponentTestBase<TAssertion, TComponent, TContainer, TDescriptor>, new()
-		where TContainer : class
-	{
-		private static readonly SingleEndpointUsage<CreateIndexResponse> Usage = new SingleEndpointUsage<CreateIndexResponse>
-		(
-			(s, c) => c.Indices.Create(s, AssertionSetup.FluentCall),
-			(s, c) => c.Indices.CreateAsync(s, AssertionSetup.FluentCall),
-			(s, c) => c.Indices.Create(AssertionSetup.InitializerCall(s)),
-			(s, c) => c.Indices.CreateAsync(AssertionSetup.InitializerCall(s)),
-			$"test-{typeof(TAssertion).Name.ToLowerInvariant()}"
-		)
-		{
-			OnAfterCall = c => c.Indices.Delete(Usage.CallUniqueValues.Value)
-		};
+    [IntegrationTestCluster(typeof(WritableCluster))]
+    public abstract class AnalysisComponentTestBase<TAssertion, TComponent, TContainer, TDescriptor>
+        : IAnalysisAssertion<TComponent, TContainer, TDescriptor>
+        where TAssertion : AnalysisComponentTestBase<TAssertion, TComponent, TContainer, TDescriptor>, new()
+        where TContainer : class
+    {
+        private static readonly SingleEndpointUsage<CreateIndexResponse> Usage = new SingleEndpointUsage<CreateIndexResponse>
+        (
+            (s, c) => c.Indices.Create(s, AssertionSetup.FluentCall),
+            (s, c) => c.Indices.CreateAsync(s, AssertionSetup.FluentCall),
+            (s, c) => c.Indices.Create(AssertionSetup.InitializerCall(s)),
+            (s, c) => c.Indices.CreateAsync(AssertionSetup.InitializerCall(s)),
+            $"test-{typeof(TAssertion).Name.ToLowerInvariant()}"
+        )
+        {
+            OnAfterCall = c => c.Indices.Delete(Usage.CallUniqueValues.Value)
+        };
 
-		protected AnalysisComponentTestBase()
-		{
-			Client = (OpenSearchXunitRunner.CurrentCluster as IOpenSearchClientTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
-			Usage.KickOffOnce(Client, true);
-		}
+        protected AnalysisComponentTestBase()
+        {
+            Client = (OpenSearchXunitRunner.CurrentCluster as IOpenSearchClientTestCluster)?.Client ?? TestClient.DefaultInMemoryClient;
+            Usage.KickOffOnce(Client, true);
+        }
 
-		public abstract Func<string, TDescriptor, IPromise<TContainer>> Fluent { get; }
-		public abstract TComponent Initializer { get; }
-		public abstract object Json { get; }
+        public abstract Func<string, TDescriptor, IPromise<TContainer>> Fluent { get; }
+        public abstract TComponent Initializer { get; }
+        public abstract object Json { get; }
 
-		public abstract string Name { get; }
+        public abstract string Name { get; }
 
-		protected abstract object AnalysisJson { get; }
-		protected static TAssertion AssertionSetup { get; } = new TAssertion();
+        protected abstract object AnalysisJson { get; }
+        protected static TAssertion AssertionSetup { get; } = new TAssertion();
 
-		private IOpenSearchClient Client { get; }
+        private IOpenSearchClient Client { get; }
 
-		private Func<CreateIndexDescriptor, ICreateIndexRequest> FluentCall => i => i.Settings(s => s.Analysis(FluentAnalysis));
+        private Func<CreateIndexDescriptor, ICreateIndexRequest> FluentCall => i => i.Settings(s => s.Analysis(FluentAnalysis));
 
-		protected abstract IAnalysis FluentAnalysis(AnalysisDescriptor an);
+        protected abstract IAnalysis FluentAnalysis(AnalysisDescriptor an);
 
-		private CreateIndexRequest InitializerCall(string index) => new CreateIndexRequest(index)
-		{
-			Settings = new IndexSettings { Analysis = InitializerAnalysis() }
-		};
+        private CreateIndexRequest InitializerCall(string index) => new CreateIndexRequest(index)
+        {
+            Settings = new IndexSettings { Analysis = InitializerAnalysis() }
+        };
 
-		protected abstract OpenSearch.Client.Analysis InitializerAnalysis();
+        protected abstract OpenSearch.Client.Analysis InitializerAnalysis();
 
-		[U] public virtual async Task TestPutSettingsRequest() => await Usage.AssertOnAllResponses(r =>
-		{
-			var json = new { settings = new { analysis = AnalysisJson } };
-			SerializationTestHelper.Expect(json).FromRequest(r);
-		});
+        [U]
+        public virtual async Task TestPutSettingsRequest() => await Usage.AssertOnAllResponses(r =>
+        {
+            var json = new { settings = new { analysis = AnalysisJson } };
+            SerializationTestHelper.Expect(json).FromRequest(r);
+        });
 
-		[I] public virtual async Task TestPutSettingsResponse() => await Usage.AssertOnAllResponses(r =>
-		{
-			r.ApiCall.HttpStatusCode.Should().Be(200);
-		});
-	}
+        [I]
+        public virtual async Task TestPutSettingsResponse() => await Usage.AssertOnAllResponses(r =>
+        {
+            r.ApiCall.HttpStatusCode.Should().Be(200);
+        });
+    }
 }

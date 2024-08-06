@@ -28,28 +28,28 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-	public class GitHubIssue4382
-	{
-		[U]
-		public void CanDeserializeVerifyRepositoryResponse()
-		{
-			var json = @"{""nodes"":{""1cWG9trDRi--6I-46lOlBw"":{""name"":""DESKTOP-5L01F6I""}}}";
+    public class GitHubIssue4382
+    {
+        [U]
+        public void CanDeserializeVerifyRepositoryResponse()
+        {
+            var json = @"{""nodes"":{""1cWG9trDRi--6I-46lOlBw"":{""name"":""DESKTOP-5L01F6I""}}}";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
-			var client = new OpenSearchClient(connectionSettings);
+            var bytes = Encoding.UTF8.GetBytes(json);
+            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
+            var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.Snapshot.VerifyRepository("repository");
-			response.Nodes.Should().NotBeNullOrEmpty();
-			response.Nodes["1cWG9trDRi--6I-46lOlBw"].Name.Should().Be("DESKTOP-5L01F6I");
-		}
-	}
+            var response = client.Snapshot.VerifyRepository("repository");
+            response.Nodes.Should().NotBeNullOrEmpty();
+            response.Nodes["1cWG9trDRi--6I-46lOlBw"].Name.Should().Be("DESKTOP-5L01F6I");
+        }
+    }
 }

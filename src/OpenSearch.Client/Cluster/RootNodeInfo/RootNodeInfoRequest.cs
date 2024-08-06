@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("info.json")]
-	public partial interface IRootNodeInfoRequest { }
+    [MapsApi("info.json")]
+    public partial interface IRootNodeInfoRequest { }
 
-	public partial class RootNodeInfoRequest { }
+    public partial class RootNodeInfoRequest { }
 
-	public partial class RootNodeInfoDescriptor { }
+    public partial class RootNodeInfoDescriptor { }
 }

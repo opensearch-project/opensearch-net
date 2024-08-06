@@ -32,23 +32,23 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public class InnerHitsMetadata
-	{
-		[DataMember(Name ="hits")]
-		public List<IHit<ILazyDocument>> Hits { get; internal set; }
+    public class InnerHitsMetadata
+    {
+        [DataMember(Name = "hits")]
+        public List<IHit<ILazyDocument>> Hits { get; internal set; }
 
-		[DataMember(Name ="max_score")]
-		public double? MaxScore { get; internal set; }
+        [DataMember(Name = "max_score")]
+        public double? MaxScore { get; internal set; }
 
-		[DataMember(Name = "total")]
-		public TotalHits Total { get; internal set; }
+        [DataMember(Name = "total")]
+        public TotalHits Total { get; internal set; }
 
-		public IEnumerable<T> Documents<T>() where T : class
-		{
-			if (Hits == null || Hits.Count == 0)
-				return Enumerable.Empty<T>();
+        public IEnumerable<T> Documents<T>() where T : class
+        {
+            if (Hits == null || Hits.Count == 0)
+                return Enumerable.Empty<T>();
 
-			return Hits.Select(hit => hit.Source.As<T>()).ToList();
-		}
-	}
+            return Hits.Select(hit => hit.Source.As<T>()).ToList();
+        }
+    }
 }

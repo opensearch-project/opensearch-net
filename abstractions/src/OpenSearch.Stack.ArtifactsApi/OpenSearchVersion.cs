@@ -37,95 +37,95 @@ using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi
 {
-	public class OpenSearchVersion : Version, IComparable<string>
-	{
-		private readonly ConcurrentDictionary<string, Artifact> _resolved = new();
+    public class OpenSearchVersion : Version, IComparable<string>
+    {
+        private readonly ConcurrentDictionary<string, Artifact> _resolved = new();
 
-		protected OpenSearchVersion(string version, string buildHash = null) : base(version) => BuildHash = buildHash;
+        protected OpenSearchVersion(string version, string buildHash = null) : base(version) => BuildHash = buildHash;
 
-		private string BuildHash { get; }
+        private string BuildHash { get; }
 
-		public bool IsSnapshot => PreRelease == "SNAPSHOT";
+        public bool IsSnapshot => PreRelease == "SNAPSHOT";
 
-		public int CompareTo(string other)
-		{
-			var v = (OpenSearchVersion)other;
-			return CompareTo(v);
-		}
+        public int CompareTo(string other)
+        {
+            var v = (OpenSearchVersion)other;
+            return CompareTo(v);
+        }
 
-		public Artifact Artifact(Product product)
-		{
-			var cacheKey = product.ToString();
-			if (_resolved.TryGetValue(cacheKey, out var artifact))
-				return artifact;
+        public Artifact Artifact(Product product)
+        {
+            var cacheKey = product.ToString();
+            if (_resolved.TryGetValue(cacheKey, out var artifact))
+                return artifact;
 
-			var currentPlatform = OsMonikers.CurrentPlatform();
+            var currentPlatform = OsMonikers.CurrentPlatform();
 
-			ReleasedVersionResolver.TryResolve(product, this, currentPlatform, RuntimeInformation.OSArchitecture, out artifact);
+            ReleasedVersionResolver.TryResolve(product, this, currentPlatform, RuntimeInformation.OSArchitecture, out artifact);
 
-			_resolved.TryAdd(cacheKey, artifact);
+            _resolved.TryAdd(cacheKey, artifact);
 
-			return artifact;
-		}
+            return artifact;
+        }
 
-		/// <summary>
-		///     Resolves an OpenSearch version using either format '$version' or '$ServerType-$version', where version could be 'x.y.z' or 'latest' or even 'latest-x'
-		/// </summary>
-		public static OpenSearchVersion From(string managedVersionString) =>
-			// TODO resolve `latest` and `latest-x` for OpenSearch
-			managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, "");
+        /// <summary>
+        ///     Resolves an OpenSearch version using either format '$version' or '$ServerType-$version', where version could be 'x.y.z' or 'latest' or even 'latest-x'
+        /// </summary>
+        public static OpenSearchVersion From(string managedVersionString) =>
+            // TODO resolve `latest` and `latest-x` for OpenSearch
+            managedVersionString == null ? null : new OpenSearchVersion(managedVersionString, "");
 
-		public bool InRange(string range)
-		{
-			var versionRange = new Range(range);
-			return InRange(versionRange);
-		}
+        public bool InRange(string range)
+        {
+            var versionRange = new Range(range);
+            return InRange(versionRange);
+        }
 
-		public bool InRange(Range versionRange)
-		{
-			var satisfied = versionRange.IsSatisfied(this);
-			if (satisfied)
-				return true;
+        public bool InRange(Range versionRange)
+        {
+            var satisfied = versionRange.IsSatisfied(this);
+            if (satisfied)
+                return true;
 
-			//Semver can only match snapshot version with ranges on the same major and minor
-			//anything else fails but we want to know e.g 1.0.0-SNAPSHOT satisfied by 1.0.0;
-			var wholeVersion = $"{Major}.{Minor}.{Patch}";
-			return versionRange.IsSatisfied(wholeVersion);
-		}
-
-
-		public static implicit operator OpenSearchVersion(string version) => From(version);
-
-		public static bool operator <(OpenSearchVersion first, string second) => first < (OpenSearchVersion)second;
-
-		public static bool operator >(OpenSearchVersion first, string second) => first > (OpenSearchVersion)second;
-
-		public static bool operator <(string first, OpenSearchVersion second) => (OpenSearchVersion)first < second;
-
-		public static bool operator >(string first, OpenSearchVersion second) => (OpenSearchVersion)first > second;
-
-		public static bool operator <=(OpenSearchVersion first, string second) => first <= (OpenSearchVersion)second;
-
-		public static bool operator >=(OpenSearchVersion first, string second) => first >= (OpenSearchVersion)second;
-
-		public static bool operator <=(string first, OpenSearchVersion second) => (OpenSearchVersion)first <= second;
-
-		public static bool operator >=(string first, OpenSearchVersion second) => (OpenSearchVersion)first >= second;
-
-		public static bool operator ==(OpenSearchVersion first, string second) => first == (OpenSearchVersion)second;
-
-		public static bool operator !=(OpenSearchVersion first, string second) => first != (OpenSearchVersion)second;
+            //Semver can only match snapshot version with ranges on the same major and minor
+            //anything else fails but we want to know e.g 1.0.0-SNAPSHOT satisfied by 1.0.0;
+            var wholeVersion = $"{Major}.{Minor}.{Patch}";
+            return versionRange.IsSatisfied(wholeVersion);
+        }
 
 
-		public static bool operator ==(string first, OpenSearchVersion second) => (OpenSearchVersion)first == second;
+        public static implicit operator OpenSearchVersion(string version) => From(version);
 
-		public static bool operator !=(string first, OpenSearchVersion second) => (OpenSearchVersion)first != second;
+        public static bool operator <(OpenSearchVersion first, string second) => first < (OpenSearchVersion)second;
 
-		// ReSharper disable once UnusedMember.Local
-		private bool Equals(OpenSearchVersion other) => base.Equals(other);
+        public static bool operator >(OpenSearchVersion first, string second) => first > (OpenSearchVersion)second;
 
-		public override bool Equals(object obj) => base.Equals(obj);
+        public static bool operator <(string first, OpenSearchVersion second) => (OpenSearchVersion)first < second;
 
-		public override int GetHashCode() => base.GetHashCode();
-	}
+        public static bool operator >(string first, OpenSearchVersion second) => (OpenSearchVersion)first > second;
+
+        public static bool operator <=(OpenSearchVersion first, string second) => first <= (OpenSearchVersion)second;
+
+        public static bool operator >=(OpenSearchVersion first, string second) => first >= (OpenSearchVersion)second;
+
+        public static bool operator <=(string first, OpenSearchVersion second) => (OpenSearchVersion)first <= second;
+
+        public static bool operator >=(string first, OpenSearchVersion second) => (OpenSearchVersion)first >= second;
+
+        public static bool operator ==(OpenSearchVersion first, string second) => first == (OpenSearchVersion)second;
+
+        public static bool operator !=(OpenSearchVersion first, string second) => first != (OpenSearchVersion)second;
+
+
+        public static bool operator ==(string first, OpenSearchVersion second) => (OpenSearchVersion)first == second;
+
+        public static bool operator !=(string first, OpenSearchVersion second) => (OpenSearchVersion)first != second;
+
+        // ReSharper disable once UnusedMember.Local
+        private bool Equals(OpenSearchVersion other) => base.Equals(other);
+
+        public override bool Equals(object obj) => base.Equals(obj);
+
+        public override int GetHashCode() => base.GetHashCode();
+    }
 }

@@ -34,78 +34,78 @@ using Xunit.Sdk;
 
 namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
 {
-	/// <summary>
-	///     Base test discoverer used to discover tests cases attached
-	///     to test methods that are attributed with <see cref="T:Xunit.FactAttribute" /> (or a subclass).
-	/// </summary>
-	public abstract class OpenSearchTestCaseDiscoverer : IXunitTestCaseDiscoverer
-	{
-		protected readonly IMessageSink DiagnosticMessageSink;
-		private readonly FactDiscoverer _factDiscoverer;
+    /// <summary>
+    ///     Base test discoverer used to discover tests cases attached
+    ///     to test methods that are attributed with <see cref="T:Xunit.FactAttribute" /> (or a subclass).
+    /// </summary>
+    public abstract class OpenSearchTestCaseDiscoverer : IXunitTestCaseDiscoverer
+    {
+        protected readonly IMessageSink DiagnosticMessageSink;
+        private readonly FactDiscoverer _factDiscoverer;
 
-		protected OpenSearchTestCaseDiscoverer(IMessageSink diagnosticMessageSink)
-		{
-			DiagnosticMessageSink = diagnosticMessageSink;
-			_factDiscoverer = new FactDiscoverer(diagnosticMessageSink);
-		}
+        protected OpenSearchTestCaseDiscoverer(IMessageSink diagnosticMessageSink)
+        {
+            DiagnosticMessageSink = diagnosticMessageSink;
+            _factDiscoverer = new FactDiscoverer(diagnosticMessageSink);
+        }
 
-		/// <inheritdoc />
-		public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions,
-			ITestMethod testMethod, IAttributeInfo factAttribute) =>
-			SkipMethod(discoveryOptions, testMethod, out var skipReason)
-				? string.IsNullOrEmpty(skipReason)
-					? Enumerable.Empty<IXunitTestCase>()
-					: new IXunitTestCase[] {new SkippingTestCase(skipReason, testMethod, null)}
-				: DiscoverImpl(discoveryOptions, testMethod, factAttribute);
+        /// <inheritdoc />
+        public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions,
+            ITestMethod testMethod, IAttributeInfo factAttribute) =>
+            SkipMethod(discoveryOptions, testMethod, out var skipReason)
+                ? string.IsNullOrEmpty(skipReason)
+                    ? Enumerable.Empty<IXunitTestCase>()
+                    : new IXunitTestCase[] { new SkippingTestCase(skipReason, testMethod, null) }
+                : DiscoverImpl(discoveryOptions, testMethod, factAttribute);
 
-		protected virtual IEnumerable<IXunitTestCase> DiscoverImpl(ITestFrameworkDiscoveryOptions discoveryOptions,
-			ITestMethod testMethod, IAttributeInfo factAttribute
-		) => _factDiscoverer.Discover(discoveryOptions, testMethod, factAttribute);
+        protected virtual IEnumerable<IXunitTestCase> DiscoverImpl(ITestFrameworkDiscoveryOptions discoveryOptions,
+            ITestMethod testMethod, IAttributeInfo factAttribute
+        ) => _factDiscoverer.Discover(discoveryOptions, testMethod, factAttribute);
 
-		/// <summary>
-		///     Detemines whether a test method should be skipped, and the reason why
-		/// </summary>
-		/// <param name="discoveryOptions">The discovery options</param>
-		/// <param name="testMethod">The test method</param>
-		/// <param name="skipReason">The reason to skip</param>
-		/// <returns></returns>
-		protected virtual bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
-			out string skipReason)
-		{
-			skipReason = null;
-			return false;
-		}
+        /// <summary>
+        ///     Detemines whether a test method should be skipped, and the reason why
+        /// </summary>
+        /// <param name="discoveryOptions">The discovery options</param>
+        /// <param name="testMethod">The test method</param>
+        /// <param name="skipReason">The reason to skip</param>
+        /// <returns></returns>
+        protected virtual bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
+            out string skipReason)
+        {
+            skipReason = null;
+            return false;
+        }
 
-		protected static TValue GetAttribute<TAttribute, TValue>(ITestMethod testMethod, string propertyName)
-			where TAttribute : Attribute
-		{
-			var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute)) ??
-			                      Enumerable.Empty<IAttributeInfo>();
-			var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute)) ??
-			                       Enumerable.Empty<IAttributeInfo>();
-			var attribute = classAttributes.Concat(methodAttributes).FirstOrDefault();
-			return attribute == null ? default(TValue) : attribute.GetNamedArgument<TValue>(propertyName);
-		}
+        protected static TValue GetAttribute<TAttribute, TValue>(ITestMethod testMethod, string propertyName)
+            where TAttribute : Attribute
+        {
+            var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute)) ??
+                                  Enumerable.Empty<IAttributeInfo>();
+            var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute)) ??
+                                   Enumerable.Empty<IAttributeInfo>();
+            var attribute = classAttributes.Concat(methodAttributes).FirstOrDefault();
+            return attribute == null ? default(TValue) : attribute.GetNamedArgument<TValue>(propertyName);
+        }
 
-		protected static IList<IAttributeInfo> GetAttributes<TAttribute>(ITestMethod testMethod)
-			where TAttribute : Attribute
-		{
-			var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute)) ??
-			                      Enumerable.Empty<IAttributeInfo>();
-			var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute)) ??
-			                       Enumerable.Empty<IAttributeInfo>();
-			return classAttributes.Concat(methodAttributes).ToList();
-		}
+        protected static IList<IAttributeInfo> GetAttributes<TAttribute>(ITestMethod testMethod)
+            where TAttribute : Attribute
+        {
+            var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute)) ??
+                                  Enumerable.Empty<IAttributeInfo>();
+            var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute)) ??
+                                   Enumerable.Empty<IAttributeInfo>();
+            return classAttributes.Concat(methodAttributes).ToList();
+        }
 
-		protected static IEnumerable<TValue> GetAttributes<TAttribute, TValue>(ITestMethod testMethod,
-			string propertyName)
-			where TAttribute : Attribute
-		{
-			var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute));
-			var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute));
-			return classAttributes
-				.Concat(methodAttributes)
-				.Select(a => a.GetNamedArgument<TValue>(propertyName));
-		}
-	}
+        protected static IEnumerable<TValue> GetAttributes<TAttribute, TValue>(ITestMethod testMethod,
+            string propertyName)
+            where TAttribute : Attribute
+        {
+            var classAttributes = testMethod.TestClass.Class.GetCustomAttributes(typeof(TAttribute));
+            var methodAttributes = testMethod.Method.GetCustomAttributes(typeof(TAttribute));
+            return classAttributes
+                .Concat(methodAttributes)
+                .Select(a => a.GetNamedArgument<TValue>(propertyName));
+        }
+    }
 }

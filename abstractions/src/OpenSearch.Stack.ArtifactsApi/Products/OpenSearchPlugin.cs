@@ -30,56 +30,56 @@ using System;
 
 namespace OpenSearch.Stack.ArtifactsApi.Products
 {
-	/// <summary> An OpenSearch plugin </summary>
-	public class OpenSearchPlugin : SubProduct
-	{
-		public OpenSearchPlugin(string plugin, Func<OpenSearchVersion, bool> isValid = null,
-			Func<OpenSearchVersion, string> listName = null)
-			: base(plugin, isValid, listName) =>
-			PlatformDependent = false;  // ReSharper disable InconsistentNaming
-		public static OpenSearchPlugin AnalysisIcu { get; } = new("analysis-icu");
-		public static OpenSearchPlugin AnalysisKuromoji { get; } = new("analysis-kuromoji");
-		public static OpenSearchPlugin AnalysisNori { get; } = new("analysis-nori");
-		public static OpenSearchPlugin AnalysisPhonetic { get; } = new("analysis-phonetic");
-		public static OpenSearchPlugin AnalysisSmartCn { get; } = new("analysis-smartcn");
-		public static OpenSearchPlugin AnalysisStempel { get; } = new("analysis-stempel");
-		public static OpenSearchPlugin AnalysisUkrainian { get; } = new("analysis-ukrainian");
+    /// <summary> An OpenSearch plugin </summary>
+    public class OpenSearchPlugin : SubProduct
+    {
+        public OpenSearchPlugin(string plugin, Func<OpenSearchVersion, bool> isValid = null,
+            Func<OpenSearchVersion, string> listName = null)
+            : base(plugin, isValid, listName) =>
+            PlatformDependent = false;  // ReSharper disable InconsistentNaming
+        public static OpenSearchPlugin AnalysisIcu { get; } = new("analysis-icu");
+        public static OpenSearchPlugin AnalysisKuromoji { get; } = new("analysis-kuromoji");
+        public static OpenSearchPlugin AnalysisNori { get; } = new("analysis-nori");
+        public static OpenSearchPlugin AnalysisPhonetic { get; } = new("analysis-phonetic");
+        public static OpenSearchPlugin AnalysisSmartCn { get; } = new("analysis-smartcn");
+        public static OpenSearchPlugin AnalysisStempel { get; } = new("analysis-stempel");
+        public static OpenSearchPlugin AnalysisUkrainian { get; } = new("analysis-ukrainian");
 
-		public static OpenSearchPlugin DiscoveryAzureClassic { get; } = new("discovery-azure-classic");
+        public static OpenSearchPlugin DiscoveryAzureClassic { get; } = new("discovery-azure-classic");
 
-		public static OpenSearchPlugin DiscoveryEC2 { get; } = new("discovery-ec2");
-		public static OpenSearchPlugin DiscoveryFile { get; } = new("discovery-file");
-		public static OpenSearchPlugin DiscoveryGCE { get; } = new("discovery-gce");
+        public static OpenSearchPlugin DiscoveryEC2 { get; } = new("discovery-ec2");
+        public static OpenSearchPlugin DiscoveryFile { get; } = new("discovery-file");
+        public static OpenSearchPlugin DiscoveryGCE { get; } = new("discovery-gce");
 
-		public static OpenSearchPlugin IngestAttachment { get; } = new("ingest-attachment", version => version >= "1.0.0");
+        public static OpenSearchPlugin IngestAttachment { get; } = new("ingest-attachment", version => version >= "1.0.0");
 
-		public static OpenSearchPlugin IngestGeoIp { get; } =
-			new("ingest-geoip", version => version >= "1.0.0")
-			{
-				ShippedByDefaultAsOf = "1.0.0"
-			};
+        public static OpenSearchPlugin IngestGeoIp { get; } =
+            new("ingest-geoip", version => version >= "1.0.0")
+            {
+                ShippedByDefaultAsOf = "1.0.0"
+            };
 
-		public static OpenSearchPlugin IngestUserAgent { get; } =
-			new("ingest-user-agent", version => version >= "1.0.0")
-			{
-				ShippedByDefaultAsOf = "1.0.0"
-			};
+        public static OpenSearchPlugin IngestUserAgent { get; } =
+            new("ingest-user-agent", version => version >= "1.0.0")
+            {
+                ShippedByDefaultAsOf = "1.0.0"
+            };
 
-		public static OpenSearchPlugin MapperAttachment { get; } = new("mapper-attachments");
-		public static OpenSearchPlugin MapperMurmur3 { get; } = new("mapper-murmur3");
-		public static OpenSearchPlugin MapperSize { get; } = new("mapper-size");
+        public static OpenSearchPlugin MapperAttachment { get; } = new("mapper-attachments");
+        public static OpenSearchPlugin MapperMurmur3 { get; } = new("mapper-murmur3");
+        public static OpenSearchPlugin MapperSize { get; } = new("mapper-size");
 
-		public static OpenSearchPlugin RepositoryAzure { get; } = new("repository-azure");
-		public static OpenSearchPlugin RepositoryGCS { get; } = new("repository-gcs");
-		public static OpenSearchPlugin RepositoryHDFS { get; } = new("repository-hdfs");
-		public static OpenSearchPlugin RepositoryS3 { get; } = new("repository-s3");
+        public static OpenSearchPlugin RepositoryAzure { get; } = new("repository-azure");
+        public static OpenSearchPlugin RepositoryGCS { get; } = new("repository-gcs");
+        public static OpenSearchPlugin RepositoryHDFS { get; } = new("repository-hdfs");
+        public static OpenSearchPlugin RepositoryS3 { get; } = new("repository-s3");
 
-		public static OpenSearchPlugin Security { get; } = new("opensearch-security");
+        public static OpenSearchPlugin Security { get; } = new("opensearch-security");
 
-		public static OpenSearchPlugin StoreSMB { get; } = new("store-smb");
+        public static OpenSearchPlugin StoreSMB { get; } = new("store-smb");
 
-		public static OpenSearchPlugin DeleteByQuery { get; } = new("delete-by-query", version => version < "1.0.0");
+        public static OpenSearchPlugin DeleteByQuery { get; } = new("delete-by-query", version => version < "1.0.0");
 
-		public static OpenSearchPlugin Knn { get; } = new("opensearch-knn");
-	}
+        public static OpenSearchPlugin Knn { get; } = new("opensearch-knn");
+    }
 }

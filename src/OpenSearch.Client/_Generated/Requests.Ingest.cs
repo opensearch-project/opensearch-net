@@ -170,7 +170,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IGrokProcessorPatternsRequest
-        : IRequest<GrokProcessorPatternsRequestParameters> { }
+        : IRequest<GrokProcessorPatternsRequestParameters>
+    { }
 
     /// <summary>Request for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
     public partial class GrokProcessorPatternsRequest

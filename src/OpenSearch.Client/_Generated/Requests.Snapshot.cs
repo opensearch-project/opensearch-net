@@ -145,7 +145,8 @@ namespace OpenSearch.Client
                 r.Required("repository", repository)
                     .Required("snapshot", snapshot)
                     .Required("target_snapshot", targetSnapshot)
-            ) { }
+            )
+        { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]

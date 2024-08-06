@@ -28,19 +28,19 @@
 
 namespace OpenSearch.Client
 {
-	public static class IndexNameExtensions
-	{
-		public static string Resolve(this IndexName marker, IConnectionSettingsValues connectionSettings)
-		{
-			if (marker == null)
-				return null;
+    public static class IndexNameExtensions
+    {
+        public static string Resolve(this IndexName marker, IConnectionSettingsValues connectionSettings)
+        {
+            if (marker == null)
+                return null;
 
-			connectionSettings.ThrowIfNull(nameof(connectionSettings));
+            connectionSettings.ThrowIfNull(nameof(connectionSettings));
 
-			if (marker.Type == null)
-				return marker.Name;
+            if (marker.Type == null)
+                return marker.Name;
 
-			return new IndexNameResolver(connectionSettings).Resolve(marker.Type);
-		}
-	}
+            return new IndexNameResolver(connectionSettings).Resolve(marker.Type);
+        }
+    }
 }

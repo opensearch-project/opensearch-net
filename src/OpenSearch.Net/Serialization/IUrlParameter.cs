@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Net
 {
-	public interface IUrlParameter
-	{
-		string GetString(IConnectionConfigurationValues settings);
-	}
+    public interface IUrlParameter
+    {
+        string GetString(IConnectionConfigurationValues settings);
+    }
 }

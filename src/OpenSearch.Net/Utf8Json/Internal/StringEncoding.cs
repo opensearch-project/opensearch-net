@@ -54,8 +54,8 @@ using System.Text;
 
 namespace OpenSearch.Net.Utf8Json.Internal
 {
-	internal static class StringEncoding
-	{
-		public static readonly Encoding UTF8 = new UTF8Encoding(false);
-	}
+    internal static class StringEncoding
+    {
+        public static readonly Encoding UTF8 = new UTF8Encoding(false);
+    }
 }

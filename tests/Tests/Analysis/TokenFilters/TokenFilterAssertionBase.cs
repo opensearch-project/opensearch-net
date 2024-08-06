@@ -28,32 +28,32 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Analysis.TokenFilters
 {
-	public interface ITokenFilterAssertion : IAnalysisAssertion<ITokenFilter, ITokenFilters, TokenFiltersDescriptor> { }
+    public interface ITokenFilterAssertion : IAnalysisAssertion<ITokenFilter, ITokenFilters, TokenFiltersDescriptor> { }
 
-	public abstract class TokenFilterAssertionBase<TAssertion>
-		: AnalysisComponentTestBase<TAssertion, ITokenFilter, ITokenFilters, TokenFiltersDescriptor>
-			, ITokenFilterAssertion
-		where TAssertion : TokenFilterAssertionBase<TAssertion>, new()
-	{
-		protected override object AnalysisJson => new
-		{
-			filter = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
-		};
+    public abstract class TokenFilterAssertionBase<TAssertion>
+        : AnalysisComponentTestBase<TAssertion, ITokenFilter, ITokenFilters, TokenFiltersDescriptor>
+            , ITokenFilterAssertion
+        where TAssertion : TokenFilterAssertionBase<TAssertion>, new()
+    {
+        protected override object AnalysisJson => new
+        {
+            filter = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
+        };
 
-		protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
-			an.TokenFilters(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
+        protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
+            an.TokenFilters(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
 
-		protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
-			new OpenSearch.Client.Analysis { TokenFilters = new OpenSearch.Client.TokenFilters { { AssertionSetup.Name, AssertionSetup.Initializer } } };
+        protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
+            new OpenSearch.Client.Analysis { TokenFilters = new OpenSearch.Client.TokenFilters { { AssertionSetup.Name, AssertionSetup.Initializer } } };
 
-		// https://youtrack.jetbrains.com/issue/RIDER-19912
-		[U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
+        // https://youtrack.jetbrains.com/issue/RIDER-19912
+        [U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
 
-		[I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
-	}
+        [I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
+    }
 }

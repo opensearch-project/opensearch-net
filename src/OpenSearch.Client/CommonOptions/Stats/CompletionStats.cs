@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class CompletionStats
-	{
-		[DataMember(Name ="size_in_bytes")]
-		public long SizeInBytes { get; set; }
-	}
+    [DataContract]
+    public class CompletionStats
+    {
+        [DataMember(Name = "size_in_bytes")]
+        public long SizeInBytes { get; set; }
+    }
 }

@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.verify_repository.json")]
-	public partial interface IVerifyRepositoryRequest { }
+    [MapsApi("snapshot.verify_repository.json")]
+    public partial interface IVerifyRepositoryRequest { }
 
-	public partial class VerifyRepositoryRequest { }
+    public partial class VerifyRepositoryRequest { }
 
-	public partial class VerifyRepositoryDescriptor { }
+    public partial class VerifyRepositoryDescriptor { }
 }

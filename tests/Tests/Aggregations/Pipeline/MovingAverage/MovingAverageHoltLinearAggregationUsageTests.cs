@@ -28,9 +28,9 @@
 
 using System;
 using System.Linq;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -38,99 +38,99 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Aggregations.Pipeline.MovingAverage
 {
-	public class MovingAverageHoltLinearAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public MovingAverageHoltLinearAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class MovingAverageHoltLinearAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+    {
+        public MovingAverageHoltLinearAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object AggregationJson => new
-		{
-			projects_started_per_month = new
-			{
-				date_histogram = new
-				{
-					field = "startedOn",
-					calendar_interval = "month",
-					min_doc_count = 0
-				},
-				aggs = new
-				{
-					commits = new
-					{
-						sum = new
-						{
-							field = "numberOfCommits"
-						}
-					},
-					commits_moving_avg = new
-					{
-						moving_avg = new
-						{
-							buckets_path = "commits",
-							model = "holt",
-							settings = new
-							{
-								alpha = 0.5,
-								beta = 0.5
-							}
-						}
-					}
-				}
-			}
-		};
+        protected override object AggregationJson => new
+        {
+            projects_started_per_month = new
+            {
+                date_histogram = new
+                {
+                    field = "startedOn",
+                    calendar_interval = "month",
+                    min_doc_count = 0
+                },
+                aggs = new
+                {
+                    commits = new
+                    {
+                        sum = new
+                        {
+                            field = "numberOfCommits"
+                        }
+                    },
+                    commits_moving_avg = new
+                    {
+                        moving_avg = new
+                        {
+                            buckets_path = "commits",
+                            model = "holt",
+                            settings = new
+                            {
+                                alpha = 0.5,
+                                beta = 0.5
+                            }
+                        }
+                    }
+                }
+            }
+        };
 
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.DateHistogram("projects_started_per_month", dh => dh
-				.Field(p => p.StartedOn)
-				.CalendarInterval(DateInterval.Month)
-				.MinimumDocumentCount(0)
-				.Aggregations(aa => aa
-					.Sum("commits", sm => sm.Field(p => p.NumberOfCommits))
-					.MovingAverage("commits_moving_avg", mv => mv
-						.BucketsPath("commits")
-						.Model(m => m
-							.HoltLinear(hl => hl
-								.Alpha(0.5f)
-								.Beta(0.5f)
-							)
-						)
-					)
-				)
-			);
+        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+            .DateHistogram("projects_started_per_month", dh => dh
+                .Field(p => p.StartedOn)
+                .CalendarInterval(DateInterval.Month)
+                .MinimumDocumentCount(0)
+                .Aggregations(aa => aa
+                    .Sum("commits", sm => sm.Field(p => p.NumberOfCommits))
+                    .MovingAverage("commits_moving_avg", mv => mv
+                        .BucketsPath("commits")
+                        .Model(m => m
+                            .HoltLinear(hl => hl
+                                .Alpha(0.5f)
+                                .Beta(0.5f)
+                            )
+                        )
+                    )
+                )
+            );
 
-		protected override AggregationDictionary InitializerAggs =>
-			new DateHistogramAggregation("projects_started_per_month")
-			{
-				Field = "startedOn",
-				CalendarInterval = DateInterval.Month,
-				MinimumDocumentCount = 0,
-				Aggregations =
-					new SumAggregation("commits", "numberOfCommits")
-					&& new MovingAverageAggregation("commits_moving_avg", "commits")
-					{
-						Model = new HoltLinearModel
-						{
-							Alpha = 0.5f,
-							Beta = 0.5f
-						}
-					}
-			};
+        protected override AggregationDictionary InitializerAggs =>
+            new DateHistogramAggregation("projects_started_per_month")
+            {
+                Field = "startedOn",
+                CalendarInterval = DateInterval.Month,
+                MinimumDocumentCount = 0,
+                Aggregations =
+                    new SumAggregation("commits", "numberOfCommits")
+                    && new MovingAverageAggregation("commits_moving_avg", "commits")
+                    {
+                        Model = new HoltLinearModel
+                        {
+                            Alpha = 0.5f,
+                            Beta = 0.5f
+                        }
+                    }
+            };
 
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
+        protected override void ExpectResponse(ISearchResponse<Project> response)
+        {
+            response.ShouldBeValid();
 
-			var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-			projectsPerMonth.Should().NotBeNull();
-			projectsPerMonth.Buckets.Should().NotBeNull();
-			projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+            projectsPerMonth.Should().NotBeNull();
+            projectsPerMonth.Buckets.Should().NotBeNull();
+            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-			// average not calculated for the first bucket
-			foreach (var item in projectsPerMonth.Buckets.Skip(1))
-			{
-				var movingAvg = item.MovingAverage("commits_moving_avg");
-				movingAvg.Should().NotBeNull();
-				movingAvg.Value.Should().BeGreaterThan(0);
-			}
-		}
-	}
+            // average not calculated for the first bucket
+            foreach (var item in projectsPerMonth.Buckets.Skip(1))
+            {
+                var movingAvg = item.MovingAverage("commits_moving_avg");
+                movingAvg.Should().NotBeNull();
+                movingAvg.Value.Should().BeGreaterThan(0);
+            }
+        }
+    }
 }

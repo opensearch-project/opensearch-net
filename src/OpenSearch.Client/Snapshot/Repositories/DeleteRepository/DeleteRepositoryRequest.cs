@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.delete_repository.json")]
-	public partial interface IDeleteRepositoryRequest { }
+    [MapsApi("snapshot.delete_repository.json")]
+    public partial interface IDeleteRepositoryRequest { }
 
-	public partial class DeleteRepositoryRequest { }
+    public partial class DeleteRepositoryRequest { }
 
-	public partial class DeleteRepositoryDescriptor { }
+    public partial class DeleteRepositoryDescriptor { }
 }

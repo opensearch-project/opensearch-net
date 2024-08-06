@@ -26,10 +26,10 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Domain;
 using Tests.Framework;
@@ -38,9 +38,9 @@ using static OpenSearch.Client.Indices;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
-	public class IndicesPaths : DocumentationTestBase
-	{
-		/**[[indices-paths]]
+    public class IndicesPaths : DocumentationTestBase
+    {
+        /**[[indices-paths]]
 		* === Indices paths
 		*
 		* Some APIs in OpenSearch take an index name, a collection of index names,
@@ -62,56 +62,57 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* Here are some examples of how implicit conversions can be used to specify index names
 		*/
-		[U] public void ImplicitConversions()
-		{
-			OpenSearch.Client.Indices singleIndexFromString = "name";
-			OpenSearch.Client.Indices multipleIndicesFromString = "name1, name2";
-			OpenSearch.Client.Indices multipleIndicesFromStringArray = new [] { "name1", "name2" };
-			OpenSearch.Client.Indices allFromString = "_all";
+        [U]
+        public void ImplicitConversions()
+        {
+            OpenSearch.Client.Indices singleIndexFromString = "name";
+            OpenSearch.Client.Indices multipleIndicesFromString = "name1, name2";
+            OpenSearch.Client.Indices multipleIndicesFromStringArray = new[] { "name1", "name2" };
+            OpenSearch.Client.Indices allFromString = "_all";
 
-			OpenSearch.Client.Indices allWithOthersFromString = "_all, name2"; //<1> `_all` will override any specific index names here
+            OpenSearch.Client.Indices allWithOthersFromString = "_all, name2"; //<1> `_all` will override any specific index names here
 
-			OpenSearch.Client.Indices singleIndexFromType = typeof(Project); //<2> The `Project` type has been mapped to a specific index name using <<index-name-type-mapping,`.DefaultMappingFor<Project>`>>
+            OpenSearch.Client.Indices singleIndexFromType = typeof(Project); //<2> The `Project` type has been mapped to a specific index name using <<index-name-type-mapping,`.DefaultMappingFor<Project>`>>
 
-			OpenSearch.Client.Indices singleIndexFromIndexName = IndexName.From<Project>();
+            OpenSearch.Client.Indices singleIndexFromIndexName = IndexName.From<Project>();
 
-			singleIndexFromString.Match(
-				all => all.Should().BeNull(),
-				many => many.Indices.Should().HaveCount(1).And.Contain("name")
-			);
+            singleIndexFromString.Match(
+                all => all.Should().BeNull(),
+                many => many.Indices.Should().HaveCount(1).And.Contain("name")
+            );
 
-			multipleIndicesFromString.Match(
-				all => all.Should().BeNull(),
-				many => many.Indices.Should().HaveCount(2).And.Contain("name2")
-			);
+            multipleIndicesFromString.Match(
+                all => all.Should().BeNull(),
+                many => many.Indices.Should().HaveCount(2).And.Contain("name2")
+            );
 
-			allFromString.Match(
-				all => all.Should().NotBeNull(),
-				many => many.Indices.Should().BeNull()
-			);
+            allFromString.Match(
+                all => all.Should().NotBeNull(),
+                many => many.Indices.Should().BeNull()
+            );
 
-			allWithOthersFromString.Match(
-				all => all.Should().NotBeNull(),
-				many => many.Indices.Should().BeNull()
-			);
+            allWithOthersFromString.Match(
+                all => all.Should().NotBeNull(),
+                many => many.Indices.Should().BeNull()
+            );
 
-			multipleIndicesFromStringArray.Match(
-				all => all.Should().BeNull(),
-				many => many.Indices.Should().HaveCount(2).And.Contain("name2")
-			);
+            multipleIndicesFromStringArray.Match(
+                all => all.Should().BeNull(),
+                many => many.Indices.Should().HaveCount(2).And.Contain("name2")
+            );
 
-			singleIndexFromType.Match(
-				all => all.Should().BeNull(),
-				many => many.Indices.Should().HaveCount(1).And.Contain(typeof(Project))
-			);
+            singleIndexFromType.Match(
+                all => all.Should().BeNull(),
+                many => many.Indices.Should().HaveCount(1).And.Contain(typeof(Project))
+            );
 
-			singleIndexFromIndexName.Match(
-				all => all.Should().BeNull(),
-				many => many.Indices.Should().HaveCount(1).And.Contain(typeof(Project))
-			);
-		}
+            singleIndexFromIndexName.Match(
+                all => all.Should().BeNull(),
+                many => many.Indices.Should().HaveCount(1).And.Contain(typeof(Project))
+            );
+        }
 
-		/**
+        /**
 		* [[osc-indices]]
 		*==== Using OpenSearch.Client.Indices methods
 		* To make creating `IndexName` or `Indices` instances easier, `OpenSearch.Client.Indices` also contains several static methods
@@ -127,44 +128,46 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* to simply `Index()`. Be sure to include this static import if copying any of these examples.
 		* ====
 		*/
-		[U] public void UsingStaticPropertyField()
-		{
+        [U]
+        public void UsingStaticPropertyField()
+        {
 
-			var client = TestClient.Default;
+            var client = TestClient.Default;
 
-			var singleString = Index("name1"); // <1> specifying a single index using a string
-			var singleTyped = Index<Project>(); //<2> specifying a single index using a type
+            var singleString = Index("name1"); // <1> specifying a single index using a string
+            var singleTyped = Index<Project>(); //<2> specifying a single index using a type
 
-			ISearchRequest singleStringRequest = new SearchDescriptor<Project>().Index(singleString);
-			ISearchRequest singleTypedRequest = new SearchDescriptor<Project>().Index(singleTyped);
+            ISearchRequest singleStringRequest = new SearchDescriptor<Project>().Index(singleString);
+            ISearchRequest singleTypedRequest = new SearchDescriptor<Project>().Index(singleTyped);
 
-			((IUrlParameter)singleStringRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("name1");
-			((IUrlParameter)singleTypedRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("project");
+            ((IUrlParameter)singleStringRequest.Index).GetString(Client.ConnectionSettings).Should().Be("name1");
+            ((IUrlParameter)singleTypedRequest.Index).GetString(Client.ConnectionSettings).Should().Be("project");
 
-			var invalidSingleString = Index("name1, name2"); //<3> an **invalid** single index name
-		}
+            var invalidSingleString = Index("name1, name2"); //<3> an **invalid** single index name
+        }
 
-		/**===== Multiple indices
+        /**===== Multiple indices
 		*
 		* Similarly to a single index, multiple indices can be specified using multiple CLR types or multiple strings
 		*/
-		[U] public void MultipleIndices()
-		{
-			var manyStrings = Index("name1", "name2"); //<1> specifying multiple indices using strings
-			var manyTypes = Index<Project>().And<Developer>(); //<2> specifying multiple indices using types
-			var client = TestClient.Default;
+        [U]
+        public void MultipleIndices()
+        {
+            var manyStrings = Index("name1", "name2"); //<1> specifying multiple indices using strings
+            var manyTypes = Index<Project>().And<Developer>(); //<2> specifying multiple indices using types
+            var client = TestClient.Default;
 
-			ISearchRequest manyStringRequest = new SearchDescriptor<Project>().Index(manyStrings);
-			ISearchRequest manyTypedRequest = new SearchDescriptor<Project>().Index(manyTypes);
+            ISearchRequest manyStringRequest = new SearchDescriptor<Project>().Index(manyStrings);
+            ISearchRequest manyTypedRequest = new SearchDescriptor<Project>().Index(manyTypes);
 
-			((IUrlParameter)manyStringRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("name1,name2");
-			((IUrlParameter)manyTypedRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("project,devs"); // <3> The index names here come from the Connection Settings passed to `TestClient`. See the documentation on <<index-name-inference, Index Name Inference>> for more details.
+            ((IUrlParameter)manyStringRequest.Index).GetString(Client.ConnectionSettings).Should().Be("name1,name2");
+            ((IUrlParameter)manyTypedRequest.Index).GetString(Client.ConnectionSettings).Should().Be("project,devs"); // <3> The index names here come from the Connection Settings passed to `TestClient`. See the documentation on <<index-name-inference, Index Name Inference>> for more details.
 
-			manyStringRequest = new SearchDescriptor<Project>().Index(new[] { "name1", "name2" });
-			((IUrlParameter)manyStringRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("name1,name2");
-		}
+            manyStringRequest = new SearchDescriptor<Project>().Index(new[] { "name1", "name2" });
+            ((IUrlParameter)manyStringRequest.Index).GetString(Client.ConnectionSettings).Should().Be("name1,name2");
+        }
 
-		/**===== All Indices
+        /**===== All Indices
 		*
 		* OpenSearch allows searching across multiple indices using the special `_all` marker.
 		*
@@ -173,17 +176,17 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* static imports too; in this scenario, the `All` property becomes ambiguous between `Indices.All` and `Types.All`, so the
 		* `_all` marker for indices is exposed as `Indices.AllIndices`, to alleviate this ambiguity
 		*/
-		[U]
-		public void IndicesAllAndAllIndicesSpecifiedWhenUsingStaticUsingDirective()
-		{
-			var indicesAll = All;
-			var allIndices = AllIndices;
+        [U]
+        public void IndicesAllAndAllIndicesSpecifiedWhenUsingStaticUsingDirective()
+        {
+            var indicesAll = All;
+            var allIndices = AllIndices;
 
-			ISearchRequest indicesAllRequest = new SearchDescriptor<Project>().Index(indicesAll);
-			ISearchRequest allIndicesRequest = new SearchDescriptor<Project>().Index(allIndices);
+            ISearchRequest indicesAllRequest = new SearchDescriptor<Project>().Index(indicesAll);
+            ISearchRequest allIndicesRequest = new SearchDescriptor<Project>().Index(allIndices);
 
-			((IUrlParameter)indicesAllRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("_all");
-			((IUrlParameter)allIndicesRequest.Index).GetString(this.Client.ConnectionSettings).Should().Be("_all");
-		}
-	}
+            ((IUrlParameter)indicesAllRequest.Index).GetString(Client.ConnectionSettings).Should().Be("_all");
+            ((IUrlParameter)allIndicesRequest.Index).GetString(Client.ConnectionSettings).Should().Be("_all");
+        }
+    }
 }

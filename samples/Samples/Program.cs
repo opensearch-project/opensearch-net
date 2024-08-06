@@ -12,13 +12,13 @@ namespace Samples;
 
 public static class Program
 {
-	public static async Task Main(string[] args)
-	{
-		var rootCommand = new RootCommand("A collection of samples demonstrating how to use the OpenSearch .NET client");
-		var clientDescriptor = rootCommand.AddOpenSearchClientOptions();
+    public static async Task Main(string[] args)
+    {
+        var rootCommand = new RootCommand("A collection of samples demonstrating how to use the OpenSearch .NET client");
+        var clientDescriptor = rootCommand.AddOpenSearchClientOptions();
 
-		foreach (var sample in Sample.GetAllSamples()) rootCommand.AddCommand(sample.AsCommand(clientDescriptor));
+        foreach (var sample in Sample.GetAllSamples()) rootCommand.AddCommand(sample.AsCommand(clientDescriptor));
 
-		await rootCommand.InvokeAsync(args);
-	}
+        await rootCommand.InvokeAsync(args);
+    }
 }

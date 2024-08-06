@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class RestoreResponse : ResponseBase
-	{
-		[DataMember(Name ="snapshot")]
-		public SnapshotRestore Snapshot { get; set; }
-	}
+    [DataContract]
+    public class RestoreResponse : ResponseBase
+    {
+        [DataMember(Name = "snapshot")]
+        public SnapshotRestore Snapshot { get; set; }
+    }
 }

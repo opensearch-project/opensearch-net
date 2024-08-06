@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	public class DoubleRangeAttribute : RangePropertyAttributeBase, IDoubleRangeProperty
-	{
-		public DoubleRangeAttribute() : base(RangeType.DoubleRange) { }
-	}
+    public class DoubleRangeAttribute : RangePropertyAttributeBase, IDoubleRangeProperty
+    {
+        public DoubleRangeAttribute() : base(RangeType.DoubleRange) { }
+    }
 }

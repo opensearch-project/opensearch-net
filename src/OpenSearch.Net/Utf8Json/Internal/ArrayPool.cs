@@ -54,48 +54,48 @@ using System;
 
 namespace OpenSearch.Net.Utf8Json.Internal
 {
-	internal class ArrayPool<T>
-	{
-		private readonly int _bufferLength;
-		private readonly object _gate;
-		private int _index;
-		private T[][] _buffers;
+    internal class ArrayPool<T>
+    {
+        private readonly int _bufferLength;
+        private readonly object _gate;
+        private int _index;
+        private T[][] _buffers;
 
-		public ArrayPool(int bufferLength)
-		{
-			_bufferLength = bufferLength;
-			_buffers = new T[4][];
-			_gate = new object();
-		}
+        public ArrayPool(int bufferLength)
+        {
+            _bufferLength = bufferLength;
+            _buffers = new T[4][];
+            _gate = new object();
+        }
 
-		public T[] Rent()
-		{
-			lock (_gate)
-			{
-				if (_index >= _buffers.Length)
-					Array.Resize(ref _buffers, _buffers.Length * 2);
+        public T[] Rent()
+        {
+            lock (_gate)
+            {
+                if (_index >= _buffers.Length)
+                    Array.Resize(ref _buffers, _buffers.Length * 2);
 
-				if (_buffers[_index] == null)
-					_buffers[_index] = new T[_bufferLength];
+                if (_buffers[_index] == null)
+                    _buffers[_index] = new T[_bufferLength];
 
-				var buffer = _buffers[_index];
-				_buffers[_index] = null;
-				_index++;
+                var buffer = _buffers[_index];
+                _buffers[_index] = null;
+                _index++;
 
-				return buffer;
-			}
-		}
+                return buffer;
+            }
+        }
 
-		public void Return(T[] array)
-		{
-			if (array.Length != _bufferLength)
-				throw new InvalidOperationException("return buffer is not from pool");
+        public void Return(T[] array)
+        {
+            if (array.Length != _bufferLength)
+                throw new InvalidOperationException("return buffer is not from pool");
 
-			lock (_gate)
-			{
-				if (_index != 0)
-					_buffers[--_index] = array;
-			}
-		}
-	}
+            lock (_gate)
+            {
+                if (_index != 0)
+                    _buffers[--_index] = array;
+            }
+        }
+    }
 }

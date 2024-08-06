@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cluster.pending_tasks.json")]
-	public partial interface IClusterPendingTasksRequest { }
+    [MapsApi("cluster.pending_tasks.json")]
+    public partial interface IClusterPendingTasksRequest { }
 
-	public partial class ClusterPendingTasksRequest { }
+    public partial class ClusterPendingTasksRequest { }
 
-	public partial class ClusterPendingTasksDescriptor { }
+    public partial class ClusterPendingTasksDescriptor { }
 }

@@ -27,9 +27,9 @@
 */
 
 using System;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -37,41 +37,41 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Document.Single.Exists
 {
-	public class DocumentExistsApiTests
-		: ApiIntegrationTestBase<WritableCluster, ExistsResponse, IDocumentExistsRequest, DocumentExistsDescriptor<Project>,
-			DocumentExistsRequest<Project>>
-	{
-		public DocumentExistsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class DocumentExistsApiTests
+        : ApiIntegrationTestBase<WritableCluster, ExistsResponse, IDocumentExistsRequest, DocumentExistsDescriptor<Project>,
+            DocumentExistsRequest<Project>>
+    {
+        public DocumentExistsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.HEAD;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.HEAD;
 
-		protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={CallIsolatedValue}";
+        protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={CallIsolatedValue}";
 
-		protected override bool SupportsDeserialization => false;
-		protected override DocumentExistsDescriptor<Project> NewDescriptor() => new DocumentExistsDescriptor<Project>(CallIsolatedValue);
+        protected override bool SupportsDeserialization => false;
+        protected override DocumentExistsDescriptor<Project> NewDescriptor() => new DocumentExistsDescriptor<Project>(CallIsolatedValue);
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			foreach (var id in values.Values)
-				Client.Index(Project.Instance, i => i.Id(id).Routing(id));
-		}
+        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+        {
+            foreach (var id in values.Values)
+                Client.Index(Project.Instance, i => i.Id(id).Routing(id));
+        }
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.DocumentExists(CallIsolatedValue, f),
-			(client, f) => client.DocumentExistsAsync(CallIsolatedValue, f),
-			(client, r) => client.DocumentExists(r),
-			(client, r) => client.DocumentExistsAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.DocumentExists(CallIsolatedValue, f),
+            (client, f) => client.DocumentExistsAsync(CallIsolatedValue, f),
+            (client, r) => client.DocumentExists(r),
+            (client, r) => client.DocumentExistsAsync(r)
+        );
 
-		protected override DocumentExistsRequest<Project> Initializer => new DocumentExistsRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
-		protected override Func<DocumentExistsDescriptor<Project>, IDocumentExistsRequest> Fluent => d => d.Routing(CallIsolatedValue);
+        protected override DocumentExistsRequest<Project> Initializer => new DocumentExistsRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
+        protected override Func<DocumentExistsDescriptor<Project>, IDocumentExistsRequest> Fluent => d => d.Routing(CallIsolatedValue);
 
-		protected override void ExpectResponse(ExistsResponse response)
-		{
-			response.Should().NotBeNull();
-			response.Exists.Should().BeTrue();
-		}
-	}
+        protected override void ExpectResponse(ExistsResponse response)
+        {
+            response.Should().NotBeNull();
+            response.Exists.Should().BeTrue();
+        }
+    }
 }

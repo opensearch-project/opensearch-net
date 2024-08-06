@@ -27,34 +27,35 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Search.Explain
 {
-	public class ExplainUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var project = new Project { Name = "OSC" };
-			var routing = Infer.Route(project);
+    public class ExplainUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var project = new Project { Name = "OSC" };
+            var routing = Infer.Route(project);
 
-			await POST("/project/_explain/OSC?routing=OSC")
-					.Fluent(c => c.Explain<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
-					.Request(c => c.Explain<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
-					.FluentAsync(c => c.ExplainAsync<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
-					.RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
-				;
+            await POST("/project/_explain/OSC?routing=OSC")
+                    .Fluent(c => c.Explain<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
+                    .Request(c => c.Explain<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
+                    .FluentAsync(c => c.ExplainAsync<Project>(project, e => e.Routing(routing).Query(q => q.MatchAll())))
+                    .RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>(project) { Routing = routing }))
+                ;
 
-			await POST("/project/_explain/OSC")
-					.Fluent(c => c.Explain<Project>("OSC", e => e.Query(q => q.MatchAll())))
-					.Request(c => c.Explain<Project>(new ExplainRequest<Project>("project", "OSC")))
-					.FluentAsync(c => c.ExplainAsync<Project>("OSC", e => e.Query(q => q.MatchAll())))
-					.RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>("OSC")))
-				;
-		}
-	}
+            await POST("/project/_explain/OSC")
+                    .Fluent(c => c.Explain<Project>("OSC", e => e.Query(q => q.MatchAll())))
+                    .Request(c => c.Explain<Project>(new ExplainRequest<Project>("project", "OSC")))
+                    .FluentAsync(c => c.ExplainAsync<Project>("OSC", e => e.Query(q => q.MatchAll())))
+                    .RequestAsync(c => c.ExplainAsync<Project>(new ExplainRequest<Project>("OSC")))
+                ;
+        }
+    }
 }

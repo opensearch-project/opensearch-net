@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.snapshots.json")]
-	public partial interface ICatSnapshotsRequest { }
+    [MapsApi("cat.snapshots.json")]
+    public partial interface ICatSnapshotsRequest { }
 
-	public partial class CatSnapshotsRequest { }
+    public partial class CatSnapshotsRequest { }
 
-	public partial class CatSnapshotsDescriptor { }
+    public partial class CatSnapshotsDescriptor { }
 }

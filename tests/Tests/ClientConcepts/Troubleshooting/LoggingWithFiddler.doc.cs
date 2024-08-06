@@ -36,14 +36,14 @@ using OpenSearch.Client;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {
-	/**=== Logging with Fiddler
+    /**=== Logging with Fiddler
 	 *
 	 * A web debugging proxy such as http://www.telerik.com/fiddler[Fiddler] is a useful way to capture HTTP traffic
 	 * from a machine, particularly whilst developing against a local OpenSearch cluster.
 	 */
-	public class LoggingWithFiddler
-	{
-		/**
+    public class LoggingWithFiddler
+    {
+        /**
 		 * ==== Capturing traffic to a remote cluster
 		 *
 		 * To capture traffic against a remote cluster is as simple as launching Fiddler! You may want to also
@@ -58,17 +58,17 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 *
 		 * This is easily circumvented by using `ipv4.fiddler` as the hostname instead of `localhost`
 		 */
-		public void UsingAWebDebuggingProxy()
-		{
-			var isFiddlerRunning = Process.GetProcessesByName("fiddler").Any();
-			var host = isFiddlerRunning ? "ipv4.fiddler" : "localhost";
+        public void UsingAWebDebuggingProxy()
+        {
+            var isFiddlerRunning = Process.GetProcessesByName("fiddler").Any();
+            var host = isFiddlerRunning ? "ipv4.fiddler" : "localhost";
 
-			var connectionSettings = new ConnectionSettings(new Uri($"http://{host}:9200"))
-				.PrettyJson(); // <1> prettify json requests and responses to make them easier to read in Fiddler
+            var connectionSettings = new ConnectionSettings(new Uri($"http://{host}:9200"))
+                .PrettyJson(); // <1> prettify json requests and responses to make them easier to read in Fiddler
 
-			var client = new OpenSearchClient(connectionSettings);
-		}
-		/**
+            var client = new OpenSearchClient(connectionSettings);
+        }
+        /**
 		 * With Fiddler running, the requests and responses will now be captured and can be inspected in the
 		 * Inspectors tab
 		 *
@@ -79,5 +79,5 @@ namespace Tests.ClientConcepts.Troubleshooting
 		 *
 		 * image::capture-requests-localhost.png[Capturing requests to localhost]
 		 */
-	}
+    }
 }

@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class RefreshResponse : ShardsOperationResponseBase { }
+    public class RefreshResponse : ShardsOperationResponseBase { }
 }

@@ -31,13 +31,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum SynonymFormat
-	{
-		[EnumMember(Value = "solr")]
-		Solr,
+    [StringEnum]
+    public enum SynonymFormat
+    {
+        [EnumMember(Value = "solr")]
+        Solr,
 
-		[EnumMember(Value = "wordnet")]
-		WordNet
-	}
+        [EnumMember(Value = "wordnet")]
+        WordNet
+    }
 }

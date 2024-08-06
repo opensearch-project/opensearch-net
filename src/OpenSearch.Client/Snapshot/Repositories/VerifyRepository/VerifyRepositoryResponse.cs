@@ -33,14 +33,14 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class VerifyRepositoryResponse : ResponseBase
-	{
-		/// <summary>
-		///  A dictionary of nodeId => nodeinfo of nodes that verified the repository
-		/// </summary>
-		[DataMember(Name = "nodes")]
-		[JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, CompactNodeInfo>))]
-		public IReadOnlyDictionary<string, CompactNodeInfo> Nodes { get; internal set; } = EmptyReadOnly<string, CompactNodeInfo>.Dictionary;
-	}
+    [DataContract]
+    public class VerifyRepositoryResponse : ResponseBase
+    {
+        /// <summary>
+        ///  A dictionary of nodeId => nodeinfo of nodes that verified the repository
+        /// </summary>
+        [DataMember(Name = "nodes")]
+        [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, CompactNodeInfo>))]
+        public IReadOnlyDictionary<string, CompactNodeInfo> Nodes { get; internal set; } = EmptyReadOnly<string, CompactNodeInfo>.Dictionary;
+    }
 }

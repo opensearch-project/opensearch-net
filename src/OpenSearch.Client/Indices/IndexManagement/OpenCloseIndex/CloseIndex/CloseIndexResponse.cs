@@ -32,35 +32,35 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class CloseIndexResponse : AcknowledgedResponseBase
-	{
-		/// <summary>
-		/// Individual index responses
-		/// </summary>
-		[DataMember(Name = "indices")]
-		public IReadOnlyDictionary<string, CloseIndexResult> Indices { get; internal set; } = EmptyReadOnly<string, CloseIndexResult>.Dictionary;
+    public class CloseIndexResponse : AcknowledgedResponseBase
+    {
+        /// <summary>
+        /// Individual index responses
+        /// </summary>
+        [DataMember(Name = "indices")]
+        public IReadOnlyDictionary<string, CloseIndexResult> Indices { get; internal set; } = EmptyReadOnly<string, CloseIndexResult>.Dictionary;
 
-		/// <summary>
-		/// Acknowledgement from shards
-		/// </summary>
-		[DataMember(Name = "shards_acknowledged")]
-		public bool ShardsAcknowledged { get; internal set; }
-	}
+        /// <summary>
+        /// Acknowledgement from shards
+        /// </summary>
+        [DataMember(Name = "shards_acknowledged")]
+        public bool ShardsAcknowledged { get; internal set; }
+    }
 
-	[DataContract]
-	public class CloseIndexResult
-	{
-		[DataMember(Name = "closed")]
-		public bool Closed { get; internal set; }
+    [DataContract]
+    public class CloseIndexResult
+    {
+        [DataMember(Name = "closed")]
+        public bool Closed { get; internal set; }
 
-		[DataMember(Name = "shards")]
-		public IReadOnlyDictionary<string, CloseShardResult> Shards { get; internal set; } = EmptyReadOnly<string, CloseShardResult>.Dictionary;
-	}
+        [DataMember(Name = "shards")]
+        public IReadOnlyDictionary<string, CloseShardResult> Shards { get; internal set; } = EmptyReadOnly<string, CloseShardResult>.Dictionary;
+    }
 
-	[DataContract]
-	public class CloseShardResult
-	{
-		[DataMember(Name = "failures")]
-		public IReadOnlyCollection<ShardFailure> Failures { get; internal set; } = EmptyReadOnly<ShardFailure>.Collection;
-	}
+    [DataContract]
+    public class CloseShardResult
+    {
+        [DataMember(Name = "failures")]
+        public IReadOnlyCollection<ShardFailure> Failures { get; internal set; } = EmptyReadOnly<ShardFailure>.Collection;
+    }
 }

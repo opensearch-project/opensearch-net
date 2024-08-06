@@ -158,7 +158,7 @@ namespace ApiGenerator.Domain.Code
         //&& ResponseGenerics.FirstOrDefault() == DescriptorBoundDocumentGeneric ;
 
         public string DescriptorBoundDocumentGeneric =>
-            HighLevelDescriptorMethodGenerics.FirstOrDefault(g=>g == "TDocument") ?? HighLevelDescriptorMethodGenerics.Last();
+            HighLevelDescriptorMethodGenerics.FirstOrDefault(g => g == "TDocument") ?? HighLevelDescriptorMethodGenerics.Last();
 
         public List<string> HighLevelDescriptorMethodGenerics => DescriptorGenerics
             .Concat(ResponseGenerics)
@@ -182,7 +182,7 @@ namespace ApiGenerator.Domain.Code
         public string GenericResponseName => GenericsDeclaredOnResponse.IsNullOrEmpty() ? null : $"{ResponseName}{GenericsDeclaredOnResponse}";
 
         public string GenericOrNonGenericDescriptorName => GenericDescriptorName ?? DescriptorName;
-        public string GenericOrNonGenericInterfaceName => GenericInterfaceName  ?? RequestInterfaceName;
+        public string GenericOrNonGenericInterfaceName => GenericInterfaceName ?? RequestInterfaceName;
         public string GenericOrNonGenericResponseName
         {
             get
@@ -206,11 +206,11 @@ namespace ApiGenerator.Domain.Code
 
         public bool CustomResponseBuilderPerRequestOverride(out string call) => CodeConfiguration.ResponseBuilderInClientCalls.TryGetValue(RequestName, out call);
 
-		public static string GetEnumName(string schemaKey)
-		{
-			var enumName = schemaKey.Replace("_common", "").SplitPascalCase().ToPascalCase();
-			if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed)) enumName = renamed;
-			return enumName;
-		}
+        public static string GetEnumName(string schemaKey)
+        {
+            var enumName = schemaKey.Replace("_common", "").SplitPascalCase().ToPascalCase();
+            if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed)) enumName = renamed;
+            return enumName;
+        }
     }
 }

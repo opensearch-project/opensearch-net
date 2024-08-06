@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("ingest.delete_pipeline.json")]
-	public partial interface IDeletePipelineRequest { }
+    [MapsApi("ingest.delete_pipeline.json")]
+    public partial interface IDeletePipelineRequest { }
 
-	public partial class DeletePipelineRequest { }
+    public partial class DeletePipelineRequest { }
 
-	public partial class DeletePipelineDescriptor { }
+    public partial class DeletePipelineDescriptor { }
 }

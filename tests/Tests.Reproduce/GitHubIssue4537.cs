@@ -29,18 +29,18 @@
 using System;
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce
 {
-	public class GitHubIssue4537
-	{
-		[U]
-		public void CanDeserializeSnapshotShardFailure()
-		{
-			var json = @"{
+    public class GitHubIssue4537
+    {
+        [U]
+        public void CanDeserializeSnapshotShardFailure()
+        {
+            var json = @"{
 						  ""snapshots"": [
 						    {
 						      ""snapshot"": ""snapshot_2020-03-31t00:02:18z"",
@@ -88,17 +88,17 @@ namespace Tests.Reproduce
 						  ]
 						}";
 
-			var client = TestClient.FixedInMemoryClient(Encoding.UTF8.GetBytes(json));
+            var client = TestClient.FixedInMemoryClient(Encoding.UTF8.GetBytes(json));
 
-			var action = () => client.Snapshot.Get("repo", "snapshot_2020-03-31t00:02:18z");
+            var action = () => client.Snapshot.Get("repo", "snapshot_2020-03-31t00:02:18z");
 
-			action.Should().NotThrow();
+            action.Should().NotThrow();
 
-			var response = action();
+            var response = action();
 
-			var failures = response.Snapshots.First().Failures;
-			failures.Should().HaveCount(3);
-			failures.First().ShardId.Should().Be("1");
-		}
-	}
+            var failures = response.Snapshots.First().Failures;
+            failures.Should().HaveCount(3);
+            failures.First().ShardId.Should().Be("1");
+        }
+    }
 }

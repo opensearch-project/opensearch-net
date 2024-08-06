@@ -30,21 +30,22 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(ValueCountAggregation))]
-	public interface IValueCountAggregation : IFormattableMetricAggregation { }
+    [InterfaceDataContract]
+    [ReadAs(typeof(ValueCountAggregation))]
+    public interface IValueCountAggregation : IFormattableMetricAggregation { }
 
-	public class ValueCountAggregation : FormattableMetricAggregationBase, IValueCountAggregation
-	{
-		internal ValueCountAggregation() { }
+    public class ValueCountAggregation : FormattableMetricAggregationBase, IValueCountAggregation
+    {
+        internal ValueCountAggregation() { }
 
-		public ValueCountAggregation(string name, Field field) : base(name, field) { }
+        public ValueCountAggregation(string name, Field field) : base(name, field) { }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.ValueCount = this;
-	}
+        internal override void WrapInContainer(AggregationContainer c) => c.ValueCount = this;
+    }
 
-	public class ValueCountAggregationDescriptor<T>
-		: FormattableMetricAggregationDescriptorBase<ValueCountAggregationDescriptor<T>, IValueCountAggregation, T>
-			, IValueCountAggregation
-		where T : class { }
+    public class ValueCountAggregationDescriptor<T>
+        : FormattableMetricAggregationDescriptorBase<ValueCountAggregationDescriptor<T>, IValueCountAggregation, T>
+            , IValueCountAggregation
+        where T : class
+    { }
 }

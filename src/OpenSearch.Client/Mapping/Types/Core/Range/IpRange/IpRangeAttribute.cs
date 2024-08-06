@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	public class IpRangeAttribute : RangePropertyAttributeBase, IIpRangeProperty
-	{
-		public IpRangeAttribute() : base(RangeType.IpRange) { }
-	}
+    public class IpRangeAttribute : RangePropertyAttributeBase, IIpRangeProperty
+    {
+        public IpRangeAttribute() : base(RangeType.IpRange) { }
+    }
 }

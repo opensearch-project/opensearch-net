@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum TranslogDurability
-	{
-		[EnumMember(Value = "request")]
-		Request,
+    [StringEnum]
+    public enum TranslogDurability
+    {
+        [EnumMember(Value = "request")]
+        Request,
 
-		[EnumMember(Value = "async")]
-		Async
-	}
+        [EnumMember(Value = "async")]
+        Async
+    }
 }

@@ -58,355 +58,419 @@ using System.Collections.ObjectModel;
 
 namespace OpenSearch.Net.Utf8Json.Formatters
 {
-	// unfortunately, can't use IDictionary<KVP> because supports IReadOnlyDictionary.
-	internal abstract class DictionaryFormatterBase<TKey, TValue, TIntermediate, TEnumerator, TDictionary> : IJsonFormatter<TDictionary>
-		where TDictionary : class, IEnumerable<KeyValuePair<TKey, TValue>>
-		where TEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>
-	{
-		protected bool SkipValue(TValue value) => false;
+    // unfortunately, can't use IDictionary<KVP> because supports IReadOnlyDictionary.
+    internal abstract class DictionaryFormatterBase<TKey, TValue, TIntermediate, TEnumerator, TDictionary> : IJsonFormatter<TDictionary>
+        where TDictionary : class, IEnumerable<KeyValuePair<TKey, TValue>>
+        where TEnumerator : IEnumerator<KeyValuePair<TKey, TValue>>
+    {
+        protected bool SkipValue(TValue value) => false;
 
-		public void Serialize(ref JsonWriter writer, TDictionary value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
+        public void Serialize(ref JsonWriter writer, TDictionary value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+
+/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
+Before:
 				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
 				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 
 				writer.WriteBeginObject();
+After:
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
 
-				var e = GetSourceEnumerator(value);
-				try
-				{
-					var written = 0;
-					if (keyFormatter != null)
-					{
-						if (e.MoveNext())
-						{
-							var item = e.Current;
+                writer.WriteBeginObject();
+*/
 
-							if (!SkipValue(item.Value))
-							{
-								keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
-								writer.WriteNameSeparator();
-								valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-								written++;
-							}
-						}
-						else
-							goto END;
+/* Unmerged change from project 'OpenSearch.Net(net6.0)'
+Before:
+				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
+				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 
-						while (e.MoveNext())
-						{
+				writer.WriteBeginObject();
+After:
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
 
-							var item = e.Current;
-							if (!SkipValue(item.Value))
-							{
-								if (written > 0)
-									writer.WriteValueSeparator();
-								keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
-								writer.WriteNameSeparator();
-								valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-								written++;
-							}
-						}
-					}
-					else
-					{
-						if (e.MoveNext())
-						{
-							var item = e.Current;
-							if (!SkipValue(item.Value))
-							{
-								written++;
-								writer.WriteString(item.Key.ToString());
-								writer.WriteNameSeparator();
-								valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-							}
-						}
-						else
-							goto END;
+                writer.WriteBeginObject();
+*/
 
-						while (e.MoveNext())
-						{
-							var item = e.Current;
-							if (!SkipValue(item.Value))
-							{
-								if (written > 0)
-									writer.WriteValueSeparator();
+/* Unmerged change from project 'OpenSearch.Net(net8.0)'
+Before:
+				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
+				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 
-								writer.WriteString(item.Key.ToString());
-								writer.WriteNameSeparator();
-								valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-								written++;
-							}
-						}
-					}
-				}
-				finally
-				{
-					e.Dispose();
-				}
+				writer.WriteBeginObject();
+After:
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
 
-				END:
-				writer.WriteEndObject();
-			}
-		}
+                writer.WriteBeginObject();
+*/
+            else
+            {
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 
-		public TDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-				return null;
+                writer.WriteBeginObject();
 
+                var e = GetSourceEnumerator(value);
+                try
+                {
+                    var written = 0;
+                    if (formatterResolver.GetFormatterWithVerify<TKey>() is IObjectPropertyNameFormatter<TKey> keyFormatter)
+                    {
+                        if (e.MoveNext())
+                        {
+                            var item = e.Current;
+
+                            if (!SkipValue(item.Value))
+                            {
+                                keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
+                                writer.WriteNameSeparator();
+                                valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                                written++;
+                            }
+                        }
+                        else
+                            goto END;
+
+                        while (e.MoveNext())
+                        {
+
+                            var item = e.Current;
+                            if (!SkipValue(item.Value))
+                            {
+                                if (written > 0)
+                                    writer.WriteValueSeparator();
+                                keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
+                                writer.WriteNameSeparator();
+                                valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                                written++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (e.MoveNext())
+                        {
+                            var item = e.Current;
+                            if (!SkipValue(item.Value))
+                            {
+                                written++;
+                                writer.WriteString(item.Key.ToString());
+                                writer.WriteNameSeparator();
+                                valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                            }
+                        }
+                        else
+                            goto END;
+
+                        while (e.MoveNext())
+                        {
+                            var item = e.Current;
+                            if (!SkipValue(item.Value))
+                            {
+                                if (written > 0)
+                                    writer.WriteValueSeparator();
+
+                                writer.WriteString(item.Key.ToString());
+                                writer.WriteNameSeparator();
+                                valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                                written++;
+                            }
+                        }
+                    }
+                }
+                finally
+                {
+                    e.Dispose();
+                }
+
+                END:
+                writer.WriteEndObject();
+            }
+        }
+
+        public TDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull())
+                return null;
+
+
+/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
+Before:
 			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
 			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
 			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+After:
+			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+*/
 
-			reader.ReadIsBeginObjectWithVerify();
+/* Unmerged change from project 'OpenSearch.Net(net6.0)'
+Before:
+			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
+			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+After:
+			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+*/
 
-			var dict = Create();
-			var i = 0;
-			while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
-			{
-				var key = keyFormatter.DeserializeFromPropertyName(ref reader, formatterResolver);
-				reader.ReadIsNameSeparatorWithVerify();
-				var value = valueFormatter.Deserialize(ref reader, formatterResolver);
-				Add(ref dict, i - 1, key, value);
-			}
+/* Unmerged change from project 'OpenSearch.Net(net8.0)'
+Before:
+			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
+			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+After:
+			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+*/
+            var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 
-			return Complete(ref dict);
-		}
+            reader.ReadIsBeginObjectWithVerify();
 
-		// abstraction for serialize
+            var dict = Create();
+            var i = 0;
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
+            {
+                var key = keyFormatter.DeserializeFromPropertyName(ref reader, formatterResolver);
+                reader.ReadIsNameSeparatorWithVerify();
+                var value = valueFormatter.Deserialize(ref reader, formatterResolver);
+                Add(ref dict, i - 1, key, value);
+            }
 
-		// Some collections can use struct iterator, this is optimization path
-		protected abstract TEnumerator GetSourceEnumerator(TDictionary source);
+            return Complete(ref dict);
+        }
 
-		// abstraction for deserialize
-		protected abstract TIntermediate Create();
-		protected abstract void Add(ref TIntermediate collection, int index, TKey key, TValue value);
-		protected abstract TDictionary Complete(ref TIntermediate intermediateCollection);
-	}
+        // abstraction for serialize
 
-	internal abstract class DictionaryFormatterBase<TKey, TValue, TIntermediate, TDictionary> : DictionaryFormatterBase<TKey, TValue, TIntermediate, IEnumerator<KeyValuePair<TKey, TValue>>, TDictionary>
-		where TDictionary : class, IEnumerable<KeyValuePair<TKey, TValue>>
-	{
-		protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) => source.GetEnumerator();
-	}
+        // Some collections can use struct iterator, this is optimization path
+        protected abstract TEnumerator GetSourceEnumerator(TDictionary source);
 
-	internal abstract class DictionaryFormatterBase<TKey, TValue, TDictionary> : DictionaryFormatterBase<TKey, TValue, TDictionary, TDictionary>
-		where TDictionary : class, IDictionary<TKey, TValue>
-	{
-		protected override TDictionary Complete(ref TDictionary intermediateCollection) => intermediateCollection;
-	}
+        // abstraction for deserialize
+        protected abstract TIntermediate Create();
+        protected abstract void Add(ref TIntermediate collection, int index, TKey key, TValue value);
+        protected abstract TDictionary Complete(ref TIntermediate intermediateCollection);
+    }
 
-	internal sealed class DictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, Dictionary<TKey, TValue>.Enumerator, Dictionary<TKey, TValue>>
-	{
-		protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+    internal abstract class DictionaryFormatterBase<TKey, TValue, TIntermediate, TDictionary> : DictionaryFormatterBase<TKey, TValue, TIntermediate, IEnumerator<KeyValuePair<TKey, TValue>>, TDictionary>
+        where TDictionary : class, IEnumerable<KeyValuePair<TKey, TValue>>
+    {
+        protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) => source.GetEnumerator();
+    }
 
-		protected override Dictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
+    internal abstract class DictionaryFormatterBase<TKey, TValue, TDictionary> : DictionaryFormatterBase<TKey, TValue, TDictionary, TDictionary>
+        where TDictionary : class, IDictionary<TKey, TValue>
+    {
+        protected override TDictionary Complete(ref TDictionary intermediateCollection) => intermediateCollection;
+    }
 
-		protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
+    internal sealed class DictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, Dictionary<TKey, TValue>.Enumerator, Dictionary<TKey, TValue>>
+    {
+        protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-		protected override Dictionary<TKey, TValue>.Enumerator GetSourceEnumerator(Dictionary<TKey, TValue> source) => source.GetEnumerator();
-	}
+        protected override Dictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
 
-	internal sealed class GenericDictionaryFormatter<TKey, TValue, TDictionary> : DictionaryFormatterBase<TKey, TValue, TDictionary>
-		where TDictionary : class, IDictionary<TKey, TValue>, new()
-	{
-		protected override void Add(ref TDictionary collection, int index, TKey key, TValue value) => collection.Add(key, value);
+        protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
 
-		protected override TDictionary Create() => new TDictionary();
-	}
+        protected override Dictionary<TKey, TValue>.Enumerator GetSourceEnumerator(Dictionary<TKey, TValue> source) => source.GetEnumerator();
+    }
 
-	internal sealed class InterfaceDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, IDictionary<TKey, TValue>>
-	{
-		protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+    internal sealed class GenericDictionaryFormatter<TKey, TValue, TDictionary> : DictionaryFormatterBase<TKey, TValue, TDictionary>
+        where TDictionary : class, IDictionary<TKey, TValue>, new()
+    {
+        protected override void Add(ref TDictionary collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-		protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
+        protected override TDictionary Create() => new TDictionary();
+    }
 
-		protected override IDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
-	}
+    internal sealed class InterfaceDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, IDictionary<TKey, TValue>>
+    {
+        protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-	internal sealed class SortedListFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, SortedList<TKey, TValue>>
-	{
-		protected override void Add(ref SortedList<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+        protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
 
-		protected override SortedList<TKey, TValue> Create() => new SortedList<TKey, TValue>();
-	}
+        protected override IDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
+    }
 
-	internal sealed class SortedDictionaryFormatter<TKey, TValue>
-		: DictionaryFormatterBase<TKey, TValue, SortedDictionary<TKey, TValue>, SortedDictionary<TKey, TValue>.Enumerator, SortedDictionary<TKey, TValue>>
-	{
-		protected override void Add(ref SortedDictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+    internal sealed class SortedListFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, SortedList<TKey, TValue>>
+    {
+        protected override void Add(ref SortedList<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-		protected override SortedDictionary<TKey, TValue> Complete(ref SortedDictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
+        protected override SortedList<TKey, TValue> Create() => new SortedList<TKey, TValue>();
+    }
 
-		protected override SortedDictionary<TKey, TValue> Create() => new SortedDictionary<TKey, TValue>();
+    internal sealed class SortedDictionaryFormatter<TKey, TValue>
+        : DictionaryFormatterBase<TKey, TValue, SortedDictionary<TKey, TValue>, SortedDictionary<TKey, TValue>.Enumerator, SortedDictionary<TKey, TValue>>
+    {
+        protected override void Add(ref SortedDictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-		protected override SortedDictionary<TKey, TValue>.Enumerator GetSourceEnumerator(SortedDictionary<TKey, TValue> source) => source.GetEnumerator();
-	}
+        protected override SortedDictionary<TKey, TValue> Complete(ref SortedDictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
 
-	internal sealed class ReadOnlyDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, ReadOnlyDictionary<TKey, TValue>>
-	{
-		protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+        protected override SortedDictionary<TKey, TValue> Create() => new SortedDictionary<TKey, TValue>();
 
-		protected override ReadOnlyDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => new ReadOnlyDictionary<TKey, TValue>(intermediateCollection);
+        protected override SortedDictionary<TKey, TValue>.Enumerator GetSourceEnumerator(SortedDictionary<TKey, TValue> source) => source.GetEnumerator();
+    }
 
-		protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
-	}
+    internal sealed class ReadOnlyDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, ReadOnlyDictionary<TKey, TValue>>
+    {
+        protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-	internal sealed class InterfaceReadOnlyDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, IReadOnlyDictionary<TKey, TValue>>
-	{
-		protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
+        protected override ReadOnlyDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => new ReadOnlyDictionary<TKey, TValue>(intermediateCollection);
 
-		protected override IReadOnlyDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
+        protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
+    }
 
-		protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
-	}
+    internal sealed class InterfaceReadOnlyDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, Dictionary<TKey, TValue>, IReadOnlyDictionary<TKey, TValue>>
+    {
+        protected override void Add(ref Dictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.Add(key, value);
 
-	internal sealed class ConcurrentDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, ConcurrentDictionary<TKey, TValue>>
-	{
-		protected override void Add(ref ConcurrentDictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.TryAdd(key, value);
+        protected override IReadOnlyDictionary<TKey, TValue> Complete(ref Dictionary<TKey, TValue> intermediateCollection) => intermediateCollection;
 
-		protected override ConcurrentDictionary<TKey, TValue> Create() =>
-			// concurrent dictionary can't access defaultConcurrecyLevel so does not use count overload.
-			new ConcurrentDictionary<TKey, TValue>();
-	}
+        protected override Dictionary<TKey, TValue> Create() => new Dictionary<TKey, TValue>();
+    }
 
-	internal sealed class NonGenericDictionaryFormatter<T> : IJsonFormatter<T>
-		where T : class, IDictionary, new()
-	{
-		public void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
-				var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
+    internal sealed class ConcurrentDictionaryFormatter<TKey, TValue> : DictionaryFormatterBase<TKey, TValue, ConcurrentDictionary<TKey, TValue>>
+    {
+        protected override void Add(ref ConcurrentDictionary<TKey, TValue> collection, int index, TKey key, TValue value) => collection.TryAdd(key, value);
 
-				writer.WriteBeginObject();
+        protected override ConcurrentDictionary<TKey, TValue> Create() =>
+            // concurrent dictionary can't access defaultConcurrecyLevel so does not use count overload.
+            new ConcurrentDictionary<TKey, TValue>();
+    }
 
-				var e = value.GetEnumerator();
-				try
-				{
-					if (e.MoveNext())
-					{
-						var item = (DictionaryEntry)e.Current;
-						writer.WritePropertyName(item.Key.ToString());
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-					else
-					{
-						goto END;
-					}
+    internal sealed class NonGenericDictionaryFormatter<T> : IJsonFormatter<T>
+        where T : class, IDictionary, new()
+    {
+        public void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else
+            {
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
 
-					while (e.MoveNext())
-					{
-						writer.WriteValueSeparator();
-						var item = (DictionaryEntry)e.Current;
-						writer.WritePropertyName(item.Key.ToString());
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-				}
-				finally
-				{
-					if (e is IDisposable disp)
-						disp.Dispose();
-				}
+                writer.WriteBeginObject();
 
-				END:
-				writer.WriteEndObject();
-			}
-		}
+                var e = value.GetEnumerator();
+                try
+                {
+                    if (e.MoveNext())
+                    {
+                        var item = (DictionaryEntry)e.Current;
+                        writer.WritePropertyName(item.Key.ToString());
+                        valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                    }
+                    else
+                    {
+                        goto END;
+                    }
 
-		public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-				return default;
+                    while (e.MoveNext())
+                    {
+                        writer.WriteValueSeparator();
+                        var item = (DictionaryEntry)e.Current;
+                        writer.WritePropertyName(item.Key.ToString());
+                        valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                    }
+                }
+                finally
+                {
+                    if (e is IDisposable disp)
+                        disp.Dispose();
+                }
 
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
+                END:
+                writer.WriteEndObject();
+            }
+        }
 
-			reader.ReadIsBeginObjectWithVerify();
+        public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull())
+                return default;
 
-			var dict = new T();
-			var i = 0;
-			while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
-			{
-				var key = reader.ReadPropertyName();
-				var value = valueFormatter.Deserialize(ref reader, formatterResolver);
-				dict.Add(key, value);
-			}
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
 
-			return dict;
-		}
-	}
+            reader.ReadIsBeginObjectWithVerify();
 
-	internal sealed class NonGenericInterfaceDictionaryFormatter : IJsonFormatter<IDictionary>
-	{
-		public static readonly IJsonFormatter<IDictionary> Default = new NonGenericInterfaceDictionaryFormatter();
+            var dict = new T();
+            var i = 0;
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
+            {
+                var key = reader.ReadPropertyName();
+                var value = valueFormatter.Deserialize(ref reader, formatterResolver);
+                dict.Add(key, value);
+            }
 
-		public void Serialize(ref JsonWriter writer, IDictionary value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-			{
-				var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
+            return dict;
+        }
+    }
 
-				writer.WriteBeginObject();
+    internal sealed class NonGenericInterfaceDictionaryFormatter : IJsonFormatter<IDictionary>
+    {
+        public static readonly IJsonFormatter<IDictionary> Default = new NonGenericInterfaceDictionaryFormatter();
 
-				var e = value.GetEnumerator();
-				try
-				{
-					if (e.MoveNext())
-					{
-						var item = (DictionaryEntry)e.Current;
-						writer.WritePropertyName(item.Key.ToString());
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-					else
-						goto END;
+        public void Serialize(ref JsonWriter writer, IDictionary value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else
+            {
+                var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
 
-					while (e.MoveNext())
-					{
-						writer.WriteValueSeparator();
-						var item = (DictionaryEntry)e.Current;
-						writer.WritePropertyName(item.Key.ToString());
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-				}
-				finally
-				{
-					if (e is IDisposable disp)
-						disp.Dispose();
-				}
+                writer.WriteBeginObject();
 
-				END:
-				writer.WriteEndObject();
-			}
-		}
+                var e = value.GetEnumerator();
+                try
+                {
+                    if (e.MoveNext())
+                    {
+                        var item = (DictionaryEntry)e.Current;
+                        writer.WritePropertyName(item.Key.ToString());
+                        valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                    }
+                    else
+                        goto END;
 
-		public IDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-				return null;
+                    while (e.MoveNext())
+                    {
+                        writer.WriteValueSeparator();
+                        var item = (DictionaryEntry)e.Current;
+                        writer.WritePropertyName(item.Key.ToString());
+                        valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                    }
+                }
+                finally
+                {
+                    if (e is IDisposable disp)
+                        disp.Dispose();
+                }
 
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
+                END:
+                writer.WriteEndObject();
+            }
+        }
 
-			reader.ReadIsBeginObjectWithVerify();
+        public IDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.ReadIsNull())
+                return null;
 
-			var dict = new Dictionary<object, object>();
-			var i = 0;
-			while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
-			{
-				var key = reader.ReadPropertyName();
-				var value = valueFormatter.Deserialize(ref reader, formatterResolver);
-				dict.Add(key, value);
-			}
+            var valueFormatter = formatterResolver.GetFormatterWithVerify<object>();
 
-			return dict;
-		}
-	}
+            reader.ReadIsBeginObjectWithVerify();
+
+            var dict = new Dictionary<object, object>();
+            var i = 0;
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
+            {
+                var key = reader.ReadPropertyName();
+                var value = valueFormatter.Deserialize(ref reader, formatterResolver);
+                dict.Add(key, value);
+            }
+
+            return dict;
+        }
+    }
 }

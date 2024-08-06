@@ -52,7 +52,7 @@ namespace ApiGenerator.Generator
 
         public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
         {
-			async Task DoGenerate(IReadOnlyCollection<RazorGeneratorBase> generators, bool highLevel)
+            async Task DoGenerate(IReadOnlyCollection<RazorGeneratorBase> generators, bool highLevel)
             {
                 var pbarOpts = new ProgressBarOptions { ProgressCharacter = '─', BackgroundColor = ConsoleColor.Yellow };
                 var message = $"Generating {(highLevel ? "high" : "low")} level code";
@@ -65,102 +65,105 @@ namespace ApiGenerator.Generator
                 }
             }
 
-			RecursiveDelete(GeneratorLocations.LowLevelGeneratedFolder);
-			await DoGenerate(
-				new RazorGeneratorBase[] {
+            RecursiveDelete(GeneratorLocations.LowLevelGeneratedFolder);
+            await DoGenerate(
+                new RazorGeneratorBase[] {
 					//low level client
 					new LowLevelClientInterfaceGenerator(),
-					new LowLevelClientImplementationGenerator(),
-					new RequestParametersGenerator(),
-					new EnumsGenerator()
-				},
-				highLevel: false
-			);
+                    new LowLevelClientImplementationGenerator(),
+                    new RequestParametersGenerator(),
+                    new EnumsGenerator()
+                },
+                highLevel: false
+            );
 
-			if (lowLevelOnly) return;
+            if (lowLevelOnly) return;
 
-			RecursiveDelete(GeneratorLocations.HighLevelGeneratedFolder);
-			await DoGenerate(
-				new RazorGeneratorBase[]
-				{
+            RecursiveDelete(GeneratorLocations.HighLevelGeneratedFolder);
+            await DoGenerate(
+                new RazorGeneratorBase[]
+                {
 					//high level client
 					new ApiUrlsLookupsGenerator(),
-					new HighLevelClientInterfaceGenerator(),
-					new HighLevelClientImplementationGenerator(),
-					new DescriptorsGenerator(),
-					new RequestsGenerator(),
-				},
-				highLevel: true
-			);
-		}
+                    new HighLevelClientInterfaceGenerator(),
+                    new HighLevelClientImplementationGenerator(),
+                    new DescriptorsGenerator(),
+                    new RequestsGenerator(),
+                },
+                highLevel: true
+            );
+        }
 
-		public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
-		{
-			var json = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
-			var document = await OpenApiDocument.FromJsonAsync(json, token);
+        public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
+        {
+            var json = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
+            var document = await OpenApiDocument.FromJsonAsync(json, token);
             JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
 
-			var enumsToGenerate = new Dictionary<string, bool>();
+            var enumsToGenerate = new Dictionary<string, bool>();
 
-			var endpoints = document.Paths
-				.Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
-				.SelectMany(p => p.PathItem.Select(kv => new
-				{
-					p.HttpPath, p.PathItem, HttpMethod = kv.Key, Operation = kv.Value
-				}))
-				.GroupBy(o => o.Operation.ExtensionData!["x-operation-group"]!.ToString())
-				.Where(o => CodeConfiguration.IncludeOperation(o.Key))
-				.Select(o => ApiEndpointFactory.From(
-					o.Key,
-					o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList(),
-					(e, isFlag) =>
-					{
-						if (enumsToGenerate.TryGetValue(e, out var f)) isFlag |= f;
-						enumsToGenerate[e] = isFlag;
-					}))
-				.ToImmutableSortedDictionary(e => e.Name, e => e);
+            var endpoints = document.Paths
+                .Select(kv => new { HttpPath = kv.Key, PathItem = kv.Value })
+                .SelectMany(p => p.PathItem.Select(kv => new
+                {
+                    p.HttpPath,
+                    p.PathItem,
+                    HttpMethod = kv.Key,
+                    Operation = kv.Value
+                }))
+                .GroupBy(o => o.Operation.ExtensionData!["x-operation-group"]!.ToString())
+                .Where(o => CodeConfiguration.IncludeOperation(o.Key))
+                .Select(o => ApiEndpointFactory.From(
+                    o.Key,
+                    o.Select(i => (i.HttpPath, i.PathItem, i.HttpMethod, i.Operation)).ToList(),
+                    (e, isFlag) =>
+                    {
+                        if (enumsToGenerate.TryGetValue(e, out var f)) isFlag |= f;
+                        enumsToGenerate[e] = isFlag;
+                    }))
+                .ToImmutableSortedDictionary(e => e.Name, e => e);
 
-			var enumsInSpec = enumsToGenerate.Select(kvp => new EnumDescription
-				{
-					Name = CsharpNames.GetEnumName(kvp.Key),
-					IsFlag = kvp.Value,
-					Options = document.Components.Schemas[kvp.Key].Enumeration.Where(e => e != null).Select(e => e.ToString()).ToImmutableList()
-				})
-				.OrderBy(e => e.Name)
-				.ToImmutableList();
+            var enumsInSpec = enumsToGenerate.Select(kvp => new EnumDescription
+            {
+                Name = CsharpNames.GetEnumName(kvp.Key),
+                IsFlag = kvp.Value,
+                Options = document.Components.Schemas[kvp.Key].Enumeration.Where(e => e != null).Select(e => e.ToString()).ToImmutableList()
+            })
+                .OrderBy(e => e.Name)
+                .ToImmutableList();
 
-			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec };
-		}
+            return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec };
+        }
 
-		private static string PreprocessRawOpenApiSpec(string yaml)
-		{
-			// FIXME: work-around until NSwag adds support for requestBody references: https://github.com/RicoSuter/NSwag/pull/4747
-			dynamic doc = new DeserializerBuilder().Build().Deserialize(yaml)!;
-			var requestBodies = doc["components"]["requestBodies"];
-			foreach (KeyValuePair<object, dynamic> pathPair in doc["paths"])
-			{
-				foreach (KeyValuePair<object, dynamic> operationPair in pathPair.Value)
-				{
-					var operation = (Dictionary<object, dynamic>) operationPair.Value;
-					if (!operation.TryGetValue("requestBody", out var rb)) continue;
+        private static string PreprocessRawOpenApiSpec(string yaml)
+        {
+            // FIXME: work-around until NSwag adds support for requestBody references: https://github.com/RicoSuter/NSwag/pull/4747
+            dynamic doc = new DeserializerBuilder().Build().Deserialize(yaml)!;
+            var requestBodies = doc["components"]["requestBodies"];
+            foreach (KeyValuePair<object, dynamic> pathPair in doc["paths"])
+            {
+                foreach (KeyValuePair<object, dynamic> operationPair in pathPair.Value)
+                {
+                    var operation = (Dictionary<object, dynamic>)operationPair.Value;
+                    if (!operation.TryGetValue("requestBody", out var rb)) continue;
 
-					var requestBody = (Dictionary<object, dynamic>) rb;
-					if (!requestBody.TryGetValue("$ref", out var reference)) continue;
+                    var requestBody = (Dictionary<object, dynamic>)rb;
+                    if (!requestBody.TryGetValue("$ref", out var reference)) continue;
 
-					operation["requestBody"] = requestBodies[((string) reference).Split('/').Last()];
-				}
-			}
-			return new SerializerBuilder()
-				.JsonCompatible()
-				.Build()
-				.Serialize(doc);
-		}
+                    operation["requestBody"] = requestBodies[((string)reference).Split('/').Last()];
+                }
+            }
+            return new SerializerBuilder()
+                .JsonCompatible()
+                .Build()
+                .Serialize(doc);
+        }
 
-		private static void RecursiveDelete(string path)
-		{
-			if (!Directory.Exists(path)) return;
+        private static void RecursiveDelete(string path)
+        {
+            if (!Directory.Exists(path)) return;
 
-			Directory.Delete(path, true);
-		}
+            Directory.Delete(path, true);
+        }
     }
 }

@@ -54,28 +54,28 @@ using System;
 
 namespace OpenSearch.Net.Utf8Json
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Field | AttributeTargets.Property)]
-	internal class JsonFormatterAttribute : Attribute
-	{
-		public Type FormatterType { get; }
-		public object[] Arguments { get; }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Field | AttributeTargets.Property)]
+    internal class JsonFormatterAttribute : Attribute
+    {
+        public Type FormatterType { get; }
+        public object[] Arguments { get; }
 
-		public JsonFormatterAttribute(Type formatterType) => FormatterType = formatterType;
+        public JsonFormatterAttribute(Type formatterType) => FormatterType = formatterType;
 
-		public JsonFormatterAttribute(Type formatterType, params object[] arguments)
-		{
-			FormatterType = formatterType;
-			Arguments = arguments;
-		}
-	}
+        public JsonFormatterAttribute(Type formatterType, params object[] arguments)
+        {
+            FormatterType = formatterType;
+            Arguments = arguments;
+        }
+    }
 
-	[AttributeUsage(AttributeTargets.Constructor)]
-	internal class SerializationConstructorAttribute : Attribute
-	{
-	}
+    [AttributeUsage(AttributeTargets.Constructor)]
+    internal class SerializationConstructorAttribute : Attribute
+    {
+    }
 
-	[AttributeUsage(AttributeTargets.Interface)]
-	internal class InterfaceDataContractAttribute : Attribute
-	{
-	}
+    [AttributeUsage(AttributeTargets.Interface)]
+    internal class InterfaceDataContractAttribute : Attribute
+    {
+    }
 }

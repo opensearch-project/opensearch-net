@@ -30,10 +30,10 @@ using System;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
+using OpenSearch.Client;
+using OpenSearch.Net;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
-using OpenSearch.Client;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
@@ -41,81 +41,76 @@ using Xunit;
 
 namespace Tests.Framework.EndpointTests
 {
-	public abstract class CoordinatedIntegrationTestBase<TCluster>
-		: IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
-	{
-		private readonly CoordinatedUsage _coordinatedUsage;
+    public abstract class CoordinatedIntegrationTestBase<TCluster>
+        : IClusterFixture<TCluster>, IClassFixture<EndpointUsage>
+        where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
+    {
+        private readonly CoordinatedUsage _coordinatedUsage;
 
-		protected CoordinatedIntegrationTestBase(CoordinatedUsage coordinatedUsage) => _coordinatedUsage = coordinatedUsage;
+        protected CoordinatedIntegrationTestBase(CoordinatedUsage coordinatedUsage) => _coordinatedUsage = coordinatedUsage;
 
-		protected async Task Assert<TResponse>(string name, Action<TResponse> assert)
-			where TResponse : class, IResponse
-		{
-			if (_coordinatedUsage.Skips(name)) return;
+        protected async Task Assert<TResponse>(string name, Action<TResponse> assert)
+            where TResponse : class, IResponse
+        {
+            if (_coordinatedUsage.Skips(name)) return;
 
-			var lazyResponses = await ExecuteOnceInOrderUntil(name);
-			if (lazyResponses == null) throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            await AssertOnAllResponses<TResponse>(name, lazyResponses, (v, r) => assert(r));
+        }
 
-			await AssertOnAllResponses<TResponse>(name, lazyResponses, (v, r) => assert(r));
-		}
+        protected async Task Assert<TResponse>(string name, Action<string, TResponse> assert)
+            where TResponse : class, IResponse
+        {
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            await AssertOnAllResponses(name, lazyResponses, assert);
+        }
 
-		protected async Task Assert<TResponse>(string name, Action<string, TResponse> assert)
-			where TResponse : class, IResponse
-		{
-			var lazyResponses = await ExecuteOnceInOrderUntil(name);
-			if (lazyResponses == null) throw new Exception($"{name} is defined but it yields no LazyResponses object");
+        protected async Task AssertRunsToCompletion(string name)
+        {
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
+        }
 
-			await AssertOnAllResponses(name, lazyResponses, assert);
-		}
+        private async Task AssertOnAllResponses<TResponse>(string name, LazyResponses responses, Action<string, TResponse> assert)
+            where TResponse : class, IResponse
+        {
+            foreach (var (key, value) in await responses)
+            {
+                if (!(value is TResponse response))
+                    throw new Exception($"{value.GetType()} is not expected response type {typeof(TResponse)}");
 
-		protected async Task AssertRunsToCompletion(string name)
-		{
-			var lazyResponses = await ExecuteOnceInOrderUntil(name);
-			if (lazyResponses == null) throw new Exception($"{name} is defined but it yields no LazyResponses object");
-		}
+                if (!_coordinatedUsage.MethodIsolatedValues.TryGetValue(key, out var isolatedValue))
+                    throw new Exception($"{name} is not a request observed and so no call isolated values could be located for it");
 
-		private async Task AssertOnAllResponses<TResponse>(string name, LazyResponses responses, Action<string, TResponse> assert)
-			where TResponse : class, IResponse
-		{
-			foreach (var (key, value) in await responses)
-			{
-				if (!(value is TResponse response))
-					throw new Exception($"{value.GetType()} is not expected response type {typeof(TResponse)}");
+                var r = response;
+                if (TestClient.Configuration.RunIntegrationTests && !r.IsValid && r.ApiCall.OriginalException != null
+                    && !(r.ApiCall.OriginalException is OpenSearchClientException))
+                {
+                    var e = ExceptionDispatchInfo.Capture(r.ApiCall.OriginalException.Demystify());
+                    throw new ResponseAssertionException(e.SourceException, r).Demystify();
+                }
 
-				if (!_coordinatedUsage.MethodIsolatedValues.TryGetValue(key, out var isolatedValue))
-					throw new Exception($"{name} is not a request observed and so no call isolated values could be located for it");
+                try
+                {
+                    assert(isolatedValue, response);
+                }
+                catch (Exception e)
+                {
+                    var ex = ExceptionDispatchInfo.Capture(e.Demystify());
+                    throw new ResponseAssertionException(ex.SourceException, r).Demystify();
+                }
+            }
+        }
 
-				var r = response;
-				if (TestClient.Configuration.RunIntegrationTests && !r.IsValid && r.ApiCall.OriginalException != null
-					&& !(r.ApiCall.OriginalException is OpenSearchClientException))
-				{
-					var e = ExceptionDispatchInfo.Capture(r.ApiCall.OriginalException.Demystify());
-					throw new ResponseAssertionException(e.SourceException, r).Demystify();
-				}
+        private async Task<LazyResponses> ExecuteOnceInOrderUntil(string name)
+        {
+            if (!_coordinatedUsage.Contains(name)) throw new Exception($"{name} is not a keyed after create response");
 
-				try
-				{
-					assert(isolatedValue, response);
-				}
-				catch (Exception e)
-				{
-					var ex = ExceptionDispatchInfo.Capture(e.Demystify());
-					throw new ResponseAssertionException(ex.SourceException, r).Demystify();
-				}
-			}
-		}
-
-		private async Task<LazyResponses> ExecuteOnceInOrderUntil(string name)
-		{
-			if (!_coordinatedUsage.Contains(name)) throw new Exception($"{name} is not a keyed after create response");
-
-			foreach (var lazyResponses in _coordinatedUsage)
-			{
-				await lazyResponses;
-				if (lazyResponses.Name == name) return lazyResponses;
-			}
-			return null;
-		}
-	}
+            foreach (var lazyResponses in _coordinatedUsage)
+            {
+                await lazyResponses;
+                if (lazyResponses.Name == name) return lazyResponses;
+            }
+            return null;
+        }
+    }
 }

@@ -28,7 +28,7 @@
 
 namespace OpenSearch.Client
 {
-	public class PostVotingConfigExclusionsResponse : ResponseBase
-	{
-	}
+    public class PostVotingConfigExclusionsResponse : ResponseBase
+    {
+    }
 }

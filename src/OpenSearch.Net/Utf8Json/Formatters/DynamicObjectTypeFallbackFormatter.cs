@@ -59,76 +59,76 @@ using OpenSearch.Net.Utf8Json.Resolvers;
 
 namespace OpenSearch.Net.Utf8Json.Formatters
 {
-	internal sealed class DynamicObjectTypeFallbackFormatter : IJsonFormatter<object>
-	{
-		private delegate void SerializeMethod(object dynamicFormatter, ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver);
+    internal sealed class DynamicObjectTypeFallbackFormatter : IJsonFormatter<object>
+    {
+        private delegate void SerializeMethod(object dynamicFormatter, ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver);
 
-		private readonly ThreadsafeTypeKeyHashTable<KeyValuePair<object, SerializeMethod>> _serializers =
-			new ThreadsafeTypeKeyHashTable<KeyValuePair<object, SerializeMethod>>();
+        private readonly ThreadsafeTypeKeyHashTable<KeyValuePair<object, SerializeMethod>> _serializers =
+            new ThreadsafeTypeKeyHashTable<KeyValuePair<object, SerializeMethod>>();
 
-		private readonly IJsonFormatterResolver[] _innerResolvers;
+        private readonly IJsonFormatterResolver[] _innerResolvers;
 
-		public DynamicObjectTypeFallbackFormatter(params IJsonFormatterResolver[] innerResolvers) => _innerResolvers = innerResolvers;
+        public DynamicObjectTypeFallbackFormatter(params IJsonFormatterResolver[] innerResolvers) => _innerResolvers = innerResolvers;
 
-		public void Serialize(ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null) { writer.WriteNull(); return; }
+        public void Serialize(ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null) { writer.WriteNull(); return; }
 
-			var type = value.GetType();
+            var type = value.GetType();
 
-			if (type == typeof(object))
-			{
-				// serialize to empty object
-				writer.WriteBeginObject();
-				writer.WriteEndObject();
-				return;
-			}
+            if (type == typeof(object))
+            {
+                // serialize to empty object
+                writer.WriteBeginObject();
+                writer.WriteEndObject();
+                return;
+            }
 
-			if (!_serializers.TryGetValue(type, out var formatterAndDelegate))
-			{
-				lock (_serializers)
-				{
-					if (!_serializers.TryGetValue(type, out formatterAndDelegate))
-					{
-						object formatter = null;
-						foreach (var innerResolver in _innerResolvers)
-						{
-							formatter = innerResolver.GetFormatterDynamic(type);
-							if (formatter != null) break;
-						}
-						if (formatter == null)
-							throw new FormatterNotRegisteredException(type.FullName + " is not registered in this resolver. resolvers:" + string.Join(", ", _innerResolvers.Select(x => x.GetType().Name).ToArray()));
+            if (!_serializers.TryGetValue(type, out var formatterAndDelegate))
+            {
+                lock (_serializers)
+                {
+                    if (!_serializers.TryGetValue(type, out formatterAndDelegate))
+                    {
+                        object formatter = null;
+                        foreach (var innerResolver in _innerResolvers)
+                        {
+                            formatter = innerResolver.GetFormatterDynamic(type);
+                            if (formatter != null) break;
+                        }
+                        if (formatter == null)
+                            throw new FormatterNotRegisteredException(type.FullName + " is not registered in this resolver. resolvers:" + string.Join(", ", _innerResolvers.Select(x => x.GetType().Name).ToArray()));
 
-						var t = type;
-						{
-							var dm = new DynamicMethod("Serialize", null, new[] { typeof(object), typeof(JsonWriter).MakeByRefType(), typeof(object), typeof(IJsonFormatterResolver) }, type.Module, true);
-							var il = dm.GetILGenerator();
+                        var t = type;
+                        {
+                            var dm = new DynamicMethod("Serialize", null, new[] { typeof(object), typeof(JsonWriter).MakeByRefType(), typeof(object), typeof(IJsonFormatterResolver) }, type.Module, true);
+                            var il = dm.GetILGenerator();
 
-							// delegate void SerializeMethod(object dynamicFormatter, ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver);
+                            // delegate void SerializeMethod(object dynamicFormatter, ref JsonWriter writer, object value, IJsonFormatterResolver formatterResolver);
 
-							il.EmitLdarg(0);
-							il.Emit(OpCodes.Castclass, typeof(IJsonFormatter<>).MakeGenericType(t));
-							il.EmitLdarg(1);
-							il.EmitLdarg(2);
-							il.EmitUnboxOrCast(t);
-							il.EmitLdarg(3);
+                            il.EmitLdarg(0);
+                            il.Emit(OpCodes.Castclass, typeof(IJsonFormatter<>).MakeGenericType(t));
+                            il.EmitLdarg(1);
+                            il.EmitLdarg(2);
+                            il.EmitUnboxOrCast(t);
+                            il.EmitLdarg(3);
 
-							il.EmitCall(DynamicObjectTypeBuilder.EmitInfo.Serialize(t));
+                            il.EmitCall(DynamicObjectTypeBuilder.EmitInfo.Serialize(t));
 
-							il.Emit(OpCodes.Ret);
+                            il.Emit(OpCodes.Ret);
 
-							formatterAndDelegate = new KeyValuePair<object, SerializeMethod>(formatter, (SerializeMethod)dm.CreateDelegate(typeof(SerializeMethod)));
-						}
+                            formatterAndDelegate = new KeyValuePair<object, SerializeMethod>(formatter, (SerializeMethod)dm.CreateDelegate(typeof(SerializeMethod)));
+                        }
 
-						_serializers.TryAdd(t, formatterAndDelegate);
-					}
-				}
-			}
+                        _serializers.TryAdd(t, formatterAndDelegate);
+                    }
+                }
+            }
 
-			formatterAndDelegate.Value(formatterAndDelegate.Key, ref writer, value, formatterResolver);
-		}
+            formatterAndDelegate.Value(formatterAndDelegate.Key, ref writer, value, formatterResolver);
+        }
 
-		public object Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
-			PrimitiveObjectFormatter.Default.Deserialize(ref reader, formatterResolver);
-	}
+        public object Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
+            PrimitiveObjectFormatter.Default.Deserialize(ref reader, formatterResolver);
+    }
 }

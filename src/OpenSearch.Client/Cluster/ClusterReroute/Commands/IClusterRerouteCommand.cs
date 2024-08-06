@@ -31,10 +31,10 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(ClusterRerouteCommandFormatter))]
-	public interface IClusterRerouteCommand
-	{
-		[IgnoreDataMember]
-		string Name { get; }
-	}
+    [JsonFormatter(typeof(ClusterRerouteCommandFormatter))]
+    public interface IClusterRerouteCommand
+    {
+        [IgnoreDataMember]
+        string Name { get; }
+    }
 }

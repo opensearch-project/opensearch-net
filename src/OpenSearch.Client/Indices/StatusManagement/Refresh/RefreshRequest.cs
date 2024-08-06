@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.refresh.json")]
-	public partial interface IRefreshRequest { }
+    [MapsApi("indices.refresh.json")]
+    public partial interface IRefreshRequest { }
 
-	public partial class RefreshRequest { }
+    public partial class RefreshRequest { }
 
-	public partial class RefreshDescriptor { }
+    public partial class RefreshDescriptor { }
 }

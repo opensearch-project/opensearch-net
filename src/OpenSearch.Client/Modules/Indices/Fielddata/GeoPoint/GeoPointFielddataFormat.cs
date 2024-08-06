@@ -32,19 +32,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GeoPointFielddataFormat
-	{
-		[EnumMember(Value = "array")]
-		Array,
+    [StringEnum]
+    public enum GeoPointFielddataFormat
+    {
+        [EnumMember(Value = "array")]
+        Array,
 
-		[EnumMember(Value = "doc_values")]
-		DocValues,
+        [EnumMember(Value = "doc_values")]
+        DocValues,
 
-		[EnumMember(Value = "compressed")]
-		Compressed,
+        [EnumMember(Value = "compressed")]
+        Compressed,
 
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+        [EnumMember(Value = "disabled")]
+        Disabled
+    }
 }

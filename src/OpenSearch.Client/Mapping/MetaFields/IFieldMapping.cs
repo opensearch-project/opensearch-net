@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// A document field mapping in OpenSearch
-	/// </summary>
-	public interface IFieldMapping { }
+    /// <summary>
+    /// A document field mapping in OpenSearch
+    /// </summary>
+    public interface IFieldMapping { }
 }

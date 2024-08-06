@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.delete.json")]
-	public partial interface IDeleteSnapshotRequest { }
+    [MapsApi("snapshot.delete.json")]
+    public partial interface IDeleteSnapshotRequest { }
 
-	public partial class DeleteSnapshotRequest { }
+    public partial class DeleteSnapshotRequest { }
 
-	public partial class DeleteSnapshotDescriptor { }
+    public partial class DeleteSnapshotDescriptor { }
 }

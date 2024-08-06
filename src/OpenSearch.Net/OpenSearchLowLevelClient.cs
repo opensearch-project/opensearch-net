@@ -34,88 +34,89 @@ using OpenSearch.Net.Extensions;
 
 namespace OpenSearch.Net
 {
-	/// <summary>
-	/// Low level client that exposes all of OpenSearch API endpoints but leaves you in charge of building request and handling the response
-	/// </summary>
-	// ReSharper disable once RedundantExtendsListEntry
-	public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
-	{
-		/// <summary>Instantiate a new low level OpenSearch client to http://localhost:9200</summary>
-		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
-		public OpenSearchLowLevelClient() : this(new Transport<IConnectionConfigurationValues>(new ConnectionConfiguration())) { }
+    /// <summary>
+    /// Low level client that exposes all of OpenSearch API endpoints but leaves you in charge of building request and handling the response
+    /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
+    public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
+    {
+        /// <summary>Instantiate a new low level OpenSearch client to http://localhost:9200</summary>
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
+        public OpenSearchLowLevelClient() : this(new Transport<IConnectionConfigurationValues>(new ConnectionConfiguration())) { }
 
-		/// <summary>Instantiate a new low level OpenSearch client using the specified settings</summary>
-		[SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
-		public OpenSearchLowLevelClient(IConnectionConfigurationValues settings) : this(
-			new Transport<IConnectionConfigurationValues>(settings ?? new ConnectionConfiguration())) { }
+        /// <summary>Instantiate a new low level OpenSearch client using the specified settings</summary>
+        [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
+        public OpenSearchLowLevelClient(IConnectionConfigurationValues settings) : this(
+            new Transport<IConnectionConfigurationValues>(settings ?? new ConnectionConfiguration()))
+        { }
 
-		/// <summary>
-		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
-		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
-		/// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
-		/// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
-		/// </summary>
-		public OpenSearchLowLevelClient(string cloudId, BasicAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
+        /// <summary>
+        /// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
+        /// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
+        /// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
+        /// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
+        /// </summary>
+        public OpenSearchLowLevelClient(string cloudId, BasicAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
 
-		/// <summary>
-		/// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
-		/// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
-		/// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
-		/// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
-		/// </summary>
-		public OpenSearchLowLevelClient(string cloudId, ApiKeyAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
+        /// <summary>
+        /// Sets up the client to communicate to OpenSearch Cloud using <paramref name="cloudId"/>,
+        /// <para><see cref="CloudConnectionPool"/> documentation for more information on how to obtain your Cloud Id</para>
+        /// <para></para>If you want more control use the <see cref="OpenSearchLowLevelClient(IConnectionConfigurationValues)"/> constructor and pass an instance of
+        /// <see cref="ConnectionConfiguration" /> that takes <paramref name="cloudId"/> in its constructor as well
+        /// </summary>
+        public OpenSearchLowLevelClient(string cloudId, ApiKeyAuthenticationCredentials credentials) : this(new ConnectionConfiguration(cloudId, credentials)) { }
 
-		/// <summary>
-		/// Instantiate a new low level OpenSearch client explicitly specifying a custom transport setup
-		/// </summary>
-		public OpenSearchLowLevelClient(ITransport<IConnectionConfigurationValues> transport)
-		{
-			transport.ThrowIfNull(nameof(transport));
-			transport.Settings.ThrowIfNull(nameof(transport.Settings));
-			transport.Settings.RequestResponseSerializer.ThrowIfNull(nameof(transport.Settings.RequestResponseSerializer));
+        /// <summary>
+        /// Instantiate a new low level OpenSearch client explicitly specifying a custom transport setup
+        /// </summary>
+        public OpenSearchLowLevelClient(ITransport<IConnectionConfigurationValues> transport)
+        {
+            transport.ThrowIfNull(nameof(transport));
+            transport.Settings.ThrowIfNull(nameof(transport.Settings));
+            transport.Settings.RequestResponseSerializer.ThrowIfNull(nameof(transport.Settings.RequestResponseSerializer));
 
-			Transport = transport;
-			UrlFormatter = Transport.Settings.UrlFormatter;
-			SetupNamespaces();
-			SetupGeneratedNamespaces();
-		}
+            Transport = transport;
+            UrlFormatter = Transport.Settings.UrlFormatter;
+            SetupNamespaces();
+            SetupGeneratedNamespaces();
+        }
 
-		partial void SetupNamespaces();
+        partial void SetupNamespaces();
 
-		partial void SetupGeneratedNamespaces();
+        partial void SetupGeneratedNamespaces();
 
-		public IOpenSearchSerializer Serializer => Transport.Settings.RequestResponseSerializer;
+        public IOpenSearchSerializer Serializer => Transport.Settings.RequestResponseSerializer;
 
-		public IConnectionConfigurationValues Settings => Transport.Settings;
+        public IConnectionConfigurationValues Settings => Transport.Settings;
 
-		protected ITransport<IConnectionConfigurationValues> Transport { get; set; }
+        protected ITransport<IConnectionConfigurationValues> Transport { get; set; }
 
-		private OpenSearchUrlFormatter UrlFormatter { get; }
+        private OpenSearchUrlFormatter UrlFormatter { get; }
 
-		public TResponse DoRequest<TResponse>(HttpMethod method, string path, PostData data = null, IRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() =>
-			Transport.Request<TResponse>(method, path, data, requestParameters);
+        public TResponse DoRequest<TResponse>(HttpMethod method, string path, PostData data = null, IRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            Transport.Request<TResponse>(method, path, data, requestParameters);
 
-		public Task<TResponse> DoRequestAsync<TResponse>(HttpMethod method, string path, CancellationToken cancellationToken, PostData data = null,
-			IRequestParameters requestParameters = null
-		)
-			where TResponse : class, IOpenSearchResponse, new() =>
-			Transport.RequestAsync<TResponse>(method, path, cancellationToken, data, requestParameters);
+        public Task<TResponse> DoRequestAsync<TResponse>(HttpMethod method, string path, CancellationToken cancellationToken, PostData data = null,
+            IRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            Transport.RequestAsync<TResponse>(method, path, cancellationToken, data, requestParameters);
 
-		protected internal string Url(FormattableString formattable) => formattable.ToString(UrlFormatter);
+        protected internal string Url(FormattableString formattable) => formattable.ToString(UrlFormatter);
 
-		protected internal TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams, string contentType = null, string accept = null)
-			where TRequestParams : class, IRequestParameters, new()
-		{
-			if (contentType.IsNullOrEmpty() && accept.IsNullOrEmpty()) return requestParams;
+        protected internal TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams, string contentType = null, string accept = null)
+            where TRequestParams : class, IRequestParameters, new()
+        {
+            if (contentType.IsNullOrEmpty() && accept.IsNullOrEmpty()) return requestParams;
 
-			requestParams ??= new TRequestParams();
-			requestParams.RequestConfiguration ??= new RequestConfiguration();
-			if (!contentType.IsNullOrEmpty() && requestParams.RequestConfiguration.ContentType.IsNullOrEmpty())
-				requestParams.RequestConfiguration.ContentType = contentType;
-			if (!accept.IsNullOrEmpty() && requestParams.RequestConfiguration.Accept.IsNullOrEmpty())
-				requestParams.RequestConfiguration.Accept = accept;
-			return requestParams;
-		}
-	}
+            requestParams ??= new TRequestParams();
+            requestParams.RequestConfiguration ??= new RequestConfiguration();
+            if (!contentType.IsNullOrEmpty() && requestParams.RequestConfiguration.ContentType.IsNullOrEmpty())
+                requestParams.RequestConfiguration.ContentType = contentType;
+            if (!accept.IsNullOrEmpty() && requestParams.RequestConfiguration.Accept.IsNullOrEmpty())
+                requestParams.RequestConfiguration.Accept = accept;
+            return requestParams;
+        }
+    }
 }

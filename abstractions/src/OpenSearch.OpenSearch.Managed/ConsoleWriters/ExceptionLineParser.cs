@@ -30,36 +30,36 @@ using System.Text.RegularExpressions;
 
 namespace OpenSearch.OpenSearch.Managed.ConsoleWriters
 {
-	public static class ExceptionLineParser
-	{
-		private static readonly Regex CauseRegex = new Regex(@"^(?<cause>.*?Exception:)(?<message>.*?)$");
+    public static class ExceptionLineParser
+    {
+        private static readonly Regex CauseRegex = new Regex(@"^(?<cause>.*?Exception:)(?<message>.*?)$");
 
-		private static readonly Regex
-			LocRegex = new Regex(@"^(?<at>\s*?at )(?<method>.*?)\((?<file>.*?)\)(?<jar>.*?)$");
+        private static readonly Regex
+            LocRegex = new Regex(@"^(?<at>\s*?at )(?<method>.*?)\((?<file>.*?)\)(?<jar>.*?)$");
 
-		public static bool TryParseCause(string line, out string cause, out string message)
-		{
-			cause = message = null;
-			if (string.IsNullOrEmpty(line)) return false;
-			var match = CauseRegex.Match(line);
-			if (!match.Success) return false;
-			cause = match.Groups["cause"].Value.Trim();
-			message = match.Groups["message"].Value.Trim();
-			return true;
-		}
+        public static bool TryParseCause(string line, out string cause, out string message)
+        {
+            cause = message = null;
+            if (string.IsNullOrEmpty(line)) return false;
+            var match = CauseRegex.Match(line);
+            if (!match.Success) return false;
+            cause = match.Groups["cause"].Value.Trim();
+            message = match.Groups["message"].Value.Trim();
+            return true;
+        }
 
-		public static bool TryParseStackTrace(string line, out string at, out string method, out string file,
-			out string jar)
-		{
-			at = method = file = jar = null;
-			if (string.IsNullOrEmpty(line)) return false;
-			var match = LocRegex.Match(line);
-			if (!match.Success) return false;
-			at = match.Groups["at"].Value;
-			method = match.Groups["method"].Value.Trim();
-			file = match.Groups["file"].Value.Trim();
-			jar = match.Groups["jar"].Value.Trim();
-			return true;
-		}
-	}
+        public static bool TryParseStackTrace(string line, out string at, out string method, out string file,
+            out string jar)
+        {
+            at = method = file = jar = null;
+            if (string.IsNullOrEmpty(line)) return false;
+            var match = LocRegex.Match(line);
+            if (!match.Success) return false;
+            at = match.Groups["at"].Value;
+            method = match.Groups["method"].Value.Trim();
+            file = match.Groups["file"].Value.Trim();
+            jar = match.Groups["jar"].Value.Trim();
+            return true;
+        }
+    }
 }

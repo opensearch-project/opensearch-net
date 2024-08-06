@@ -27,83 +27,81 @@
 */
 
 using System.Collections.Generic;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Mapping.Types.Core.Text;
 
 namespace Tests.Mapping.LocalMetadata
 {
-	public class LocalMetadataVisitorTests
-	{
-		[U]
-		public void CanAssignAndAccessLocalMetadataInitializer()
-		{
-			var descriptor = new TypeMappingDescriptor<TextTest>().Properties(p => p
-				.Text(t => t
-					.Name(o => o.Full)
-					.Norms()
-					.AddTestLocalMetadata()
-				)) as ITypeMapping;
+    public class LocalMetadataVisitorTests
+    {
+        [U]
+        public void CanAssignAndAccessLocalMetadataInitializer()
+        {
+            var descriptor = new TypeMappingDescriptor<TextTest>().Properties(p => p
+                .Text(t => t
+                    .Name(o => o.Full)
+                    .Norms()
+                    .AddTestLocalMetadata()
+                )) as ITypeMapping;
 
-			var visitor = new LocalMetadataVisitor();
-			var walker = new MappingWalker(visitor);
-			walker.Accept(descriptor.Properties);
+            var visitor = new LocalMetadataVisitor();
+            var walker = new MappingWalker(visitor);
+            walker.Accept(descriptor.Properties);
 
-			visitor.MetadataCount.Should().Be(1);
-		}
+            visitor.MetadataCount.Should().Be(1);
+        }
 
-		[U]
-		public void CanAssignAndAccessLocalMetadataFluent()
-		{
-			var descriptor = new TypeMappingDescriptor<TextTest>().Properties(p => p
-				.Text(t => t
-					.Name(o => o.Full)
-					.Norms()
-					.LocalMetadata(m => m
-						.Add("Test", "TestValue")
-					)
-				)) as ITypeMapping;
+        [U]
+        public void CanAssignAndAccessLocalMetadataFluent()
+        {
+            var descriptor = new TypeMappingDescriptor<TextTest>().Properties(p => p
+                .Text(t => t
+                    .Name(o => o.Full)
+                    .Norms()
+                    .LocalMetadata(m => m
+                        .Add("Test", "TestValue")
+                    )
+                )) as ITypeMapping;
 
-			var visitor = new LocalMetadataVisitor();
-			var walker = new MappingWalker(visitor);
-			walker.Accept(descriptor.Properties);
+            var visitor = new LocalMetadataVisitor();
+            var walker = new MappingWalker(visitor);
+            walker.Accept(descriptor.Properties);
 
-			visitor.MetadataCount.Should().Be(1);
-		}
-	}
+            visitor.MetadataCount.Should().Be(1);
+        }
+    }
 
-	public static class TestLocalMetadataMappingExtensions
-	{
-		public static TDescriptor AddTestLocalMetadata<TDescriptor>(this TDescriptor descriptor)
-			where TDescriptor : IDescriptor
-		{
-			var propertyDescriptor = descriptor as IProperty;
+    public static class TestLocalMetadataMappingExtensions
+    {
+        public static TDescriptor AddTestLocalMetadata<TDescriptor>(this TDescriptor descriptor)
+            where TDescriptor : IDescriptor
+        {
+            if (descriptor is not IProperty propertyDescriptor)
+                return descriptor;
 
-			if (propertyDescriptor == null)
-				return descriptor;
+            if (propertyDescriptor.LocalMetadata == null)
+                propertyDescriptor.LocalMetadata = new Dictionary<string, object>();
 
-			if (propertyDescriptor.LocalMetadata == null)
-				propertyDescriptor.LocalMetadata = new Dictionary<string, object>();
+            propertyDescriptor.LocalMetadata.Add("Test", "TestValue");
 
-			propertyDescriptor.LocalMetadata.Add("Test", "TestValue");
+            return descriptor;
+        }
+    }
 
-			return descriptor;
-		}
-	}
+    public class LocalMetadataVisitor : NoopMappingVisitor
+    {
+        public int MetadataCount { get; set; }
 
-	public class LocalMetadataVisitor : NoopMappingVisitor
-	{
-		public int MetadataCount { get; set; }
+        public override void Visit(ITextProperty property)
+        {
+            property.Should().NotBeNull();
+            property.LocalMetadata.Should().NotBeNull();
 
-		public override void Visit(ITextProperty property)
-		{
-			property.Should().NotBeNull();
-			property.LocalMetadata.Should().NotBeNull();
+            MetadataCount += property.LocalMetadata.Count;
 
-			MetadataCount += property.LocalMetadata.Count;
-
-			property.LocalMetadata.Should().Contain("Test", "TestValue");
-		}
-	}
+            property.LocalMetadata.Should().Contain("Test", "TestValue");
+        }
+    }
 }

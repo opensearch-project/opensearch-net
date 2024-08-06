@@ -30,19 +30,19 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework;
 
 namespace Tests.ClientConcepts.LowLevel
 {
-	public class Lifetimes
-	{
-		/**== Lifetimes
+    public class Lifetimes
+    {
+        /**== Lifetimes
 		*
 		* If you are using an IOC/Dependency Injection container, it's always useful to know the best practices around
 		* the lifetime of your objects.
@@ -61,70 +61,72 @@ namespace Tests.ClientConcepts.LowLevel
 		*
 		* Let's demonstrate which components are disposed by creating our own derived `ConnectionSettings`, `IConnectionPool` and `IConnection` types
 		*/
-		private class AConnectionSettings : ConnectionSettings
-		{
-			public AConnectionSettings(IConnectionPool pool, IConnection connection)
-				: base(pool, connection)
-			{ }
+        private class AConnectionSettings : ConnectionSettings
+        {
+            public AConnectionSettings(IConnectionPool pool, IConnection connection)
+                : base(pool, connection)
+            { }
 
-			public bool IsDisposed { get; private set; }
+            public bool IsDisposed { get; private set; }
 
-			protected override void DisposeManagedResources()
-			{
-				this.IsDisposed = true;
-				base.DisposeManagedResources();
-			}
-		}
+            protected override void DisposeManagedResources()
+            {
+                IsDisposed = true;
+                base.DisposeManagedResources();
+            }
+        }
 
-		private class AConnectionPool : SingleNodeConnectionPool
-		{
-			public AConnectionPool(Uri uri, IDateTimeProvider dateTimeProvider = null) : base(uri, dateTimeProvider) { }
+        private class AConnectionPool : SingleNodeConnectionPool
+        {
+            public AConnectionPool(Uri uri, IDateTimeProvider dateTimeProvider = null) : base(uri, dateTimeProvider) { }
 
-			public bool IsDisposed { get; private set; }
+            public bool IsDisposed { get; private set; }
 
-			protected override void DisposeManagedResources()
-			{
-				this.IsDisposed = true;
-				base.DisposeManagedResources();
-			}
-		}
+            protected override void DisposeManagedResources()
+            {
+                IsDisposed = true;
+                base.DisposeManagedResources();
+            }
+        }
 
-		private class AConnection : InMemoryConnection
-		{
-			public bool IsDisposed { get; private set; }
+        private class AConnection : InMemoryConnection
+        {
+            public bool IsDisposed { get; private set; }
 
-			protected override void DisposeManagedResources()
-			{
-				this.IsDisposed = true;
-				base.DisposeManagedResources();
-			}
-		}
+            protected override void DisposeManagedResources()
+            {
+                IsDisposed = true;
+                base.DisposeManagedResources();
+            }
+        }
 
-		/**
+        /**
 		* `ConnectionSettings`, `IConnectionPool` and `IConnection` all explicitly implement `IDisposable`
 		*/
-		[U] public void InitialDisposeState()
-		{
-			var connection = new AConnection();
-			var connectionPool = new AConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new AConnectionSettings(connectionPool, connection);
-			settings.IsDisposed.Should().BeFalse();
-			connectionPool.IsDisposed.Should().BeFalse();
-			connection.IsDisposed.Should().BeFalse();
-		}
+        [U]
+        public void InitialDisposeState()
+        {
+            var connection = new AConnection();
+            var connectionPool = new AConnectionPool(new Uri("http://localhost:9200"));
+            var settings = new AConnectionSettings(connectionPool, connection);
+            settings.IsDisposed.Should().BeFalse();
+            connectionPool.IsDisposed.Should().BeFalse();
+            connection.IsDisposed.Should().BeFalse();
+        }
 
-		/**
+        /**
 		* Disposing an instance of `ConnectionSettings` will also dispose the `IConnectionPool` and `IConnection` it uses
 		*/
-		[U] public void DisposingSettingsDisposesMovingParts()
-		{
-			var connection = new AConnection();
-			var connectionPool = new AConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new AConnectionSettings(connectionPool, connection);
-			using (settings) { } // <1> force the settings to be disposed
-			settings.IsDisposed.Should().BeTrue();
-			connectionPool.IsDisposed.Should().BeTrue();
-			connection.IsDisposed.Should().BeTrue();
-		}
-	}
+        [U]
+        public void DisposingSettingsDisposesMovingParts()
+        {
+            var connection = new AConnection();
+            var connectionPool = new AConnectionPool(new Uri("http://localhost:9200"));
+            var settings = new AConnectionSettings(connectionPool, connection);
+            using (settings) { } // <1> force the settings to be disposed
+            settings.IsDisposed.Should().BeTrue();
+            connectionPool.IsDisposed.Should().BeTrue();
+            connection.IsDisposed.Should().BeTrue();
+        }
+    }
 }

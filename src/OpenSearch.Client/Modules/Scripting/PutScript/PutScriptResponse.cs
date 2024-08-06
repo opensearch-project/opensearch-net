@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class PutScriptResponse : AcknowledgedResponseBase { }
+    public class PutScriptResponse : AcknowledgedResponseBase { }
 }

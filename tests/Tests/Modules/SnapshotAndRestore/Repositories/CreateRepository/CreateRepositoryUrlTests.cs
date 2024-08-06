@@ -27,25 +27,26 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Modules.SnapshotAndRestore.Repositories.CreateRepository
 {
-	public class CreateRepositoryUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var repository = "repos";
+    public class CreateRepositoryUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var repository = "repos";
 
-			await PUT($"/_snapshot/{repository}")
-					.Fluent(c => c.Snapshot.CreateRepository(repository, s => s))
-					.Request(c => c.Snapshot.CreateRepository(new CreateRepositoryRequest(repository)))
-					.FluentAsync(c => c.Snapshot.CreateRepositoryAsync(repository, s => s))
-					.RequestAsync(c => c.Snapshot.CreateRepositoryAsync(new CreateRepositoryRequest(repository)))
-				;
-		}
-	}
+            await PUT($"/_snapshot/{repository}")
+                    .Fluent(c => c.Snapshot.CreateRepository(repository, s => s))
+                    .Request(c => c.Snapshot.CreateRepository(new CreateRepositoryRequest(repository)))
+                    .FluentAsync(c => c.Snapshot.CreateRepositoryAsync(repository, s => s))
+                    .RequestAsync(c => c.Snapshot.CreateRepositoryAsync(new CreateRepositoryRequest(repository)))
+                ;
+        }
+    }
 }

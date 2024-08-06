@@ -30,10 +30,10 @@ using System;
 
 namespace OpenSearch.Client
 {
-	internal class ReadAsAttribute : Attribute
-	{
-		public ReadAsAttribute(Type readAs) => Type = readAs;
+    internal class ReadAsAttribute : Attribute
+    {
+        public ReadAsAttribute(Type readAs) => Type = readAs;
 
-		public Type Type { get; }
-	}
+        public Type Type { get; }
+    }
 }

@@ -28,11 +28,11 @@
 
 namespace Tests.Framework.EndpointTests.TestState
 {
-	public enum ClientMethod
-	{
-		Fluent,
-		FluentAsync,
-		Initializer,
-		InitializerAsync,
-	}
+    public enum ClientMethod
+    {
+        Fluent,
+        FluentAsync,
+        Initializer,
+        InitializerAsync,
+    }
 }

@@ -11,21 +11,21 @@ namespace OpenSearch.Client;
 
 internal class SlicesFormatter : IJsonFormatter<Slices>
 {
-	private static readonly UnionFormatter<long, string> UnionFormatter = new();
+    private static readonly UnionFormatter<long, string> UnionFormatter = new();
 
-	public void Serialize(ref JsonWriter writer, Slices value, IJsonFormatterResolver formatterResolver) =>
-		UnionFormatter.Serialize(ref writer, value, formatterResolver);
+    public void Serialize(ref JsonWriter writer, Slices value, IJsonFormatterResolver formatterResolver) =>
+        UnionFormatter.Serialize(ref writer, value, formatterResolver);
 
-	public Slices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-	{
-		var union = UnionFormatter.Deserialize(ref reader, formatterResolver);
-		if (union == null) return null;
+    public Slices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var union = UnionFormatter.Deserialize(ref reader, formatterResolver);
+        if (union == null) return null;
 
-		return union.Tag switch
-		{
-			0 => new Slices(union.Item1),
-			1 => new Slices(union.Item2),
-			_ => null
-		};
-	}
+        return union.Tag switch
+        {
+            0 => new Slices(union.Item1),
+            1 => new Slices(union.Item2),
+            _ => null
+        };
+    }
 }

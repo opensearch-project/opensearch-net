@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("reindex_rethrottle.json")]
-	public partial interface IReindexRethrottleRequest { }
+    [MapsApi("reindex_rethrottle.json")]
+    public partial interface IReindexRethrottleRequest { }
 
-	public partial class ReindexRethrottleRequest : IReindexRethrottleRequest { }
+    public partial class ReindexRethrottleRequest : IReindexRethrottleRequest { }
 
-	public partial class ReindexRethrottleDescriptor : IReindexRethrottleRequest { }
+    public partial class ReindexRethrottleDescriptor : IReindexRethrottleRequest { }
 }

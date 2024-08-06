@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum SortOrder
-	{
-		[EnumMember(Value = "asc")]
-		Ascending,
+    [StringEnum]
+    public enum SortOrder
+    {
+        [EnumMember(Value = "asc")]
+        Ascending,
 
-		[EnumMember(Value = "desc")]
-		Descending
-	}
+        [EnumMember(Value = "desc")]
+        Descending
+    }
 }

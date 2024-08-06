@@ -30,6 +30,6 @@ using System;
 
 namespace OpenSearch.Client
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	public class IgnoreAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.Property)]
+    public class IgnoreAttribute : Attribute { }
 }

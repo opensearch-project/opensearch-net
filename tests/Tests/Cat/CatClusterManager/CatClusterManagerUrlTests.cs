@@ -27,19 +27,20 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Cat.CatClusterManager
 {
-	public class CatClusterManagerUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls() => await GET("/_cat/cluster_manager")
-			.Fluent(c => c.Cat.ClusterManager())
-			.Request(c => c.Cat.ClusterManager(new CatClusterManagerRequest()))
-			.FluentAsync(c => c.Cat.ClusterManagerAsync())
-			.RequestAsync(c => c.Cat.ClusterManagerAsync(new CatClusterManagerRequest()));
-	}
+    public class CatClusterManagerUrlTests : UrlTestsBase
+    {
+        [U]
+        public override async Task Urls() => await GET("/_cat/cluster_manager")
+            .Fluent(c => c.Cat.ClusterManager())
+            .Request(c => c.Cat.ClusterManager(new CatClusterManagerRequest()))
+            .FluentAsync(c => c.Cat.ClusterManagerAsync())
+            .RequestAsync(c => c.Cat.ClusterManagerAsync(new CatClusterManagerRequest()));
+    }
 }

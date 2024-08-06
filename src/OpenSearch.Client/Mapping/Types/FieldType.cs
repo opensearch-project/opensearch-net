@@ -31,137 +31,137 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// Define the type of field content.
-	/// </summary>
-	[StringEnum]
-	public enum FieldType
-	{
-		/// <summary>
-		/// Default. Will be defined by the type of property return.
-		/// </summary>
-		[EnumMember(Value = "none")]
-		None,
+    /// <summary>
+    /// Define the type of field content.
+    /// </summary>
+    [StringEnum]
+    public enum FieldType
+    {
+        /// <summary>
+        /// Default. Will be defined by the type of property return.
+        /// </summary>
+        [EnumMember(Value = "none")]
+        None,
 
-		[EnumMember(Value = "geo_point")]
-		GeoPoint,
+        [EnumMember(Value = "geo_point")]
+        GeoPoint,
 
-		[EnumMember(Value = "geo_shape")]
-		GeoShape,
+        [EnumMember(Value = "geo_shape")]
+        GeoShape,
 
-		/// <summary>
-		/// An ip mapping type allows to store ipv4 addresses in a numeric form allowing to easily sort, and range query it (using ip values).
-		/// </summary>
-		[EnumMember(Value = "ip")]
-		Ip,
+        /// <summary>
+        /// An ip mapping type allows to store ipv4 addresses in a numeric form allowing to easily sort, and range query it (using ip values).
+        /// </summary>
+        [EnumMember(Value = "ip")]
+        Ip,
 
-		/// <summary>
-		/// The binary type is a base64 representation of binary data that can be stored in the index.
-		/// </summary>
-		[EnumMember(Value = "binary")]
-		Binary,
+        /// <summary>
+        /// The binary type is a base64 representation of binary data that can be stored in the index.
+        /// </summary>
+        [EnumMember(Value = "binary")]
+        Binary,
 
-		[EnumMember(Value = "keyword")]
-		Keyword,
+        [EnumMember(Value = "keyword")]
+        Keyword,
 
-		[EnumMember(Value = "text")]
-		Text,
+        [EnumMember(Value = "text")]
+        Text,
 
-		/// <summary>
-		/// A text-like field that is optimized to provide out-of-the-box support for queries that serve an as-you-type completion use case.
-		/// </summary>
-		[EnumMember(Value = "search_as_you_type")]
-		SearchAsYouType,
+        /// <summary>
+        /// A text-like field that is optimized to provide out-of-the-box support for queries that serve an as-you-type completion use case.
+        /// </summary>
+        [EnumMember(Value = "search_as_you_type")]
+        SearchAsYouType,
 
-		[EnumMember(Value = "date")]
-		Date,
+        [EnumMember(Value = "date")]
+        Date,
 
-		[EnumMember(Value = "date_nanos")]
-		DateNanos,
+        [EnumMember(Value = "date_nanos")]
+        DateNanos,
 
-		[EnumMember(Value = "boolean")]
-		Boolean,
+        [EnumMember(Value = "boolean")]
+        Boolean,
 
-		[EnumMember(Value = "completion")]
-		Completion,
+        [EnumMember(Value = "completion")]
+        Completion,
 
-		[EnumMember(Value = "nested")]
-		Nested,
+        [EnumMember(Value = "nested")]
+        Nested,
 
-		/// <summary>
-		/// object type, no need to set this manually if its not a value type this will be set.
-		/// Only set this if you need to force a value type to be mapped to an OpenSearch object type.
-		/// </summary>
-		[EnumMember(Value = "object")]
-		Object,
+        /// <summary>
+        /// object type, no need to set this manually if its not a value type this will be set.
+        /// Only set this if you need to force a value type to be mapped to an OpenSearch object type.
+        /// </summary>
+        [EnumMember(Value = "object")]
+        Object,
 
-		/// <summary>
-		/// Murmur hash type, for use with the cardinality aggregation.
-		/// </summary>
-		[EnumMember(Value = "murmur3")]
-		Murmur3Hash,
+        /// <summary>
+        /// Murmur hash type, for use with the cardinality aggregation.
+        /// </summary>
+        [EnumMember(Value = "murmur3")]
+        Murmur3Hash,
 
-		[EnumMember(Value = "token_count")]
-		TokenCount,
+        [EnumMember(Value = "token_count")]
+        TokenCount,
 
-		[EnumMember(Value = "percolator")]
-		Percolator,
+        [EnumMember(Value = "percolator")]
+        Percolator,
 
-		[EnumMember(Value = "integer")]
-		Integer,
+        [EnumMember(Value = "integer")]
+        Integer,
 
-		[EnumMember(Value = "long")]
-		Long,
+        [EnumMember(Value = "long")]
+        Long,
 
-		[EnumMember(Value = "short")]
-		Short,
+        [EnumMember(Value = "short")]
+        Short,
 
-		[EnumMember(Value = "byte")]
-		Byte,
+        [EnumMember(Value = "byte")]
+        Byte,
 
-		[EnumMember(Value = "float")]
-		Float,
+        [EnumMember(Value = "float")]
+        Float,
 
-		[EnumMember(Value = "half_float")]
-		HalfFloat,
+        [EnumMember(Value = "half_float")]
+        HalfFloat,
 
-		[EnumMember(Value = "scaled_float")]
-		ScaledFloat,
+        [EnumMember(Value = "scaled_float")]
+        ScaledFloat,
 
-		[EnumMember(Value = "double")]
-		Double,
+        [EnumMember(Value = "double")]
+        Double,
 
-		[EnumMember(Value = "integer_range")]
-		IntegerRange,
+        [EnumMember(Value = "integer_range")]
+        IntegerRange,
 
-		[EnumMember(Value = "float_range")]
-		FloatRange,
+        [EnumMember(Value = "float_range")]
+        FloatRange,
 
-		[EnumMember(Value = "long_range")]
-		LongRange,
+        [EnumMember(Value = "long_range")]
+        LongRange,
 
-		[EnumMember(Value = "double_range")]
-		DoubleRange,
+        [EnumMember(Value = "double_range")]
+        DoubleRange,
 
-		[EnumMember(Value = "date_range")]
-		DateRange,
+        [EnumMember(Value = "date_range")]
+        DateRange,
 
-		[EnumMember(Value = "ip_range")]
-		IpRange,
+        [EnumMember(Value = "ip_range")]
+        IpRange,
 
-		[EnumMember(Value = "alias")]
-		Alias,
+        [EnumMember(Value = "alias")]
+        Alias,
 
-		[EnumMember(Value = "join")]
-		Join,
+        [EnumMember(Value = "join")]
+        Join,
 
-		[EnumMember(Value = "rank_feature")]
-		RankFeature,
+        [EnumMember(Value = "rank_feature")]
+        RankFeature,
 
-		[EnumMember(Value = "rank_features")]
-		RankFeatures,
+        [EnumMember(Value = "rank_features")]
+        RankFeatures,
 
-		[EnumMember(Value = "knn_vector")]
-		KnnVector
-	}
+        [EnumMember(Value = "knn_vector")]
+        KnnVector
+    }
 }

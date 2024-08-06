@@ -28,32 +28,32 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Analysis.Tokenizers
 {
-	public interface ITokenizerAssertion : IAnalysisAssertion<ITokenizer, ITokenizers, TokenizersDescriptor> { }
+    public interface ITokenizerAssertion : IAnalysisAssertion<ITokenizer, ITokenizers, TokenizersDescriptor> { }
 
-	public abstract class TokenizerAssertionBase<TAssertion>
-		: AnalysisComponentTestBase<TAssertion, ITokenizer, ITokenizers, TokenizersDescriptor>
-			, ITokenizerAssertion
-		where TAssertion : TokenizerAssertionBase<TAssertion>, new()
-	{
-		protected override object AnalysisJson => new
-		{
-			tokenizer = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
-		};
+    public abstract class TokenizerAssertionBase<TAssertion>
+        : AnalysisComponentTestBase<TAssertion, ITokenizer, ITokenizers, TokenizersDescriptor>
+            , ITokenizerAssertion
+        where TAssertion : TokenizerAssertionBase<TAssertion>, new()
+    {
+        protected override object AnalysisJson => new
+        {
+            tokenizer = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
+        };
 
-		protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
-			an.Tokenizers(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
+        protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
+            an.Tokenizers(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
 
-		protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
-			new OpenSearch.Client.Analysis { Tokenizers = new OpenSearch.Client.Tokenizers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
+        protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
+            new OpenSearch.Client.Analysis { Tokenizers = new OpenSearch.Client.Tokenizers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
 
-		// https://youtrack.jetbrains.com/issue/RIDER-19912
-		[U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
+        // https://youtrack.jetbrains.com/issue/RIDER-19912
+        [U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
 
-		[I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
-	}
+        [I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
+    }
 }

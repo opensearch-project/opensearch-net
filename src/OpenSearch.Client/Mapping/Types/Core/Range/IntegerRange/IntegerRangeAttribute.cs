@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	public class FloatRangeAttribute : RangePropertyAttributeBase, IFloatRangeProperty
-	{
-		public FloatRangeAttribute() : base(RangeType.FloatRange) { }
-	}
+    public class FloatRangeAttribute : RangePropertyAttributeBase, IFloatRangeProperty
+    {
+        public FloatRangeAttribute() : base(RangeType.FloatRange) { }
+    }
 }

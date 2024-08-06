@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class ClearCacheResponse : ShardsOperationResponseBase { }
+    public class ClearCacheResponse : ShardsOperationResponseBase { }
 }

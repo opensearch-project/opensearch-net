@@ -30,9 +30,9 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class DeleteDanglingIndexResponse : AcknowledgedResponseBase
-	{
+    [DataContract]
+    public class DeleteDanglingIndexResponse : AcknowledgedResponseBase
+    {
 
-	}
+    }
 }

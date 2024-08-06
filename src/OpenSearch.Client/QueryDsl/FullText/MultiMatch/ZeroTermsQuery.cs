@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum ZeroTermsQuery
-	{
-		[EnumMember(Value = "all")]
-		All,
+    [StringEnum]
+    public enum ZeroTermsQuery
+    {
+        [EnumMember(Value = "all")]
+        All,
 
-		[EnumMember(Value = "none")]
-		None
-	}
+        [EnumMember(Value = "none")]
+        None
+    }
 }

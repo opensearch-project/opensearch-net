@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class NodesUsageResponse : NodesResponseBase
-	{
-		[DataMember(Name ="cluster_name")]
-		public string ClusterName { get; internal set; }
+    public class NodesUsageResponse : NodesResponseBase
+    {
+        [DataMember(Name = "cluster_name")]
+        public string ClusterName { get; internal set; }
 
-		[DataMember(Name ="nodes")]
-		public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
-			EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
-	}
+        [DataMember(Name = "nodes")]
+        public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
+            EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
+    }
 }

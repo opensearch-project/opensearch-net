@@ -31,19 +31,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum RecoveryInitialShards
-	{
-		[EnumMember(Value = "quorem")]
-		Quorem,
+    [StringEnum]
+    public enum RecoveryInitialShards
+    {
+        [EnumMember(Value = "quorem")]
+        Quorem,
 
-		[EnumMember(Value = "quorem-1")]
-		QuoremMinusOne,
+        [EnumMember(Value = "quorem-1")]
+        QuoremMinusOne,
 
-		[EnumMember(Value = "full")]
-		Full,
+        [EnumMember(Value = "full")]
+        Full,
 
-		[EnumMember(Value = "full-1")]
-		FullMinusOne
-	}
+        [EnumMember(Value = "full-1")]
+        FullMinusOne
+    }
 }

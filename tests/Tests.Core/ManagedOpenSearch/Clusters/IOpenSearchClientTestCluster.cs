@@ -30,8 +30,8 @@ using OpenSearch.Client;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	public interface IOpenSearchClientTestCluster
-	{
-		IOpenSearchClient Client { get; }
-	}
+    public interface IOpenSearchClientTestCluster
+    {
+        IOpenSearchClient Client { get; }
+    }
 }

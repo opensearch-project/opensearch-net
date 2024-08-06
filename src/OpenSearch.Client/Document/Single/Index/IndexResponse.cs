@@ -30,13 +30,13 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class IndexResponse : WriteResponseBase
-	{
-		public override bool IsValid => base.IsValid &&
-			(Result == Result.Created
-			|| Result == Result.Updated
-			|| Result == Result.Noop)
-		;
-	}
+    [DataContract]
+    public class IndexResponse : WriteResponseBase
+    {
+        public override bool IsValid => base.IsValid &&
+            (Result == Result.Created
+            || Result == Result.Updated
+            || Result == Result.Noop)
+        ;
+    }
 }

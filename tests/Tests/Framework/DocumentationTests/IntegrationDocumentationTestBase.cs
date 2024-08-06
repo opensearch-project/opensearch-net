@@ -33,19 +33,19 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Framework.DocumentationTests
 {
-	public abstract class DocumentationTestBase
-	{
-		protected virtual IOpenSearchClient Client => TestClient.DefaultInMemoryClient;
+    public abstract class DocumentationTestBase
+    {
+        protected virtual IOpenSearchClient Client => TestClient.DefaultInMemoryClient;
 
-		protected static string RandomString() => Guid.NewGuid().ToString("N").Substring(0, 8);
-	}
+        protected static string RandomString() => Guid.NewGuid().ToString("N").Substring(0, 8);
+    }
 
-	public abstract class IntegrationDocumentationTestBase : DocumentationTestBase
-	{
-		protected readonly ClientTestClusterBase Cluster;
+    public abstract class IntegrationDocumentationTestBase : DocumentationTestBase
+    {
+        protected readonly ClientTestClusterBase Cluster;
 
-		protected IntegrationDocumentationTestBase(ClientTestClusterBase cluster) => Cluster = cluster;
+        protected IntegrationDocumentationTestBase(ClientTestClusterBase cluster) => Cluster = cluster;
 
-		protected override IOpenSearchClient Client => Cluster.Client;
-	}
+        protected override IOpenSearchClient Client => Cluster.Client;
+    }
 }

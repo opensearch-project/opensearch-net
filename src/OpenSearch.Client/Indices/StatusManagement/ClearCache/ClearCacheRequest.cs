@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.clear_cache.json")]
-	public partial interface IClearCacheRequest { }
+    [MapsApi("indices.clear_cache.json")]
+    public partial interface IClearCacheRequest { }
 
-	public partial class ClearCacheRequest { }
+    public partial class ClearCacheRequest { }
 
-	public partial class ClearCacheDescriptor { }
+    public partial class ClearCacheDescriptor { }
 }

@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class CatHelpRecord : ICatRecord
-	{
-		[DataMember(Name ="endpoint")]
-		public string Endpoint { get; set; }
-	}
+    [DataContract]
+    public class CatHelpRecord : ICatRecord
+    {
+        [DataMember(Name = "endpoint")]
+        public string Endpoint { get; set; }
+    }
 }

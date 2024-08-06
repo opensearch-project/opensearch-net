@@ -43,383 +43,383 @@
 // -----------------------------------------------
 // ReSharper disable RedundantUsingDirective
 using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace OpenSearch.Net
 {
-	[Flags, StringEnum]
-	public enum IndicesStatsMetric
-	{
-		[EnumMember(Value = "store")]
-		Store = 1 << 0,
-		[EnumMember(Value = "indexing")]
-		Indexing = 1 << 1,
-		[EnumMember(Value = "get")]
-		Get = 1 << 2,
-		[EnumMember(Value = "search")]
-		Search = 1 << 3,
-		[EnumMember(Value = "merge")]
-		Merge = 1 << 4,
-		[EnumMember(Value = "flush")]
-		Flush = 1 << 5,
-		[EnumMember(Value = "refresh")]
-		Refresh = 1 << 6,
-		[EnumMember(Value = "query_cache")]
-		QueryCache = 1 << 7,
-		[EnumMember(Value = "fielddata")]
-		Fielddata = 1 << 8,
-		[EnumMember(Value = "docs")]
-		Docs = 1 << 9,
-		[EnumMember(Value = "warmer")]
-		Warmer = 1 << 10,
-		[EnumMember(Value = "completion")]
-		Completion = 1 << 11,
-		[EnumMember(Value = "segments")]
-		Segments = 1 << 12,
-		[EnumMember(Value = "translog")]
-		Translog = 1 << 13,
-		[EnumMember(Value = "request_cache")]
-		RequestCache = 1 << 14,
-		[EnumMember(Value = "recovery")]
-		Recovery = 1 << 15,
-		[EnumMember(Value = "_all")]
-		All = 1 << 16
-	}
+    [Flags, StringEnum]
+    public enum IndicesStatsMetric
+    {
+        [EnumMember(Value = "store")]
+        Store = 1 << 0,
+        [EnumMember(Value = "indexing")]
+        Indexing = 1 << 1,
+        [EnumMember(Value = "get")]
+        Get = 1 << 2,
+        [EnumMember(Value = "search")]
+        Search = 1 << 3,
+        [EnumMember(Value = "merge")]
+        Merge = 1 << 4,
+        [EnumMember(Value = "flush")]
+        Flush = 1 << 5,
+        [EnumMember(Value = "refresh")]
+        Refresh = 1 << 6,
+        [EnumMember(Value = "query_cache")]
+        QueryCache = 1 << 7,
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 8,
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 9,
+        [EnumMember(Value = "warmer")]
+        Warmer = 1 << 10,
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 11,
+        [EnumMember(Value = "segments")]
+        Segments = 1 << 12,
+        [EnumMember(Value = "translog")]
+        Translog = 1 << 13,
+        [EnumMember(Value = "request_cache")]
+        RequestCache = 1 << 14,
+        [EnumMember(Value = "recovery")]
+        Recovery = 1 << 15,
+        [EnumMember(Value = "_all")]
+        All = 1 << 16
+    }
 
-	[StringEnum]
-	public enum DefaultOperator
-	{
-		[EnumMember(Value = "AND")]
-		And,
-		[EnumMember(Value = "OR")]
-		Or
-	}
+    [StringEnum]
+    public enum DefaultOperator
+    {
+        [EnumMember(Value = "AND")]
+        And,
+        [EnumMember(Value = "OR")]
+        Or
+    }
 
-	[StringEnum]
-	public enum SearchType
-	{
-		[EnumMember(Value = "query_then_fetch")]
-		QueryThenFetch,
-		[EnumMember(Value = "dfs_query_then_fetch")]
-		DfsQueryThenFetch
-	}
+    [StringEnum]
+    public enum SearchType
+    {
+        [EnumMember(Value = "query_then_fetch")]
+        QueryThenFetch,
+        [EnumMember(Value = "dfs_query_then_fetch")]
+        DfsQueryThenFetch
+    }
 
-	[StringEnum]
-	public enum SuggestMode
-	{
-		[EnumMember(Value = "missing")]
-		Missing,
-		[EnumMember(Value = "popular")]
-		Popular,
-		[EnumMember(Value = "always")]
-		Always
-	}
+    [StringEnum]
+    public enum SuggestMode
+    {
+        [EnumMember(Value = "missing")]
+        Missing,
+        [EnumMember(Value = "popular")]
+        Popular,
+        [EnumMember(Value = "always")]
+        Always
+    }
 
-	[StringEnum]
-	public enum Refresh
-	{
-		[EnumMember(Value = "true")]
-		True,
-		[EnumMember(Value = "false")]
-		False,
-		[EnumMember(Value = "wait_for")]
-		WaitFor
-	}
+    [StringEnum]
+    public enum Refresh
+    {
+        [EnumMember(Value = "true")]
+        True,
+        [EnumMember(Value = "false")]
+        False,
+        [EnumMember(Value = "wait_for")]
+        WaitFor
+    }
 
-	[StringEnum]
-	public enum Size
-	{
-		[EnumMember(Value = "")]
-		Raw,
-		[EnumMember(Value = "k")]
-		K,
-		[EnumMember(Value = "m")]
-		M,
-		[EnumMember(Value = "g")]
-		G,
-		[EnumMember(Value = "t")]
-		T,
-		[EnumMember(Value = "p")]
-		P
-	}
+    [StringEnum]
+    public enum Size
+    {
+        [EnumMember(Value = "")]
+        Raw,
+        [EnumMember(Value = "k")]
+        K,
+        [EnumMember(Value = "m")]
+        M,
+        [EnumMember(Value = "g")]
+        G,
+        [EnumMember(Value = "t")]
+        T,
+        [EnumMember(Value = "p")]
+        P
+    }
 
-	[Flags, StringEnum]
-	public enum ClusterRerouteMetric
-	{
-		[EnumMember(Value = "blocks")]
-		Blocks = 1 << 0,
-		[EnumMember(Value = "metadata")]
-		Metadata = 1 << 1,
-		[EnumMember(Value = "nodes")]
-		Nodes = 1 << 2,
-		[EnumMember(Value = "routing_table")]
-		RoutingTable = 1 << 3,
-		[EnumMember(Value = "master_node")]
-		MasterNode = 1 << 4,
-		[EnumMember(Value = "version")]
-		Version = 1 << 5,
-		[EnumMember(Value = "_all")]
-		All = 1 << 6
-	}
+    [Flags, StringEnum]
+    public enum ClusterRerouteMetric
+    {
+        [EnumMember(Value = "blocks")]
+        Blocks = 1 << 0,
+        [EnumMember(Value = "metadata")]
+        Metadata = 1 << 1,
+        [EnumMember(Value = "nodes")]
+        Nodes = 1 << 2,
+        [EnumMember(Value = "routing_table")]
+        RoutingTable = 1 << 3,
+        [EnumMember(Value = "master_node")]
+        MasterNode = 1 << 4,
+        [EnumMember(Value = "version")]
+        Version = 1 << 5,
+        [EnumMember(Value = "_all")]
+        All = 1 << 6
+    }
 
-	[StringEnum]
-	public enum VersionType
-	{
-		[EnumMember(Value = "internal")]
-		Internal,
-		[EnumMember(Value = "external")]
-		External,
-		[EnumMember(Value = "external_gte")]
-		ExternalGte,
-	}
+    [StringEnum]
+    public enum VersionType
+    {
+        [EnumMember(Value = "internal")]
+        Internal,
+        [EnumMember(Value = "external")]
+        External,
+        [EnumMember(Value = "external_gte")]
+        ExternalGte,
+    }
 
-	[StringEnum]
-	public enum Conflicts
-	{
-		[EnumMember(Value = "abort")]
-		Abort,
-		[EnumMember(Value = "proceed")]
-		Proceed
-	}
+    [StringEnum]
+    public enum Conflicts
+    {
+        [EnumMember(Value = "abort")]
+        Abort,
+        [EnumMember(Value = "proceed")]
+        Proceed
+    }
 
-	[StringEnum]
-	public enum OpType
-	{
-		[EnumMember(Value = "index")]
-		Index,
-		[EnumMember(Value = "create")]
-		Create
-	}
+    [StringEnum]
+    public enum OpType
+    {
+        [EnumMember(Value = "index")]
+        Index,
+        [EnumMember(Value = "create")]
+        Create
+    }
 
-	[StringEnum]
-	public enum IndicesShardStoresStatus
-	{
-		[EnumMember(Value = "green")]
-		Green,
-		[EnumMember(Value = "yellow")]
-		Yellow,
-		[EnumMember(Value = "red")]
-		Red,
-		[EnumMember(Value = "all")]
-		All
-	}
+    [StringEnum]
+    public enum IndicesShardStoresStatus
+    {
+        [EnumMember(Value = "green")]
+        Green,
+        [EnumMember(Value = "yellow")]
+        Yellow,
+        [EnumMember(Value = "red")]
+        Red,
+        [EnumMember(Value = "all")]
+        All
+    }
 
-	[StringEnum]
-	public enum ThreadType
-	{
-		[EnumMember(Value = "cpu")]
-		Cpu,
-		[EnumMember(Value = "wait")]
-		Wait,
-		[EnumMember(Value = "block")]
-		Block
-	}
+    [StringEnum]
+    public enum ThreadType
+    {
+        [EnumMember(Value = "cpu")]
+        Cpu,
+        [EnumMember(Value = "wait")]
+        Wait,
+        [EnumMember(Value = "block")]
+        Block
+    }
 
-	public static partial class KnownEnums
-	{
-		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
+    public static partial class KnownEnums
+    {
+        private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
 
-		static KnownEnums()
-		{
-			AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
-			AddEnumStringResolver<DefaultOperator>(GetStringValue);
-			AddEnumStringResolver<SearchType>(GetStringValue);
-			AddEnumStringResolver<SuggestMode>(GetStringValue);
-			AddEnumStringResolver<Refresh>(GetStringValue);
-			AddEnumStringResolver<Size>(GetStringValue);
-			AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
-			AddEnumStringResolver<VersionType>(GetStringValue);
-			AddEnumStringResolver<Conflicts>(GetStringValue);
-			AddEnumStringResolver<OpType>(GetStringValue);
-			AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
-			AddEnumStringResolver<ThreadType>(GetStringValue);
-			RegisterEnumStringResolvers();
-		}
+        static KnownEnums()
+        {
+            AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
+            AddEnumStringResolver<DefaultOperator>(GetStringValue);
+            AddEnumStringResolver<SearchType>(GetStringValue);
+            AddEnumStringResolver<SuggestMode>(GetStringValue);
+            AddEnumStringResolver<Refresh>(GetStringValue);
+            AddEnumStringResolver<Size>(GetStringValue);
+            AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
+            AddEnumStringResolver<VersionType>(GetStringValue);
+            AddEnumStringResolver<Conflicts>(GetStringValue);
+            AddEnumStringResolver<OpType>(GetStringValue);
+            AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
+            AddEnumStringResolver<ThreadType>(GetStringValue);
+            RegisterEnumStringResolvers();
+        }
 
-		private static void AddEnumStringResolver<T>(Func<T, string> resolver) where T : Enum =>
-			EnumStringResolvers.TryAdd(typeof(T), e => resolver((T) e));
+        private static void AddEnumStringResolver<T>(Func<T, string> resolver) where T : Enum =>
+            EnumStringResolvers.TryAdd(typeof(T), e => resolver((T)e));
 
-		static partial void RegisterEnumStringResolvers();
+        static partial void RegisterEnumStringResolvers();
 
-		public static string GetStringValue(this IndicesStatsMetric enumValue)
-		{
-			if ((enumValue & IndicesStatsMetric.All) != 0)
-				return "_all";
-			var list = new List<string>();
-			if ((enumValue & IndicesStatsMetric.Store) != 0)
-				list.Add("store");
-			if ((enumValue & IndicesStatsMetric.Indexing) != 0)
-				list.Add("indexing");
-			if ((enumValue & IndicesStatsMetric.Get) != 0)
-				list.Add("get");
-			if ((enumValue & IndicesStatsMetric.Search) != 0)
-				list.Add("search");
-			if ((enumValue & IndicesStatsMetric.Merge) != 0)
-				list.Add("merge");
-			if ((enumValue & IndicesStatsMetric.Flush) != 0)
-				list.Add("flush");
-			if ((enumValue & IndicesStatsMetric.Refresh) != 0)
-				list.Add("refresh");
-			if ((enumValue & IndicesStatsMetric.QueryCache) != 0)
-				list.Add("query_cache");
-			if ((enumValue & IndicesStatsMetric.Fielddata) != 0)
-				list.Add("fielddata");
-			if ((enumValue & IndicesStatsMetric.Docs) != 0)
-				list.Add("docs");
-			if ((enumValue & IndicesStatsMetric.Warmer) != 0)
-				list.Add("warmer");
-			if ((enumValue & IndicesStatsMetric.Completion) != 0)
-				list.Add("completion");
-			if ((enumValue & IndicesStatsMetric.Segments) != 0)
-				list.Add("segments");
-			if ((enumValue & IndicesStatsMetric.Translog) != 0)
-				list.Add("translog");
-			if ((enumValue & IndicesStatsMetric.RequestCache) != 0)
-				list.Add("request_cache");
-			if ((enumValue & IndicesStatsMetric.Recovery) != 0)
-				list.Add("recovery");
-			return string.Join(",", list);
-		}
+        public static string GetStringValue(this IndicesStatsMetric enumValue)
+        {
+            if ((enumValue & IndicesStatsMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & IndicesStatsMetric.Store) != 0)
+                list.Add("store");
+            if ((enumValue & IndicesStatsMetric.Indexing) != 0)
+                list.Add("indexing");
+            if ((enumValue & IndicesStatsMetric.Get) != 0)
+                list.Add("get");
+            if ((enumValue & IndicesStatsMetric.Search) != 0)
+                list.Add("search");
+            if ((enumValue & IndicesStatsMetric.Merge) != 0)
+                list.Add("merge");
+            if ((enumValue & IndicesStatsMetric.Flush) != 0)
+                list.Add("flush");
+            if ((enumValue & IndicesStatsMetric.Refresh) != 0)
+                list.Add("refresh");
+            if ((enumValue & IndicesStatsMetric.QueryCache) != 0)
+                list.Add("query_cache");
+            if ((enumValue & IndicesStatsMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & IndicesStatsMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & IndicesStatsMetric.Warmer) != 0)
+                list.Add("warmer");
+            if ((enumValue & IndicesStatsMetric.Completion) != 0)
+                list.Add("completion");
+            if ((enumValue & IndicesStatsMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & IndicesStatsMetric.Translog) != 0)
+                list.Add("translog");
+            if ((enumValue & IndicesStatsMetric.RequestCache) != 0)
+                list.Add("request_cache");
+            if ((enumValue & IndicesStatsMetric.Recovery) != 0)
+                list.Add("recovery");
+            return string.Join(",", list);
+        }
 
-		public static string GetStringValue(this DefaultOperator enumValue) =>
-			enumValue switch
-			{
-				DefaultOperator.And => "AND",
-				DefaultOperator.Or => "OR",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'")
-			};
+        public static string GetStringValue(this DefaultOperator enumValue) =>
+            enumValue switch
+            {
+                DefaultOperator.And => "AND",
+                DefaultOperator.Or => "OR",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'")
+            };
 
-		public static string GetStringValue(this SearchType enumValue) =>
-			enumValue switch
-			{
-				SearchType.QueryThenFetch => "query_then_fetch",
-				SearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'")
-			};
+        public static string GetStringValue(this SearchType enumValue) =>
+            enumValue switch
+            {
+                SearchType.QueryThenFetch => "query_then_fetch",
+                SearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'")
+            };
 
-		public static string GetStringValue(this SuggestMode enumValue) =>
-			enumValue switch
-			{
-				SuggestMode.Missing => "missing",
-				SuggestMode.Popular => "popular",
-				SuggestMode.Always => "always",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'")
-			};
+        public static string GetStringValue(this SuggestMode enumValue) =>
+            enumValue switch
+            {
+                SuggestMode.Missing => "missing",
+                SuggestMode.Popular => "popular",
+                SuggestMode.Always => "always",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'")
+            };
 
-		public static string GetStringValue(this Refresh enumValue) =>
-			enumValue switch
-			{
-				Refresh.True => "true",
-				Refresh.False => "false",
-				Refresh.WaitFor => "wait_for",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'")
-			};
+        public static string GetStringValue(this Refresh enumValue) =>
+            enumValue switch
+            {
+                Refresh.True => "true",
+                Refresh.False => "false",
+                Refresh.WaitFor => "wait_for",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'")
+            };
 
-		public static string GetStringValue(this Size enumValue) =>
-			enumValue switch
-			{
-				Size.Raw => "",
-				Size.K => "k",
-				Size.M => "m",
-				Size.G => "g",
-				Size.T => "t",
-				Size.P => "p",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'")
-			};
+        public static string GetStringValue(this Size enumValue) =>
+            enumValue switch
+            {
+                Size.Raw => "",
+                Size.K => "k",
+                Size.M => "m",
+                Size.G => "g",
+                Size.T => "t",
+                Size.P => "p",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'")
+            };
 
-		public static string GetStringValue(this ClusterRerouteMetric enumValue)
-		{
-			if ((enumValue & ClusterRerouteMetric.All) != 0)
-				return "_all";
-			var list = new List<string>();
-			if ((enumValue & ClusterRerouteMetric.Blocks) != 0)
-				list.Add("blocks");
-			if ((enumValue & ClusterRerouteMetric.Metadata) != 0)
-				list.Add("metadata");
-			if ((enumValue & ClusterRerouteMetric.Nodes) != 0)
-				list.Add("nodes");
-			if ((enumValue & ClusterRerouteMetric.RoutingTable) != 0)
-				list.Add("routing_table");
-			if ((enumValue & ClusterRerouteMetric.MasterNode) != 0)
-				list.Add("master_node");
-			if ((enumValue & ClusterRerouteMetric.Version) != 0)
-				list.Add("version");
-			return string.Join(",", list);
-		}
+        public static string GetStringValue(this ClusterRerouteMetric enumValue)
+        {
+            if ((enumValue & ClusterRerouteMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & ClusterRerouteMetric.Blocks) != 0)
+                list.Add("blocks");
+            if ((enumValue & ClusterRerouteMetric.Metadata) != 0)
+                list.Add("metadata");
+            if ((enumValue & ClusterRerouteMetric.Nodes) != 0)
+                list.Add("nodes");
+            if ((enumValue & ClusterRerouteMetric.RoutingTable) != 0)
+                list.Add("routing_table");
+            if ((enumValue & ClusterRerouteMetric.MasterNode) != 0)
+                list.Add("master_node");
+            if ((enumValue & ClusterRerouteMetric.Version) != 0)
+                list.Add("version");
+            return string.Join(",", list);
+        }
 
-		public static string GetStringValue(this VersionType enumValue) =>
-			enumValue switch
-			{
-				VersionType.Internal => "internal",
-				VersionType.External => "external",
-				VersionType.ExternalGte => "external_gte",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'")
-			};
+        public static string GetStringValue(this VersionType enumValue) =>
+            enumValue switch
+            {
+                VersionType.Internal => "internal",
+                VersionType.External => "external",
+                VersionType.ExternalGte => "external_gte",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'")
+            };
 
-		public static string GetStringValue(this Conflicts enumValue) =>
-			enumValue switch
-			{
-				Conflicts.Abort => "abort",
-				Conflicts.Proceed => "proceed",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'")
-			};
+        public static string GetStringValue(this Conflicts enumValue) =>
+            enumValue switch
+            {
+                Conflicts.Abort => "abort",
+                Conflicts.Proceed => "proceed",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'")
+            };
 
-		public static string GetStringValue(this OpType enumValue) =>
-			enumValue switch
-			{
-				OpType.Index => "index",
-				OpType.Create => "create",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'OpType'")
-			};
+        public static string GetStringValue(this OpType enumValue) =>
+            enumValue switch
+            {
+                OpType.Index => "index",
+                OpType.Create => "create",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'OpType'")
+            };
 
-		public static string GetStringValue(this IndicesShardStoresStatus enumValue) =>
-			enumValue switch
-			{
-				IndicesShardStoresStatus.Green => "green",
-				IndicesShardStoresStatus.Yellow => "yellow",
-				IndicesShardStoresStatus.Red => "red",
-				IndicesShardStoresStatus.All => "all",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'IndicesShardStoresStatus'")
-			};
+        public static string GetStringValue(this IndicesShardStoresStatus enumValue) =>
+            enumValue switch
+            {
+                IndicesShardStoresStatus.Green => "green",
+                IndicesShardStoresStatus.Yellow => "yellow",
+                IndicesShardStoresStatus.Red => "red",
+                IndicesShardStoresStatus.All => "all",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'IndicesShardStoresStatus'")
+            };
 
-		public static string GetStringValue(this ThreadType enumValue) =>
-			enumValue switch
-			{
-				ThreadType.Cpu => "cpu",
-				ThreadType.Wait => "wait",
-				ThreadType.Block => "block",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'")
-			};
+        public static string GetStringValue(this ThreadType enumValue) =>
+            enumValue switch
+            {
+                ThreadType.Cpu => "cpu",
+                ThreadType.Wait => "wait",
+                ThreadType.Block => "block",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'")
+            };
 
-		public static string GetStringValue(this Enum e)
-		{
-			var type = e.GetType();
-			var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
-			return resolver(e);
-		}
+        public static string GetStringValue(this Enum e)
+        {
+            var type = e.GetType();
+            var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
+            return resolver(e);
+        }
 
-		private static Func<Enum, string> GetEnumStringResolver(Type type)
-		{
-			var values = Enum.GetValues(type);
-			var dictionary = new Dictionary<Enum, string>(values.Length);
-			for (var index = 0; index < values.Length; index++)
-			{
-				var value = values.GetValue(index);
-				var info = type.GetField(value.ToString());
-				var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-				var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
-				dictionary.Add((Enum)value, stringValue);
-			}
+        private static Func<Enum, string> GetEnumStringResolver(Type type)
+        {
+            var values = Enum.GetValues(type);
+            var dictionary = new Dictionary<Enum, string>(values.Length);
+            for (var index = 0; index < values.Length; index++)
+            {
+                var value = values.GetValue(index);
+                var info = type.GetField(value.ToString());
+                var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
+                var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
+                dictionary.Add((Enum)value, stringValue);
+            }
 
-			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-			return e => !isFlag
-				? dictionary[e]
-				: string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value));
-		}
-	}
+            var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
+            return e => !isFlag
+                ? dictionary[e]
+                : string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value));
+        }
+    }
 }

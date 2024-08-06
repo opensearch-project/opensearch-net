@@ -31,42 +31,42 @@ using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Core.DateNanos
 {
-	public class DateNanosTest
-	{
-		[DateNanos(
-			DocValues = true,
-			Store = true,
-			Index = false,
-			Boost = 1.2,
-			IgnoreMalformed = true,
-			Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]")]
-		public DateTime Full { get; set; }
+    public class DateNanosTest
+    {
+        [DateNanos(
+            DocValues = true,
+            Store = true,
+            Index = false,
+            Boost = 1.2,
+            IgnoreMalformed = true,
+            Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]")]
+        public DateTime Full { get; set; }
 
-		[DateNanos]
-		public DateTime Minimal { get; set; }
-	}
+        [DateNanos]
+        public DateTime Minimal { get; set; }
+    }
 
-	public class DateNanosAttributeTests : AttributeTestsBase<DateNanosTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				full = new
-				{
-					type = "date_nanos",
-					doc_values = true,
-					store = true,
-					index = false,
-					boost = 1.2,
-					ignore_malformed = true,
-					format = "yyyy-MM-dd'T'HH:mm[:ss][.S]"
-				},
-				minimal = new
-				{
-					type = "date_nanos"
-				}
-			}
-		};
-	}
+    public class DateNanosAttributeTests : AttributeTestsBase<DateNanosTest>
+    {
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                full = new
+                {
+                    type = "date_nanos",
+                    doc_values = true,
+                    store = true,
+                    index = false,
+                    boost = 1.2,
+                    ignore_malformed = true,
+                    format = "yyyy-MM-dd'T'HH:mm[:ss][.S]"
+                },
+                minimal = new
+                {
+                    type = "date_nanos"
+                }
+            }
+        };
+    }
 }

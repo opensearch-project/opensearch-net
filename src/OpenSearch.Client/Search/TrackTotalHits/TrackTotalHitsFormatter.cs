@@ -11,20 +11,20 @@ namespace OpenSearch.Client;
 
 internal class TrackTotalHitsFormatter : IJsonFormatter<TrackTotalHits>
 {
-	private static readonly UnionFormatter<bool, long> UnionFormatter = new();
+    private static readonly UnionFormatter<bool, long> UnionFormatter = new();
 
-	public void Serialize(ref JsonWriter writer, TrackTotalHits value, IJsonFormatterResolver formatterResolver) =>
-		UnionFormatter.Serialize(ref writer, value, formatterResolver);
+    public void Serialize(ref JsonWriter writer, TrackTotalHits value, IJsonFormatterResolver formatterResolver) =>
+        UnionFormatter.Serialize(ref writer, value, formatterResolver);
 
-	public TrackTotalHits Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-	{
-		var union = UnionFormatter.Deserialize(ref reader, formatterResolver);
-		if (union == null) return null;
-		return union.Tag switch
-		{
-			0 => new TrackTotalHits(union.Item1),
-			1 => new TrackTotalHits(union.Item2),
-			_ => null
-		};
-	}
+    public TrackTotalHits Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var union = UnionFormatter.Deserialize(ref reader, formatterResolver);
+        if (union == null) return null;
+        return union.Tag switch
+        {
+            0 => new TrackTotalHits(union.Item1),
+            1 => new TrackTotalHits(union.Item2),
+            _ => null
+        };
+    }
 }

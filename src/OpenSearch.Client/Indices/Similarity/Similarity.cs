@@ -31,16 +31,16 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// A similarity.
-	/// </summary>
-	[JsonFormatter(typeof(SimilarityFormatter))]
-	public interface ISimilarity
-	{
-		/// <summary>
-		/// The type of similarity.
-		/// </summary>
-		[DataMember(Name ="type")]
-		string Type { get; }
-	}
+    /// <summary>
+    /// A similarity.
+    /// </summary>
+    [JsonFormatter(typeof(SimilarityFormatter))]
+    public interface ISimilarity
+    {
+        /// <summary>
+        /// The type of similarity.
+        /// </summary>
+        [DataMember(Name = "type")]
+        string Type { get; }
+    }
 }

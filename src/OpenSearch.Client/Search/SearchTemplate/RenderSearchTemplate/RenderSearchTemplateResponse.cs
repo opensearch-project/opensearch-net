@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class RenderSearchTemplateResponse : ResponseBase
-	{
-		[DataMember(Name ="template_output")]
-		public ILazyDocument TemplateOutput { get; set; }
-	}
+    [DataContract]
+    public class RenderSearchTemplateResponse : ResponseBase
+    {
+        [DataMember(Name = "template_output")]
+        public ILazyDocument TemplateOutput { get; set; }
+    }
 }

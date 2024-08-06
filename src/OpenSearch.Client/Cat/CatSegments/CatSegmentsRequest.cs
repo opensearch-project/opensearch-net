@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.segments.json")]
-	public partial interface ICatSegmentsRequest { }
+    [MapsApi("cat.segments.json")]
+    public partial interface ICatSegmentsRequest { }
 
-	public partial class CatSegmentsRequest { }
+    public partial class CatSegmentsRequest { }
 
-	public partial class CatSegmentsDescriptor { }
+    public partial class CatSegmentsDescriptor { }
 }

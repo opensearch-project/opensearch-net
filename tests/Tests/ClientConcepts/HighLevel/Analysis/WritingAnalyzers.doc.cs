@@ -28,8 +28,8 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Domain;
 using Tests.Framework;
@@ -37,7 +37,7 @@ using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.ClientConcepts.HighLevel.Analysis
 {
-	/**[[writing-analyzers]]
+    /**[[writing-analyzers]]
 	 * === Writing analyzers
 	 *
 	 * There are times when you would like to analyze text in a bespoke fashion, either by configuring
@@ -58,10 +58,10 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 	 * Check out the OpenSearch documentation on the {ref_current}/analyzer-anatomy.html[Anatomy of an analyzer]
 	 * to understand more.
 	 */
-	public class WritingAnalyzers
-	{
-		private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
-		/**
+    public class WritingAnalyzers
+    {
+        private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
+        /**
 		 * ==== Specifying an analyzer on a field mapping
 		 *
 		 * An analyzer can be specified on a `text` datatype field mapping when creating a new field on a type, usually
@@ -81,21 +81,21 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * Here's a simple example that specifies that the `name` field in OpenSearch,
 		 * which maps to the `Name` POCO property on the `Project` type, uses the `whitespace` analyzer at index time
 		 */
-		public void AddAnalyzerToFieldMapping()
-		{
-			var createIndexResponse = _client.Indices.Create("my-index", c => c
-				.Map<Project>(mm => mm
-					.Properties(p => p
-						.Text(t => t
-							.Name(n => n.Name)
-							.Analyzer("whitespace")
-						)
-					)
-				)
-			);
-		}
+        public void AddAnalyzerToFieldMapping()
+        {
+            var createIndexResponse = _client.Indices.Create("my-index", c => c
+                .Map<Project>(mm => mm
+                    .Properties(p => p
+                        .Text(t => t
+                            .Name(n => n.Name)
+                            .Analyzer("whitespace")
+                        )
+                    )
+                )
+            );
+        }
 
-		/**
+        /**
 		 * ==== Configuring a built-in analyzer
 		 *
 		 * Several built-in analyzers can be configured to alter their behaviour. For example, the
@@ -105,66 +105,66 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * Configuring a built-in analyzer requires creating an analyzer based on the built-in one
 		 *
 		 */
-		[U]
-		public void ChangingBuiltInAnalyzer()
-		{
-			var createIndexResponse = _client.Indices.Create("my-index", c => c
-				.Settings(s => s
-					.Analysis(a => a
-						.Analyzers(aa => aa
-							.Standard("standard_english", sa => sa
-								.StopWords("_english_") // <1> Pre-defined list of English stopwords within OpenSearch
-							)
-						)
-					)
-				)
-				.Map<Project>(mm => mm
-					.Properties(p => p
-						.Text(t => t
-							.Name(n => n.Name)
-							.Analyzer("standard_english") // <2> Use the `standard_english` analyzer configured
-						)
-					)
-				)
-			);
+        [U]
+        public void ChangingBuiltInAnalyzer()
+        {
+            var createIndexResponse = _client.Indices.Create("my-index", c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .Analyzers(aa => aa
+                            .Standard("standard_english", sa => sa
+                                .StopWords("_english_") // <1> Pre-defined list of English stopwords within OpenSearch
+                            )
+                        )
+                    )
+                )
+                .Map<Project>(mm => mm
+                    .Properties(p => p
+                        .Text(t => t
+                            .Name(n => n.Name)
+                            .Analyzer("standard_english") // <2> Use the `standard_english` analyzer configured
+                        )
+                    )
+                )
+            );
 
-			/**
+            /**
 			 */
-			//json
-			var expected = new
-			{
-				settings = new
-				{
-					analysis = new
-					{
-						analyzer = new
-						{
-							standard_english = new
-							{
-								type = "standard",
-								stopwords = new [] { "_english_" }
-							}
-						}
-					}
-				},
-				mappings = new
-				{
-					properties = new
-					{
-						name = new
-						{
-							type = "text",
-							analyzer = "standard_english"
-						}
-					}
-				}
-			};
+            //json
+            var expected = new
+            {
+                settings = new
+                {
+                    analysis = new
+                    {
+                        analyzer = new
+                        {
+                            standard_english = new
+                            {
+                                type = "standard",
+                                stopwords = new[] { "_english_" }
+                            }
+                        }
+                    }
+                },
+                mappings = new
+                {
+                    properties = new
+                    {
+                        name = new
+                        {
+                            type = "text",
+                            analyzer = "standard_english"
+                        }
+                    }
+                }
+            };
 
-			// hide
-			Expect(expected).FromRequest(createIndexResponse);
-		}
+            // hide
+            Expect(expected).FromRequest(createIndexResponse);
+        }
 
-		/**
+        /**
 		 * ==== Creating a custom analyzer
 		 *
 		 * A custom analyzer can be composed when none of the built-in analyzers fit your needs. A custom analyzer
@@ -176,15 +176,15 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * For this example, imagine we are indexing programming questions, where the question content
 		 * is HTML and contains source code
 		 */
-		public class Question
-		{
-			public int Id { get; set; }
-			public DateTimeOffset CreationDate { get; set; }
-			public int Score { get; set; }
-			public string Body { get; set; }
-		}
+        public class Question
+        {
+            public int Id { get; set; }
+            public DateTimeOffset CreationDate { get; set; }
+            public int Score { get; set; }
+            public string Body { get; set; }
+        }
 
-		/**
+        /**
 		 * Based on our domain knowledge of programming languages, we would like to be able to search questions
 		 * that contain `"C#"`, but using the `standard` analyzer, `"C#"` will be analyzed and produce the token
 		 * `"c"`. This won't work for our use case as there will be no way to distinguish questions about
@@ -192,42 +192,42 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 *
 		 * We can solve our issue with a custom analyzer
 		 */
-		public void CustomAnalyzer()
-		{
-			var createIndexResponse = _client.Indices.Create("questions", c => c
-				.Settings(s => s
-					.Analysis(a => a
-						.CharFilters(cf => cf
-							.Mapping("programming_language", mca => mca
-								.Mappings(new []
-								{
-									"c# => csharp",
-									"C# => Csharp"
-								})
-							)
-						)
-						.Analyzers(an => an
-							.Custom("question", ca => ca
-								.CharFilters("html_strip", "programming_language")
-								.Tokenizer("standard")
-								.Filters("lowercase", "stop")
-							)
-						)
-					)
-				)
-				.Map<Question>(mm => mm
-					.AutoMap()
-					.Properties(p => p
-						.Text(t => t
-							.Name(n => n.Body)
-							.Analyzer("question")
-						)
-					)
-				)
-			);
-		}
+        public void CustomAnalyzer()
+        {
+            var createIndexResponse = _client.Indices.Create("questions", c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .CharFilters(cf => cf
+                            .Mapping("programming_language", mca => mca
+                                .Mappings(new[]
+                                {
+                                    "c# => csharp",
+                                    "C# => Csharp"
+                                })
+                            )
+                        )
+                        .Analyzers(an => an
+                            .Custom("question", ca => ca
+                                .CharFilters("html_strip", "programming_language")
+                                .Tokenizer("standard")
+                                .Filters("lowercase", "stop")
+                            )
+                        )
+                    )
+                )
+                .Map<Question>(mm => mm
+                    .AutoMap()
+                    .Properties(p => p
+                        .Text(t => t
+                            .Name(n => n.Body)
+                            .Analyzer("question")
+                        )
+                    )
+                )
+            );
+        }
 
-		/**
+        /**
 		 * Our custom `question` analyzer will apply the following analysis to a question body
 		 *
 		 * . strip HTML tags
@@ -251,47 +251,47 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * An analyzer can be specified when creating the field mapping to use at search time, in addition to an analyzer to
 		 * use at query time
 		 */
-		public void CustomIndexAndSearchAnalyzers()
-		{
-			var createIndexResponse = _client.Indices.Create("questions", c => c
-				.Settings(s => s
-					.Analysis(a => a
-						.CharFilters(cf => cf
-							.Mapping("programming_language", mca => mca
-								.Mappings(new[]
-								{
-									"c# => csharp",
-									"C# => Csharp"
-								})
-							)
-						)
-						.Analyzers(an => an
-							.Custom("index_question", ca => ca // <1> Use an analyzer at index time that strips HTML tags
-								.CharFilters("html_strip", "programming_language")
-								.Tokenizer("standard")
-								.Filters("lowercase", "stop")
-							)
-							.Custom("search_question", ca => ca // <2> Use an analyzer at search time that does not strip HTML tags
-								.CharFilters("programming_language")
-								.Tokenizer("standard")
-								.Filters("lowercase", "stop")
-							)
-						)
-					)
-				)
-				.Map<Question>(mm => mm
-					.AutoMap()
-					.Properties(p => p
-						.Text(t => t
-							.Name(n => n.Body)
-							.Analyzer("index_question")
-							.SearchAnalyzer("search_question")
-						)
-					)
-				)
-			);
-		}
-		/**
+        public void CustomIndexAndSearchAnalyzers()
+        {
+            var createIndexResponse = _client.Indices.Create("questions", c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .CharFilters(cf => cf
+                            .Mapping("programming_language", mca => mca
+                                .Mappings(new[]
+                                {
+                                    "c# => csharp",
+                                    "C# => Csharp"
+                                })
+                            )
+                        )
+                        .Analyzers(an => an
+                            .Custom("index_question", ca => ca // <1> Use an analyzer at index time that strips HTML tags
+                                .CharFilters("html_strip", "programming_language")
+                                .Tokenizer("standard")
+                                .Filters("lowercase", "stop")
+                            )
+                            .Custom("search_question", ca => ca // <2> Use an analyzer at search time that does not strip HTML tags
+                                .CharFilters("programming_language")
+                                .Tokenizer("standard")
+                                .Filters("lowercase", "stop")
+                            )
+                        )
+                    )
+                )
+                .Map<Question>(mm => mm
+                    .AutoMap()
+                    .Properties(p => p
+                        .Text(t => t
+                            .Name(n => n.Body)
+                            .Analyzer("index_question")
+                            .SearchAnalyzer("search_question")
+                        )
+                    )
+                )
+            );
+        }
+        /**
 		 * With this in place, the text of a question body will be analyzed with the `index_question` analyzer
 		 * at index time and the input to a full text query on the question body field will be analyzed with
 		 * the `search_question` analyzer that does not use the `html_strip` character filter.
@@ -306,5 +306,5 @@ namespace Tests.ClientConcepts.HighLevel.Analysis
 		 * and the precedence for a given request.
 		 * --
 		 */
-	}
+    }
 }

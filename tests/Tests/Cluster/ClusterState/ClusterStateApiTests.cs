@@ -26,79 +26,79 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Cluster.ClusterState
 {
-	public class ClusterStateApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, ClusterStateResponse, IClusterStateRequest, ClusterStateDescriptor, ClusterStateRequest>
-	{
-		public ClusterStateApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class ClusterStateApiTests
+        : ApiIntegrationTestBase<ReadOnlyCluster, ClusterStateResponse, IClusterStateRequest, ClusterStateDescriptor, ClusterStateRequest>
+    {
+        public ClusterStateApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cluster/state";
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.GET;
+        protected override string UrlPath => "/_cluster/state";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.State(),
-			(client, f) => client.Cluster.StateAsync(),
-			(client, r) => client.Cluster.State(r),
-			(client, r) => client.Cluster.StateAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Cluster.State(),
+            (client, f) => client.Cluster.StateAsync(),
+            (client, r) => client.Cluster.State(r),
+            (client, r) => client.Cluster.StateAsync(r)
+        );
 
-		protected override void ExpectResponse(ClusterStateResponse response)
-		{
-			var isPre20version = Cluster.ClusterConfiguration.Version < "2.0.0";
+        protected override void ExpectResponse(ClusterStateResponse response)
+        {
+            var isPre20version = Cluster.ClusterConfiguration.Version < "2.0.0";
 
-			response.ClusterName.Should().NotBeNullOrWhiteSpace();
-			if (isPre20version)
-				response.MasterNode.Should().NotBeNullOrWhiteSpace();
-			else
-				response.ClusterManagerNode.Should().NotBeNullOrWhiteSpace();
-			response.StateUUID.Should().NotBeNullOrWhiteSpace();
-			response.Version.Should().BeGreaterThan(0);
+            response.ClusterName.Should().NotBeNullOrWhiteSpace();
+            if (isPre20version)
+                response.MasterNode.Should().NotBeNullOrWhiteSpace();
+            else
+                response.ClusterManagerNode.Should().NotBeNullOrWhiteSpace();
+            response.StateUUID.Should().NotBeNullOrWhiteSpace();
+            response.Version.Should().BeGreaterThan(0);
 
-			var clusterManagerNode =
-				isPre20version
-					? response.State["nodes"][response.MasterNode]
-					: response.State["nodes"][response.ClusterManagerNode];
-			var clusterManagerNodeName = clusterManagerNode["name"].Value as string;
-			var transportAddress = clusterManagerNode["transport_address"].Value as string;
-			clusterManagerNodeName.Should().NotBeNullOrWhiteSpace();
-			transportAddress.Should().NotBeNullOrWhiteSpace();
+            var clusterManagerNode =
+                isPre20version
+                    ? response.State["nodes"][response.MasterNode]
+                    : response.State["nodes"][response.ClusterManagerNode];
+            var clusterManagerNodeName = clusterManagerNode["name"].Value as string;
+            var transportAddress = clusterManagerNode["transport_address"].Value as string;
+            clusterManagerNodeName.Should().NotBeNullOrWhiteSpace();
+            transportAddress.Should().NotBeNullOrWhiteSpace();
 
-			var getSyntax = response.Get<string>($"nodes.{(isPre20version ? response.MasterNode : response.ClusterManagerNode)}.transport_address");
+            var getSyntax = response.Get<string>($"nodes.{(isPre20version ? response.MasterNode : response.ClusterManagerNode)}.transport_address");
 
-			getSyntax.Should().NotBeNullOrWhiteSpace().And.Be(transportAddress);
+            getSyntax.Should().NotBeNullOrWhiteSpace().And.Be(transportAddress);
 
-			var badPath = response.Get<string>($"this.is.not.a.path.into.the.response.structure");
-			badPath.Should().BeNull();
+            var badPath = response.Get<string>($"this.is.not.a.path.into.the.response.structure");
+            badPath.Should().BeNull();
 
-			var dict = response.Get<DynamicDictionary>($"nodes");
+            var dict = response.Get<DynamicDictionary>($"nodes");
 
-			dict.Count.Should().BeGreaterThan(0);
-			var node = dict[(isPre20version ? response.MasterNode : response.ClusterManagerNode)].ToDictionary();
-			node.Should().NotBeNull().And.ContainKey("name");
+            dict.Count.Should().BeGreaterThan(0);
+            var node = dict[(isPre20version ? response.MasterNode : response.ClusterManagerNode)].ToDictionary();
+            node.Should().NotBeNull().And.ContainKey("name");
 
-			object dictDoesNotExist = response.Get<DynamicDictionary>("nodes2");
-			dictDoesNotExist.Should().BeNull();
-
-
-			dynamic r = response.State;
-
-			string lastCommittedConfig = r.metadata.cluster_coordination.last_committed_config[0];
-
-			lastCommittedConfig.Should().NotBeNullOrWhiteSpace();
+            object dictDoesNotExist = response.Get<DynamicDictionary>("nodes2");
+            dictDoesNotExist.Should().BeNull();
 
 
+            dynamic r = response.State;
+
+            string lastCommittedConfig = r.metadata.cluster_coordination.last_committed_config[0];
+
+            lastCommittedConfig.Should().NotBeNullOrWhiteSpace();
 
 
-		}
-	}
+
+
+        }
+    }
 }
