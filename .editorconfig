@@ -170,7 +170,7 @@ dotnet_style_collection_initializer = true:error
 dotnet_style_explicit_tuple_names = true:error
 dotnet_style_namespace_match_folder = true
 dotnet_style_null_propagation = true:error
-dotnet_style_object_initializer = true:error
+dotnet_style_object_initializer = true:error # our setting:true:error. Set to false if performing a dotnet format
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
 dotnet_style_prefer_auto_properties = true
 dotnet_style_prefer_collection_expression = true
@@ -245,7 +245,7 @@ csharp_style_prefer_top_level_statements = true
 csharp_prefer_simple_default_expression = true
 csharp_style_deconstructed_variable_declaration = true:error
 csharp_style_implicit_object_creation_when_type_is_apparent = true
-csharp_style_inlined_variable_declaration = true:error
+csharp_style_inlined_variable_declaration = true:error # our setting:true:error. Set to false if performing a dotnet format
 csharp_style_prefer_index_operator = true
 csharp_style_prefer_local_over_anonymous_function = true
 csharp_style_prefer_null_check_over_type_check = true
@@ -278,13 +278,14 @@ csharp_new_line_before_members_in_object_initializers = true
 csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
 
-# Indentation preferences
+# Indentation preferences https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options
 csharp_indent_block_contents = true
 csharp_indent_braces = false
 csharp_indent_case_contents = true
 csharp_indent_case_contents_when_block = true
-csharp_indent_labels = one_less_than_current
+csharp_indent_labels = one_less_than_current # our setting:one_less_than_current. Change to 'no_change' if running dotnet format to keep the current formatting https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options#csharp_indent_labels
 csharp_indent_switch_labels = true
+
 # Space preferences
 csharp_space_after_cast = false
 csharp_space_after_colon_in_inheritance_clause = true
@@ -311,7 +312,7 @@ csharp_space_between_square_brackets = false
 
 # Wrapping preferences
 csharp_preserve_single_line_blocks = true
-csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_statements = false #our setting:false. Set to true if performing a dotnet format https://stackoverflow.com/questions/49760158/visual-studio-2017-auto-formatting-single-line-if-statements-without-braces
 
 # Resharper
 
