@@ -66,18 +66,6 @@ namespace OpenSearch.Client
 
                 Type implementationType;
                 if (t.IsInterface)
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>();
-					if (readAsAttribute == null)
-						throw new Exception($"Unable to deserialize interface {t.FullName}");
-
-					implementationType = readAsAttribute.Type.IsGenericType
-After:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
-                    implementationType = readAsAttribute.Type.IsGenericType
-*/
                 {
                     // need an implementation to deserialize interface to
                     var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
@@ -95,31 +83,6 @@ After:
                                    orderby p.Length descending
                                    select c;
 
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-				var ctor = constructors.FirstOrDefault();
-				if (ctor == null)
-					throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a constructor accepting "
-						+ $"{genericDictionaryInterface.FullName} argument "
-						+ $"or a parameterless constructor");
-
-				// construct a delegate for the ctor
-				var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs.ToArray(), activator, ctor.GetParameters().Length == 0);
-After:
-				var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a constructor accepting "
-						+ $"{genericDictionaryInterface.FullName} argument "
-						+ $"or a parameterless constructor");
-
-                // construct a delegate for the ctor
-                var activatorMethod = activatorMethod.Invoke(null, new object[] { ctor });
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs.ToArray(), activator, ctor.GetParameters().Length == 0);
-*/
                 var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
                         + $"have a constructor accepting "
                         + $"{genericDictionaryInterface.FullName} argument "
@@ -144,25 +107,6 @@ After:
         private readonly bool _parameterlessCtor;
 
         public IsADictionaryBaseFormatter(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-			writer.WriteBeginObject();
-After:
-            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-            writer.WriteBeginObject();
-*/
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-				if (keyFormatter != null)
-After:
-				if (formatterResolver.GetFormatterWithVerify<TKey>() is IObjectPropertyNameFormatter<TKey> keyFormatter)
-*/
         {
             _activator = activator;
             _parameterlessCtor = parameterlessCtor;

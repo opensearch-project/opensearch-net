@@ -114,27 +114,6 @@ namespace OpenSearch.Net.Utf8Json.Internal
                     var successAdd = AddToBuckets(_buckets, key, null, valueFactory, out resultingValue);
                     if (successAdd) _size++;
                     return successAdd;
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-After:
-        private bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-After:
-        private bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-After:
-        private bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-*/
                 }
             }
         }

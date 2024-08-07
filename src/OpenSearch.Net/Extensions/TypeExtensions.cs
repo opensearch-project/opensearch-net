@@ -57,42 +57,6 @@ namespace OpenSearch.Net.Extensions
                                where p.Length == args.Length
                                select c;
 
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-			var ctor = constructors.FirstOrDefault();
-			if (ctor == null)
-				throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-
-			activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-After:
-			var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-            activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-			var ctor = constructors.FirstOrDefault();
-			if (ctor == null)
-				throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-
-			activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-After:
-			var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-            activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-			var ctor = constructors.FirstOrDefault();
-			if (ctor == null)
-				throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-
-			activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-After:
-			var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
-            activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
-*/
             var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it has no constructor taking {args.Length} arguments");
             activator = (ObjectActivator<object>)generic.Invoke(null, new object[] { ctor });
             CachedActivators.TryAdd(key, activator);

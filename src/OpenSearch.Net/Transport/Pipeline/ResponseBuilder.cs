@@ -201,29 +201,6 @@ namespace OpenSearch.Net
                         ["body"] = new DynamicValue(bytes.Utf8String())
                     };
 
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-					dictionary["body"] = new DynamicValue(bytes.Utf8String());
-					cs = new DynamicResponse(dictionary) as TResponse;
-After:
-					cs = new DynamicValue(dictionary) as TResponse;
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-					dictionary["body"] = new DynamicValue(bytes.Utf8String());
-					cs = new DynamicResponse(dictionary) as TResponse;
-After:
-					cs = new DynamicValue(dictionary) as TResponse;
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-					dictionary["body"] = new DynamicValue(bytes.Utf8String());
-					cs = new DynamicResponse(dictionary) as TResponse;
-After:
-					cs = new DynamicValue(dictionary) as TResponse;
-*/
                     cs = new DynamicResponse(dictionary) as TResponse;
                 }
                 else

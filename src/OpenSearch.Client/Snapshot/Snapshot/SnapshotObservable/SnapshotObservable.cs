@@ -105,20 +105,6 @@ namespace OpenSearch.Client
         }
 
         private void Snapshot(object state)
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-			var observer = state as IObserver<SnapshotStatusResponse>;
-
-			if (observer == null) throw new ArgumentException("state");
-
-			try
-			{
-After:
-			var observer = state as IObserver<SnapshotStatusResponse> ?? throw new ArgumentException("state");
-            try
-            {
-*/
         {
             var observer = state as IObserver<SnapshotStatusResponse> ?? throw new ArgumentException("state");
             try

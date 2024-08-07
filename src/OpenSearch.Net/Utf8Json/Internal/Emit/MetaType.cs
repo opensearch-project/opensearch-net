@@ -95,26 +95,6 @@ namespace OpenSearch.Net.Utf8Json.Internal.Emit
 
             var interfaceProperty = interfaceProperties.FirstOrDefault();
 
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-			return interfaceProperty != null ? interfaceProperty.GetCustomAttribute<TAttribute>(inherit) : null;
-After:
-			return interfaceProperty?.GetCustomAttribute<TAttribute>(inherit) : null;
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-			return interfaceProperty != null ? interfaceProperty.GetCustomAttribute<TAttribute>(inherit) : null;
-After:
-			return interfaceProperty?.GetCustomAttribute<TAttribute>(inherit) : null;
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-			return interfaceProperty != null ? interfaceProperty.GetCustomAttribute<TAttribute>(inherit) : null;
-After:
-			return interfaceProperty?.GetCustomAttribute<TAttribute>(inherit) : null;
-*/
             return interfaceProperty?.GetCustomAttribute<TAttribute>(inherit);
         }
 

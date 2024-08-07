@@ -131,15 +131,6 @@ namespace OpenSearch.Client
         {
             var bulkAllRequest = (_reindexRequest.BulkAll?.Invoke(scrollDocuments)) ?? throw new Exception("BulkAll must set on ReindexRequest in order to get the target of a Reindex operation");
 
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-			if (bulkAllRequest == null)
-				throw new Exception("BulkAll must set on ReindexRequest in order to get the target of a Reindex operation");
-
-			bulkAllRequest.BackPressure = backPressure;
-After:
-            bulkAllRequest.BackPressure = backPressure;
-*/
             bulkAllRequest.BackPressure = backPressure;
             bulkAllRequest.BufferToBulk = (bulk, hits) =>
             {

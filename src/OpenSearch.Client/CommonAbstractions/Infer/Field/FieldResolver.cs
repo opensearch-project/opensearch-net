@@ -86,27 +86,13 @@ namespace OpenSearch.Client
         private string Resolve(Expression expression, MemberInfo member, bool toLastToken = false)
         {
             var visitor = new FieldExpressionVisitor(_settings);
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-			var name = expression != null
-				? visitor.Resolve(expression, toLastToken)
-				: member != null
-					? visitor.Resolve(member)
-					: null;
-After:
-			var name = (expression != null
-				? visitor.Resolve(expression, toLastToken)
-				: member != null
-					? visitor.Resolve(member)
-					: null) ?? throw new ArgumentException("Name resolved to null for the given Expression or MemberInfo.");
-*/
-            var name = (expression != null
+            var name = expression != null
                 ? visitor.Resolve(expression, toLastToken)
                 : member != null
                     ? visitor.Resolve(member)
-                    : null) ?? throw new ArgumentException("Name resolved to null for the given Expression or MemberInfo.");
-            return name;
+                    : null;
+
+            return name ?? throw new ArgumentException("Name resolved to null for the given Expression or MemberInfo.");
         }
     }
 }

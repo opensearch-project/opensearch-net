@@ -70,18 +70,6 @@ namespace OpenSearch.Client
 
                 Type implementationType;
                 if (t.IsInterface)
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>();
-					if (readAsAttribute == null)
-						throw new Exception($"Unable to deserialize interface {t.FullName}");
-
-					implementationType = readAsAttribute.Type.IsGenericType
-After:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
-                    implementationType = readAsAttribute.Type.IsGenericType
-*/
                 {
                     // need an implementation to deserialize interface to
                     var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
@@ -99,31 +87,6 @@ After:
                                    orderby p.Length descending
                                    select c;
 
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-				var ctor = constructors.FirstOrDefault();
-				if (ctor == null)
-					throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting "
-						+ $"IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument "
-						+ $"or a public parameterless constructor");
-
-				// construct a delegate for the ctor
-				var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-After:
-				var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting "
-						+ $"IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument "
-						+ $"or a public parameterless constructor");
-
-                // construct a delegate for the ctor
-                var activatorMethod = activatorMethod.Invoke(null, new object[] { ctor });
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-*/
                 var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
                         + $"have a public constructor accepting "
                         + $"IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument "
@@ -173,18 +136,6 @@ After:
 
                 Type implementationType;
                 if (t.IsInterface)
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>();
-					if (readAsAttribute == null)
-						throw new Exception($"Unable to deserialize interface {t.FullName}");
-
-					implementationType = readAsAttribute.Type.IsGenericType
-After:
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
-                    implementationType = readAsAttribute.Type.IsGenericType
-*/
                 {
                     // need an implementation to deserialize interface to
                     var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
@@ -204,27 +155,6 @@ After:
                                    orderby p.Length descending
                                    select c;
 
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-				var ctor = constructors.FirstOrDefault();
-				if (ctor == null)
-					throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument");
-
-				// construct a delegate for the ctor
-				var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-After:
-				var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument");
-
-                // construct a delegate for the ctor
-                var activatorMethod = activatorMethod.Invoke(null, new object[] { ctor });
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-*/
                 var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
                         + $"have a public constructor accepting IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument");
 
@@ -297,16 +227,6 @@ After:
             // TODO mutator is not used, should it?
             var mutator = formatterResolver.GetConnectionSettings().DefaultFieldNameInferrer;
             var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-/* Unmerged change from project 'OpenSearch.Client(netstandard2.1)'
-Before:
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-			writer.WriteBeginObject();
-After:
-            writer.WriteBeginObject();
-*/
-
             writer.WriteBeginObject();
 
             var e = GetSourceEnumerator(value);
