@@ -67,7 +67,14 @@ namespace OpenSearch.Client
                 return;
             }
 
-            var unitMeasure = unit.ToEnum<DistanceUnit>() ?? throw new InvalidCastException($"cannot parse {typeof(DistanceUnit).Name} from string '{unit}'");
+            var unitMeasure = unit.ToEnum<DistanceUnit>();
+#pragma warning disable IDE0270 // Use coalesce expression
+            if (unitMeasure == null)
+            {
+                throw new InvalidCastException($"cannot parse {typeof(DistanceUnit).Name} from string '{unit}'");
+            }
+#pragma warning restore IDE0270 // Use coalesce expression
+
             Unit = unitMeasure.Value;
         }
 

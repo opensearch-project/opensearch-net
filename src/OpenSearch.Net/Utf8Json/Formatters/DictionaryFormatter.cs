@@ -68,43 +68,9 @@ namespace OpenSearch.Net.Utf8Json.Formatters
         public void Serialize(ref JsonWriter writer, TDictionary value, IJsonFormatterResolver formatterResolver)
         {
             if (value == null)
+            {
                 writer.WriteNull();
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-				writer.WriteBeginObject();
-After:
-                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-
-                writer.WriteBeginObject();
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-				writer.WriteBeginObject();
-After:
-                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-
-                writer.WriteBeginObject();
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-				var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-				var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-
-				writer.WriteBeginObject();
-After:
-                var valueFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-
-                writer.WriteBeginObject();
-*/
+            }
             else
             {
                 var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
@@ -194,36 +160,6 @@ After:
             if (reader.ReadIsNull())
                 return null;
 
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-After:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-After:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-			if (keyFormatter == null) throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-After:
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
-            var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-*/
             var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey> ?? throw new InvalidOperationException(typeof(TKey) + " does not support dictionary key deserialize.");
             var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
 

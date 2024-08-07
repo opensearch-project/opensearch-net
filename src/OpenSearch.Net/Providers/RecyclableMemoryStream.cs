@@ -333,177 +333,6 @@ namespace OpenSearch.Net
             _blocks.Clear();
 
             base.Dispose(disposing);
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		/// <summary>
-		/// Equivalent to Dispose
-		/// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-		public override void Close()
-#endif
-		{
-			Dispose(true);
-		}
-
-		#endregion
-
-		#region MemoryStream overrides
-
-		/// <summary>
-		/// Gets or sets the capacity
-		/// </summary>
-		/// <remarks>
-		/// Capacity is always in multiples of the memory manager's block size, unless
-		/// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-		/// Explicitly setting the capacity to a lower value than the current value will have no effect.
-		/// This is because the buffers are all pooled by chunks and there's little reason to
-		/// allow stream truncation.
-		/// </remarks>
-		/// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-		public override int Capacity
-After:
-        /// <summary>
-        /// Equivalent to Dispose
-        /// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-        public override void Close() => Dispose(true);
-
-        #endregion
-
-        #region MemoryStream overrides
-
-        /// <summary>
-        /// Gets or sets the capacity
-        /// </summary>
-        /// <remarks>
-        /// Capacity is always in multiples of the memory manager's block size, unless
-        /// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-        /// Explicitly setting the capacity to a lower value than the current value will have no effect.
-        /// This is because the buffers are all pooled by chunks and there's little reason to
-        /// allow stream truncation.
-        /// </remarks>
-        /// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-        public override int Capacity
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		/// <summary>
-		/// Equivalent to Dispose
-		/// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-		public override void Close()
-#endif
-		{
-			Dispose(true);
-		}
-
-		#endregion
-
-		#region MemoryStream overrides
-
-		/// <summary>
-		/// Gets or sets the capacity
-		/// </summary>
-		/// <remarks>
-		/// Capacity is always in multiples of the memory manager's block size, unless
-		/// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-		/// Explicitly setting the capacity to a lower value than the current value will have no effect.
-		/// This is because the buffers are all pooled by chunks and there's little reason to
-		/// allow stream truncation.
-		/// </remarks>
-		/// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-		public override int Capacity
-After:
-        /// <summary>
-        /// Equivalent to Dispose
-        /// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-        public override void Close() => Dispose(true);
-
-        #endregion
-
-        #region MemoryStream overrides
-
-        /// <summary>
-        /// Gets or sets the capacity
-        /// </summary>
-        /// <remarks>
-        /// Capacity is always in multiples of the memory manager's block size, unless
-        /// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-        /// Explicitly setting the capacity to a lower value than the current value will have no effect.
-        /// This is because the buffers are all pooled by chunks and there's little reason to
-        /// allow stream truncation.
-        /// </remarks>
-        /// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-        public override int Capacity
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		/// <summary>
-		/// Equivalent to Dispose
-		/// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-		public override void Close()
-#endif
-		{
-			Dispose(true);
-		}
-
-		#endregion
-
-		#region MemoryStream overrides
-
-		/// <summary>
-		/// Gets or sets the capacity
-		/// </summary>
-		/// <remarks>
-		/// Capacity is always in multiples of the memory manager's block size, unless
-		/// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-		/// Explicitly setting the capacity to a lower value than the current value will have no effect.
-		/// This is because the buffers are all pooled by chunks and there's little reason to
-		/// allow stream truncation.
-		/// </remarks>
-		/// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-		public override int Capacity
-After:
-        /// <summary>
-        /// Equivalent to Dispose
-        /// </summary>
-#if NETSTANDARD1_4
-        public void Close()
-#else
-        public override void Close() => Dispose(true);
-
-        #endregion
-
-        #region MemoryStream overrides
-
-        /// <summary>
-        /// Gets or sets the capacity
-        /// </summary>
-        /// <remarks>
-        /// Capacity is always in multiples of the memory manager's block size, unless
-        /// the large buffer is in use.  Capacity never decreases during a stream's lifetime.
-        /// Explicitly setting the capacity to a lower value than the current value will have no effect.
-        /// This is because the buffers are all pooled by chunks and there's little reason to
-        /// allow stream truncation.
-        /// </remarks>
-        /// <exception cref="ObjectDisposedException">Object has been disposed</exception>
-        public override int Capacity
-*/
         }
 
         /// <summary>
@@ -511,8 +340,12 @@ After:
         /// </summary>
 #if NETSTANDARD1_4
         public void Close()
+        {
+            Dispose(true);
+        }
 #else
         public override void Close() => Dispose(true);
+#endif
 
         #endregion
 
@@ -741,7 +574,7 @@ After:
         /// <exception cref="ObjectDisposedException">Object has been disposed</exception>
         public override int Read(Span<byte> buffer) => SafeRead(buffer, ref _position);
 
-		/// <summary>
+        /// <summary>
         /// Reads from the specified position into the provided buffer
         /// </summary>
         /// <param name="buffer">Destination buffer</param>
@@ -814,39 +647,6 @@ After:
                 Buffer.BlockCopy(buffer, offset, _largeBuffer, _position, count);
             _position = (int)end;
             _length = Math.Max(_position, _length);
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-After:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-After:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-After:
-			_position = (int)end;
-            _length = Math.Max(_position, _length);
-        }
-*/
         }
 
 #if NETCOREAPP2_1_OR_GREATER || NETSTANDARD2_1
@@ -865,7 +665,7 @@ After:
             // Check for overflow
             if (end > MaxStreamLength) throw new IOException("Maximum capacity exceeded");
 
-			EnsureCapacity((int)end);
+            EnsureCapacity((int)end);
 
             if (_largeBuffer == null)
             {
@@ -887,8 +687,8 @@ After:
                 }
             }
             else
-				source.CopyTo(_largeBuffer.AsSpan(_position));
-			_position = (int)end;
+                source.CopyTo(_largeBuffer.AsSpan(_position));
+            _position = (int)end;
             _length = Math.Max(_position, _length);
         }
 #endif
@@ -1071,7 +871,7 @@ After:
         {
             if (_length - fromPosition <= 0) return 0;
 
-			int amountToCopy;
+            int amountToCopy;
 
             if (_largeBuffer == null)
             {
@@ -1154,9 +954,8 @@ After:
                 _memoryManager.ReturnLargeBuffer(_largeBuffer, _tag);
             else
             {
-                if (_dirtyBuffers == null)
-                    // We most likely will only ever need space for one
-                    _dirtyBuffers = new List<byte[]>(1);
+                // We most likely will only ever need space for one
+                _dirtyBuffers ??= new List<byte[]>(1);
                 _dirtyBuffers.Add(_largeBuffer);
             }
 

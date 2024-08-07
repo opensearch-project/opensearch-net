@@ -74,48 +74,6 @@ namespace OpenSearch.Net
         /// <value>A <see cref="DynamicDictionary" /> instance.</value>
         public static DynamicDictionary Empty => new DynamicDictionary();
 
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
-
-		private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-After:
-		public bool IsReadOnly => false;
-
-        private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
-
-		private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-After:
-		public bool IsReadOnly => false;
-
-        private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		public bool IsReadOnly
-		{
-			get { return false; }
-		}
-
-		private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-After:
-		public bool IsReadOnly => false;
-
-        private static Regex SplitRegex = new Regex(@"(?<!\\)\.");
-*/
         /// <summary>
         /// Gets a value indicating whether the <see cref="DynamicDictionary" /> is read-only.
         /// </summary>
@@ -285,51 +243,6 @@ After:
             if (_backingDictionary.TryGetValue(key, out value)) return true;
 
             return false;
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-		IEnumerator IEnumerable.GetEnumerator()
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-		IEnumerator IEnumerable.GetEnumerator()
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-		IEnumerator IEnumerable.GetEnumerator()
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerator" /> that contains dynamic member names.</returns>
-        IEnumerator IEnumerable.GetEnumerator()
-*/
         }
 
         /// <summary>
@@ -347,217 +260,13 @@ After:
         /// <summary>
         /// Backwards compatible access to all the KeyValue pairs, in the next release you will be able to foreach directly
         /// </summary>
-        public IEnumerable<KeyValuePair<string, DynamicValue>> GetKeyValues()
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		public IEnumerator<string> GetEnumerator()
-		{
-			return _backingDictionary.Keys.GetEnumerator();
-		}
-
-		/// <summary>
-		/// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-		/// </summary>
-		/// <returns>
-		/// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		/// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-		public bool Equals(DynamicDictionary other)
-After:
-		public IEnumerator<string> GetEnumerator() => _backingDictionary.Keys.GetEnumerator();
-
-        /// <summary>
-        /// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        /// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-        public bool Equals(DynamicDictionary other)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		public IEnumerator<string> GetEnumerator()
-		{
-			return _backingDictionary.Keys.GetEnumerator();
-		}
-
-		/// <summary>
-		/// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-		/// </summary>
-		/// <returns>
-		/// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		/// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-		public bool Equals(DynamicDictionary other)
-After:
-		public IEnumerator<string> GetEnumerator() => _backingDictionary.Keys.GetEnumerator();
-
-        /// <summary>
-        /// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        /// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-        public bool Equals(DynamicDictionary other)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		public IEnumerator<string> GetEnumerator()
-		{
-			return _backingDictionary.Keys.GetEnumerator();
-		}
-
-		/// <summary>
-		/// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-		/// </summary>
-		/// <returns>
-		/// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		/// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-		public bool Equals(DynamicDictionary other)
-After:
-		public IEnumerator<string> GetEnumerator() => _backingDictionary.Keys.GetEnumerator();
-
-        /// <summary>
-        /// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if the current instance is equal to the <paramref name="other" /> parameter; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        /// <param name="other">An <see cref="DynamicDictionary" /> instance to compare with this instance.</param>
-        public bool Equals(DynamicDictionary other)
-*/
- => _backingDictionary;
+        public IEnumerable<KeyValuePair<string, DynamicValue>> GetKeyValues() => _backingDictionary;
 
         /// <summary>
         /// Returns the enumeration of all dynamic member names.
         /// </summary>
         /// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-        public IEnumerator<string> GetEnumerator()
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-		public override IEnumerable<string> GetDynamicMemberNames()
-		{
-			return _backingDictionary.Keys;
-		}
-
-		/// <summary>
-		/// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-		/// </summary>
-		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-		/// <returns>
-		/// <see langword="true" /> if the specified <see cref="System.Object" /> is equal to this instance; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		public override bool Equals(object obj)
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-        public override IEnumerable<string> GetDynamicMemberNames() => _backingDictionary.Keys;
-
-        /// <summary>
-        /// Determines whether the specified <see cref="object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
-        /// <returns>
-        /// <see langword="true" /> if the specified <see cref="object" /> is equal to this instance; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        public override bool Equals(object obj)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-		public override IEnumerable<string> GetDynamicMemberNames()
-		{
-			return _backingDictionary.Keys;
-		}
-
-		/// <summary>
-		/// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-		/// </summary>
-		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-		/// <returns>
-		/// <see langword="true" /> if the specified <see cref="System.Object" /> is equal to this instance; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		public override bool Equals(object obj)
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-        public override IEnumerable<string> GetDynamicMemberNames() => _backingDictionary.Keys;
-
-        /// <summary>
-        /// Determines whether the specified <see cref="object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
-        /// <returns>
-        /// <see langword="true" /> if the specified <see cref="object" /> is equal to this instance; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        public override bool Equals(object obj)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		/// <summary>
-		/// Returns the enumeration of all dynamic member names.
-		/// </summary>
-		/// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-		public override IEnumerable<string> GetDynamicMemberNames()
-		{
-			return _backingDictionary.Keys;
-		}
-
-		/// <summary>
-		/// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
-		/// </summary>
-		/// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
-		/// <returns>
-		/// <see langword="true" /> if the specified <see cref="System.Object" /> is equal to this instance; otherwise,
-		/// <see langword="false" />.
-		/// </returns>
-		public override bool Equals(object obj)
-After:
-        /// <summary>
-        /// Returns the enumeration of all dynamic member names.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerable{T}" /> that contains dynamic member names.</returns>
-        public override IEnumerable<string> GetDynamicMemberNames() => _backingDictionary.Keys;
-
-        /// <summary>
-        /// Determines whether the specified <see cref="object" /> is equal to this instance.
-        /// </summary>
-        /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
-        /// <returns>
-        /// <see langword="true" /> if the specified <see cref="object" /> is equal to this instance; otherwise,
-        /// <see langword="false" />.
-        /// </returns>
-        public override bool Equals(object obj)
-*/
- => _backingDictionary.Keys.GetEnumerator();
+        public IEnumerator<string> GetEnumerator() => _backingDictionary.Keys.GetEnumerator();
 
         /// <summary>
         /// Indicates whether the current <see cref="DynamicDictionary" /> is equal to another object of the same type.
@@ -688,27 +397,6 @@ After:
             var dynamicValueKeyValuePair =
                 new KeyValuePair<string, dynamic>(item.Key, item.Value);
             return dynamicValueKeyValuePair;
-
-/* Unmerged change from project 'OpenSearch.Net(netstandard2.1)'
-Before:
-		private static string GetNeutralKey(string key)
-After:
-        private static string GetNeutralKey(string key)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net6.0)'
-Before:
-		private static string GetNeutralKey(string key)
-After:
-        private static string GetNeutralKey(string key)
-*/
-
-/* Unmerged change from project 'OpenSearch.Net(net8.0)'
-Before:
-		private static string GetNeutralKey(string key)
-After:
-        private static string GetNeutralKey(string key)
-*/
         }
 
         private static string GetNeutralKey(string key) => key;
