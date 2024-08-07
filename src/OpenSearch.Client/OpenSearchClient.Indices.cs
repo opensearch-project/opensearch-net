@@ -811,7 +811,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
 		/// </summary>
 		Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default);
 		/// <summary>
-		/// <c>GET</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
 		/// <para></para>
 		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
 		/// </summary>
