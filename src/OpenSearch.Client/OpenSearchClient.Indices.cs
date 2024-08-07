@@ -811,9 +811,9 @@ namespace OpenSearch.Client.Specification.IndicesApi
 		/// </summary>
 		Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default);
 		/// <summary>
-		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
 		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
 		/// </summary>
 		BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector);
 		/// <summary>
@@ -1621,9 +1621,9 @@ namespace OpenSearch.Client.Specification.IndicesApi
 		/// </summary>
 		public Task<SplitIndexResponse> SplitAsync(ISplitIndexRequest request, CancellationToken ct = default) => DoRequestAsync<ISplitIndexRequest, SplitIndexResponse>(request, request.RequestParameters, ct);
 		/// <summary>
-		/// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+		/// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
 		/// <para></para>
-		/// <a href = "https://opensearch.org/docs/latest/opensearch/stats-api/">https://opensearch.org/docs/latest/opensearch/stats-api/</a>
+		/// <a href = "https://opensearch.org/docs/latest/opensearch/rest-api/alias/">https://opensearch.org/docs/latest/opensearch/rest-api/alias/</a>
 		/// </summary>
 		public BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector) => BulkAlias(selector.InvokeOrDefault(new BulkAliasDescriptor()));
 		/// <summary>
