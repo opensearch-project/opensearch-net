@@ -34,43 +34,43 @@ using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.ValidationTasks
 {
-	public class ValidateRunningVersion : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			void WriteDiagnostic(string message) =>
-				cluster.Writer?.WriteDiagnostic($"{{{nameof(ValidateRunningVersion)}}} {message}");
-			var requestedVersion = cluster.ClusterConfiguration.Version;
+    public class ValidateRunningVersion : ClusterComposeTask
+    {
+        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        {
+            void WriteDiagnostic(string message) =>
+                cluster.Writer?.WriteDiagnostic($"{{{nameof(ValidateRunningVersion)}}} {message}");
+            var requestedVersion = cluster.ClusterConfiguration.Version;
 
-			WriteDiagnostic($"validating the cluster is running the requested version: {requestedVersion}");
+            WriteDiagnostic($"validating the cluster is running the requested version: {requestedVersion}");
 
-			HttpResponseMessage catNodes = null;
-			var retryCount = 4;
-			var initialRetryWait = 5;
-			foreach (var retry in Enumerable.Range(1, retryCount))
-			{
-				catNodes = Get(cluster, "_cat/nodes", "h=version");
-				if (catNodes.IsSuccessStatusCode) break;
-				var retryWait = TimeSpan.FromSeconds(initialRetryWait * retry);
-				WriteDiagnostic($"{catNodes.StatusCode} response for GET _cat/nodes. Waiting to retry #{retry}");
-				Thread.Sleep(retryWait);
-			}
-			if (catNodes is not {IsSuccessStatusCode: true})
-			{
-				throw new Exception(
-					$"Calling _cat/nodes for version checking did not result in an OK response {GetResponseException(catNodes)}");
-			}
+            HttpResponseMessage catNodes = null;
+            var retryCount = 4;
+            var initialRetryWait = 5;
+            foreach (var retry in Enumerable.Range(1, retryCount))
+            {
+                catNodes = Get(cluster, "_cat/nodes", "h=version");
+                if (catNodes.IsSuccessStatusCode) break;
+                var retryWait = TimeSpan.FromSeconds(initialRetryWait * retry);
+                WriteDiagnostic($"{catNodes.StatusCode} response for GET _cat/nodes. Waiting to retry #{retry}");
+                Thread.Sleep(retryWait);
+            }
+            if (catNodes is not { IsSuccessStatusCode: true })
+            {
+                throw new Exception(
+                    $"Calling _cat/nodes for version checking did not result in an OK response {GetResponseException(catNodes)}");
+            }
 
-			var nodeVersions = GetResponseString(catNodes).Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries)
-				.ToList();
+            var nodeVersions = GetResponseString(catNodes).Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
 
-			var anchorVersion = $"{requestedVersion.Major}.{requestedVersion.Minor}.{requestedVersion.Patch}";
-			var allOnRequestedVersion = nodeVersions.All(v => v.Trim() == anchorVersion);
-			if (!allOnRequestedVersion)
-			{
-				throw new Exception(
-					$"Not all the running nodes in the cluster are on requested version: {anchorVersion} received: {string.Join(", ", nodeVersions)}");
-			}
-		}
-	}
+            var anchorVersion = $"{requestedVersion.Major}.{requestedVersion.Minor}.{requestedVersion.Patch}";
+            var allOnRequestedVersion = nodeVersions.All(v => v.Trim() == anchorVersion);
+            if (!allOnRequestedVersion)
+            {
+                throw new Exception(
+                    $"Not all the running nodes in the cluster are on requested version: {anchorVersion} received: {string.Join(", ", nodeVersions)}");
+            }
+        }
+    }
 }

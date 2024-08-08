@@ -30,15 +30,15 @@ using System;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// An exception when handling shapes in Well-Known Text (WKT) format
-	/// </summary>
-	public class GeoWKTException : Exception
-	{
-		public GeoWKTException(string message)
-			: base(message) { }
+    /// <summary>
+    /// An exception when handling shapes in Well-Known Text (WKT) format
+    /// </summary>
+    public class GeoWKTException : Exception
+    {
+        public GeoWKTException(string message)
+            : base(message) { }
 
-		public GeoWKTException(string message, int lineNumber, int position)
-			: base($"{message} at line {lineNumber}, position {position}") { }
-	}
+        public GeoWKTException(string message, int lineNumber, int position)
+            : base($"{message} at line {lineNumber}, position {position}") { }
+    }
 }

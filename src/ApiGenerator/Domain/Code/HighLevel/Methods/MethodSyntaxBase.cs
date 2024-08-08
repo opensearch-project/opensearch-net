@@ -36,13 +36,13 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
         protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) =>
             (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated, VersionAdded) = (names, link, summary, deprecated, versionAdded);
 
-        public string DocumentationLink { get;  }
+        public string DocumentationLink { get; }
 
-        public string XmlDocSummary { get;  }
+        public string XmlDocSummary { get; }
 
-		public Deprecation Deprecated { get; }
+        public Deprecation Deprecated { get; }
 
-		public Version VersionAdded { get; set; }
+        public Version VersionAdded { get; set; }
 
         protected CsharpNames CsharpNames { get; }
 

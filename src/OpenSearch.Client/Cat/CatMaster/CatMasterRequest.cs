@@ -28,13 +28,13 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.master.json")]
-	/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ICatClusterManagerRequest"/> instead</remarks>
-	public partial interface ICatMasterRequest { }
+    [MapsApi("cat.master.json")]
+    /// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="ICatClusterManagerRequest"/> instead</remarks>
+    public partial interface ICatMasterRequest { }
 
-	/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerRequest"/> instead</remarks>
-	public partial class CatMasterRequest { }
+    /// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerRequest"/> instead</remarks>
+    public partial class CatMasterRequest { }
 
-	/// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerDescriptor"/> instead</remarks>
-	public partial class CatMasterDescriptor { }
+    /// <remarks>Deprecated as of OpenSearch 2.0, use <see cref="CatClusterManagerDescriptor"/> instead</remarks>
+    public partial class CatMasterDescriptor { }
 }

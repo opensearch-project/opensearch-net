@@ -32,19 +32,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// <see cref="IDFISimilarity" /> independence measure
-	/// </summary>
-	[StringEnum]
-	public enum DFIIndependenceMeasure
-	{
-		[EnumMember(Value = "standardized")]
-		Standardized,
+    /// <summary>
+    /// <see cref="IDFISimilarity" /> independence measure
+    /// </summary>
+    [StringEnum]
+    public enum DFIIndependenceMeasure
+    {
+        [EnumMember(Value = "standardized")]
+        Standardized,
 
-		[EnumMember(Value = "saturated")]
-		Saturated,
+        [EnumMember(Value = "saturated")]
+        Saturated,
 
-		[EnumMember(Value = "chisquared")]
-		ChiSquared
-	}
+        [EnumMember(Value = "chisquared")]
+        ChiSquared
+    }
 }

@@ -26,28 +26,28 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Mapping.Types.Core.Range.DoubleRange
 {
-	public class DoubleRangeTest
-	{
-		[DoubleRange]
-		public OpenSearch.Client.DoubleRange Range { get; set; }
-	}
+    public class DoubleRangeTest
+    {
+        [DoubleRange]
+        public OpenSearch.Client.DoubleRange Range { get; set; }
+    }
 
-	public class DoubleRangeAttributeTests : AttributeTestsBase<DoubleRangeTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				range = new
-				{
-					type = "double_range"
-				}
-			}
-		};
-	}
+    public class DoubleRangeAttributeTests : AttributeTestsBase<DoubleRangeTest>
+    {
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                range = new
+                {
+                    type = "double_range"
+                }
+            }
+        };
+    }
 }

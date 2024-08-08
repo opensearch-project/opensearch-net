@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class PutIndexTemplateResponse : AcknowledgedResponseBase { }
+    public class PutIndexTemplateResponse : AcknowledgedResponseBase { }
 }

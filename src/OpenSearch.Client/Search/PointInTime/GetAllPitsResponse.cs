@@ -13,19 +13,19 @@ namespace OpenSearch.Client;
 [DataContract]
 public class GetAllPitsResponse : ResponseBase
 {
-	[DataMember(Name = "pits")]
-	public IReadOnlyCollection<PitDetail> Pits { get; internal set; }
+    [DataMember(Name = "pits")]
+    public IReadOnlyCollection<PitDetail> Pits { get; internal set; }
 }
 
 [DataContract]
 public class PitDetail
 {
-	[DataMember(Name = "pit_id")]
-	public string PitId { get; internal set; }
+    [DataMember(Name = "pit_id")]
+    public string PitId { get; internal set; }
 
-	[DataMember(Name = "creation_time")]
-	public long CreationTime { get; internal set; }
+    [DataMember(Name = "creation_time")]
+    public long CreationTime { get; internal set; }
 
-	[DataMember(Name = "keep_alive")]
-	public long KeepAlive { get; internal set; }
+    [DataMember(Name = "keep_alive")]
+    public long KeepAlive { get; internal set; }
 }

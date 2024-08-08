@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.flush.json")]
-	public partial interface IFlushRequest { }
+    [MapsApi("indices.flush.json")]
+    public partial interface IFlushRequest { }
 
-	public partial class FlushRequest { }
+    public partial class FlushRequest { }
 
-	public partial class FlushDescriptor { }
+    public partial class FlushDescriptor { }
 }

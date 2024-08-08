@@ -31,38 +31,38 @@ using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 {
-	public class UnzipOpenSearch : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			if (cluster.CachingAndCachedHomeExists()) return;
+    public class UnzipOpenSearch : ClusterComposeTask
+    {
+        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        {
+            if (cluster.CachingAndCachedHomeExists()) return;
 
-			var fs = cluster.FileSystem;
-			var v = cluster.ClusterConfiguration.Version;
-			var a = cluster.ClusterConfiguration.Artifact;
-			if (Directory.Exists(fs.OpenSearchHome))
-			{
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(UnzipOpenSearch)}}} skipping [{fs.OpenSearchHome}] already exists");
-				return;
-			}
+            var fs = cluster.FileSystem;
+            var v = cluster.ClusterConfiguration.Version;
+            var a = cluster.ClusterConfiguration.Artifact;
+            if (Directory.Exists(fs.OpenSearchHome))
+            {
+                cluster.Writer?.WriteDiagnostic(
+                    $"{{{nameof(UnzipOpenSearch)}}} skipping [{fs.OpenSearchHome}] already exists");
+                return;
+            }
 
-			var from = Path.Combine(fs.LocalFolder, a.Archive);
-			var extractedFolder = Path.Combine(fs.LocalFolder, a.FolderInZip);
-			if (!Directory.Exists(extractedFolder))
-			{
-				cluster.Writer?.WriteDiagnostic($"{{{nameof(UnzipOpenSearch)}}} unzipping version [{v}] {{{from}}}");
-				Extract(from, fs.LocalFolder);
+            var from = Path.Combine(fs.LocalFolder, a.Archive);
+            var extractedFolder = Path.Combine(fs.LocalFolder, a.FolderInZip);
+            if (!Directory.Exists(extractedFolder))
+            {
+                cluster.Writer?.WriteDiagnostic($"{{{nameof(UnzipOpenSearch)}}} unzipping version [{v}] {{{from}}}");
+                Extract(from, fs.LocalFolder);
 
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(UnzipOpenSearch)}}} extracted version [{v}] to {{{fs.LocalFolder}}}");
-			}
+                cluster.Writer?.WriteDiagnostic(
+                    $"{{{nameof(UnzipOpenSearch)}}} extracted version [{v}] to {{{fs.LocalFolder}}}");
+            }
 
-			if (extractedFolder == fs.OpenSearchHome) return;
+            if (extractedFolder == fs.OpenSearchHome) return;
 
-			cluster.Writer?.WriteDiagnostic(
-				$"{{{nameof(UnzipOpenSearch)}}} Copying extracted folder {{{extractedFolder}}} => {fs.OpenSearchHome}");
-			CopyFolder(extractedFolder, fs.OpenSearchHome);
-		}
-	}
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(UnzipOpenSearch)}}} Copying extracted folder {{{extractedFolder}}} => {fs.OpenSearchHome}");
+            CopyFolder(extractedFolder, fs.OpenSearchHome);
+        }
+    }
 }

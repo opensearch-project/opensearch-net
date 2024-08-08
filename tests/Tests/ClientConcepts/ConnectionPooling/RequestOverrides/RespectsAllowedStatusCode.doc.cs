@@ -28,38 +28,38 @@
 
 using System;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.VirtualizedCluster;
 using OpenSearch.Net.VirtualizedCluster.Audit;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework;
 using static OpenSearch.Net.AuditEvent;
 
 namespace Tests.ClientConcepts.ConnectionPooling.RequestOverrides
 {
-	public class RespectsAllowedStatusCode
-	{
-		/**=== Allowed status codes
+    public class RespectsAllowedStatusCode
+    {
+        /**=== Allowed status codes
 		*/
 
-		[U]
-		public async Task CanOverrideBadResponse()
-		{
-			var audit = new Auditor(() => VirtualClusterWith
-				.Nodes(10)
-				.ClientCalls(r => r.FailAlways(400))
-				.StaticConnectionPool()
-				.Settings(s => s.DisablePing().MaximumRetries(0))
-			);
+        [U]
+        public async Task CanOverrideBadResponse()
+        {
+            var audit = new Auditor(() => VirtualClusterWith
+                .Nodes(10)
+                .ClientCalls(r => r.FailAlways(400))
+                .StaticConnectionPool()
+                .Settings(s => s.DisablePing().MaximumRetries(0))
+            );
 
-			audit = await audit.TraceCalls(
-				new ClientCall {
-					{ BadResponse, 9200 }
-				},
-				new ClientCall(r => r.AllowedStatusCodes(400)) {
-					{ HealthyResponse, 9201 }
-				}
-			);
-		}
-	}
+            audit = await audit.TraceCalls(
+                new ClientCall {
+                    { BadResponse, 9200 }
+                },
+                new ClientCall(r => r.AllowedStatusCodes(400)) {
+                    { HealthyResponse, 9201 }
+                }
+            );
+        }
+    }
 }

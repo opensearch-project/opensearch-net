@@ -13,16 +13,16 @@ namespace OpenSearch.Client;
 [DataContract]
 public class GetComponentTemplateResponse : ResponseBase
 {
-	[DataMember(Name = "component_templates")]
-	public IReadOnlyCollection<NamedComponentTemplate> ComponentTemplates { get; internal set; }
+    [DataMember(Name = "component_templates")]
+    public IReadOnlyCollection<NamedComponentTemplate> ComponentTemplates { get; internal set; }
 }
 
 [DataContract]
 public class NamedComponentTemplate
 {
-	[DataMember(Name = "name")]
-	public string Name { get; internal set; }
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-	[DataMember(Name = "component_template")]
-	public ComponentTemplate ComponentTemplate { get; internal set; }
+    [DataMember(Name = "component_template")]
+    public ComponentTemplate ComponentTemplate { get; internal set; }
 }

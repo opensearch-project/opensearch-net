@@ -31,13 +31,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GeoDistanceType
-	{
-		[EnumMember(Value = "arc")]
-		Arc,
+    [StringEnum]
+    public enum GeoDistanceType
+    {
+        [EnumMember(Value = "arc")]
+        Arc,
 
-		[EnumMember(Value = "plane")]
-		Plane
-	}
+        [EnumMember(Value = "plane")]
+        Plane
+    }
 }

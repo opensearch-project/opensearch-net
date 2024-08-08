@@ -28,19 +28,19 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("get.json")]
-	public partial interface IGetRequest { }
+    [MapsApi("get.json")]
+    public partial interface IGetRequest { }
 
-	// ReSharper disable once UnusedTypeParameter
-	public partial interface IGetRequest<TDocument> where TDocument : class { }
+    // ReSharper disable once UnusedTypeParameter
+    public partial interface IGetRequest<TDocument> where TDocument : class { }
 
-	public partial class GetRequest { }
+    public partial class GetRequest { }
 
-	// ReSharper disable once UnusedTypeParameter
-	public partial class GetRequest<TDocument> where TDocument : class { }
+    // ReSharper disable once UnusedTypeParameter
+    public partial class GetRequest<TDocument> where TDocument : class { }
 
-	public partial class GetDescriptor<TDocument> where TDocument : class
-	{
-		public GetDescriptor<TDocument> ExecuteOnLocalShard() => Preference("_local");
-	}
+    public partial class GetDescriptor<TDocument> where TDocument : class
+    {
+        public GetDescriptor<TDocument> ExecuteOnLocalShard() => Preference("_local");
+    }
 }

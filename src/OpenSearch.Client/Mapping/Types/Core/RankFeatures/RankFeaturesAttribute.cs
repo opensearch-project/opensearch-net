@@ -28,9 +28,9 @@
 
 namespace OpenSearch.Client
 {
-	/// <inheritdoc cref="IRankFeaturesProperty"/>
-	public class RankFeaturesAttribute : OpenSearchPropertyAttributeBase, IRankFeaturesProperty
-	{
-		public RankFeaturesAttribute() : base(FieldType.RankFeatures) { }
-	}
+    /// <inheritdoc cref="IRankFeaturesProperty"/>
+    public class RankFeaturesAttribute : OpenSearchPropertyAttributeBase, IRankFeaturesProperty
+    {
+        public RankFeaturesAttribute() : base(FieldType.RankFeatures) { }
+    }
 }

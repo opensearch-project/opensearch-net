@@ -27,33 +27,33 @@
 */
 
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
 namespace Tests.CodeStandards.Serialization
 {
-	public class GeoLocationTests
-	{
-		[U]
-		public void CanDeserializeAndSerializeToWellKnownText()
-		{
-			var wkt = "{\"location\":\"POINT (-90 90)\"}";
-			var client = TestClient.DisabledStreaming;
+    public class GeoLocationTests
+    {
+        [U]
+        public void CanDeserializeAndSerializeToWellKnownText()
+        {
+            var wkt = "{\"location\":\"POINT (-90 90)\"}";
+            var client = TestClient.DisabledStreaming;
 
-			Doc deserialized;
-			using (var stream = RecyclableMemoryStreamFactory.Default.Create(Encoding.UTF8.GetBytes(wkt)))
-				deserialized = client.RequestResponseSerializer.Deserialize<Doc>(stream);
+            Doc deserialized;
+            using (var stream = RecyclableMemoryStreamFactory.Default.Create(Encoding.UTF8.GetBytes(wkt)))
+                deserialized = client.RequestResponseSerializer.Deserialize<Doc>(stream);
 
-			deserialized.Location.Should().Be(new GeoLocation(90, -90));
-			client.RequestResponseSerializer.SerializeToString(deserialized).Should().Be(wkt);
-		}
+            deserialized.Location.Should().Be(new GeoLocation(90, -90));
+            client.RequestResponseSerializer.SerializeToString(deserialized).Should().Be(wkt);
+        }
 
-		private class Doc
-		{
-			public GeoLocation Location { get; set; }
-		}
-	}
+        private class Doc
+        {
+            public GeoLocation Location { get; set; }
+        }
+    }
 }

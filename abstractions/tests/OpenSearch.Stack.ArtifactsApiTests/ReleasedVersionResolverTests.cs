@@ -42,35 +42,35 @@ namespace OpenSearch.Stack.ArtifactsApiTests
 {
     public class ReleasedVersionResolverTests
     {
-	    public ReleasedVersionResolverTests(ITestOutputHelper traceSink) => _traceSink = traceSink ?? throw new NullReferenceException(nameof(traceSink));
+        public ReleasedVersionResolverTests(ITestOutputHelper traceSink) => _traceSink = traceSink ?? throw new NullReferenceException(nameof(traceSink));
 
-	    private readonly ITestOutputHelper _traceSink;
+        private readonly ITestOutputHelper _traceSink;
 
-		[U]
+        [U]
         public void Does_Resolver_Construct_Valid_DownloadUrl_Test()
         {
-			var httpClient = new HttpClient();
-			httpClient.Timeout = TimeSpan.FromSeconds(3);
+            var httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromSeconds(3);
 
-	        var testCases = new[]
-	        {
-				new {Product = Product.OpenSearch, Version = "1.2.3", Platform = OSPlatform.Linux, Architecture = Architecture.X64},
-				new {Product = Product.OpenSearch, Version = "1.2.4", Platform = OSPlatform.Linux, Architecture = Architecture.Arm64},
-				new {Product = Product.OpenSearch, Version = "1.0.0", Platform = OSPlatform.Linux, Architecture = Architecture.Arm64}
-	        };
-	        foreach (var testCase in testCases)
-	        {
-		        var version = OpenSearchVersion.From(testCase.Version);
-		        var resolveSucceeded = ReleasedVersionResolver.TryResolve(testCase.Product, version, testCase.Platform,
-			        testCase.Architecture, out var artifact);
-		        Assert.True(resolveSucceeded);
-		        _traceSink.WriteLine($"Checking URL {artifact.DownloadUrl}");
+            var testCases = new[]
+            {
+                new {Product = Product.OpenSearch, Version = "1.2.3", Platform = OSPlatform.Linux, Architecture = Architecture.X64},
+                new {Product = Product.OpenSearch, Version = "1.2.4", Platform = OSPlatform.Linux, Architecture = Architecture.Arm64},
+                new {Product = Product.OpenSearch, Version = "1.0.0", Platform = OSPlatform.Linux, Architecture = Architecture.Arm64}
+            };
+            foreach (var testCase in testCases)
+            {
+                var version = OpenSearchVersion.From(testCase.Version);
+                var resolveSucceeded = ReleasedVersionResolver.TryResolve(testCase.Product, version, testCase.Platform,
+                    testCase.Architecture, out var artifact);
+                Assert.True(resolveSucceeded);
+                _traceSink.WriteLine($"Checking URL {artifact.DownloadUrl}");
 
-				using var request = new HttpRequestMessage(HttpMethod.Head, new Uri(artifact.DownloadUrl));
-				using var response = httpClient.Send(request);
+                using var request = new HttpRequestMessage(HttpMethod.Head, new Uri(artifact.DownloadUrl));
+                using var response = httpClient.Send(request);
 
-		        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-	        }
+                Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            }
         }
     }
 }

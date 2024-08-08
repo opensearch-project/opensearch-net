@@ -32,16 +32,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum SortSpecialField
-	{
-		[EnumMember(Value = "_score")]
-		Score,
+    [StringEnum]
+    public enum SortSpecialField
+    {
+        [EnumMember(Value = "_score")]
+        Score,
 
-		[EnumMember(Value = "_doc")]
-		DocumentIndexOrder,
+        [EnumMember(Value = "_doc")]
+        DocumentIndexOrder,
 
-		[EnumMember(Value = "_shard_doc")]
-		ShardDocumentOrder
-	}
+        [EnumMember(Value = "_shard_doc")]
+        ShardDocumentOrder
+    }
 }

@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum NumericFielddataFormat
-	{
-		[EnumMember(Value = "array")]
-		Array,
+    [StringEnum]
+    public enum NumericFielddataFormat
+    {
+        [EnumMember(Value = "array")]
+        Array,
 
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+        [EnumMember(Value = "disabled")]
+        Disabled
+    }
 }

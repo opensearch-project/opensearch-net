@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class CreateRepositoryResponse : AcknowledgedResponseBase { }
+    public class CreateRepositoryResponse : AcknowledgedResponseBase { }
 }

@@ -58,9 +58,9 @@ public class NeuralSearchSample : Sample
                 description = $"A model group for the opensearch-net {SampleName} sample",
                 access_mode = "public"
             }));
-        Debug.Assert(registerModelGroupResp.Success && (string) registerModelGroupResp.Body.status == "CREATED", registerModelGroupResp.DebugInformation);
+        Debug.Assert(registerModelGroupResp.Success && (string)registerModelGroupResp.Body.status == "CREATED", registerModelGroupResp.DebugInformation);
         Console.WriteLine($"Model group named {MlModelGroupName} {registerModelGroupResp.Body.status}: {registerModelGroupResp.Body.model_group_id}");
-        _modelGroupId = (string) registerModelGroupResp.Body.model_group_id;
+        _modelGroupId = (string)registerModelGroupResp.Body.model_group_id;
 
         // Register the ML model
         var registerModelResp = await client.Http.PostAsync<DynamicResponse>(
@@ -72,16 +72,16 @@ public class NeuralSearchSample : Sample
                 model_group_id = _modelGroupId,
                 model_format = "TORCH_SCRIPT"
             }));
-        Debug.Assert(registerModelResp.Success && (string) registerModelResp.Body.status == "CREATED", registerModelResp.DebugInformation);
+        Debug.Assert(registerModelResp.Success && (string)registerModelResp.Body.status == "CREATED", registerModelResp.DebugInformation);
         Console.WriteLine($"Model registration task {registerModelResp.Body.status}: {registerModelResp.Body.task_id}");
-        _modelRegistrationTaskId = (string) registerModelResp.Body.task_id;
+        _modelRegistrationTaskId = (string)registerModelResp.Body.task_id;
 
         // Wait for ML model registration to complete
         while (true)
         {
             var getTaskResp = await client.Http.GetAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelRegistrationTaskId}");
             Console.WriteLine($"Model registration: {getTaskResp.Body.state}");
-            Debug.Assert(getTaskResp.Success && (string) getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
+            Debug.Assert(getTaskResp.Success && (string)getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
             if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
             {
                 _modelId = getTaskResp.Body.model_id;
@@ -93,16 +93,16 @@ public class NeuralSearchSample : Sample
 
         // Deploy the ML model
         var deployModelResp = await client.Http.PostAsync<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_deploy");
-        Debug.Assert(deployModelResp.Success && (string) deployModelResp.Body.status == "CREATED", deployModelResp.DebugInformation);
+        Debug.Assert(deployModelResp.Success && (string)deployModelResp.Body.status == "CREATED", deployModelResp.DebugInformation);
         Console.WriteLine($"Model deployment task {deployModelResp.Body.status}: {deployModelResp.Body.task_id}");
-        _modelDeployTaskId = (string) deployModelResp.Body.task_id;
+        _modelDeployTaskId = (string)deployModelResp.Body.task_id;
 
         // Wait for ML model deployment to complete
         while (true)
         {
             var getTaskResp = await client.Http.GetAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelDeployTaskId}");
             Console.WriteLine($"Model deployment: {getTaskResp.Body.state}");
-            Debug.Assert(getTaskResp.Success && (string) getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
+            Debug.Assert(getTaskResp.Success && (string)getTaskResp.Body.state != "FAILED", getTaskResp.DebugInformation);
             if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
             await Task.Delay(10000);
         }
@@ -221,7 +221,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model deployment task
             var deleteModelDeployTaskResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelDeployTaskId}");
-            Debug.Assert(deleteModelDeployTaskResp.Success && (string) deleteModelDeployTaskResp.Body.result == "deleted", deleteModelDeployTaskResp.DebugInformation);
+            Debug.Assert(deleteModelDeployTaskResp.Success && (string)deleteModelDeployTaskResp.Body.result == "deleted", deleteModelDeployTaskResp.DebugInformation);
             Console.WriteLine($"Deleted model deployment task: {deleteModelDeployTaskResp.Body.result}");
         }
 
@@ -251,7 +251,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model registration task
             var deleteModelRegistrationTaskResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelRegistrationTaskId}");
-            Debug.Assert(deleteModelRegistrationTaskResp.Success && (string) deleteModelRegistrationTaskResp.Body.result == "deleted", deleteModelRegistrationTaskResp.DebugInformation);
+            Debug.Assert(deleteModelRegistrationTaskResp.Success && (string)deleteModelRegistrationTaskResp.Body.result == "deleted", deleteModelRegistrationTaskResp.DebugInformation);
             Console.WriteLine($"Deleted model registration task: {deleteModelRegistrationTaskResp.Body.result}");
         }
 
@@ -259,7 +259,7 @@ public class NeuralSearchSample : Sample
         {
             // Cleanup the model group
             var deleteModelGroupResp = await client.Http.DeleteAsync<DynamicResponse>($"/_plugins/_ml/model_groups/{_modelGroupId}");
-            Debug.Assert(deleteModelGroupResp.Success && (string) deleteModelGroupResp.Body.result == "deleted", deleteModelGroupResp.DebugInformation);
+            Debug.Assert(deleteModelGroupResp.Success && (string)deleteModelGroupResp.Body.result == "deleted", deleteModelGroupResp.DebugInformation);
             Console.WriteLine($"Deleted model group: {deleteModelGroupResp.Body.result}");
         }
     }

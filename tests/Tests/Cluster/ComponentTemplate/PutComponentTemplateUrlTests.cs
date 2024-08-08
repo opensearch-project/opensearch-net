@@ -15,14 +15,15 @@ namespace Tests.Cluster.ComponentTemplate;
 
 public class PutComponentTemplateUrlTests
 {
-	[U] public async Task Urls()
-	{
-		var name = "temp";
-		await PUT($"/_component_template/{name}")
-				.Fluent(c => c.Cluster.PutComponentTemplate(name, p => p))
-				.Request(c => c.Cluster.PutComponentTemplate(new PutComponentTemplateRequest(name)))
-				.FluentAsync(c => c.Cluster.PutComponentTemplateAsync(name, p => p))
-				.RequestAsync(c => c.Cluster.PutComponentTemplateAsync(new PutComponentTemplateRequest(name)))
-			;
-	}
+    [U]
+    public async Task Urls()
+    {
+        var name = "temp";
+        await PUT($"/_component_template/{name}")
+                .Fluent(c => c.Cluster.PutComponentTemplate(name, p => p))
+                .Request(c => c.Cluster.PutComponentTemplate(new PutComponentTemplateRequest(name)))
+                .FluentAsync(c => c.Cluster.PutComponentTemplateAsync(name, p => p))
+                .RequestAsync(c => c.Cluster.PutComponentTemplateAsync(new PutComponentTemplateRequest(name)))
+            ;
+    }
 }

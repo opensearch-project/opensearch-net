@@ -30,14 +30,14 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public interface IExecutePainlessScriptResponse<out TResult> : IResponse
-	{
-		TResult Result { get; }
-	}
+    public interface IExecutePainlessScriptResponse<out TResult> : IResponse
+    {
+        TResult Result { get; }
+    }
 
-	public class ExecutePainlessScriptResponse<TResult> : ResponseBase, IExecutePainlessScriptResponse<TResult>
-	{
-		[DataMember(Name ="result")]
-		public TResult Result { get; set; }
-	}
+    public class ExecutePainlessScriptResponse<TResult> : ResponseBase, IExecutePainlessScriptResponse<TResult>
+    {
+        [DataMember(Name = "result")]
+        public TResult Result { get; set; }
+    }
 }

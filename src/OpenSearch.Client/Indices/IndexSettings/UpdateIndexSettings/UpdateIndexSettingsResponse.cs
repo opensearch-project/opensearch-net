@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class UpdateIndexSettingsResponse : AcknowledgedResponseBase { }
+    public class UpdateIndexSettingsResponse : AcknowledgedResponseBase { }
 }

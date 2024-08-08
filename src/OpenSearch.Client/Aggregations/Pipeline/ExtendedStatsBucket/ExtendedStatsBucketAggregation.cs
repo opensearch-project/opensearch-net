@@ -31,33 +31,33 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(ExtendedStatsBucketAggregation))]
-	public interface IExtendedStatsBucketAggregation : IPipelineAggregation
-	{
-		[DataMember(Name ="sigma")]
-		double? Sigma { get; set; }
-	}
+    [InterfaceDataContract]
+    [ReadAs(typeof(ExtendedStatsBucketAggregation))]
+    public interface IExtendedStatsBucketAggregation : IPipelineAggregation
+    {
+        [DataMember(Name = "sigma")]
+        double? Sigma { get; set; }
+    }
 
-	public class ExtendedStatsBucketAggregation
-		: PipelineAggregationBase, IExtendedStatsBucketAggregation
-	{
-		internal ExtendedStatsBucketAggregation() { }
+    public class ExtendedStatsBucketAggregation
+        : PipelineAggregationBase, IExtendedStatsBucketAggregation
+    {
+        internal ExtendedStatsBucketAggregation() { }
 
-		public ExtendedStatsBucketAggregation(string name, SingleBucketsPath bucketsPath)
-			: base(name, bucketsPath) { }
+        public ExtendedStatsBucketAggregation(string name, SingleBucketsPath bucketsPath)
+            : base(name, bucketsPath) { }
 
-		public double? Sigma { get; set; }
+        public double? Sigma { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.ExtendedStatsBucket = this;
-	}
+        internal override void WrapInContainer(AggregationContainer c) => c.ExtendedStatsBucket = this;
+    }
 
-	public class ExtendedStatsBucketAggregationDescriptor
-		: PipelineAggregationDescriptorBase<ExtendedStatsBucketAggregationDescriptor, IExtendedStatsBucketAggregation, SingleBucketsPath>
-			, IExtendedStatsBucketAggregation
-	{
-		double? IExtendedStatsBucketAggregation.Sigma { get; set; }
+    public class ExtendedStatsBucketAggregationDescriptor
+        : PipelineAggregationDescriptorBase<ExtendedStatsBucketAggregationDescriptor, IExtendedStatsBucketAggregation, SingleBucketsPath>
+            , IExtendedStatsBucketAggregation
+    {
+        double? IExtendedStatsBucketAggregation.Sigma { get; set; }
 
-		public ExtendedStatsBucketAggregationDescriptor Sigma(double? sigma) => Assign(sigma, (a, v) => a.Sigma = v);
-	}
+        public ExtendedStatsBucketAggregationDescriptor Sigma(double? sigma) => Assign(sigma, (a, v) => a.Sigma = v);
+    }
 }

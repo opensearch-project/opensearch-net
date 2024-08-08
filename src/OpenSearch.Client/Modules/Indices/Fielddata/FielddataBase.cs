@@ -32,33 +32,33 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	public interface IFielddata
-	{
-		[DataMember(Name ="filter")]
-		IFielddataFilter Filter { get; set; }
+    [InterfaceDataContract]
+    public interface IFielddata
+    {
+        [DataMember(Name = "filter")]
+        IFielddataFilter Filter { get; set; }
 
-		[DataMember(Name ="loading")]
-		FielddataLoading? Loading { get; set; }
-	}
+        [DataMember(Name = "loading")]
+        FielddataLoading? Loading { get; set; }
+    }
 
-	public abstract class FielddataBase : IFielddata
-	{
-		public IFielddataFilter Filter { get; set; }
-		public FielddataLoading? Loading { get; set; }
-	}
+    public abstract class FielddataBase : IFielddata
+    {
+        public IFielddataFilter Filter { get; set; }
+        public FielddataLoading? Loading { get; set; }
+    }
 
-	public abstract class FielddataDescriptorBase<TDescriptor, TInterface>
-		: DescriptorBase<TDescriptor, TInterface>, IFielddata
-		where TDescriptor : FielddataDescriptorBase<TDescriptor, TInterface>, TInterface
-		where TInterface : class, IFielddata
-	{
-		IFielddataFilter IFielddata.Filter { get; set; }
-		FielddataLoading? IFielddata.Loading { get; set; }
+    public abstract class FielddataDescriptorBase<TDescriptor, TInterface>
+        : DescriptorBase<TDescriptor, TInterface>, IFielddata
+        where TDescriptor : FielddataDescriptorBase<TDescriptor, TInterface>, TInterface
+        where TInterface : class, IFielddata
+    {
+        IFielddataFilter IFielddata.Filter { get; set; }
+        FielddataLoading? IFielddata.Loading { get; set; }
 
-		public TDescriptor Filter(Func<FielddataFilterDescriptor, IFielddataFilter> filterSelector) =>
-			Assign(filterSelector(new FielddataFilterDescriptor()), (a, v) => a.Filter = v);
+        public TDescriptor Filter(Func<FielddataFilterDescriptor, IFielddataFilter> filterSelector) =>
+            Assign(filterSelector(new FielddataFilterDescriptor()), (a, v) => a.Filter = v);
 
-		public TDescriptor Loading(FielddataLoading? loading) => Assign(loading, (a, v) => a.Loading = v);
-	}
+        public TDescriptor Loading(FielddataLoading? loading) => Assign(loading, (a, v) => a.Loading = v);
+    }
 }

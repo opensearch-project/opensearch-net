@@ -31,9 +31,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Net;
 using OpenSearch.Net.Diagnostics;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Xunit;
 using Xunit;
 

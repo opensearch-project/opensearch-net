@@ -32,47 +32,47 @@ using System.Security;
 
 namespace OpenSearch.Net
 {
-	/// <summary>
-	/// Methods for working with <see cref="SecureString"/>
-	/// </summary>
-	public static class SecureStrings
-	{
-		/// <summary>
-		/// Creates a string from a secure string
-		/// </summary>
-		public static string CreateString(this SecureString secureString)
-		{
-			if (secureString == null || secureString.Length == 0)
-				return string.Empty;
+    /// <summary>
+    /// Methods for working with <see cref="SecureString"/>
+    /// </summary>
+    public static class SecureStrings
+    {
+        /// <summary>
+        /// Creates a string from a secure string
+        /// </summary>
+        public static string CreateString(this SecureString secureString)
+        {
+            if (secureString == null || secureString.Length == 0)
+                return string.Empty;
 
-			var num = IntPtr.Zero;
+            var num = IntPtr.Zero;
 
-			try
-			{
-				num = Marshal.SecureStringToGlobalAllocUnicode(secureString);
-				return Marshal.PtrToStringUni(num);
-			}
-			finally
-			{
-				if (num != IntPtr.Zero)
-					Marshal.ZeroFreeGlobalAllocUnicode(num);
-			}
-		}
+            try
+            {
+                num = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+                return Marshal.PtrToStringUni(num);
+            }
+            finally
+            {
+                if (num != IntPtr.Zero)
+                    Marshal.ZeroFreeGlobalAllocUnicode(num);
+            }
+        }
 
-		/// <summary>
-		/// Creates a secure string from a string
-		/// </summary>
-		public static SecureString CreateSecureString(this string plainString)
-		{
-			var secureString = new SecureString();
+        /// <summary>
+        /// Creates a secure string from a string
+        /// </summary>
+        public static SecureString CreateSecureString(this string plainString)
+        {
+            var secureString = new SecureString();
 
-			if (plainString == null)
-				return secureString;
+            if (plainString == null)
+                return secureString;
 
-			foreach (var ch in plainString)
-				secureString.AppendChar(ch);
+            foreach (var ch in plainString)
+                secureString.AppendChar(ch);
 
-			return secureString;
-		}
-	}
+            return secureString;
+        }
+    }
 }

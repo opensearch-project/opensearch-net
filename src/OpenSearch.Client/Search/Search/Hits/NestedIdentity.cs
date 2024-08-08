@@ -30,15 +30,15 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public class NestedIdentity
-	{
-		[DataMember(Name ="field")]
-		public Field Field { get; internal set; }
+    public class NestedIdentity
+    {
+        [DataMember(Name = "field")]
+        public Field Field { get; internal set; }
 
-		[DataMember(Name ="_nested")]
-		public NestedIdentity Nested { get; internal set; }
+        [DataMember(Name = "_nested")]
+        public NestedIdentity Nested { get; internal set; }
 
-		[DataMember(Name ="offset")]
-		public int Offset { get; internal set; }
-	}
+        [DataMember(Name = "offset")]
+        public int Offset { get; internal set; }
+    }
 }

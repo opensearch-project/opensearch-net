@@ -31,16 +31,16 @@ using Tests.Configuration;
 
 namespace Tests.Domain.Helpers
 {
-	public static class TestValueHelper
-	{
-		public const string ProjectsIndex = "project";
+    public static class TestValueHelper
+    {
+        public const string ProjectsIndex = "project";
 
-		public static DateTime FixedDate { get; } = new DateTime(2015, 06, 06, 12, 01, 02, 123);
+        public static DateTime FixedDate { get; } = new DateTime(2015, 06, 06, 12, 01, 02, 123);
 
-		public static string PercolatorType => "query";
+        public static string PercolatorType => "query";
 
-		private static bool InRange(string range) => TestConfiguration.Instance.OpenSearchVersion.InRange(range);
+        private static bool InRange(string range) => TestConfiguration.Instance.OpenSearchVersion.InRange(range);
 
-		public static object Dependant(object builtin, object source) => TestConfiguration.Instance.Random.SourceSerializer ? source : builtin;
-	}
+        public static object Dependant(object builtin, object source) => TestConfiguration.Instance.Random.SourceSerializer ? source : builtin;
+    }
 }

@@ -13,16 +13,16 @@ namespace OpenSearch.Client;
 [DataContract]
 public class GetComposableIndexTemplateResponse : ResponseBase
 {
-	[DataMember(Name = "index_templates")]
-	public IReadOnlyCollection<NamedComposableIndexTemplate> IndexTemplates { get; internal set; }
+    [DataMember(Name = "index_templates")]
+    public IReadOnlyCollection<NamedComposableIndexTemplate> IndexTemplates { get; internal set; }
 }
 
 [DataContract]
 public class NamedComposableIndexTemplate
 {
-	[DataMember(Name = "name")]
-	public string Name { get; internal set; }
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-	[DataMember(Name = "index_template")]
-	public ComposableIndexTemplate IndexTemplate { get; internal set; }
+    [DataMember(Name = "index_template")]
+    public ComposableIndexTemplate IndexTemplate { get; internal set; }
 }

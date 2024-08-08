@@ -26,23 +26,23 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-	public class GitHubIssue3819
-	{
-		[U]
-		[UseCulture("fr-FR")]
-		public void WriteWKTCoordinatesWithInvariantCulture()
-		{
-			var wkt = "POINT (45.1 42.25)";
+    public class GitHubIssue3819
+    {
+        [U]
+        [UseCulture("fr-FR")]
+        public void WriteWKTCoordinatesWithInvariantCulture()
+        {
+            var wkt = "POINT (45.1 42.25)";
 
-			var shape = GeoWKTReader.Read(wkt);
-			var actual = GeoWKTWriter.Write(shape);
-			actual.Should().Be(wkt);
-		}
-	}
+            var shape = GeoWKTReader.Read(wkt);
+            var actual = GeoWKTWriter.Write(shape);
+            actual.Should().Be(wkt);
+        }
+    }
 }

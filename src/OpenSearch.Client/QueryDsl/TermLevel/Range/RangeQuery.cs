@@ -30,7 +30,7 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[JsonFormatter(typeof(RangeQueryFormatter))]
-	public interface IRangeQuery : IFieldNameQuery { }
+    [InterfaceDataContract]
+    [JsonFormatter(typeof(RangeQueryFormatter))]
+    public interface IRangeQuery : IFieldNameQuery { }
 }

@@ -36,11 +36,11 @@ using System.Threading;
 
 namespace OpenSearch.Net
 {
-	/// <summary>
+    /// <summary>
     /// Thread-safety: We treat this class as immutable except for the timer. Creating a new object
-	/// for the 'expiry' pool simplifies the threading requirements significantly.
-	/// <para>https://github.com/dotnet/runtime/blob/master/src/libraries/Microsoft.Extensions.Http/src/ActiveHandlerTrackingEntry.cs</para>
-	/// </summary>
+    /// for the 'expiry' pool simplifies the threading requirements significantly.
+    /// <para>https://github.com/dotnet/runtime/blob/master/src/libraries/Microsoft.Extensions.Http/src/ActiveHandlerTrackingEntry.cs</para>
+    /// </summary>
     internal class ActiveHandlerTrackingEntry
     {
         private static readonly TimerCallback TimerCallback = (s) => ((ActiveHandlerTrackingEntry)s).Timer_Tick();
@@ -97,14 +97,14 @@ namespace OpenSearch.Net
             Debug.Assert(_timer != null);
 
             lock (_lock)
-			{
-				if (_timer == null) return;
+            {
+                if (_timer == null) return;
 
-				_timer.Dispose();
-				_timer = null;
+                _timer.Dispose();
+                _timer = null;
 
-				_callback(this);
-			}
+                _callback(this);
+            }
         }
     }
 }

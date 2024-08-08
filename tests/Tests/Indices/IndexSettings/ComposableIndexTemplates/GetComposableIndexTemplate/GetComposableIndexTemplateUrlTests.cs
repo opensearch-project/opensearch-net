@@ -15,21 +15,22 @@ namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.GetComposableInde
 
 public class GetComposableIndexTemplateUrlTests
 {
-	[U] public async Task Urls()
-	{
-		const string name = "temp";
-		await GET($"/_index_template/{name}")
-				.Fluent(c => c.Indices.GetComposableTemplate(name))
-				.Request(c => c.Indices.GetComposableTemplate(new GetComposableIndexTemplateRequest(name)))
-				.FluentAsync(c => c.Indices.GetComposableTemplateAsync(name))
-				.RequestAsync(c => c.Indices.GetComposableTemplateAsync(new GetComposableIndexTemplateRequest(name)))
-			;
+    [U]
+    public async Task Urls()
+    {
+        const string name = "temp";
+        await GET($"/_index_template/{name}")
+                .Fluent(c => c.Indices.GetComposableTemplate(name))
+                .Request(c => c.Indices.GetComposableTemplate(new GetComposableIndexTemplateRequest(name)))
+                .FluentAsync(c => c.Indices.GetComposableTemplateAsync(name))
+                .RequestAsync(c => c.Indices.GetComposableTemplateAsync(new GetComposableIndexTemplateRequest(name)))
+            ;
 
-		await GET("/_index_template")
-				.Fluent(c => c.Indices.GetComposableTemplate())
-				.Request(c => c.Indices.GetComposableTemplate(new GetComposableIndexTemplateRequest()))
-				.FluentAsync(c => c.Indices.GetComposableTemplateAsync())
-				.RequestAsync(c => c.Indices.GetComposableTemplateAsync(new GetComposableIndexTemplateRequest()))
-			;
-	}
+        await GET("/_index_template")
+                .Fluent(c => c.Indices.GetComposableTemplate())
+                .Request(c => c.Indices.GetComposableTemplate(new GetComposableIndexTemplateRequest()))
+                .FluentAsync(c => c.Indices.GetComposableTemplateAsync())
+                .RequestAsync(c => c.Indices.GetComposableTemplateAsync(new GetComposableIndexTemplateRequest()))
+            ;
+    }
 }

@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class CloneSnapshotResponse : AcknowledgedResponseBase { }
+    public class CloneSnapshotResponse : AcknowledgedResponseBase { }
 }

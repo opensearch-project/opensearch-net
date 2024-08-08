@@ -34,29 +34,29 @@ using static OpenSearch.Stack.ArtifactsApi.Products.OpenSearchPlugin;
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	/// <summary>
-	/// Use this cluster for APIs that do writes. If they are however intrusive or long running consider IntrusiveOperationCluster
-	/// instead.
-	/// </summary>
-	public class WritableCluster : ClientTestClusterBase
-	{
-		public WritableCluster() : base(CreateConfiguration()) { }
+    /// <summary>
+    /// Use this cluster for APIs that do writes. If they are however intrusive or long running consider IntrusiveOperationCluster
+    /// instead.
+    /// </summary>
+    public class WritableCluster : ClientTestClusterBase
+    {
+        public WritableCluster() : base(CreateConfiguration()) { }
 
-		private static ClientTestClusterConfiguration CreateConfiguration() =>
-			new(
-				AnalysisIcu, AnalysisKuromoji, AnalysisNori, AnalysisPhonetic,
-				IngestAttachment, IngestGeoIp,
-				Knn,
-				MapperMurmur3,
-				Security)
-			{
-				MaxConcurrency = 4
-			};
+        private static ClientTestClusterConfiguration CreateConfiguration() =>
+            new(
+                AnalysisIcu, AnalysisKuromoji, AnalysisNori, AnalysisPhonetic,
+                IngestAttachment, IngestGeoIp,
+                Knn,
+                MapperMurmur3,
+                Security)
+            {
+                MaxConcurrency = 4
+            };
 
-		protected override void SeedNode()
-		{
-			var seeder = new DefaultSeeder(Client);
-			seeder.SeedNode();
-		}
-	}
+        protected override void SeedNode()
+        {
+            var seeder = new DefaultSeeder(Client);
+            seeder.SeedNode();
+        }
+    }
 }

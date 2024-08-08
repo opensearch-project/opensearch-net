@@ -27,32 +27,32 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce
 {
-	public class GitHubIssue3719
-	{
-		[U]
-		public void SerializeDateMathWithMinimumThreeDecimalPlacesWhenTens()
-		{
-			DateMath dateMath = new DateTime(2019, 5, 7, 12, 0, 0, 20);
+    public class GitHubIssue3719
+    {
+        [U]
+        public void SerializeDateMathWithMinimumThreeDecimalPlacesWhenTens()
+        {
+            DateMath dateMath = new DateTime(2019, 5, 7, 12, 0, 0, 20);
 
-			var json = TestClient.Default.RequestResponseSerializer.SerializeToString(dateMath, RecyclableMemoryStreamFactory.Default);
-			json.Should().Be("\"2019-05-07T12:00:00.020\"");
-		}
+            var json = TestClient.Default.RequestResponseSerializer.SerializeToString(dateMath, RecyclableMemoryStreamFactory.Default);
+            json.Should().Be("\"2019-05-07T12:00:00.020\"");
+        }
 
-		[U]
-		public void SerializeDateMathWithMinimumThreeDecimalPlacesWhenHundreds()
-		{
-			DateMath dateMath = new DateTime(2019, 5, 7, 12, 0, 0, 200);
+        [U]
+        public void SerializeDateMathWithMinimumThreeDecimalPlacesWhenHundreds()
+        {
+            DateMath dateMath = new DateTime(2019, 5, 7, 12, 0, 0, 200);
 
-			var json = TestClient.Default.RequestResponseSerializer.SerializeToString(dateMath, RecyclableMemoryStreamFactory.Default);
-			json.Should().Be("\"2019-05-07T12:00:00.200\"");
-		}
-	}
+            var json = TestClient.Default.RequestResponseSerializer.SerializeToString(dateMath, RecyclableMemoryStreamFactory.Default);
+            json.Should().Be("\"2019-05-07T12:00:00.200\"");
+        }
+    }
 }

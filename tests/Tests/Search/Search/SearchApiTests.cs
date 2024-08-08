@@ -29,9 +29,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -85,7 +87,8 @@ namespace Tests.Search.Search
                     .Add("personalize_request_parameters",
                         new Dictionary<string, object>
                         {
-                            ["user_id"] = "<USER_ID>", ["context"] = new Dictionary<string, string> { ["DEVICE"] = "mobile phone" }
+                            ["user_id"] = "<USER_ID>",
+                            ["context"] = new Dictionary<string, string> { ["DEVICE"] = "mobile phone" }
                         }));
             }
 
@@ -106,7 +109,8 @@ namespace Tests.Search.Search
                 {
                     ["personalize_request_parameters"] = new Dictionary<string, object>
                     {
-                        ["user_id"] = "<USER_ID>", ["context"] = new Dictionary<string, string> { ["DEVICE"] = "mobile phone" }
+                        ["user_id"] = "<USER_ID>",
+                        ["context"] = new Dictionary<string, string> { ["DEVICE"] = "mobile phone" }
                     }
                 }
                 : null
@@ -157,7 +161,8 @@ namespace Tests.Search.Search
 
         protected override SearchRequest<Project> Initializer => new SearchRequest<Project>()
         {
-            SequenceNumberPrimaryTerm = true, Query = new QueryContainer(new MatchAllQuery()),
+            SequenceNumberPrimaryTerm = true,
+            Query = new QueryContainer(new MatchAllQuery()),
         };
 
         protected override string UrlPath => $"/project/_search?seq_no_primary_term=true";
@@ -480,20 +485,20 @@ namespace Tests.Search.Search
         {
             response.ShouldBeValid();
             foreach (var node in response.Nodes)
-            foreach (var task in node.Value.Tasks)
-            {
-                task.Value.Headers.Should().NotBeNull();
-                if (task.Value.Headers.TryGetValue(RequestData.OpaqueIdHeader, out var opaqueIdValue))
-                    opaqueIdValue.Should()
-                        .Be(CallIsolatedValue,
-                            $"OpaqueId header {opaqueIdValue} did not match {CallIsolatedValue}");
-                // TODO: Determine if this is a valid assertion i.e. should all tasks returned have an OpaqueId header?
-//				else
-//				{
-//					Assert.True(false,
-//						$"No OpaqueId header for task {task.Key} and OpaqueId value {this.CallIsolatedValue}");
-//				}
-            }
+                foreach (var task in node.Value.Tasks)
+                {
+                    task.Value.Headers.Should().NotBeNull();
+                    if (task.Value.Headers.TryGetValue(RequestData.OpaqueIdHeader, out var opaqueIdValue))
+                        opaqueIdValue.Should()
+                            .Be(CallIsolatedValue,
+                                $"OpaqueId header {opaqueIdValue} did not match {CallIsolatedValue}");
+                    // TODO: Determine if this is a valid assertion i.e. should all tasks returned have an OpaqueId header?
+                    //				else
+                    //				{
+                    //					Assert.True(false,
+                    //						$"No OpaqueId header for task {task.Key} and OpaqueId value {this.CallIsolatedValue}");
+                    //				}
+                }
         }
     }
 

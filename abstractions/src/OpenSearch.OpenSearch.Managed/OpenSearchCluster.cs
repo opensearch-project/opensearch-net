@@ -30,10 +30,10 @@ using OpenSearch.OpenSearch.Managed.Configuration;
 
 namespace OpenSearch.OpenSearch.Managed
 {
-	public class OpenSearchCluster : ClusterBase
-	{
-		public OpenSearchCluster(ClusterConfiguration clusterConfiguration) : base(clusterConfiguration)
-		{
-		}
-	}
+    public class OpenSearchCluster : ClusterBase
+    {
+        public OpenSearchCluster(ClusterConfiguration clusterConfiguration) : base(clusterConfiguration)
+        {
+        }
+    }
 }

@@ -32,17 +32,17 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class ShardProfile
-	{
-		[DataMember(Name ="aggregations")]
-		public IReadOnlyCollection<AggregationProfile> Aggregations { get; internal set; } =
-			EmptyReadOnly<AggregationProfile>.Collection;
+    public class ShardProfile
+    {
+        [DataMember(Name = "aggregations")]
+        public IReadOnlyCollection<AggregationProfile> Aggregations { get; internal set; } =
+            EmptyReadOnly<AggregationProfile>.Collection;
 
-		[DataMember(Name ="id")]
-		public string Id { get; internal set; }
+        [DataMember(Name = "id")]
+        public string Id { get; internal set; }
 
-		[DataMember(Name ="searches")]
-		public IReadOnlyCollection<SearchProfile> Searches { get; internal set; } =
-			EmptyReadOnly<SearchProfile>.Collection;
-	}
+        [DataMember(Name = "searches")]
+        public IReadOnlyCollection<SearchProfile> Searches { get; internal set; } =
+            EmptyReadOnly<SearchProfile>.Collection;
+    }
 }

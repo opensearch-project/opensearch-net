@@ -27,44 +27,45 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Search.SearchShards
 {
-	public class SearchShardsUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var hardcoded = "hardcoded";
-			await POST("/project/_search_shards")
-					.Request(c => c.SearchShards(new SearchShardsRequest("project")))
-					.Request(c => c.SearchShards(new SearchShardsRequest<Project>(typeof(Project))))
-					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(typeof(Project))))
-					.FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index<Project>()))
-				;
+    public class SearchShardsUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var hardcoded = "hardcoded";
+            await POST("/project/_search_shards")
+                    .Request(c => c.SearchShards(new SearchShardsRequest("project")))
+                    .Request(c => c.SearchShards(new SearchShardsRequest<Project>(typeof(Project))))
+                    .RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(typeof(Project))))
+                    .FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index<Project>()))
+                ;
 
-			await POST("/hardcoded/_search_shards")
-					.Request(c => c.SearchShards(new SearchShardsRequest(hardcoded)))
-					.Request(c => c.SearchShards(new SearchShardsRequest<Project>(hardcoded)))
-					.FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index(hardcoded)))
-					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(hardcoded)))
-					.FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index(hardcoded)))
-				;
+            await POST("/hardcoded/_search_shards")
+                    .Request(c => c.SearchShards(new SearchShardsRequest(hardcoded)))
+                    .Request(c => c.SearchShards(new SearchShardsRequest<Project>(hardcoded)))
+                    .FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index(hardcoded)))
+                    .RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(hardcoded)))
+                    .FluentAsync(c => c.SearchShardsAsync<Project>(s => s.Index(hardcoded)))
+                ;
 
-			await POST("/_search_shards")
-					.Request(c => c.SearchShards(new SearchShardsRequest()))
-					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest()))
-				;
-			await POST("/_all/_search_shards")
-					.Fluent(c => c.SearchShards<Project>(s => s.AllIndices()))
-					.Request(c => c.SearchShards(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
-					.FluentAsync(c => c.SearchShardsAsync<Project>(s => s.AllIndices()))
-					.RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
-				;
-		}
-	}
+            await POST("/_search_shards")
+                    .Request(c => c.SearchShards(new SearchShardsRequest()))
+                    .RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest()))
+                ;
+            await POST("/_all/_search_shards")
+                    .Fluent(c => c.SearchShards<Project>(s => s.AllIndices()))
+                    .Request(c => c.SearchShards(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
+                    .FluentAsync(c => c.SearchShardsAsync<Project>(s => s.AllIndices()))
+                    .RequestAsync(c => c.SearchShardsAsync(new SearchShardsRequest<Project>(OpenSearch.Client.Indices.All)))
+                ;
+        }
+    }
 }

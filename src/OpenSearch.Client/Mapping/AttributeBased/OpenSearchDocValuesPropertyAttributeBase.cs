@@ -32,22 +32,22 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	[DataContract]
-	public abstract class OpenSearchDocValuesPropertyAttributeBase : OpenSearchCorePropertyAttributeBase, IDocValuesProperty
-	{
-		protected OpenSearchDocValuesPropertyAttributeBase(FieldType type) : base(type) { }
+    [AttributeUsage(AttributeTargets.Property)]
+    [DataContract]
+    public abstract class OpenSearchDocValuesPropertyAttributeBase : OpenSearchCorePropertyAttributeBase, IDocValuesProperty
+    {
+        protected OpenSearchDocValuesPropertyAttributeBase(FieldType type) : base(type) { }
 
-		public bool DocValues
-		{
-			get => Self.DocValues.GetValueOrDefault(true);
-			set => Self.DocValues = value;
-		}
+        public bool DocValues
+        {
+            get => Self.DocValues.GetValueOrDefault(true);
+            set => Self.DocValues = value;
+        }
 
-		bool? IDocValuesProperty.DocValues { get; set; }
-		private IDocValuesProperty Self => this;
+        bool? IDocValuesProperty.DocValues { get; set; }
+        private IDocValuesProperty Self => this;
 
-		public static new OpenSearchDocValuesPropertyAttributeBase From(MemberInfo memberInfo) =>
-			memberInfo.GetCustomAttribute<OpenSearchDocValuesPropertyAttributeBase>(true);
-	}
+        public static new OpenSearchDocValuesPropertyAttributeBase From(MemberInfo memberInfo) =>
+            memberInfo.GetCustomAttribute<OpenSearchDocValuesPropertyAttributeBase>(true);
+    }
 }

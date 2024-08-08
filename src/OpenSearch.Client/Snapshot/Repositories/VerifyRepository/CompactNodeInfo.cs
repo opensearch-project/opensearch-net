@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class CompactNodeInfo
-	{
-		[DataMember(Name ="name")]
-		public string Name { get; internal set; }
-	}
+    [DataContract]
+    public class CompactNodeInfo
+    {
+        [DataMember(Name = "name")]
+        public string Name { get; internal set; }
+    }
 }

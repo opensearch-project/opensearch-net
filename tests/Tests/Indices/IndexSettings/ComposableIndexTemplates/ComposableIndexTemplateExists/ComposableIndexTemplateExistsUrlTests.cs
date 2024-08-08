@@ -15,14 +15,15 @@ namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.ComposableIndexTe
 
 public class ComposableIndexTemplateExistsUrlTests
 {
-	[U] public async Task Urls()
-	{
-		const string name = "temp";
-		await HEAD($"/_index_template/{name}")
-				.Fluent(c => c.Indices.ComposableTemplateExists(name))
-				.Request(c => c.Indices.ComposableTemplateExists(new ComposableIndexTemplateExistsRequest(name)))
-				.FluentAsync(c => c.Indices.ComposableTemplateExistsAsync(name))
-				.RequestAsync(c => c.Indices.ComposableTemplateExistsAsync(new ComposableIndexTemplateExistsRequest(name)))
-			;
-	}
+    [U]
+    public async Task Urls()
+    {
+        const string name = "temp";
+        await HEAD($"/_index_template/{name}")
+                .Fluent(c => c.Indices.ComposableTemplateExists(name))
+                .Request(c => c.Indices.ComposableTemplateExists(new ComposableIndexTemplateExistsRequest(name)))
+                .FluentAsync(c => c.Indices.ComposableTemplateExistsAsync(name))
+                .RequestAsync(c => c.Indices.ComposableTemplateExistsAsync(new ComposableIndexTemplateExistsRequest(name)))
+            ;
+    }
 }

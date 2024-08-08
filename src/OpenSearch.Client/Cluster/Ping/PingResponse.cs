@@ -30,6 +30,6 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class PingResponse : ResponseBase { }
+    [DataContract]
+    public class PingResponse : ResponseBase { }
 }

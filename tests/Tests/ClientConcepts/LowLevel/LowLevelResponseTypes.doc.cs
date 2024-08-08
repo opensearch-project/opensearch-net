@@ -31,15 +31,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
-using Tests.Framework;
-using System.Threading;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.Net;
 using OpenSearch.Net.Extensions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain.Extensions;
+using Tests.Framework;
 
 // ReSharper disable SuggestVarOrType_Elsewhere
 // ReSharper disable SuggestVarOrType_BuiltInTypes
@@ -47,16 +47,14 @@ using Tests.Domain.Extensions;
 
 namespace Tests.ClientConcepts.LowLevel
 {
-	public class LowLevelResponseTypes
-	{
-		/**[[low-level-response-types]]
+    public class LowLevelResponseTypes
+    {
+        /**[[low-level-response-types]]
 		 * === Low Level Client Response Types
 		 *
 		 */
 
-		public static string Response()
-		{
-			return @"{
+        public static string Response() => @"{
 				""boolean"" : true,
 				""string"" : ""v"",
 				""number"" : 29,
@@ -80,68 +78,68 @@ namespace Tests.ClientConcepts.LowLevel
 					}
 				]
 			}";
-		}
 
-		public LowLevelResponseTypes()
-		{
-			var connection = new InMemoryConnection(Response().Utf8Bytes());
-			this.Client = new OpenSearchClient(new ConnectionSettings(connection).ApplyDomainSettings());
-		}
+        public LowLevelResponseTypes()
+        {
+            var connection = new InMemoryConnection(Response().Utf8Bytes());
+            Client = new OpenSearchClient(new ConnectionSettings(connection).ApplyDomainSettings());
+        }
 
-		private OpenSearchClient Client { get;  }
+        private OpenSearchClient Client { get; }
 
 
-		[U] public void DynamicResponse()
-		{
-			/**[float]
+        [U]
+        public void DynamicResponse()
+        {
+            /**[float]
 			* === DynamicResponse
 			*
 			*/
 
-			var response = Client.LowLevel.Search<DynamicResponse>(PostData.Empty);
+            var response = Client.LowLevel.Search<DynamicResponse>(PostData.Empty);
 
-			response.Get<string>("object.first").Should()
-				.NotBeEmpty()
-				.And.Be("value1");
+            response.Get<string>("object.first").Should()
+                .NotBeEmpty()
+                .And.Be("value1");
 
-			response.Get<string>("object._arbitrary_key_").Should()
-				.NotBeEmpty()
-				.And.Be("first");
+            response.Get<string>("object._arbitrary_key_").Should()
+                .NotBeEmpty()
+                .And.Be("first");
 
-			response.Get<int>("array.1").Should().Be(2);
-			response.Get<long>("array.1").Should().Be(2);
-			response.Get<long>("number").Should().Be(29);
-			response.Get<long?>("number").Should().Be(29);
-			response.Get<long?>("number_does_not_exist").Should().Be(null);
-			response.Get<long?>("number").Should().Be(29);
+            response.Get<int>("array.1").Should().Be(2);
+            response.Get<long>("array.1").Should().Be(2);
+            response.Get<long>("number").Should().Be(29);
+            response.Get<long?>("number").Should().Be(29);
+            response.Get<long?>("number_does_not_exist").Should().Be(null);
+            response.Get<long?>("number").Should().Be(29);
 
-			response.Get<string>("array_of_objects.1.second").Should()
-				.NotBeEmpty()
-				.And.Be("value22");
+            response.Get<string>("array_of_objects.1.second").Should()
+                .NotBeEmpty()
+                .And.Be("value22");
 
-			response.Get<string>("array_of_objects.1.complex\\.nested.x").Should()
-				.NotBeEmpty()
-				.And.Be("value6");
+            response.Get<string>("array_of_objects.1.complex\\.nested.x").Should()
+                .NotBeEmpty()
+                .And.Be("value6");
 
-			/**
+            /**
 			 * You can project into arrays using the dot notation
 			 */
-			response.Get<string[]>("array_of_objects.first").Should()
-				.NotBeEmpty()
-				.And.HaveCount(2)
-				.And.BeEquivalentTo(new [] {"value11", "value21"});
+            response.Get<string[]>("array_of_objects.first").Should()
+                .NotBeEmpty()
+                .And.HaveCount(2)
+                .And.BeEquivalentTo(new[] { "value11", "value21" });
 
-			/**
+            /**
 			 * You can even peek into array of arrays
 			 */
-			var nestedZs = response.Get<int[][]>("array_of_objects.nested.z.id")
-				//.SelectMany(d=>d.Get<int[]>("id"))
-				.Should().NotBeEmpty()
-				.And.HaveCount(2)
-				.And.BeEquivalentTo(new [] { new [] {1}, new []{3,2}});
+            var nestedZs = response.Get<int[][]>("array_of_objects.nested.z.id")
+                //.SelectMany(d=>d.Get<int[]>("id"))
+                .Should().NotBeEmpty()
+                .And.HaveCount(2)
+                .And.BeEquivalentTo(new[] { new[] { 1 }, new[] { 3, 2 } });
 
 
-		}
+        }
 
-	}
+    }
 }

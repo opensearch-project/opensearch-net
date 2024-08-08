@@ -36,22 +36,22 @@ namespace ApiGenerator.Domain
 {
     public static class ApiRequestParametersPatcher
     {
-		public static void PatchUrlPaths(string endpointName, IList<UrlPath> source, IEndpointOverrides overrides)
-		{
-			var declaredKeys = source.SelectMany(p => p.Parts).Select(p => p.Name).ToHashSet();
-			var renameLookup = CreateUrlPartRenameLookup(overrides, declaredKeys);
+        public static void PatchUrlPaths(string endpointName, IList<UrlPath> source, IEndpointOverrides overrides)
+        {
+            var declaredKeys = source.SelectMany(p => p.Parts).Select(p => p.Name).ToHashSet();
+            var renameLookup = CreateUrlPartRenameLookup(overrides, declaredKeys);
 
-			foreach (var path in source)
-			{
-				foreach (var part in path.Parts)
-				{
-					if (!renameLookup.TryGetValue(part.Name, out var newName)) continue;
+            foreach (var path in source)
+            {
+                foreach (var part in path.Parts)
+                {
+                    if (!renameLookup.TryGetValue(part.Name, out var newName)) continue;
 
-					path.Path = path.Path.Replace($"{{{part.Name}}}", $"{{{newName}}}");
-					part.Name = newName;
-				}
-			}
-		}
+                    path.Path = path.Path.Replace($"{{{part.Name}}}", $"{{{newName}}}");
+                    part.Name = newName;
+                }
+            }
+        }
 
         public static SortedDictionary<string, QueryParameters> PatchQueryParameters(
             string endpointName,
@@ -69,7 +69,7 @@ namespace ApiGenerator.Domain
             var patchedParams = new SortedDictionary<string, QueryParameters>();
             foreach (var (queryStringKey, value) in source)
             {
-				value.QueryStringKey = queryStringKey;
+                value.QueryStringKey = queryStringKey;
 
                 if (!renameLookup.TryGetValue(queryStringKey, out var preferredName)) preferredName = queryStringKey;
 
@@ -84,7 +84,7 @@ namespace ApiGenerator.Domain
                 //make sure source_enabled takes a boolean only
                 if (preferredName == "source_enabled") value.Type = "boolean";
 
-				patchedParams[preferredName] = value;
+                patchedParams[preferredName] = value;
             }
 
             return patchedParams;
@@ -97,8 +97,8 @@ namespace ApiGenerator.Domain
             if (queryStringKey == "format" && endpointName == "text_structure.find_structure")
                 return "TextStructureFindStructureFormat";
 
-			return queryStringKey.ToPascalCase();
-		}
+            return queryStringKey.ToPascalCase();
+        }
 
         private static IList<string> CreateSkipList(IEndpointOverrides local, ICollection<string> declaredKeys) =>
             CreateList(local, "skip", e => e.SkipQueryStringParams, declaredKeys);
@@ -142,8 +142,8 @@ namespace ApiGenerator.Domain
             return list.Distinct().ToList();
         }
 
-		private static IDictionary<string, string> CreateUrlPartRenameLookup(IEndpointOverrides local, ICollection<string> declaredKeys) =>
-			CreateLookup(local, "url_part_rename", e => e.RenameUrlParts, declaredKeys);
+        private static IDictionary<string, string> CreateUrlPartRenameLookup(IEndpointOverrides local, ICollection<string> declaredKeys) =>
+            CreateLookup(local, "url_part_rename", e => e.RenameUrlParts, declaredKeys);
 
         private static IDictionary<string, string> CreateRenameLookup(IEndpointOverrides local, ICollection<string> declaredKeys) =>
             CreateLookup(local, "rename", e => e.RenameQueryStringParams, declaredKeys);

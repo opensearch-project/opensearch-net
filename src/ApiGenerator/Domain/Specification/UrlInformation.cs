@@ -37,16 +37,16 @@ namespace ApiGenerator.Domain.Specification
     {
         public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-		public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
-		public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
+        public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
+        public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
 
-		public IList<UrlPath> AllPaths = new List<UrlPath>();
+        public IList<UrlPath> AllPaths = new List<UrlPath>();
 
         public IReadOnlyCollection<UrlPart> Parts => Paths
-				.SelectMany(p => p.Parts)
-				.DistinctBy(p => p.Name)
-				.OrderBy(p => p.Name)
-				.ToList();
+                .SelectMany(p => p.Parts)
+                .DistinctBy(p => p.Name)
+                .OrderBy(p => p.Name)
+                .ToList();
 
         public bool IsPartless => !Parts.Any();
 

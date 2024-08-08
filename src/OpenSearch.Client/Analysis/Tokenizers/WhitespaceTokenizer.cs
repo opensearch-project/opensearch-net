@@ -31,39 +31,39 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// A tokenizer of type whitespace that divides text at whitespace.
-	/// </summary>
-	public interface IWhitespaceTokenizer : ITokenizer
-	{
-		/// <summary>
-		/// The maximum token length. If a token is seen that exceeds this length then it is split at
-		/// <see cref="MaxTokenLength" /> intervals. Defaults to 255.
-		/// </summary>
-		[DataMember(Name ="max_token_length")]
-		[JsonFormatter(typeof(NullableStringIntFormatter))]
-		int? MaxTokenLength { get; set; }
-	}
+    /// <summary>
+    /// A tokenizer of type whitespace that divides text at whitespace.
+    /// </summary>
+    public interface IWhitespaceTokenizer : ITokenizer
+    {
+        /// <summary>
+        /// The maximum token length. If a token is seen that exceeds this length then it is split at
+        /// <see cref="MaxTokenLength" /> intervals. Defaults to 255.
+        /// </summary>
+        [DataMember(Name = "max_token_length")]
+        [JsonFormatter(typeof(NullableStringIntFormatter))]
+        int? MaxTokenLength { get; set; }
+    }
 
-	/// <inheritdoc cref="IWhitespaceTokenizer" />
-	public class WhitespaceTokenizer : TokenizerBase, IWhitespaceTokenizer
-	{
-		public WhitespaceTokenizer() => Type = "whitespace";
+    /// <inheritdoc cref="IWhitespaceTokenizer" />
+    public class WhitespaceTokenizer : TokenizerBase, IWhitespaceTokenizer
+    {
+        public WhitespaceTokenizer() => Type = "whitespace";
 
-		/// <inheritdoc />
-		public int? MaxTokenLength { get; set; }
-	}
+        /// <inheritdoc />
+        public int? MaxTokenLength { get; set; }
+    }
 
-	/// <inheritdoc cref="IWhitespaceTokenizer" />
-	public class WhitespaceTokenizerDescriptor
-		: TokenizerDescriptorBase<WhitespaceTokenizerDescriptor, IWhitespaceTokenizer>, IWhitespaceTokenizer
-	{
-		protected override string Type => "whitespace";
+    /// <inheritdoc cref="IWhitespaceTokenizer" />
+    public class WhitespaceTokenizerDescriptor
+        : TokenizerDescriptorBase<WhitespaceTokenizerDescriptor, IWhitespaceTokenizer>, IWhitespaceTokenizer
+    {
+        protected override string Type => "whitespace";
 
-		int? IWhitespaceTokenizer.MaxTokenLength { get; set; }
+        int? IWhitespaceTokenizer.MaxTokenLength { get; set; }
 
-		/// <inheritdoc cref="IWhitespaceTokenizer.MaxTokenLength" />
-		public WhitespaceTokenizerDescriptor MaxTokenLength(int? maxTokenLength) =>
-			Assign(maxTokenLength, (a, v) => a.MaxTokenLength = v);
-	}
+        /// <inheritdoc cref="IWhitespaceTokenizer.MaxTokenLength" />
+        public WhitespaceTokenizerDescriptor MaxTokenLength(int? maxTokenLength) =>
+            Assign(maxTokenLength, (a, v) => a.MaxTokenLength = v);
+    }
 }

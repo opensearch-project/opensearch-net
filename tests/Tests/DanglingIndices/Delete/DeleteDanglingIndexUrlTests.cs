@@ -27,25 +27,26 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.DanglingIndices.Delete
 {
-	public class DeleteDanglingIndexUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var indexUuid = "indexuuid";
+    public class DeleteDanglingIndexUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var indexUuid = "indexuuid";
 
-			await DELETE($"/_dangling/{indexUuid}")
-					.Fluent(c => c.DanglingIndices.DeleteDanglingIndex(indexUuid))
-					.Request(c => c.DanglingIndices.DeleteDanglingIndex(new DeleteDanglingIndexRequest(indexUuid)))
-					.FluentAsync(c => c.DanglingIndices.DeleteDanglingIndexAsync(indexUuid))
-					.RequestAsync(c => c.DanglingIndices.DeleteDanglingIndexAsync(new DeleteDanglingIndexRequest(indexUuid)))
-				;
-		}
-	}
+            await DELETE($"/_dangling/{indexUuid}")
+                    .Fluent(c => c.DanglingIndices.DeleteDanglingIndex(indexUuid))
+                    .Request(c => c.DanglingIndices.DeleteDanglingIndex(new DeleteDanglingIndexRequest(indexUuid)))
+                    .FluentAsync(c => c.DanglingIndices.DeleteDanglingIndexAsync(indexUuid))
+                    .RequestAsync(c => c.DanglingIndices.DeleteDanglingIndexAsync(new DeleteDanglingIndexRequest(indexUuid)))
+                ;
+        }
+    }
 }

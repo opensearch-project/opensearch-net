@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cluster.remote_info.json")]
-	public partial interface IRemoteInfoRequest { }
+    [MapsApi("cluster.remote_info.json")]
+    public partial interface IRemoteInfoRequest { }
 
-	public partial class RemoteInfoRequest { }
+    public partial class RemoteInfoRequest { }
 
-	public partial class RemoteInfoDescriptor { }
+    public partial class RemoteInfoDescriptor { }
 }

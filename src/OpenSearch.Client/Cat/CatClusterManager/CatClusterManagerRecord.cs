@@ -30,23 +30,23 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// See docs <see href="https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">here</see>
-	/// </summary>
-	/// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterRecord"/></remarks>
-	[DataContract]
-	public class CatClusterManagerRecord : ICatRecord
-	{
-		[DataMember(Name ="id")]
-		public string Id { get; set; }
+    /// <summary>
+    /// See docs <see href="https://opensearch.org/docs/2.0/opensearch/rest-api/cat/cat-cluster_manager/">here</see>
+    /// </summary>
+    /// <remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterRecord"/></remarks>
+    [DataContract]
+    public class CatClusterManagerRecord : ICatRecord
+    {
+        [DataMember(Name = "id")]
+        public string Id { get; set; }
 
-		[DataMember(Name ="ip")]
-		public string Ip { get; set; }
+        [DataMember(Name = "ip")]
+        public string Ip { get; set; }
 
-		[DataMember(Name ="host")]
-		public string Host { get; set; }
+        [DataMember(Name = "host")]
+        public string Host { get; set; }
 
-		[DataMember(Name ="node")]
-		public string Node { get; set; }
-	}
+        [DataMember(Name = "node")]
+        public string Node { get; set; }
+    }
 }

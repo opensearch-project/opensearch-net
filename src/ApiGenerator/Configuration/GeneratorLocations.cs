@@ -31,42 +31,42 @@ using System.Reflection;
 
 namespace ApiGenerator.Configuration
 {
-	public static class GeneratorLocations
-	{
-		public static string OpenApiSpecFile { get; } = $"{Root}opensearch-openapi.yaml";
+    public static class GeneratorLocations
+    {
+        public static string OpenApiSpecFile { get; } = $"{Root}opensearch-openapi.yaml";
 
-		public static string OpenSearchNetFolder { get; } = $"{Root}../../src/OpenSearch.Net/";
+        public static string OpenSearchNetFolder { get; } = $"{Root}../../src/OpenSearch.Net/";
 
-		public static string OpenSearchClientFolder { get; } = $"{Root}../../src/OpenSearch.Client/";
+        public static string OpenSearchClientFolder { get; } = $"{Root}../../src/OpenSearch.Client/";
 
-		public static string LowLevelGeneratedFolder { get; } = $"{OpenSearchNetFolder}_Generated/";
+        public static string LowLevelGeneratedFolder { get; } = $"{OpenSearchNetFolder}_Generated/";
 
-		public static string HighLevelGeneratedFolder { get; } = $"{OpenSearchClientFolder}_Generated/";
+        public static string HighLevelGeneratedFolder { get; } = $"{OpenSearchClientFolder}_Generated/";
 
-		public static string HighLevel(params string[] paths) => HighLevelGeneratedFolder + string.Join("/", paths);
+        public static string HighLevel(params string[] paths) => HighLevelGeneratedFolder + string.Join("/", paths);
 
-		public static string LowLevel(params string[] paths) => LowLevelGeneratedFolder + string.Join("/", paths);
+        public static string LowLevel(params string[] paths) => LowLevelGeneratedFolder + string.Join("/", paths);
 
-		public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
+        public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
 
-		private static string _root;
+        private static string _root;
 
-		public static string Root
-		{
-			get
-			{
-				if (_root != null) return _root;
+        public static string Root
+        {
+            get
+            {
+                if (_root != null) return _root;
 
-				var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+                var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
 
-				var dotnetRun =
-					directoryInfo.Name == "ApiGenerator" &&
-					directoryInfo.Parent != null &&
-					directoryInfo.Parent.Name == "src";
+                var dotnetRun =
+                    directoryInfo.Name == "ApiGenerator" &&
+                    directoryInfo.Parent != null &&
+                    directoryInfo.Parent.Name == "src";
 
-				_root = dotnetRun ? "" : "../../../";
-				return _root;
-			}
-		}
-	}
+                _root = dotnetRun ? "" : "../../../";
+                return _root;
+            }
+        }
+    }
 }

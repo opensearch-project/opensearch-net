@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class DeletePipelineResponse : AcknowledgedResponseBase { }
+    public class DeletePipelineResponse : AcknowledgedResponseBase { }
 }

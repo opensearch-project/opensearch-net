@@ -143,7 +143,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICatAllPitSegmentsRequest
-        : IRequest<CatAllPitSegmentsRequestParameters> { }
+        : IRequest<CatAllPitSegmentsRequestParameters>
+    { }
 
     /// <summary>Request for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsRequest
@@ -306,7 +307,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICatClusterManagerRequest
-        : IRequest<CatClusterManagerRequestParameters> { }
+        : IRequest<CatClusterManagerRequestParameters>
+    { }
 
     /// <summary>Request for ClusterManager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerRequest
@@ -815,7 +817,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICatNodeAttributesRequest
-        : IRequest<CatNodeAttributesRequestParameters> { }
+        : IRequest<CatNodeAttributesRequestParameters>
+    { }
 
     /// <summary>Request for NodeAttributes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesRequest
@@ -991,7 +994,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICatPendingTasksRequest
-        : IRequest<CatPendingTasksRequestParameters> { }
+        : IRequest<CatPendingTasksRequestParameters>
+    { }
 
     /// <summary>Request for PendingTasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksRequest
@@ -1301,7 +1305,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICatRepositoriesRequest
-        : IRequest<CatRepositoriesRequestParameters> { }
+        : IRequest<CatRepositoriesRequestParameters>
+    { }
 
     /// <summary>Request for Repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesRequest

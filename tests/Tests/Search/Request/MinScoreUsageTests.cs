@@ -34,40 +34,40 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Search.Request
 {
-	public class MinScoreUsageTests : SearchUsageTestBase
-	{
-		public MinScoreUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class MinScoreUsageTests : SearchUsageTestBase
+    {
+        public MinScoreUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson => new
-		{
-			min_score = 0.5,
-			query = new
-			{
-				term = new
-				{
-					name = new
-					{
-						value = "opensearch"
-					}
-				}
-			}
-		};
+        protected override object ExpectJson => new
+        {
+            min_score = 0.5,
+            query = new
+            {
+                term = new
+                {
+                    name = new
+                    {
+                        value = "opensearch"
+                    }
+                }
+            }
+        };
 
-		protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-			.MinScore(0.5)
-			.Query(q => q
-				.Term(p => p.Name, "opensearch")
-			);
+        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+            .MinScore(0.5)
+            .Query(q => q
+                .Term(p => p.Name, "opensearch")
+            );
 
-		protected override SearchRequest<Project> Initializer =>
-			new SearchRequest<Project>
-			{
-				MinScore = 0.5,
-				Query = new TermQuery
-				{
-					Field = "name",
-					Value = "opensearch"
-				}
-			};
-	}
+        protected override SearchRequest<Project> Initializer =>
+            new SearchRequest<Project>
+            {
+                MinScore = 0.5,
+                Query = new TermQuery
+                {
+                    Field = "name",
+                    Value = "opensearch"
+                }
+            };
+    }
 }

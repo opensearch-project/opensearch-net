@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.plugins.json")]
-	public partial interface ICatPluginsRequest { }
+    [MapsApi("cat.plugins.json")]
+    public partial interface ICatPluginsRequest { }
 
-	public partial class CatPluginsRequest { }
+    public partial class CatPluginsRequest { }
 
-	public partial class CatPluginsDescriptor { }
+    public partial class CatPluginsDescriptor { }
 }

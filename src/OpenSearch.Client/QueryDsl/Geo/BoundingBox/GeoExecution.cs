@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GeoExecution
-	{
-		[EnumMember(Value = "memory")]
-		Memory,
+    [StringEnum]
+    public enum GeoExecution
+    {
+        [EnumMember(Value = "memory")]
+        Memory,
 
-		[EnumMember(Value = "indexed")]
-		Indexed
-	}
+        [EnumMember(Value = "indexed")]
+        Indexed
+    }
 }

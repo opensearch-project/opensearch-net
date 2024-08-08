@@ -32,60 +32,60 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(VerbatimDictionaryKeysFormatter<CharFilters, ICharFilters, string, ICharFilter>))]
-	public interface ICharFilters : IIsADictionary<string, ICharFilter> { }
+    [JsonFormatter(typeof(VerbatimDictionaryKeysFormatter<CharFilters, ICharFilters, string, ICharFilter>))]
+    public interface ICharFilters : IIsADictionary<string, ICharFilter> { }
 
-	public class CharFilters : IsADictionaryBase<string, ICharFilter>, ICharFilters
-	{
-		public CharFilters() { }
+    public class CharFilters : IsADictionaryBase<string, ICharFilter>, ICharFilters
+    {
+        public CharFilters() { }
 
-		public CharFilters(IDictionary<string, ICharFilter> container) : base(container) { }
+        public CharFilters(IDictionary<string, ICharFilter> container) : base(container) { }
 
-		public CharFilters(Dictionary<string, ICharFilter> container) : base(container) { }
+        public CharFilters(Dictionary<string, ICharFilter> container) : base(container) { }
 
-		public void Add(string name, ICharFilter analyzer) => BackingDictionary.Add(name, analyzer);
-	}
+        public void Add(string name, ICharFilter analyzer) => BackingDictionary.Add(name, analyzer);
+    }
 
-	public class CharFiltersDescriptor : IsADictionaryDescriptorBase<CharFiltersDescriptor, ICharFilters, string, ICharFilter>
-	{
-		public CharFiltersDescriptor() : base(new CharFilters()) { }
+    public class CharFiltersDescriptor : IsADictionaryDescriptorBase<CharFiltersDescriptor, ICharFilters, string, ICharFilter>
+    {
+        public CharFiltersDescriptor() : base(new CharFilters()) { }
 
-		public CharFiltersDescriptor UserDefined(string name, ICharFilter analyzer) => Assign(name, analyzer);
+        public CharFiltersDescriptor UserDefined(string name, ICharFilter analyzer) => Assign(name, analyzer);
 
-		/// <summary>
-		/// The pattern_replace char filter allows the use of a regex to manipulate the characters in a string before analysis.
-		/// </summary>
-		public CharFiltersDescriptor PatternReplace(string name, Func<PatternReplaceCharFilterDescriptor, IPatternReplaceCharFilter> selector) =>
-			Assign(name, selector?.Invoke(new PatternReplaceCharFilterDescriptor()));
+        /// <summary>
+        /// The pattern_replace char filter allows the use of a regex to manipulate the characters in a string before analysis.
+        /// </summary>
+        public CharFiltersDescriptor PatternReplace(string name, Func<PatternReplaceCharFilterDescriptor, IPatternReplaceCharFilter> selector) =>
+            Assign(name, selector?.Invoke(new PatternReplaceCharFilterDescriptor()));
 
-		/// <summary>
-		/// A char filter of type html_strip stripping out HTML elements from an analyzed text.
-		/// </summary>
-		public CharFiltersDescriptor HtmlStrip(string name, Func<HtmlStripCharFilterDescriptor, IHtmlStripCharFilter> selector = null) =>
-			Assign(name, selector.InvokeOrDefault(new HtmlStripCharFilterDescriptor()));
+        /// <summary>
+        /// A char filter of type html_strip stripping out HTML elements from an analyzed text.
+        /// </summary>
+        public CharFiltersDescriptor HtmlStrip(string name, Func<HtmlStripCharFilterDescriptor, IHtmlStripCharFilter> selector = null) =>
+            Assign(name, selector.InvokeOrDefault(new HtmlStripCharFilterDescriptor()));
 
-		/// <summary>
-		/// A char filter of type mapping replacing characters of an analyzed text with given mapping.
-		/// </summary>
-		public CharFiltersDescriptor Mapping(string name, Func<MappingCharFilterDescriptor, IMappingCharFilter> selector) =>
-			Assign(name, selector?.Invoke(new MappingCharFilterDescriptor()));
+        /// <summary>
+        /// A char filter of type mapping replacing characters of an analyzed text with given mapping.
+        /// </summary>
+        public CharFiltersDescriptor Mapping(string name, Func<MappingCharFilterDescriptor, IMappingCharFilter> selector) =>
+            Assign(name, selector?.Invoke(new MappingCharFilterDescriptor()));
 
-		/// <summary>
-		/// The kuromoji_iteration_mark normalizes Japanese horizontal iteration marks (odoriji) to their expanded form.
-		/// Part of the `analysis-kuromoji` plugin:
-		///
-		/// </summary>
-		public CharFiltersDescriptor KuromojiIterationMark(string name,
-			Func<KuromojiIterationMarkCharFilterDescriptor, IKuromojiIterationMarkCharFilter> selector = null
-		) =>
-			Assign(name, selector?.InvokeOrDefault(new KuromojiIterationMarkCharFilterDescriptor()));
+        /// <summary>
+        /// The kuromoji_iteration_mark normalizes Japanese horizontal iteration marks (odoriji) to their expanded form.
+        /// Part of the `analysis-kuromoji` plugin:
+        ///
+        /// </summary>
+        public CharFiltersDescriptor KuromojiIterationMark(string name,
+            Func<KuromojiIterationMarkCharFilterDescriptor, IKuromojiIterationMarkCharFilter> selector = null
+        ) =>
+            Assign(name, selector?.InvokeOrDefault(new KuromojiIterationMarkCharFilterDescriptor()));
 
-		/// <summary>
-		/// Normalizes as defined here: http://userguide.icu-project.org/transforms/normalization
-		/// Part of the `analysis-icu` plugin:
-		/// </summary>
-		public CharFiltersDescriptor IcuNormalization(string name, Func<IcuNormalizationCharFilterDescriptor, IIcuNormalizationCharFilter> selector
-		) =>
-			Assign(name, selector?.Invoke(new IcuNormalizationCharFilterDescriptor()));
-	}
+        /// <summary>
+        /// Normalizes as defined here: http://userguide.icu-project.org/transforms/normalization
+        /// Part of the `analysis-icu` plugin:
+        /// </summary>
+        public CharFiltersDescriptor IcuNormalization(string name, Func<IcuNormalizationCharFilterDescriptor, IIcuNormalizationCharFilter> selector
+        ) =>
+            Assign(name, selector?.Invoke(new IcuNormalizationCharFilterDescriptor()));
+    }
 }

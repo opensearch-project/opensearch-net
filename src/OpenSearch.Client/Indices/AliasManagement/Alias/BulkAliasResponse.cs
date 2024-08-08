@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class BulkAliasResponse : AcknowledgedResponseBase { }
+    public class BulkAliasResponse : AcknowledgedResponseBase { }
 }

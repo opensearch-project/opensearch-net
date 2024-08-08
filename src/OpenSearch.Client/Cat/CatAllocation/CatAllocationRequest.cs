@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.allocation.json")]
-	public partial interface ICatAllocationRequest { }
+    [MapsApi("cat.allocation.json")]
+    public partial interface ICatAllocationRequest { }
 
-	public partial class CatAllocationRequest { }
+    public partial class CatAllocationRequest { }
 
-	public partial class CatAllocationDescriptor { }
+    public partial class CatAllocationDescriptor { }
 }

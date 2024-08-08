@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.forcemerge.json")]
-	public partial interface IForceMergeRequest { }
+    [MapsApi("indices.forcemerge.json")]
+    public partial interface IForceMergeRequest { }
 
-	public partial class ForceMergeRequest { }
+    public partial class ForceMergeRequest { }
 
-	public partial class ForceMergeDescriptor { }
+    public partial class ForceMergeDescriptor { }
 }

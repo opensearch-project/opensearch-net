@@ -32,16 +32,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum ScriptLang
-	{
-		[EnumMember(Value = "painless")]
-		Painless,
+    [StringEnum]
+    public enum ScriptLang
+    {
+        [EnumMember(Value = "painless")]
+        Painless,
 
-		[EnumMember(Value = "expression")]
-		Expression,
+        [EnumMember(Value = "expression")]
+        Expression,
 
-		[EnumMember(Value = "mustache")]
-		Mustache,
-	}
+        [EnumMember(Value = "mustache")]
+        Mustache,
+    }
 }

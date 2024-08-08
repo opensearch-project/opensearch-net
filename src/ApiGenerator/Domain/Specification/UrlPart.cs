@@ -137,21 +137,21 @@ namespace ApiGenerator.Domain.Specification
         }
 
         public string InterfaceName =>
-			Name switch
-			{
-				"repository" => "RepositoryName",
-				_ => Name.ToPascalCase()
-			};
+            Name switch
+            {
+                "repository" => "RepositoryName",
+                _ => Name.ToPascalCase()
+            };
 
-		public string Name { get; set; }
+        public string Name { get; set; }
         public string NameAsArgument => Name.ToCamelCase();
         public bool Required { get; set; }
         public bool Deprecated { get; set; }
         public string Type { get; set; }
 
         private static string CleanUpDescription(string value) =>
-			string.IsNullOrWhiteSpace(value)
-				? value
-				: value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
-	}
+            string.IsNullOrWhiteSpace(value)
+                ? value
+                : value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
+    }
 }

@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("ping.json")]
-	public partial interface IPingRequest { }
+    [MapsApi("ping.json")]
+    public partial interface IPingRequest { }
 
-	public partial class PingRequest { }
+    public partial class PingRequest { }
 
-	public partial class PingDescriptor { }
+    public partial class PingDescriptor { }
 }

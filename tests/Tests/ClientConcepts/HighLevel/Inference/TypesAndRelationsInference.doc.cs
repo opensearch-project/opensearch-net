@@ -26,27 +26,27 @@
 *  under the License.
 */
 
-using FluentAssertions;
-using OpenSearch.Client;
 using System;
 using System.Runtime.Serialization;
+using FluentAssertions;
+using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
 using Xunit;
-using static Tests.Core.Serialization.SerializationTestHelper;
 using static OpenSearch.Client.Infer;
+using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.ClientConcepts.HighLevel.Inference
 {
-	/**[[types-and-relations-inference]]
+    /**[[types-and-relations-inference]]
 	*=== Relation names inference
 	*
 	*/
-	public class TypesAndRelationsInference : DocumentationTestBase
-	{
-		/**
+    public class TypesAndRelationsInference : DocumentationTestBase
+    {
+        /**
 		* [[relation-names]]
 		* [float]
 		* === Relation names
@@ -59,74 +59,76 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* Therefore we need a different type that translates a CLR type to a join relation. This can be configured seperately
 		* using `.RelationName()`
 		*/
-		[U] public void RelationNameConfiguration()
-		{
-			var settings = new ConnectionSettings()
-				.DefaultMappingFor<CommitActivity>(m => m
-					.IndexName("projects-and-commits")
-					.RelationName("commits")
-				)
-				.DefaultMappingFor<Project>(m => m
-					.IndexName("projects-and-commits")
-					.RelationName("projects")
-				);
+        [U]
+        public void RelationNameConfiguration()
+        {
+            var settings = new ConnectionSettings()
+                .DefaultMappingFor<CommitActivity>(m => m
+                    .IndexName("projects-and-commits")
+                    .RelationName("commits")
+                )
+                .DefaultMappingFor<Project>(m => m
+                    .IndexName("projects-and-commits")
+                    .RelationName("projects")
+                );
 
-			var resolver = new RelationNameResolver(settings);
-			var relation = resolver.Resolve<Project>();
-			relation.Should().Be("projects");
+            var resolver = new RelationNameResolver(settings);
+            var relation = resolver.Resolve<Project>();
+            relation.Should().Be("projects");
 
-			relation = resolver.Resolve<CommitActivity>();
-			relation.Should().Be("commits");
-		}
+            relation = resolver.Resolve<CommitActivity>();
+            relation.Should().Be("commits");
+        }
 
-		/**
+        /**
 		* `RelationName` uses the `DefaultTypeNameInferrer` to translate CLR types to a string representation.
 		*
 		* Explicit `TypeName` configuration does not affect how the default relation for the CLR type
 		* is represented though
 		*/
-		[U] public void TypeNameExplicitConfigurationDoesNotAffectRelationName()
-		{
-			var settings = new ConnectionSettings()
-				.DefaultMappingFor<Project>(m => m
-					.IndexName("projects-and-commits")
-				);
+        [U]
+        public void TypeNameExplicitConfigurationDoesNotAffectRelationName()
+        {
+            var settings = new ConnectionSettings()
+                .DefaultMappingFor<Project>(m => m
+                    .IndexName("projects-and-commits")
+                );
 
-			var resolver = new RelationNameResolver(settings);
-			var relation = resolver.Resolve<Project>();
-			relation.Should().Be("project");
-		}
+            var resolver = new RelationNameResolver(settings);
+            var relation = resolver.Resolve<Project>();
+            relation.Should().Be("project");
+        }
 
-		//hide
-		[U] public void RoundTripSerializationPreservesCluster()
-		{
-			Expect("project").WhenSerializing(Relation<Project>());
-		}
+        //hide
+        [U]
+        public void RoundTripSerializationPreservesCluster() => Expect("project").WhenSerializing(Relation<Project>());
 
-		//hide
-		[U] public void EqualsValidation()
-		{
-			var relation = (RelationName)"projects";
-			var relationOther = (RelationName)"p";
+        //hide
+        [U]
+        public void EqualsValidation()
+        {
+            var relation = (RelationName)"projects";
+            var relationOther = (RelationName)"p";
 
-			relation.Should().NotBe(relationOther);
-			relation.Should().Be("projects");
-			relation.Should().Be((RelationName)"projects");
+            relation.Should().NotBe(relationOther);
+            relation.Should().Be("projects");
+            relation.Should().Be((RelationName)"projects");
 
-			Relation<Project>().Should().Be(Relation<Project>());
-			Relation<Project>().Should().NotBe(Relation<Developer>());
-		}
+            Relation<Project>().Should().Be(Relation<Project>());
+            Relation<Project>().Should().NotBe(Relation<Developer>());
+        }
 
-		//hide
-		[U] public void GetHashCodeValidation()
-		{
-			var relation = (RelationName)"projects";
+        //hide
+        [U]
+        public void GetHashCodeValidation()
+        {
+            var relation = (RelationName)"projects";
 
-			relation.GetHashCode().Should().NotBe(0);
+            relation.GetHashCode().Should().NotBe(0);
 
-			Relation<Project>().GetHashCode().Should().Be(Relation<Project>().GetHashCode()).And.NotBe(0);
-			Relation<Project>().GetHashCode().Should().NotBe(Relation<Developer>().GetHashCode()).And.NotBe(0);
+            Relation<Project>().GetHashCode().Should().Be(Relation<Project>().GetHashCode()).And.NotBe(0);
+            Relation<Project>().GetHashCode().Should().NotBe(Relation<Developer>().GetHashCode()).And.NotBe(0);
 
-		}
-	}
+        }
+    }
 }

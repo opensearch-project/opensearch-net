@@ -31,18 +31,18 @@ using System.Threading.Tasks;
 
 namespace OpenSearch.Net
 {
-	public interface ITransport<out TConnectionSettings>
-		where TConnectionSettings : IConnectionConfigurationValues
+    public interface ITransport<out TConnectionSettings>
+        where TConnectionSettings : IConnectionConfigurationValues
 
-	{
-		TConnectionSettings Settings { get; }
+    {
+        TConnectionSettings Settings { get; }
 
-		TResponse Request<TResponse>(HttpMethod method, string path, PostData data = null, IRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new();
+        TResponse Request<TResponse>(HttpMethod method, string path, PostData data = null, IRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new();
 
-		Task<TResponse> RequestAsync<TResponse>(
-			HttpMethod method, string path, CancellationToken ctx, PostData data = null, IRequestParameters requestParameters = null
-		)
-			where TResponse : class, IOpenSearchResponse, new();
-	}
+        Task<TResponse> RequestAsync<TResponse>(
+            HttpMethod method, string path, CancellationToken ctx, PostData data = null, IRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+    }
 }

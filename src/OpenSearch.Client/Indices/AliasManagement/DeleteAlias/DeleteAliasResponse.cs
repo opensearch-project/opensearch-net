@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class DeleteAliasResponse : ResponseBase { }
+    public class DeleteAliasResponse : ResponseBase { }
 }

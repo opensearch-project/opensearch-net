@@ -28,10 +28,10 @@
 
 using System;
 using System.IO;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -39,53 +39,53 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Cat.CatSnapshots
 {
-	public class CatSnapshotsApiTests
-		: ApiIntegrationTestBase<IntrusiveOperationCluster, CatResponse<CatSnapshotsRecord>, ICatSnapshotsRequest, CatSnapshotsDescriptor,
-			CatSnapshotsRequest>
-	{
-		private static readonly string RepositoryName = RandomString();
-		private static readonly string SnapshotIndexName = RandomString();
-		private static readonly string SnapshotName = RandomString();
+    public class CatSnapshotsApiTests
+        : ApiIntegrationTestBase<IntrusiveOperationCluster, CatResponse<CatSnapshotsRecord>, ICatSnapshotsRequest, CatSnapshotsDescriptor,
+            CatSnapshotsRequest>
+    {
+        private static readonly string RepositoryName = RandomString();
+        private static readonly string SnapshotIndexName = RandomString();
+        private static readonly string SnapshotName = RandomString();
 
-		public CatSnapshotsApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        public CatSnapshotsApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.GET;
 
-		protected override string UrlPath => $"/_cat/snapshots/{RepositoryName}";
+        protected override string UrlPath => $"/_cat/snapshots/{RepositoryName}";
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			if (!TestClient.Configuration.RunIntegrationTests) return;
+        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+        {
+            if (!TestClient.Configuration.RunIntegrationTests) return;
 
-			var repositoryLocation = Path.Combine(Cluster.FileSystem.RepositoryPath, RandomString());
+            var repositoryLocation = Path.Combine(Cluster.FileSystem.RepositoryPath, RandomString());
 
-			var create = Client.Snapshot.CreateRepository(RepositoryName, cr => cr
-				.FileSystem(fs => fs
-					.Settings(repositoryLocation)
-				)
-			);
+            var create = Client.Snapshot.CreateRepository(RepositoryName, cr => cr
+                .FileSystem(fs => fs
+                    .Settings(repositoryLocation)
+                )
+            );
 
-			if (!create.IsValid || !create.Acknowledged)
-				throw new Exception("Setup: failed to create snapshot repository");
+            if (!create.IsValid || !create.Acknowledged)
+                throw new Exception("Setup: failed to create snapshot repository");
 
-			Client.Indices.Create(SnapshotIndexName);
-			Client.Cluster.Health(SnapshotIndexName, g => g.WaitForStatus(HealthStatus.Yellow));
-			client.Snapshot.Snapshot(RepositoryName, SnapshotName, s => s.WaitForCompletion().Index(SnapshotIndexName));
-		}
+            Client.Indices.Create(SnapshotIndexName);
+            Client.Cluster.Health(SnapshotIndexName, g => g.WaitForStatus(HealthStatus.Yellow));
+            client.Snapshot.Snapshot(RepositoryName, SnapshotName, s => s.WaitForCompletion().Index(SnapshotIndexName));
+        }
 
-		protected override CatSnapshotsRequest Initializer => new CatSnapshotsRequest(RepositoryName);
-		protected override Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> Fluent => f => f.RepositoryName(RepositoryName);
+        protected override CatSnapshotsRequest Initializer => new CatSnapshotsRequest(RepositoryName);
+        protected override Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> Fluent => f => f.RepositoryName(RepositoryName);
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Snapshots(f),
-			(client, f) => client.Cat.SnapshotsAsync(f),
-			(client, r) => client.Cat.Snapshots(r),
-			(client, r) => client.Cat.SnapshotsAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Cat.Snapshots(f),
+            (client, f) => client.Cat.SnapshotsAsync(f),
+            (client, r) => client.Cat.Snapshots(r),
+            (client, r) => client.Cat.SnapshotsAsync(r)
+        );
 
-		protected override void ExpectResponse(CatResponse<CatSnapshotsRecord> response) =>
-			response.Records.Should().NotBeEmpty().And.OnlyContain(r => r.Status == "SUCCESS");
-	}
+        protected override void ExpectResponse(CatResponse<CatSnapshotsRecord> response) =>
+            response.Records.Should().NotBeEmpty().And.OnlyContain(r => r.Status == "SUCCESS");
+    }
 }

@@ -30,12 +30,13 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(PercentageScoreHeuristic))]
-	public interface IPercentageScoreHeuristic { }
+    [InterfaceDataContract]
+    [ReadAs(typeof(PercentageScoreHeuristic))]
+    public interface IPercentageScoreHeuristic { }
 
-	public class PercentageScoreHeuristic : IPercentageScoreHeuristic { }
+    public class PercentageScoreHeuristic : IPercentageScoreHeuristic { }
 
-	public class PercentageScoreHeuristicDescriptor
-		: DescriptorBase<PercentageScoreHeuristicDescriptor, IPercentageScoreHeuristic>, IPercentageScoreHeuristic { }
+    public class PercentageScoreHeuristicDescriptor
+        : DescriptorBase<PercentageScoreHeuristicDescriptor, IPercentageScoreHeuristic>, IPercentageScoreHeuristic
+    { }
 }

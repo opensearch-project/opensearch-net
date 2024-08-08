@@ -31,10 +31,10 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	internal static class JsonFormatterResolverExtensions
-	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IConnectionSettingsValues GetConnectionSettings(this IJsonFormatterResolver formatterResolver) =>
-			((IJsonFormatterResolverWithSettings)formatterResolver).Settings;
-	}
+    internal static class JsonFormatterResolverExtensions
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IConnectionSettingsValues GetConnectionSettings(this IJsonFormatterResolver formatterResolver) =>
+            ((IJsonFormatterResolverWithSettings)formatterResolver).Settings;
+    }
 }

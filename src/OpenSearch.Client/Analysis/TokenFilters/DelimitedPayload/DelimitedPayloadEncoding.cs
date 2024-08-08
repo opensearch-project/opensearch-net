@@ -31,16 +31,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum DelimitedPayloadEncoding
-	{
-		[EnumMember(Value = "int")]
-		Integer,
+    [StringEnum]
+    public enum DelimitedPayloadEncoding
+    {
+        [EnumMember(Value = "int")]
+        Integer,
 
-		[EnumMember(Value = "float")]
-		Float,
+        [EnumMember(Value = "float")]
+        Float,
 
-		[EnumMember(Value = "identity")]
-		Identity,
-	}
+        [EnumMember(Value = "identity")]
+        Identity,
+    }
 }

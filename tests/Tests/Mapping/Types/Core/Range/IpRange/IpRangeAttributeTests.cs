@@ -26,28 +26,28 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Mapping.Types.Core.Range.IpRange
 {
-	public class IpRangeTest
-	{
-		[IpRange]
-		public IpAddressRange Range { get; set; }
-	}
+    public class IpRangeTest
+    {
+        [IpRange]
+        public IpAddressRange Range { get; set; }
+    }
 
-	public class IpRangeAttributeTests : AttributeTestsBase<IpRangeTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				range = new
-				{
-					type = "ip_range"
-				}
-			}
-		};
-	}
+    public class IpRangeAttributeTests : AttributeTestsBase<IpRangeTest>
+    {
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                range = new
+                {
+                    type = "ip_range"
+                }
+            }
+        };
+    }
 }

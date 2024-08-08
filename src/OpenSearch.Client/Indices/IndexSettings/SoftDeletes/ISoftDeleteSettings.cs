@@ -30,24 +30,24 @@ using System;
 
 namespace OpenSearch.Client
 {
-	public interface ISoftDeleteSettings
-	{
-		/// <summary> Configure the retention of soft deletes on the index</summary>
-		ISoftDeleteRetentionSettings Retention { get; set; }
-	}
+    public interface ISoftDeleteSettings
+    {
+        /// <summary> Configure the retention of soft deletes on the index</summary>
+        ISoftDeleteRetentionSettings Retention { get; set; }
+    }
 
-	public class SoftDeleteSettings : ISoftDeleteSettings
-	{
-		/// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
-		public ISoftDeleteRetentionSettings Retention { get; set; }
-	}
+    public class SoftDeleteSettings : ISoftDeleteSettings
+    {
+        /// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
+        public ISoftDeleteRetentionSettings Retention { get; set; }
+    }
 
-	public class SoftDeleteSettingsDescriptor : DescriptorBase<SoftDeleteSettingsDescriptor, ISoftDeleteSettings>, ISoftDeleteSettings
-	{
-		ISoftDeleteRetentionSettings ISoftDeleteSettings.Retention { get; set; }
+    public class SoftDeleteSettingsDescriptor : DescriptorBase<SoftDeleteSettingsDescriptor, ISoftDeleteSettings>, ISoftDeleteSettings
+    {
+        ISoftDeleteRetentionSettings ISoftDeleteSettings.Retention { get; set; }
 
-		/// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
-		public SoftDeleteSettingsDescriptor Retention(Func<SoftDeleteRetentionSettingsDescriptor, ISoftDeleteRetentionSettings> selector) =>
-			Assign(selector.Invoke(new SoftDeleteRetentionSettingsDescriptor()), (a, v) => a.Retention = v);
-	}
+        /// <inheritdoc cref="ISoftDeleteSettings.Retention"/>
+        public SoftDeleteSettingsDescriptor Retention(Func<SoftDeleteRetentionSettingsDescriptor, ISoftDeleteRetentionSettings> selector) =>
+            Assign(selector.Invoke(new SoftDeleteRetentionSettingsDescriptor()), (a, v) => a.Retention = v);
+    }
 }

@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.get_repository.json")]
-	public partial interface IGetRepositoryRequest { }
+    [MapsApi("snapshot.get_repository.json")]
+    public partial interface IGetRepositoryRequest { }
 
-	public partial class GetRepositoryRequest { }
+    public partial class GetRepositoryRequest { }
 
-	public partial class GetRepositoryDescriptor { }
+    public partial class GetRepositoryDescriptor { }
 }

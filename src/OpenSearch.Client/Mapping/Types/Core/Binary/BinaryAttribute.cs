@@ -30,9 +30,9 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class BinaryAttribute : OpenSearchDocValuesPropertyAttributeBase, IBinaryProperty
-	{
-		public BinaryAttribute() : base(FieldType.Binary) { }
-	}
+    [DataContract]
+    public class BinaryAttribute : OpenSearchDocValuesPropertyAttributeBase, IBinaryProperty
+    {
+        public BinaryAttribute() : base(FieldType.Binary) { }
+    }
 }

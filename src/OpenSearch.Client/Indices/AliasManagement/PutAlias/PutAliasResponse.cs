@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class PutAliasResponse : ResponseBase { }
+    public class PutAliasResponse : ResponseBase { }
 }

@@ -28,17 +28,17 @@
 
 namespace OpenSearch.Net
 {
-	public enum PipelineFailure
-	{
-		BadAuthentication,
-		BadResponse,
-		PingFailure,
-		SniffFailure,
-		CouldNotStartSniffOnStartup,
-		MaxTimeoutReached,
-		MaxRetriesReached,
-		Unexpected,
-		BadRequest,
-		NoNodesAttempted
-	}
+    public enum PipelineFailure
+    {
+        BadAuthentication,
+        BadResponse,
+        PingFailure,
+        SniffFailure,
+        CouldNotStartSniffOnStartup,
+        MaxTimeoutReached,
+        MaxRetriesReached,
+        Unexpected,
+        BadRequest,
+        NoNodesAttempted
+    }
 }

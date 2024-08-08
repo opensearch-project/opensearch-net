@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GeoTree
-	{
-		[EnumMember(Value = "geohash")]
-		Geohash,
+    [StringEnum]
+    public enum GeoTree
+    {
+        [EnumMember(Value = "geohash")]
+        Geohash,
 
-		[EnumMember(Value = "quadtree")]
-		Quadtree
-	}
+        [EnumMember(Value = "quadtree")]
+        Quadtree
+    }
 }

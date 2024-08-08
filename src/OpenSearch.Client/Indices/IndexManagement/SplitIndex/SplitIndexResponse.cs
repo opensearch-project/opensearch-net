@@ -30,9 +30,9 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public class SplitIndexResponse : AcknowledgedResponseBase
-	{
-		[DataMember(Name ="shards_acknowledged")]
-		public bool ShardsAcknowledged { get; internal set; }
-	}
+    public class SplitIndexResponse : AcknowledgedResponseBase
+    {
+        [DataMember(Name = "shards_acknowledged")]
+        public bool ShardsAcknowledged { get; internal set; }
+    }
 }

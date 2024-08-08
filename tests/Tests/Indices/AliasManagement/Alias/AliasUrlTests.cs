@@ -27,19 +27,20 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.AliasManagement.Alias
 {
-	public class AliasUrlTests
-	{
-		[U] public async Task Urls() => await POST($"/_aliases")
-			.Fluent(c => c.Indices.BulkAlias(b => b))
-			.Request(c => c.Indices.BulkAlias(new BulkAliasRequest()))
-			.FluentAsync(c => c.Indices.BulkAliasAsync(b => b))
-			.RequestAsync(c => c.Indices.BulkAliasAsync(new BulkAliasRequest()));
-	}
+    public class AliasUrlTests
+    {
+        [U]
+        public async Task Urls() => await POST($"/_aliases")
+            .Fluent(c => c.Indices.BulkAlias(b => b))
+            .Request(c => c.Indices.BulkAlias(new BulkAliasRequest()))
+            .FluentAsync(c => c.Indices.BulkAliasAsync(b => b))
+            .RequestAsync(c => c.Indices.BulkAliasAsync(new BulkAliasRequest()));
+    }
 }

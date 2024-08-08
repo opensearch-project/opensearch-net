@@ -32,14 +32,14 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	// ReSharper disable once InconsistentNaming
-	public enum IBDistribution
-	{
-		[EnumMember(Value = "ll")]
-		LogLogistic,
+    [StringEnum]
+    // ReSharper disable once InconsistentNaming
+    public enum IBDistribution
+    {
+        [EnumMember(Value = "ll")]
+        LogLogistic,
 
-		[EnumMember(Value = "spl")]
-		SmoothPowerLaw,
-	}
+        [EnumMember(Value = "spl")]
+        SmoothPowerLaw,
+    }
 }

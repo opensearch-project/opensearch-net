@@ -31,34 +31,34 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	internal class JsonNetCompatibleUriFormatter : IJsonFormatter<Uri>
-	{
-		public void Serialize(ref JsonWriter writer, Uri value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+    internal class JsonNetCompatibleUriFormatter : IJsonFormatter<Uri>
+    {
+        public void Serialize(ref JsonWriter writer, Uri value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+            {
+                writer.WriteNull();
+                return;
+            }
 
-			// JSON.NET uses .OriginalString and not the canonical form returned by .ToString()
-			// See https://github.com/JamesNK/Newtonsoft.Json/blob/0ce23ff92459619fde10a5cec0a336ab00a08b4c/Src/Newtonsoft.Json/JsonTextWriter.cs#L769
-			writer.WriteString(value.OriginalString);
-		}
+            // JSON.NET uses .OriginalString and not the canonical form returned by .ToString()
+            // See https://github.com/JamesNK/Newtonsoft.Json/blob/0ce23ff92459619fde10a5cec0a336ab00a08b4c/Src/Newtonsoft.Json/JsonTextWriter.cs#L769
+            writer.WriteString(value.OriginalString);
+        }
 
-		public Uri Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
-			switch (token)
-			{
-				case JsonToken.String:
-					return new Uri(reader.ReadString(), UriKind.RelativeOrAbsolute);
-				case JsonToken.Null:
-					reader.ReadNext();
-					return null;
-				default:
-					throw new Exception($"Cannot deserialize {typeof(Uri).FullName} from {token}");
-			}
-		}
-	}
+        public Uri Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            var token = reader.GetCurrentJsonToken();
+            switch (token)
+            {
+                case JsonToken.String:
+                    return new Uri(reader.ReadString(), UriKind.RelativeOrAbsolute);
+                case JsonToken.Null:
+                    reader.ReadNext();
+                    return null;
+                default:
+                    throw new Exception($"Cannot deserialize {typeof(Uri).FullName} from {token}");
+            }
+        }
+    }
 }

@@ -28,19 +28,19 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-	public class GithubIssue3715
-	{
-		[U]
-		public void CanDeserializeExtendedStats()
-		{
-			var json = @"{
+    public class GithubIssue3715
+    {
+        [U]
+        public void CanDeserializeExtendedStats()
+        {
+            var json = @"{
     ""took"": 99,
     ""timed_out"": false,
     ""_shards"": {
@@ -630,52 +630,52 @@ namespace Tests.Reproduce
     }
 }";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
+            var bytes = Encoding.UTF8.GetBytes(json);
 
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
-			var client = new OpenSearchClient(connectionSettings);
+            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
+            var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.Search<object>(s => s);
-			var filterAgg = response.Aggregations.Filter("filter");
-			filterAgg.Should().NotBeNull();
-			filterAgg.DocCount.Should().Be(285903);
+            var response = client.Search<object>(s => s);
+            var filterAgg = response.Aggregations.Filter("filter");
+            filterAgg.Should().NotBeNull();
+            filterAgg.DocCount.Should().Be(285903);
 
-			var termsAggregate = filterAgg.Terms("d");
-			termsAggregate.Should().NotBeNull();
-			termsAggregate.DocCountErrorUpperBound.Should().Be(0);
-			termsAggregate.SumOtherDocCount.Should().Be(0);
+            var termsAggregate = filterAgg.Terms("d");
+            termsAggregate.Should().NotBeNull();
+            termsAggregate.DocCountErrorUpperBound.Should().Be(0);
+            termsAggregate.SumOtherDocCount.Should().Be(0);
 
-			foreach (var bucket in termsAggregate.Buckets)
-			{
-				bucket.Key.Should().NotBeNullOrEmpty();
-				bucket.DocCount.Should().BeGreaterThan(0);
+            foreach (var bucket in termsAggregate.Buckets)
+            {
+                bucket.Key.Should().NotBeNullOrEmpty();
+                bucket.DocCount.Should().BeGreaterThan(0);
 
-				AssertPercentilesAggregate(bucket, "pp");
-				AssertPercentilesAggregate(bucket, "tp");
-				AssertPercentilesAggregate(bucket, "dp");
-				AssertPercentilesAggregate(bucket, "qp");
+                AssertPercentilesAggregate(bucket, "pp");
+                AssertPercentilesAggregate(bucket, "tp");
+                AssertPercentilesAggregate(bucket, "dp");
+                AssertPercentilesAggregate(bucket, "qp");
 
-				AssertExtendedStats(bucket, "qs");
-				AssertExtendedStats(bucket, "ps");
-				AssertExtendedStats(bucket, "ts");
-				AssertExtendedStats(bucket, "ds");
-			}
-		}
+                AssertExtendedStats(bucket, "qs");
+                AssertExtendedStats(bucket, "ps");
+                AssertExtendedStats(bucket, "ts");
+                AssertExtendedStats(bucket, "ds");
+            }
+        }
 
-		private static void AssertExtendedStats(AggregateDictionary bucket, string name)
-		{
-			var extendedStatsAggregate = bucket.ExtendedStats(name);
-			extendedStatsAggregate.Should().NotBeNull();
-			extendedStatsAggregate.Count.Should().BeGreaterOrEqualTo(0);
-			extendedStatsAggregate.StdDeviationBounds.Should().NotBeNull();
-		}
+        private static void AssertExtendedStats(AggregateDictionary bucket, string name)
+        {
+            var extendedStatsAggregate = bucket.ExtendedStats(name);
+            extendedStatsAggregate.Should().NotBeNull();
+            extendedStatsAggregate.Count.Should().BeGreaterOrEqualTo(0);
+            extendedStatsAggregate.StdDeviationBounds.Should().NotBeNull();
+        }
 
-		private static void AssertPercentilesAggregate(AggregateDictionary bucket, string name)
-		{
-			var percentilesAggregate = bucket.Percentiles(name);
-			percentilesAggregate.Should().NotBeNull();
-			percentilesAggregate.Items.Should().HaveCount(1).And.Contain(p => Math.Abs(p.Percentile - 50d) < double.Epsilon);
-		}
-	}
+        private static void AssertPercentilesAggregate(AggregateDictionary bucket, string name)
+        {
+            var percentilesAggregate = bucket.Percentiles(name);
+            percentilesAggregate.Should().NotBeNull();
+            percentilesAggregate.Items.Should().HaveCount(1).And.Contain(p => Math.Abs(p.Percentile - 50d) < double.Epsilon);
+        }
+    }
 }

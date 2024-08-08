@@ -31,29 +31,29 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(InlineGet<>))]
-	public interface IInlineGet<out TDocument> where TDocument : class
-	{
-		[DataMember(Name = "fields")]
-		FieldValues Fields { get; }
+    [InterfaceDataContract]
+    [ReadAs(typeof(InlineGet<>))]
+    public interface IInlineGet<out TDocument> where TDocument : class
+    {
+        [DataMember(Name = "fields")]
+        FieldValues Fields { get; }
 
-		[DataMember(Name = "found")]
-		bool Found { get; }
+        [DataMember(Name = "found")]
+        bool Found { get; }
 
-		[DataMember(Name = "_source")]
-		[JsonFormatter(typeof(SourceFormatter<>))]
-		TDocument Source { get; }
-	}
+        [DataMember(Name = "_source")]
+        [JsonFormatter(typeof(SourceFormatter<>))]
+        TDocument Source { get; }
+    }
 
 
-	public class InlineGet<TDocument> : IInlineGet<TDocument>
-		where TDocument : class
-	{
-		public FieldValues Fields { get; internal set; }
+    public class InlineGet<TDocument> : IInlineGet<TDocument>
+        where TDocument : class
+    {
+        public FieldValues Fields { get; internal set; }
 
-		public bool Found { get; internal set; }
+        public bool Found { get; internal set; }
 
-		public TDocument Source { get; internal set; }
-	}
+        public TDocument Source { get; internal set; }
+    }
 }

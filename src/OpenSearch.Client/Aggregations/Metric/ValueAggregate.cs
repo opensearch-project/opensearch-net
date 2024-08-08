@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	public class ValueAggregate : MetricAggregateBase
-	{
-		public double? Value { get; set; }
+    public class ValueAggregate : MetricAggregateBase
+    {
+        public double? Value { get; set; }
 
-		public string ValueAsString { get; set; }
-	}
+        public string ValueAsString { get; set; }
+    }
 }

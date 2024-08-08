@@ -34,35 +34,35 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// Block type for an index.
-	/// </summary>
-	public class IndexBlock : IUrlParameter
-	{
-		private IndexBlock(string value) => Value = value;
+    /// <summary>
+    /// Block type for an index.
+    /// </summary>
+    public class IndexBlock : IUrlParameter
+    {
+        private IndexBlock(string value) => Value = value;
 
-		public string Value { get; }
+        public string Value { get; }
 
-		public string GetString(IConnectionConfigurationValues settings) => Value;
+        public string GetString(IConnectionConfigurationValues settings) => Value;
 
-		/// <summary>
-		/// Disable metadata changes, such as closing the index.
-		/// </summary>
-		public static IndexBlock Metadata { get; } = new IndexBlock("metadata");
+        /// <summary>
+        /// Disable metadata changes, such as closing the index.
+        /// </summary>
+        public static IndexBlock Metadata { get; } = new IndexBlock("metadata");
 
-		/// <summary>
-		/// Disable read operations.
-		/// </summary>
-		public static IndexBlock Read { get; } = new IndexBlock("read");
+        /// <summary>
+        /// Disable read operations.
+        /// </summary>
+        public static IndexBlock Read { get; } = new IndexBlock("read");
 
-		/// <summary>
-		/// Disable write operations and metadata changes.
-		/// </summary>
-		public static IndexBlock ReadOnly { get; } = new IndexBlock("read_only");
+        /// <summary>
+        /// Disable write operations and metadata changes.
+        /// </summary>
+        public static IndexBlock ReadOnly { get; } = new IndexBlock("read_only");
 
-		/// <summary>
-		/// Disable write operations. However, metadata changes are still allowed.
-		/// </summary>
-		public static IndexBlock Write { get; } = new IndexBlock("write");
-	}
+        /// <summary>
+        /// Disable write operations. However, metadata changes are still allowed.
+        /// </summary>
+        public static IndexBlock Write { get; } = new IndexBlock("write");
+    }
 }

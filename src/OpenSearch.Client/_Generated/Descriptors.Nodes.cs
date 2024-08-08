@@ -231,7 +231,8 @@ namespace OpenSearch.Client
                 r.Optional("node_id", nodeId)
                     .Optional("metric", metric)
                     .Optional("index_metric", indexMetric)
-            ) { }
+            )
+        { }
 
         // values part of the url path
         IndexMetrics INodesStatsRequest.IndexMetric =>

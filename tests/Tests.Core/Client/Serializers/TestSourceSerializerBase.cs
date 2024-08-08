@@ -27,34 +27,34 @@
 */
 
 using System.Collections.Generic;
-using OpenSearch.Net;
-using OpenSearch.Client;
-using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using OpenSearch.Client;
+using OpenSearch.Client.JsonNetSerializer;
+using OpenSearch.Net;
 using Tests.Domain;
 
 namespace Tests.Core.Client.Serializers
 {
-	public class TestSourceSerializerBase : ConnectionSettingsAwareSerializerBase
-	{
-		public TestSourceSerializerBase(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
-			: base(builtinSerializer, connectionSettings) { }
+    public class TestSourceSerializerBase : ConnectionSettingsAwareSerializerBase
+    {
+        public TestSourceSerializerBase(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
+            : base(builtinSerializer, connectionSettings) { }
 
-		protected override JsonSerializerSettings CreateJsonSerializerSettings() =>
-			new JsonSerializerSettings
-			{
-				NullValueHandling = NullValueHandling.Ignore,
-				DefaultValueHandling = DefaultValueHandling.Include
-			};
+        protected override JsonSerializerSettings CreateJsonSerializerSettings() =>
+            new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.Include
+            };
 
-		protected override IEnumerable<JsonConverter> CreateJsonConverters()
-		{
-			yield return new SourceOnlyUsingBuiltInConverter();
-			yield return new Domain.JsonConverters.DateTimeConverter();
-		}
+        protected override IEnumerable<JsonConverter> CreateJsonConverters()
+        {
+            yield return new SourceOnlyUsingBuiltInConverter();
+            yield return new Domain.JsonConverters.DateTimeConverter();
+        }
 
-		protected override void ModifyContractResolver(ConnectionSettingsAwareContractResolver resolver) =>
-			resolver.NamingStrategy = new CamelCaseNamingStrategy();
-	}
+        protected override void ModifyContractResolver(ConnectionSettingsAwareContractResolver resolver) =>
+            resolver.NamingStrategy = new CamelCaseNamingStrategy();
+    }
 }

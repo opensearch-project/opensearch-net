@@ -27,32 +27,32 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.ClientConcepts.Connection
 {
-	public class SecureStringsTests
-	{
-		[U]
-		public void CreateStringMatchesOriginalString()
-		{
-			var password = "password";
-			var secureString = password.CreateSecureString();
-			var count = 100;
-			var tasks = new Task<string>[count];
+    public class SecureStringsTests
+    {
+        [U]
+        public void CreateStringMatchesOriginalString()
+        {
+            var password = "password";
+            var secureString = password.CreateSecureString();
+            var count = 100;
+            var tasks = new Task<string>[count];
 
-			for (var i = 0; i < count; i++)
-				tasks[i] = new Task<string>(() => secureString.CreateString());
+            for (var i = 0; i < count; i++)
+                tasks[i] = new Task<string>(() => secureString.CreateString());
 
-			for (var i = 0; i < count; i++)
-				tasks[i].Start();
+            for (var i = 0; i < count; i++)
+                tasks[i].Start();
 
-			Task.WaitAll(tasks);
+            Task.WaitAll(tasks);
 
-			for (var i = 0; i < count; i++)
-				tasks[i].Result.Should().Be(password);
-		}
-	}
+            for (var i = 0; i < count; i++)
+                tasks[i].Result.Should().Be(password);
+        }
+    }
 }

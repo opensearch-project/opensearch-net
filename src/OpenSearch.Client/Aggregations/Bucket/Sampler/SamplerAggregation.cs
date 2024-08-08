@@ -32,30 +32,30 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(SamplerAggregation))]
-	public interface ISamplerAggregation : IBucketAggregation
-	{
-		[DataMember(Name ="shard_size")]
-		int? ShardSize { get; set; }
-	}
+    [InterfaceDataContract]
+    [ReadAs(typeof(SamplerAggregation))]
+    public interface ISamplerAggregation : IBucketAggregation
+    {
+        [DataMember(Name = "shard_size")]
+        int? ShardSize { get; set; }
+    }
 
-	public class SamplerAggregation : BucketAggregationBase, ISamplerAggregation
-	{
-		internal SamplerAggregation() { }
+    public class SamplerAggregation : BucketAggregationBase, ISamplerAggregation
+    {
+        internal SamplerAggregation() { }
 
-		public SamplerAggregation(string name) : base(name) { }
+        public SamplerAggregation(string name) : base(name) { }
 
-		public int? ShardSize { get; set; }
+        public int? ShardSize { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.Sampler = this;
-	}
+        internal override void WrapInContainer(AggregationContainer c) => c.Sampler = this;
+    }
 
-	public class SamplerAggregationDescriptor<T>
-		: BucketAggregationDescriptorBase<SamplerAggregationDescriptor<T>, ISamplerAggregation, T>, ISamplerAggregation
-		where T : class
-	{
-		int? ISamplerAggregation.ShardSize { get; set; }
-		public SamplerAggregationDescriptor<T> ShardSize(int? shardSize) => Assign(shardSize, (a, v) => a.ShardSize = v);
-	}
+    public class SamplerAggregationDescriptor<T>
+        : BucketAggregationDescriptorBase<SamplerAggregationDescriptor<T>, ISamplerAggregation, T>, ISamplerAggregation
+        where T : class
+    {
+        int? ISamplerAggregation.ShardSize { get; set; }
+        public SamplerAggregationDescriptor<T> ShardSize(int? shardSize) => Assign(shardSize, (a, v) => a.ShardSize = v);
+    }
 }

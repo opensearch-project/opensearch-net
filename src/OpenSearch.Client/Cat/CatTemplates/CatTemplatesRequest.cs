@@ -30,12 +30,12 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.templates.json")]
-	public partial interface ICatTemplatesRequest { }
+    [MapsApi("cat.templates.json")]
+    public partial interface ICatTemplatesRequest { }
 
-	public partial class CatTemplatesRequest { }
+    public partial class CatTemplatesRequest { }
 
-	public partial class CatTemplatesDescriptor { }
+    public partial class CatTemplatesDescriptor { }
 }
 
 #pragma warning restore 612, 618

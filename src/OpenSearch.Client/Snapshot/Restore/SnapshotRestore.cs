@@ -32,16 +32,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class SnapshotRestore
-	{
-		[DataMember(Name ="indices")]
-		public IReadOnlyCollection<IndexName> Indices { get; internal set; } =
-			EmptyReadOnly<IndexName>.Collection;
+    public class SnapshotRestore
+    {
+        [DataMember(Name = "indices")]
+        public IReadOnlyCollection<IndexName> Indices { get; internal set; } =
+            EmptyReadOnly<IndexName>.Collection;
 
-		[DataMember(Name ="snapshot")]
-		public string Name { get; internal set; }
+        [DataMember(Name = "snapshot")]
+        public string Name { get; internal set; }
 
-		[DataMember(Name ="shards")]
-		public ShardStatistics Shards { get; internal set; }
-	}
+        [DataMember(Name = "shards")]
+        public ShardStatistics Shards { get; internal set; }
+    }
 }

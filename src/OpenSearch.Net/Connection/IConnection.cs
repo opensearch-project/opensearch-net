@@ -32,12 +32,12 @@ using System.Threading.Tasks;
 
 namespace OpenSearch.Net
 {
-	public interface IConnection : IDisposable
-	{
-		Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
-			where TResponse : class, IOpenSearchResponse, new();
+    public interface IConnection : IDisposable
+    {
+        Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+            where TResponse : class, IOpenSearchResponse, new();
 
-		TResponse Request<TResponse>(RequestData requestData)
-			where TResponse : class, IOpenSearchResponse, new();
-	}
+        TResponse Request<TResponse>(RequestData requestData)
+            where TResponse : class, IOpenSearchResponse, new();
+    }
 }

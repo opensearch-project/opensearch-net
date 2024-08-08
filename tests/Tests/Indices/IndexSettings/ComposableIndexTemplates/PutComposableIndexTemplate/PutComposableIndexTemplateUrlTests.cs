@@ -15,14 +15,15 @@ namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.PutComposableInde
 
 public class PutComposableIndexTemplateUrlTests
 {
-	[U] public async Task Urls()
-	{
-		const string name = "temp";
-		await PUT($"/_index_template/{name}")
-				.Fluent(c => c.Indices.PutComposableTemplate(name, p => p))
-				.Request(c => c.Indices.PutComposableTemplate(new PutComposableIndexTemplateRequest(name)))
-				.FluentAsync(c => c.Indices.PutComposableTemplateAsync(name, p => p))
-				.RequestAsync(c => c.Indices.PutComposableTemplateAsync(new PutComposableIndexTemplateRequest(name)))
-			;
-	}
+    [U]
+    public async Task Urls()
+    {
+        const string name = "temp";
+        await PUT($"/_index_template/{name}")
+                .Fluent(c => c.Indices.PutComposableTemplate(name, p => p))
+                .Request(c => c.Indices.PutComposableTemplate(new PutComposableIndexTemplateRequest(name)))
+                .FluentAsync(c => c.Indices.PutComposableTemplateAsync(name, p => p))
+                .RequestAsync(c => c.Indices.PutComposableTemplateAsync(new PutComposableIndexTemplateRequest(name)))
+            ;
+    }
 }

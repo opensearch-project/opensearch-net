@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class DeleteIndexTemplateResponse : AcknowledgedResponseBase { }
+    public class DeleteIndexTemplateResponse : AcknowledgedResponseBase { }
 }

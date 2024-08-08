@@ -15,14 +15,15 @@ namespace Tests.Cluster.ComponentTemplate;
 
 public class ComponentTemplateExistsUrlTests
 {
-	[U] public async Task Urls()
-	{
-		var name = "temp";
-		await HEAD($"/_component_template/{name}")
-				.Fluent(c => c.Cluster.ComponentTemplateExists(name))
-				.Request(c => c.Cluster.ComponentTemplateExists(new ComponentTemplateExistsRequest(name)))
-				.FluentAsync(c => c.Cluster.ComponentTemplateExistsAsync(name))
-				.RequestAsync(c => c.Cluster.ComponentTemplateExistsAsync(new ComponentTemplateExistsRequest(name)))
-			;
-	}
+    [U]
+    public async Task Urls()
+    {
+        var name = "temp";
+        await HEAD($"/_component_template/{name}")
+                .Fluent(c => c.Cluster.ComponentTemplateExists(name))
+                .Request(c => c.Cluster.ComponentTemplateExists(new ComponentTemplateExistsRequest(name)))
+                .FluentAsync(c => c.Cluster.ComponentTemplateExistsAsync(name))
+                .RequestAsync(c => c.Cluster.ComponentTemplateExistsAsync(new ComponentTemplateExistsRequest(name)))
+            ;
+    }
 }

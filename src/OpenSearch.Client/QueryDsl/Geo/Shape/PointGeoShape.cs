@@ -32,21 +32,21 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(GeoShapeFormatter<IPointGeoShape>))]
-	public interface IPointGeoShape : IGeoShape
-	{
-		[DataMember(Name ="coordinates")]
-		GeoCoordinate Coordinates { get; set; }
-	}
+    [JsonFormatter(typeof(GeoShapeFormatter<IPointGeoShape>))]
+    public interface IPointGeoShape : IGeoShape
+    {
+        [DataMember(Name = "coordinates")]
+        GeoCoordinate Coordinates { get; set; }
+    }
 
-	[JsonFormatter(typeof(GeoShapeFormatter<PointGeoShape>))]
-	public class PointGeoShape : GeoShapeBase, IPointGeoShape
-	{
-		internal PointGeoShape() : base("point") { }
+    [JsonFormatter(typeof(GeoShapeFormatter<PointGeoShape>))]
+    public class PointGeoShape : GeoShapeBase, IPointGeoShape
+    {
+        internal PointGeoShape() : base("point") { }
 
-		public PointGeoShape(GeoCoordinate coordinates) : this() =>
-			Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
+        public PointGeoShape(GeoCoordinate coordinates) : this() =>
+            Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
 
-		public GeoCoordinate Coordinates { get; set; }
-	}
+        public GeoCoordinate Coordinates { get; set; }
+    }
 }

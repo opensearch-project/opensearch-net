@@ -34,54 +34,54 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Mapping.Types.Core.Date
 {
-	public class DatePropertyTests : PropertyTestsBase
-	{
-		public DatePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class DatePropertyTests : PropertyTestsBase
+    {
+        public DatePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				lastActivity = new
-				{
-					type = "date",
-					doc_values = false,
-					store = true,
-					index = false,
-					boost = 1.2,
-					ignore_malformed = true,
-					format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
-					null_value = DateTime.MinValue
-				}
-			}
-		};
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                lastActivity = new
+                {
+                    type = "date",
+                    doc_values = false,
+                    store = true,
+                    index = false,
+                    boost = 1.2,
+                    ignore_malformed = true,
+                    format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
+                    null_value = DateTime.MinValue
+                }
+            }
+        };
 
-		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-			.Date(b => b
-				.Name(p => p.LastActivity)
-				.DocValues(false)
-				.Store()
-				.Index(false)
-				.Boost(1.2)
-				.IgnoreMalformed()
-				.Format("yyyy-MM-dd'T'HH:mm[:ss][.S]")
-				.NullValue(DateTime.MinValue)
-			);
+        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+            .Date(b => b
+                .Name(p => p.LastActivity)
+                .DocValues(false)
+                .Store()
+                .Index(false)
+                .Boost(1.2)
+                .IgnoreMalformed()
+                .Format("yyyy-MM-dd'T'HH:mm[:ss][.S]")
+                .NullValue(DateTime.MinValue)
+            );
 
-		protected override IProperties InitializerProperties => new Properties
-		{
-			{
-				"lastActivity", new DateProperty
-				{
-					DocValues = false,
-					Store = true,
-					Index = false,
-					Boost = 1.2,
-					IgnoreMalformed = true,
-					Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
-					NullValue = DateTime.MinValue
-				}
-			}
-		};
-	}
+        protected override IProperties InitializerProperties => new Properties
+        {
+            {
+                "lastActivity", new DateProperty
+                {
+                    DocValues = false,
+                    Store = true,
+                    Index = false,
+                    Boost = 1.2,
+                    IgnoreMalformed = true,
+                    Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
+                    NullValue = DateTime.MinValue
+                }
+            }
+        };
+    }
 }

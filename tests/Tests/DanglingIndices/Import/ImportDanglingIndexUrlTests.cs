@@ -27,25 +27,26 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.DanglingIndices.Import
 {
-	public class ImportDanglingIndexUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var indexUuid = "indexuuid";
+    public class ImportDanglingIndexUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var indexUuid = "indexuuid";
 
-			await POST($"/_dangling/{indexUuid}")
-					.Fluent(c => c.DanglingIndices.ImportDanglingIndex(indexUuid))
-					.Request(c => c.DanglingIndices.ImportDanglingIndex(new ImportDanglingIndexRequest(indexUuid)))
-					.FluentAsync(c => c.DanglingIndices.ImportDanglingIndexAsync(indexUuid))
-					.RequestAsync(c => c.DanglingIndices.ImportDanglingIndexAsync(new ImportDanglingIndexRequest(indexUuid)))
-				;
-		}
-	}
+            await POST($"/_dangling/{indexUuid}")
+                    .Fluent(c => c.DanglingIndices.ImportDanglingIndex(indexUuid))
+                    .Request(c => c.DanglingIndices.ImportDanglingIndex(new ImportDanglingIndexRequest(indexUuid)))
+                    .FluentAsync(c => c.DanglingIndices.ImportDanglingIndexAsync(indexUuid))
+                    .RequestAsync(c => c.DanglingIndices.ImportDanglingIndexAsync(new ImportDanglingIndexRequest(indexUuid)))
+                ;
+        }
+    }
 }

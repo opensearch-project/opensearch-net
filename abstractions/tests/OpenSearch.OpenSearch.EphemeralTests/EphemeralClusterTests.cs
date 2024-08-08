@@ -35,42 +35,42 @@ using Xunit;
 
 namespace OpenSearch.OpenSearch.EphemeralTests
 {
-	public class EphemeralClusterTests
-	{
-		[TU]
-		[ClassData(typeof(SampleClusters))]
-		public void TestEphemeralCluster(OpenSearchVersion version, ClusterFeatures features)
-		{
-			const int numberOfNodes = 1;
-			var clusterConfiguration =
-				new EphemeralClusterConfiguration(version, features, null, numberOfNodes)
-				{
-					ShowOpenSearchOutputAfterStarted = true
-				};
-			using var cluster = new EphemeralCluster(clusterConfiguration);
-			var timeout = new System.TimeSpan(0, 5, 30);
-			using (cluster.Start(timeout))
-			{
-				Assert.True(cluster.Started, "OpenSearch cluster started");
-				foreach (var n in cluster.Nodes)
-				{
-					n.SendControlC();
-					Assert.True(n.WaitForCompletion(timeout), $"Failed to stop node {n.ProcessId}");
-				}
-			}
-		}
+    public class EphemeralClusterTests
+    {
+        [TU]
+        [ClassData(typeof(SampleClusters))]
+        public void TestEphemeralCluster(OpenSearchVersion version, ClusterFeatures features)
+        {
+            const int numberOfNodes = 1;
+            var clusterConfiguration =
+                new EphemeralClusterConfiguration(version, features, null, numberOfNodes)
+                {
+                    ShowOpenSearchOutputAfterStarted = true
+                };
+            using var cluster = new EphemeralCluster(clusterConfiguration);
+            var timeout = new System.TimeSpan(0, 5, 30);
+            using (cluster.Start(timeout))
+            {
+                Assert.True(cluster.Started, "OpenSearch cluster started");
+                foreach (var n in cluster.Nodes)
+                {
+                    n.SendControlC();
+                    Assert.True(n.WaitForCompletion(timeout), $"Failed to stop node {n.ProcessId}");
+                }
+            }
+        }
 
-		private class SampleClusters : IEnumerable<object[]>
-		{
-			public IEnumerator<object[]> GetEnumerator()
-			{
-				yield return new object[] {OpenSearchVersion.From("1.2.0"), ClusterFeatures.None};
-				yield return new object[] {OpenSearchVersion.From("2.2.0"), ClusterFeatures.None};
-				yield return new object[] {OpenSearchVersion.From("1.2.0"), ClusterFeatures.SSL};
-				yield return new object[] {OpenSearchVersion.From("2.2.0"), ClusterFeatures.SSL};
-			}
+        private class SampleClusters : IEnumerable<object[]>
+        {
+            public IEnumerator<object[]> GetEnumerator()
+            {
+                yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.None };
+                yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.None };
+                yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.SSL };
+                yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.SSL };
+            }
 
-			IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-		}
-	}
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        }
+    }
 }

@@ -31,22 +31,22 @@ using OpenSearch.Client;
 
 namespace Tests.Domain
 {
-	public class Metric
-	{
-		public long Accept { get; set; }
+    public class Metric
+    {
+        public long Accept { get; set; }
 
-		public long Deny { get; set; }
+        public long Deny { get; set; }
 
-		public string Host { get; set; }
+        public string Host { get; set; }
 
-		public float Response { get; set; }
+        public float Response { get; set; }
 
-		public string Service { get; set; }
+        public string Service { get; set; }
 
-		[Date(Name = "@timestamp")]
-		[EpochDateTime]
-		public DateTime Timestamp { get; set; }
+        [Date(Name = "@timestamp")]
+        [EpochDateTime]
+        public DateTime Timestamp { get; set; }
 
-		public long Total { get; set; }
-	}
+        public long Total { get; set; }
+    }
 }

@@ -26,38 +26,37 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Cat.CatTemplates
 {
-	public class CatTemplatesApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatTemplatesRecord>, ICatTemplatesRequest, CatTemplatesDescriptor, CatTemplatesRequest>
-	{
-		public CatTemplatesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class CatTemplatesApiTests
+        : ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatTemplatesRecord>, ICatTemplatesRequest, CatTemplatesDescriptor, CatTemplatesRequest>
+    {
+        public CatTemplatesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cat/templates";
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.GET;
+        protected override string UrlPath => "/_cat/templates";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Templates(),
-			(client, f) => client.Cat.TemplatesAsync(),
-			(client, r) => client.Cat.Templates(r),
-			(client, r) => client.Cat.TemplatesAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Cat.Templates(),
+            (client, f) => client.Cat.TemplatesAsync(),
+            (client, r) => client.Cat.Templates(r),
+            (client, r) => client.Cat.TemplatesAsync(r)
+        );
 
-		protected override void ExpectResponse(CatResponse<CatTemplatesRecord> response)
-		{
+        protected override void ExpectResponse(CatResponse<CatTemplatesRecord> response) =>
 #pragma warning disable CS0618 // Type or member is obsolete
-			response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.IndexPatterns));
+            response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.IndexPatterns));
 #pragma warning restore CS0618 // Type or member is obsolete
-		}
-	}
+
+    }
 }

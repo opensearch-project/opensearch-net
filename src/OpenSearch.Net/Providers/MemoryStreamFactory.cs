@@ -30,20 +30,20 @@ using System.IO;
 
 namespace OpenSearch.Net
 {
-	/// <summary>
-	/// A factory for creating memory streams using instances of <see cref="MemoryStream" />
-	/// </summary>
-	public class MemoryStreamFactory : IMemoryStreamFactory
-	{
-		public static MemoryStreamFactory Default { get; } = new MemoryStreamFactory();
+    /// <summary>
+    /// A factory for creating memory streams using instances of <see cref="MemoryStream" />
+    /// </summary>
+    public class MemoryStreamFactory : IMemoryStreamFactory
+    {
+        public static MemoryStreamFactory Default { get; } = new MemoryStreamFactory();
 
-		/// <inheritdoc />
-		public MemoryStream Create() => new MemoryStream();
+        /// <inheritdoc />
+        public MemoryStream Create() => new MemoryStream();
 
-		/// <inheritdoc />
-		public MemoryStream Create(byte[] bytes) => new MemoryStream(bytes);
+        /// <inheritdoc />
+        public MemoryStream Create(byte[] bytes) => new MemoryStream(bytes);
 
-		/// <inheritdoc />
-		public MemoryStream Create(byte[] bytes, int index, int count) => new MemoryStream(bytes, index, count);
-	}
+        /// <inheritdoc />
+        public MemoryStream Create(byte[] bytes, int index, int count) => new MemoryStream(bytes, index, count);
+    }
 }

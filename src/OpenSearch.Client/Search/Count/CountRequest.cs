@@ -27,47 +27,47 @@
 */
 
 using System;
-using OpenSearch.Net;
 using System.Runtime.Serialization;
+using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[MapsApi("count.json")]
-	[ReadAs(typeof(CountRequest))]
-	public partial interface ICountRequest
-	{
-		[DataMember(Name ="query")]
-		QueryContainer Query { get; set; }
-	}
+    [MapsApi("count.json")]
+    [ReadAs(typeof(CountRequest))]
+    public partial interface ICountRequest
+    {
+        [DataMember(Name = "query")]
+        QueryContainer Query { get; set; }
+    }
 
-	// ReSharper disable once UnusedTypeParameter
-	public partial interface ICountRequest<TDocument> where TDocument : class { }
+    // ReSharper disable once UnusedTypeParameter
+    public partial interface ICountRequest<TDocument> where TDocument : class { }
 
-	public partial class CountRequest
-	{
-		public QueryContainer Query { get; set; }
+    public partial class CountRequest
+    {
+        public QueryContainer Query { get; set; }
 
-		protected override HttpMethod HttpMethod =>
-			Self.RequestParameters.ContainsQueryString("source") || Self.RequestParameters.ContainsQueryString("q") || Self.Query == null
-			|| Self.Query.IsConditionless()
-				? HttpMethod.GET
-				: HttpMethod.POST;
-	}
+        protected override HttpMethod HttpMethod =>
+            Self.RequestParameters.ContainsQueryString("source") || Self.RequestParameters.ContainsQueryString("q") || Self.Query == null
+            || Self.Query.IsConditionless()
+                ? HttpMethod.GET
+                : HttpMethod.POST;
+    }
 
-	// ReSharper disable once UnusedTypeParameter
-	public partial class CountRequest<TDocument> where TDocument : class { }
+    // ReSharper disable once UnusedTypeParameter
+    public partial class CountRequest<TDocument> where TDocument : class { }
 
-	public partial class CountDescriptor<TDocument> where TDocument : class
-	{
-		protected override HttpMethod HttpMethod =>
-			Self.RequestParameters.ContainsQueryString("source") || Self.RequestParameters.ContainsQueryString("q") || Self.Query == null
-			|| Self.Query.IsConditionless()
-				? HttpMethod.GET
-				: HttpMethod.POST;
+    public partial class CountDescriptor<TDocument> where TDocument : class
+    {
+        protected override HttpMethod HttpMethod =>
+            Self.RequestParameters.ContainsQueryString("source") || Self.RequestParameters.ContainsQueryString("q") || Self.Query == null
+            || Self.Query.IsConditionless()
+                ? HttpMethod.GET
+                : HttpMethod.POST;
 
-		QueryContainer ICountRequest.Query { get; set; }
+        QueryContainer ICountRequest.Query { get; set; }
 
-		public CountDescriptor<TDocument> Query(Func<QueryContainerDescriptor<TDocument>, QueryContainer> querySelector) =>
-			Assign(querySelector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<TDocument>()));
-	}
+        public CountDescriptor<TDocument> Query(Func<QueryContainerDescriptor<TDocument>, QueryContainer> querySelector) =>
+            Assign(querySelector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<TDocument>()));
+    }
 }

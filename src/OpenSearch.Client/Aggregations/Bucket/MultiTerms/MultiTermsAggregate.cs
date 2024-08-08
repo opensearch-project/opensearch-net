@@ -28,9 +28,9 @@
 
 namespace OpenSearch.Client
 {
-	public class MultiTermsAggregate<TKey> : MultiBucketAggregate<MultiTermsBucket<TKey>>
-	{
-		public long? DocCountErrorUpperBound { get; set; }
-		public long? SumOtherDocCount { get; set; }
-	}
+    public class MultiTermsAggregate<TKey> : MultiBucketAggregate<MultiTermsBucket<TKey>>
+    {
+        public long? DocCountErrorUpperBound { get; set; }
+        public long? SumOtherDocCount { get; set; }
+    }
 }

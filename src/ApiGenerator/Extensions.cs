@@ -69,10 +69,10 @@ namespace ApiGenerator
         public static string SplitPascalCase(this string s) =>
             Regex.Replace(s, "([A-Z]+[a-z]*)", " $1").Trim();
 
-		public static bool IsNullOrEmpty(this string s) =>
-			string.IsNullOrEmpty(s);
+        public static bool IsNullOrEmpty(this string s) =>
+            string.IsNullOrEmpty(s);
 
-		public static void SortBy<TElem, TKey>(this List<TElem> list, Func<TElem, TKey> selector) =>
-			list.Sort((a, b) => Comparer<TKey>.Default.Compare(selector(a), selector(b)));
-	}
+        public static void SortBy<TElem, TKey>(this List<TElem> list, Func<TElem, TKey> selector) =>
+            list.Sort((a, b) => Comparer<TKey>.Default.Compare(selector(a), selector(b)));
+    }
 }

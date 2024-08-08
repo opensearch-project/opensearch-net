@@ -33,21 +33,21 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(GeoShapeFormatter<IMultiPointGeoShape>))]
-	public interface IMultiPointGeoShape : IGeoShape
-	{
-		[DataMember(Name ="coordinates")]
-		IEnumerable<GeoCoordinate> Coordinates { get; set; }
-	}
+    [JsonFormatter(typeof(GeoShapeFormatter<IMultiPointGeoShape>))]
+    public interface IMultiPointGeoShape : IGeoShape
+    {
+        [DataMember(Name = "coordinates")]
+        IEnumerable<GeoCoordinate> Coordinates { get; set; }
+    }
 
-	[JsonFormatter(typeof(GeoShapeFormatter<MultiPointGeoShape>))]
-	public class MultiPointGeoShape : GeoShapeBase, IMultiPointGeoShape
-	{
-		internal MultiPointGeoShape() : base("multipoint") { }
+    [JsonFormatter(typeof(GeoShapeFormatter<MultiPointGeoShape>))]
+    public class MultiPointGeoShape : GeoShapeBase, IMultiPointGeoShape
+    {
+        internal MultiPointGeoShape() : base("multipoint") { }
 
-		public MultiPointGeoShape(IEnumerable<GeoCoordinate> coordinates) : this() =>
-			Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
+        public MultiPointGeoShape(IEnumerable<GeoCoordinate> coordinates) : this() =>
+            Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
 
-		public IEnumerable<GeoCoordinate> Coordinates { get; set; }
-	}
+        public IEnumerable<GeoCoordinate> Coordinates { get; set; }
+    }
 }

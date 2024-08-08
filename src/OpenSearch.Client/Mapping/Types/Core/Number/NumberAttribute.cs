@@ -28,53 +28,53 @@
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// Maps a property as a number type. If no type is specified,
-	/// the default type is float (single precision floating point).
-	/// </summary>
-	public class NumberAttribute : OpenSearchDocValuesPropertyAttributeBase, INumberProperty
-	{
-		public NumberAttribute() : base(FieldType.Float) { }
+    /// <summary>
+    /// Maps a property as a number type. If no type is specified,
+    /// the default type is float (single precision floating point).
+    /// </summary>
+    public class NumberAttribute : OpenSearchDocValuesPropertyAttributeBase, INumberProperty
+    {
+        public NumberAttribute() : base(FieldType.Float) { }
 
-		public NumberAttribute(NumberType type) : base(type.ToFieldType()) { }
+        public NumberAttribute(NumberType type) : base(type.ToFieldType()) { }
 
-		public bool Coerce
-		{
-			get => Self.Coerce.GetValueOrDefault();
-			set => Self.Coerce = value;
-		}
+        public bool Coerce
+        {
+            get => Self.Coerce.GetValueOrDefault();
+            set => Self.Coerce = value;
+        }
 
-		public bool IgnoreMalformed
-		{
-			get => Self.IgnoreMalformed.GetValueOrDefault();
-			set => Self.IgnoreMalformed = value;
-		}
+        public bool IgnoreMalformed
+        {
+            get => Self.IgnoreMalformed.GetValueOrDefault();
+            set => Self.IgnoreMalformed = value;
+        }
 
-		public bool Index
-		{
-			get => Self.Index.GetValueOrDefault();
-			set => Self.Index = value;
-		}
+        public bool Index
+        {
+            get => Self.Index.GetValueOrDefault();
+            set => Self.Index = value;
+        }
 
-		public double NullValue
-		{
-			get => Self.NullValue.GetValueOrDefault();
-			set => Self.NullValue = value;
-		}
+        public double NullValue
+        {
+            get => Self.NullValue.GetValueOrDefault();
+            set => Self.NullValue = value;
+        }
 
-		public double ScalingFactor
-		{
-			get => Self.ScalingFactor.GetValueOrDefault();
-			set => Self.ScalingFactor = value;
-		}
+        public double ScalingFactor
+        {
+            get => Self.ScalingFactor.GetValueOrDefault();
+            set => Self.ScalingFactor = value;
+        }
 
-		bool? INumberProperty.Coerce { get; set; }
-		INumericFielddata INumberProperty.Fielddata { get; set; }
-		bool? INumberProperty.IgnoreMalformed { get; set; }
+        bool? INumberProperty.Coerce { get; set; }
+        INumericFielddata INumberProperty.Fielddata { get; set; }
+        bool? INumberProperty.IgnoreMalformed { get; set; }
 
-		bool? INumberProperty.Index { get; set; }
-		double? INumberProperty.NullValue { get; set; }
-		double? INumberProperty.ScalingFactor { get; set; }
-		private INumberProperty Self => this;
-	}
+        bool? INumberProperty.Index { get; set; }
+        double? INumberProperty.NullValue { get; set; }
+        double? INumberProperty.ScalingFactor { get; set; }
+        private INumberProperty Self => this;
+    }
 }

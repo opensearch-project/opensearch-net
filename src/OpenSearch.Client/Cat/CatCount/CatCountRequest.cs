@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.count.json")]
-	public partial interface ICatCountRequest { }
+    [MapsApi("cat.count.json")]
+    public partial interface ICatCountRequest { }
 
-	public partial class CatCountRequest { }
+    public partial class CatCountRequest { }
 
-	public partial class CatCountDescriptor { }
+    public partial class CatCountDescriptor { }
 }

@@ -28,49 +28,49 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using OpenSearch.Client;
+using OpenSearch.Net;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
-using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Framework.EndpointTests
 {
-	public abstract class ApiIntegrationAgainstNewIndexTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
-		: ApiIntegrationTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
-		where TResponse : class, IResponse
-		where TDescriptor : class, TInterface
-		where TInitializer : class, TInterface
-		where TInterface : class
-	{
-		protected ApiIntegrationAgainstNewIndexTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public abstract class ApiIntegrationAgainstNewIndexTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
+        : ApiIntegrationTestBase<TCluster, TResponse, TInterface, TDescriptor, TInitializer>
+        where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
+        where TResponse : class, IResponse
+        where TDescriptor : class, TInterface
+        where TInitializer : class, TInterface
+        where TInterface : class
+    {
+        protected ApiIntegrationAgainstNewIndexTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			foreach (var index in values.Values) client.Indices.Create(index, CreateIndexSettings).ShouldBeValid();
-			var indices = Infer.Indices(values.Values.Select(i => (IndexName)i));
-			client.Cluster.Health(indices, f => f.WaitForStatus(HealthStatus.Yellow))
-				.ShouldBeValid();
-		}
+        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+        {
+            foreach (var index in values.Values) client.Indices.Create(index, CreateIndexSettings).ShouldBeValid();
+            var indices = Infer.Indices(values.Values.Select(i => (IndexName)i));
+            client.Cluster.Health(indices, f => f.WaitForStatus(HealthStatus.Yellow))
+                .ShouldBeValid();
+        }
 
-		protected virtual ICreateIndexRequest CreateIndexSettings(CreateIndexDescriptor create) => create;
+        protected virtual ICreateIndexRequest CreateIndexSettings(CreateIndexDescriptor create) => create;
 
-		// https://youtrack.jetbrains.com/issue/RIDER-19912
-		[U] protected override Task HitsTheCorrectUrl() => base.HitsTheCorrectUrl();
+        // https://youtrack.jetbrains.com/issue/RIDER-19912
+        [U] protected override Task HitsTheCorrectUrl() => base.HitsTheCorrectUrl();
 
-		[U] protected override Task UsesCorrectHttpMethod() => base.UsesCorrectHttpMethod();
+        [U] protected override Task UsesCorrectHttpMethod() => base.UsesCorrectHttpMethod();
 
-		[U] protected override void SerializesInitializer() => base.SerializesInitializer();
+        [U] protected override void SerializesInitializer() => base.SerializesInitializer();
 
-		[U] protected override void SerializesFluent() => base.SerializesFluent();
+        [U] protected override void SerializesFluent() => base.SerializesFluent();
 
-		[I] public override Task ReturnsExpectedStatusCode() => base.ReturnsExpectedResponse();
+        [I] public override Task ReturnsExpectedStatusCode() => base.ReturnsExpectedResponse();
 
-		[I] public override Task ReturnsExpectedIsValid() => base.ReturnsExpectedIsValid();
+        [I] public override Task ReturnsExpectedIsValid() => base.ReturnsExpectedIsValid();
 
-		[I] public override Task ReturnsExpectedResponse() => base.ReturnsExpectedResponse();
-	}
+        [I] public override Task ReturnsExpectedResponse() => base.ReturnsExpectedResponse();
+    }
 }
