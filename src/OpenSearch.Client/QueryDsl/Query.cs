@@ -123,6 +123,9 @@ namespace OpenSearch.Client
 		public static QueryContainer Nested(Func<NestedQueryDescriptor<T>, INestedQuery> selector) =>
 			new QueryContainerDescriptor<T>().Nested(selector);
 
+        public static QueryContainer Neural(Func<NeuralQueryDescriptor<T>, INeuralQuery> selector) =>
+            new QueryContainerDescriptor<T>().Neural(selector);
+
 		public static QueryContainer ParentId(Func<ParentIdQueryDescriptor<T>, IParentIdQuery> selector) =>
 			new QueryContainerDescriptor<T>().ParentId(selector);
 
