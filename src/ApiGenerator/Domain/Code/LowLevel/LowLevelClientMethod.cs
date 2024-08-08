@@ -51,25 +51,25 @@ namespace ApiGenerator.Domain.Code.LowLevel
         public IEnumerable<UrlPart> Parts { get; set; }
         public string Path { get; set; }
 
-		public Version VersionAdded { get; set; }
+        public Version VersionAdded { get; set; }
 
         public string UrlInCode
         {
             get
             {
-				var url = Path.TrimStart('/');
+                var url = Path.TrimStart('/');
                 var options = Url.AllPaths.SelectMany(p => p.Parts).Select(p => p.Name).Distinct();
 
                 var pattern = string.Join("|", options);
                 var urlCode = $"\"{url}\"";
-				if (!Path.Contains('{')) return urlCode;
+                if (!Path.Contains('{')) return urlCode;
 
-				var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", m =>
-				{
-					var arg = m.Groups[^1].Value.ToCamelCase();
-					return $"{{{arg}:{arg}}}";
-				});
-				return  $"Url($\"{patchedUrl}\")";
+                var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", m =>
+                {
+                    var arg = m.Groups[^1].Value.ToCamelCase();
+                    return $"{{{arg}:{arg}}}";
+                });
+                return $"Url($\"{patchedUrl}\")";
             }
         }
 

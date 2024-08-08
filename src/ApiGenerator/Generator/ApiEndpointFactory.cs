@@ -195,10 +195,12 @@ namespace ApiGenerator.Generator
         private record PathParameter(string Name, JsonSchema Schema, string Description, bool IsDeprecated)
         {
             public PathParameter(OpenApiParameter parameter) :
-                this(parameter.Name, parameter.Schema, parameter.Description, parameter.IsDeprecated) { }
+                this(parameter.Name, parameter.Schema, parameter.Description, parameter.IsDeprecated)
+            { }
 
             public PathParameter(string name, OpenApiParameter parameter, JsonSchema schema) : this(name, schema, parameter.Description,
-                parameter.IsDeprecated) { }
+                parameter.IsDeprecated)
+            { }
         }
 
         private static IEndpointOverrides LoadOverrides(string endpointName, string methodName)

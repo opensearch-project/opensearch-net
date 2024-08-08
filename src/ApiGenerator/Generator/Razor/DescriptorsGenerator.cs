@@ -38,27 +38,27 @@ namespace ApiGenerator.Generator.Razor;
 
 public class DescriptorsGenerator : RazorGeneratorBase
 {
-	public override string Title => "OpenSearch.Client descriptors";
+    public override string Title => "OpenSearch.Client descriptors";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(spec, View("RequestDescriptorBase"), Target(), token);
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+    {
+        await DoRazor(spec, View("RequestDescriptorBase"), Target(), token);
 
-		await DoRazor(HttpMethod.All, View("Descriptors.Http"), Target("Http"), token);
+        await DoRazor(HttpMethod.All, View("Descriptors.Http"), Target("Http"), token);
 
-		await DoRazorDependantFiles(
-			progressBar,
-			spec.EndpointsPerNamespaceHighLevel.ToList(),
-			View("Descriptors"),
-			kv => kv.Key,
-			Target,
-			token
-		);
+        await DoRazorDependantFiles(
+            progressBar,
+            spec.EndpointsPerNamespaceHighLevel.ToList(),
+            View("Descriptors"),
+            kv => kv.Key,
+            Target,
+            token
+        );
 
-		return;
+        return;
 
-		string View(string name) => ViewLocations.HighLevel("Descriptors", $"{name}.cshtml");
+        string View(string name) => ViewLocations.HighLevel("Descriptors", $"{name}.cshtml");
 
-		string Target(string id = null) => GeneratorLocations.HighLevel($"Descriptors{(id != null ? $".{id}" : string.Empty)}.cs");
-	}
+        string Target(string id = null) => GeneratorLocations.HighLevel($"Descriptors{(id != null ? $".{id}" : string.Empty)}.cs");
+    }
 }

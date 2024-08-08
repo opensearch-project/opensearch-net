@@ -30,16 +30,16 @@ namespace ApiGenerator.Domain.Specification;
 
 public class Deprecation
 {
-	public string Version { get; set; }
+    public string Version { get; set; }
 
-	public string Description { get; set; }
+    public string Description { get; set; }
 
-	public override string ToString() =>
-		(!string.IsNullOrEmpty(Version), !string.IsNullOrEmpty(Description)) switch
-		{
-			(true, true) => $"Deprecated as of: {Version}, reason: {Description}",
-			(true, false) => $"Deprecated as of: {Version}",
-			(false, true) => $"reason: {Description}",
-			_ => "deprecated"
-		};
+    public override string ToString() =>
+        (!string.IsNullOrEmpty(Version), !string.IsNullOrEmpty(Description)) switch
+        {
+            (true, true) => $"Deprecated as of: {Version}, reason: {Description}",
+            (true, false) => $"Deprecated as of: {Version}",
+            (false, true) => $"reason: {Description}",
+            _ => "deprecated"
+        };
 }
