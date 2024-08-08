@@ -29,7 +29,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -37,7 +36,6 @@ using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
-using ApiGenerator.Domain.Specification;
 using ApiGenerator.Generator.Razor;
 using NJsonSchema;
 using NSwag;
@@ -49,6 +47,7 @@ namespace ApiGenerator.Generator
     public class ApiGenerator
     {
         public static List<string> Warnings { get; private set; } = new();
+        public static HashSet<string> GeneratedFilePaths = [];
 
         public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
         {

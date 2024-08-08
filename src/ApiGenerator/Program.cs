@@ -27,6 +27,8 @@
 */
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -126,7 +128,8 @@ namespace ApiGenerator
                 await RestSpecDownloader.DownloadAsync(downloadBranch, token);
             }
 
-            if (!generateCode) return 0;
+            if (!generateCode)
+                return 0;
 
             Console.WriteLine();
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
@@ -150,6 +153,8 @@ namespace ApiGenerator
 
             await Generator.ApiGenerator.Generate(lowLevelOnly, spec, token);
 
+            RunDotNetFormat();
+
             var warnings = Generator.ApiGenerator.Warnings;
             if (warnings.Count > 0)
             {
@@ -164,9 +169,63 @@ namespace ApiGenerator
             return 0;
         }
 
+        private static void RunDotNetFormat()
+        {
+            var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
+            var paths = enviromentPath.Split(';');
+            var exePath = paths.Select(x => Path.Combine(x, "dotnet.exe"))
+                               .Where(x => File.Exists(x))
+                               .FirstOrDefault();
+
+            Console.WriteLine();
+            AnsiConsole.Write(new Rule("[b white on chartreuse4] Formatting Code using dotnet format [/]").LeftJustified());
+            Console.WriteLine();
+
+            var rootPath = GetRootPath(typeof(Program).Assembly.Location);
+
+            var relativeFolderList = new List<string>();
+
+            foreach (var item in Generator.ApiGenerator.GeneratedFilePaths)
+            {
+                var relativePath = item.Replace(rootPath.FullName, string.Empty);
+                relativeFolderList.Add($".{relativePath.Replace("\\", "/")}");
+            }
+
+            var si = new System.Diagnostics.ProcessStartInfo
+            {
+                WorkingDirectory = rootPath.FullName,
+                FileName = "dotnet",
+                Arguments = "format -v diag --include " + string.Join(' ', relativeFolderList.Select(item => $"{item}")),
+                RedirectStandardInput = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+            };
+
+            var process = System.Diagnostics.Process.Start(si);
+
+            Console.WriteLine();
+            Console.WriteLine($"Running dotnet format --include {string.Join(' ', relativeFolderList.Select(item => $"{item}"))} -v diag");
+
+            // hookup the eventhandlers to capture the data that is received
+            process.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
+            process.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
+
+            process.Start();
+
+            // start our event pumps
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+
+            process.WaitForExit();
+            Console.WriteLine();
+        }
+
         private static bool Ask(string question, bool defaultAnswer = true)
         {
-            if (!Interactive) return defaultAnswer;
+            if (!Interactive)
+                return defaultAnswer;
 
             var answer = "invalid";
             var defaultResponse = defaultAnswer ? "y" : "n";
@@ -175,10 +234,35 @@ namespace ApiGenerator
             {
                 Console.Write($"{question}[y/N] (default {defaultResponse}): ");
                 answer = Console.ReadLine()?.Trim().ToLowerInvariant();
-                if (string.IsNullOrWhiteSpace(answer)) answer = defaultResponse;
+                if (string.IsNullOrWhiteSpace(answer))
+                    answer = defaultResponse;
                 defaultAnswer = answer == "y";
             }
             return defaultAnswer;
+        }
+
+        /// <summary>
+        /// Since we are most likely not running in the root of the project, we need to find the root path that contains the sln
+        /// </summary>
+        /// <param name="basePath"></param>
+        /// <returns></returns>
+        private static DirectoryInfo GetRootPath(string basePath) => RecursiveFindRoot(new FileInfo(basePath).Directory);
+
+        private static DirectoryInfo RecursiveFindRoot(DirectoryInfo directory)
+        {
+            if (directory is null)
+            {
+                return null;
+            }
+
+            var file = directory.GetFiles("*.sln").FirstOrDefault(item => item.Name.Equals("OpenSearch.sln", StringComparison.OrdinalIgnoreCase));
+
+            if (file is not null)
+            {
+                return directory;
+            }
+
+            return RecursiveFindRoot(directory.Parent);
         }
     }
 }

@@ -32,7 +32,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Domain;
-using CSharpier;
 using RazorLight;
 using RazorLight.Generation;
 using RazorLight.Razor;
@@ -59,7 +58,8 @@ namespace ApiGenerator.Generator.Razor
             }
             catch (TemplateGenerationException e)
             {
-                foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
+                foreach (var d in e.Diagnostics)
+                    Console.WriteLine(d.GetMessage());
                 throw;
             }
         }
@@ -86,14 +86,20 @@ namespace ApiGenerator.Generator.Razor
 
         private static async Task WriteFormattedCsharpFile(string path, string contents)
         {
-            contents = (await CodeFormatter.FormatAsync(contents)).Code;
+            if (Directory.GetParent(path) is { Exists: false } dir)
+                dir.Create();
 
-            if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
+            var directory = Directory.GetParent(path);
+            ApiGenerator.GeneratedFilePaths.Add($"{directory.FullName}\\"); //we must have a trailing slash
 
             await File.WriteAllTextAsync(path, contents);
         }
 
-        public abstract string Title { get; }
+        public abstract string Title
+        {
+            get;
+        }
+
         public abstract Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token);
     }
 }
