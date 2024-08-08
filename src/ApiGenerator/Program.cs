@@ -171,12 +171,6 @@ namespace ApiGenerator
 
         private static void RunDotNetFormat()
         {
-            var enviromentPath = System.Environment.GetEnvironmentVariable("PATH");
-            var paths = enviromentPath.Split(';');
-            var exePath = paths.Select(x => Path.Combine(x, "dotnet.exe"))
-                               .Where(x => File.Exists(x))
-                               .FirstOrDefault();
-
             Console.WriteLine();
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Formatting Code using dotnet format [/]").LeftJustified());
             Console.WriteLine();
