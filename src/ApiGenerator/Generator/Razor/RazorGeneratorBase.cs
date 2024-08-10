@@ -89,9 +89,6 @@ namespace ApiGenerator.Generator.Razor
             if (Directory.GetParent(path) is { Exists: false } dir)
                 dir.Create();
 
-            var directory = Directory.GetParent(path);
-            ApiGenerator.GeneratedFilePaths.Add($"{directory.FullName}\\"); //we must have a trailing slash
-
             await File.WriteAllTextAsync(path, contents);
         }
 

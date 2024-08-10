@@ -47,6 +47,8 @@ namespace ApiGenerator.Configuration
 
         public static string LowLevel(params string[] paths) => LowLevelGeneratedFolder + string.Join("/", paths);
 
+        public static string SolutionFolder { get; } = $"{Root}../../";
+
         public static readonly Assembly Assembly = typeof(Generator.ApiGenerator).Assembly;
 
         private static string _root;

@@ -33,6 +33,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
+using ProcNet;
 using Spectre.Console;
 
 #pragma warning disable 162
@@ -175,45 +176,10 @@ namespace ApiGenerator
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Formatting Code using dotnet format [/]").LeftJustified());
             Console.WriteLine();
 
-            var rootPath = GetRootPath(typeof(Program).Assembly.Location);
-
-            var relativeFolderList = new List<string>();
-
-            foreach (var item in Generator.ApiGenerator.GeneratedFilePaths)
+            Proc.Exec(new ExecArguments("dotnet", "format", "--verbosity", "normal", "--include", "./src/*/_Generated/")
             {
-                var relativePath = item.Replace(rootPath.FullName, string.Empty);
-                relativeFolderList.Add($".{relativePath.Replace("\\", "/")}");
-            }
-
-            var si = new System.Diagnostics.ProcessStartInfo
-            {
-                WorkingDirectory = rootPath.FullName,
-                FileName = "dotnet",
-                Arguments = "format -v diag --include " + string.Join(' ', relativeFolderList.Select(item => $"{item}")),
-                RedirectStandardInput = true,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true,
-            };
-
-            var process = System.Diagnostics.Process.Start(si);
-
-            Console.WriteLine();
-            Console.WriteLine($"Running dotnet format --include {string.Join(' ', relativeFolderList.Select(item => $"{item}"))} -v diag");
-
-            // hookup the eventhandlers to capture the data that is received
-            process.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
-            process.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
-
-            process.Start();
-
-            // start our event pumps
-            process.BeginOutputReadLine();
-            process.BeginErrorReadLine();
-
-            process.WaitForExit();
-            Console.WriteLine();
+                WorkingDirectory = GeneratorLocations.SolutionFolder
+            });
         }
 
         private static bool Ask(string question, bool defaultAnswer = true)

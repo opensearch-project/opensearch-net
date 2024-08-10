@@ -47,7 +47,6 @@ namespace ApiGenerator.Generator
     public class ApiGenerator
     {
         public static List<string> Warnings { get; private set; } = new();
-        public static HashSet<string> GeneratedFilePaths = [];
 
         public static async Task Generate(bool lowLevelOnly, RestApiSpec spec, CancellationToken token)
         {
