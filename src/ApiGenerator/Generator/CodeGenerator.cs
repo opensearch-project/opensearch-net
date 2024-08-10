@@ -40,7 +40,7 @@ namespace ApiGenerator.Generator
         public static string CatFormatPropertyGenerator(string type, string name, string key, string setter) =>
               $"public {type} {name} {{ "
             + $"    get => Q<{type}>(\"{key}\");{Environment.NewLine}"
-            + $"    set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}"
+            + $"    set {{ Q(\"{key}\", {setter});{Environment.NewLine}SetAcceptHeader({setter}); }}"
             + $"}}";
 
         public static string PropertyGenerator(string type, string name, string key, string setter) =>
