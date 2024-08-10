@@ -31,68 +31,67 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Tests.Configuration
+namespace Tests.Configuration;
+
+public class YamlConfiguration : TestConfigurationBase
 {
-    public class YamlConfiguration : TestConfigurationBase
+    private readonly Dictionary<string, string> _config;
+
+    public YamlConfiguration(string configurationFile)
     {
-        private readonly Dictionary<string, string> _config;
+        if (!File.Exists(configurationFile)) return;
 
-        public YamlConfiguration(string configurationFile)
+        _config = File.ReadAllLines(configurationFile)
+            .Where(l => !l.Trim().StartsWith("#") && !string.IsNullOrWhiteSpace(l))
+            .ToDictionary(ConfigName, ConfigValue);
+
+        Mode = GetTestMode(_config["mode"]);
+        var version = _config["opensearch_version"];
+        OpenSearchVersion = version;
+        if (string.IsNullOrWhiteSpace(version))
+            throw new Exception("No default version was set in test.yaml or test.default.yaml");
+        ForceReseed = BoolConfig("force_reseed", false);
+        TestOnlyOne = BoolConfig("test_only_one", false);
+        TestAgainstAlreadyRunningOpenSearch = BoolConfig("test_against_already_running_opensearch", true);
+        ClusterFilter = _config.ContainsKey("cluster_filter") ? _config["cluster_filter"] : null;
+        TestFilter = _config.ContainsKey("test_filter") ? _config["test_filter"] : null;
+
+        var externalSeed = _config.TryGetValue("seed", out var seed) ? int.Parse(seed) : (int?)null;
+        SetExternalSeed(externalSeed, out var randomizer);
+        Random = new RandomConfiguration
         {
-            if (!File.Exists(configurationFile)) return;
+            SourceSerializer = RandomBool("source_serializer", randomizer),
+            TypedKeys = RandomBool("typed_keys", randomizer),
+            HttpCompression = RandomBool("http_compression", randomizer),
+        };
+    }
 
-            _config = File.ReadAllLines(configurationFile)
-                .Where(l => !l.Trim().StartsWith("#") && !string.IsNullOrWhiteSpace(l))
-                .ToDictionary(ConfigName, ConfigValue);
+    private bool BoolConfig(string key, bool @default) => _config.TryGetValue(key, out var v) ? bool.Parse(v) : @default;
 
-            Mode = GetTestMode(_config["mode"]);
-            var version = _config["opensearch_version"];
-            OpenSearchVersion = version;
-            if (string.IsNullOrWhiteSpace(version))
-                throw new Exception("No default version was set in test.yaml or test.default.yaml");
-            ForceReseed = BoolConfig("force_reseed", false);
-            TestOnlyOne = BoolConfig("test_only_one", false);
-            TestAgainstAlreadyRunningOpenSearch = BoolConfig("test_against_already_running_opensearch", true);
-            ClusterFilter = _config.ContainsKey("cluster_filter") ? _config["cluster_filter"] : null;
-            TestFilter = _config.ContainsKey("test_filter") ? _config["test_filter"] : null;
+    private bool RandomBool(string key, Random random) =>
+        _config.TryGetValue($"random_{key}", out var v) ? bool.Parse(v) : random.NextDouble() >= 0.5;
 
-            var externalSeed = _config.TryGetValue("seed", out var seed) ? int.Parse(seed) : (int?)null;
-            SetExternalSeed(externalSeed, out var randomizer);
-            Random = new RandomConfiguration
-            {
-                SourceSerializer = RandomBool("source_serializer", randomizer),
-                TypedKeys = RandomBool("typed_keys", randomizer),
-                HttpCompression = RandomBool("http_compression", randomizer),
-            };
-        }
+    private static string ConfigName(string configLine) => Parse(configLine, 0);
 
-        private bool BoolConfig(string key, bool @default) => _config.TryGetValue(key, out var v) ? bool.Parse(v) : @default;
+    private static string ConfigValue(string configLine) => Parse(configLine, 1);
 
-        private bool RandomBool(string key, Random random) =>
-            _config.TryGetValue($"random_{key}", out var v) ? bool.Parse(v) : random.NextDouble() >= 0.5;
+    private static string Parse(string configLine, int index) => configLine.Split(':')[index].Trim(' ');
 
-        private static string ConfigName(string configLine) => Parse(configLine, 0);
-
-        private static string ConfigValue(string configLine) => Parse(configLine, 1);
-
-        private static string Parse(string configLine, int index) => configLine.Split(':')[index].Trim(' ');
-
-        private static TestMode GetTestMode(string mode)
+    private static TestMode GetTestMode(string mode)
+    {
+        switch (mode)
         {
-            switch (mode)
-            {
-                case "unit":
-                case "u":
-                    return TestMode.Unit;
-                case "integration":
-                case "i":
-                    return TestMode.Integration;
-                case "mixed":
-                case "m":
-                    return TestMode.Mixed;
-                default:
-                    throw new ArgumentException($"Unknown test mode: {mode}");
-            }
+            case "unit":
+            case "u":
+                return TestMode.Unit;
+            case "integration":
+            case "i":
+                return TestMode.Integration;
+            case "mixed":
+            case "m":
+                return TestMode.Mixed;
+            default:
+                throw new ArgumentException($"Unknown test mode: {mode}");
         }
     }
 }

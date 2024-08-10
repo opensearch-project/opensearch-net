@@ -33,30 +33,29 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3673 : IClusterFixture<ReadOnlyCluster>
 {
-    public class GithubIssue3673 : IClusterFixture<ReadOnlyCluster>
+    private readonly ReadOnlyCluster _cluster;
+
+    public GithubIssue3673(ReadOnlyCluster cluster) => _cluster = cluster;
+
+    [I]
+    public void DeserializeDateAggregation()
     {
-        private readonly ReadOnlyCluster _cluster;
-
-        public GithubIssue3673(ReadOnlyCluster cluster) => _cluster = cluster;
-
-        [I]
-        public void DeserializeDateAggregation()
-        {
-            Action action = () => _cluster.Client.Search<Project>(s => s
-                .Size(0)
-                .Aggregations(a => a
-                    .DateHistogram("publication_year", st => st
-                        .Field(o => o.StartedOn)
-                        .CalendarInterval(DateInterval.Year)
-                        .Format("yyyy")
-                        .MinimumDocumentCount(0)
-                    )
+        Action action = () => _cluster.Client.Search<Project>(s => s
+            .Size(0)
+            .Aggregations(a => a
+                .DateHistogram("publication_year", st => st
+                    .Field(o => o.StartedOn)
+                    .CalendarInterval(DateInterval.Year)
+                    .Format("yyyy")
+                    .MinimumDocumentCount(0)
                 )
-            );
+            )
+        );
 
-            action.Should().NotThrow();
-        }
+        action.Should().NotThrow();
     }
 }

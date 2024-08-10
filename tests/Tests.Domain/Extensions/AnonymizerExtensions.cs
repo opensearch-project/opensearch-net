@@ -29,17 +29,16 @@
 using OpenSearch.Client;
 using OpenSearch.Net;
 
-namespace Tests.Domain.Extensions
-{
-    public static class AnonymizerExtensions
-    {
-        private static readonly Inferrer Infer = new Inferrer(new ConnectionSettings(new InMemoryConnection()).ApplyDomainSettings());
+namespace Tests.Domain.Extensions;
 
-        public static object ToAnonymousObject(this JoinField field) =>
-            field.Match<object>(p => Infer.RelationName(p.Name), c => new
-            {
-                parent = Infer.Id(c.ParentId),
-                name = Infer.RelationName(c.Name)
-            });
-    }
+public static class AnonymizerExtensions
+{
+    private static readonly Inferrer Infer = new Inferrer(new ConnectionSettings(new InMemoryConnection()).ApplyDomainSettings());
+
+    public static object ToAnonymousObject(this JoinField field) =>
+        field.Match<object>(p => Infer.RelationName(p.Name), c => new
+        {
+            parent = Infer.Id(c.ParentId),
+            name = Infer.RelationName(c.Name)
+        });
 }

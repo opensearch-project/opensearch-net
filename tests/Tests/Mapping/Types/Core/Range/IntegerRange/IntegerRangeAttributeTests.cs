@@ -29,25 +29,24 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.IntegerRange
-{
-    public class IntegerRangeTest
-    {
-        [IntegerRange]
-        public OpenSearch.Client.IntegerRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.IntegerRange;
 
-    public class IntegerRangeAttributeTests : AttributeTestsBase<IntegerRangeTest>
+public class IntegerRangeTest
+{
+    [IntegerRange]
+    public OpenSearch.Client.IntegerRange Range { get; set; }
+}
+
+public class IntegerRangeAttributeTests : AttributeTestsBase<IntegerRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    type = "integer_range"
-                }
+                type = "integer_range"
             }
-        };
-    }
+        }
+    };
 }

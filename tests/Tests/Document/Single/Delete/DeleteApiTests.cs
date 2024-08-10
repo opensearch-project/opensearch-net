@@ -36,124 +36,123 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Single.Delete
+namespace Tests.Document.Single.Delete;
+
+public class DeleteApiTests
+    : ApiIntegrationTestBase<WritableCluster, DeleteResponse, IDeleteRequest, DeleteDescriptor<Project>, DeleteRequest<Project>>
 {
-    public class DeleteApiTests
-        : ApiIntegrationTestBase<WritableCluster, DeleteResponse, IDeleteRequest, DeleteDescriptor<Project>, DeleteRequest<Project>>
+    public DeleteApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+
+    protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Routing(CallIsolatedValue);
+    protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
+
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
+
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
     {
-        public DeleteApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => true;
-        protected override int ExpectStatusCode => 200;
-        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
-
-        protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Routing(CallIsolatedValue);
-        protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
-
-        protected override bool SupportsDeserialization => false;
-        protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
-
-        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-        {
-            foreach (var id in values.Values)
-                Client.Index(Project.Instance, i => i.Id(id).Routing(id));
-        }
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Delete(CallIsolatedValue, f),
-            (client, f) => client.DeleteAsync(CallIsolatedValue, f),
-            (client, r) => client.Delete(r),
-            (client, r) => client.DeleteAsync(r)
-        );
-
-        protected override DeleteDescriptor<Project> NewDescriptor() => new DeleteDescriptor<Project>(CallIsolatedValue);
-
-        protected override void ExpectResponse(DeleteResponse response)
-        {
-            response.ShouldBeValid();
-            response.Result.Should().Be(Result.Deleted);
-            response.Shards.Should().NotBeNull();
-            response.Shards.Total.Should().BeGreaterOrEqualTo(1);
-            response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-            response.PrimaryTerm.Should().BeGreaterThan(0);
-            response.SequenceNumber.Should().BeGreaterThan(0);
-        }
+        foreach (var id in values.Values)
+            Client.Index(Project.Instance, i => i.Id(id).Routing(id));
     }
 
-    public class DeleteNonExistentDocumentApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, DeleteResponse, IDeleteRequest,
-            DeleteDescriptor<Project>, DeleteRequest<Project>>
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Delete(CallIsolatedValue, f),
+        (client, f) => client.DeleteAsync(CallIsolatedValue, f),
+        (client, r) => client.Delete(r),
+        (client, r) => client.DeleteAsync(r)
+    );
+
+    protected override DeleteDescriptor<Project> NewDescriptor() => new DeleteDescriptor<Project>(CallIsolatedValue);
+
+    protected override void ExpectResponse(DeleteResponse response)
     {
-        public DeleteNonExistentDocumentApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => false;
-        protected override int ExpectStatusCode => 404;
-        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
-
-        protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Routing(CallIsolatedValue);
-        protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
-
-        protected override bool SupportsDeserialization => false;
-        protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Delete(CallIsolatedValue, f),
-            (client, f) => client.DeleteAsync(CallIsolatedValue, f),
-            (client, r) => client.Delete(r),
-            (client, r) => client.DeleteAsync(r)
-        );
-
-        protected override DeleteDescriptor<Project> NewDescriptor() => new DeleteDescriptor<Project>(CallIsolatedValue);
-
-        protected override void ExpectResponse(DeleteResponse response)
-        {
-            response.ShouldNotBeValid();
-            response.Result.Should().Be(Result.NotFound);
-            response.Index.Should().Be("project");
-            if (Cluster.ClusterConfiguration.Version < "2.0.0")
-                response.Type.Should().Be("_doc");
-            response.Id.Should().Be(CallIsolatedValue);
-            response.Shards.Total.Should().BeGreaterOrEqualTo(1);
-            response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-            response.PrimaryTerm.Should().BeGreaterThan(0);
-            response.SequenceNumber.Should().BeGreaterThan(0);
-        }
+        response.ShouldBeValid();
+        response.Result.Should().Be(Result.Deleted);
+        response.Shards.Should().NotBeNull();
+        response.Shards.Total.Should().BeGreaterOrEqualTo(1);
+        response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
+        response.PrimaryTerm.Should().BeGreaterThan(0);
+        response.SequenceNumber.Should().BeGreaterThan(0);
     }
+}
 
-    public class DeleteNonExistentIndexDocumentApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, DeleteResponse, IDeleteRequest, DeleteDescriptor<Project>, DeleteRequest<Project>>
+public class DeleteNonExistentDocumentApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, DeleteResponse, IDeleteRequest,
+        DeleteDescriptor<Project>, DeleteRequest<Project>>
+{
+    public DeleteNonExistentDocumentApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => false;
+    protected override int ExpectStatusCode => 404;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+
+    protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Routing(CallIsolatedValue);
+    protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(CallIsolatedValue) { Routing = CallIsolatedValue };
+
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/project/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Delete(CallIsolatedValue, f),
+        (client, f) => client.DeleteAsync(CallIsolatedValue, f),
+        (client, r) => client.Delete(r),
+        (client, r) => client.DeleteAsync(r)
+    );
+
+    protected override DeleteDescriptor<Project> NewDescriptor() => new DeleteDescriptor<Project>(CallIsolatedValue);
+
+    protected override void ExpectResponse(DeleteResponse response)
     {
-        public DeleteNonExistentIndexDocumentApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        response.ShouldNotBeValid();
+        response.Result.Should().Be(Result.NotFound);
+        response.Index.Should().Be("project");
+        if (Cluster.ClusterConfiguration.Version < "2.0.0")
+            response.Type.Should().Be("_doc");
+        response.Id.Should().Be(CallIsolatedValue);
+        response.Shards.Total.Should().BeGreaterOrEqualTo(1);
+        response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
+        response.PrimaryTerm.Should().BeGreaterThan(0);
+        response.SequenceNumber.Should().BeGreaterThan(0);
+    }
+}
 
-        protected override bool ExpectIsValid => false;
-        protected override int ExpectStatusCode => 404;
+public class DeleteNonExistentIndexDocumentApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, DeleteResponse, IDeleteRequest, DeleteDescriptor<Project>, DeleteRequest<Project>>
+{
+    public DeleteNonExistentIndexDocumentApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override bool ExpectIsValid => false;
+    protected override int ExpectStatusCode => 404;
 
-        protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Index(BadIndex).Routing(CallIsolatedValue);
-        protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(BadIndex, CallIsolatedValue) { Routing = CallIsolatedValue };
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-        protected override bool SupportsDeserialization => false;
-        protected override string UrlPath => $"/{BadIndex}/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
+    protected override Func<DeleteDescriptor<Project>, IDeleteRequest> Fluent => d => d.Index(BadIndex).Routing(CallIsolatedValue);
+    protected override DeleteRequest<Project> Initializer => new DeleteRequest<Project>(BadIndex, CallIsolatedValue) { Routing = CallIsolatedValue };
 
-        private string BadIndex => CallIsolatedValue + "-bad-index";
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/{BadIndex}/_doc/{CallIsolatedValue}?routing={U(CallIsolatedValue)}";
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Delete(CallIsolatedValue, f),
-            (client, f) => client.DeleteAsync(CallIsolatedValue, f),
-            (client, r) => client.Delete(r),
-            (client, r) => client.DeleteAsync(r)
-        );
+    private string BadIndex => CallIsolatedValue + "-bad-index";
 
-        protected override DeleteDescriptor<Project> NewDescriptor() =>
-            new DeleteDescriptor<Project>(index: CallIsolatedValue, id: CallIsolatedValue);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Delete(CallIsolatedValue, f),
+        (client, f) => client.DeleteAsync(CallIsolatedValue, f),
+        (client, r) => client.Delete(r),
+        (client, r) => client.DeleteAsync(r)
+    );
 
-        protected override void ExpectResponse(DeleteResponse response)
-        {
-            response.ShouldNotBeValid();
-            response.Result.Should().Be(Result.Error);
-            response.ServerError.Should().NotBeNull();
-            response.ServerError.Error.Reason.Should().StartWith("no such index");
-        }
+    protected override DeleteDescriptor<Project> NewDescriptor() =>
+        new DeleteDescriptor<Project>(index: CallIsolatedValue, id: CallIsolatedValue);
+
+    protected override void ExpectResponse(DeleteResponse response)
+    {
+        response.ShouldNotBeValid();
+        response.Result.Should().Be(Result.Error);
+        response.ServerError.Should().NotBeNull();
+        response.ServerError.Error.Reason.Should().StartWith("no such index");
     }
 }

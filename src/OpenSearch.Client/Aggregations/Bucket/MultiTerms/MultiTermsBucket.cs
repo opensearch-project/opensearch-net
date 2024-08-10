@@ -28,15 +28,14 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
-{
-    public class MultiTermsBucket<TKey> : BucketBase
-    {
-        public MultiTermsBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
+namespace OpenSearch.Client;
 
-        public long? DocCount { get; set; }
-        public long? DocCountErrorUpperBound { get; set; }
-        public IEnumerable<TKey> Key { get; set; }
-        public string KeyAsString { get; set; }
-    }
+public class MultiTermsBucket<TKey> : BucketBase
+{
+    public MultiTermsBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
+
+    public long? DocCount { get; set; }
+    public long? DocCountErrorUpperBound { get; set; }
+    public IEnumerable<TKey> Key { get; set; }
+    public string KeyAsString { get; set; }
 }

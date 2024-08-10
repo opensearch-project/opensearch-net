@@ -33,14 +33,14 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3717
 {
-    public class GithubIssue3717
+    [U]
+    public void CanDeserializeEmptyAggregation()
     {
-        [U]
-        public void CanDeserializeEmptyAggregation()
-        {
-            var json = @"{
+        var json = @"{
   ""took"" : 2,
   ""timed_out"" : false,
   ""_shards"" : {
@@ -62,26 +62,25 @@ namespace Tests.Reproduce
   }
 }";
 
-            var bytes = Encoding.UTF8.GetBytes(json);
+        var bytes = Encoding.UTF8.GetBytes(json);
 
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-            var client = new OpenSearchClient(connectionSettings);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-            Func<ISearchResponse<TestEntity>> response = () => client.Search<TestEntity>(s => s
-                .Size(0)
-                .Index("issue")
-                .Aggregations(q => q
-                    .GeoBounds("viewport", t => t
-                        .Field(f => f.TestProperty)))
-            );
+        Func<ISearchResponse<TestEntity>> response = () => client.Search<TestEntity>(s => s
+            .Size(0)
+            .Index("issue")
+            .Aggregations(q => q
+                .GeoBounds("viewport", t => t
+                    .Field(f => f.TestProperty)))
+        );
 
-            response.Should().NotThrow();
-        }
+        response.Should().NotThrow();
+    }
 
-        public class TestEntity
-        {
-            public string TestProperty { get; set; }
-        }
+    public class TestEntity
+    {
+        public string TestProperty { get; set; }
     }
 }

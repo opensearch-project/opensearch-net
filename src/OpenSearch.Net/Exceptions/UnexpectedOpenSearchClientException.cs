@@ -29,14 +29,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Net
-{
-    public class UnexpectedOpenSearchClientException : OpenSearchClientException
-    {
-        public UnexpectedOpenSearchClientException(Exception killerException, List<PipelineException> seenExceptions)
-            : base(PipelineFailure.Unexpected, killerException?.Message ?? "An unexpected exception occurred.", killerException) =>
-            SeenExceptions = seenExceptions;
+namespace OpenSearch.Net;
 
-        public List<PipelineException> SeenExceptions { get; set; }
-    }
+public class UnexpectedOpenSearchClientException : OpenSearchClientException
+{
+    public UnexpectedOpenSearchClientException(Exception killerException, List<PipelineException> seenExceptions)
+        : base(PipelineFailure.Unexpected, killerException?.Message ?? "An unexpected exception occurred.", killerException) =>
+        SeenExceptions = seenExceptions;
+
+    public List<PipelineException> SeenExceptions { get; set; }
 }

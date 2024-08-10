@@ -34,64 +34,63 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.DocumentationTests;
 
-namespace Tests.Indices.AliasManagement.GetIndicesPointingToAlias
+namespace Tests.Indices.AliasManagement.GetIndicesPointingToAlias;
+
+public class GetIndicesPointingToAliasTests : IntegrationDocumentationTestBase, IClusterFixture<WritableCluster>
 {
-    public class GetIndicesPointingToAliasTests : IntegrationDocumentationTestBase, IClusterFixture<WritableCluster>
+    private static readonly string Unique = RandomString();
+    private static readonly string Alias = "alias-" + Unique;
+
+    private static readonly string[] Indices =
     {
-        private static readonly string Unique = RandomString();
-        private static readonly string Alias = "alias-" + Unique;
+        $"alias-index-{Unique}-1",
+        $"alias-index-{Unique}-2",
+        $"alias-index-{Unique}-3"
+    };
 
-        private static readonly string[] Indices =
+    private readonly IOpenSearchClient _client;
+
+    public GetIndicesPointingToAliasTests(WritableCluster cluster) : base(cluster)
+    {
+        _client = cluster.Client;
+
+        foreach (var index in Indices)
         {
-            $"alias-index-{Unique}-1",
-            $"alias-index-{Unique}-2",
-            $"alias-index-{Unique}-3"
-        };
+            if (_client.Indices.Exists(index).Exists) continue;
 
-        private readonly IOpenSearchClient _client;
-
-        public GetIndicesPointingToAliasTests(WritableCluster cluster) : base(cluster)
-        {
-            _client = cluster.Client;
-
-            foreach (var index in Indices)
+            lock (Unique)
             {
                 if (_client.Indices.Exists(index).Exists) continue;
 
-                lock (Unique)
-                {
-                    if (_client.Indices.Exists(index).Exists) continue;
-
-                    var createResponse = _client.Indices.Create(index, c => c
-                        .Settings(s => s
-                            .NumberOfShards(1)
-                            .NumberOfReplicas(0)
-                        )
-                        .Aliases(a => a
-                            .Alias(Alias)
-                        )
-                    );
-                    createResponse.ShouldBeValid();
-                }
+                var createResponse = _client.Indices.Create(index, c => c
+                    .Settings(s => s
+                        .NumberOfShards(1)
+                        .NumberOfReplicas(0)
+                    )
+                    .Aliases(a => a
+                        .Alias(Alias)
+                    )
+                );
+                createResponse.ShouldBeValid();
             }
         }
+    }
 
-        [I]
-        public void ShouldGetAliasesPointingToIndex()
-        {
-            var indicesPointingToAlias = _client.GetIndicesPointingToAlias(Alias);
+    [I]
+    public void ShouldGetAliasesPointingToIndex()
+    {
+        var indicesPointingToAlias = _client.GetIndicesPointingToAlias(Alias);
 
-            indicesPointingToAlias.Should().NotBeEmpty().And.HaveCount(3);
-            indicesPointingToAlias.Should().Contain(Indices);
-        }
+        indicesPointingToAlias.Should().NotBeEmpty().And.HaveCount(3);
+        indicesPointingToAlias.Should().Contain(Indices);
+    }
 
-        [I]
-        public async Task ShouldGetAliasesPointingToIndexAsync()
-        {
-            var indicesPointingToAlias = await _client.GetIndicesPointingToAliasAsync(Alias);
+    [I]
+    public async Task ShouldGetAliasesPointingToIndexAsync()
+    {
+        var indicesPointingToAlias = await _client.GetIndicesPointingToAliasAsync(Alias);
 
-            indicesPointingToAlias.Should().NotBeEmpty().And.HaveCount(3);
-            indicesPointingToAlias.Should().Contain(Indices);
-        }
+        indicesPointingToAlias.Should().NotBeEmpty().And.HaveCount(3);
+        indicesPointingToAlias.Should().Contain(Indices);
     }
 }

@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("cat.shards.json")]
-    public partial interface ICatShardsRequest { }
+namespace OpenSearch.Client;
 
-    public partial class CatShardsRequest { }
+[MapsApi("cat.shards.json")]
+public partial interface ICatShardsRequest { }
 
-    public partial class CatShardsDescriptor { }
-}
+public partial class CatShardsRequest { }
+
+public partial class CatShardsDescriptor { }

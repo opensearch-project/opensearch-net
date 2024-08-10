@@ -31,29 +31,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class MultiGetResponseBuilder : CustomResponseBuilderBase
 {
-    internal class MultiGetResponseBuilder : CustomResponseBuilderBase
-    {
-        public MultiGetResponseBuilder(IMultiGetRequest request) => Formatter = new MultiGetResponseFormatter(request);
+    public MultiGetResponseBuilder(IMultiGetRequest request) => Formatter = new MultiGetResponseFormatter(request);
 
-        private MultiGetResponseFormatter Formatter { get; }
+    private MultiGetResponseFormatter Formatter { get; }
 
-        public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
-            response.Success
-                ? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream)
-                : new MultiGetResponse();
+    public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
+        response.Success
+            ? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream)
+            : new MultiGetResponse();
 
-        public override async Task<object> DeserializeResponseAsync(
-            IOpenSearchSerializer builtInSerializer,
-            IApiCallDetails response,
-            Stream stream,
-            CancellationToken ctx = default
-        ) =>
-            response.Success
-                ? await builtInSerializer.CreateStateful(Formatter)
-                    .DeserializeAsync<MultiGetResponse>(stream, ctx)
-                    .ConfigureAwait(false)
-                : new MultiGetResponse();
-    }
+    public override async Task<object> DeserializeResponseAsync(
+        IOpenSearchSerializer builtInSerializer,
+        IApiCallDetails response,
+        Stream stream,
+        CancellationToken ctx = default
+    ) =>
+        response.Success
+            ? await builtInSerializer.CreateStateful(Formatter)
+                .DeserializeAsync<MultiGetResponse>(stream, ctx)
+                .ConfigureAwait(false)
+            : new MultiGetResponse();
 }

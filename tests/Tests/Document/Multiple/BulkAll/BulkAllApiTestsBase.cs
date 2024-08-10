@@ -36,46 +36,45 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Document.Multiple.BulkAll
+namespace Tests.Document.Multiple.BulkAll;
+
+public abstract class BulkAllApiTestsBase : IClusterFixture<IntrusiveOperationCluster>
 {
-    public abstract class BulkAllApiTestsBase : IClusterFixture<IntrusiveOperationCluster>
+    protected BulkAllApiTestsBase(IntrusiveOperationCluster cluster) => Client = cluster.Client;
+
+    protected IOpenSearchClient Client { get; }
+
+    protected static string CreateIndexName() => $"project-copy-{Guid.NewGuid().ToString("N").Substring(8)}";
+
+    protected IEnumerable<SmallObject> CreateLazyStreamOfDocuments(int count)
     {
-        protected BulkAllApiTestsBase(IntrusiveOperationCluster cluster) => Client = cluster.Client;
+        for (var i = 0; i < count; i++)
+            yield return new SmallObject() { Id = i };
+    }
 
-        protected IOpenSearchClient Client { get; }
+    protected async Task CreateIndexAsync(string indexName, int numberOfShards, Func<TypeMappingDescriptor<SmallObject>, ITypeMapping> mappings = null)
+    {
+        var result = await Client.Indices.CreateAsync(indexName, s => s
+            .Settings(settings => settings
+                .NumberOfShards(numberOfShards)
+                .NumberOfReplicas(0)
+            )
+            .Map(mappings)
+        );
+        result.Should().NotBeNull();
+        result.ShouldBeValid();
+    }
 
-        protected static string CreateIndexName() => $"project-copy-{Guid.NewGuid().ToString("N").Substring(8)}";
+    protected static void OnError(ref Exception ex, Exception e, EventWaitHandle handle)
+    {
+        ex = e;
+        handle.Set();
+        throw e;
+    }
 
-        protected IEnumerable<SmallObject> CreateLazyStreamOfDocuments(int count)
-        {
-            for (var i = 0; i < count; i++)
-                yield return new SmallObject() { Id = i };
-        }
-
-        protected async Task CreateIndexAsync(string indexName, int numberOfShards, Func<TypeMappingDescriptor<SmallObject>, ITypeMapping> mappings = null)
-        {
-            var result = await Client.Indices.CreateAsync(indexName, s => s
-                .Settings(settings => settings
-                    .NumberOfShards(numberOfShards)
-                    .NumberOfReplicas(0)
-                )
-                .Map(mappings)
-            );
-            result.Should().NotBeNull();
-            result.ShouldBeValid();
-        }
-
-        protected static void OnError(ref Exception ex, Exception e, EventWaitHandle handle)
-        {
-            ex = e;
-            handle.Set();
-            throw e;
-        }
-
-        protected class SmallObject
-        {
-            public int Id { get; set; }
-            public string Number { get; set; }
-        }
+    protected class SmallObject
+    {
+        public int Id { get; set; }
+        public string Number { get; set; }
     }
 }

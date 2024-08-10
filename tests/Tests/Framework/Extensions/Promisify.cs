@@ -28,19 +28,18 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Framework.Extensions
+namespace Tests.Framework.Extensions;
+
+public static class Promisify
 {
-    public static class Promisify
+    public static PromiseValue<T> Promise<T>(T o) where T : class => new PromiseValue<T>(o);
+
+    public class PromiseValue<T> : IPromise<T> where T : class
     {
-        public static PromiseValue<T> Promise<T>(T o) where T : class => new PromiseValue<T>(o);
+        private readonly T _o;
 
-        public class PromiseValue<T> : IPromise<T> where T : class
-        {
-            private readonly T _o;
+        public PromiseValue(T o) => _o = o;
 
-            public PromiseValue(T o) => _o = o;
-
-            T IPromise<T>.Value => _o;
-        }
+        T IPromise<T>.Value => _o;
     }
 }

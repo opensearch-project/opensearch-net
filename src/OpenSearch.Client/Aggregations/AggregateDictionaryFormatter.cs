@@ -30,82 +30,81 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class AggregateDictionaryFormatter : IJsonFormatter<AggregateDictionary>
 {
-    internal class AggregateDictionaryFormatter : IJsonFormatter<AggregateDictionary>
+    private static readonly AggregateFormatter Formatter = new AggregateFormatter();
+
+    public AggregateDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        private static readonly AggregateFormatter Formatter = new AggregateFormatter();
-
-        public AggregateDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        var dictionary = new Dictionary<string, IAggregate>();
+        if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
         {
-            var dictionary = new Dictionary<string, IAggregate>();
-            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-            {
-                reader.ReadNextBlock();
-                return new AggregateDictionary(dictionary);
-            }
-
-            var count = 0;
-            while (reader.ReadIsInObject(ref count))
-            {
-                var typedProperty = reader.ReadPropertyName();
-
-                if (typedProperty.IsNullOrEmpty())
-                {
-                    reader.ReadNextBlock();
-                    continue;
-                }
-
-                var tokens = AggregateDictionary.TypedKeyTokens(typedProperty);
-                if (tokens.Length == 1)
-                    ParseAggregate(ref reader, formatterResolver, tokens[0], dictionary);
-                else
-                    ReadAggregate(ref reader, formatterResolver, tokens, dictionary);
-            }
-
+            reader.ReadNextBlock();
             return new AggregateDictionary(dictionary);
         }
 
-        public void Serialize(ref JsonWriter writer, AggregateDictionary value, IJsonFormatterResolver formatterResolver) =>
-            throw new NotSupportedException();
-
-        private static void ReadAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, string[] tokens,
-            Dictionary<string, IAggregate> dictionary
-        )
+        var count = 0;
+        while (reader.ReadIsInObject(ref count))
         {
-            var name = tokens[1];
-            var type = tokens[0];
-            switch (type)
+            var typedProperty = reader.ReadPropertyName();
+
+            if (typedProperty.IsNullOrEmpty())
             {
-                case "geo_centroid":
-                    ReadAggregate<GeoCentroidAggregate>(ref reader, formatterResolver, name, dictionary);
-                    break;
-                case "geo_line":
-                    ReadAggregate<GeoLineAggregate>(ref reader, formatterResolver, name, dictionary);
-                    break;
-                default:
-                    //still fall back to heuristics based parsed in case we do not know the key
-                    ParseAggregate(ref reader, formatterResolver, name, dictionary);
-                    break;
+                reader.ReadNextBlock();
+                continue;
             }
+
+            var tokens = AggregateDictionary.TypedKeyTokens(typedProperty);
+            if (tokens.Length == 1)
+                ParseAggregate(ref reader, formatterResolver, tokens[0], dictionary);
+            else
+                ReadAggregate(ref reader, formatterResolver, tokens, dictionary);
         }
 
-        private static void ReadAggregate<TAggregate>(ref JsonReader reader, IJsonFormatterResolver formatterResolver,
-            string name,
-            Dictionary<string, IAggregate> dictionary
-        )
-            where TAggregate : IAggregate
-        {
-            var aggregate = formatterResolver.GetFormatter<TAggregate>().Deserialize(ref reader, formatterResolver);
-            dictionary.Add(name, aggregate);
-        }
+        return new AggregateDictionary(dictionary);
+    }
 
-        private static void ParseAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, string name,
-            Dictionary<string, IAggregate> dictionary
-        )
+    public void Serialize(ref JsonWriter writer, AggregateDictionary value, IJsonFormatterResolver formatterResolver) =>
+        throw new NotSupportedException();
+
+    private static void ReadAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, string[] tokens,
+        Dictionary<string, IAggregate> dictionary
+    )
+    {
+        var name = tokens[1];
+        var type = tokens[0];
+        switch (type)
         {
-            var aggregate = Formatter.Deserialize(ref reader, formatterResolver);
-            dictionary.Add(name, aggregate);
+            case "geo_centroid":
+                ReadAggregate<GeoCentroidAggregate>(ref reader, formatterResolver, name, dictionary);
+                break;
+            case "geo_line":
+                ReadAggregate<GeoLineAggregate>(ref reader, formatterResolver, name, dictionary);
+                break;
+            default:
+                //still fall back to heuristics based parsed in case we do not know the key
+                ParseAggregate(ref reader, formatterResolver, name, dictionary);
+                break;
         }
+    }
+
+    private static void ReadAggregate<TAggregate>(ref JsonReader reader, IJsonFormatterResolver formatterResolver,
+        string name,
+        Dictionary<string, IAggregate> dictionary
+    )
+        where TAggregate : IAggregate
+    {
+        var aggregate = formatterResolver.GetFormatter<TAggregate>().Deserialize(ref reader, formatterResolver);
+        dictionary.Add(name, aggregate);
+    }
+
+    private static void ParseAggregate(ref JsonReader reader, IJsonFormatterResolver formatterResolver, string name,
+        Dictionary<string, IAggregate> dictionary
+    )
+    {
+        var aggregate = Formatter.Deserialize(ref reader, formatterResolver);
+        dictionary.Add(name, aggregate);
     }
 }

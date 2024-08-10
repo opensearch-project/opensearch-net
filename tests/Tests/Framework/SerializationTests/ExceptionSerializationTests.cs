@@ -33,67 +33,66 @@ using Newtonsoft.Json.Linq;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Framework.SerializationTests
+namespace Tests.Framework.SerializationTests;
+
+public class ExceptionSerializationTests
 {
-    public class ExceptionSerializationTests
+    private readonly IOpenSearchSerializer _opensearchNetSerializer;
+
+    private readonly Exception _exception = new Exception("outer_exception",
+        new InnerException("inner_exception",
+            new InnerInnerException("inner_inner_exception")));
+
+    public ExceptionSerializationTests()
     {
-        private readonly IOpenSearchSerializer _opensearchNetSerializer;
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connection = new InMemoryConnection();
+        var values = new ConnectionConfiguration(pool, connection);
+        var lowlevelClient = new OpenSearchLowLevelClient(values);
+        _opensearchNetSerializer = lowlevelClient.Serializer;
+    }
 
-        private readonly Exception _exception = new Exception("outer_exception",
-            new InnerException("inner_exception",
-                new InnerInnerException("inner_inner_exception")));
+    [U]
+    public void LowLevelExceptionSerializationMatchesJsonNet()
+    {
+        var serialized = _opensearchNetSerializer.SerializeToString(_exception);
 
-        public ExceptionSerializationTests()
+        object CreateException(Type exceptionType, string message, int depth)
         {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connection = new InMemoryConnection();
-            var values = new ConnectionConfiguration(pool, connection);
-            var lowlevelClient = new OpenSearchLowLevelClient(values);
-            _opensearchNetSerializer = lowlevelClient.Serializer;
-        }
-
-        [U]
-        public void LowLevelExceptionSerializationMatchesJsonNet()
-        {
-            var serialized = _opensearchNetSerializer.SerializeToString(_exception);
-
-            object CreateException(Type exceptionType, string message, int depth)
+            return new
             {
-                return new
-                {
-                    Depth = depth,
-                    ClassName = exceptionType.FullName,
-                    Message = message,
-                    Source = (object)null,
-                    StackTraceString = (object)null,
-                    RemoteStackTraceString = (object)null,
-                    RemoteStackIndex = 0,
-                    HResult = -2146233088,
-                    HelpURL = (object)null
-                };
-            }
-
-            var simpleJsonException = new[]
-            {
-                CreateException(typeof(Exception), "outer_exception", 0),
-                CreateException(typeof(InnerException), "inner_exception", 1),
-                CreateException(typeof(InnerInnerException), "inner_inner_exception", 2),
+                Depth = depth,
+                ClassName = exceptionType.FullName,
+                Message = message,
+                Source = (object)null,
+                StackTraceString = (object)null,
+                RemoteStackTraceString = (object)null,
+                RemoteStackIndex = 0,
+                HResult = -2146233088,
+                HelpURL = (object)null
             };
-
-            var jArray = JArray.Parse(serialized);
-            var jArray2 = JArray.Parse(JsonConvert.SerializeObject(simpleJsonException));
-
-            JToken.DeepEquals(jArray, jArray2).Should().BeTrue();
         }
 
-        public class InnerException : Exception
+        var simpleJsonException = new[]
         {
-            public InnerException(string message, Exception innerException) : base(message, innerException) { }
-        }
+            CreateException(typeof(Exception), "outer_exception", 0),
+            CreateException(typeof(InnerException), "inner_exception", 1),
+            CreateException(typeof(InnerInnerException), "inner_inner_exception", 2),
+        };
 
-        public class InnerInnerException : Exception
-        {
-            public InnerInnerException(string message) : base(message) { }
-        }
+        var jArray = JArray.Parse(serialized);
+        var jArray2 = JArray.Parse(JsonConvert.SerializeObject(simpleJsonException));
+
+        JToken.DeepEquals(jArray, jArray2).Should().BeTrue();
+    }
+
+    public class InnerException : Exception
+    {
+        public InnerException(string message, Exception innerException) : base(message, innerException) { }
+    }
+
+    public class InnerInnerException : Exception
+    {
+        public InnerInnerException(string message) : base(message) { }
     }
 }

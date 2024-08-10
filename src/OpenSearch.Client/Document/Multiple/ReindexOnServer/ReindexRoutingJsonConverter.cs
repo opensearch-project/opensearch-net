@@ -28,25 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    internal class ReindexRoutingFormatter : IJsonFormatter<ReindexRouting>
-    {
-        public ReindexRouting Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            var value = reader.ReadString();
-            switch (value)
-            {
-                case "keep": return ReindexRouting.Keep;
-                case "discard": return ReindexRouting.Discard;
-                default: return new ReindexRouting(value);
-            }
-        }
+namespace OpenSearch.Client;
 
-        public void Serialize(ref JsonWriter writer, ReindexRouting value, IJsonFormatterResolver formatterResolver)
+internal class ReindexRoutingFormatter : IJsonFormatter<ReindexRouting>
+{
+    public ReindexRouting Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var value = reader.ReadString();
+        switch (value)
         {
-            if (value == null) writer.WriteNull();
-            else writer.WriteString(value.ToString());
+            case "keep": return ReindexRouting.Keep;
+            case "discard": return ReindexRouting.Discard;
+            default: return new ReindexRouting(value);
         }
+    }
+
+    public void Serialize(ref JsonWriter writer, ReindexRouting value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null) writer.WriteNull();
+        else writer.WriteString(value.ToString());
     }
 }

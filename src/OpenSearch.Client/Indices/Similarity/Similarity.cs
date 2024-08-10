@@ -29,18 +29,17 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A similarity.
+/// </summary>
+[JsonFormatter(typeof(SimilarityFormatter))]
+public interface ISimilarity
 {
     /// <summary>
-    /// A similarity.
+    /// The type of similarity.
     /// </summary>
-    [JsonFormatter(typeof(SimilarityFormatter))]
-    public interface ISimilarity
-    {
-        /// <summary>
-        /// The type of similarity.
-        /// </summary>
-        [DataMember(Name = "type")]
-        string Type { get; }
-    }
+    [DataMember(Name = "type")]
+    string Type { get; }
 }

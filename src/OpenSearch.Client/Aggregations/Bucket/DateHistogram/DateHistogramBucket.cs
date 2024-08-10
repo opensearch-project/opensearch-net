@@ -29,15 +29,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class DateHistogramBucket : KeyedBucket<double>
 {
-    public class DateHistogramBucket : KeyedBucket<double>
-    {
-        private static readonly long EpochTicks = new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.Zero).Ticks;
+    private static readonly long EpochTicks = new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.Zero).Ticks;
 
-        public DateHistogramBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
+    public DateHistogramBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
 
-        // Get a DateTime form of the returned key
-        public DateTime Date => new DateTime(EpochTicks + (long)Key * TimeSpan.TicksPerMillisecond, DateTimeKind.Utc);
-    }
+    // Get a DateTime form of the returned key
+    public DateTime Date => new DateTime(EpochTicks + (long)Key * TimeSpan.TicksPerMillisecond, DateTimeKind.Utc);
 }

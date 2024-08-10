@@ -28,26 +28,25 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class IpAttribute : OpenSearchDocValuesPropertyAttributeBase, IIpProperty
 {
-    public class IpAttribute : OpenSearchDocValuesPropertyAttributeBase, IIpProperty
+    public IpAttribute() : base(FieldType.Ip) { }
+
+    public bool Index
     {
-        public IpAttribute() : base(FieldType.Ip) { }
-
-        public bool Index
-        {
-            get => Self.Index.GetValueOrDefault();
-            set => Self.Index = value;
-        }
-
-        public string NullValue
-        {
-            get => Self.NullValue;
-            set => Self.NullValue = value;
-        }
-
-        bool? IIpProperty.Index { get; set; }
-        string IIpProperty.NullValue { get; set; }
-        private IIpProperty Self => this;
+        get => Self.Index.GetValueOrDefault();
+        set => Self.Index = value;
     }
+
+    public string NullValue
+    {
+        get => Self.NullValue;
+        set => Self.NullValue = value;
+    }
+
+    bool? IIpProperty.Index { get; set; }
+    string IIpProperty.NullValue { get; set; }
+    private IIpProperty Self => this;
 }

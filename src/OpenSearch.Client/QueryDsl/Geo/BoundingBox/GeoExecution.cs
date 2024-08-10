@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum GeoExecution
-    {
-        [EnumMember(Value = "memory")]
-        Memory,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "indexed")]
-        Indexed
-    }
+[StringEnum]
+public enum GeoExecution
+{
+    [EnumMember(Value = "memory")]
+    Memory,
+
+    [EnumMember(Value = "indexed")]
+    Indexed
 }

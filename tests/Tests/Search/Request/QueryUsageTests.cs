@@ -32,31 +32,30 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.Request
-{
-    /**
+namespace Tests.Search.Request;
+
+/**
 	 * The query element within the search request body allows to define a query using the <<query-dsl,Query DSL>>.
 	 */
-    public class QueryUsageTests : SearchUsageTestBase
-    {
-        public QueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class QueryUsageTests : SearchUsageTestBase
+{
+    public QueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override object ExpectJson =>
-            new { query = new { term = new { name = new { value = "opensearch" } } } };
+    protected override object ExpectJson =>
+        new { query = new { term = new { name = new { value = "opensearch" } } } };
 
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-            .Query(q => q
-                .Term(p => p.Name, "opensearch")
-            );
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+        .Query(q => q
+            .Term(p => p.Name, "opensearch")
+        );
 
-        protected override SearchRequest<Project> Initializer =>
-            new SearchRequest<Project>
+    protected override SearchRequest<Project> Initializer =>
+        new SearchRequest<Project>
+        {
+            Query = new TermQuery
             {
-                Query = new TermQuery
-                {
-                    Field = "name",
-                    Value = "opensearch"
-                }
-            };
-    }
+                Field = "name",
+                Value = "opensearch"
+            }
+        };
 }

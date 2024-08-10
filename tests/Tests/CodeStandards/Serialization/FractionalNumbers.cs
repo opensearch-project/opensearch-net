@@ -32,57 +32,56 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.CodeStandards.Serialization
+namespace Tests.CodeStandards.Serialization;
+
+public class FractionalNumbers
 {
-    public class FractionalNumbers
+    private readonly IOpenSearchSerializer _serializer;
+
+    public FractionalNumbers()
     {
-        private readonly IOpenSearchSerializer _serializer;
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var settings = new ConnectionSettings(pool, new InMemoryConnection());
+        var client = new OpenSearchClient(settings);
+        _serializer = client.RequestResponseSerializer;
+    }
 
-        public FractionalNumbers()
+    [U]
+    public void SerializeDouble()
+    {
+        var poco = new
         {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var settings = new ConnectionSettings(pool, new InMemoryConnection());
-            var client = new OpenSearchClient(settings);
-            _serializer = client.RequestResponseSerializer;
-        }
+            Whole = 1d,
+            Fractional = 1.1d
+        };
 
-        [U]
-        public void SerializeDouble()
+        var serialized = _serializer.SerializeToString(poco);
+        serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
+    }
+
+    [U]
+    public void SerializeFloat()
+    {
+        var poco = new
         {
-            var poco = new
-            {
-                Whole = 1d,
-                Fractional = 1.1d
-            };
+            Whole = 1f,
+            Fractional = 1.1f
+        };
 
-            var serialized = _serializer.SerializeToString(poco);
-            serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
-        }
+        var serialized = _serializer.SerializeToString(poco);
+        serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
+    }
 
-        [U]
-        public void SerializeFloat()
+    [U]
+    public void SerializeDecimal()
+    {
+        var poco = new
         {
-            var poco = new
-            {
-                Whole = 1f,
-                Fractional = 1.1f
-            };
+            Whole = 1m,
+            Fractional = 1.1m
+        };
 
-            var serialized = _serializer.SerializeToString(poco);
-            serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
-        }
-
-        [U]
-        public void SerializeDecimal()
-        {
-            var poco = new
-            {
-                Whole = 1m,
-                Fractional = 1.1m
-            };
-
-            var serialized = _serializer.SerializeToString(poco);
-            serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
-        }
+        var serialized = _serializer.SerializeToString(poco);
+        serialized.Should().Be("{\"whole\":1.0,\"fractional\":1.1}");
     }
 }

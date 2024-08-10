@@ -28,41 +28,40 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// An analyzer tailored for japanese that is bootstrapped with defaults.
+/// Part of the `analysis-kuromoji` plugin:
+/// </summary>
+public interface IKuromojiAnalyzer : IAnalyzer
 {
-    /// <summary>
-    /// An analyzer tailored for japanese that is bootstrapped with defaults.
-    /// Part of the `analysis-kuromoji` plugin:
-    /// </summary>
-    public interface IKuromojiAnalyzer : IAnalyzer
-    {
-        [DataMember(Name = "mode")]
-        KuromojiTokenizationMode? Mode { get; set; }
+    [DataMember(Name = "mode")]
+    KuromojiTokenizationMode? Mode { get; set; }
 
-        [DataMember(Name = "user_dictionary")]
-        string UserDictionary { get; set; }
-    }
+    [DataMember(Name = "user_dictionary")]
+    string UserDictionary { get; set; }
+}
 
-    /// <inheritdoc />
-    public class KuromojiAnalyzer : AnalyzerBase, IKuromojiAnalyzer
-    {
-        public KuromojiAnalyzer() : base("kuromoji") { }
+/// <inheritdoc />
+public class KuromojiAnalyzer : AnalyzerBase, IKuromojiAnalyzer
+{
+    public KuromojiAnalyzer() : base("kuromoji") { }
 
-        public KuromojiTokenizationMode? Mode { get; set; }
+    public KuromojiTokenizationMode? Mode { get; set; }
 
-        public string UserDictionary { get; set; }
-    }
+    public string UserDictionary { get; set; }
+}
 
-    /// <inheritdoc />
-    public class KuromojiAnalyzerDescriptor : AnalyzerDescriptorBase<KuromojiAnalyzerDescriptor, IKuromojiAnalyzer>, IKuromojiAnalyzer
-    {
-        protected override string Type => "kuromoji";
+/// <inheritdoc />
+public class KuromojiAnalyzerDescriptor : AnalyzerDescriptorBase<KuromojiAnalyzerDescriptor, IKuromojiAnalyzer>, IKuromojiAnalyzer
+{
+    protected override string Type => "kuromoji";
 
-        KuromojiTokenizationMode? IKuromojiAnalyzer.Mode { get; set; }
-        string IKuromojiAnalyzer.UserDictionary { get; set; }
+    KuromojiTokenizationMode? IKuromojiAnalyzer.Mode { get; set; }
+    string IKuromojiAnalyzer.UserDictionary { get; set; }
 
-        public KuromojiAnalyzerDescriptor Mode(KuromojiTokenizationMode? mode) => Assign(mode, (a, v) => a.Mode = v);
+    public KuromojiAnalyzerDescriptor Mode(KuromojiTokenizationMode? mode) => Assign(mode, (a, v) => a.Mode = v);
 
-        public KuromojiAnalyzerDescriptor UserDictionary(string userDictionary) => Assign(userDictionary, (a, v) => a.UserDictionary = v);
-    }
+    public KuromojiAnalyzerDescriptor UserDictionary(string userDictionary) => Assign(userDictionary, (a, v) => a.UserDictionary = v);
 }

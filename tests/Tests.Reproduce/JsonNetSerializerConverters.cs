@@ -38,36 +38,35 @@ using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+// from https://stackoverflow.com/questions/49224866/elasticsearch-nest-6-storing-enums-as-string
+public class JsonNetSerializerConverters
 {
-    // from https://stackoverflow.com/questions/49224866/elasticsearch-nest-6-storing-enums-as-string
-    public class JsonNetSerializerConverters
+    public enum ProductType
     {
-        public enum ProductType
-        {
-            Example
-        }
+        Example
+    }
 
-        [U]
-        public void JsonConvertersInJsonSerializerSettingsAreHonoured()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(), (builtin, settings) =>
-                new JsonNetSerializer(builtin, settings,
-                    () => new JsonSerializerSettings
-                    {
-                        Converters = new List<JsonConverter> { new StringEnumConverter() }
-                    })).DisableDirectStreaming();
+    [U]
+    public void JsonConvertersInJsonSerializerSettingsAreHonoured()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(), (builtin, settings) =>
+            new JsonNetSerializer(builtin, settings,
+                () => new JsonSerializerSettings
+                {
+                    Converters = new List<JsonConverter> { new StringEnumConverter() }
+                })).DisableDirectStreaming();
 
-            var client = new OpenSearchClient(connectionSettings);
+        var client = new OpenSearchClient(connectionSettings);
 
-            var indexResponse = client.Index(new Product { ProductType = ProductType.Example }, i => i.Index("examples"));
-            Encoding.UTF8.GetString(indexResponse.ApiCall.RequestBodyInBytes).Should().Contain("\"productType\":\"Example\"");
-        }
+        var indexResponse = client.Index(new Product { ProductType = ProductType.Example }, i => i.Index("examples"));
+        Encoding.UTF8.GetString(indexResponse.ApiCall.RequestBodyInBytes).Should().Contain("\"productType\":\"Example\"");
+    }
 
-        public class Product
-        {
-            public ProductType ProductType { get; set; }
-        }
+    public class Product
+    {
+        public ProductType ProductType { get; set; }
     }
 }

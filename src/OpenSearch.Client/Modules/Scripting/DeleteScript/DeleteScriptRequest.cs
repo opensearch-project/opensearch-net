@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("delete_script.json")]
-    public partial interface IDeleteScriptRequest { }
+namespace OpenSearch.Client;
 
-    public partial class DeleteScriptRequest { }
+[MapsApi("delete_script.json")]
+public partial interface IDeleteScriptRequest { }
 
-    public partial class DeleteScriptDescriptor { }
-}
+public partial class DeleteScriptRequest { }
+
+public partial class DeleteScriptDescriptor { }

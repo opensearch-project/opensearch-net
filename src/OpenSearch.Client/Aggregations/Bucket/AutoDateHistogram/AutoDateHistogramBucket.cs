@@ -28,10 +28,9 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class AutoDateHistogramAggregate : MultiBucketAggregate<DateHistogramBucket>
 {
-    public class AutoDateHistogramAggregate : MultiBucketAggregate<DateHistogramBucket>
-    {
-        public DateMathTime AutoInterval { get; internal set; }
-    }
+    public DateMathTime AutoInterval { get; internal set; }
 }

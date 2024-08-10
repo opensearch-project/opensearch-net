@@ -39,57 +39,56 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Tasks;
 using Tests.Domain.Extensions;
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOpenSearchClientTestCluster
 {
-    public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOpenSearchClientTestCluster
+    protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
+
+    protected ClientTestClusterBase(params OpenSearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
+
+    protected ClientTestClusterBase(ClientTestClusterConfiguration configuration) : base(configuration) { }
+
+    public IOpenSearchClient Client => this.GetOrAddClient(s => ConnectionSettings(s.ApplyDomainSettings()));
+
+    protected virtual ConnectionSettings ConnectionSettings(ConnectionSettings s) => s;
+
+    protected sealed override void SeedCluster()
     {
-        protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
-
-        protected ClientTestClusterBase(params OpenSearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
-
-        protected ClientTestClusterBase(ClientTestClusterConfiguration configuration) : base(configuration) { }
-
-        public IOpenSearchClient Client => this.GetOrAddClient(s => ConnectionSettings(s.ApplyDomainSettings()));
-
-        protected virtual ConnectionSettings ConnectionSettings(ConnectionSettings s) => s;
-
-        protected sealed override void SeedCluster()
-        {
-            Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
-            SeedNode();
-            Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
-        }
-
-        protected virtual void SeedNode() { }
+        Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
+        SeedNode();
+        Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
     }
 
-    public class ClientTestClusterConfiguration : XunitClusterConfiguration
+    protected virtual void SeedNode() { }
+}
+
+public class ClientTestClusterConfiguration : XunitClusterConfiguration
+{
+    public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
+
+    public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
+        params OpenSearchPlugin[] plugins
+    )
+        : base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
     {
-        public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
+        TestConfiguration = TestClient.Configuration;
 
-        public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
-            params OpenSearchPlugin[] plugins
-        )
-            : base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
-        {
-            TestConfiguration = TestClient.Configuration;
+        ShowOpenSearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
+        HttpFiddlerAware = true;
 
-            ShowOpenSearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
-            HttpFiddlerAware = true;
+        CacheOpenSearchHomeInstallation = true;
 
-            CacheOpenSearchHomeInstallation = true;
+        Add(AttributeKey("testingcluster"), "true");
+        Add(AttributeKey("gateway"), "true");
 
-            Add(AttributeKey("testingcluster"), "true");
-            Add(AttributeKey("gateway"), "true");
+        Add($"script.disable_max_compilations_rate", "true");
 
-            Add($"script.disable_max_compilations_rate", "true");
+        Add($"script.allowed_types", "inline,stored");
 
-            Add($"script.allowed_types", "inline,stored");
-
-            AdditionalBeforeNodeStartedTasks.Add(new WriteAnalysisFiles());
-        }
-
-        public string AnalysisFolder => Path.Combine(FileSystem.ConfigPath, "analysis");
-        public TestConfigurationBase TestConfiguration { get; }
+        AdditionalBeforeNodeStartedTasks.Add(new WriteAnalysisFiles());
     }
+
+    public string AnalysisFolder => Path.Combine(FileSystem.ConfigPath, "analysis");
+    public TestConfigurationBase TestConfiguration { get; }
 }

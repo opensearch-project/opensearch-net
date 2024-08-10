@@ -29,72 +29,71 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class ExtendedStatsAggregate : StatsAggregate
 {
-    public class ExtendedStatsAggregate : StatsAggregate
-    {
-        /// <summary>
-        /// The standard deviation of the collected values
-        /// </summary>
-        public double? StdDeviation { get; set; }
+    /// <summary>
+    /// The standard deviation of the collected values
+    /// </summary>
+    public double? StdDeviation { get; set; }
 
-        /// <summary>
-        /// The upper or lower bounds of standard deviation
-        /// </summary>
-        public StandardDeviationBounds StdDeviationBounds { get; set; }
+    /// <summary>
+    /// The upper or lower bounds of standard deviation
+    /// </summary>
+    public StandardDeviationBounds StdDeviationBounds { get; set; }
 
-        /// <summary>
-        /// The sum of squares of the collected values
-        /// </summary>
-        public double? SumOfSquares { get; set; }
+    /// <summary>
+    /// The sum of squares of the collected values
+    /// </summary>
+    public double? SumOfSquares { get; set; }
 
-        /// <summary>
-        /// The variance of the collected values
-        /// </summary>
-        public double? Variance { get; set; }
+    /// <summary>
+    /// The variance of the collected values
+    /// </summary>
+    public double? Variance { get; set; }
 
-        /// <summary>
-        /// The population variance of the collected values.
-        /// </summary>
-        public double? VariancePopulation { get; set; }
+    /// <summary>
+    /// The population variance of the collected values.
+    /// </summary>
+    public double? VariancePopulation { get; set; }
 
-        /// <summary>
-        /// The sampling variance of the collected values.
-        /// </summary>
-        public double? VarianceSampling { get; set; }
+    /// <summary>
+    /// The sampling variance of the collected values.
+    /// </summary>
+    public double? VarianceSampling { get; set; }
 
-        /// <summary>
-        /// The population standard deviation of the collected values.
-        /// </summary>
-        public double? StdDeviationPopulation { get; set; }
+    /// <summary>
+    /// The population standard deviation of the collected values.
+    /// </summary>
+    public double? StdDeviationPopulation { get; set; }
 
-        /// <summary>
-        /// The sampling standard deviation of the collected values.
-        /// </summary>
-        public double? StdDeviationSampling { get; set; }
-    }
+    /// <summary>
+    /// The sampling standard deviation of the collected values.
+    /// </summary>
+    public double? StdDeviationSampling { get; set; }
+}
 
-    [DataContract]
-    public class StandardDeviationBounds
-    {
-        [DataMember(Name = "lower")]
-        public double? Lower { get; set; }
+[DataContract]
+public class StandardDeviationBounds
+{
+    [DataMember(Name = "lower")]
+    public double? Lower { get; set; }
 
-        [DataMember(Name = "upper")]
-        public double? Upper { get; set; }
+    [DataMember(Name = "upper")]
+    public double? Upper { get; set; }
 
-        [DataMember(Name = "lower_population")]
-        public double? LowerPopulation { get; set; }
+    [DataMember(Name = "lower_population")]
+    public double? LowerPopulation { get; set; }
 
-        [DataMember(Name = "upper_population")]
-        public double? UpperPopulation { get; set; }
+    [DataMember(Name = "upper_population")]
+    public double? UpperPopulation { get; set; }
 
-        [DataMember(Name = "lower_sampling")]
-        [JsonFormatter(typeof(NullableStringDoubleFormatter))]
-        public double? LowerSampling { get; set; }
+    [DataMember(Name = "lower_sampling")]
+    [JsonFormatter(typeof(NullableStringDoubleFormatter))]
+    public double? LowerSampling { get; set; }
 
-        [DataMember(Name = "upper_sampling")]
-        [JsonFormatter(typeof(NullableStringDoubleFormatter))]
-        public double? UpperSampling { get; set; }
-    }
+    [DataMember(Name = "upper_sampling")]
+    [JsonFormatter(typeof(NullableStringDoubleFormatter))]
+    public double? UpperSampling { get; set; }
 }

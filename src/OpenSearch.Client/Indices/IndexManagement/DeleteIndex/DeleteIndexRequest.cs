@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("indices.delete.json")]
-    public partial interface IDeleteIndexRequest { }
+namespace OpenSearch.Client;
 
-    public partial class DeleteIndexRequest { }
+[MapsApi("indices.delete.json")]
+public partial interface IDeleteIndexRequest { }
 
-    public partial class DeleteIndexDescriptor { }
-}
+public partial class DeleteIndexRequest { }
+
+public partial class DeleteIndexDescriptor { }

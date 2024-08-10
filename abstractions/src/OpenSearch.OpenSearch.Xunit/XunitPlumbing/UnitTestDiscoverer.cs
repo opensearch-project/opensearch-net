@@ -31,42 +31,41 @@ using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
+namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+
+/// <summary>
+///     An Xunit unit test
+/// </summary>
+[XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.UnitTestDiscoverer",
+    "OpenSearch.OpenSearch.Xunit")]
+public class U : FactAttribute
 {
-    /// <summary>
-    ///     An Xunit unit test
-    /// </summary>
-    [XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.UnitTestDiscoverer",
-        "OpenSearch.OpenSearch.Xunit")]
-    public class U : FactAttribute
+}
+
+/// <summary>
+///     A test discoverer used to discover unit tests cases attached
+///     to test methods that are attributed with <see cref="U" /> attribute
+/// </summary>
+public class UnitTestDiscoverer : OpenSearchTestCaseDiscoverer
+{
+    public UnitTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink)
     {
     }
 
-    /// <summary>
-    ///     A test discoverer used to discover unit tests cases attached
-    ///     to test methods that are attributed with <see cref="U" /> attribute
-    /// </summary>
-    public class UnitTestDiscoverer : OpenSearchTestCaseDiscoverer
+    /// <inheritdoc />
+    protected override bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
+        out string skipReason)
     {
-        public UnitTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink)
-        {
-        }
+        skipReason = null;
+        var runUnitTests = discoveryOptions.GetValue<bool>(nameof(OpenSearchXunitRunOptions.RunUnitTests));
+        if (!runUnitTests) return true;
 
-        /// <inheritdoc />
-        protected override bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
-            out string skipReason)
-        {
-            skipReason = null;
-            var runUnitTests = discoveryOptions.GetValue<bool>(nameof(OpenSearchXunitRunOptions.RunUnitTests));
-            if (!runUnitTests) return true;
+        var skipTests = GetAttributes<SkipTestAttributeBase>(testMethod)
+            .FirstOrDefault(a => a.GetNamedArgument<bool>(nameof(SkipTestAttributeBase.Skip)));
 
-            var skipTests = GetAttributes<SkipTestAttributeBase>(testMethod)
-                .FirstOrDefault(a => a.GetNamedArgument<bool>(nameof(SkipTestAttributeBase.Skip)));
+        if (skipTests == null) return false;
 
-            if (skipTests == null) return false;
-
-            skipReason = skipTests.GetNamedArgument<string>(nameof(SkipTestAttributeBase.Reason));
-            return true;
-        }
+        skipReason = skipTests.GetNamedArgument<string>(nameof(SkipTestAttributeBase.Reason));
+        return true;
     }
 }

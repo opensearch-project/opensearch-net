@@ -28,15 +28,14 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class SnapshotObserver : CoordinatedRequestObserverBase<SnapshotStatusResponse>
 {
-    public class SnapshotObserver : CoordinatedRequestObserverBase<SnapshotStatusResponse>
-    {
-        public SnapshotObserver(
-            Action<SnapshotStatusResponse> onNext = null,
-            Action<Exception> onError = null,
-            Action completed = null
-        )
-            : base(onNext, onError, completed) { }
-    }
+    public SnapshotObserver(
+        Action<SnapshotStatusResponse> onNext = null,
+        Action<Exception> onError = null,
+        Action completed = null
+    )
+        : base(onNext, onError, completed) { }
 }

@@ -53,50 +53,49 @@
 using System;
 using System.Reflection;
 
-namespace OpenSearch.Net.Utf8Json
+namespace OpenSearch.Net.Utf8Json;
+
+internal interface IJsonFormatterResolver
 {
-    internal interface IJsonFormatterResolver
+    IJsonFormatter<T> GetFormatter<T>();
+}
+
+internal static class JsonFormatterResolverExtensions
+{
+    public static IJsonFormatter<T> GetFormatterWithVerify<T>(this IJsonFormatterResolver resolver)
     {
-        IJsonFormatter<T> GetFormatter<T>();
+        IJsonFormatter<T> formatter;
+        try
+        {
+            formatter = resolver.GetFormatter<T>();
+        }
+        catch (TypeInitializationException ex)
+        {
+            Exception inner = ex;
+            while (inner.InnerException != null)
+                inner = inner.InnerException;
+
+            throw inner;
+        }
+
+        if (formatter == null)
+            throw new FormatterNotRegisteredException(typeof(T).FullName + " is not registered in this resolver. resolver:" + resolver.GetType().Name);
+
+        return formatter;
     }
 
-    internal static class JsonFormatterResolverExtensions
+    private static readonly MethodInfo GetFormatterMethod =
+        typeof(IJsonFormatterResolver).GetRuntimeMethod(nameof(IJsonFormatterResolver.GetFormatter), Type.EmptyTypes);
+    public static object GetFormatterDynamic(this IJsonFormatterResolver resolver, Type type)
     {
-        public static IJsonFormatter<T> GetFormatterWithVerify<T>(this IJsonFormatterResolver resolver)
-        {
-            IJsonFormatter<T> formatter;
-            try
-            {
-                formatter = resolver.GetFormatter<T>();
-            }
-            catch (TypeInitializationException ex)
-            {
-                Exception inner = ex;
-                while (inner.InnerException != null)
-                    inner = inner.InnerException;
-
-                throw inner;
-            }
-
-            if (formatter == null)
-                throw new FormatterNotRegisteredException(typeof(T).FullName + " is not registered in this resolver. resolver:" + resolver.GetType().Name);
-
-            return formatter;
-        }
-
-        private static readonly MethodInfo GetFormatterMethod =
-            typeof(IJsonFormatterResolver).GetRuntimeMethod(nameof(IJsonFormatterResolver.GetFormatter), Type.EmptyTypes);
-        public static object GetFormatterDynamic(this IJsonFormatterResolver resolver, Type type)
-        {
-            var formatter = GetFormatterMethod.MakeGenericMethod(type).Invoke(resolver, null);
-            return formatter;
-        }
+        var formatter = GetFormatterMethod.MakeGenericMethod(type).Invoke(resolver, null);
+        return formatter;
     }
+}
 
-    internal class FormatterNotRegisteredException : Exception
+internal class FormatterNotRegisteredException : Exception
+{
+    public FormatterNotRegisteredException(string message) : base(message)
     {
-        public FormatterNotRegisteredException(string message) : base(message)
-        {
-        }
     }
 }

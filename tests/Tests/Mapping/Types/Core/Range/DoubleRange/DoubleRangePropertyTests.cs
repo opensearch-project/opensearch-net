@@ -33,65 +33,64 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.DoubleRange
+namespace Tests.Mapping.Types.Core.Range.DoubleRange;
+
+public class DoubleRangePropertyTests : PropertyTestsBase
 {
-    public class DoubleRangePropertyTests : PropertyTestsBase
+    public DoubleRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public DoubleRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            ranges = new
             {
-                ranges = new
+                type = "object",
+                properties = new
                 {
-                    type = "object",
-                    properties = new
+                    doubles = new
                     {
-                        doubles = new
-                        {
-                            type = "double_range",
-                            store = true,
-                            index = false,
-                            coerce = true
-                        }
+                        type = "double_range",
+                        store = true,
+                        index = false,
+                        coerce = true
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Object<Ranges>(m => m
-                .Name(p => p.Ranges)
-                .Properties(props => props
-                    .DoubleRange(n => n
-                        .Name(p => p.Doubles)
-                        .Store()
-                        .Index(false)
-                        .Coerce()
-                    )
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .DoubleRange(n => n
+                    .Name(p => p.Doubles)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
                 )
-            );
+            )
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "ranges", new ObjectProperty
             {
-                "ranges", new ObjectProperty
+                Properties = new Properties
                 {
-                    Properties = new Properties
                     {
+                        "doubles", new DoubleRangeProperty
                         {
-                            "doubles", new DoubleRangeProperty
-                            {
-                                Store = true,
-                                Index = false,
-                                Coerce = true
-                            }
+                            Store = true,
+                            Index = false,
+                            Coerce = true
                         }
                     }
                 }
             }
-        };
-    }
+        }
+    };
 }

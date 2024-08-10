@@ -29,52 +29,51 @@
 using System;
 using System.Diagnostics;
 
-namespace OpenSearch.Net.Diagnostics
+namespace OpenSearch.Net.Diagnostics;
+
+/// <summary>
+/// Diagnostic that creates, starts and stops <see cref="Activity"/> that implements <see cref="IDisposable"/> to
+/// make it easier to use.
+/// </summary>
+internal class Diagnostic<TState> : Diagnostic<TState, TState>
 {
-    /// <summary>
-    /// Diagnostic that creates, starts and stops <see cref="Activity"/> that implements <see cref="IDisposable"/> to
-    /// make it easier to use.
-    /// </summary>
-    internal class Diagnostic<TState> : Diagnostic<TState, TState>
+    public Diagnostic(string operationName, DiagnosticSource source, TState state)
+        : base(operationName, source, state) =>
+        EndState = state;
+}
+
+internal class Diagnostic<TState, TStateEnd> : IDisposable
+{
+    public static Diagnostic<TState, TStateEnd> Default { get; } = new();
+
+    private readonly DiagnosticSource _source;
+    private readonly bool _default;
+    private readonly Activity _activity;
+    private TStateEnd _endState;
+
+    private Diagnostic() => _default = true;
+
+    public Diagnostic(string operationName, DiagnosticSource source, TState state)
     {
-        public Diagnostic(string operationName, DiagnosticSource source, TState state)
-            : base(operationName, source, state) =>
-            EndState = state;
+        _source = source;
+        _activity = new Activity(operationName);
+        _source.StartActivity(_activity, state);
     }
 
-    internal class Diagnostic<TState, TStateEnd> : IDisposable
+    public TStateEnd EndState
     {
-        public static Diagnostic<TState, TStateEnd> Default { get; } = new();
-
-        private readonly DiagnosticSource _source;
-        private readonly bool _default;
-        private readonly Activity _activity;
-        private TStateEnd _endState;
-
-        private Diagnostic() => _default = true;
-
-        public Diagnostic(string operationName, DiagnosticSource source, TState state)
+        get => _endState;
+        internal set
         {
-            _source = source;
-            _activity = new Activity(operationName);
-            _source.StartActivity(_activity, state);
+            //do not store state on default instance
+            if (_default) return;
+            _endState = value;
         }
+    }
 
-        public TStateEnd EndState
-        {
-            get => _endState;
-            internal set
-            {
-                //do not store state on default instance
-                if (_default) return;
-                _endState = value;
-            }
-        }
-
-        public void Dispose()
-        {
-            _source?.StopActivity(_activity, EndState);
-            _activity?.Dispose();
-        }
+    public void Dispose()
+    {
+        _source?.StopActivity(_activity, EndState);
+        _activity?.Dispose();
     }
 }

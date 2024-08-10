@@ -28,11 +28,9 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Net
-{
-    internal interface IInternalSerializer
-    {
-        bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver);
-    }
+namespace OpenSearch.Net;
 
+internal interface IInternalSerializer
+{
+    bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver);
 }

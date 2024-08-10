@@ -34,14 +34,14 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4285
 {
-    public class GitHubIssue4285
+    [U]
+    public void CanReadAggBucketWithLongKey()
     {
-        [U]
-        public void CanReadAggBucketWithLongKey()
-        {
-            var json = @"{
+        var json = @"{
 				""took"" : 2612,
 				""timed_out"" : false,
 				""_shards"" : {
@@ -70,20 +70,19 @@ namespace Tests.Reproduce
 				}
 			}";
 
-            var bytes = Encoding.UTF8.GetBytes(json);
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
-            var client = new OpenSearchClient(connectionSettings);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
+        var client = new OpenSearchClient(connectionSettings);
 
-            var response = client.Search<object>(s => s);
+        var response = client.Search<object>(s => s);
 
-            var longTerms = response.Aggregations.Terms<long>("top_tags");
-            longTerms.Buckets.Should().HaveCount(1);
-            longTerms.Buckets.First().Key.Should().Be(3515753798950990007);
+        var longTerms = response.Aggregations.Terms<long>("top_tags");
+        longTerms.Buckets.Should().HaveCount(1);
+        longTerms.Buckets.First().Key.Should().Be(3515753798950990007);
 
-            var stringTerms = response.Aggregations.Terms("top_tags");
-            stringTerms.Buckets.Should().HaveCount(1);
-            stringTerms.Buckets.First().Key.Should().Be("3515753798950990007");
-        }
+        var stringTerms = response.Aggregations.Terms("top_tags");
+        stringTerms.Buckets.Should().HaveCount(1);
+        stringTerms.Buckets.First().Key.Should().Be("3515753798950990007");
     }
 }

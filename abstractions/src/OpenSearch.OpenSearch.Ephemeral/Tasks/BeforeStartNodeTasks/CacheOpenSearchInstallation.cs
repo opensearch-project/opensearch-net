@@ -29,29 +29,28 @@
 using System.IO;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 
-namespace OpenSearch.OpenSearch.Ephemeral.Tasks.BeforeStartNodeTasks
+namespace OpenSearch.OpenSearch.Ephemeral.Tasks.BeforeStartNodeTasks;
+
+public class CacheOpenSearchInstallation : ClusterComposeTask
 {
-    public class CacheOpenSearchInstallation : ClusterComposeTask
+    public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
     {
-        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        if (!cluster.ClusterConfiguration.CacheOpenSearchHomeInstallation) return;
+
+        var fs = cluster.FileSystem;
+        var cachedOpenSearchHomeFolder = Path.Combine(fs.LocalFolder, cluster.GetCacheFolderName());
+        var cachedOpenSearchConfig = Path.Combine(cachedOpenSearchHomeFolder, "config");
+        if (File.Exists(cachedOpenSearchConfig))
         {
-            if (!cluster.ClusterConfiguration.CacheOpenSearchHomeInstallation) return;
-
-            var fs = cluster.FileSystem;
-            var cachedOpenSearchHomeFolder = Path.Combine(fs.LocalFolder, cluster.GetCacheFolderName());
-            var cachedOpenSearchConfig = Path.Combine(cachedOpenSearchHomeFolder, "config");
-            if (File.Exists(cachedOpenSearchConfig))
-            {
-                cluster.Writer?.WriteDiagnostic(
-                    $"{{{nameof(CacheOpenSearchInstallation)}}} cached home already exists [{cachedOpenSearchHomeFolder}]");
-                return;
-            }
-
-            var source = fs.OpenSearchHome;
-            var target = cachedOpenSearchHomeFolder;
             cluster.Writer?.WriteDiagnostic(
-                $"{{{nameof(CacheOpenSearchInstallation)}}} caching {{{source}}} to [{target}]");
-            CopyFolder(source, target, false);
+                $"{{{nameof(CacheOpenSearchInstallation)}}} cached home already exists [{cachedOpenSearchHomeFolder}]");
+            return;
         }
+
+        var source = fs.OpenSearchHome;
+        var target = cachedOpenSearchHomeFolder;
+        cluster.Writer?.WriteDiagnostic(
+            $"{{{nameof(CacheOpenSearchInstallation)}}} caching {{{source}}} to [{target}]");
+        CopyFolder(source, target, false);
     }
 }

@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class RelationNameExtensions
 {
-    internal static class RelationNameExtensions
-    {
-        internal static bool IsConditionless(this RelationName marker) => marker == null || marker.Name.IsNullOrEmpty() && marker.Type == null;
-    }
+    internal static bool IsConditionless(this RelationName marker) => marker == null || marker.Name.IsNullOrEmpty() && marker.Type == null;
 }

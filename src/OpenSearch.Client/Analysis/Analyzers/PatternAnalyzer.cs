@@ -30,65 +30,64 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// An analyzer of type pattern that can flexibly separate text into terms via a regular expression.
+/// </summary>
+public interface IPatternAnalyzer : IAnalyzer
 {
+    [DataMember(Name = "flags")]
+    string Flags { get; set; }
+
+    [DataMember(Name = "lowercase")]
+    [JsonFormatter(typeof(NullableStringBooleanFormatter))]
+    bool? Lowercase { get; set; }
+
+    [DataMember(Name = "pattern")]
+    string Pattern { get; set; }
+
     /// <summary>
-    /// An analyzer of type pattern that can flexibly separate text into terms via a regular expression.
+    /// A list of stopword to initialize the stop filter with. Defaults to an empty list
     /// </summary>
-    public interface IPatternAnalyzer : IAnalyzer
-    {
-        [DataMember(Name = "flags")]
-        string Flags { get; set; }
+    [DataMember(Name = "stopwords")]
+    StopWords StopWords { get; set; }
+}
 
-        [DataMember(Name = "lowercase")]
-        [JsonFormatter(typeof(NullableStringBooleanFormatter))]
-        bool? Lowercase { get; set; }
+/// <inheritdoc />
+public class PatternAnalyzer : AnalyzerBase, IPatternAnalyzer
+{
+    public PatternAnalyzer() : base("pattern") { }
 
-        [DataMember(Name = "pattern")]
-        string Pattern { get; set; }
+    public string Flags { get; set; }
 
-        /// <summary>
-        /// A list of stopword to initialize the stop filter with. Defaults to an empty list
-        /// </summary>
-        [DataMember(Name = "stopwords")]
-        StopWords StopWords { get; set; }
-    }
+    public bool? Lowercase { get; set; }
 
-    /// <inheritdoc />
-    public class PatternAnalyzer : AnalyzerBase, IPatternAnalyzer
-    {
-        public PatternAnalyzer() : base("pattern") { }
+    public string Pattern { get; set; }
 
-        public string Flags { get; set; }
+    public StopWords StopWords { get; set; }
+}
 
-        public bool? Lowercase { get; set; }
+/// <inheritdoc />
+public class PatternAnalyzerDescriptor : AnalyzerDescriptorBase<PatternAnalyzerDescriptor, IPatternAnalyzer>, IPatternAnalyzer
+{
+    protected override string Type => "pattern";
+    string IPatternAnalyzer.Flags { get; set; }
+    bool? IPatternAnalyzer.Lowercase { get; set; }
+    string IPatternAnalyzer.Pattern { get; set; }
 
-        public string Pattern { get; set; }
+    StopWords IPatternAnalyzer.StopWords { get; set; }
 
-        public StopWords StopWords { get; set; }
-    }
+    public PatternAnalyzerDescriptor StopWords(params string[] stopWords) => Assign(stopWords, (a, v) => a.StopWords = v);
 
-    /// <inheritdoc />
-    public class PatternAnalyzerDescriptor : AnalyzerDescriptorBase<PatternAnalyzerDescriptor, IPatternAnalyzer>, IPatternAnalyzer
-    {
-        protected override string Type => "pattern";
-        string IPatternAnalyzer.Flags { get; set; }
-        bool? IPatternAnalyzer.Lowercase { get; set; }
-        string IPatternAnalyzer.Pattern { get; set; }
+    public PatternAnalyzerDescriptor StopWords(IEnumerable<string> stopWords) =>
+        Assign(stopWords.ToListOrNullIfEmpty(), (a, v) => a.StopWords = v);
 
-        StopWords IPatternAnalyzer.StopWords { get; set; }
+    public PatternAnalyzerDescriptor StopWords(StopWords stopWords) => Assign(stopWords, (a, v) => a.StopWords = v);
 
-        public PatternAnalyzerDescriptor StopWords(params string[] stopWords) => Assign(stopWords, (a, v) => a.StopWords = v);
+    public PatternAnalyzerDescriptor Pattern(string pattern) => Assign(pattern, (a, v) => a.Pattern = v);
 
-        public PatternAnalyzerDescriptor StopWords(IEnumerable<string> stopWords) =>
-            Assign(stopWords.ToListOrNullIfEmpty(), (a, v) => a.StopWords = v);
+    public PatternAnalyzerDescriptor Flags(string flags) => Assign(flags, (a, v) => a.Flags = v);
 
-        public PatternAnalyzerDescriptor StopWords(StopWords stopWords) => Assign(stopWords, (a, v) => a.StopWords = v);
-
-        public PatternAnalyzerDescriptor Pattern(string pattern) => Assign(pattern, (a, v) => a.Pattern = v);
-
-        public PatternAnalyzerDescriptor Flags(string flags) => Assign(flags, (a, v) => a.Flags = v);
-
-        public PatternAnalyzerDescriptor Lowercase(bool? lowercase = true) => Assign(lowercase, (a, v) => a.Lowercase = v);
-    }
+    public PatternAnalyzerDescriptor Lowercase(bool? lowercase = true) => Assign(lowercase, (a, v) => a.Lowercase = v);
 }

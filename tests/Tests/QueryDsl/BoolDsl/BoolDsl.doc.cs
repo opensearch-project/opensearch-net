@@ -40,34 +40,34 @@ using Tests.QueryDsl.BoolDsl.Operators;
 using static OpenSearch.Client.Infer;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.QueryDsl.BoolDsl
-{
-    /**
+namespace Tests.QueryDsl.BoolDsl;
+
+/**
 	 * [[bool-queries]]
 	* === Writing bool queries
 	*/
-    public class BoolDslTests : OperatorUsageBase
-    {
-        protected readonly IOpenSearchClient Client = FixedResponseClient.Create(new { }, modifySettings: c => c.DisableDirectStreaming());
+public class BoolDslTests : OperatorUsageBase
+{
+    protected readonly IOpenSearchClient Client = FixedResponseClient.Create(new { }, modifySettings: c => c.DisableDirectStreaming());
 
-        /**
+    /**
 		 * Writing `bool` queries can grow verbose rather quickly when using the query DSL. For example,
 		* take a single {ref_current}/query-dsl-bool-query.html[bool query] with two `should` clauses
 		*/
-        public void VerboseWay()
-        {
-            var searchResults = Client.Search<Project>(s => s
-                .Query(q => q
-                    .Bool(b => b
-                        .Should(
-                            bs => bs.Term(p => p.Name, "x"),
-                            bs => bs.Term(p => p.Name, "y")
-                        )
+    public void VerboseWay()
+    {
+        var searchResults = Client.Search<Project>(s => s
+            .Query(q => q
+                .Bool(b => b
+                    .Should(
+                        bs => bs.Term(p => p.Name, "x"),
+                        bs => bs.Term(p => p.Name, "y")
                     )
                 )
-            );
-        }
-        /**
+            )
+        );
+    }
+    /**
 		 * Now, imagine multiple nested `bool` queries; you'll realise that this quickly becomes an exercise
 		 * in __hadouken indenting__
 		*
@@ -95,142 +95,142 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* The previous example now becomes the following with the Fluent API
 		*/
-        public void UsingOperator()
+    public void UsingOperator()
+    {
+        //hide
+        var client = Client;
+
+        var firstSearchResponse = client.Search<Project>(s => s
+            .Query(q => q
+                .Term(p => p.Name, "x") || q
+                .Term(p => p.Name, "y")
+            )
+        );
+
+        /** and, with the the Object Initializer syntax */
+        var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
         {
-            //hide
-            var client = Client;
+            Query = new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" } ||
+                    new TermQuery { Field = Field<Project>(p => p.Name), Value = "y" }
+        });
 
-            var firstSearchResponse = client.Search<Project>(s => s
-                .Query(q => q
-                    .Term(p => p.Name, "x") || q
-                    .Term(p => p.Name, "y")
-                )
-            );
-
-            /** and, with the the Object Initializer syntax */
-            var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
-            {
-                Query = new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" } ||
-                        new TermQuery { Field = Field<Project>(p => p.Name), Value = "y" }
-            });
-
-            /**
+        /**
 			 * Both result in the following JSON query DSL
 			 */
-            //json
-            var expected = new
+        //json
+        var expected = new
+        {
+            query = new
             {
-                query = new
+                @bool = new
                 {
-                    @bool = new
+                    should = new object[]
                     {
-                        should = new object[]
+                        new
                         {
-                            new
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "x"
-                                    }
+                                    value = "x"
                                 }
-                            },
-                            new
+                            }
+                        },
+                        new
+                        {
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "y"
-                                    }
+                                    value = "y"
                                 }
                             }
                         }
                     }
                 }
-            };
+            }
+        };
 
-            //hide
-            Expect(expected)
-                .NoRoundTrip()
-                .WhenSerializing(Encoding.UTF8.GetString(firstSearchResponse.ApiCall.RequestBodyInBytes));
-            //hide
-            Expect(expected)
-                .NoRoundTrip()
-                .WhenSerializing(Encoding.UTF8.GetString(secondSearchResponse.ApiCall.RequestBodyInBytes));
-        }
+        //hide
+        Expect(expected)
+            .NoRoundTrip()
+            .WhenSerializing(Encoding.UTF8.GetString(firstSearchResponse.ApiCall.RequestBodyInBytes));
+        //hide
+        Expect(expected)
+            .NoRoundTrip()
+            .WhenSerializing(Encoding.UTF8.GetString(secondSearchResponse.ApiCall.RequestBodyInBytes));
+    }
 
-        /**[[binary-and-operator]]
+    /**[[binary-and-operator]]
 		 * ==== Binary && operator
 		 *
 		 * The overloaded binary `&&` operator can be used to combine queries together. When the queries to be combined
 		 * don't have any unary operators applied to them, the resulting query is a `bool` query with `must` clauses
 		 */
-        [U]
-        public void MustQueries()
+    [U]
+    public void MustQueries()
+    {
+        //hide
+        var client = Client;
+
+        var firstSearchResponse = client.Search<Project>(s => s
+            .Query(q => q
+                .Term(p => p.Name, "x") && q
+                .Term(p => p.Name, "y")
+            )
+        );
+
+        /** and, with the the Object Initializer syntax */
+        var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
         {
-            //hide
-            var client = Client;
+            Query = new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" } &&
+                    new TermQuery { Field = Field<Project>(p => p.Name), Value = "y" }
+        });
 
-            var firstSearchResponse = client.Search<Project>(s => s
-                .Query(q => q
-                    .Term(p => p.Name, "x") && q
-                    .Term(p => p.Name, "y")
-                )
-            );
-
-            /** and, with the the Object Initializer syntax */
-            var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
-            {
-                Query = new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" } &&
-                        new TermQuery { Field = Field<Project>(p => p.Name), Value = "y" }
-            });
-
-            /**
+        /**
 			 * Both result in the following JSON query DSL
 			 */
-            //json
-            var expected = new
+        //json
+        var expected = new
+        {
+            query = new
             {
-                query = new
+                @bool = new
                 {
-                    @bool = new
+                    must = new object[]
                     {
-                        must = new object[]
+                        new
                         {
-                            new
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "x"
-                                    }
+                                    value = "x"
                                 }
-                            },
-                            new
+                            }
+                        },
+                        new
+                        {
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "y"
-                                    }
+                                    value = "y"
                                 }
                             }
                         }
                     }
                 }
-            };
+            }
+        };
 
-            //hide
-            Expect(expected).FromRequest(firstSearchResponse);
-            //hide
-            Expect(expected).FromRequest(secondSearchResponse);
-        }
+        //hide
+        Expect(expected).FromRequest(firstSearchResponse);
+        //hide
+        Expect(expected).FromRequest(secondSearchResponse);
+    }
 
-        /** A naive implementation of operator overloading would rewrite
+    /** A naive implementation of operator overloading would rewrite
 		*
 		* [source,sh]
 		* ----
@@ -263,145 +263,145 @@ namespace Tests.QueryDsl.BoolDsl
 		* as demonstrated with the following
 		*/
 
-        [U]
-        public void JoinsMustQueries() => Assert(
-                q => q.Query() && q.Query() && q.Query(), // <1> three queries `&&` together using the Fluent API
-                Query && Query && Query, // <2> three queries `&&` together using Object Initialzer syntax
-                c => c.Bool.Must.Should().HaveCount(3) // <3> assert the resulting `bool` query in each case has 3 `must` clauses
-            );
+    [U]
+    public void JoinsMustQueries() => Assert(
+            q => q.Query() && q.Query() && q.Query(), // <1> three queries `&&` together using the Fluent API
+            Query && Query && Query, // <2> three queries `&&` together using Object Initialzer syntax
+            c => c.Bool.Must.Should().HaveCount(3) // <3> assert the resulting `bool` query in each case has 3 `must` clauses
+        );
 
 
-        /**[[unary-negation-operator]]
+    /**[[unary-negation-operator]]
 		 * ==== Unary ! operator
 		 *
 		 * OSC also offers a shorthand notation for creating a `bool` query with a `must_not` clause
 		 * using the unary `!` operator
 		 */
-        [U]
-        public void MustNotQuery()
+    [U]
+    public void MustNotQuery()
+    {
+        //hide
+        var client = Client;
+
+        var firstSearchResponse = client.Search<Project>(s => s
+            .Query(q => !q
+                .Term(p => p.Name, "x")
+            )
+        );
+
+        /** and, with the Object Initializer syntax */
+        var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
         {
-            //hide
-            var client = Client;
+            Query = !new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" }
+        });
 
-            var firstSearchResponse = client.Search<Project>(s => s
-                .Query(q => !q
-                    .Term(p => p.Name, "x")
-                )
-            );
-
-            /** and, with the Object Initializer syntax */
-            var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
-            {
-                Query = !new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" }
-            });
-
-            /**
+        /**
 			 * Both result in the following JSON query DSL
 			 */
-            //json
-            var expected = new
+        //json
+        var expected = new
+        {
+            query = new
             {
-                query = new
+                @bool = new
                 {
-                    @bool = new
+                    must_not = new object[]
                     {
-                        must_not = new object[]
+                        new
                         {
-                            new
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "x"
-                                    }
+                                    value = "x"
                                 }
                             }
                         }
                     }
                 }
-            };
+            }
+        };
 
-            //hide
-            Expect(expected).FromRequest(firstSearchResponse);
-            //hide
-            Expect(expected).FromRequest(secondSearchResponse);
-        }
+        //hide
+        Expect(expected).FromRequest(firstSearchResponse);
+        //hide
+        Expect(expected).FromRequest(secondSearchResponse);
+    }
 
-        // hide
-        [U]
-        public void MustNotOperator() => Assert(q => !q.Query(), !Query, c => c.Bool.MustNot.Should().HaveCount(1));
+    // hide
+    [U]
+    public void MustNotOperator() => Assert(q => !q.Query(), !Query, c => c.Bool.MustNot.Should().HaveCount(1));
 
-        /**Two queries marked with the unary `!`  operator can be combined with the `&&` operator to form
+    /**Two queries marked with the unary `!`  operator can be combined with the `&&` operator to form
 		 * a single `bool` query with two `must_not` clauses
 		 */
-        [U]
-        public void MustNotOperatorAnd() => Assert(
-                q => !q.Query() && !q.Query(), // <1> two queries with `!` operator applied, `&&` together using the Fluent API
-                !Query && !Query, // <2> two queries with `!` operator applied, `&&` together using the Object Initializer syntax
-                c => c.Bool.MustNot.Should().HaveCount(2)); // <3> assert the resulting `bool` query in each case has two `must_not` clauses
+    [U]
+    public void MustNotOperatorAnd() => Assert(
+            q => !q.Query() && !q.Query(), // <1> two queries with `!` operator applied, `&&` together using the Fluent API
+            !Query && !Query, // <2> two queries with `!` operator applied, `&&` together using the Object Initializer syntax
+            c => c.Bool.MustNot.Should().HaveCount(2)); // <3> assert the resulting `bool` query in each case has two `must_not` clauses
 
-        /**[[unary-plus-operator]]
+    /**[[unary-plus-operator]]
 		 * ==== Unary + operator
 		 *
 		 * A query can be transformed into a `bool` query with a `filter` clause using the unary `+` operator
 		 */
-        [U]
-        public void FilterQuery()
+    [U]
+    public void FilterQuery()
+    {
+        //hide
+        var client = Client;
+
+        var firstSearchResponse = client.Search<Project>(s => s
+            .Query(q => +q
+                .Term(p => p.Name, "x")
+            )
+        );
+
+        /** and, with the Object Initializer syntax */
+        var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
         {
-            //hide
-            var client = Client;
+            Query = +new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" }
+        });
 
-            var firstSearchResponse = client.Search<Project>(s => s
-                .Query(q => +q
-                    .Term(p => p.Name, "x")
-                )
-            );
-
-            /** and, with the Object Initializer syntax */
-            var secondSearchResponse = client.Search<Project>(new SearchRequest<Project>
-            {
-                Query = +new TermQuery { Field = Field<Project>(p => p.Name), Value = "x" }
-            });
-
-            /**
+        /**
 			 * Both result in the following JSON query DSL
 			 */
-            //json
-            var expected = new
+        //json
+        var expected = new
+        {
+            query = new
             {
-                query = new
+                @bool = new
                 {
-                    @bool = new
+                    filter = new object[]
                     {
-                        filter = new object[]
+                        new
                         {
-                            new
+                            term = new
                             {
-                                term = new
+                                name = new
                                 {
-                                    name = new
-                                    {
-                                        value = "x"
-                                    }
+                                    value = "x"
                                 }
                             }
                         }
                     }
                 }
-            };
-
-            //hide
-            Expect(expected).FromRequest(firstSearchResponse);
-            //hide
-            Expect(expected).FromRequest(secondSearchResponse);
-        }
+            }
+        };
 
         //hide
-        [U]
-        public void UnaryAddOperator() => Assert(q => +q.Query(), +Query, c => c.Bool.Filter.Should().HaveCount(1));
+        Expect(expected).FromRequest(firstSearchResponse);
+        //hide
+        Expect(expected).FromRequest(secondSearchResponse);
+    }
 
-        /**
+    //hide
+    [U]
+    public void UnaryAddOperator() => Assert(q => +q.Query(), +Query, c => c.Bool.Filter.Should().HaveCount(1));
+
+    /**
 		 * This runs the {ref_current}/query-filter-context.html[query in a filter context],
 		 * which can be useful in improving performance where the relevancy score for the query
 		 * is not required to affect the order of results.
@@ -409,13 +409,13 @@ namespace Tests.QueryDsl.BoolDsl
 		 * Similarly to the unary `!` operator, queries marked with the unary `+`  operator can be
 		 * combined with the `&&` operator to form a single `bool` query with two `filter` clauses
 		*/
-        [U]
-        public void UnaryAddOperatorAnd() => Assert(
-                q => +q.Query() && +q.Query(),
-                +Query && +Query,
-                c => c.Bool.Filter.Should().HaveCount(2));
+    [U]
+    public void UnaryAddOperatorAnd() => Assert(
+            q => +q.Query() && +q.Query(),
+            +Query && +Query,
+            c => c.Bool.Filter.Should().HaveCount(2));
 
-        /**[float]
+    /**[float]
 		* === Combining bool queries
 		*
 		* When combining multiple queries with the binary `&&` operator
@@ -437,17 +437,17 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* This can be constructed with OSC using
 		*/
-        [U]
-        public void JoinsMustWithMustNot() => Assert(
-                q => q.Query() && q.Query() && q.Query() && !q.Query(),
-                Query && Query && Query && !Query,
-                c =>
-                {
-                    c.Bool.Must.Should().HaveCount(3);
-                    c.Bool.MustNot.Should().HaveCount(1);
-                });
+    [U]
+    public void JoinsMustWithMustNot() => Assert(
+            q => q.Query() && q.Query() && q.Query() && !q.Query(),
+            Query && Query && Query && !Query,
+            c =>
+            {
+                c.Bool.Must.Should().HaveCount(3);
+                c.Bool.MustNot.Should().HaveCount(1);
+            });
 
-        /** An even more complex example
+    /** An even more complex example
 		 *
 		 * [source, sh]
 		 * ----
@@ -471,18 +471,18 @@ namespace Tests.QueryDsl.BoolDsl
 		 *    |___term
 		 *....
 		 */
-        [U]
-        public void JoinsMustWithMustNotAndFilter() => Assert(
-                q => q.Query() && q.Query() && q.Query() && !q.Query() && +q.Query() && +q.Query(),
-                Query && Query && Query && !Query && +Query && +Query,
-                c =>
-                {
-                    c.Bool.Must.Should().HaveCount(3);
-                    c.Bool.MustNot.Should().HaveCount(1);
-                    c.Bool.Filter.Should().HaveCount(2);
-                });
+    [U]
+    public void JoinsMustWithMustNotAndFilter() => Assert(
+            q => q.Query() && q.Query() && q.Query() && !q.Query() && +q.Query() && +q.Query(),
+            Query && Query && Query && !Query && +Query && +Query,
+            c =>
+            {
+                c.Bool.Must.Should().HaveCount(3);
+                c.Bool.MustNot.Should().HaveCount(1);
+                c.Bool.Filter.Should().HaveCount(2);
+            });
 
-        /** You can still mix and match actual `bool` queries with operator overloaded queries e.g
+    /** You can still mix and match actual `bool` queries with operator overloaded queries e.g
 		*
 		* [source,sh]
 		* ----
@@ -491,17 +491,17 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* This will still merge into a single `bool` query.
 		*/
-        [U]
-        public void MixAndMatch() => Assert(
-                q => q.Bool(b => b.Must(mq => mq.Query(), mq => mq.Query(), mq => mq.Query())) && !q.Query(),
-                new BoolQuery { Must = new QueryContainer[] { Query, Query, Query } } && !Query,
-                c =>
-                {
-                    c.Bool.Must.Should().HaveCount(3);
-                    c.Bool.MustNot.Should().HaveCount(1);
-                });
+    [U]
+    public void MixAndMatch() => Assert(
+            q => q.Bool(b => b.Must(mq => mq.Query(), mq => mq.Query(), mq => mq.Query())) && !q.Query(),
+            new BoolQuery { Must = new QueryContainer[] { Query, Query, Query } } && !Query,
+            c =>
+            {
+                c.Bool.Must.Should().HaveCount(3);
+                c.Bool.MustNot.Should().HaveCount(1);
+            });
 
-        /**==== Combining queries with || or should clauses
+    /**==== Combining queries with || or should clauses
 		 *
 		 * As per the previous example, OSC will combine multiple `should` or `||` into a single `bool` query
 		 * with `should` clauses, when it sees that the `bool` queries in play **only** consist of `should` clauses;
@@ -564,20 +564,20 @@ namespace Tests.QueryDsl.BoolDsl
 		*            |___term4
 		*....
 		*/
-        [U]
-        public void JoinsWithShouldClauses() => Assert(
-                q => q.Query() && (q.Query() || q.Query() || q.Query()),
-                Query && (Query || Query || Query),
-                c =>
-                {
-                    c.Bool.Must.Should().HaveCount(2);
-                    var lastMustClause = (IQueryContainer)c.Bool.Must.Last();
-                    lastMustClause.Should().NotBeNull();
-                    lastMustClause.Bool.Should().NotBeNull();
-                    lastMustClause.Bool.Should.Should().HaveCount(3);
-                });
+    [U]
+    public void JoinsWithShouldClauses() => Assert(
+            q => q.Query() && (q.Query() || q.Query() || q.Query()),
+            Query && (Query || Query || Query),
+            c =>
+            {
+                c.Bool.Must.Should().HaveCount(2);
+                var lastMustClause = (IQueryContainer)c.Bool.Must.Last();
+                lastMustClause.Should().NotBeNull();
+                lastMustClause.Bool.Should().NotBeNull();
+                lastMustClause.Bool.Should.Should().HaveCount(3);
+            });
 
-        /** TIP: *Add parentheses to force evaluation order*
+    /** TIP: *Add parentheses to force evaluation order*
 		*
 		* Using `should` clauses as boost factors can be a really powerful construct when building
 		* search queries, and remember, you can mix and match an actual `bool` query with OSC's operator overloading.
@@ -595,26 +595,26 @@ namespace Tests.QueryDsl.BoolDsl
 		* the first `bool` query; rewriting this to a single `bool` with 5 `should` clauses would break the semantics
 		* of the original query because only matching on `term5` or `term6` should still be a hit.
 		**/
-        [U]
-        public void MixAndMatchMinimumShouldMatch() => Assert(
-                q => q.Bool(b => b
-                    .Should(mq => mq.Query(), mq => mq.Query(), mq => mq.Query(), mq => mq.Query())
-                    .MinimumShouldMatch(2)
-                    )
-                     || !q.Query() || q.Query(),
-                new BoolQuery
-                {
-                    Should = new QueryContainer[] { Query, Query, Query, Query },
-                    MinimumShouldMatch = 2
-                } || !Query || Query,
-                c =>
-                {
-                    c.Bool.Should.Should().HaveCount(3);
-                    var nestedBool = c.Bool.Should.First() as IQueryContainer;
-                    nestedBool.Bool.Should.Should().HaveCount(4);
-                });
+    [U]
+    public void MixAndMatchMinimumShouldMatch() => Assert(
+            q => q.Bool(b => b
+                .Should(mq => mq.Query(), mq => mq.Query(), mq => mq.Query(), mq => mq.Query())
+                .MinimumShouldMatch(2)
+                )
+                 || !q.Query() || q.Query(),
+            new BoolQuery
+            {
+                Should = new QueryContainer[] { Query, Query, Query, Query },
+                MinimumShouldMatch = 2
+            } || !Query || Query,
+            c =>
+            {
+                c.Bool.Should.Should().HaveCount(3);
+                var nestedBool = c.Bool.Should.First() as IQueryContainer;
+                nestedBool.Bool.Should.Should().HaveCount(4);
+            });
 
-        /**[float]
+    /**[float]
 		* === Locked bool queries
 		*
 		* OSC will not combine `bool` queries if any of the query metadata is set e.g if metadata such as `boost` or `name` are set,
@@ -622,68 +622,68 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* Here we demonstrate that two locked `bool` queries are not combined
 		*/
-        [U]
-        public void DoNotCombineLockedBools() => Assert(
-                q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
-                     || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
-                new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
-                || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
-                c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
+    [U]
+    public void DoNotCombineLockedBools() => Assert(
+            q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
+                 || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
+            new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
+            || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
+            c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
 
-        /** neither are two `bool` queries where either right query is locked */
-        [U]
-        public void DoNotCombineRightLockedBool() => Assert(
-                q => q.Bool(b => b.Should(mq => mq.Query()))
-                     || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
-                new BoolQuery { Should = new QueryContainer[] { Query } }
-                || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
-                c => AssertDoesNotJoinOntoLockedBool(c, "rightBool"));
+    /** neither are two `bool` queries where either right query is locked */
+    [U]
+    public void DoNotCombineRightLockedBool() => Assert(
+            q => q.Bool(b => b.Should(mq => mq.Query()))
+                 || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
+            new BoolQuery { Should = new QueryContainer[] { Query } }
+            || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
+            c => AssertDoesNotJoinOntoLockedBool(c, "rightBool"));
 
-        /** or the left query is locked */
-        [U]
-        public void DoNotCombineLeftLockedBool() => Assert(
-                q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
-                     || q.Bool(b => b.Should(mq => mq.Query())),
-                new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
-                || new BoolQuery { Should = new QueryContainer[] { Query } },
-                c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
+    /** or the left query is locked */
+    [U]
+    public void DoNotCombineLeftLockedBool() => Assert(
+            q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
+                 || q.Bool(b => b.Should(mq => mq.Query())),
+            new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
+            || new BoolQuery { Should = new QueryContainer[] { Query } },
+            c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
 
+    //hide
+    private static void AssertDoesNotJoinOntoLockedBool(IQueryContainer c, string firstName)
+    {
         //hide
-        private static void AssertDoesNotJoinOntoLockedBool(IQueryContainer c, string firstName)
-        {
-            //hide
-            c.Bool.Should.Should().HaveCount(2);
-            var nestedBool = c.Bool.Should.Cast<IQueryContainer>().First(b => !string.IsNullOrEmpty(b.Bool?.Name));
-            nestedBool.Bool.Should.Should().HaveCount(1);
-            nestedBool.Bool.Name.Should().Be(firstName);
-        }
+        c.Bool.Should.Should().HaveCount(2);
+        var nestedBool = c.Bool.Should.Cast<IQueryContainer>().First(b => !string.IsNullOrEmpty(b.Bool?.Name));
+        nestedBool.Bool.Should.Should().HaveCount(1);
+        nestedBool.Bool.Name.Should().Be(firstName);
+    }
 
-        //hide
-        [U]
-        public void AndShouldNotBeViralAnyWayYouComposeIt()
-        {
-            QueryContainer andAssign = new TermQuery { Field = "a", Value = "a" };
-            andAssign &= new TermQuery { Field = "b", Value = "b" };
+    //hide
+    [U]
+    public void AndShouldNotBeViralAnyWayYouComposeIt()
+    {
+        QueryContainer andAssign = new TermQuery { Field = "a", Value = "a" };
+        andAssign &= new TermQuery { Field = "b", Value = "b" };
 
-            AssertAndIsNotViral(andAssign, "&=");
+        AssertAndIsNotViral(andAssign, "&=");
 
-            QueryContainer andOperator =
-                new TermQuery { Field = "a", Value = "a" } && new TermQuery { Field = "b", Value = "b" };
+        QueryContainer andOperator =
+            new TermQuery { Field = "a", Value = "a" } && new TermQuery { Field = "b", Value = "b" };
 
-            AssertAndIsNotViral(andOperator, "&&");
-        }
+        AssertAndIsNotViral(andOperator, "&&");
+    }
 
-        //hide
-        private static void AssertAndIsNotViral(QueryContainer query, string origin)
-        {
-            IQueryContainer original = query;
-            original.Bool.Must.Should().HaveCount(2, $"query composed using {origin} should have 2 must clauses before");
-            IQueryContainer result = query && new TermQuery { Field = "c", Value = "c" };
-            result.Bool.Must.Should().HaveCount(3, $"query composed using {origin} combined with && should have 3 must clauses");
-            original.Bool.Must.Should().HaveCount(2, $"query composed using {origin} should still have 2 must clauses after composition");
-        }
+    //hide
+    private static void AssertAndIsNotViral(QueryContainer query, string origin)
+    {
+        IQueryContainer original = query;
+        original.Bool.Must.Should().HaveCount(2, $"query composed using {origin} should have 2 must clauses before");
+        IQueryContainer result = query && new TermQuery { Field = "c", Value = "c" };
+        result.Bool.Must.Should().HaveCount(3, $"query composed using {origin} combined with && should have 3 must clauses");
+        original.Bool.Must.Should().HaveCount(2, $"query composed using {origin} should still have 2 must clauses after composition");
+    }
 
-        /**[float]
+    /**[float]
 		* === Perfomance considerations
 		*
 		* If you have a requirement of combining many many queries using the bool dsl please take the following into account.
@@ -692,17 +692,17 @@ namespace Tests.QueryDsl.BoolDsl
 		*
 		* In this example we are creating a single bool query with a 1000 must clauses using the `&=` assign operator.
 		*/
-        private static void SlowCombine()
-        {
-            var c = new QueryContainer();
-            var q = new TermQuery { Field = "x", Value = "x" };
+    private static void SlowCombine()
+    {
+        var c = new QueryContainer();
+        var q = new TermQuery { Field = "x", Value = "x" };
 
-            for (var i = 0; i < 1000; i++)
-            {
-                c &= q;
-            }
+        for (var i = 0; i < 1000; i++)
+        {
+            c &= q;
         }
-        /**
+    }
+    /**
 		 *....
 		 * |     Median|     StdDev|       Gen 0|  Gen 1|  Gen 2|  Bytes Allocated/Op
 		 * |  1.8507 ms|  0.1878 ms|    1,793.00|  21.00|      -|        1.872.672,28
@@ -714,17 +714,17 @@ namespace Tests.QueryDsl.BoolDsl
 		 * Since we already know the shape of our bool query in advance its much much faster to do this instead:
 		 *
 		 */
-        private static void FastCombine()
-        {
+    private static void FastCombine()
+    {
 
-            QueryContainer q = new TermQuery { Field = "x", Value = "x" };
-            var x = Enumerable.Range(0, 1000).Select(f => q).ToArray();
-            var boolQuery = new BoolQuery
-            {
-                Must = x
-            };
-        }
-        /**
+        QueryContainer q = new TermQuery { Field = "x", Value = "x" };
+        var x = Enumerable.Range(0, 1000).Select(f => q).ToArray();
+        var boolQuery = new BoolQuery
+        {
+            Must = x
+        };
+    }
+    /**
 		 *....
 		 * |      Median|     StdDev|   Gen 0|  Gen 1|  Gen 2|  Bytes Allocated/Op
 		 * |  31.4610 us|  0.9495 us|  439.00|      -|      -|            7.912,95
@@ -738,20 +738,19 @@ namespace Tests.QueryDsl.BoolDsl
 		 * See https://github.com/elastic/elasticsearch-net/pull/2235[PR #2335 on github for more information]
 		 * ====
 		 */
-        private static void Dummy() { }
+    private static void Dummy() { }
 
-        //hide
-        private void Assert(
-            Func<QueryContainerDescriptor<Project>, QueryContainer> fluent,
-            QueryBase ois,
-            Action<IQueryContainer> assert
-            )
-        {
-            assert(fluent.Invoke(new QueryContainerDescriptor<Project>()));
-            assert((QueryContainer)ois);
-        }
-
-        //hide
-        private IQueryContainer Create(Func<QueryContainerDescriptor<Project>, QueryContainer> selector) => selector.Invoke(new QueryContainerDescriptor<Project>());
+    //hide
+    private void Assert(
+        Func<QueryContainerDescriptor<Project>, QueryContainer> fluent,
+        QueryBase ois,
+        Action<IQueryContainer> assert
+        )
+    {
+        assert(fluent.Invoke(new QueryContainerDescriptor<Project>()));
+        assert((QueryContainer)ois);
     }
+
+    //hide
+    private IQueryContainer Create(Func<QueryContainerDescriptor<Project>, QueryContainer> selector) => selector.Invoke(new QueryContainerDescriptor<Project>());
 }

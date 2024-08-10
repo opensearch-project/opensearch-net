@@ -30,16 +30,15 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-    [DataContract]
-    public class TermVector
-    {
-        [DataMember(Name = "field_statistics")]
-        public FieldStatistics FieldStatistics { get; internal set; }
+namespace OpenSearch.Client;
 
-        [DataMember(Name = "terms")]
-        public IReadOnlyDictionary<string, TermVectorTerm> Terms { get; internal set; } =
-            EmptyReadOnly<string, TermVectorTerm>.Dictionary;
-    }
+[DataContract]
+public class TermVector
+{
+    [DataMember(Name = "field_statistics")]
+    public FieldStatistics FieldStatistics { get; internal set; }
+
+    [DataMember(Name = "terms")]
+    public IReadOnlyDictionary<string, TermVectorTerm> Terms { get; internal set; } =
+        EmptyReadOnly<string, TermVectorTerm>.Dictionary;
 }

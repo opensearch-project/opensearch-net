@@ -29,66 +29,65 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Conditions that must be satisfied for a new index to be created
+/// with the rollover index API
+/// </summary>
+[InterfaceDataContract]
+[ReadAs(typeof(RolloverConditions))]
+public interface IRolloverConditions
 {
     /// <summary>
-    /// Conditions that must be satisfied for a new index to be created
-    /// with the rollover index API
+    /// The maximum age of the index
     /// </summary>
-    [InterfaceDataContract]
-    [ReadAs(typeof(RolloverConditions))]
-    public interface IRolloverConditions
-    {
-        /// <summary>
-        /// The maximum age of the index
-        /// </summary>
-        [DataMember(Name = "max_age")]
-        Time MaxAge { get; set; }
+    [DataMember(Name = "max_age")]
+    Time MaxAge { get; set; }
 
-        /// <summary>
-        /// The maximum number of documents
-        /// </summary>
-        [DataMember(Name = "max_docs")]
-        long? MaxDocs { get; set; }
+    /// <summary>
+    /// The maximum number of documents
+    /// </summary>
+    [DataMember(Name = "max_docs")]
+    long? MaxDocs { get; set; }
 
-        /// <summary>
-        /// The maximum size of the index e.g. "5gb"
-        /// </summary>
-        [DataMember(Name = "max_size")]
-        string MaxSize { get; set; }
-    }
+    /// <summary>
+    /// The maximum size of the index e.g. "5gb"
+    /// </summary>
+    [DataMember(Name = "max_size")]
+    string MaxSize { get; set; }
+}
+
+/// <inheritdoc />
+public class RolloverConditions : IRolloverConditions
+{
+    /// <inheritdoc />
+    public Time MaxAge { get; set; }
 
     /// <inheritdoc />
-    public class RolloverConditions : IRolloverConditions
-    {
-        /// <inheritdoc />
-        public Time MaxAge { get; set; }
+    public long? MaxDocs { get; set; }
 
-        /// <inheritdoc />
-        public long? MaxDocs { get; set; }
+    /// <inheritdoc />
+    public string MaxSize { get; set; }
 
-        /// <inheritdoc />
-        public string MaxSize { get; set; }
+    /// <inheritdoc />
+    public string MaxPrimaryShardSize { get; set; }
+}
 
-        /// <inheritdoc />
-        public string MaxPrimaryShardSize { get; set; }
-    }
+/// <inheritdoc cref="IRolloverConditions" />
+public class RolloverConditionsDescriptor
+    : DescriptorBase<RolloverConditionsDescriptor, IRolloverConditions>, IRolloverConditions
+{
+    Time IRolloverConditions.MaxAge { get; set; }
+    long? IRolloverConditions.MaxDocs { get; set; }
+    string IRolloverConditions.MaxSize { get; set; }
 
-    /// <inheritdoc cref="IRolloverConditions" />
-    public class RolloverConditionsDescriptor
-        : DescriptorBase<RolloverConditionsDescriptor, IRolloverConditions>, IRolloverConditions
-    {
-        Time IRolloverConditions.MaxAge { get; set; }
-        long? IRolloverConditions.MaxDocs { get; set; }
-        string IRolloverConditions.MaxSize { get; set; }
+    /// <inheritdoc cref="IRolloverConditions.MaxAge" />
+    public RolloverConditionsDescriptor MaxAge(Time maxAge) => Assign(maxAge, (a, v) => a.MaxAge = v);
 
-        /// <inheritdoc cref="IRolloverConditions.MaxAge" />
-        public RolloverConditionsDescriptor MaxAge(Time maxAge) => Assign(maxAge, (a, v) => a.MaxAge = v);
+    /// <inheritdoc cref="IRolloverConditions.MaxDocs" />
+    public RolloverConditionsDescriptor MaxDocs(long? maxDocs) => Assign(maxDocs, (a, v) => a.MaxDocs = v);
 
-        /// <inheritdoc cref="IRolloverConditions.MaxDocs" />
-        public RolloverConditionsDescriptor MaxDocs(long? maxDocs) => Assign(maxDocs, (a, v) => a.MaxDocs = v);
-
-        /// <inheritdoc cref="IRolloverConditions.MaxSize" />
-        public RolloverConditionsDescriptor MaxSize(string maxSize) => Assign(maxSize, (a, v) => a.MaxSize = v);
-    }
+    /// <inheritdoc cref="IRolloverConditions.MaxSize" />
+    public RolloverConditionsDescriptor MaxSize(string maxSize) => Assign(maxSize, (a, v) => a.MaxSize = v);
 }

@@ -34,14 +34,14 @@ using Tests.Core.Extensions;
 using static Tests.Core.Serialization.SerializationTestHelper;
 using Name = Bogus.DataSets.Name;
 
-namespace Tests.Search.Hits
+namespace Tests.Search.Hits;
+
+public class HitsSerializationTests
 {
-    public class HitsSerializationTests
+    [U]
+    public void CanDeserializeNestedNestedTopHits()
     {
-        [U]
-        public void CanDeserializeNestedNestedTopHits()
-        {
-            var json = @"{
+        var json = @"{
 				""took"" : 6,
 				""timed_out"" : false,
 				""_shards"" : {
@@ -299,42 +299,41 @@ namespace Tests.Search.Hits
 				}
 			}
 			";
-            var response = Expect(json).NoRoundTrip().DeserializesTo<SearchResponse<Person>>();
+        var response = Expect(json).NoRoundTrip().DeserializesTo<SearchResponse<Person>>();
 
-            var nestedChildrenAggregation = response.Aggregations.Nested("children");
-            nestedChildrenAggregation.Should().NotBeNull();
+        var nestedChildrenAggregation = response.Aggregations.Nested("children");
+        nestedChildrenAggregation.Should().NotBeNull();
 
-            var nestedGrandChildrenAggregation = nestedChildrenAggregation.Nested("grand_children");
-            nestedGrandChildrenAggregation.Should().NotBeNull();
+        var nestedGrandChildrenAggregation = nestedChildrenAggregation.Nested("grand_children");
+        nestedGrandChildrenAggregation.Should().NotBeNull();
 
-            var grandChildrenTopHits = nestedGrandChildrenAggregation.TopHits("grand_children_top_hits");
-            grandChildrenTopHits.Should().NotBeNull();
+        var grandChildrenTopHits = nestedGrandChildrenAggregation.TopHits("grand_children_top_hits");
+        grandChildrenTopHits.Should().NotBeNull();
 
-            foreach (var hit in grandChildrenTopHits.Hits<Person>())
-            {
-                // top hits is applied to grandchildren so each result should have two levels
-                // of nested identities i.e. grandparent -> parent (1st level) -> child (2nd level)
-                var nestedIdentity = hit.Nested;
-
-                nestedIdentity.Should().NotBeNull();
-                nestedIdentity.Field.Should().NotBeNull();
-                nestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
-
-                var nestedNestedIdentity = nestedIdentity.Nested;
-                nestedNestedIdentity.Should().NotBeNull();
-                nestedNestedIdentity.Field.Should().NotBeNull();
-                nestedNestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
-            }
-        }
-
-        public class Person
+        foreach (var hit in grandChildrenTopHits.Hits<Person>())
         {
-            public byte Age { get; set; }
+            // top hits is applied to grandchildren so each result should have two levels
+            // of nested identities i.e. grandparent -> parent (1st level) -> child (2nd level)
+            var nestedIdentity = hit.Nested;
 
-            public List<Person> Children { get; set; }
+            nestedIdentity.Should().NotBeNull();
+            nestedIdentity.Field.Should().NotBeNull();
+            nestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
 
-            public Name.Gender Gender { get; set; }
-            public string Name { get; set; }
+            var nestedNestedIdentity = nestedIdentity.Nested;
+            nestedNestedIdentity.Should().NotBeNull();
+            nestedNestedIdentity.Field.Should().NotBeNull();
+            nestedNestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
         }
+    }
+
+    public class Person
+    {
+        public byte Age { get; set; }
+
+        public List<Person> Children { get; set; }
+
+        public Name.Gender Gender { get; set; }
+        public string Name { get; set; }
     }
 }

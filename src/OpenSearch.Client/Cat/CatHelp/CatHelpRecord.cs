@@ -28,12 +28,11 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CatHelpRecord : ICatRecord
 {
-    [DataContract]
-    public class CatHelpRecord : ICatRecord
-    {
-        [DataMember(Name = "endpoint")]
-        public string Endpoint { get; set; }
-    }
+    [DataMember(Name = "endpoint")]
+    public string Endpoint { get; set; }
 }

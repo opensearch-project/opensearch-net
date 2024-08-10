@@ -28,25 +28,24 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class RootNodeInfoResponse : ResponseBase
 {
-    [DataContract]
-    public class RootNodeInfoResponse : ResponseBase
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-        [DataMember(Name = "cluster_name")]
-        public string ClusterName { get; internal set; }
+    [DataMember(Name = "cluster_name")]
+    public string ClusterName { get; internal set; }
 
-        [DataMember(Name = "cluster_uuid")]
-        public string ClusterUUID { get; internal set; }
+    [DataMember(Name = "cluster_uuid")]
+    public string ClusterUUID { get; internal set; }
 
-        [DataMember(Name = "version")]
-        public OpenSearchVersionInfo Version { get; internal set; }
+    [DataMember(Name = "version")]
+    public OpenSearchVersionInfo Version { get; internal set; }
 
-        [DataMember(Name = "tagline")]
-        public string Tagline { get; internal set; }
+    [DataMember(Name = "tagline")]
+    public string Tagline { get; internal set; }
 
-    }
 }

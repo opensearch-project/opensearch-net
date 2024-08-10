@@ -33,65 +33,64 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.DateRange
+namespace Tests.Mapping.Types.Core.Range.DateRange;
+
+public class DateRangePropertyTests : PropertyTestsBase
 {
-    public class DateRangePropertyTests : PropertyTestsBase
+    public DateRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public DateRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            ranges = new
             {
-                ranges = new
+                type = "object",
+                properties = new
                 {
-                    type = "object",
-                    properties = new
+                    dates = new
                     {
-                        dates = new
-                        {
-                            type = "date_range",
-                            store = true,
-                            index = false,
-                            coerce = true
-                        }
+                        type = "date_range",
+                        store = true,
+                        index = false,
+                        coerce = true
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Object<Ranges>(m => m
-                .Name(p => p.Ranges)
-                .Properties(props => props
-                    .DateRange(n => n
-                        .Name(p => p.Dates)
-                        .Store()
-                        .Index(false)
-                        .Coerce()
-                    )
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .DateRange(n => n
+                    .Name(p => p.Dates)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
                 )
-            );
+            )
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "ranges", new ObjectProperty
             {
-                "ranges", new ObjectProperty
+                Properties = new Properties
                 {
-                    Properties = new Properties
                     {
+                        "dates", new DateRangeProperty
                         {
-                            "dates", new DateRangeProperty
-                            {
-                                Store = true,
-                                Index = false,
-                                Coerce = true
-                            }
+                            Store = true,
+                            Index = false,
+                            Coerce = true
                         }
                     }
                 }
             }
-        };
-    }
+        }
+    };
 }

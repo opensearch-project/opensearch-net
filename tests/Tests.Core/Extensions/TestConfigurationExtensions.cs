@@ -29,18 +29,17 @@
 using OpenSearch.Net;
 using Tests.Configuration;
 
-namespace Tests.Core.Extensions
-{
-    public static class TestConfigurationExtensions
-    {
-        public static IConnection CreateConnection(this TestConfigurationBase configuration, bool forceInMemory = false, byte[] response = null) =>
-            forceInMemory
-                ? new InMemoryConnection(response)
-                : configuration.RunIntegrationTests
-                    ? (IConnection)new HttpConnection()
-                    : new InMemoryConnection(response);
+namespace Tests.Core.Extensions;
 
-        public static bool InRange(this TestConfigurationBase configuration, string range) =>
-            configuration.OpenSearchVersion.InRange(range);
-    }
+public static class TestConfigurationExtensions
+{
+    public static IConnection CreateConnection(this TestConfigurationBase configuration, bool forceInMemory = false, byte[] response = null) =>
+        forceInMemory
+            ? new InMemoryConnection(response)
+            : configuration.RunIntegrationTests
+                ? (IConnection)new HttpConnection()
+                : new InMemoryConnection(response);
+
+    public static bool InRange(this TestConfigurationBase configuration, string range) =>
+        configuration.OpenSearchVersion.InRange(range);
 }

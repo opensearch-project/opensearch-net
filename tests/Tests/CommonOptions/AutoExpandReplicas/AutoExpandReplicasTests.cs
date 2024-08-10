@@ -31,115 +31,114 @@ using FluentAssertions;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Xunit;
 
-namespace Tests.CommonOptions.AutoExpandReplicas
+namespace Tests.CommonOptions.AutoExpandReplicas;
+
+using OpenSearch.Client;
+
+public class AutoExpandReplicasTests
 {
-    using OpenSearch.Client;
-
-    public class AutoExpandReplicasTests
+    [U]
+    public void ImplicitConversionFromNullString()
     {
-        [U]
-        public void ImplicitConversionFromNullString()
-        {
-            string nullString = null;
-            AutoExpandReplicas autoExpandReplicas = nullString;
-            autoExpandReplicas.Should().BeNull();
-        }
-
-        [U]
-        public void ImplicitConversionFromMinAndMaxString()
-        {
-            var minAndMax = "0-5";
-            AutoExpandReplicas autoExpandReplicas = minAndMax;
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeTrue();
-            autoExpandReplicas.MinReplicas.Should().Be(0);
-            autoExpandReplicas.MaxReplicas.Match(
-                i => i.Should().Be(5),
-                s => Assert.Fail("expecting a match on integer"));
-
-            autoExpandReplicas.ToString().Should().Be(minAndMax);
-        }
-
-        [U]
-        public void ImplicitConversionFromMinAndAllString()
-        {
-            var minAndMax = "0-all";
-            AutoExpandReplicas autoExpandReplicas = minAndMax;
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeTrue();
-            autoExpandReplicas.MinReplicas.Should().Be(0);
-            autoExpandReplicas.MaxReplicas.Match(
-                i => Assert.Fail("expecting a match on string"),
-                s => s.Should().Be("all"));
-
-            autoExpandReplicas.ToString().Should().Be(minAndMax);
-        }
-
-        [U]
-        public void CreateWithMinAndMax()
-        {
-            var autoExpandReplicas = AutoExpandReplicas.Create(2, 3);
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeTrue();
-            autoExpandReplicas.MinReplicas.Should().Be(2);
-            autoExpandReplicas.MaxReplicas.Match(
-                i => i.Should().Be(3),
-                s => Assert.Fail("expecting a match on integer"));
-
-            autoExpandReplicas.ToString().Should().Be("2-3");
-        }
-
-        [U]
-        public void CreateWithMinAndAll()
-        {
-            var autoExpandReplicas = AutoExpandReplicas.Create(0);
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeTrue();
-            autoExpandReplicas.MinReplicas.Should().Be(0);
-            autoExpandReplicas.MaxReplicas.Match(
-                i => Assert.Fail("expecting a match on string"),
-                s => s.Should().Be("all"));
-
-            autoExpandReplicas.ToString().Should().Be("0-all");
-        }
-
-        [U]
-        public void CreateWithFalse()
-        {
-            var autoExpandReplicas = AutoExpandReplicas.Create("false");
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeFalse();
-            autoExpandReplicas.MinReplicas.Should().BeNull();
-            autoExpandReplicas.MaxReplicas.Should().BeNull();
-            autoExpandReplicas.ToString().Should().Be("false");
-        }
-
-        [U]
-        public void Disabled()
-        {
-            var autoExpandReplicas = AutoExpandReplicas.Disabled;
-            autoExpandReplicas.Should().NotBeNull();
-            autoExpandReplicas.Enabled.Should().BeFalse();
-            autoExpandReplicas.MinReplicas.Should().NotHaveValue();
-            autoExpandReplicas.MaxReplicas.Should().BeNull();
-
-            autoExpandReplicas.ToString().Should().Be("false");
-        }
-
-        [U]
-        public void MinMustBeEqualOrLessThanMax() =>
-            Assert.Throws<ArgumentException>(() => AutoExpandReplicas.Create(2, 1));
-
-        [U]
-        public void MinMustBeGreaterThanOrEqualToZero() =>
-            Assert.Throws<ArgumentException>(() => AutoExpandReplicas.Create(-1));
-
-        [U]
-        public void MinMustBeAnInteger() =>
-            Assert.Throws<FormatException>(() => AutoExpandReplicas.Create("all-all"));
-
-        [U]
-        public void MaxMustBeAllOrAnInteger() =>
-            Assert.Throws<FormatException>(() => AutoExpandReplicas.Create("2-boo"));
+        string nullString = null;
+        AutoExpandReplicas autoExpandReplicas = nullString;
+        autoExpandReplicas.Should().BeNull();
     }
+
+    [U]
+    public void ImplicitConversionFromMinAndMaxString()
+    {
+        var minAndMax = "0-5";
+        AutoExpandReplicas autoExpandReplicas = minAndMax;
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeTrue();
+        autoExpandReplicas.MinReplicas.Should().Be(0);
+        autoExpandReplicas.MaxReplicas.Match(
+            i => i.Should().Be(5),
+            s => Assert.Fail("expecting a match on integer"));
+
+        autoExpandReplicas.ToString().Should().Be(minAndMax);
+    }
+
+    [U]
+    public void ImplicitConversionFromMinAndAllString()
+    {
+        var minAndMax = "0-all";
+        AutoExpandReplicas autoExpandReplicas = minAndMax;
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeTrue();
+        autoExpandReplicas.MinReplicas.Should().Be(0);
+        autoExpandReplicas.MaxReplicas.Match(
+            i => Assert.Fail("expecting a match on string"),
+            s => s.Should().Be("all"));
+
+        autoExpandReplicas.ToString().Should().Be(minAndMax);
+    }
+
+    [U]
+    public void CreateWithMinAndMax()
+    {
+        var autoExpandReplicas = AutoExpandReplicas.Create(2, 3);
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeTrue();
+        autoExpandReplicas.MinReplicas.Should().Be(2);
+        autoExpandReplicas.MaxReplicas.Match(
+            i => i.Should().Be(3),
+            s => Assert.Fail("expecting a match on integer"));
+
+        autoExpandReplicas.ToString().Should().Be("2-3");
+    }
+
+    [U]
+    public void CreateWithMinAndAll()
+    {
+        var autoExpandReplicas = AutoExpandReplicas.Create(0);
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeTrue();
+        autoExpandReplicas.MinReplicas.Should().Be(0);
+        autoExpandReplicas.MaxReplicas.Match(
+            i => Assert.Fail("expecting a match on string"),
+            s => s.Should().Be("all"));
+
+        autoExpandReplicas.ToString().Should().Be("0-all");
+    }
+
+    [U]
+    public void CreateWithFalse()
+    {
+        var autoExpandReplicas = AutoExpandReplicas.Create("false");
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeFalse();
+        autoExpandReplicas.MinReplicas.Should().BeNull();
+        autoExpandReplicas.MaxReplicas.Should().BeNull();
+        autoExpandReplicas.ToString().Should().Be("false");
+    }
+
+    [U]
+    public void Disabled()
+    {
+        var autoExpandReplicas = AutoExpandReplicas.Disabled;
+        autoExpandReplicas.Should().NotBeNull();
+        autoExpandReplicas.Enabled.Should().BeFalse();
+        autoExpandReplicas.MinReplicas.Should().NotHaveValue();
+        autoExpandReplicas.MaxReplicas.Should().BeNull();
+
+        autoExpandReplicas.ToString().Should().Be("false");
+    }
+
+    [U]
+    public void MinMustBeEqualOrLessThanMax() =>
+        Assert.Throws<ArgumentException>(() => AutoExpandReplicas.Create(2, 1));
+
+    [U]
+    public void MinMustBeGreaterThanOrEqualToZero() =>
+        Assert.Throws<ArgumentException>(() => AutoExpandReplicas.Create(-1));
+
+    [U]
+    public void MinMustBeAnInteger() =>
+        Assert.Throws<FormatException>(() => AutoExpandReplicas.Create("all-all"));
+
+    [U]
+    public void MaxMustBeAllOrAnInteger() =>
+        Assert.Throws<FormatException>(() => AutoExpandReplicas.Create("2-boo"));
 }

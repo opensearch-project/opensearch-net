@@ -29,25 +29,24 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.LongRange
-{
-    public class LongRangeTest
-    {
-        [LongRange]
-        public OpenSearch.Client.LongRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.LongRange;
 
-    public class LongRangeAttributeTests : AttributeTestsBase<LongRangeTest>
+public class LongRangeTest
+{
+    [LongRange]
+    public OpenSearch.Client.LongRange Range { get; set; }
+}
+
+public class LongRangeAttributeTests : AttributeTestsBase<LongRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    type = "long_range"
-                }
+                type = "long_range"
             }
-        };
-    }
+        }
+    };
 }

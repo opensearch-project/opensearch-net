@@ -32,48 +32,47 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Specialized.TokenCount
+namespace Tests.Mapping.Types.Specialized.TokenCount;
+
+public class TokenCountPropertyTests : PropertyTestsBase
 {
-    public class TokenCountPropertyTests : PropertyTestsBase
+    public TokenCountPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public TokenCountPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            name = new
             {
-                name = new
-                {
-                    type = "token_count",
-                    analyzer = "standard",
-                    enable_position_increments = false,
-                    index = false,
-                    null_value = 0.0
-                }
+                type = "token_count",
+                analyzer = "standard",
+                enable_position_increments = false,
+                index = false,
+                null_value = 0.0
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .TokenCount(s => s
-                .Name(p => p.Name)
-                .Analyzer("standard")
-                .EnablePositionIncrements(false)
-                .Index(false)
-                .NullValue(0.0)
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .TokenCount(s => s
+            .Name(p => p.Name)
+            .Analyzer("standard")
+            .EnablePositionIncrements(false)
+            .Index(false)
+            .NullValue(0.0)
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "name", new TokenCountProperty
             {
-                "name", new TokenCountProperty
-                {
-                    Index = false,
-                    Analyzer = "standard",
-                    EnablePositionIncrements = false,
-                    NullValue = 0.0
-                }
+                Index = false,
+                Analyzer = "standard",
+                EnablePositionIncrements = false,
+                NullValue = 0.0
             }
-        };
-    }
+        }
+    };
 }

@@ -35,84 +35,83 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Pipeline.Derivative
-{
-    public class DerivativeAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public DerivativeAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+namespace Tests.Aggregations.Pipeline.Derivative;
 
-        protected override object AggregationJson => new
+public class DerivativeAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public DerivativeAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        projects_started_per_month = new
         {
-            projects_started_per_month = new
+            date_histogram = new
             {
-                date_histogram = new
+                field = "startedOn",
+                calendar_interval = "month",
+                min_doc_count = 0
+            },
+            aggs = new
+            {
+                commits = new
                 {
-                    field = "startedOn",
-                    calendar_interval = "month",
-                    min_doc_count = 0
+                    sum = new
+                    {
+                        field = "numberOfCommits"
+                    }
                 },
-                aggs = new
+                commits_derivative = new
                 {
-                    commits = new
+                    derivative = new
                     {
-                        sum = new
-                        {
-                            field = "numberOfCommits"
-                        }
-                    },
-                    commits_derivative = new
-                    {
-                        derivative = new
-                        {
-                            buckets_path = "commits"
-                        }
+                        buckets_path = "commits"
                     }
                 }
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .DateHistogram("projects_started_per_month", dh => dh
+            .Field(p => p.StartedOn)
+            .CalendarInterval(DateInterval.Month)
+            .MinimumDocumentCount(0)
+            .Aggregations(aa => aa
+                .Sum("commits", sm => sm
+                    .Field(p => p.NumberOfCommits)
+                )
+                .Derivative("commits_derivative", d => d
+                    .BucketsPath("commits")
+                )
+            )
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new DateHistogramAggregation("projects_started_per_month")
+        {
+            Field = "startedOn",
+            CalendarInterval = DateInterval.Month,
+            MinimumDocumentCount = 0,
+            Aggregations =
+                new SumAggregation("commits", "numberOfCommits") &&
+                new DerivativeAggregation("commits_derivative", "commits")
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DateHistogram("projects_started_per_month", dh => dh
-                .Field(p => p.StartedOn)
-                .CalendarInterval(DateInterval.Month)
-                .MinimumDocumentCount(0)
-                .Aggregations(aa => aa
-                    .Sum("commits", sm => sm
-                        .Field(p => p.NumberOfCommits)
-                    )
-                    .Derivative("commits_derivative", d => d
-                        .BucketsPath("commits")
-                    )
-                )
-            );
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DateHistogramAggregation("projects_started_per_month")
-            {
-                Field = "startedOn",
-                CalendarInterval = DateInterval.Month,
-                MinimumDocumentCount = 0,
-                Aggregations =
-                    new SumAggregation("commits", "numberOfCommits") &&
-                    new DerivativeAggregation("commits_derivative", "commits")
-            };
+        var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+        projectsPerMonth.Should().NotBeNull();
+        projectsPerMonth.Buckets.Should().NotBeNull();
+        projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+        // derivative not calculated for the first bucket
+        foreach (var item in projectsPerMonth.Buckets.Skip(1))
         {
-            response.ShouldBeValid();
-
-            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-            projectsPerMonth.Should().NotBeNull();
-            projectsPerMonth.Buckets.Should().NotBeNull();
-            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
-
-            // derivative not calculated for the first bucket
-            foreach (var item in projectsPerMonth.Buckets.Skip(1))
-            {
-                var commitsDerivative = item.Derivative("commits_derivative");
-                commitsDerivative.Should().NotBeNull();
-                commitsDerivative.Value.Should().NotBe(null);
-            }
+            var commitsDerivative = item.Derivative("commits_derivative");
+            commitsDerivative.Should().NotBeNull();
+            commitsDerivative.Value.Should().NotBe(null);
         }
     }
 }

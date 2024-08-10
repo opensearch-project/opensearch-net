@@ -29,28 +29,27 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[MapsApi("clear_scroll.json")]
+public partial interface IClearScrollRequest
 {
-    [MapsApi("clear_scroll.json")]
-    public partial interface IClearScrollRequest
-    {
-        [DataMember(Name = "scroll_id")]
-        IEnumerable<string> ScrollIds { get; set; }
-    }
+    [DataMember(Name = "scroll_id")]
+    IEnumerable<string> ScrollIds { get; set; }
+}
 
-    public partial class ClearScrollRequest
-    {
-        public ClearScrollRequest(IEnumerable<string> scrollIds) => ScrollIds = scrollIds;
+public partial class ClearScrollRequest
+{
+    public ClearScrollRequest(IEnumerable<string> scrollIds) => ScrollIds = scrollIds;
 
-        public ClearScrollRequest(string scrollId) => ScrollIds = new[] { scrollId };
+    public ClearScrollRequest(string scrollId) => ScrollIds = new[] { scrollId };
 
-        public IEnumerable<string> ScrollIds { get; set; }
-    }
+    public IEnumerable<string> ScrollIds { get; set; }
+}
 
-    public partial class ClearScrollDescriptor
-    {
-        IEnumerable<string> IClearScrollRequest.ScrollIds { get; set; }
+public partial class ClearScrollDescriptor
+{
+    IEnumerable<string> IClearScrollRequest.ScrollIds { get; set; }
 
-        public ClearScrollDescriptor ScrollId(params string[] scrollIds) => Assign(scrollIds, (a, v) => a.ScrollIds = v);
-    }
+    public ClearScrollDescriptor ScrollId(params string[] scrollIds) => Assign(scrollIds, (a, v) => a.ScrollIds = v);
 }

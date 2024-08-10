@@ -33,64 +33,63 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl.Span.Near
+namespace Tests.QueryDsl.Span.Near;
+
+public class SpanNearUsageTests : QueryDslUsageTestsBase
 {
-    public class SpanNearUsageTests : QueryDslUsageTestsBase
+    public SpanNearUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ISpanNearQuery>(a => a.SpanNear)
     {
-        public SpanNearUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+        q => q.Clauses = null,
+        q => q.Clauses = Enumerable.Empty<ISpanQuery>(),
+        q => q.Clauses = new[] { new SpanQuery() },
+    };
 
-        protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ISpanNearQuery>(a => a.SpanNear)
+    protected override QueryContainer QueryInitializer => new SpanNearQuery
+    {
+        Name = "named_query",
+        Boost = 1.1,
+        Clauses = new List<ISpanQuery>
         {
-            q => q.Clauses = null,
-            q => q.Clauses = Enumerable.Empty<ISpanQuery>(),
-            q => q.Clauses = new[] { new SpanQuery() },
-        };
+            new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value1" } },
+            new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value2" } },
+            new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value3" } },
+            new SpanQuery { SpanGap = new SpanGapQuery { Field = "field", Width = 2 } }
+        },
+        Slop = 12,
+        InOrder = true,
+    };
 
-        protected override QueryContainer QueryInitializer => new SpanNearQuery
+    protected override object QueryJson => new
+    {
+        span_near = new
         {
-            Name = "named_query",
-            Boost = 1.1,
-            Clauses = new List<ISpanQuery>
+            clauses = new object[]
             {
-                new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value1" } },
-                new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value2" } },
-                new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field", Value = "value3" } },
-                new SpanQuery { SpanGap = new SpanGapQuery { Field = "field", Width = 2 } }
+                new { span_term = new { field = new { value = "value1" } } },
+                new { span_term = new { field = new { value = "value2" } } },
+                new { span_term = new { field = new { value = "value3" } } },
+                new { span_gap = new { field = 2 } }
             },
-            Slop = 12,
-            InOrder = true,
-        };
+            slop = 12,
+            in_order = true,
+            _name = "named_query",
+            boost = 1.1
+        }
+    };
 
-        protected override object QueryJson => new
-        {
-            span_near = new
-            {
-                clauses = new object[]
-                {
-                    new { span_term = new { field = new { value = "value1" } } },
-                    new { span_term = new { field = new { value = "value2" } } },
-                    new { span_term = new { field = new { value = "value3" } } },
-                    new { span_gap = new { field = 2 } }
-                },
-                slop = 12,
-                in_order = true,
-                _name = "named_query",
-                boost = 1.1
-            }
-        };
-
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .SpanNear(sn => sn
-                .Name("named_query")
-                .Boost(1.1)
-                .Clauses(
-                    c => c.SpanTerm(st => st.Field("field").Value("value1")),
-                    c => c.SpanTerm(st => st.Field("field").Value("value2")),
-                    c => c.SpanTerm(st => st.Field("field").Value("value3")),
-                    c => c.SpanGap(st => st.Field("field").Width(2))
-                )
-                .Slop(12)
-                .InOrder()
-            );
-    }
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .SpanNear(sn => sn
+            .Name("named_query")
+            .Boost(1.1)
+            .Clauses(
+                c => c.SpanTerm(st => st.Field("field").Value("value1")),
+                c => c.SpanTerm(st => st.Field("field").Value("value2")),
+                c => c.SpanTerm(st => st.Field("field").Value("value3")),
+                c => c.SpanGap(st => st.Field("field").Width(2))
+            )
+            .Slop(12)
+            .InOrder()
+        );
 }

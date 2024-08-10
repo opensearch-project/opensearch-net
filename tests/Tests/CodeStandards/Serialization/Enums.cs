@@ -39,109 +39,108 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.CodeStandards.Serialization
+namespace Tests.CodeStandards.Serialization;
+
+public class Enums
 {
-    public class Enums
+    [U]
+    public void EnumsWithEnumMembersShouldBeMarkedWithStringEnumAttribute()
     {
-        [U]
-        public void EnumsWithEnumMembersShouldBeMarkedWithStringEnumAttribute()
+        var exceptions = new HashSet<Type>
         {
-            var exceptions = new HashSet<Type>
-            {
-                typeof(SimpleQueryStringFlags)
-            };
+            typeof(SimpleQueryStringFlags)
+        };
 
-            var enums = typeof(IOpenSearchClient).Assembly
-                .GetTypes()
-                .Where(t => t.IsEnum)
-                .Except(exceptions)
-                .ToList();
-            var notMarkedStringEnum = new List<string>();
-            foreach (var e in enums)
-            {
-                if (e.GetFields().Any(fi => fi.FieldType == e && fi.GetCustomAttribute<EnumMemberAttribute>() != null)
-                    && e.GetCustomAttribute<StringEnumAttribute>() == null)
-                    notMarkedStringEnum.Add(e.Name);
-            }
-            notMarkedStringEnum.Should().BeEmpty();
-        }
-
-        [U]
-        public void CanSerializeEnumsWithMultipleMembersMappedToSameValue()
+        var enums = typeof(IOpenSearchClient).Assembly
+            .GetTypes()
+            .Where(t => t.IsEnum)
+            .Except(exceptions)
+            .ToList();
+        var notMarkedStringEnum = new List<string>();
+        foreach (var e in enums)
         {
-            var document = new EnumSameValuesDocument
-            {
-                Int = HttpStatusCode.Moved,
-                String = AnotherEnum.Value1
-            };
-
-            var client = new OpenSearchClient();
-            var json = client.RequestResponseSerializer.SerializeToString(document);
-
-            // "Value2" will be written for both "Value1" and "Value2" because the underlying integer value
-            // for both is the same, and "Value2" field member is listed after "Value1", overwriting
-            // the value mapping.
-            //
-            // Json.Net behaves similarly, except the first string mapped for a value
-            // is not overwritten i.e. "Value1" will be written for both "Value1" and "Value2"
-            json.Should().Be("{\"int\":301,\"string\":\"Value2\"}");
-
-            EnumSameValuesDocument deserializedDocument;
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-                deserializedDocument = client.RequestResponseSerializer.Deserialize<EnumSameValuesDocument>(stream);
-
-            deserializedDocument.Int.Should().Be(document.Int);
-            deserializedDocument.String.Should().Be(document.String);
+            if (e.GetFields().Any(fi => fi.FieldType == e && fi.GetCustomAttribute<EnumMemberAttribute>() != null)
+                && e.GetCustomAttribute<StringEnumAttribute>() == null)
+                notMarkedStringEnum.Add(e.Name);
         }
+        notMarkedStringEnum.Should().BeEmpty();
+    }
 
-        [U]
-        public void CanSerializeEnumPropertiesWithStringEnumAttribute()
+    [U]
+    public void CanSerializeEnumsWithMultipleMembersMappedToSameValue()
+    {
+        var document = new EnumSameValuesDocument
         {
-            var httpStatusCode = HttpStatusCode.OK;
-            var document = new StringEnumDocument
-            {
-                Int = httpStatusCode,
-                String = httpStatusCode,
-                NullableString = httpStatusCode
-            };
+            Int = HttpStatusCode.Moved,
+            String = AnotherEnum.Value1
+        };
 
-            var client = new OpenSearchClient();
-            var json = client.RequestResponseSerializer.SerializeToString(document);
+        var client = new OpenSearchClient();
+        var json = client.RequestResponseSerializer.SerializeToString(document);
 
-            json.Should().Be("{\"int\":200,\"string\":\"OK\",\"nullableString\":\"OK\"}");
+        // "Value2" will be written for both "Value1" and "Value2" because the underlying integer value
+        // for both is the same, and "Value2" field member is listed after "Value1", overwriting
+        // the value mapping.
+        //
+        // Json.Net behaves similarly, except the first string mapped for a value
+        // is not overwritten i.e. "Value1" will be written for both "Value1" and "Value2"
+        json.Should().Be("{\"int\":301,\"string\":\"Value2\"}");
 
-            StringEnumDocument deserializedDocument;
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-                deserializedDocument = client.RequestResponseSerializer.Deserialize<StringEnumDocument>(stream);
+        EnumSameValuesDocument deserializedDocument;
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            deserializedDocument = client.RequestResponseSerializer.Deserialize<EnumSameValuesDocument>(stream);
 
-            deserializedDocument.Int.Should().Be(document.Int);
-            deserializedDocument.String.Should().Be(document.String);
-            deserializedDocument.NullableString.Should().Be(document.NullableString);
-        }
+        deserializedDocument.Int.Should().Be(document.Int);
+        deserializedDocument.String.Should().Be(document.String);
+    }
 
-        private class StringEnumDocument
+    [U]
+    public void CanSerializeEnumPropertiesWithStringEnumAttribute()
+    {
+        var httpStatusCode = HttpStatusCode.OK;
+        var document = new StringEnumDocument
         {
-            public HttpStatusCode Int { get; set; }
+            Int = httpStatusCode,
+            String = httpStatusCode,
+            NullableString = httpStatusCode
+        };
 
-            [StringEnum]
-            public HttpStatusCode String { get; set; }
+        var client = new OpenSearchClient();
+        var json = client.RequestResponseSerializer.SerializeToString(document);
 
-            [StringEnum]
-            public HttpStatusCode? NullableString { get; set; }
-        }
+        json.Should().Be("{\"int\":200,\"string\":\"OK\",\"nullableString\":\"OK\"}");
 
-        private class EnumSameValuesDocument
-        {
-            public HttpStatusCode Int { get; set; }
+        StringEnumDocument deserializedDocument;
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
+            deserializedDocument = client.RequestResponseSerializer.Deserialize<StringEnumDocument>(stream);
 
-            public AnotherEnum String { get; set; }
-        }
+        deserializedDocument.Int.Should().Be(document.Int);
+        deserializedDocument.String.Should().Be(document.String);
+        deserializedDocument.NullableString.Should().Be(document.NullableString);
+    }
+
+    private class StringEnumDocument
+    {
+        public HttpStatusCode Int { get; set; }
 
         [StringEnum]
-        public enum AnotherEnum : int
-        {
-            Value1 = 1,
-            Value2 = 1
-        }
+        public HttpStatusCode String { get; set; }
+
+        [StringEnum]
+        public HttpStatusCode? NullableString { get; set; }
+    }
+
+    private class EnumSameValuesDocument
+    {
+        public HttpStatusCode Int { get; set; }
+
+        public AnotherEnum String { get; set; }
+    }
+
+    [StringEnum]
+    public enum AnotherEnum : int
+    {
+        Value1 = 1,
+        Value2 = 1
     }
 }

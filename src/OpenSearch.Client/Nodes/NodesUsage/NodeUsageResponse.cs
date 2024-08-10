@@ -30,15 +30,14 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-    public class NodesUsageResponse : NodesResponseBase
-    {
-        [DataMember(Name = "cluster_name")]
-        public string ClusterName { get; internal set; }
+namespace OpenSearch.Client;
 
-        [DataMember(Name = "nodes")]
-        public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
-            EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
-    }
+public class NodesUsageResponse : NodesResponseBase
+{
+    [DataMember(Name = "cluster_name")]
+    public string ClusterName { get; internal set; }
+
+    [DataMember(Name = "nodes")]
+    public IReadOnlyDictionary<string, NodeUsageInformation> Nodes { get; internal set; } =
+        EmptyReadOnly<string, NodeUsageInformation>.Dictionary;
 }

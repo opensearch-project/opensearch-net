@@ -28,69 +28,68 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Mapping.Types.Complex.Object
+namespace Tests.Mapping.Types.Complex.Object;
+
+public class ObjectTest
 {
-    public class ObjectTest
+    [Object(
+        Enabled = true)]
+    public InnerObject Full { get; set; }
+
+    [Object]
+    public InnerObject Minimal { get; set; }
+
+    public class InnerObject
     {
-        [Object(
-            Enabled = true)]
-        public InnerObject Full { get; set; }
-
-        [Object]
-        public InnerObject Minimal { get; set; }
-
-        public class InnerObject
-        {
-            public string Name { get; set; }
-        }
+        public string Name { get; set; }
     }
+}
 
-    public class ObjectAttributeTests : AttributeTestsBase<ObjectTest>
+public class ObjectAttributeTests : AttributeTestsBase<ObjectTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            full = new
             {
-                full = new
+                type = "object",
+                enabled = true,
+                properties = new
                 {
-                    type = "object",
-                    enabled = true,
-                    properties = new
+                    name = new
                     {
-                        name = new
+                        type = "text",
+                        fields = new
                         {
-                            type = "text",
-                            fields = new
+                            keyword = new
                             {
-                                keyword = new
-                                {
-                                    type = "keyword",
-                                    ignore_above = 256
-                                }
+                                type = "keyword",
+                                ignore_above = 256
                             }
                         }
                     }
-                },
-                minimal = new
+                }
+            },
+            minimal = new
+            {
+                type = "object",
+                properties = new
                 {
-                    type = "object",
-                    properties = new
+                    name = new
                     {
-                        name = new
+                        type = "text",
+                        fields = new
                         {
-                            type = "text",
-                            fields = new
+                            keyword = new
                             {
-                                keyword = new
-                                {
-                                    type = "keyword",
-                                    ignore_above = 256
-                                }
+                                type = "keyword",
+                                ignore_above = 256
                             }
                         }
                     }
                 }
             }
-        };
-    }
+        }
+    };
 }

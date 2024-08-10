@@ -28,11 +28,10 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CreateResponse : WriteResponseBase
 {
-    [DataContract]
-    public class CreateResponse : WriteResponseBase
-    {
-        public override bool IsValid => base.IsValid && Result == Result.Created;
-    }
+    public override bool IsValid => base.IsValid && Result == Result.Created;
 }

@@ -29,39 +29,37 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+///
+/// </summary>
+public class OpenSearchVersionInfo
 {
-    /// <summary>
-    ///
-    /// </summary>
-    public class OpenSearchVersionInfo
-    {
-        [DataMember(Name = "lucene_version")]
-        public string LuceneVersion { get; set; }
+    [DataMember(Name = "lucene_version")]
+    public string LuceneVersion { get; set; }
 
-        [DataMember(Name = "number")]
-        public string Number { get; set; }
+    [DataMember(Name = "number")]
+    public string Number { get; set; }
 
-        [DataMember(Name = "build_type")]
-        public string BuildType { get; set; }
+    [DataMember(Name = "build_type")]
+    public string BuildType { get; set; }
 
-        [DataMember(Name = "build_hash")]
-        public string BuildHash { get; set; }
+    [DataMember(Name = "build_hash")]
+    public string BuildHash { get; set; }
 
-        [DataMember(Name = "build_date")]
-        public DateTimeOffset BuildDate { get; set; }
+    [DataMember(Name = "build_date")]
+    public DateTimeOffset BuildDate { get; set; }
 
-        [DataMember(Name = "build_snapshot")]
-        public bool BuildSnapshot { get; set; }
+    [DataMember(Name = "build_snapshot")]
+    public bool BuildSnapshot { get; set; }
 
-        [DataMember(Name = "distribution")]
-        public string Distribution { get; set; }
+    [DataMember(Name = "distribution")]
+    public string Distribution { get; set; }
 
-        [DataMember(Name = "minimum_wire_compatibility_version")]
-        public string MinimumWireCompatibilityVersion { get; set; }
+    [DataMember(Name = "minimum_wire_compatibility_version")]
+    public string MinimumWireCompatibilityVersion { get; set; }
 
-        [DataMember(Name = "minimum_index_compatibility_version")]
-        public string MinimumIndexCompatibilityVersion { get; set; }
-    }
-
+    [DataMember(Name = "minimum_index_compatibility_version")]
+    public string MinimumIndexCompatibilityVersion { get; set; }
 }

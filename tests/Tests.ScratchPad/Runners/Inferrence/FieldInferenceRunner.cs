@@ -29,12 +29,11 @@
 using OpenSearch.Client;
 using Tests.Domain;
 
-namespace Tests.ScratchPad.Runners.Inferrence
-{
-    public class FieldInferenceRunner : RunBase
-    {
-        protected override int LoopCount => 1_000_000;
+namespace Tests.ScratchPad.Runners.Inferrence;
 
-        protected override RoutineBase Routine() => Loop(() => Infer.Field<Project>(p => p.LeadDeveloper.LastName), (c, f) => c.Infer.Field(f));
-    }
+public class FieldInferenceRunner : RunBase
+{
+    protected override int LoopCount => 1_000_000;
+
+    protected override RoutineBase Routine() => Loop(() => Infer.Field<Project>(p => p.LeadDeveloper.LastName), (c, f) => c.Infer.Field(f));
 }

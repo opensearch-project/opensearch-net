@@ -29,15 +29,14 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum GeoDistanceType
-    {
-        [EnumMember(Value = "arc")]
-        Arc,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "plane")]
-        Plane
-    }
+[StringEnum]
+public enum GeoDistanceType
+{
+    [EnumMember(Value = "arc")]
+    Arc,
+
+    [EnumMember(Value = "plane")]
+    Plane
 }

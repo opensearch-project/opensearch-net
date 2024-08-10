@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("snapshot.delete_repository.json")]
-    public partial interface IDeleteRepositoryRequest { }
+namespace OpenSearch.Client;
 
-    public partial class DeleteRepositoryRequest { }
+[MapsApi("snapshot.delete_repository.json")]
+public partial interface IDeleteRepositoryRequest { }
 
-    public partial class DeleteRepositoryDescriptor { }
-}
+public partial class DeleteRepositoryRequest { }
+
+public partial class DeleteRepositoryDescriptor { }

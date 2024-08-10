@@ -29,53 +29,52 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A token filter of type length that removes words that are too long or too short for the stream.
+/// </summary>
+public interface ILengthTokenFilter : ITokenFilter
 {
     /// <summary>
-    /// A token filter of type length that removes words that are too long or too short for the stream.
+    /// The maximum number. Defaults to Integer.MAX_VALUE.
     /// </summary>
-    public interface ILengthTokenFilter : ITokenFilter
-    {
-        /// <summary>
-        /// The maximum number. Defaults to Integer.MAX_VALUE.
-        /// </summary>
-        [DataMember(Name = "max")]
-        [JsonFormatter(typeof(NullableStringIntFormatter))]
-        int? Max { get; set; }
+    [DataMember(Name = "max")]
+    [JsonFormatter(typeof(NullableStringIntFormatter))]
+    int? Max { get; set; }
 
-        /// <summary>
-        /// The minimum number. Defaults to 0.
-        /// </summary>
-        [DataMember(Name = "min")]
-        [JsonFormatter(typeof(NullableStringIntFormatter))]
-        int? Min { get; set; }
-    }
+    /// <summary>
+    /// The minimum number. Defaults to 0.
+    /// </summary>
+    [DataMember(Name = "min")]
+    [JsonFormatter(typeof(NullableStringIntFormatter))]
+    int? Min { get; set; }
+}
 
-    /// <inheritdoc />
-    public class LengthTokenFilter : TokenFilterBase, ILengthTokenFilter
-    {
-        public LengthTokenFilter() : base("length") { }
-
-        /// <inheritdoc />
-        public int? Max { get; set; }
-
-        /// <inheritdoc />
-        public int? Min { get; set; }
-    }
+/// <inheritdoc />
+public class LengthTokenFilter : TokenFilterBase, ILengthTokenFilter
+{
+    public LengthTokenFilter() : base("length") { }
 
     /// <inheritdoc />
-    public class LengthTokenFilterDescriptor
-        : TokenFilterDescriptorBase<LengthTokenFilterDescriptor, ILengthTokenFilter>, ILengthTokenFilter
-    {
-        protected override string Type => "length";
-        int? ILengthTokenFilter.Max { get; set; }
+    public int? Max { get; set; }
 
-        int? ILengthTokenFilter.Min { get; set; }
+    /// <inheritdoc />
+    public int? Min { get; set; }
+}
 
-        /// <inheritdoc />
-        public LengthTokenFilterDescriptor Min(int? minimum) => Assign(minimum, (a, v) => a.Min = v);
+/// <inheritdoc />
+public class LengthTokenFilterDescriptor
+    : TokenFilterDescriptorBase<LengthTokenFilterDescriptor, ILengthTokenFilter>, ILengthTokenFilter
+{
+    protected override string Type => "length";
+    int? ILengthTokenFilter.Max { get; set; }
 
-        /// <inheritdoc />
-        public LengthTokenFilterDescriptor Max(int? maximum) => Assign(maximum, (a, v) => a.Max = v);
-    }
+    int? ILengthTokenFilter.Min { get; set; }
+
+    /// <inheritdoc />
+    public LengthTokenFilterDescriptor Min(int? minimum) => Assign(minimum, (a, v) => a.Min = v);
+
+    /// <inheritdoc />
+    public LengthTokenFilterDescriptor Max(int? maximum) => Assign(maximum, (a, v) => a.Max = v);
 }

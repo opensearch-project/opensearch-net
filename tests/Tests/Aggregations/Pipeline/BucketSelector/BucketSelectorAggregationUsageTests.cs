@@ -34,96 +34,95 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Pipeline.BucketSelector
-{
-    public class BucketSelectorAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public BucketSelectorAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+namespace Tests.Aggregations.Pipeline.BucketSelector;
 
-        protected override object AggregationJson => new
+public class BucketSelectorAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public BucketSelectorAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        projects_started_per_month = new
         {
-            projects_started_per_month = new
+            date_histogram = new
             {
-                date_histogram = new
+                field = "startedOn",
+                calendar_interval = "month",
+            },
+            aggs = new
+            {
+                commits = new
                 {
-                    field = "startedOn",
-                    calendar_interval = "month",
+                    sum = new
+                    {
+                        field = "numberOfCommits"
+                    }
                 },
-                aggs = new
+                commits_bucket_filter = new
                 {
-                    commits = new
+                    bucket_selector = new
                     {
-                        sum = new
+                        buckets_path = new
                         {
-                            field = "numberOfCommits"
-                        }
-                    },
-                    commits_bucket_filter = new
-                    {
-                        bucket_selector = new
+                            totalCommits = "commits"
+                        },
+                        script = new
                         {
-                            buckets_path = new
-                            {
-                                totalCommits = "commits"
-                            },
-                            script = new
-                            {
-                                source = "params.totalCommits >= 500",
-                            }
+                            source = "params.totalCommits >= 500",
                         }
                     }
                 }
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .DateHistogram("projects_started_per_month", dh => dh
+            .Field(p => p.StartedOn)
+            .CalendarInterval(DateInterval.Month)
+            .Aggregations(aa => aa
+                .Sum("commits", sm => sm
+                    .Field(p => p.NumberOfCommits)
+                )
+                .BucketSelector("commits_bucket_filter", bs => bs
+                    .BucketsPath(bp => bp
+                        .Add("totalCommits", "commits")
+                    )
+                    .Script(ss => ss.Source("params.totalCommits >= 500"))
+                )
+            )
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new DateHistogramAggregation("projects_started_per_month")
+        {
+            Field = "startedOn",
+            CalendarInterval = DateInterval.Month,
+            Aggregations =
+                new SumAggregation("commits", "numberOfCommits") &&
+                new BucketSelectorAggregation("commits_bucket_filter", new MultiBucketsPath
+                {
+                    { "totalCommits", "commits" },
+                })
+                {
+                    Script = new InlineScript("params.totalCommits >= 500")
+                }
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DateHistogram("projects_started_per_month", dh => dh
-                .Field(p => p.StartedOn)
-                .CalendarInterval(DateInterval.Month)
-                .Aggregations(aa => aa
-                    .Sum("commits", sm => sm
-                        .Field(p => p.NumberOfCommits)
-                    )
-                    .BucketSelector("commits_bucket_filter", bs => bs
-                        .BucketsPath(bp => bp
-                            .Add("totalCommits", "commits")
-                        )
-                        .Script(ss => ss.Source("params.totalCommits >= 500"))
-                    )
-                )
-            );
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DateHistogramAggregation("projects_started_per_month")
-            {
-                Field = "startedOn",
-                CalendarInterval = DateInterval.Month,
-                Aggregations =
-                    new SumAggregation("commits", "numberOfCommits") &&
-                    new BucketSelectorAggregation("commits_bucket_filter", new MultiBucketsPath
-                    {
-                        { "totalCommits", "commits" },
-                    })
-                    {
-                        Script = new InlineScript("params.totalCommits >= 500")
-                    }
-            };
+        var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+        projectsPerMonth.Should().NotBeNull();
+        projectsPerMonth.Buckets.Should().NotBeNull();
+        projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+        foreach (var item in projectsPerMonth.Buckets)
         {
-            response.ShouldBeValid();
-
-            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-            projectsPerMonth.Should().NotBeNull();
-            projectsPerMonth.Buckets.Should().NotBeNull();
-            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
-
-            foreach (var item in projectsPerMonth.Buckets)
-            {
-                var commits = item.Sum("commits");
-                commits.Should().NotBeNull();
-                commits.Value.Should().BeGreaterOrEqualTo(500);
-            }
+            var commits = item.Sum("commits");
+            commits.Should().NotBeNull();
+            commits.Value.Should().BeGreaterOrEqualTo(500);
         }
     }
 }

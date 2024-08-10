@@ -34,82 +34,81 @@ using OpenSearch.OpenSearch.Managed;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.Sdk
+namespace OpenSearch.OpenSearch.Xunit.Sdk;
+
+internal class TestFrameworkExecutor : XunitTestFrameworkExecutor
 {
-    internal class TestFrameworkExecutor : XunitTestFrameworkExecutor
+    public TestFrameworkExecutor(AssemblyName a, ISourceInformationProvider sip, IMessageSink d) : base(a, sip, d)
     {
-        public TestFrameworkExecutor(AssemblyName a, ISourceInformationProvider sip, IMessageSink d) : base(a, sip, d)
+    }
+
+    public OpenSearchXunitRunOptions Options { get; set; }
+
+    public override void RunAll(IMessageSink executionMessageSink, ITestFrameworkDiscoveryOptions discoveryOptions,
+        ITestFrameworkExecutionOptions executionOptions)
+    {
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
+            Options.IntegrationTestsMayUseAlreadyRunningNode);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
+
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
+            Options.IntegrationTestsMayUseAlreadyRunningNode);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
+
+        base.RunAll(executionMessageSink, discoveryOptions, executionOptions);
+    }
+
+
+    public override void RunTests(IEnumerable<ITestCase> testCases, IMessageSink executionMessageSink,
+        ITestFrameworkExecutionOptions executionOptions)
+    {
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
+            Options.IntegrationTestsMayUseAlreadyRunningNode);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
+        executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
+        base.RunTests(testCases, executionMessageSink, executionOptions);
+    }
+
+    protected override async void RunTestCases(IEnumerable<IXunitTestCase> testCases, IMessageSink sink,
+        ITestFrameworkExecutionOptions options)
+    {
+        options.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+        options.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
+        options.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
+            Options.IntegrationTestsMayUseAlreadyRunningNode);
+        options.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
+        options.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
+        options.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
+        try
         {
-        }
-
-        public OpenSearchXunitRunOptions Options { get; set; }
-
-        public override void RunAll(IMessageSink executionMessageSink, ITestFrameworkDiscoveryOptions discoveryOptions,
-            ITestFrameworkExecutionOptions executionOptions)
-        {
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
-                Options.IntegrationTestsMayUseAlreadyRunningNode);
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
-            discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
-
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
-                Options.IntegrationTestsMayUseAlreadyRunningNode);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
-
-            base.RunAll(executionMessageSink, discoveryOptions, executionOptions);
-        }
-
-
-        public override void RunTests(IEnumerable<ITestCase> testCases, IMessageSink executionMessageSink,
-            ITestFrameworkExecutionOptions executionOptions)
-        {
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
-                Options.IntegrationTestsMayUseAlreadyRunningNode);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
-            executionOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
-            base.RunTests(testCases, executionMessageSink, executionOptions);
-        }
-
-        protected override async void RunTestCases(IEnumerable<IXunitTestCase> testCases, IMessageSink sink,
-            ITestFrameworkExecutionOptions options)
-        {
-            options.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
-            options.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
-            options.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
-                Options.IntegrationTestsMayUseAlreadyRunningNode);
-            options.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
-            options.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
-            options.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
-            try
+            using (var runner =
+                new TestAssemblyRunner(TestAssembly, testCases, DiagnosticMessageSink, sink, options))
             {
-                using (var runner =
-                    new TestAssemblyRunner(TestAssembly, testCases, DiagnosticMessageSink, sink, options))
-                {
-                    Options.OnBeforeTestsRun();
-                    await runner.RunAsync().ConfigureAwait(false);
-                    Options.OnTestsFinished(runner.ClusterTotals, runner.FailedCollections);
-                }
+                Options.OnBeforeTestsRun();
+                await runner.RunAsync().ConfigureAwait(false);
+                Options.OnTestsFinished(runner.ClusterTotals, runner.FailedCollections);
             }
-            catch (Exception e)
-            {
-                if (e is OpenSearchCleanExitException || e is AggregateException ae &&
-                    ae.Flatten().InnerException is OpenSearchCleanExitException)
-                    sink.OnMessage(new TestAssemblyCleanupFailure(Enumerable.Empty<ITestCase>(), TestAssembly,
-                        new OpenSearchCleanExitException("Node failed to start", e)));
-                else
-                    sink.OnMessage(new TestAssemblyCleanupFailure(Enumerable.Empty<ITestCase>(), TestAssembly, e));
-                throw;
-            }
+        }
+        catch (Exception e)
+        {
+            if (e is OpenSearchCleanExitException || e is AggregateException ae &&
+                ae.Flatten().InnerException is OpenSearchCleanExitException)
+                sink.OnMessage(new TestAssemblyCleanupFailure(Enumerable.Empty<ITestCase>(), TestAssembly,
+                    new OpenSearchCleanExitException("Node failed to start", e)));
+            else
+                sink.OnMessage(new TestAssemblyCleanupFailure(Enumerable.Empty<ITestCase>(), TestAssembly, e));
+            throw;
         }
     }
 }

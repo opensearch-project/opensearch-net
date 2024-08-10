@@ -30,68 +30,67 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[ReadAs(typeof(MultiGetHit<>))]
+public interface IMultiGetHit<out TDocument> where TDocument : class
 {
-    [ReadAs(typeof(MultiGetHit<>))]
-    public interface IMultiGetHit<out TDocument> where TDocument : class
-    {
-        Error Error { get; }
+    Error Error { get; }
 
-        bool Found { get; }
+    bool Found { get; }
 
-        string Id { get; }
+    string Id { get; }
 
-        string Index { get; }
+    string Index { get; }
 
-        string Routing { get; }
+    string Routing { get; }
 
-        TDocument Source { get; }
+    TDocument Source { get; }
 
-        string Type { get; }
+    string Type { get; }
 
-        long Version { get; }
+    long Version { get; }
 
-        long? SequenceNumber { get; }
+    long? SequenceNumber { get; }
 
-        long? PrimaryTerm { get; }
-    }
+    long? PrimaryTerm { get; }
+}
 
-    [DataContract]
-    public class MultiGetHit<TDocument> : IMultiGetHit<TDocument>
-        where TDocument : class
-    {
-        [DataMember(Name = "error")]
-        public Error Error { get; internal set; }
+[DataContract]
+public class MultiGetHit<TDocument> : IMultiGetHit<TDocument>
+    where TDocument : class
+{
+    [DataMember(Name = "error")]
+    public Error Error { get; internal set; }
 
-        [DataMember(Name = "fields")]
-        public FieldValues Fields { get; internal set; }
+    [DataMember(Name = "fields")]
+    public FieldValues Fields { get; internal set; }
 
-        [DataMember(Name = "found")]
-        public bool Found { get; internal set; }
+    [DataMember(Name = "found")]
+    public bool Found { get; internal set; }
 
-        [DataMember(Name = "_id")]
-        public string Id { get; internal set; }
+    [DataMember(Name = "_id")]
+    public string Id { get; internal set; }
 
-        [DataMember(Name = "_index")]
-        public string Index { get; internal set; }
+    [DataMember(Name = "_index")]
+    public string Index { get; internal set; }
 
-        [DataMember(Name = "_routing")]
-        public string Routing { get; internal set; }
+    [DataMember(Name = "_routing")]
+    public string Routing { get; internal set; }
 
-        [DataMember(Name = "_source")]
-        [JsonFormatter(typeof(SourceFormatter<>))]
-        public TDocument Source { get; internal set; }
+    [DataMember(Name = "_source")]
+    [JsonFormatter(typeof(SourceFormatter<>))]
+    public TDocument Source { get; internal set; }
 
-        [DataMember(Name = "_type")]
-        public string Type { get; internal set; }
+    [DataMember(Name = "_type")]
+    public string Type { get; internal set; }
 
-        [DataMember(Name = "_version")]
-        public long Version { get; internal set; }
+    [DataMember(Name = "_version")]
+    public long Version { get; internal set; }
 
-        [DataMember(Name = "_seq_no")]
-        public long? SequenceNumber { get; internal set; }
+    [DataMember(Name = "_seq_no")]
+    public long? SequenceNumber { get; internal set; }
 
-        [DataMember(Name = "_primary_term")]
-        public long? PrimaryTerm { get; internal set; }
-    }
+    [DataMember(Name = "_primary_term")]
+    public long? PrimaryTerm { get; internal set; }
 }

@@ -56,265 +56,264 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable UnusedTypeParameter
 // ReSharper disable PartialMethodWithSinglePart
 // ReSharper disable RedundantNameQualifier
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public partial interface IDeleteComposableIndexTemplateRequest
+    : IRequest<DeleteComposableIndexTemplateRequestParameters>
 {
-    [InterfaceDataContract]
-    public partial interface IDeleteComposableIndexTemplateRequest
-        : IRequest<DeleteComposableIndexTemplateRequestParameters>
+    [IgnoreDataMember]
+    Name Name { get; }
+}
+
+/// <summary>Request for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
+public partial class DeleteComposableIndexTemplateRequest
+    : PlainRequestBase<DeleteComposableIndexTemplateRequestParameters>,
+        IDeleteComposableIndexTemplateRequest
+{
+    protected IDeleteComposableIndexTemplateRequest Self => this;
+    internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteComposableTemplate;
+
+    /// <summary>/_index_template/{name}</summary>
+    /// <param name="name">this parameter is required</param>
+    public DeleteComposableIndexTemplateRequest(Name name)
+        : base(r => r.Required("name", name)) { }
+
+    /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+    [SerializationConstructor]
+    protected DeleteComposableIndexTemplateRequest()
+        : base() { }
+
+    // values part of the url path
+    [IgnoreDataMember]
+    Name IDeleteComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+    // Request parameters
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public Time ClusterManagerTimeout
     {
-        [IgnoreDataMember]
-        Name Name { get; }
+        get => Q<Time>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
     }
 
-    /// <summary>Request for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
-    public partial class DeleteComposableIndexTemplateRequest
-        : PlainRequestBase<DeleteComposableIndexTemplateRequestParameters>,
-            IDeleteComposableIndexTemplateRequest
+    /// <summary>
+    /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+    /// an error.
+    /// </summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public Time MasterTimeout
     {
-        protected IDeleteComposableIndexTemplateRequest Self => this;
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteComposableTemplate;
-
-        /// <summary>/_index_template/{name}</summary>
-        /// <param name="name">this parameter is required</param>
-        public DeleteComposableIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
-
-        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-        [SerializationConstructor]
-        protected DeleteComposableIndexTemplateRequest()
-            : base() { }
-
-        // values part of the url path
-        [IgnoreDataMember]
-        Name IDeleteComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
-
-        // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public Time ClusterManagerTimeout
-        {
-            get => Q<Time>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
-        /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public Time MasterTimeout
-        {
-            get => Q<Time>("master_timeout");
-            set => Q("master_timeout", value);
-        }
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public Time Timeout
-        {
-            get => Q<Time>("timeout");
-            set => Q("timeout", value);
-        }
+        get => Q<Time>("master_timeout");
+        set => Q("master_timeout", value);
     }
 
-    [InterfaceDataContract]
-    public partial interface IComposableIndexTemplateExistsRequest
-        : IRequest<ComposableIndexTemplateExistsRequestParameters>
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public Time Timeout
     {
-        [IgnoreDataMember]
-        Name Name { get; }
+        get => Q<Time>("timeout");
+        set => Q("timeout", value);
+    }
+}
+
+[InterfaceDataContract]
+public partial interface IComposableIndexTemplateExistsRequest
+    : IRequest<ComposableIndexTemplateExistsRequestParameters>
+{
+    [IgnoreDataMember]
+    Name Name { get; }
+}
+
+/// <summary>Request for ComposableTemplateExists <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+public partial class ComposableIndexTemplateExistsRequest
+    : PlainRequestBase<ComposableIndexTemplateExistsRequestParameters>,
+        IComposableIndexTemplateExistsRequest
+{
+    protected IComposableIndexTemplateExistsRequest Self => this;
+    internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesComposableTemplateExists;
+
+    /// <summary>/_index_template/{name}</summary>
+    /// <param name="name">this parameter is required</param>
+    public ComposableIndexTemplateExistsRequest(Name name)
+        : base(r => r.Required("name", name)) { }
+
+    /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+    [SerializationConstructor]
+    protected ComposableIndexTemplateExistsRequest()
+        : base() { }
+
+    // values part of the url path
+    [IgnoreDataMember]
+    Name IComposableIndexTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
+
+    // Request parameters
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public Time ClusterManagerTimeout
+    {
+        get => Q<Time>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
     }
 
-    /// <summary>Request for ComposableTemplateExists <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-    public partial class ComposableIndexTemplateExistsRequest
-        : PlainRequestBase<ComposableIndexTemplateExistsRequestParameters>,
-            IComposableIndexTemplateExistsRequest
+    /// <summary>Return settings in flat format.</summary>
+    public bool? FlatSettings
     {
-        protected IComposableIndexTemplateExistsRequest Self => this;
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesComposableTemplateExists;
-
-        /// <summary>/_index_template/{name}</summary>
-        /// <param name="name">this parameter is required</param>
-        public ComposableIndexTemplateExistsRequest(Name name)
-            : base(r => r.Required("name", name)) { }
-
-        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-        [SerializationConstructor]
-        protected ComposableIndexTemplateExistsRequest()
-            : base() { }
-
-        // values part of the url path
-        [IgnoreDataMember]
-        Name IComposableIndexTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
-
-        // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public Time ClusterManagerTimeout
-        {
-            get => Q<Time>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>Return settings in flat format.</summary>
-        public bool? FlatSettings
-        {
-            get => Q<bool?>("flat_settings");
-            set => Q("flat_settings", value);
-        }
-
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
-        public bool? Local
-        {
-            get => Q<bool?>("local");
-            set => Q("local", value);
-        }
-
-        /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
-        /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public Time MasterTimeout
-        {
-            get => Q<Time>("master_timeout");
-            set => Q("master_timeout", value);
-        }
+        get => Q<bool?>("flat_settings");
+        set => Q("flat_settings", value);
     }
 
-    [InterfaceDataContract]
-    public partial interface IGetComposableIndexTemplateRequest
-        : IRequest<GetComposableIndexTemplateRequestParameters>
+    /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+    public bool? Local
     {
-        [IgnoreDataMember]
-        Name Name { get; }
+        get => Q<bool?>("local");
+        set => Q("local", value);
     }
 
-    /// <summary>Request for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-    public partial class GetComposableIndexTemplateRequest
-        : PlainRequestBase<GetComposableIndexTemplateRequestParameters>,
-            IGetComposableIndexTemplateRequest
+    /// <summary>
+    /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+    /// an error.
+    /// </summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public Time MasterTimeout
     {
-        protected IGetComposableIndexTemplateRequest Self => this;
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetComposableTemplate;
+        get => Q<Time>("master_timeout");
+        set => Q("master_timeout", value);
+    }
+}
 
-        /// <summary>/_index_template</summary>
-        public GetComposableIndexTemplateRequest()
-            : base() { }
+[InterfaceDataContract]
+public partial interface IGetComposableIndexTemplateRequest
+    : IRequest<GetComposableIndexTemplateRequestParameters>
+{
+    [IgnoreDataMember]
+    Name Name { get; }
+}
 
-        /// <summary>/_index_template/{name}</summary>
-        /// <param name="name">Optional, accepts null</param>
-        public GetComposableIndexTemplateRequest(Name name)
-            : base(r => r.Optional("name", name)) { }
+/// <summary>Request for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+public partial class GetComposableIndexTemplateRequest
+    : PlainRequestBase<GetComposableIndexTemplateRequestParameters>,
+        IGetComposableIndexTemplateRequest
+{
+    protected IGetComposableIndexTemplateRequest Self => this;
+    internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetComposableTemplate;
 
-        // values part of the url path
-        [IgnoreDataMember]
-        Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+    /// <summary>/_index_template</summary>
+    public GetComposableIndexTemplateRequest()
+        : base() { }
 
-        // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public Time ClusterManagerTimeout
-        {
-            get => Q<Time>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
+    /// <summary>/_index_template/{name}</summary>
+    /// <param name="name">Optional, accepts null</param>
+    public GetComposableIndexTemplateRequest(Name name)
+        : base(r => r.Optional("name", name)) { }
 
-        /// <summary>If true, returns settings in flat format.</summary>
-        public bool? FlatSettings
-        {
-            get => Q<bool?>("flat_settings");
-            set => Q("flat_settings", value);
-        }
+    // values part of the url path
+    [IgnoreDataMember]
+    Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>
-        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// master node.
-        /// </summary>
-        public bool? Local
-        {
-            get => Q<bool?>("local");
-            set => Q("local", value);
-        }
-
-        /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
-        /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public Time MasterTimeout
-        {
-            get => Q<Time>("master_timeout");
-            set => Q("master_timeout", value);
-        }
+    // Request parameters
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public Time ClusterManagerTimeout
+    {
+        get => Q<Time>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
     }
 
-    [InterfaceDataContract]
-    public partial interface IPutComposableIndexTemplateRequest
-        : IRequest<PutComposableIndexTemplateRequestParameters>
+    /// <summary>If true, returns settings in flat format.</summary>
+    public bool? FlatSettings
     {
-        [IgnoreDataMember]
-        Name Name { get; }
+        get => Q<bool?>("flat_settings");
+        set => Q("flat_settings", value);
     }
 
-    /// <summary>Request for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
-    public partial class PutComposableIndexTemplateRequest
-        : PlainRequestBase<PutComposableIndexTemplateRequestParameters>,
-            IPutComposableIndexTemplateRequest
+    /// <summary>
+    /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+    /// master node.
+    /// </summary>
+    public bool? Local
     {
-        protected IPutComposableIndexTemplateRequest Self => this;
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutComposableTemplate;
+        get => Q<bool?>("local");
+        set => Q("local", value);
+    }
 
-        /// <summary>/_index_template/{name}</summary>
-        /// <param name="name">this parameter is required</param>
-        public PutComposableIndexTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+    /// <summary>
+    /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+    /// an error.
+    /// </summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public Time MasterTimeout
+    {
+        get => Q<Time>("master_timeout");
+        set => Q("master_timeout", value);
+    }
+}
 
-        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
-        [SerializationConstructor]
-        protected PutComposableIndexTemplateRequest()
-            : base() { }
+[InterfaceDataContract]
+public partial interface IPutComposableIndexTemplateRequest
+    : IRequest<PutComposableIndexTemplateRequestParameters>
+{
+    [IgnoreDataMember]
+    Name Name { get; }
+}
 
-        // values part of the url path
-        [IgnoreDataMember]
-        Name IPutComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+/// <summary>Request for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+public partial class PutComposableIndexTemplateRequest
+    : PlainRequestBase<PutComposableIndexTemplateRequestParameters>,
+        IPutComposableIndexTemplateRequest
+{
+    protected IPutComposableIndexTemplateRequest Self => this;
+    internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutComposableTemplate;
 
-        // Request parameters
-        /// <summary>User defined reason for creating/updating the index template.</summary>
-        public string Cause
-        {
-            get => Q<string>("cause");
-            set => Q("cause", value);
-        }
+    /// <summary>/_index_template/{name}</summary>
+    /// <param name="name">this parameter is required</param>
+    public PutComposableIndexTemplateRequest(Name name)
+        : base(r => r.Required("name", name)) { }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public Time ClusterManagerTimeout
-        {
-            get => Q<Time>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
+    /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+    [SerializationConstructor]
+    protected PutComposableIndexTemplateRequest()
+        : base() { }
 
-        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
-        public bool? Create
-        {
-            get => Q<bool?>("create");
-            set => Q("create", value);
-        }
+    // values part of the url path
+    [IgnoreDataMember]
+    Name IPutComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public Time MasterTimeout
-        {
-            get => Q<Time>("master_timeout");
-            set => Q("master_timeout", value);
-        }
+    // Request parameters
+    /// <summary>User defined reason for creating/updating the index template.</summary>
+    public string Cause
+    {
+        get => Q<string>("cause");
+        set => Q("cause", value);
+    }
+
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public Time ClusterManagerTimeout
+    {
+        get => Q<Time>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
+    }
+
+    /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
+    public bool? Create
+    {
+        get => Q<bool?>("create");
+        set => Q("create", value);
+    }
+
+    /// <summary>Operation timeout for connection to master node.</summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public Time MasterTimeout
+    {
+        get => Q<Time>("master_timeout");
+        set => Q("master_timeout", value);
     }
 }

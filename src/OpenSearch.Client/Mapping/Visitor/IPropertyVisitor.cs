@@ -28,70 +28,69 @@
 
 using System.Reflection;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public interface IPropertyVisitor
 {
-    public interface IPropertyVisitor
-    {
-        void Visit(ITextProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(ITextProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IKeywordProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IKeywordProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(INumberProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(INumberProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IBooleanProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IBooleanProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IDateProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IDateProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IDateNanosProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IDateNanosProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IBinaryProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IBinaryProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(INestedProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(INestedProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IObjectProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IObjectProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IGeoPointProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IGeoPointProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IGeoShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IGeoShapeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(ICompletionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(ICompletionProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IIpProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IIpProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IMurmur3HashProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IMurmur3HashProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(ITokenCountProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(ITokenCountProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IPercolatorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IPercolatorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IIntegerRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IIntegerRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IFloatRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IFloatRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(ILongRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(ILongRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IDoubleRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IDoubleRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IDateRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IDateRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IIpRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IIpRangeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IJoinProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IJoinProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IRankFeatureProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IRankFeatureProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IRankFeaturesProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IRankFeaturesProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(ISearchAsYouTypeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(ISearchAsYouTypeProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IFieldAliasProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        void Visit(IKnnVectorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    void Visit(IKnnVectorProperty type, PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
+    IProperty Visit(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 
-        bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
-    }
+    bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute);
 }

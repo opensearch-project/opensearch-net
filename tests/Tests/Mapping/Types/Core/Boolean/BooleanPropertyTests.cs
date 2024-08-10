@@ -32,50 +32,49 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Boolean
+namespace Tests.Mapping.Types.Core.Boolean;
+
+public class BooleanPropertyTests : PropertyTestsBase
 {
-    public class BooleanPropertyTests : PropertyTestsBase
+    public BooleanPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public BooleanPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            name = new
             {
-                name = new
-                {
-                    type = "boolean",
-                    boost = 1.3,
-                    doc_values = false,
-                    store = true,
-                    index = false,
-                    null_value = false,
-                }
+                type = "boolean",
+                boost = 1.3,
+                doc_values = false,
+                store = true,
+                index = false,
+                null_value = false,
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Boolean(b => b
-                .Name(p => p.Name)
-                .Boost(1.3)
-                .DocValues(false)
-                .Store()
-                .Index(false)
-                .NullValue(false)
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Boolean(b => b
+            .Name(p => p.Name)
+            .Boost(1.3)
+            .DocValues(false)
+            .Store()
+            .Index(false)
+            .NullValue(false)
+        );
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "name", new BooleanProperty
             {
-                "name", new BooleanProperty
-                {
-                    DocValues = false,
-                    Boost = 1.3,
-                    Store = true,
-                    Index = false,
-                    NullValue = false
-                }
+                DocValues = false,
+                Boost = 1.3,
+                Store = true,
+                Index = false,
+                NullValue = false
             }
-        };
-    }
+        }
+    };
 }

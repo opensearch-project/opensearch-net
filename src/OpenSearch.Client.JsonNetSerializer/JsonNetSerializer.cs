@@ -32,20 +32,19 @@ using Newtonsoft.Json;
 using OpenSearch.Client;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client.JsonNetSerializer
-{
-    public class JsonNetSerializer : ConnectionSettingsAwareSerializerBase
-    {
-        public JsonNetSerializer(
-            IOpenSearchSerializer builtinSerializer,
-            IConnectionSettingsValues connectionSettings,
-            Func<JsonSerializerSettings> jsonSerializerSettingsFactory = null,
-            Action<ConnectionSettingsAwareContractResolver> modifyContractResolver = null,
-            IEnumerable<JsonConverter> contractJsonConverters = null
-        )
-            : base(builtinSerializer, connectionSettings, jsonSerializerSettingsFactory, modifyContractResolver, contractJsonConverters) { }
+namespace OpenSearch.Client.JsonNetSerializer;
 
-        public static IOpenSearchSerializer Default(IOpenSearchSerializer builtin, IConnectionSettingsValues values)
-            => new JsonNetSerializer(builtin, values);
-    }
+public class JsonNetSerializer : ConnectionSettingsAwareSerializerBase
+{
+    public JsonNetSerializer(
+        IOpenSearchSerializer builtinSerializer,
+        IConnectionSettingsValues connectionSettings,
+        Func<JsonSerializerSettings> jsonSerializerSettingsFactory = null,
+        Action<ConnectionSettingsAwareContractResolver> modifyContractResolver = null,
+        IEnumerable<JsonConverter> contractJsonConverters = null
+    )
+        : base(builtinSerializer, connectionSettings, jsonSerializerSettingsFactory, modifyContractResolver, contractJsonConverters) { }
+
+    public static IOpenSearchSerializer Default(IOpenSearchSerializer builtin, IConnectionSettingsValues values)
+        => new JsonNetSerializer(builtin, values);
 }

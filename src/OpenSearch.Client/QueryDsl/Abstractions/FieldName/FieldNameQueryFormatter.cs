@@ -30,105 +30,104 @@ using OpenSearch.Net.Extensions;
 using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class FieldNameQueryFormatter<T, TInterface> : ReadAsFormatter<T, TInterface>
+    where T : class, TInterface, IFieldNameQuery, new()
+    where TInterface : class, IFieldNameQuery
 {
-    internal class FieldNameQueryFormatter<T, TInterface> : ReadAsFormatter<T, TInterface>
-        where T : class, TInterface, IFieldNameQuery, new()
-        where TInterface : class, IFieldNameQuery
+    public override void Serialize(ref JsonWriter writer, TInterface value, IJsonFormatterResolver formatterResolver)
     {
-        public override void Serialize(ref JsonWriter writer, TInterface value, IJsonFormatterResolver formatterResolver)
+        if (value == null)
         {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-
-            var fieldName = value.Field;
-            if (fieldName == null)
-                return;
-
-            var settings = formatterResolver.GetConnectionSettings();
-            var field = settings.Inferrer.Field(fieldName);
-            if (field.IsNullOrEmpty())
-                return;
-
-            writer.WriteBeginObject();
-            writer.WritePropertyName(field);
-
-            base.Serialize(ref writer, value, formatterResolver);
-
-            writer.WriteEndObject();
+            writer.WriteNull();
+            return;
         }
 
-        public override TInterface Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        var fieldName = value.Field;
+        if (fieldName == null)
+            return;
+
+        var settings = formatterResolver.GetConnectionSettings();
+        var field = settings.Inferrer.Field(fieldName);
+        if (field.IsNullOrEmpty())
+            return;
+
+        writer.WriteBeginObject();
+        writer.WritePropertyName(field);
+
+        base.Serialize(ref writer, value, formatterResolver);
+
+        writer.WriteEndObject();
+    }
+
+    public override TInterface Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        reader.ReadIsBeginObjectWithVerify();
+
+        if (reader.ReadIsEndObject())
+            return default;
+
+        TInterface query = null;
+        var fieldName = reader.ReadPropertyName();
+        var token = reader.GetCurrentJsonToken();
+        switch (token)
         {
-            reader.ReadIsBeginObjectWithVerify();
-
-            if (reader.ReadIsEndObject())
-                return default;
-
-            TInterface query = null;
-            var fieldName = reader.ReadPropertyName();
-            var token = reader.GetCurrentJsonToken();
-            switch (token)
-            {
-                case JsonToken.BeginObject:
-                    query = base.Deserialize(ref reader, formatterResolver);
-                    reader.ReadIsEndObjectWithVerify();
-                    break;
-                case JsonToken.Null:
-                    reader.ReadNext();
-                    break;
-                default:
-                    query = new T();
-                    switch (query)
-                    {
-                        case ITermQuery termQuery:
-                            switch (token)
-                            {
-                                case JsonToken.String:
-                                    termQuery.Value = reader.ReadString();
-                                    break;
-                                case JsonToken.Number:
-                                    var segment = reader.ReadNumberSegment();
-                                    if (segment.IsLong())
-                                        termQuery.Value = NumberConverter.ReadInt64(segment.Array, segment.Offset, out var count);
-                                    else
-                                        termQuery.Value = NumberConverter.ReadDouble(segment.Array, segment.Offset, out var count);
-                                    break;
-                                case JsonToken.True:
-                                case JsonToken.False:
-                                    termQuery.Value = reader.ReadBoolean();
-                                    break;
-                            }
-                            reader.ReadIsEndObjectWithVerify();
-                            break;
-                        case IMatchQuery matchQuery:
-                            matchQuery.Query = reader.ReadString();
-                            reader.ReadIsEndObjectWithVerify();
-                            break;
-                        case IMatchPhraseQuery matchPhraseQuery:
-                            matchPhraseQuery.Query = reader.ReadString();
-                            reader.ReadIsEndObjectWithVerify();
-                            break;
-                        case IMatchPhrasePrefixQuery matchPhrasePrefixQuery:
-                            matchPhrasePrefixQuery.Query = reader.ReadString();
-                            reader.ReadIsEndObjectWithVerify();
-                            break;
-                        case IMatchBoolPrefixQuery matchBoolPrefixQuery:
-                            matchBoolPrefixQuery.Query = reader.ReadString();
-                            reader.ReadIsEndObjectWithVerify();
-                            break;
-                    }
-                    break;
-            }
-
-            if (query == null)
-                return null;
-
-            query.Field = fieldName;
-            return query;
+            case JsonToken.BeginObject:
+                query = base.Deserialize(ref reader, formatterResolver);
+                reader.ReadIsEndObjectWithVerify();
+                break;
+            case JsonToken.Null:
+                reader.ReadNext();
+                break;
+            default:
+                query = new T();
+                switch (query)
+                {
+                    case ITermQuery termQuery:
+                        switch (token)
+                        {
+                            case JsonToken.String:
+                                termQuery.Value = reader.ReadString();
+                                break;
+                            case JsonToken.Number:
+                                var segment = reader.ReadNumberSegment();
+                                if (segment.IsLong())
+                                    termQuery.Value = NumberConverter.ReadInt64(segment.Array, segment.Offset, out var count);
+                                else
+                                    termQuery.Value = NumberConverter.ReadDouble(segment.Array, segment.Offset, out var count);
+                                break;
+                            case JsonToken.True:
+                            case JsonToken.False:
+                                termQuery.Value = reader.ReadBoolean();
+                                break;
+                        }
+                        reader.ReadIsEndObjectWithVerify();
+                        break;
+                    case IMatchQuery matchQuery:
+                        matchQuery.Query = reader.ReadString();
+                        reader.ReadIsEndObjectWithVerify();
+                        break;
+                    case IMatchPhraseQuery matchPhraseQuery:
+                        matchPhraseQuery.Query = reader.ReadString();
+                        reader.ReadIsEndObjectWithVerify();
+                        break;
+                    case IMatchPhrasePrefixQuery matchPhrasePrefixQuery:
+                        matchPhrasePrefixQuery.Query = reader.ReadString();
+                        reader.ReadIsEndObjectWithVerify();
+                        break;
+                    case IMatchBoolPrefixQuery matchBoolPrefixQuery:
+                        matchBoolPrefixQuery.Query = reader.ReadString();
+                        reader.ReadIsEndObjectWithVerify();
+                        break;
+                }
+                break;
         }
+
+        if (query == null)
+            return null;
+
+        query.Field = fieldName;
+        return query;
     }
 }

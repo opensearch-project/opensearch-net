@@ -28,8 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-    [DataContract]
-    public class ClearScrollResponse : ResponseBase { }
-}
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ClearScrollResponse : ResponseBase { }

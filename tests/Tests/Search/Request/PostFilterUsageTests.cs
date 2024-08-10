@@ -35,26 +35,25 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.Request
+namespace Tests.Search.Request;
+
+public class PostFilterUsageTests : SearchUsageTestBase
 {
-    public class PostFilterUsageTests : SearchUsageTestBase
-    {
-        public PostFilterUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public PostFilterUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override object ExpectJson =>
-            new { post_filter = new { match_all = new { } } };
+    protected override object ExpectJson =>
+        new { post_filter = new { match_all = new { } } };
 
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-            .PostFilter(f => f.MatchAll());
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+        .PostFilter(f => f.MatchAll());
 
 
-        protected override SearchRequest<Project> Initializer =>
-            new SearchRequest<Project>()
-            {
-                PostFilter = new QueryContainer(new MatchAllQuery())
-            };
+    protected override SearchRequest<Project> Initializer =>
+        new SearchRequest<Project>()
+        {
+            PostFilter = new QueryContainer(new MatchAllQuery())
+        };
 
-        [I]
-        public async Task ShouldHaveHits() => await AssertOnAllResponses((r) => { r.Hits.Should().NotBeNull(); });
-    }
+    [I]
+    public async Task ShouldHaveHits() => await AssertOnAllResponses((r) => { r.Hits.Should().NotBeNull(); });
 }

@@ -33,90 +33,89 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Mapping.Types.Core.Join
+namespace Tests.Mapping.Types.Core.Join;
+
+public class JoinPropertyTests : PropertyTestsBase
 {
-    public class JoinPropertyTests : PropertyTestsBase
+    public JoinPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public JoinPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            name = new
             {
-                name = new
+                type = "join",
+                relations = new
                 {
-                    type = "join",
-                    relations = new
-                    {
-                        project = "commits"
-                    }
+                    project = "commits"
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Join(pr => pr
-                .Name(p => p.Name)
-                .Relations(r => r.Join<Project, CommitActivity>())
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Join(pr => pr
+            .Name(p => p.Name)
+            .Relations(r => r.Join<Project, CommitActivity>())
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
-        {
-            {
-                "name", new JoinProperty
-                {
-                    Relations = new Relations
-                    {
-                        { Relation<Project>(), Relation<CommitActivity>() }
-                    }
-                }
-            }
-        };
-    }
-
-    public class JoinPropertyComplexTests : PropertyTestsBase
+    protected override IProperties InitializerProperties => new Properties
     {
-        public JoinPropertyComplexTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
         {
-            properties = new
+            "name", new JoinProperty
             {
-                name = new
+                Relations = new Relations
                 {
-                    type = "join",
-                    relations = new
-                    {
-                        project = "commits",
-                        parent2 = new[] { "child2", "child3" }
-                    }
+                    { Relation<Project>(), Relation<CommitActivity>() }
                 }
             }
-        };
+        }
+    };
+}
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Join(pr => pr
-                .Name(p => p.Name)
-                .Relations(r => r
-                    .Join<Project, CommitActivity>()
-                    .Join("parent2", "child2", "child3")
-                )
-            );
+public class JoinPropertyComplexTests : PropertyTestsBase
+{
+    public JoinPropertyComplexTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-
-        protected override IProperties InitializerProperties => new Properties
+    protected override object ExpectJson => new
+    {
+        properties = new
         {
+            name = new
             {
-                "name", new JoinProperty
+                type = "join",
+                relations = new
                 {
-                    Relations = new Relations
-                    {
-                        { Relation<Project>(), typeof(CommitActivity) },
-                        { "parent2", "child2", "child3" }
-                    }
+                    project = "commits",
+                    parent2 = new[] { "child2", "child3" }
                 }
             }
-        };
-    }
+        }
+    };
+
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Join(pr => pr
+            .Name(p => p.Name)
+            .Relations(r => r
+                .Join<Project, CommitActivity>()
+                .Join("parent2", "child2", "child3")
+            )
+        );
+
+
+    protected override IProperties InitializerProperties => new Properties
+    {
+        {
+            "name", new JoinProperty
+            {
+                Relations = new Relations
+                {
+                    { Relation<Project>(), typeof(CommitActivity) },
+                    { "parent2", "child2", "child3" }
+                }
+            }
+        }
+    };
 }

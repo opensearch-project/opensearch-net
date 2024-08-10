@@ -33,14 +33,14 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4013
 {
-    public class GithubIssue4013
+    [U]
+    public void CanDeserializeExtendedStats()
     {
-        [U]
-        public void CanDeserializeExtendedStats()
-        {
-            var json = @"{
+        var json = @"{
 			  ""took"" : 1,
 				  ""timed_out"" : false,
 				  ""_shards"" : {
@@ -83,30 +83,29 @@ namespace Tests.Reproduce
 			  }
 			}";
 
-            var bytes = Encoding.UTF8.GetBytes(json);
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-            var client = new OpenSearchClient(connectionSettings);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-            Action searchResponse = () => client.Search<object>(s => s.AllIndices());
+        Action searchResponse = () => client.Search<object>(s => s.AllIndices());
 
-            searchResponse.Should().NotThrow();
+        searchResponse.Should().NotThrow();
 
-            var response = client.Search<object>(s => s.AllIndices());
+        var response = client.Search<object>(s => s.AllIndices());
 
-            var extendedStats = response.Aggregations.ExtendedStats("1");
-            extendedStats.Should().NotBeNull();
-            extendedStats.Count.Should().Be(3);
-            extendedStats.Min.Should().Be(1569521764937);
-            extendedStats.Max.Should().Be(1569526264937);
-            extendedStats.Average.Should().Be(1569524464937);
-            extendedStats.Sum.Should().Be(4708573394811);
-            extendedStats.SumOfSquares.Should().Be(7.390221138118668e+24);
-            extendedStats.Variance.Should().Be(3779929134421.3335);
-            extendedStats.StdDeviation.Should().Be(1944203.9847766317);
-            extendedStats.StdDeviationBounds.Should().NotBeNull();
-            extendedStats.StdDeviationBounds.Upper.Should().Be(1569528353344.9695);
-            extendedStats.StdDeviationBounds.Lower.Should().Be(1569520576529.0305);
-        }
+        var extendedStats = response.Aggregations.ExtendedStats("1");
+        extendedStats.Should().NotBeNull();
+        extendedStats.Count.Should().Be(3);
+        extendedStats.Min.Should().Be(1569521764937);
+        extendedStats.Max.Should().Be(1569526264937);
+        extendedStats.Average.Should().Be(1569524464937);
+        extendedStats.Sum.Should().Be(4708573394811);
+        extendedStats.SumOfSquares.Should().Be(7.390221138118668e+24);
+        extendedStats.Variance.Should().Be(3779929134421.3335);
+        extendedStats.StdDeviation.Should().Be(1944203.9847766317);
+        extendedStats.StdDeviationBounds.Should().NotBeNull();
+        extendedStats.StdDeviationBounds.Upper.Should().Be(1569528353344.9695);
+        extendedStats.StdDeviationBounds.Lower.Should().Be(1569520576529.0305);
     }
 }

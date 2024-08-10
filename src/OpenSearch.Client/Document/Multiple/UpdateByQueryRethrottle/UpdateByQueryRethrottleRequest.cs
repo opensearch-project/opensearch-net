@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("update_by_query_rethrottle")]
-    public partial interface IUpdateByQueryRethrottleRequest { }
+namespace OpenSearch.Client;
 
-    public partial class UpdateByQueryRethrottleRequest : IUpdateByQueryRethrottleRequest { }
+[MapsApi("update_by_query_rethrottle")]
+public partial interface IUpdateByQueryRethrottleRequest { }
 
-    public partial class UpdateByQueryRethrottleDescriptor : IUpdateByQueryRethrottleRequest { }
-}
+public partial class UpdateByQueryRethrottleRequest : IUpdateByQueryRethrottleRequest { }
+
+public partial class UpdateByQueryRethrottleDescriptor : IUpdateByQueryRethrottleRequest { }

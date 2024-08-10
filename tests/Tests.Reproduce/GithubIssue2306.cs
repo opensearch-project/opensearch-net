@@ -33,26 +33,25 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue2306 : IClusterFixture<ReadOnlyCluster>
 {
-    public class GithubIssue2306 : IClusterFixture<ReadOnlyCluster>
+    private readonly ReadOnlyCluster _cluster;
+
+    public GithubIssue2306(ReadOnlyCluster cluster) => _cluster = cluster;
+
+    [I]
+    public void DeleteNonExistentDocumentReturnsNotFound()
     {
-        private readonly ReadOnlyCluster _cluster;
+        var client = _cluster.Client;
+        var response = client.Delete<Project>("non-existent-id", d => d.Routing("routing"));
 
-        public GithubIssue2306(ReadOnlyCluster cluster) => _cluster = cluster;
-
-        [I]
-        public void DeleteNonExistentDocumentReturnsNotFound()
-        {
-            var client = _cluster.Client;
-            var response = client.Delete<Project>("non-existent-id", d => d.Routing("routing"));
-
-            response.ShouldNotBeValid();
-            response.Result.Should().Be(Result.NotFound);
-            response.Index.Should().Be("project");
-            if (_cluster.ClusterConfiguration.Version < "2.0.0")
-                response.Type.Should().Be("_doc");
-            response.Id.Should().Be("non-existent-id");
-        }
+        response.ShouldNotBeValid();
+        response.Result.Should().Be(Result.NotFound);
+        response.Index.Should().Be("project");
+        if (_cluster.ClusterConfiguration.Version < "2.0.0")
+            response.Type.Should().Be("_doc");
+        response.Id.Should().Be("non-existent-id");
     }
 }

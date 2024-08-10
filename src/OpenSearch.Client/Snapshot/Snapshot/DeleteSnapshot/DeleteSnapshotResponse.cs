@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class DeleteSnapshotResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class DeleteSnapshotResponse : AcknowledgedResponseBase { }

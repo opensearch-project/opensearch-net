@@ -32,41 +32,40 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Binary
+namespace Tests.Mapping.Types.Core.Binary;
+
+public class BinaryPropertyTests : PropertyTestsBase
 {
-    public class BinaryPropertyTests : PropertyTestsBase
+    public BinaryPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public BinaryPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            name = new
             {
-                name = new
-                {
-                    type = "binary",
-                    doc_values = true,
-                    store = true
-                }
+                type = "binary",
+                doc_values = true,
+                store = true
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Binary(b => b
-                .Name(p => p.Name)
-                .DocValues()
-                .Store()
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Binary(b => b
+            .Name(p => p.Name)
+            .DocValues()
+            .Store()
+        );
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "name", new BinaryProperty
             {
-                "name", new BinaryProperty
-                {
-                    DocValues = true,
-                    Store = true
-                }
+                DocValues = true,
+                Store = true
             }
-        };
-    }
+        }
+    };
 }

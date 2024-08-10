@@ -28,14 +28,13 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-    public class GeoCentroidAggregate : MetricAggregateBase
-    {
-        [DataMember(Name = "count")]
-        public long Count { get; set; }
+namespace OpenSearch.Client;
 
-        [DataMember(Name = "location")]
-        public GeoLocation Location { get; set; }
-    }
+public class GeoCentroidAggregate : MetricAggregateBase
+{
+    [DataMember(Name = "count")]
+    public long Count { get; set; }
+
+    [DataMember(Name = "location")]
+    public GeoLocation Location { get; set; }
 }

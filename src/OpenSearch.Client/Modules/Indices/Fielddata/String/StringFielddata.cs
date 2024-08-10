@@ -29,26 +29,25 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(StringFielddata))]
+public interface IStringFielddata : IFielddata
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(StringFielddata))]
-    public interface IStringFielddata : IFielddata
-    {
-        [DataMember(Name = "format")]
-        StringFielddataFormat? Format { get; set; }
-    }
+    [DataMember(Name = "format")]
+    StringFielddataFormat? Format { get; set; }
+}
 
-    public class StringFielddata : FielddataBase, IStringFielddata
-    {
-        public StringFielddataFormat? Format { get; set; }
-    }
+public class StringFielddata : FielddataBase, IStringFielddata
+{
+    public StringFielddataFormat? Format { get; set; }
+}
 
-    public class StringFielddataDescriptor
-        : FielddataDescriptorBase<StringFielddataDescriptor, IStringFielddata>, IStringFielddata
-    {
-        StringFielddataFormat? IStringFielddata.Format { get; set; }
+public class StringFielddataDescriptor
+    : FielddataDescriptorBase<StringFielddataDescriptor, IStringFielddata>, IStringFielddata
+{
+    StringFielddataFormat? IStringFielddata.Format { get; set; }
 
-        public StringFielddataDescriptor Format(StringFielddataFormat? format) => Assign(format, (a, v) => a.Format = v);
-    }
+    public StringFielddataDescriptor Format(StringFielddataFormat? format) => Assign(format, (a, v) => a.Format = v);
 }

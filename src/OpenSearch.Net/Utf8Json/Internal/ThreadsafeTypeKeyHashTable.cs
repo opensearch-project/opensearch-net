@@ -53,197 +53,196 @@
 using System;
 using System.Threading;
 
-namespace OpenSearch.Net.Utf8Json.Internal
+namespace OpenSearch.Net.Utf8Json.Internal;
+
+// Safe for multiple-read, single-write.
+internal class ThreadsafeTypeKeyHashTable<TValue>
 {
-    // Safe for multiple-read, single-write.
-    internal class ThreadsafeTypeKeyHashTable<TValue>
+    private Entry[] _buckets;
+    private int _size; // only use in writer lock
+
+    private readonly object _writerLock = new object();
+    private readonly float _loadFactor;
+
+    // IEqualityComparer.Equals is overhead if key only Type, don't use it.
+    // readonly IEqualityComparer<TKey> comparer;
+
+    public ThreadsafeTypeKeyHashTable(int capacity = 4, float loadFactor = 0.75f)
     {
-        private Entry[] _buckets;
-        private int _size; // only use in writer lock
+        var tableSize = CalculateCapacity(capacity, loadFactor);
+        _buckets = new Entry[tableSize];
+        _loadFactor = loadFactor;
+    }
 
-        private readonly object _writerLock = new object();
-        private readonly float _loadFactor;
+    public bool TryAdd(Type key, TValue value) => TryAdd(key, _ => value);
 
-        // IEqualityComparer.Equals is overhead if key only Type, don't use it.
-        // readonly IEqualityComparer<TKey> comparer;
+    public bool TryAdd(Type key, Func<Type, TValue> valueFactory) => TryAddInternal(key, valueFactory, out _);
 
-        public ThreadsafeTypeKeyHashTable(int capacity = 4, float loadFactor = 0.75f)
+    private bool TryAddInternal(Type key, Func<Type, TValue> valueFactory, out TValue resultingValue)
+    {
+        lock (_writerLock)
         {
-            var tableSize = CalculateCapacity(capacity, loadFactor);
-            _buckets = new Entry[tableSize];
-            _loadFactor = loadFactor;
-        }
+            var nextCapacity = CalculateCapacity(_size + 1, _loadFactor);
 
-        public bool TryAdd(Type key, TValue value) => TryAdd(key, _ => value);
-
-        public bool TryAdd(Type key, Func<Type, TValue> valueFactory) => TryAddInternal(key, valueFactory, out _);
-
-        private bool TryAddInternal(Type key, Func<Type, TValue> valueFactory, out TValue resultingValue)
-        {
-            lock (_writerLock)
+            if (_buckets.Length < nextCapacity)
             {
-                var nextCapacity = CalculateCapacity(_size + 1, _loadFactor);
-
-                if (_buckets.Length < nextCapacity)
+                // rehash
+                var nextBucket = new Entry[nextCapacity];
+                for (var i = 0; i < _buckets.Length; i++)
                 {
-                    // rehash
-                    var nextBucket = new Entry[nextCapacity];
-                    for (var i = 0; i < _buckets.Length; i++)
+                    var e = _buckets[i];
+                    while (e != null)
                     {
-                        var e = _buckets[i];
-                        while (e != null)
-                        {
-                            var newEntry = new Entry { Key = e.Key, Value = e.Value, Hash = e.Hash };
-                            AddToBuckets(nextBucket, key, newEntry, null, out resultingValue);
-                            e = e.Next;
-                        }
+                        var newEntry = new Entry { Key = e.Key, Value = e.Value, Hash = e.Hash };
+                        AddToBuckets(nextBucket, key, newEntry, null, out resultingValue);
+                        e = e.Next;
                     }
-
-                    // add entry(if failed to add, only do resize)
-                    var successAdd = AddToBuckets(nextBucket, key, null, valueFactory, out resultingValue);
-
-                    // replace field(threadsafe for read)
-                    VolatileWrite(ref _buckets, nextBucket);
-
-                    if (successAdd) _size++;
-                    return successAdd;
                 }
-                else
-                {
-                    // add entry(insert last is thread safe for read)
-                    var successAdd = AddToBuckets(_buckets, key, null, valueFactory, out resultingValue);
-                    if (successAdd) _size++;
-                    return successAdd;
-                }
-            }
-        }
 
-        private bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
-        {
-            var h = newEntryOrNull?.Hash ?? newKey.GetHashCode();
-            if (buckets[h & (buckets.Length - 1)] == null)
-            {
-                if (newEntryOrNull != null)
-                {
-                    resultingValue = newEntryOrNull.Value;
-                    VolatileWrite(ref buckets[h & (buckets.Length - 1)], newEntryOrNull);
-                }
-                else
-                {
-                    resultingValue = valueFactory(newKey);
-                    VolatileWrite(ref buckets[h & (buckets.Length - 1)], new Entry { Key = newKey, Value = resultingValue, Hash = h });
-                }
+                // add entry(if failed to add, only do resize)
+                var successAdd = AddToBuckets(nextBucket, key, null, valueFactory, out resultingValue);
+
+                // replace field(threadsafe for read)
+                VolatileWrite(ref _buckets, nextBucket);
+
+                if (successAdd) _size++;
+                return successAdd;
             }
             else
             {
-                var searchLastEntry = buckets[h & (buckets.Length - 1)];
-                while (true)
-                {
-                    if (searchLastEntry.Key == newKey)
-                    {
-                        resultingValue = searchLastEntry.Value;
-                        return false;
-                    }
-
-                    if (searchLastEntry.Next == null)
-                    {
-                        if (newEntryOrNull != null)
-                        {
-                            resultingValue = newEntryOrNull.Value;
-                            VolatileWrite(ref searchLastEntry.Next, newEntryOrNull);
-                        }
-                        else
-                        {
-                            resultingValue = valueFactory(newKey);
-                            VolatileWrite(ref searchLastEntry.Next, new Entry { Key = newKey, Value = resultingValue, Hash = h });
-                        }
-                        break;
-                    }
-                    searchLastEntry = searchLastEntry.Next;
-                }
+                // add entry(insert last is thread safe for read)
+                var successAdd = AddToBuckets(_buckets, key, null, valueFactory, out resultingValue);
+                if (successAdd) _size++;
+                return successAdd;
             }
+        }
+    }
 
+    private bool AddToBuckets(Entry[] buckets, Type newKey, Entry newEntryOrNull, Func<Type, TValue> valueFactory, out TValue resultingValue)
+    {
+        var h = newEntryOrNull?.Hash ?? newKey.GetHashCode();
+        if (buckets[h & (buckets.Length - 1)] == null)
+        {
+            if (newEntryOrNull != null)
+            {
+                resultingValue = newEntryOrNull.Value;
+                VolatileWrite(ref buckets[h & (buckets.Length - 1)], newEntryOrNull);
+            }
+            else
+            {
+                resultingValue = valueFactory(newKey);
+                VolatileWrite(ref buckets[h & (buckets.Length - 1)], new Entry { Key = newKey, Value = resultingValue, Hash = h });
+            }
+        }
+        else
+        {
+            var searchLastEntry = buckets[h & (buckets.Length - 1)];
+            while (true)
+            {
+                if (searchLastEntry.Key == newKey)
+                {
+                    resultingValue = searchLastEntry.Value;
+                    return false;
+                }
+
+                if (searchLastEntry.Next == null)
+                {
+                    if (newEntryOrNull != null)
+                    {
+                        resultingValue = newEntryOrNull.Value;
+                        VolatileWrite(ref searchLastEntry.Next, newEntryOrNull);
+                    }
+                    else
+                    {
+                        resultingValue = valueFactory(newKey);
+                        VolatileWrite(ref searchLastEntry.Next, new Entry { Key = newKey, Value = resultingValue, Hash = h });
+                    }
+                    break;
+                }
+                searchLastEntry = searchLastEntry.Next;
+            }
+        }
+
+        return true;
+    }
+
+    public bool TryGetValue(Type key, out TValue value)
+    {
+        var table = _buckets;
+        var hash = key.GetHashCode();
+        var entry = table[hash & table.Length - 1];
+
+        if (entry == null) goto NOT_FOUND;
+
+        if (entry.Key == key)
+        {
+            value = entry.Value;
             return true;
         }
 
-        public bool TryGetValue(Type key, out TValue value)
+        var next = entry.Next;
+        while (next != null)
         {
-            var table = _buckets;
-            var hash = key.GetHashCode();
-            var entry = table[hash & table.Length - 1];
-
-            if (entry == null) goto NOT_FOUND;
-
-            if (entry.Key == key)
+            if (next.Key == key)
             {
-                value = entry.Value;
+                value = next.Value;
                 return true;
             }
-
-            var next = entry.Next;
-            while (next != null)
-            {
-                if (next.Key == key)
-                {
-                    value = next.Value;
-                    return true;
-                }
-                next = next.Next;
-            }
-
-        NOT_FOUND:
-            value = default;
-            return false;
+            next = next.Next;
         }
 
-        public TValue GetOrAdd(Type key, Func<Type, TValue> valueFactory)
-        {
-            if (TryGetValue(key, out var v))
-            {
-                return v;
-            }
+    NOT_FOUND:
+        value = default;
+        return false;
+    }
 
-            TryAddInternal(key, valueFactory, out v);
+    public TValue GetOrAdd(Type key, Func<Type, TValue> valueFactory)
+    {
+        if (TryGetValue(key, out var v))
+        {
             return v;
         }
 
-        private static int CalculateCapacity(int collectionSize, float loadFactor)
-        {
-            var initialCapacity = (int)(collectionSize / loadFactor);
-            var capacity = 1;
-            while (capacity < initialCapacity)
-            {
-                capacity <<= 1;
-            }
+        TryAddInternal(key, valueFactory, out v);
+        return v;
+    }
 
-            return capacity < 8 ? 8 : capacity;
+    private static int CalculateCapacity(int collectionSize, float loadFactor)
+    {
+        var initialCapacity = (int)(collectionSize / loadFactor);
+        var capacity = 1;
+        while (capacity < initialCapacity)
+        {
+            capacity <<= 1;
         }
 
-        private static void VolatileWrite(ref Entry location, Entry value) => Volatile.Write(ref location, value);
+        return capacity < 8 ? 8 : capacity;
+    }
 
-        private static void VolatileWrite(ref Entry[] location, Entry[] value) => Volatile.Write(ref location, value);
+    private static void VolatileWrite(ref Entry location, Entry value) => Volatile.Write(ref location, value);
 
-        private class Entry
+    private static void VolatileWrite(ref Entry[] location, Entry[] value) => Volatile.Write(ref location, value);
+
+    private class Entry
+    {
+        public Type Key;
+        public TValue Value;
+        public int Hash;
+        public Entry Next;
+
+        // debug only
+        public override string ToString() => Key + "(" + Count() + ")";
+
+        private int Count()
         {
-            public Type Key;
-            public TValue Value;
-            public int Hash;
-            public Entry Next;
-
-            // debug only
-            public override string ToString() => Key + "(" + Count() + ")";
-
-            private int Count()
+            var count = 1;
+            var n = this;
+            while (n.Next != null)
             {
-                var count = 1;
-                var n = this;
-                while (n.Next != null)
-                {
-                    count++;
-                    n = n.Next;
-                }
-                return count;
+                count++;
+                n = n.Next;
             }
+            return count;
         }
     }
 }

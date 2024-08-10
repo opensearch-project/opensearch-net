@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("indices.clear_cache.json")]
-    public partial interface IClearCacheRequest { }
+namespace OpenSearch.Client;
 
-    public partial class ClearCacheRequest { }
+[MapsApi("indices.clear_cache.json")]
+public partial interface IClearCacheRequest { }
 
-    public partial class ClearCacheDescriptor { }
-}
+public partial class ClearCacheRequest { }
+
+public partial class ClearCacheDescriptor { }

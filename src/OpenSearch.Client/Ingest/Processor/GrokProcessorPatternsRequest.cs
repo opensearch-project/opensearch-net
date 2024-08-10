@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("ingest.processor_grok.json")]
-    public partial interface IGrokProcessorPatternsRequest { }
+namespace OpenSearch.Client;
 
-    public partial class GrokProcessorPatternsRequest { }
+[MapsApi("ingest.processor_grok.json")]
+public partial interface IGrokProcessorPatternsRequest { }
 
-    public partial class GrokProcessorPatternsDescriptor { }
-}
+public partial class GrokProcessorPatternsRequest { }
+
+public partial class GrokProcessorPatternsDescriptor { }

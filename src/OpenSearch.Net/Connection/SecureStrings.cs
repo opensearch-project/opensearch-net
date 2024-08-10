@@ -30,49 +30,48 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// Methods for working with <see cref="SecureString"/>
+/// </summary>
+public static class SecureStrings
 {
     /// <summary>
-    /// Methods for working with <see cref="SecureString"/>
+    /// Creates a string from a secure string
     /// </summary>
-    public static class SecureStrings
+    public static string CreateString(this SecureString secureString)
     {
-        /// <summary>
-        /// Creates a string from a secure string
-        /// </summary>
-        public static string CreateString(this SecureString secureString)
+        if (secureString == null || secureString.Length == 0)
+            return string.Empty;
+
+        var num = IntPtr.Zero;
+
+        try
         {
-            if (secureString == null || secureString.Length == 0)
-                return string.Empty;
-
-            var num = IntPtr.Zero;
-
-            try
-            {
-                num = Marshal.SecureStringToGlobalAllocUnicode(secureString);
-                return Marshal.PtrToStringUni(num);
-            }
-            finally
-            {
-                if (num != IntPtr.Zero)
-                    Marshal.ZeroFreeGlobalAllocUnicode(num);
-            }
+            num = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+            return Marshal.PtrToStringUni(num);
         }
-
-        /// <summary>
-        /// Creates a secure string from a string
-        /// </summary>
-        public static SecureString CreateSecureString(this string plainString)
+        finally
         {
-            var secureString = new SecureString();
+            if (num != IntPtr.Zero)
+                Marshal.ZeroFreeGlobalAllocUnicode(num);
+        }
+    }
 
-            if (plainString == null)
-                return secureString;
+    /// <summary>
+    /// Creates a secure string from a string
+    /// </summary>
+    public static SecureString CreateSecureString(this string plainString)
+    {
+        var secureString = new SecureString();
 
-            foreach (var ch in plainString)
-                secureString.AppendChar(ch);
-
+        if (plainString == null)
             return secureString;
-        }
+
+        foreach (var ch in plainString)
+            secureString.AppendChar(ch);
+
+        return secureString;
     }
 }

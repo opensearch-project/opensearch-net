@@ -31,29 +31,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class MultiSearchResponseBuilder : CustomResponseBuilderBase
 {
-    internal class MultiSearchResponseBuilder : CustomResponseBuilderBase
-    {
-        public MultiSearchResponseBuilder(IRequest request) => Formatter = new MultiSearchResponseFormatter(request);
+    public MultiSearchResponseBuilder(IRequest request) => Formatter = new MultiSearchResponseFormatter(request);
 
-        private MultiSearchResponseFormatter Formatter { get; }
+    private MultiSearchResponseFormatter Formatter { get; }
 
-        public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
-            response.Success
-                ? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiSearchResponse>(stream)
-                : new MultiSearchResponse();
+    public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
+        response.Success
+            ? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiSearchResponse>(stream)
+            : new MultiSearchResponse();
 
-        public override async Task<object> DeserializeResponseAsync(
-            IOpenSearchSerializer builtInSerializer,
-            IApiCallDetails response,
-            Stream stream,
-            CancellationToken ctx = default
-        ) =>
-            response.Success
-                ? await builtInSerializer.CreateStateful(Formatter)
-                    .DeserializeAsync<MultiSearchResponse>(stream, ctx)
-                    .ConfigureAwait(false)
-                : new MultiSearchResponse();
-    }
+    public override async Task<object> DeserializeResponseAsync(
+        IOpenSearchSerializer builtInSerializer,
+        IApiCallDetails response,
+        Stream stream,
+        CancellationToken ctx = default
+    ) =>
+        response.Success
+            ? await builtInSerializer.CreateStateful(Formatter)
+                .DeserializeAsync<MultiSearchResponse>(stream, ctx)
+                .ConfigureAwait(false)
+            : new MultiSearchResponse();
 }

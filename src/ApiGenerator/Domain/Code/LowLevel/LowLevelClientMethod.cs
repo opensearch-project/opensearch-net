@@ -32,47 +32,46 @@ using System.Text.RegularExpressions;
 using ApiGenerator.Domain.Specification;
 using SemanticVersioning;
 
-namespace ApiGenerator.Domain.Code.LowLevel
+namespace ApiGenerator.Domain.Code.LowLevel;
+
+public class LowLevelClientMethod
 {
-    public class LowLevelClientMethod
+    public CsharpNames CsharpNames { get; set; }
+
+    public string Arguments { get; set; }
+    public string OfficialDocumentationLink { get; set; }
+
+    public Stability Stability { get; set; }
+    public string PerPathMethodName { get; set; }
+    public string HttpMethod { get; set; }
+
+    public Deprecation Deprecation { get; set; }
+    public UrlInformation Url { get; set; }
+    public bool HasBody { get; set; }
+    public IEnumerable<UrlPart> Parts { get; set; }
+    public string Path { get; set; }
+
+    public Version VersionAdded { get; set; }
+
+    public string UrlInCode
     {
-        public CsharpNames CsharpNames { get; set; }
-
-        public string Arguments { get; set; }
-        public string OfficialDocumentationLink { get; set; }
-
-        public Stability Stability { get; set; }
-        public string PerPathMethodName { get; set; }
-        public string HttpMethod { get; set; }
-
-        public Deprecation Deprecation { get; set; }
-        public UrlInformation Url { get; set; }
-        public bool HasBody { get; set; }
-        public IEnumerable<UrlPart> Parts { get; set; }
-        public string Path { get; set; }
-
-        public Version VersionAdded { get; set; }
-
-        public string UrlInCode
+        get
         {
-            get
+            var url = Path.TrimStart('/');
+            var options = Url.AllPaths.SelectMany(p => p.Parts).Select(p => p.Name).Distinct();
+
+            var pattern = string.Join("|", options);
+            var urlCode = $"\"{url}\"";
+            if (!Path.Contains('{')) return urlCode;
+
+            var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", m =>
             {
-                var url = Path.TrimStart('/');
-                var options = Url.AllPaths.SelectMany(p => p.Parts).Select(p => p.Name).Distinct();
-
-                var pattern = string.Join("|", options);
-                var urlCode = $"\"{url}\"";
-                if (!Path.Contains('{')) return urlCode;
-
-                var patchedUrl = Regex.Replace(url, "{(" + pattern + ")}", m =>
-                {
-                    var arg = m.Groups[^1].Value.ToCamelCase();
-                    return $"{{{arg}:{arg}}}";
-                });
-                return $"Url($\"{patchedUrl}\")";
-            }
+                var arg = m.Groups[^1].Value.ToCamelCase();
+                return $"{{{arg}:{arg}}}";
+            });
+            return $"Url($\"{patchedUrl}\")";
         }
-
-        public string MapsApiArguments { get; set; }
     }
+
+    public string MapsApiArguments { get; set; }
 }

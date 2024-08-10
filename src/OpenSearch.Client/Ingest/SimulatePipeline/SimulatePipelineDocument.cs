@@ -31,66 +31,65 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface ISimulatePipelineDocument
 {
-    [InterfaceDataContract]
-    public interface ISimulatePipelineDocument
+    [DataMember(Name = "_id")]
+    Id Id { get; set; }
+
+    [DataMember(Name = "_index")]
+    IndexName Index { get; set; }
+
+    [DataMember(Name = "_source")]
+    [JsonFormatter(typeof(SourceFormatter<>))]
+    object Source { get; set; }
+}
+
+public class SimulatePipelineDocument : ISimulatePipelineDocument
+{
+    private object _source;
+
+    public Id Id { get; set; }
+    public IndexName Index { get; set; }
+
+    public object Source
     {
-        [DataMember(Name = "_id")]
-        Id Id { get; set; }
-
-        [DataMember(Name = "_index")]
-        IndexName Index { get; set; }
-
-        [DataMember(Name = "_source")]
-        [JsonFormatter(typeof(SourceFormatter<>))]
-        object Source { get; set; }
-    }
-
-    public class SimulatePipelineDocument : ISimulatePipelineDocument
-    {
-        private object _source;
-
-        public Id Id { get; set; }
-        public IndexName Index { get; set; }
-
-        public object Source
+        get => _source;
+        set
         {
-            get => _source;
-            set
-            {
-                _source = value;
-                Index = Index ?? _source.GetType();
-                Id = Id ?? Id.From(_source);
-            }
+            _source = value;
+            Index = Index ?? _source.GetType();
+            Id = Id ?? Id.From(_source);
         }
     }
+}
 
-    public class SimulatePipelineDocumentDescriptor
-        : DescriptorBase<SimulatePipelineDocumentDescriptor, ISimulatePipelineDocument>, ISimulatePipelineDocument
+public class SimulatePipelineDocumentDescriptor
+    : DescriptorBase<SimulatePipelineDocumentDescriptor, ISimulatePipelineDocument>, ISimulatePipelineDocument
+{
+    Id ISimulatePipelineDocument.Id { get; set; }
+    IndexName ISimulatePipelineDocument.Index { get; set; }
+    object ISimulatePipelineDocument.Source { get; set; }
+
+    public SimulatePipelineDocumentDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
+
+    public SimulatePipelineDocumentDescriptor Index(IndexName index) => Assign(index, (a, v) => a.Index = v);
+
+    public SimulatePipelineDocumentDescriptor Source<T>(T source) where T : class => Assign(source, (a, v) =>
     {
-        Id ISimulatePipelineDocument.Id { get; set; }
-        IndexName ISimulatePipelineDocument.Index { get; set; }
-        object ISimulatePipelineDocument.Source { get; set; }
+        a.Source = v;
+        a.Index = a.Index ?? v.GetType();
+        a.Id = a.Id ?? Client.Id.From(v);
+    });
+}
 
-        public SimulatePipelineDocumentDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
+public class SimulatePipelineDocumentsDescriptor
+    : DescriptorPromiseBase<SimulatePipelineDocumentsDescriptor, IList<ISimulatePipelineDocument>>
+{
+    public SimulatePipelineDocumentsDescriptor() : base(new List<ISimulatePipelineDocument>()) { }
 
-        public SimulatePipelineDocumentDescriptor Index(IndexName index) => Assign(index, (a, v) => a.Index = v);
-
-        public SimulatePipelineDocumentDescriptor Source<T>(T source) where T : class => Assign(source, (a, v) =>
-        {
-            a.Source = v;
-            a.Index = a.Index ?? v.GetType();
-            a.Id = a.Id ?? Client.Id.From(v);
-        });
-    }
-
-    public class SimulatePipelineDocumentsDescriptor
-        : DescriptorPromiseBase<SimulatePipelineDocumentsDescriptor, IList<ISimulatePipelineDocument>>
-    {
-        public SimulatePipelineDocumentsDescriptor() : base(new List<ISimulatePipelineDocument>()) { }
-
-        public SimulatePipelineDocumentsDescriptor Document(Func<SimulatePipelineDocumentDescriptor, ISimulatePipelineDocument> selector) =>
-            Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new SimulatePipelineDocumentDescriptor())));
-    }
+    public SimulatePipelineDocumentsDescriptor Document(Func<SimulatePipelineDocumentDescriptor, ISimulatePipelineDocument> selector) =>
+        Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new SimulatePipelineDocumentDescriptor())));
 }

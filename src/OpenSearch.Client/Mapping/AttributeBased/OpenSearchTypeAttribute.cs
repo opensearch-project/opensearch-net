@@ -30,41 +30,40 @@ using System;
 using System.Collections.Concurrent;
 using System.Linq;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Applied to a CLR type to override the name of a CLR type and the property from which an _id is inferred
+/// when serializing an instance of the type.
+/// </summary>
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+public class OpenSearchTypeAttribute : Attribute
 {
+    private static readonly ConcurrentDictionary<Type, OpenSearchTypeAttribute> CachedTypeLookups =
+        new ConcurrentDictionary<Type, OpenSearchTypeAttribute>();
+
     /// <summary>
-    /// Applied to a CLR type to override the name of a CLR type and the property from which an _id is inferred
-    /// when serializing an instance of the type.
+    /// The property on CLR type to use as the _id of the document
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class OpenSearchTypeAttribute : Attribute
+    public string IdProperty { get; set; }
+
+    /// <summary>
+    /// The name of the CLR type for serialization
+    /// </summary>
+    public string RelationName { get; set; }
+
+    /// <summary>
+    /// Gets the first <see cref="OpenSearchTypeAttribute"/> from a given CLR type
+    /// </summary>
+    public static OpenSearchTypeAttribute From(Type type)
     {
-        private static readonly ConcurrentDictionary<Type, OpenSearchTypeAttribute> CachedTypeLookups =
-            new ConcurrentDictionary<Type, OpenSearchTypeAttribute>();
-
-        /// <summary>
-        /// The property on CLR type to use as the _id of the document
-        /// </summary>
-        public string IdProperty { get; set; }
-
-        /// <summary>
-        /// The name of the CLR type for serialization
-        /// </summary>
-        public string RelationName { get; set; }
-
-        /// <summary>
-        /// Gets the first <see cref="OpenSearchTypeAttribute"/> from a given CLR type
-        /// </summary>
-        public static OpenSearchTypeAttribute From(Type type)
-        {
-            if (CachedTypeLookups.TryGetValue(type, out var attr))
-                return attr;
-
-            var attributes = type.GetCustomAttributes(typeof(OpenSearchTypeAttribute), true);
-            if (attributes.HasAny())
-                attr = (OpenSearchTypeAttribute)attributes.First();
-            CachedTypeLookups.TryAdd(type, attr);
+        if (CachedTypeLookups.TryGetValue(type, out var attr))
             return attr;
-        }
+
+        var attributes = type.GetCustomAttributes(typeof(OpenSearchTypeAttribute), true);
+        if (attributes.HasAny())
+            attr = (OpenSearchTypeAttribute)attributes.First();
+        CachedTypeLookups.TryAdd(type, attr);
+        return attr;
     }
 }

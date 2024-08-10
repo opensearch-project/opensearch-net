@@ -33,114 +33,113 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Number
+namespace Tests.Mapping.Types.Core.Number;
+
+public class NumberPropertyTests : PropertyTestsBase
 {
-    public class NumberPropertyTests : PropertyTestsBase
+    public NumberPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public NumberPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            numberOfCommits = new
             {
-                numberOfCommits = new
-                {
-                    type = "integer",
-                    doc_values = true,
-                    similarity = "BM25",
-                    store = true,
-                    index = false,
-                    null_value = 0.0,
-                    ignore_malformed = true,
-                    coerce = true
-                }
+                type = "integer",
+                doc_values = true,
+                similarity = "BM25",
+                store = true,
+                index = false,
+                null_value = 0.0,
+                ignore_malformed = true,
+                coerce = true
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Number(n => n
-                .Name(p => p.NumberOfCommits)
-                .Type(NumberType.Integer)
-                .DocValues()
-                .Similarity("BM25")
-                .Store()
-                .Index(false)
-                .NullValue(0.0)
-                .IgnoreMalformed()
-                .Coerce()
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Number(n => n
+            .Name(p => p.NumberOfCommits)
+            .Type(NumberType.Integer)
+            .DocValues()
+            .Similarity("BM25")
+            .Store()
+            .Index(false)
+            .NullValue(0.0)
+            .IgnoreMalformed()
+            .Coerce()
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
-        {
-            {
-                "numberOfCommits", new NumberProperty(NumberType.Integer)
-                {
-                    DocValues = true,
-                    Similarity = "BM25",
-                    Store = true,
-                    Index = false,
-                    NullValue = 0.0,
-                    IgnoreMalformed = true,
-                    Coerce = true
-                }
-            }
-        };
-    }
-
-    public class ScaledFloatNumberPropertyTests : PropertyTestsBase
+    protected override IProperties InitializerProperties => new Properties
     {
-        public ScaledFloatNumberPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
         {
-            properties = new
+            "numberOfCommits", new NumberProperty(NumberType.Integer)
             {
-                numberOfCommits = new
-                {
-                    type = "scaled_float",
-                    scaling_factor = 10.0,
-                    doc_values = true,
-                    similarity = "BM25",
-                    store = true,
-                    index = false,
-                    null_value = 0.0,
-                    ignore_malformed = true,
-                    coerce = true
-                }
+                DocValues = true,
+                Similarity = "BM25",
+                Store = true,
+                Index = false,
+                NullValue = 0.0,
+                IgnoreMalformed = true,
+                Coerce = true
             }
-        };
+        }
+    };
+}
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Number(n => n
-                .Name(p => p.NumberOfCommits)
-                .Type(NumberType.ScaledFloat)
-                .ScalingFactor(10)
-                .DocValues()
-                .Similarity("BM25")
-                .Store()
-                .Index(false)
-                .NullValue(0.0)
-                .IgnoreMalformed()
-                .Coerce()
-            );
+public class ScaledFloatNumberPropertyTests : PropertyTestsBase
+{
+    public ScaledFloatNumberPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-
-        protected override IProperties InitializerProperties => new Properties
+    protected override object ExpectJson => new
+    {
+        properties = new
         {
+            numberOfCommits = new
             {
-                "numberOfCommits", new NumberProperty(NumberType.ScaledFloat)
-                {
-                    ScalingFactor = 10,
-                    DocValues = true,
-                    Similarity = "BM25",
-                    Store = true,
-                    Index = false,
-                    NullValue = 0.0,
-                    IgnoreMalformed = true,
-                    Coerce = true
-                }
+                type = "scaled_float",
+                scaling_factor = 10.0,
+                doc_values = true,
+                similarity = "BM25",
+                store = true,
+                index = false,
+                null_value = 0.0,
+                ignore_malformed = true,
+                coerce = true
             }
-        };
-    }
+        }
+    };
+
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Number(n => n
+            .Name(p => p.NumberOfCommits)
+            .Type(NumberType.ScaledFloat)
+            .ScalingFactor(10)
+            .DocValues()
+            .Similarity("BM25")
+            .Store()
+            .Index(false)
+            .NullValue(0.0)
+            .IgnoreMalformed()
+            .Coerce()
+        );
+
+
+    protected override IProperties InitializerProperties => new Properties
+    {
+        {
+            "numberOfCommits", new NumberProperty(NumberType.ScaledFloat)
+            {
+                ScalingFactor = 10,
+                DocValues = true,
+                Similarity = "BM25",
+                Store = true,
+                Index = false,
+                NullValue = 0.0,
+                IgnoreMalformed = true,
+                Coerce = true
+            }
+        }
+    };
 }

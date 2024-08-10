@@ -29,39 +29,38 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(NormalizerFormatter))]
+public interface INormalizer
 {
-    [JsonFormatter(typeof(NormalizerFormatter))]
-    public interface INormalizer
-    {
-        [DataMember(Name = "type")]
-        string Type { get; }
+    [DataMember(Name = "type")]
+    string Type { get; }
 
-        [DataMember(Name = "version")]
-        string Version { get; set; }
-    }
+    [DataMember(Name = "version")]
+    string Version { get; set; }
+}
 
-    public abstract class NormalizerBase : INormalizer
-    {
-        internal NormalizerBase() { }
+public abstract class NormalizerBase : INormalizer
+{
+    internal NormalizerBase() { }
 
-        // ReSharper disable once VirtualMemberCallInConstructor
-        protected NormalizerBase(string type) => Type = type;
+    // ReSharper disable once VirtualMemberCallInConstructor
+    protected NormalizerBase(string type) => Type = type;
 
-        public virtual string Type { get; protected set; }
+    public virtual string Type { get; protected set; }
 
-        public string Version { get; set; }
-    }
+    public string Version { get; set; }
+}
 
-    public abstract class NormalizerDescriptorBase<TNormalizer, TNormalizerInterface>
-        : DescriptorBase<TNormalizer, TNormalizerInterface>, INormalizer
-        where TNormalizer : NormalizerDescriptorBase<TNormalizer, TNormalizerInterface>, TNormalizerInterface
-        where TNormalizerInterface : class, INormalizer
-    {
-        protected abstract string Type { get; }
-        string INormalizer.Type => Type;
-        string INormalizer.Version { get; set; }
+public abstract class NormalizerDescriptorBase<TNormalizer, TNormalizerInterface>
+    : DescriptorBase<TNormalizer, TNormalizerInterface>, INormalizer
+    where TNormalizer : NormalizerDescriptorBase<TNormalizer, TNormalizerInterface>, TNormalizerInterface
+    where TNormalizerInterface : class, INormalizer
+{
+    protected abstract string Type { get; }
+    string INormalizer.Type => Type;
+    string INormalizer.Version { get; set; }
 
-        public TNormalizer Version(string version) => Assign(version, (a, v) => a.Version = v);
-    }
+    public TNormalizer Version(string version) => Assign(version, (a, v) => a.Version = v);
 }

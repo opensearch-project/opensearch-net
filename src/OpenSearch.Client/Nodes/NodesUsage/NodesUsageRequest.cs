@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("nodes.usage.json")]
-    public partial interface INodesUsageRequest { }
+namespace OpenSearch.Client;
 
-    public partial class NodesUsageRequest { }
+[MapsApi("nodes.usage.json")]
+public partial interface INodesUsageRequest { }
 
-    public partial class NodesUsageDescriptor { }
-}
+public partial class NodesUsageRequest { }
+
+public partial class NodesUsageDescriptor { }

@@ -28,35 +28,34 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// Holds meta data about a client request.
+/// </summary>
+public sealed class RequestMetaData
 {
     /// <summary>
-    /// Holds meta data about a client request.
+    /// Reserved key for a meta data entry which identifies the helper which produced the request.
     /// </summary>
-    public sealed class RequestMetaData
+    internal const string HelperKey = "helper";
+
+    private Dictionary<string, string> _metaDataItems;
+
+    internal bool TryAddMetaData(string key, string value)
     {
-        /// <summary>
-        /// Reserved key for a meta data entry which identifies the helper which produced the request.
-        /// </summary>
-        internal const string HelperKey = "helper";
-
-        private Dictionary<string, string> _metaDataItems;
-
-        internal bool TryAddMetaData(string key, string value)
-        {
-            _metaDataItems ??= new Dictionary<string, string>();
+        _metaDataItems ??= new Dictionary<string, string>();
 
 #if NETSTANDARD2_1 || NET6_0_OR_GREATER
 			return _metaDataItems.TryAdd(key, value);
 #else
-            if (_metaDataItems.ContainsKey(key))
-                return false;
+        if (_metaDataItems.ContainsKey(key))
+            return false;
 
-            _metaDataItems.Add(key, value);
-            return true;
+        _metaDataItems.Add(key, value);
+        return true;
 #endif
-        }
-
-        public IReadOnlyDictionary<string, string> Items => _metaDataItems ?? EmptyReadOnly<string, string>.Dictionary;
     }
+
+    public IReadOnlyDictionary<string, string> Items => _metaDataItems ?? EmptyReadOnly<string, string>.Dictionary;
 }

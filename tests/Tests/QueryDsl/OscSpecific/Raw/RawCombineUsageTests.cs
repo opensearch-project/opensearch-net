@@ -31,37 +31,36 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl.OscSpecific.Raw
-{
-    /**
+namespace Tests.QueryDsl.OscSpecific.Raw;
+
+/**
 	 * OSC's <<raw-query-usage, raw query>> can be combined with other queries using a <<compound-queries, compound query>>
 	 * such as a `bool` query.
 	 */
-    public class RawCombineUsageTests : QueryDslUsageTestsBase
+public class RawCombineUsageTests : QueryDslUsageTestsBase
+{
+    private static readonly string RawTermQuery = @"{""term"": { ""fieldname"":""value"" } }";
+
+    public RawCombineUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override QueryContainer QueryInitializer =>
+        new RawQuery(RawTermQuery)
+        && new TermQuery { Field = "x", Value = "y" };
+
+    protected override object QueryJson => new
     {
-        private static readonly string RawTermQuery = @"{""term"": { ""fieldname"":""value"" } }";
-
-        public RawCombineUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        protected override QueryContainer QueryInitializer =>
-            new RawQuery(RawTermQuery)
-            && new TermQuery { Field = "x", Value = "y" };
-
-        protected override object QueryJson => new
+        @bool = new
         {
-            @bool = new
+            must = new object[]
             {
-                must = new object[]
-                {
-                    new { term = new { fieldname = "value" } },
-                    new { term = new { x = new { value = "y" } } }
-                }
+                new { term = new { fieldname = "value" } },
+                new { term = new { x = new { value = "y" } } }
             }
-        };
+        }
+    };
 
-        protected override bool SupportsDeserialization => false;
+    protected override bool SupportsDeserialization => false;
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) =>
-            q.Raw(RawTermQuery) && q.Term("x", "y");
-    }
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) =>
+        q.Raw(RawTermQuery) && q.Term("x", "y");
 }

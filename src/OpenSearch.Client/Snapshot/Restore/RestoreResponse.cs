@@ -28,12 +28,11 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class RestoreResponse : ResponseBase
 {
-    [DataContract]
-    public class RestoreResponse : ResponseBase
-    {
-        [DataMember(Name = "snapshot")]
-        public SnapshotRestore Snapshot { get; set; }
-    }
+    [DataMember(Name = "snapshot")]
+    public SnapshotRestore Snapshot { get; set; }
 }

@@ -26,21 +26,20 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[MapsApi("dangling_indices.import_dangling_index.json")]
+public partial interface IImportDanglingIndexRequest
 {
-    [MapsApi("dangling_indices.import_dangling_index.json")]
-    public partial interface IImportDanglingIndexRequest
-    {
 
-    }
+}
 
-    public partial class ImportDanglingIndexRequest : IImportDanglingIndexRequest
-    {
+public partial class ImportDanglingIndexRequest : IImportDanglingIndexRequest
+{
 
-    }
+}
 
-    public partial class ImportDanglingIndexDescriptor : IImportDanglingIndexRequest
-    {
+public partial class ImportDanglingIndexDescriptor : IImportDanglingIndexRequest
+{
 
-    }
 }

@@ -28,14 +28,13 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Configuration.Overrides.Endpoints
+namespace ApiGenerator.Configuration.Overrides.Endpoints;
+
+public class GetCalendarsOverrides : EndpointOverridesBase
 {
-    public class GetCalendarsOverrides : EndpointOverridesBase
+    public override IEnumerable<string> SkipQueryStringParams => new[]
     {
-        public override IEnumerable<string> SkipQueryStringParams => new[]
-        {
-            "from",
-            "size"
-        };
-    }
+        "from",
+        "size"
+    };
 }

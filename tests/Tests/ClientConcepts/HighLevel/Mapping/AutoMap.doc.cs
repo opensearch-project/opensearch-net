@@ -36,9 +36,9 @@ using Tests.Core.Client;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.ClientConcepts.HighLevel.Mapping
-{
-    /**
+namespace Tests.ClientConcepts.HighLevel.Mapping;
+
+/**
 	* [[auto-map]]
 	* === Auto mapping
 	*
@@ -46,139 +46,139 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	* OSC offers a feature called auto mapping that can automagically infer the correct
 	* OpenSearch field datatypes from the CLR POCO property types you are mapping.
 	**/
-    public class AutoMap
-    {
-        private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
+public class AutoMap
+{
+    private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
 
-        /**
+    /**
 		* We'll look at the features of auto mapping with a number of examples. For this,
 		* we'll define two POCOs, `Company`, which has a name
 		* and a collection of Employees, and `Employee` which has various properties of
 		* different types, and itself has a collection of `Employee` types.
 		*/
 
-        public abstract class Document
-        {
-            public JoinField Join { get; set; }
-        }
+    public abstract class Document
+    {
+        public JoinField Join { get; set; }
+    }
 
-        public class Company : Document
-        {
-            public string Name { get; set; }
-            public List<Employee> Employees { get; set; }
-        }
+    public class Company : Document
+    {
+        public string Name { get; set; }
+        public List<Employee> Employees { get; set; }
+    }
 
-        public class Employee : Document
-        {
-            public string LastName { get; set; }
-            public int Salary { get; set; }
-            public DateTime Birthday { get; set; }
-            public bool IsManager { get; set; }
-            public List<Employee> Employees { get; set; }
-            public TimeSpan Hours { get; set; }
-        }
+    public class Employee : Document
+    {
+        public string LastName { get; set; }
+        public int Salary { get; set; }
+        public DateTime Birthday { get; set; }
+        public bool IsManager { get; set; }
+        public List<Employee> Employees { get; set; }
+        public TimeSpan Hours { get; set; }
+    }
 
-        [U]
-        public void UsingAutoMap()
-        {
-            /**
+    [U]
+    public void UsingAutoMap()
+    {
+        /**
 			* Auto mapping can take the pain out of having to define a manual mapping for all properties
 			* on the POCO. In this case we want to index two subclasses into a single index. We call Map
 			* for the base class and then call AutoMap foreach of the types we want it to implement
 			*/
 
-            var createIndexResponse = _client.Indices.Create("myindex", c => c
-                .Map<Document>(m => m
-                    .AutoMap<Company>() // <1> Auto map `Company` using the generic method
-                    .AutoMap(typeof(Employee)) // <2> Auto map `Employee` using the non-generic method
-                )
-            );
-
-            /**
-			 * This produces the following JSON request
-			 */
-            // json
-            var expected = new
-            {
-                mappings = new
-                {
-                    properties = new
-                    {
-                        birthday = new { type = "date" },
-                        employees = new
-                        {
-                            properties = new
-                            {
-                                birthday = new { type = "date" },
-                                employees = new
-                                {
-                                    properties = new { },
-                                    type = "object"
-                                },
-                                hours = new { type = "long" },
-                                isManager = new { type = "boolean" },
-                                join = new
-                                {
-                                    properties = new { },
-                                    type = "object"
-                                },
-                                lastName = new
-                                {
-                                    fields = new
-                                    {
-                                        keyword = new
-                                        {
-                                            ignore_above = 256,
-                                            type = "keyword"
-                                        }
-                                    },
-                                    type = "text"
-                                },
-                                salary = new { type = "integer" }
-                            },
-                            type = "object"
-                        },
-                        hours = new { type = "long" },
-                        isManager = new { type = "boolean" },
-                        join = new
-                        {
-                            properties = new { },
-                            type = "object"
-                        },
-                        lastName = new
-                        {
-                            fields = new
-                            {
-                                keyword = new
-                                {
-                                    ignore_above = 256,
-                                    type = "keyword"
-                                }
-                            },
-                            type = "text"
-                        },
-                        name = new
-                        {
-                            fields = new
-                            {
-                                keyword = new
-                                {
-                                    ignore_above = 256,
-                                    type = "keyword"
-                                }
-                            },
-                            type = "text"
-                        },
-                        salary = new { type = "integer" }
-                    }
-                }
-            };
-
-            // hide
-            Expect(expected).FromRequest(createIndexResponse);
-        }
+        var createIndexResponse = _client.Indices.Create("myindex", c => c
+            .Map<Document>(m => m
+                .AutoMap<Company>() // <1> Auto map `Company` using the generic method
+                .AutoMap(typeof(Employee)) // <2> Auto map `Employee` using the non-generic method
+            )
+        );
 
         /**
+			 * This produces the following JSON request
+			 */
+        // json
+        var expected = new
+        {
+            mappings = new
+            {
+                properties = new
+                {
+                    birthday = new { type = "date" },
+                    employees = new
+                    {
+                        properties = new
+                        {
+                            birthday = new { type = "date" },
+                            employees = new
+                            {
+                                properties = new { },
+                                type = "object"
+                            },
+                            hours = new { type = "long" },
+                            isManager = new { type = "boolean" },
+                            join = new
+                            {
+                                properties = new { },
+                                type = "object"
+                            },
+                            lastName = new
+                            {
+                                fields = new
+                                {
+                                    keyword = new
+                                    {
+                                        ignore_above = 256,
+                                        type = "keyword"
+                                    }
+                                },
+                                type = "text"
+                            },
+                            salary = new { type = "integer" }
+                        },
+                        type = "object"
+                    },
+                    hours = new { type = "long" },
+                    isManager = new { type = "boolean" },
+                    join = new
+                    {
+                        properties = new { },
+                        type = "object"
+                    },
+                    lastName = new
+                    {
+                        fields = new
+                        {
+                            keyword = new
+                            {
+                                ignore_above = 256,
+                                type = "keyword"
+                            }
+                        },
+                        type = "text"
+                    },
+                    name = new
+                    {
+                        fields = new
+                        {
+                            keyword = new
+                            {
+                                ignore_above = 256,
+                                type = "keyword"
+                            }
+                        },
+                        type = "text"
+                    },
+                    salary = new { type = "integer" }
+                }
+            }
+        };
+
+        // hide
+        Expect(expected).FromRequest(createIndexResponse);
+    }
+
+    /**
 		 * Observe that OSC has inferred the OpenSearch types based on the CLR type of our POCO properties.
 		 * In this example,
 		 *
@@ -255,7 +255,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * --
 		 */
 
-        /**[float]
+    /**[float]
 		 * === Mapping Recursion
 		 * If you notice in our previous `Company` and `Employee` example, the `Employee` type is recursive
 		 * in that the `Employee` class itself contains a collection of type `Employee`. By default, `.AutoMap()` will only
@@ -270,93 +270,24 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 		 * Let's introduce a very simple class, `A`, which itself has a property
 		 * Child of type `A`.
 		 */
-        public class A
+    public class A
+    {
+        public A Child { get; set; }
+    }
+
+    [U]
+    public void ControllingRecursionDepth()
+    {
+        /** By default, `.AutoMap()` only goes as far as depth 1 */
+        var createIndexResponse = _client.Indices.Create("myindex", c => c
+            .Map<A>(m => m.AutoMap())
+        );
+
+        /** Thus we do not map properties on the second occurrence of our Child property */
+        //json
+        var expected = new
         {
-            public A Child { get; set; }
-        }
-
-        [U]
-        public void ControllingRecursionDepth()
-        {
-            /** By default, `.AutoMap()` only goes as far as depth 1 */
-            var createIndexResponse = _client.Indices.Create("myindex", c => c
-                .Map<A>(m => m.AutoMap())
-            );
-
-            /** Thus we do not map properties on the second occurrence of our Child property */
-            //json
-            var expected = new
-            {
-                mappings = new
-                {
-                    properties = new
-                    {
-                        child = new
-                        {
-                            properties = new { },
-                            type = "object"
-                        }
-                    }
-                }
-            };
-
-            //hide
-            Expect(expected).FromRequest(createIndexResponse);
-
-            /** Now let's specify a maxRecursion of `3` */
-            createIndexResponse = _client.Indices.Create("myindex", c => c
-                .Map<A>(m => m.AutoMap(3))
-            );
-
-            /** `.AutoMap()` has now mapped three levels of our Child property */
-            //json
-            var expectedWithMaxRecursion = new
-            {
-                mappings = new
-                {
-                    properties = new
-                    {
-                        child = new
-                        {
-                            type = "object",
-                            properties = new
-                            {
-                                child = new
-                                {
-                                    type = "object",
-                                    properties = new
-                                    {
-                                        child = new
-                                        {
-                                            type = "object",
-                                            properties = new
-                                            {
-                                                child = new
-                                                {
-                                                    type = "object",
-                                                    properties = new { }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            };
-
-            //hide
-            Expect(expectedWithMaxRecursion).FromRequest(createIndexResponse);
-        }
-
-        //hide
-        [U]
-        public void PutMappingAlsoAdheresToMaxRecursion()
-        {
-            var descriptor = new PutMappingDescriptor<A>().AutoMap();
-
-            var expected = new
+            mappings = new
             {
                 properties = new
                 {
@@ -366,13 +297,22 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
                         type = "object"
                     }
                 }
-            };
+            }
+        };
 
-            Expect(expected).WhenSerializing((IPutMappingRequest)descriptor);
+        //hide
+        Expect(expected).FromRequest(createIndexResponse);
 
-            var withMaxRecursionDescriptor = new PutMappingDescriptor<A>().AutoMap(3);
+        /** Now let's specify a maxRecursion of `3` */
+        createIndexResponse = _client.Indices.Create("myindex", c => c
+            .Map<A>(m => m.AutoMap(3))
+        );
 
-            var expectedWithMaxRecursion = new
+        /** `.AutoMap()` has now mapped three levels of our Child property */
+        //json
+        var expectedWithMaxRecursion = new
+        {
+            mappings = new
             {
                 properties = new
                 {
@@ -403,9 +343,68 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
                         }
                     }
                 }
-            };
+            }
+        };
 
-            Expect(expectedWithMaxRecursion).WhenSerializing((IPutMappingRequest)withMaxRecursionDescriptor);
-        }
+        //hide
+        Expect(expectedWithMaxRecursion).FromRequest(createIndexResponse);
+    }
+
+    //hide
+    [U]
+    public void PutMappingAlsoAdheresToMaxRecursion()
+    {
+        var descriptor = new PutMappingDescriptor<A>().AutoMap();
+
+        var expected = new
+        {
+            properties = new
+            {
+                child = new
+                {
+                    properties = new { },
+                    type = "object"
+                }
+            }
+        };
+
+        Expect(expected).WhenSerializing((IPutMappingRequest)descriptor);
+
+        var withMaxRecursionDescriptor = new PutMappingDescriptor<A>().AutoMap(3);
+
+        var expectedWithMaxRecursion = new
+        {
+            properties = new
+            {
+                child = new
+                {
+                    type = "object",
+                    properties = new
+                    {
+                        child = new
+                        {
+                            type = "object",
+                            properties = new
+                            {
+                                child = new
+                                {
+                                    type = "object",
+                                    properties = new
+                                    {
+                                        child = new
+                                        {
+                                            type = "object",
+                                            properties = new { }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        Expect(expectedWithMaxRecursion).WhenSerializing((IPutMappingRequest)withMaxRecursionDescriptor);
     }
 }

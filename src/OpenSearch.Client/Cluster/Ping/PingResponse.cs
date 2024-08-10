@@ -28,8 +28,7 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-    [DataContract]
-    public class PingResponse : ResponseBase { }
-}
+namespace OpenSearch.Client;
+
+[DataContract]
+public class PingResponse : ResponseBase { }

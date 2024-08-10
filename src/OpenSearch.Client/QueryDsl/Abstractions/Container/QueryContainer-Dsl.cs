@@ -30,159 +30,158 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class QueryContainerExtensions
 {
-    internal static class QueryContainerExtensions
+    public static bool IsConditionless(this QueryContainer q) => q == null || q.IsConditionless;
+}
+
+[JsonFormatter(typeof(QueryContainerFormatter))]
+public partial class QueryContainer : IQueryContainer, IDescriptor
+{
+    public QueryContainer() { }
+
+    public QueryContainer(QueryBase query) : this()
     {
-        public static bool IsConditionless(this QueryContainer q) => q == null || q.IsConditionless;
+        if (query == null) return;
+
+        if (query.IsStrict && !query.IsWritable)
+            throw new ArgumentException("Query is conditionless but strict is turned on");
+
+        query.WrapInContainer(this);
     }
 
-    [JsonFormatter(typeof(QueryContainerFormatter))]
-    public partial class QueryContainer : IQueryContainer, IDescriptor
+    [IgnoreDataMember]
+    internal bool HoldsOnlyShouldMusts { get; set; }
+
+    [IgnoreDataMember]
+    internal bool IsConditionless => Self.IsConditionless;
+
+    [IgnoreDataMember]
+    internal bool IsStrict => Self.IsStrict;
+
+    [IgnoreDataMember]
+    internal bool IsVerbatim => Self.IsVerbatim;
+
+    [IgnoreDataMember]
+    internal bool IsWritable => Self.IsWritable;
+
+    [IgnoreDataMember]
+    bool IQueryContainer.IsConditionless => ContainedQuery?.Conditionless ?? true;
+
+    [IgnoreDataMember]
+    bool IQueryContainer.IsStrict { get; set; }
+
+    [IgnoreDataMember]
+    bool IQueryContainer.IsVerbatim { get; set; }
+
+    [IgnoreDataMember]
+    bool IQueryContainer.IsWritable => Self.IsVerbatim || !Self.IsConditionless;
+
+    public void Accept(IQueryVisitor visitor)
     {
-        public QueryContainer() { }
+        if (visitor.Scope == VisitorScope.Unknown) visitor.Scope = VisitorScope.Query;
+        new QueryWalker().Walk(this, visitor);
+    }
 
-        public QueryContainer(QueryBase query) : this()
+    public static QueryContainer operator &(QueryContainer leftContainer, QueryContainer rightContainer) =>
+        And(leftContainer, rightContainer);
+
+    internal static QueryContainer And(QueryContainer leftContainer, QueryContainer rightContainer) =>
+        IfEitherIsEmptyReturnTheOtherOrEmpty(leftContainer, rightContainer, out var queryContainer)
+            ? queryContainer
+            : leftContainer.CombineAsMust(rightContainer);
+
+    public static QueryContainer operator |(QueryContainer leftContainer, QueryContainer rightContainer) =>
+        Or(leftContainer, rightContainer);
+
+    internal static QueryContainer Or(QueryContainer leftContainer, QueryContainer rightContainer) =>
+        IfEitherIsEmptyReturnTheOtherOrEmpty(leftContainer, rightContainer, out var queryContainer)
+            ? queryContainer
+            : leftContainer.CombineAsShould(rightContainer);
+
+    private static bool IfEitherIsEmptyReturnTheOtherOrEmpty(QueryContainer leftContainer, QueryContainer rightContainer,
+        out QueryContainer queryContainer
+    )
+    {
+        queryContainer = null;
+        if (leftContainer == null && rightContainer == null) return true;
+
+        var leftWritable = leftContainer?.IsWritable ?? false;
+        var rightWritable = rightContainer?.IsWritable ?? false;
+        if (leftWritable && rightWritable) return false;
+        if (!leftWritable && !rightWritable) return true;
+
+        queryContainer = leftWritable ? leftContainer : rightContainer;
+        return true;
+    }
+
+    public static QueryContainer operator !(QueryContainer queryContainer) => queryContainer == null || !queryContainer.IsWritable
+        ? null
+        : new QueryContainer(new BoolQuery { MustNot = new[] { queryContainer } });
+
+    public static QueryContainer operator +(QueryContainer queryContainer) => queryContainer == null || !queryContainer.IsWritable
+        ? null
+        : new QueryContainer(new BoolQuery { Filter = new[] { queryContainer } });
+
+    public static bool operator false(QueryContainer a) => false;
+
+    public static bool operator true(QueryContainer a) => false;
+
+    // ReSharper disable once UnusedMember.Global
+    internal bool ShouldSerialize(IJsonFormatterResolver formatterResolver) => IsWritable;
+
+    /// <summary>
+    /// Assigns a name to the contained query.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public QueryContainer Name(string name)
+    {
+        ContainedQuery.Name = name;
+        return this;
+    }
+
+    /// <summary>
+    /// Applies or removes the `strict` attribute to the contained query and optionally to all child sub-queries.
+    /// </summary>
+    /// <param name="strict"></param>
+    /// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
+    /// <returns></returns>
+    public QueryContainer Strict(bool strict = true, bool recurse = false)
+    {
+        if (recurse)
         {
-            if (query == null) return;
-
-            if (query.IsStrict && !query.IsWritable)
-                throw new ArgumentException("Query is conditionless but strict is turned on");
-
-            query.WrapInContainer(this);
+            var visitor = new StrictnessPropagatingVisitor(strict);
+            Accept(visitor);
+        }
+        else
+        {
+            ContainedQuery.IsStrict = strict;
         }
 
-        [IgnoreDataMember]
-        internal bool HoldsOnlyShouldMusts { get; set; }
+        return this;
+    }
 
-        [IgnoreDataMember]
-        internal bool IsConditionless => Self.IsConditionless;
-
-        [IgnoreDataMember]
-        internal bool IsStrict => Self.IsStrict;
-
-        [IgnoreDataMember]
-        internal bool IsVerbatim => Self.IsVerbatim;
-
-        [IgnoreDataMember]
-        internal bool IsWritable => Self.IsWritable;
-
-        [IgnoreDataMember]
-        bool IQueryContainer.IsConditionless => ContainedQuery?.Conditionless ?? true;
-
-        [IgnoreDataMember]
-        bool IQueryContainer.IsStrict { get; set; }
-
-        [IgnoreDataMember]
-        bool IQueryContainer.IsVerbatim { get; set; }
-
-        [IgnoreDataMember]
-        bool IQueryContainer.IsWritable => Self.IsVerbatim || !Self.IsConditionless;
-
-        public void Accept(IQueryVisitor visitor)
+    /// <summary>
+    /// Applies or removes the `verbatim` attribute to the contained query and optionally to all child sub-queries.
+    /// </summary>
+    /// <param name="verbatim"></param>
+    /// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
+    /// <returns></returns>
+    public QueryContainer Verbatim(bool verbatim = true, bool recurse = false)
+    {
+        if (recurse)
         {
-            if (visitor.Scope == VisitorScope.Unknown) visitor.Scope = VisitorScope.Query;
-            new QueryWalker().Walk(this, visitor);
+            var visitor = new VerbatimPropagatingVisitor(verbatim);
+            Accept(visitor);
+        }
+        else
+        {
+            ContainedQuery.IsVerbatim = verbatim;
         }
 
-        public static QueryContainer operator &(QueryContainer leftContainer, QueryContainer rightContainer) =>
-            And(leftContainer, rightContainer);
-
-        internal static QueryContainer And(QueryContainer leftContainer, QueryContainer rightContainer) =>
-            IfEitherIsEmptyReturnTheOtherOrEmpty(leftContainer, rightContainer, out var queryContainer)
-                ? queryContainer
-                : leftContainer.CombineAsMust(rightContainer);
-
-        public static QueryContainer operator |(QueryContainer leftContainer, QueryContainer rightContainer) =>
-            Or(leftContainer, rightContainer);
-
-        internal static QueryContainer Or(QueryContainer leftContainer, QueryContainer rightContainer) =>
-            IfEitherIsEmptyReturnTheOtherOrEmpty(leftContainer, rightContainer, out var queryContainer)
-                ? queryContainer
-                : leftContainer.CombineAsShould(rightContainer);
-
-        private static bool IfEitherIsEmptyReturnTheOtherOrEmpty(QueryContainer leftContainer, QueryContainer rightContainer,
-            out QueryContainer queryContainer
-        )
-        {
-            queryContainer = null;
-            if (leftContainer == null && rightContainer == null) return true;
-
-            var leftWritable = leftContainer?.IsWritable ?? false;
-            var rightWritable = rightContainer?.IsWritable ?? false;
-            if (leftWritable && rightWritable) return false;
-            if (!leftWritable && !rightWritable) return true;
-
-            queryContainer = leftWritable ? leftContainer : rightContainer;
-            return true;
-        }
-
-        public static QueryContainer operator !(QueryContainer queryContainer) => queryContainer == null || !queryContainer.IsWritable
-            ? null
-            : new QueryContainer(new BoolQuery { MustNot = new[] { queryContainer } });
-
-        public static QueryContainer operator +(QueryContainer queryContainer) => queryContainer == null || !queryContainer.IsWritable
-            ? null
-            : new QueryContainer(new BoolQuery { Filter = new[] { queryContainer } });
-
-        public static bool operator false(QueryContainer a) => false;
-
-        public static bool operator true(QueryContainer a) => false;
-
-        // ReSharper disable once UnusedMember.Global
-        internal bool ShouldSerialize(IJsonFormatterResolver formatterResolver) => IsWritable;
-
-        /// <summary>
-        /// Assigns a name to the contained query.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        public QueryContainer Name(string name)
-        {
-            ContainedQuery.Name = name;
-            return this;
-        }
-
-        /// <summary>
-        /// Applies or removes the `strict` attribute to the contained query and optionally to all child sub-queries.
-        /// </summary>
-        /// <param name="strict"></param>
-        /// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
-        /// <returns></returns>
-        public QueryContainer Strict(bool strict = true, bool recurse = false)
-        {
-            if (recurse)
-            {
-                var visitor = new StrictnessPropagatingVisitor(strict);
-                Accept(visitor);
-            }
-            else
-            {
-                ContainedQuery.IsStrict = strict;
-            }
-
-            return this;
-        }
-
-        /// <summary>
-        /// Applies or removes the `verbatim` attribute to the contained query and optionally to all child sub-queries.
-        /// </summary>
-        /// <param name="verbatim"></param>
-        /// <param name="recurse">When true, it applies the attribute to all child sub-queries.</param>
-        /// <returns></returns>
-        public QueryContainer Verbatim(bool verbatim = true, bool recurse = false)
-        {
-            if (recurse)
-            {
-                var visitor = new VerbatimPropagatingVisitor(verbatim);
-                Accept(visitor);
-            }
-            else
-            {
-                ContainedQuery.IsVerbatim = verbatim;
-            }
-
-            return this;
-        }
+        return this;
     }
 }

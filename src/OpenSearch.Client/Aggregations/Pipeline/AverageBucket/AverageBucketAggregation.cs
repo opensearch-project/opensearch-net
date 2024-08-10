@@ -28,25 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(AverageBucketAggregation))]
+public interface IAverageBucketAggregation : IPipelineAggregation { }
+
+public class AverageBucketAggregation
+    : PipelineAggregationBase, IAverageBucketAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(AverageBucketAggregation))]
-    public interface IAverageBucketAggregation : IPipelineAggregation { }
+    internal AverageBucketAggregation() { }
 
-    public class AverageBucketAggregation
-        : PipelineAggregationBase, IAverageBucketAggregation
-    {
-        internal AverageBucketAggregation() { }
+    public AverageBucketAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-        public AverageBucketAggregation(string name, SingleBucketsPath bucketsPath)
-            : base(name, bucketsPath) { }
-
-        internal override void WrapInContainer(AggregationContainer c) => c.AverageBucket = this;
-    }
-
-    public class AverageBucketAggregationDescriptor
-        : PipelineAggregationDescriptorBase<AverageBucketAggregationDescriptor, IAverageBucketAggregation, SingleBucketsPath>
-            , IAverageBucketAggregation
-    { }
+    internal override void WrapInContainer(AggregationContainer c) => c.AverageBucket = this;
 }
+
+public class AverageBucketAggregationDescriptor
+    : PipelineAggregationDescriptorBase<AverageBucketAggregationDescriptor, IAverageBucketAggregation, SingleBucketsPath>
+        , IAverageBucketAggregation
+{ }

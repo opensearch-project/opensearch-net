@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("ingest.delete_pipeline.json")]
-    public partial interface IDeletePipelineRequest { }
+namespace OpenSearch.Client;
 
-    public partial class DeletePipelineRequest { }
+[MapsApi("ingest.delete_pipeline.json")]
+public partial interface IDeletePipelineRequest { }
 
-    public partial class DeletePipelineDescriptor { }
-}
+public partial class DeletePipelineRequest { }
+
+public partial class DeletePipelineDescriptor { }

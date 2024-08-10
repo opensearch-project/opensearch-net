@@ -31,73 +31,72 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl.Span.Containing
+namespace Tests.QueryDsl.Span.Containing;
+
+public class SpanContainingUsageTests : QueryDslUsageTestsBase
 {
-    public class SpanContainingUsageTests : QueryDslUsageTestsBase
+    public SpanContainingUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ISpanContainingQuery>(a => a.SpanContaining)
     {
-        public SpanContainingUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ISpanContainingQuery>(a => a.SpanContaining)
+        q =>
         {
-            q =>
-            {
-                q.Big = null;
-                q.Little = null;
-            },
-            q =>
-            {
-                q.Big = new SpanQuery();
-                q.Little = new SpanQuery();
-            },
-        };
-
-        protected override QueryContainer QueryInitializer => new SpanContainingQuery
+            q.Big = null;
+            q.Little = null;
+        },
+        q =>
         {
-            Name = "named_query",
-            Boost = 1.1,
-            Little = new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field1", Value = "hoya" } },
-            Big = new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field1", Value = "hoya2" } },
-        };
+            q.Big = new SpanQuery();
+            q.Little = new SpanQuery();
+        },
+    };
 
-        protected override object QueryJson => new
+    protected override QueryContainer QueryInitializer => new SpanContainingQuery
+    {
+        Name = "named_query",
+        Boost = 1.1,
+        Little = new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field1", Value = "hoya" } },
+        Big = new SpanQuery { SpanTerm = new SpanTermQuery { Field = "field1", Value = "hoya2" } },
+    };
+
+    protected override object QueryJson => new
+    {
+        span_containing = new
         {
-            span_containing = new
+            _name = "named_query",
+            boost = 1.1,
+            little = new
             {
-                _name = "named_query",
-                boost = 1.1,
-                little = new
+                span_term = new
                 {
-                    span_term = new
+                    field1 = new
                     {
-                        field1 = new
-                        {
-                            value = "hoya"
-                        }
+                        value = "hoya"
                     }
-                },
-                big = new
+                }
+            },
+            big = new
+            {
+                span_term = new
                 {
-                    span_term = new
+                    field1 = new
                     {
-                        field1 = new
-                        {
-                            value = "hoya2"
-                        }
+                        value = "hoya2"
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .SpanContaining(sn => sn
-                .Name("named_query")
-                .Boost(1.1)
-                .Little(i => i
-                    .SpanTerm(st => st.Field("field1").Value("hoya"))
-                )
-                .Big(e => e
-                    .SpanTerm(st => st.Field("field1").Value("hoya2"))
-                )
-            );
-    }
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .SpanContaining(sn => sn
+            .Name("named_query")
+            .Boost(1.1)
+            .Little(i => i
+                .SpanTerm(st => st.Field("field1").Value("hoya"))
+            )
+            .Big(e => e
+                .SpanTerm(st => st.Field("field1").Value("hoya2"))
+            )
+        );
 }

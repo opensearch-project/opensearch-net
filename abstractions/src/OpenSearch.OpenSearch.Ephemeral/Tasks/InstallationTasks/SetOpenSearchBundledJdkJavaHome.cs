@@ -30,24 +30,23 @@ using System;
 using System.IO;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 
-namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
+namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks;
+
+public class SetOpenSearchBundledJdkJavaHome : ClusterComposeTask
 {
-    public class SetOpenSearchBundledJdkJavaHome : ClusterComposeTask
+    public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
     {
-        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        var fs = cluster.FileSystem;
+        var jdkFolder = Path.Combine(fs.OpenSearchHome, "jdk");
+        if (Directory.Exists(jdkFolder))
         {
-            var fs = cluster.FileSystem;
-            var jdkFolder = Path.Combine(fs.OpenSearchHome, "jdk");
-            if (Directory.Exists(jdkFolder))
-            {
-                var envVarName = cluster.ClusterConfiguration.JavaHomeEnvironmentVariable;
-                cluster.Writer?.WriteDiagnostic(
-                    $"{{{nameof(SetOpenSearchBundledJdkJavaHome)}}} [{envVarName}] is set to bundled jdk: {{{jdkFolder}}} ");
-                Environment.SetEnvironmentVariable(envVarName, jdkFolder);
-            }
-            else
-                cluster.Writer?.WriteDiagnostic(
-                    $"{{{nameof(SetOpenSearchBundledJdkJavaHome)}}} [No bundled jdk found] looked in: {{{jdkFolder}}} ");
+            var envVarName = cluster.ClusterConfiguration.JavaHomeEnvironmentVariable;
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(SetOpenSearchBundledJdkJavaHome)}}} [{envVarName}] is set to bundled jdk: {{{jdkFolder}}} ");
+            Environment.SetEnvironmentVariable(envVarName, jdkFolder);
         }
+        else
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(SetOpenSearchBundledJdkJavaHome)}}} [No bundled jdk found] looked in: {{{jdkFolder}}} ");
     }
 }

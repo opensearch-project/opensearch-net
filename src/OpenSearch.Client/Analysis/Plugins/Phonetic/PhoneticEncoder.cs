@@ -29,45 +29,44 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum PhoneticEncoder
 {
-    [StringEnum]
-    public enum PhoneticEncoder
-    {
-        [EnumMember(Value = "metaphone")]
-        Metaphone,
+    [EnumMember(Value = "metaphone")]
+    Metaphone,
 
-        [EnumMember(Value = "double_metaphone")]
-        DoubleMetaphone,
+    [EnumMember(Value = "double_metaphone")]
+    DoubleMetaphone,
 
-        [EnumMember(Value = "soundex")]
-        Soundex,
+    [EnumMember(Value = "soundex")]
+    Soundex,
 
-        [EnumMember(Value = "refined_soundex")]
-        RefinedSoundex,
+    [EnumMember(Value = "refined_soundex")]
+    RefinedSoundex,
 
-        [EnumMember(Value = "caverphone1")]
-        Caverphone1,
+    [EnumMember(Value = "caverphone1")]
+    Caverphone1,
 
-        [EnumMember(Value = "caverphone2")]
-        Caverphone2,
+    [EnumMember(Value = "caverphone2")]
+    Caverphone2,
 
-        [EnumMember(Value = "cologne")]
-        Cologne,
+    [EnumMember(Value = "cologne")]
+    Cologne,
 
-        [EnumMember(Value = "nysiis")]
-        Nysiis,
+    [EnumMember(Value = "nysiis")]
+    Nysiis,
 
-        [EnumMember(Value = "koelnerphonetik")]
-        KoelnerPhonetik,
+    [EnumMember(Value = "koelnerphonetik")]
+    KoelnerPhonetik,
 
-        [EnumMember(Value = "haasephonetik")]
-        HaasePhonetik,
+    [EnumMember(Value = "haasephonetik")]
+    HaasePhonetik,
 
-        [EnumMember(Value = "beider_morse")]
-        Beidermorse,
+    [EnumMember(Value = "beider_morse")]
+    Beidermorse,
 
-        [EnumMember(Value = "daitch_mokotoff")]
-        DaitchMokotoff
-    }
+    [EnumMember(Value = "daitch_mokotoff")]
+    DaitchMokotoff
 }

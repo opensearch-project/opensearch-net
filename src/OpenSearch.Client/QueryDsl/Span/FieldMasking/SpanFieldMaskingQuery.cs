@@ -31,45 +31,44 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(SpanFieldMaskingQuery))]
+public interface ISpanFieldMaskingQuery : ISpanSubQuery
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(SpanFieldMaskingQuery))]
-    public interface ISpanFieldMaskingQuery : ISpanSubQuery
-    {
-        [DataMember(Name = "field")]
-        Field Field { get; set; }
+    [DataMember(Name = "field")]
+    Field Field { get; set; }
 
-        [DataMember(Name = "query")]
-        ISpanQuery Query { get; set; }
-    }
+    [DataMember(Name = "query")]
+    ISpanQuery Query { get; set; }
+}
 
-    public class SpanFieldMaskingQuery : QueryBase, ISpanFieldMaskingQuery
-    {
-        public Field Field { get; set; }
-        public ISpanQuery Query { get; set; }
-        protected override bool Conditionless => IsConditionless(this);
+public class SpanFieldMaskingQuery : QueryBase, ISpanFieldMaskingQuery
+{
+    public Field Field { get; set; }
+    public ISpanQuery Query { get; set; }
+    protected override bool Conditionless => IsConditionless(this);
 
-        internal override void InternalWrapInContainer(IQueryContainer c) => c.SpanFieldMasking = this;
+    internal override void InternalWrapInContainer(IQueryContainer c) => c.SpanFieldMasking = this;
 
-        internal static bool IsConditionless(ISpanFieldMaskingQuery q) =>
-            q.Field.IsConditionless() || q.Query == null || q.Query.Conditionless;
-    }
+    internal static bool IsConditionless(ISpanFieldMaskingQuery q) =>
+        q.Field.IsConditionless() || q.Query == null || q.Query.Conditionless;
+}
 
-    public class SpanFieldMaskingQueryDescriptor<T>
-        : QueryDescriptorBase<SpanFieldMaskingQueryDescriptor<T>, ISpanFieldMaskingQuery>
-            , ISpanFieldMaskingQuery where T : class
-    {
-        protected override bool Conditionless => SpanFieldMaskingQuery.IsConditionless(this);
-        Field ISpanFieldMaskingQuery.Field { get; set; }
-        ISpanQuery ISpanFieldMaskingQuery.Query { get; set; }
+public class SpanFieldMaskingQueryDescriptor<T>
+    : QueryDescriptorBase<SpanFieldMaskingQueryDescriptor<T>, ISpanFieldMaskingQuery>
+        , ISpanFieldMaskingQuery where T : class
+{
+    protected override bool Conditionless => SpanFieldMaskingQuery.IsConditionless(this);
+    Field ISpanFieldMaskingQuery.Field { get; set; }
+    ISpanQuery ISpanFieldMaskingQuery.Query { get; set; }
 
-        public SpanFieldMaskingQueryDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
+    public SpanFieldMaskingQueryDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
 
-        public SpanFieldMaskingQueryDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) =>
-            Assign(objectPath, (a, v) => a.Field = v);
+    public SpanFieldMaskingQueryDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) =>
+        Assign(objectPath, (a, v) => a.Field = v);
 
-        public SpanFieldMaskingQueryDescriptor<T> Query(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
-            Assign(selector, (a, v) => a.Query = v?.Invoke(new SpanQueryDescriptor<T>()));
-    }
+    public SpanFieldMaskingQueryDescriptor<T> Query(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
+        Assign(selector, (a, v) => a.Query = v?.Invoke(new SpanQueryDescriptor<T>()));
 }

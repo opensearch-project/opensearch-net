@@ -37,70 +37,69 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Xunit;
 
-namespace Tests.ClientConcepts.Exceptions
+namespace Tests.ClientConcepts.Exceptions;
+
+public class ExceptionTests : ClusterTestClassBase<WritableCluster>
 {
-    public class ExceptionTests : ClusterTestClassBase<WritableCluster>
+    private readonly int _port;
+
+    public ExceptionTests(WritableCluster cluster) : base(cluster) => _port = cluster.Nodes.First().Port ?? 9200;
+
+    //[I]
+    public void ServerTestWhenThrowExceptionsEnabled()
     {
-        private readonly int _port;
+        var settings = new ConnectionSettings(TestConnectionSettings.CreateUri(_port))
+            .ThrowExceptions();
+        var client = new OpenSearchClient(settings);
+        var exception = Assert.Throws<OpenSearchClientException>(() => client.Indices.GetMapping<Project>(s => s.Index("doesntexist")));
+        // HttpClient does not throw on "known error" status codes (i.e. 404) thus the inner exception should not be set
+        exception.InnerException.Should().BeNull();
+        exception.Response.Should().NotBeNull();
+    }
 
-        public ExceptionTests(WritableCluster cluster) : base(cluster) => _port = cluster.Nodes.First().Port ?? 9200;
+    //[I]
+    public void ClientTestWhenThrowExceptionsEnabled()
+    {
+        var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"))
+            .ThrowExceptions();
+        var client = new OpenSearchClient(settings);
+        var exception = Assert.Throws<OpenSearchClientException>(() => client.RootNodeInfo());
+        var inner = exception.InnerException;
+        // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
+        inner.Should().BeNull();
+    }
 
-        //[I]
-        public void ServerTestWhenThrowExceptionsEnabled()
-        {
-            var settings = new ConnectionSettings(TestConnectionSettings.CreateUri(_port))
-                .ThrowExceptions();
-            var client = new OpenSearchClient(settings);
-            var exception = Assert.Throws<OpenSearchClientException>(() => client.Indices.GetMapping<Project>(s => s.Index("doesntexist")));
-            // HttpClient does not throw on "known error" status codes (i.e. 404) thus the inner exception should not be set
-            exception.InnerException.Should().BeNull();
-            exception.Response.Should().NotBeNull();
-        }
+    //[I]
+    public void ServerTestWhenThrowExceptionsDisabled()
+    {
+        var settings = new ConnectionSettings(TestConnectionSettings.CreateUri(_port));
+        var client = new OpenSearchClient(settings);
+        var response = client.Indices.GetMapping<Project>(s => s.Index("doesntexist"));
+        // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
+        response.ApiCall.OriginalException.Should().BeNull();
+    }
 
-        //[I]
-        public void ClientTestWhenThrowExceptionsEnabled()
-        {
-            var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"))
-                .ThrowExceptions();
-            var client = new OpenSearchClient(settings);
-            var exception = Assert.Throws<OpenSearchClientException>(() => client.RootNodeInfo());
-            var inner = exception.InnerException;
-            // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
-            inner.Should().BeNull();
-        }
+    //[I]
+    public void ClientTestWhenThrowExceptionsDisabled()
+    {
+        var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"));
+        var client = new OpenSearchClient(settings);
+        var response = client.RootNodeInfo();
+        // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
+        response.ApiCall.OriginalException.Should().BeNull();
+    }
 
-        //[I]
-        public void ServerTestWhenThrowExceptionsDisabled()
-        {
-            var settings = new ConnectionSettings(TestConnectionSettings.CreateUri(_port));
-            var client = new OpenSearchClient(settings);
-            var response = client.Indices.GetMapping<Project>(s => s.Index("doesntexist"));
-            // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
-            response.ApiCall.OriginalException.Should().BeNull();
-        }
+    //TODO figure out a way to trigger this again
+    //[U]
+    public void DispatchIndicatesMissingRouteValues()
+    {
+        var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"));
+        var client = new OpenSearchClient(settings);
 
-        //[I]
-        public void ClientTestWhenThrowExceptionsDisabled()
-        {
-            var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"));
-            var client = new OpenSearchClient(settings);
-            var response = client.RootNodeInfo();
-            // HttpClient does not throw on "known error" status codes (i.e. 404) thus OriginalException should not be set
-            response.ApiCall.OriginalException.Should().BeNull();
-        }
-
-        //TODO figure out a way to trigger this again
-        //[U]
-        public void DispatchIndicatesMissingRouteValues()
-        {
-            var settings = new ConnectionSettings(new Uri("http://doesntexist:9200"));
-            var client = new OpenSearchClient(settings);
-
-            Action dispatch = () => client.Index(new Project(), p => p.Index(null));
-            dispatch
-                .Should()
-                .Throw<ArgumentException>()
-                .WithMessage("*index=<NULL>*");
-        }
+        Action dispatch = () => client.Index(new Project(), p => p.Index(null));
+        dispatch
+            .Should()
+            .Throw<ArgumentException>()
+            .WithMessage("*index=<NULL>*");
     }
 }

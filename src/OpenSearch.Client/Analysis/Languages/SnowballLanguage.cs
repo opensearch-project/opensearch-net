@@ -29,78 +29,77 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Snowball compatible languages
+/// </summary>
+[StringEnum]
+public enum SnowballLanguage
 {
-    /// <summary>
-    /// Snowball compatible languages
-    /// </summary>
-    [StringEnum]
-    public enum SnowballLanguage
-    {
-        [EnumMember(Value = "Armenian")]
-        Armenian,
+    [EnumMember(Value = "Armenian")]
+    Armenian,
 
-        [EnumMember(Value = "Basque")]
-        Basque,
+    [EnumMember(Value = "Basque")]
+    Basque,
 
-        [EnumMember(Value = "Catalan")]
-        Catalan,
+    [EnumMember(Value = "Catalan")]
+    Catalan,
 
-        [EnumMember(Value = "Danish")]
-        Danish,
+    [EnumMember(Value = "Danish")]
+    Danish,
 
-        [EnumMember(Value = "Dutch")]
-        Dutch,
+    [EnumMember(Value = "Dutch")]
+    Dutch,
 
-        [EnumMember(Value = "English")]
-        English,
+    [EnumMember(Value = "English")]
+    English,
 
-        [EnumMember(Value = "Finnish")]
-        Finnish,
+    [EnumMember(Value = "Finnish")]
+    Finnish,
 
-        [EnumMember(Value = "French")]
-        French,
+    [EnumMember(Value = "French")]
+    French,
 
-        [EnumMember(Value = "German")]
-        German,
+    [EnumMember(Value = "German")]
+    German,
 
-        [EnumMember(Value = "German2")]
-        German2,
+    [EnumMember(Value = "German2")]
+    German2,
 
-        [EnumMember(Value = "Hungarian")]
-        Hungarian,
+    [EnumMember(Value = "Hungarian")]
+    Hungarian,
 
-        [EnumMember(Value = "Italian")]
-        Italian,
+    [EnumMember(Value = "Italian")]
+    Italian,
 
-        [EnumMember(Value = "Kp")]
-        Kp,
+    [EnumMember(Value = "Kp")]
+    Kp,
 
-        [EnumMember(Value = "Lovins")]
-        Lovins,
+    [EnumMember(Value = "Lovins")]
+    Lovins,
 
-        [EnumMember(Value = "Norwegian")]
-        Norwegian,
+    [EnumMember(Value = "Norwegian")]
+    Norwegian,
 
-        [EnumMember(Value = "Porter")]
-        Porter,
+    [EnumMember(Value = "Porter")]
+    Porter,
 
-        [EnumMember(Value = "Portuguese")]
-        Portuguese,
+    [EnumMember(Value = "Portuguese")]
+    Portuguese,
 
-        [EnumMember(Value = "Romanian")]
-        Romanian,
+    [EnumMember(Value = "Romanian")]
+    Romanian,
 
-        [EnumMember(Value = "Russian")]
-        Russian,
+    [EnumMember(Value = "Russian")]
+    Russian,
 
-        [EnumMember(Value = "Spanish")]
-        Spanish,
+    [EnumMember(Value = "Spanish")]
+    Spanish,
 
-        [EnumMember(Value = "Swedish")]
-        Swedish,
+    [EnumMember(Value = "Swedish")]
+    Swedish,
 
-        [EnumMember(Value = "Turkish")]
-        Turkish
-    }
+    [EnumMember(Value = "Turkish")]
+    Turkish
 }

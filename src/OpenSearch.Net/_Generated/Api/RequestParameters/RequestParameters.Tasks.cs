@@ -50,121 +50,120 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net.Specification.TasksApi
+namespace OpenSearch.Net.Specification.TasksApi;
+
+/// <summary>Request options for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+public partial class CancelTasksRequestParameters
+    : RequestParameters<CancelTasksRequestParameters>
 {
-    /// <summary>Request options for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-    public partial class CancelTasksRequestParameters
-        : RequestParameters<CancelTasksRequestParameters>
+    public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+    public override bool SupportsBody => false;
+
+    /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
+    public string[] Actions
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
-
-        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
-        public string[] Actions
-        {
-            get => Q<string[]>("actions");
-            set => Q("actions", value);
-        }
-
-        /// <summary>Comma-separated list of node IDs or names used to limit the request.</summary>
-        public string[] Nodes
-        {
-            get => Q<string[]>("nodes");
-            set => Q("nodes", value);
-        }
-
-        /// <summary>Parent task ID used to limit the tasks.</summary>
-        public string ParentTaskId
-        {
-            get => Q<string>("parent_task_id");
-            set => Q("parent_task_id", value);
-        }
-
-        /// <summary>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</summary>
-        public bool? WaitForCompletion
-        {
-            get => Q<bool?>("wait_for_completion");
-            set => Q("wait_for_completion", value);
-        }
+        get => Q<string[]>("actions");
+        set => Q("actions", value);
     }
 
-    /// <summary>Request options for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-    public partial class GetTaskRequestParameters : RequestParameters<GetTaskRequestParameters>
+    /// <summary>Comma-separated list of node IDs or names used to limit the request.</summary>
+    public string[] Nodes
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
-
-        /// <summary>If `true`, the request blocks until the task has completed.</summary>
-        public bool? WaitForCompletion
-        {
-            get => Q<bool?>("wait_for_completion");
-            set => Q("wait_for_completion", value);
-        }
+        get => Q<string[]>("nodes");
+        set => Q("nodes", value);
     }
 
-    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-    public partial class ListTasksRequestParameters : RequestParameters<ListTasksRequestParameters>
+    /// <summary>Parent task ID used to limit the tasks.</summary>
+    public string ParentTaskId
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
+        get => Q<string>("parent_task_id");
+        set => Q("parent_task_id", value);
+    }
 
-        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
-        public string[] Actions
-        {
-            get => Q<string[]>("actions");
-            set => Q("actions", value);
-        }
+    /// <summary>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</summary>
+    public bool? WaitForCompletion
+    {
+        get => Q<bool?>("wait_for_completion");
+        set => Q("wait_for_completion", value);
+    }
+}
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
-        public bool? Detailed
-        {
-            get => Q<bool?>("detailed");
-            set => Q("detailed", value);
-        }
+/// <summary>Request options for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+public partial class GetTaskRequestParameters : RequestParameters<GetTaskRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
 
-        /// <summary>Key used to group tasks in the response.</summary>
-        public TasksGroupBy? GroupBy
-        {
-            get => Q<TasksGroupBy?>("group_by");
-            set => Q("group_by", value);
-        }
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
 
-        /// <summary>
-        /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
-        /// connecting to, leave empty to get information from all nodes.
-        /// </summary>
-        public string[] Nodes
-        {
-            get => Q<string[]>("nodes");
-            set => Q("nodes", value);
-        }
+    /// <summary>If `true`, the request blocks until the task has completed.</summary>
+    public bool? WaitForCompletion
+    {
+        get => Q<bool?>("wait_for_completion");
+        set => Q("wait_for_completion", value);
+    }
+}
 
-        /// <summary>Parent task ID used to limit returned information. To return all tasks, omit this parameter or use a value of `-1`.</summary>
-        public string ParentTaskId
-        {
-            get => Q<string>("parent_task_id");
-            set => Q("parent_task_id", value);
-        }
+/// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+public partial class ListTasksRequestParameters : RequestParameters<ListTasksRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+    /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
+    public string[] Actions
+    {
+        get => Q<string[]>("actions");
+        set => Q("actions", value);
+    }
 
-        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
-        public bool? WaitForCompletion
-        {
-            get => Q<bool?>("wait_for_completion");
-            set => Q("wait_for_completion", value);
-        }
+    /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+    public bool? Detailed
+    {
+        get => Q<bool?>("detailed");
+        set => Q("detailed", value);
+    }
+
+    /// <summary>Key used to group tasks in the response.</summary>
+    public TasksGroupBy? GroupBy
+    {
+        get => Q<TasksGroupBy?>("group_by");
+        set => Q("group_by", value);
+    }
+
+    /// <summary>
+    /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
+    /// connecting to, leave empty to get information from all nodes.
+    /// </summary>
+    public string[] Nodes
+    {
+        get => Q<string[]>("nodes");
+        set => Q("nodes", value);
+    }
+
+    /// <summary>Parent task ID used to limit returned information. To return all tasks, omit this parameter or use a value of `-1`.</summary>
+    public string ParentTaskId
+    {
+        get => Q<string>("parent_task_id");
+        set => Q("parent_task_id", value);
+    }
+
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+
+    /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+    public bool? WaitForCompletion
+    {
+        get => Q<bool?>("wait_for_completion");
+        set => Q("wait_for_completion", value);
     }
 }

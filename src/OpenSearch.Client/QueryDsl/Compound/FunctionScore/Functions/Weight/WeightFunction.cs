@@ -28,14 +28,13 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    [InterfaceDataContract]
-    public interface IWeightFunction : IScoreFunction { }
+namespace OpenSearch.Client;
 
-    public class WeightFunction : FunctionScoreFunctionBase, IWeightFunction { }
+[InterfaceDataContract]
+public interface IWeightFunction : IScoreFunction { }
 
-    public class WeightFunctionDescriptor<T> : FunctionScoreFunctionDescriptorBase<WeightFunctionDescriptor<T>, IWeightFunction, T>, IWeightFunction
-        where T : class
-    { }
-}
+public class WeightFunction : FunctionScoreFunctionBase, IWeightFunction { }
+
+public class WeightFunctionDescriptor<T> : FunctionScoreFunctionDescriptorBase<WeightFunctionDescriptor<T>, IWeightFunction, T>, IWeightFunction
+    where T : class
+{ }

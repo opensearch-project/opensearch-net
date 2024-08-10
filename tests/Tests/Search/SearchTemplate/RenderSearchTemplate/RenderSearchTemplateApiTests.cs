@@ -38,14 +38,14 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.SearchTemplate.RenderSearchTemplate
+namespace Tests.Search.SearchTemplate.RenderSearchTemplate;
+
+[SkipVersion("2.10.*,2.11.*", "Broken by security plugin https://github.com/opensearch-project/security/issues/3672")]
+public class RenderSearchTemplateApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, RenderSearchTemplateResponse, IRenderSearchTemplateRequest, RenderSearchTemplateDescriptor,
+        RenderSearchTemplateRequest>
 {
-    [SkipVersion("2.10.*,2.11.*", "Broken by security plugin https://github.com/opensearch-project/security/issues/3672")]
-    public class RenderSearchTemplateApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, RenderSearchTemplateResponse, IRenderSearchTemplateRequest, RenderSearchTemplateDescriptor,
-            RenderSearchTemplateRequest>
-    {
-        private static readonly string inlineSearchTemplate = @"
+    private static readonly string inlineSearchTemplate = @"
 {
 	""query"": {
 	  ""terms"": {
@@ -58,53 +58,52 @@ namespace Tests.Search.SearchTemplate.RenderSearchTemplate
 	}
   }";
 
-        private readonly string[] _statusValues = { "pending", "published" };
+    private readonly string[] _statusValues = { "pending", "published" };
 
-        public RenderSearchTemplateApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public RenderSearchTemplateApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override bool ExpectIsValid => true;
-        protected override int ExpectStatusCode => 200;
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
 
-        protected override Func<RenderSearchTemplateDescriptor, IRenderSearchTemplateRequest> Fluent => s => s
-            .Source(inlineSearchTemplate)
-            .Params(p => p
-                .Add("status", _statusValues)
-            );
-
-        protected override HttpMethod HttpMethod => HttpMethod.POST;
-
-
-        protected override RenderSearchTemplateRequest Initializer => new RenderSearchTemplateRequest
-        {
-            Source = inlineSearchTemplate,
-            Params = new Dictionary<string, object>
-            {
-                { "status", _statusValues }
-            }
-        };
-
-        protected override string UrlPath => $"/_render/template";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (c, f) => c.RenderSearchTemplate(f),
-            (c, f) => c.RenderSearchTemplateAsync(f),
-            (c, r) => c.RenderSearchTemplate(r),
-            (c, r) => c.RenderSearchTemplateAsync(r)
+    protected override Func<RenderSearchTemplateDescriptor, IRenderSearchTemplateRequest> Fluent => s => s
+        .Source(inlineSearchTemplate)
+        .Params(p => p
+            .Add("status", _statusValues)
         );
 
-        [I]
-        public Task AssertResponse() => AssertOnAllResponses(r =>
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
+
+
+    protected override RenderSearchTemplateRequest Initializer => new RenderSearchTemplateRequest
+    {
+        Source = inlineSearchTemplate,
+        Params = new Dictionary<string, object>
         {
-            r.TemplateOutput.Should().NotBeNull();
+            { "status", _statusValues }
+        }
+    };
 
-            //TODO: this fails on As with random source serializer we need to come up with a better API here in
-            // build.bat seed:36985 integrate 1.0.0 "readonly" "rendersearchtemplate"
+    protected override string UrlPath => $"/_render/template";
 
-            if (TestConfiguration.Instance.Random.SourceSerializer) return;
-            var searchRequest = r.TemplateOutput.As<ISearchRequest>();
-            searchRequest.Should().NotBeNull();
+    protected override LazyResponses ClientUsage() => Calls(
+        (c, f) => c.RenderSearchTemplate(f),
+        (c, f) => c.RenderSearchTemplateAsync(f),
+        (c, r) => c.RenderSearchTemplate(r),
+        (c, r) => c.RenderSearchTemplateAsync(r)
+    );
 
-            searchRequest.Query.Should().NotBeNull();
-        });
-    }
+    [I]
+    public Task AssertResponse() => AssertOnAllResponses(r =>
+    {
+        r.TemplateOutput.Should().NotBeNull();
+
+        //TODO: this fails on As with random source serializer we need to come up with a better API here in
+        // build.bat seed:36985 integrate 1.0.0 "readonly" "rendersearchtemplate"
+
+        if (TestConfiguration.Instance.Random.SourceSerializer) return;
+        var searchRequest = r.TemplateOutput.As<ISearchRequest>();
+        searchRequest.Should().NotBeNull();
+
+        searchRequest.Query.Should().NotBeNull();
+    });
 }

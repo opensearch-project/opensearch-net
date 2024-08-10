@@ -35,131 +35,130 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Aggregations.Metric.Percentiles
+namespace Tests.Aggregations.Metric.Percentiles;
+
+public class PercentilesAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 {
-    public class PercentilesAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public PercentilesAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+    public PercentilesAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-        protected override object AggregationJson => new
+    protected override object AggregationJson => new
+    {
+        commits_outlier = new
         {
-            commits_outlier = new
+            percentiles = new
             {
-                percentiles = new
+                field = "numberOfCommits",
+                percents = new[] { 95.0, 99.0, 99.9 },
+                hdr = new
                 {
-                    field = "numberOfCommits",
-                    percents = new[] { 95.0, 99.0, 99.9 },
-                    hdr = new
-                    {
-                        number_of_significant_value_digits = 3
-                    },
-                    script = new
-                    {
-                        source = "doc['numberOfCommits'].value * 1.2",
-                    },
-                    missing = 0.0
-                }
+                    number_of_significant_value_digits = 3
+                },
+                script = new
+                {
+                    source = "doc['numberOfCommits'].value * 1.2",
+                },
+                missing = 0.0
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .Percentiles("commits_outlier", pr => pr
+            .Field(p => p.NumberOfCommits)
+            .Percents(95, 99, 99.9)
+            .Method(m => m
+                .HDRHistogram(hdr => hdr
+                    .NumberOfSignificantValueDigits(3)
+                )
+            )
+            .Script(ss => ss.Source("doc['numberOfCommits'].value * 1.2"))
+            .Missing(0)
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new PercentilesAggregation("commits_outlier", Field<Project>(p => p.NumberOfCommits))
+        {
+            Percents = new[] { 95, 99, 99.9 },
+            Method = new HDRHistogramMethod
+            {
+                NumberOfSignificantValueDigits = 3
+            },
+            Script = new InlineScript("doc['numberOfCommits'].value * 1.2"),
+            Missing = 0
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .Percentiles("commits_outlier", pr => pr
-                .Field(p => p.NumberOfCommits)
-                .Percents(95, 99, 99.9)
-                .Method(m => m
-                    .HDRHistogram(hdr => hdr
-                        .NumberOfSignificantValueDigits(3)
-                    )
-                )
-                .Script(ss => ss.Source("doc['numberOfCommits'].value * 1.2"))
-                .Missing(0)
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new PercentilesAggregation("commits_outlier", Field<Project>(p => p.NumberOfCommits))
-            {
-                Percents = new[] { 95, 99, 99.9 },
-                Method = new HDRHistogramMethod
-                {
-                    NumberOfSignificantValueDigits = 3
-                },
-                Script = new InlineScript("doc['numberOfCommits'].value * 1.2"),
-                Missing = 0
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            var commitsOutlier = response.Aggregations.Percentiles("commits_outlier");
-            commitsOutlier.Should().NotBeNull();
-            commitsOutlier.Items.Should().NotBeNullOrEmpty();
-            foreach (var item in commitsOutlier.Items)
-                item.Value.Should().BeGreaterThan(0);
-        }
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var commitsOutlier = response.Aggregations.Percentiles("commits_outlier");
+        commitsOutlier.Should().NotBeNull();
+        commitsOutlier.Items.Should().NotBeNullOrEmpty();
+        foreach (var item in commitsOutlier.Items)
+            item.Value.Should().BeGreaterThan(0);
     }
+}
 
-    // hide
-    public class PercentilesAggregationNonKeyedValuesUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+// hide
+public class PercentilesAggregationNonKeyedValuesUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public PercentilesAggregationNonKeyedValuesUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
     {
-        public PercentilesAggregationNonKeyedValuesUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        protected override object AggregationJson => new
+        commits_outlier = new
         {
-            commits_outlier = new
+            percentiles = new
             {
-                percentiles = new
+                field = "numberOfCommits",
+                percents = new[] { 95.0, 99.0, 99.9 },
+                hdr = new
                 {
-                    field = "numberOfCommits",
-                    percents = new[] { 95.0, 99.0, 99.9 },
-                    hdr = new
-                    {
-                        number_of_significant_value_digits = 3
-                    },
-                    script = new
-                    {
-                        source = "doc['numberOfCommits'].value * 1.2",
-                    },
-                    missing = 0.0,
-                    keyed = false
-                }
+                    number_of_significant_value_digits = 3
+                },
+                script = new
+                {
+                    source = "doc['numberOfCommits'].value * 1.2",
+                },
+                missing = 0.0,
+                keyed = false
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .Percentiles("commits_outlier", pr => pr
+            .Field(p => p.NumberOfCommits)
+            .Percents(95, 99, 99.9)
+            .Method(m => m
+                .HDRHistogram(hdr => hdr
+                    .NumberOfSignificantValueDigits(3)
+                )
+            )
+            .Script(ss => ss.Source("doc['numberOfCommits'].value * 1.2"))
+            .Missing(0)
+            .Keyed(false)
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new PercentilesAggregation("commits_outlier", Field<Project>(p => p.NumberOfCommits))
+        {
+            Percents = new[] { 95, 99, 99.9 },
+            Method = new HDRHistogramMethod
+            {
+                NumberOfSignificantValueDigits = 3
+            },
+            Script = new InlineScript("doc['numberOfCommits'].value * 1.2"),
+            Missing = 0,
+            Keyed = false
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .Percentiles("commits_outlier", pr => pr
-                .Field(p => p.NumberOfCommits)
-                .Percents(95, 99, 99.9)
-                .Method(m => m
-                    .HDRHistogram(hdr => hdr
-                        .NumberOfSignificantValueDigits(3)
-                    )
-                )
-                .Script(ss => ss.Source("doc['numberOfCommits'].value * 1.2"))
-                .Missing(0)
-                .Keyed(false)
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new PercentilesAggregation("commits_outlier", Field<Project>(p => p.NumberOfCommits))
-            {
-                Percents = new[] { 95, 99, 99.9 },
-                Method = new HDRHistogramMethod
-                {
-                    NumberOfSignificantValueDigits = 3
-                },
-                Script = new InlineScript("doc['numberOfCommits'].value * 1.2"),
-                Missing = 0,
-                Keyed = false
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            var commitsOutlier = response.Aggregations.Percentiles("commits_outlier");
-            commitsOutlier.Should().NotBeNull();
-            commitsOutlier.Items.Should().NotBeNullOrEmpty();
-            foreach (var item in commitsOutlier.Items)
-                item.Value.Should().BeGreaterThan(0);
-        }
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var commitsOutlier = response.Aggregations.Percentiles("commits_outlier");
+        commitsOutlier.Should().NotBeNull();
+        commitsOutlier.Items.Should().NotBeNullOrEmpty();
+        foreach (var item in commitsOutlier.Items)
+            item.Value.Should().BeGreaterThan(0);
     }
 }

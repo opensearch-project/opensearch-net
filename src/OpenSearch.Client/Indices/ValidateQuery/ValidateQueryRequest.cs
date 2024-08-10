@@ -30,34 +30,33 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[MapsApi("indices.validate_query.json")]
+public partial interface IValidateQueryRequest
 {
-    [MapsApi("indices.validate_query.json")]
-    public partial interface IValidateQueryRequest
-    {
-        [DataMember(Name = "query")]
-        QueryContainer Query { get; set; }
-    }
+    [DataMember(Name = "query")]
+    QueryContainer Query { get; set; }
+}
 
-    [InterfaceDataContract]
-    // ReSharper disable once UnusedTypeParameter
-    public partial interface IValidateQueryRequest<TDocument> where TDocument : class { }
+[InterfaceDataContract]
+// ReSharper disable once UnusedTypeParameter
+public partial interface IValidateQueryRequest<TDocument> where TDocument : class { }
 
-    public partial class ValidateQueryRequest
-    {
-        public QueryContainer Query { get; set; }
-    }
+public partial class ValidateQueryRequest
+{
+    public QueryContainer Query { get; set; }
+}
 
-    // ReSharper disable once UnusedTypeParameter
-    public partial class ValidateQueryRequest<TDocument> where TDocument : class
-    {
-    }
+// ReSharper disable once UnusedTypeParameter
+public partial class ValidateQueryRequest<TDocument> where TDocument : class
+{
+}
 
-    public partial class ValidateQueryDescriptor<TDocument> where TDocument : class
-    {
-        QueryContainer IValidateQueryRequest.Query { get; set; }
+public partial class ValidateQueryDescriptor<TDocument> where TDocument : class
+{
+    QueryContainer IValidateQueryRequest.Query { get; set; }
 
-        public ValidateQueryDescriptor<TDocument> Query(Func<QueryContainerDescriptor<TDocument>, QueryContainer> querySelector)
-            => Assign(querySelector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<TDocument>()));
-    }
+    public ValidateQueryDescriptor<TDocument> Query(Func<QueryContainerDescriptor<TDocument>, QueryContainer> querySelector)
+        => Assign(querySelector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<TDocument>()));
 }

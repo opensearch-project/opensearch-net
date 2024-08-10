@@ -32,40 +32,39 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.RankFeature
+namespace Tests.Mapping.Types.Core.RankFeature;
+
+public class RankFeaturePropertyTests : PropertyTestsBase
 {
-    public class RankFeaturePropertyTests : PropertyTestsBase
+    public RankFeaturePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public RankFeaturePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            name = new
             {
-                name = new
-                {
-                    type = "rank_feature",
-                    positive_score_impact = true
-                }
+                type = "rank_feature",
+                positive_score_impact = true
             }
-        };
+        }
+    };
 
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .RankFeature(s => s
-                .Name(p => p.Name)
-                .PositiveScoreImpact()
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .RankFeature(s => s
+            .Name(p => p.Name)
+            .PositiveScoreImpact()
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "name", new RankFeatureProperty
             {
-                "name", new RankFeatureProperty
-                {
-                    PositiveScoreImpact = true
-                }
+                PositiveScoreImpact = true
             }
-        };
-    }
+        }
+    };
 }

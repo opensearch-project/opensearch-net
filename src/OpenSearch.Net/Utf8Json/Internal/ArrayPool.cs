@@ -52,50 +52,49 @@
 
 using System;
 
-namespace OpenSearch.Net.Utf8Json.Internal
+namespace OpenSearch.Net.Utf8Json.Internal;
+
+internal class ArrayPool<T>
 {
-    internal class ArrayPool<T>
+    private readonly int _bufferLength;
+    private readonly object _gate;
+    private int _index;
+    private T[][] _buffers;
+
+    public ArrayPool(int bufferLength)
     {
-        private readonly int _bufferLength;
-        private readonly object _gate;
-        private int _index;
-        private T[][] _buffers;
+        _bufferLength = bufferLength;
+        _buffers = new T[4][];
+        _gate = new object();
+    }
 
-        public ArrayPool(int bufferLength)
+    public T[] Rent()
+    {
+        lock (_gate)
         {
-            _bufferLength = bufferLength;
-            _buffers = new T[4][];
-            _gate = new object();
+            if (_index >= _buffers.Length)
+                Array.Resize(ref _buffers, _buffers.Length * 2);
+
+            if (_buffers[_index] == null)
+                _buffers[_index] = new T[_bufferLength];
+
+            var buffer = _buffers[_index];
+            _buffers[_index] = null;
+            _index++;
+
+            return buffer;
         }
+    }
 
-        public T[] Rent()
+    public void Return(T[] array)
+    {
+        if (array.Length != _bufferLength)
+            throw new InvalidOperationException("return buffer is not from pool");
+
+        lock (_gate)
         {
-            lock (_gate)
-            {
-                if (_index >= _buffers.Length)
-                    Array.Resize(ref _buffers, _buffers.Length * 2);
-
-                if (_buffers[_index] == null)
-                    _buffers[_index] = new T[_bufferLength];
-
-                var buffer = _buffers[_index];
-                _buffers[_index] = null;
-                _index++;
-
-                return buffer;
-            }
-        }
-
-        public void Return(T[] array)
-        {
-            if (array.Length != _bufferLength)
-                throw new InvalidOperationException("return buffer is not from pool");
-
-            lock (_gate)
-            {
-                if (_index != 0)
-                    _buffers[--_index] = array;
-            }
+            if (_index != 0)
+                _buffers[--_index] = array;
         }
     }
 }

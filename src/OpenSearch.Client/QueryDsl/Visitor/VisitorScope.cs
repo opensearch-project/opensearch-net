@@ -26,18 +26,17 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public enum VisitorScope
 {
-    public enum VisitorScope
-    {
-        Unknown,
-        Query,
-        Filter,
-        Must,
-        MustNot,
-        Should,
-        PositiveQuery,
-        NegativeQuery,
-        Span,
-    }
+    Unknown,
+    Query,
+    Filter,
+    Must,
+    MustNot,
+    Should,
+    PositiveQuery,
+    NegativeQuery,
+    Span,
 }

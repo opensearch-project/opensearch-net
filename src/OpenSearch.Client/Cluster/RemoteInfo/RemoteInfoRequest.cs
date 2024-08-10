@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("cluster.remote_info.json")]
-    public partial interface IRemoteInfoRequest { }
+namespace OpenSearch.Client;
 
-    public partial class RemoteInfoRequest { }
+[MapsApi("cluster.remote_info.json")]
+public partial interface IRemoteInfoRequest { }
 
-    public partial class RemoteInfoDescriptor { }
-}
+public partial class RemoteInfoRequest { }
+
+public partial class RemoteInfoDescriptor { }

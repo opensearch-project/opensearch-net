@@ -29,40 +29,39 @@
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    internal class IndicesMultiSyntaxFormatter : IJsonFormatter<Indices>
-    {
-        public Indices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.GetCurrentJsonToken() == JsonToken.String)
-            {
-                Indices indices = reader.ReadString();
-                return indices;
-            }
+namespace OpenSearch.Client;
 
-            reader.ReadNextBlock();
-            return null;
+internal class IndicesMultiSyntaxFormatter : IJsonFormatter<Indices>
+{
+    public Indices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.GetCurrentJsonToken() == JsonToken.String)
+        {
+            Indices indices = reader.ReadString();
+            return indices;
         }
 
-        public void Serialize(ref JsonWriter writer, Indices value, IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+        reader.ReadNextBlock();
+        return null;
+    }
 
-            switch (value.Tag)
-            {
-                case 0:
-                    writer.WriteString("_all");
-                    break;
-                case 1:
-                    var connectionSettings = formatterResolver.GetConnectionSettings();
-                    writer.WriteString(((IUrlParameter)value).GetString(connectionSettings));
-                    break;
-            }
+    public void Serialize(ref JsonWriter writer, Indices value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
+
+        switch (value.Tag)
+        {
+            case 0:
+                writer.WriteString("_all");
+                break;
+            case 1:
+                var connectionSettings = formatterResolver.GetConnectionSettings();
+                writer.WriteString(((IUrlParameter)value).GetString(connectionSettings));
+                break;
         }
     }
 }

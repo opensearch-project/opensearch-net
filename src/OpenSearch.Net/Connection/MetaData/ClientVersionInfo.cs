@@ -31,44 +31,43 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal sealed class ClientVersionInfo : VersionInfo
 {
-    internal sealed class ClientVersionInfo : VersionInfo
+    private static readonly Regex VersionRegex = new Regex(@"(\d+\.)(\d+\.)(\d)");
+
+    public static readonly ClientVersionInfo Empty = new ClientVersionInfo { Version = new Version(0, 0, 0), IsPrerelease = false };
+
+    private ClientVersionInfo() { }
+
+    public static ClientVersionInfo Create<T>()
     {
-        private static readonly Regex VersionRegex = new Regex(@"(\d+\.)(\d+\.)(\d)");
+        var fullVersion = DetermineClientVersion(typeof(T));
 
-        public static readonly ClientVersionInfo Empty = new ClientVersionInfo { Version = new Version(0, 0, 0), IsPrerelease = false };
+        var clientVersion = new ClientVersionInfo();
+        clientVersion.StoreVersion(fullVersion);
+        return clientVersion;
+    }
 
-        private ClientVersionInfo() { }
-
-        public static ClientVersionInfo Create<T>()
+    private static string DetermineClientVersion(Type type)
+    {
+        try
         {
-            var fullVersion = DetermineClientVersion(typeof(T));
+            var productVersion = FileVersionInfo.GetVersionInfo(type.GetTypeInfo().Assembly.Location)?.ProductVersion ?? EmptyVersion;
 
-            var clientVersion = new ClientVersionInfo();
-            clientVersion.StoreVersion(fullVersion);
-            return clientVersion;
+            if (productVersion == EmptyVersion)
+                productVersion = Assembly.GetAssembly(type).GetName().Version.ToString();
+
+            var match = VersionRegex.Match(productVersion);
+
+            return match.Success ? match.Value : EmptyVersion;
+        }
+        catch
+        {
+            // ignore failures and fall through
         }
 
-        private static string DetermineClientVersion(Type type)
-        {
-            try
-            {
-                var productVersion = FileVersionInfo.GetVersionInfo(type.GetTypeInfo().Assembly.Location)?.ProductVersion ?? EmptyVersion;
-
-                if (productVersion == EmptyVersion)
-                    productVersion = Assembly.GetAssembly(type).GetName().Version.ToString();
-
-                var match = VersionRegex.Match(productVersion);
-
-                return match.Success ? match.Value : EmptyVersion;
-            }
-            catch
-            {
-                // ignore failures and fall through
-            }
-
-            return EmptyVersion;
-        }
+        return EmptyVersion;
     }
 }

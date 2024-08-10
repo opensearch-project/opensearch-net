@@ -30,11 +30,11 @@ using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.ClientConcepts.ServerError
+namespace Tests.ClientConcepts.ServerError;
+
+public class ErrorWithNullRootCausesTests : ServerErrorTestsBase
 {
-    public class ErrorWithNullRootCausesTests : ServerErrorTestsBase
-    {
-        protected override string Json => @"{
+    protected override string Json => @"{
 			""root_cause"": null,
 			""type"": ""parse_exception"",
 			""reason"": ""failed to parse source for create index"",
@@ -44,17 +44,16 @@ namespace Tests.ClientConcepts.ServerError
 			}
 		}";
 
-        [U] protected override void AssertServerError() => base.AssertServerError();
+    [U] protected override void AssertServerError() => base.AssertServerError();
 
-        protected override void AssertResponseError(string origin, Error error)
-        {
-            error.Type.Should().NotBeNullOrWhiteSpace(origin);
-            error.Reason.Should().NotBeNullOrWhiteSpace(origin);
-            error.RootCause.Should().BeNull(origin);
-            var causedBy = error.CausedBy;
-            causedBy.Should().NotBeNull(origin);
-            causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
-            causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
-        }
+    protected override void AssertResponseError(string origin, Error error)
+    {
+        error.Type.Should().NotBeNullOrWhiteSpace(origin);
+        error.Reason.Should().NotBeNullOrWhiteSpace(origin);
+        error.RootCause.Should().BeNull(origin);
+        var causedBy = error.CausedBy;
+        causedBy.Should().NotBeNull(origin);
+        causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
+        causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
     }
 }

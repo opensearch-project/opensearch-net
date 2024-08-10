@@ -32,63 +32,62 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal sealed class ReadAsFormatterResolver : IJsonFormatterResolver
 {
-    internal sealed class ReadAsFormatterResolver : IJsonFormatterResolver
+    public static readonly IJsonFormatterResolver Instance = new ReadAsFormatterResolver();
+
+    private ReadAsFormatterResolver() { }
+
+    public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+
+    private static class FormatterCache<T>
     {
-        public static readonly IJsonFormatterResolver Instance = new ReadAsFormatterResolver();
+        public static readonly IJsonFormatter<T> Formatter;
 
-        private ReadAsFormatterResolver() { }
-
-        public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
-
-        private static class FormatterCache<T>
+        static FormatterCache()
         {
-            public static readonly IJsonFormatter<T> Formatter;
+            var readAsAttribute = typeof(T).GetCustomAttribute<ReadAsAttribute>();
+            if (readAsAttribute == null)
+                return;
 
-            static FormatterCache()
+            try
             {
-                var readAsAttribute = typeof(T).GetCustomAttribute<ReadAsAttribute>();
-                if (readAsAttribute == null)
-                    return;
-
-                try
+                Type formatterType;
+                if (readAsAttribute.Type.IsGenericType && !readAsAttribute.Type.IsConstructedGenericType)
                 {
-                    Type formatterType;
-                    if (readAsAttribute.Type.IsGenericType && !readAsAttribute.Type.IsConstructedGenericType)
-                    {
-                        var genericType = readAsAttribute.Type.MakeGenericType(typeof(T).GenericTypeArguments);
-                        formatterType = typeof(ReadAsFormatter<,>).MakeGenericType(genericType, typeof(T));
-                    }
-                    else
-                        formatterType = typeof(ReadAsFormatter<,>).MakeGenericType(readAsAttribute.Type, typeof(T));
+                    var genericType = readAsAttribute.Type.MakeGenericType(typeof(T).GenericTypeArguments);
+                    formatterType = typeof(ReadAsFormatter<,>).MakeGenericType(genericType, typeof(T));
+                }
+                else
+                    formatterType = typeof(ReadAsFormatter<,>).MakeGenericType(readAsAttribute.Type, typeof(T));
 
-                    Formatter = (IJsonFormatter<T>)Activator.CreateInstance(formatterType);
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException($"Can not create formatter from {nameof(ReadAsAttribute)} for {readAsAttribute.Type.Name}", ex);
-                }
+                Formatter = (IJsonFormatter<T>)Activator.CreateInstance(formatterType);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Can not create formatter from {nameof(ReadAsAttribute)} for {readAsAttribute.Type.Name}", ex);
             }
         }
     }
+}
 
-    internal class ReadAsFormatter<TRead, T> : IJsonFormatter<T>
-        where TRead : T
+internal class ReadAsFormatter<TRead, T> : IJsonFormatter<T>
+    where TRead : T
+{
+    public virtual T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        public virtual T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            var formatter = formatterResolver.GetFormatter<TRead>();
-            return formatter.Deserialize(ref reader, formatterResolver);
-        }
+        var formatter = formatterResolver.GetFormatter<TRead>();
+        return formatter.Deserialize(ref reader, formatterResolver);
+    }
 
-        public virtual void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver) =>
-            SerializeInternal(ref writer, value, formatterResolver);
+    public virtual void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver) =>
+        SerializeInternal(ref writer, value, formatterResolver);
 
-        public virtual void SerializeInternal(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
-        {
-            var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<T>();
-            formatter.Serialize(ref writer, value, formatterResolver);
-        }
+    public virtual void SerializeInternal(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
+    {
+        var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<T>();
+        formatter.Serialize(ref writer, value, formatterResolver);
     }
 }

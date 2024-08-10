@@ -35,94 +35,93 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class MultiGetResponseFormatter : IJsonFormatter<MultiGetResponse>
 {
-    internal class MultiGetResponseFormatter : IJsonFormatter<MultiGetResponse>
+    private static readonly MethodInfo MakeDelegateMethodInfo =
+        typeof(MultiGetResponseFormatter).GetMethod(nameof(CreateMultiHit), BindingFlags.Static | BindingFlags.NonPublic);
+
+    private readonly IMultiGetRequest _request;
+
+    public MultiGetResponseFormatter(IMultiGetRequest request) => _request = request;
+
+    public MultiGetResponse Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        private static readonly MethodInfo MakeDelegateMethodInfo =
-            typeof(MultiGetResponseFormatter).GetMethod(nameof(CreateMultiHit), BindingFlags.Static | BindingFlags.NonPublic);
+        if (_request == null)
+            return null;
 
-        private readonly IMultiGetRequest _request;
-
-        public MultiGetResponseFormatter(IMultiGetRequest request) => _request = request;
-
-        public MultiGetResponse Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        var response = new MultiGetResponse();
+        var responses = new List<ArraySegment<byte>>();
+        var count = 0;
+        while (reader.ReadIsInObject(ref count))
         {
-            if (_request == null)
-                return null;
-
-            var response = new MultiGetResponse();
-            var responses = new List<ArraySegment<byte>>();
-            var count = 0;
-            while (reader.ReadIsInObject(ref count))
+            var propertyName = reader.ReadPropertyName();
+            if (propertyName == "docs")
             {
-                var propertyName = reader.ReadPropertyName();
-                if (propertyName == "docs")
-                {
-                    var arrayCount = 0;
-                    while (reader.ReadIsInArray(ref arrayCount))
-                        responses.Add(reader.ReadNextBlockSegment());
-                    break;
-                }
-
-                // skip any other properties that are not "docs"
-                reader.ReadNextBlock();
+                var arrayCount = 0;
+                while (reader.ReadIsInArray(ref arrayCount))
+                    responses.Add(reader.ReadNextBlockSegment());
+                break;
             }
 
-            if (responses.Count == 0)
-                return response;
+            // skip any other properties that are not "docs"
+            reader.ReadNextBlock();
+        }
 
-            var withMeta = responses.Zip(_request.Documents,
-                (doc, desc) => new MultiHitTuple
+        if (responses.Count == 0)
+            return response;
+
+        var withMeta = responses.Zip(_request.Documents,
+            (doc, desc) => new MultiHitTuple
+            {
+                Hit = doc,
+                Descriptor = desc
+            });
+
+        foreach (var m in withMeta)
+        {
+            var cachedDelegate = formatterResolver.GetConnectionSettings()
+                .Inferrer.CreateMultiHitDelegates.GetOrAdd(m.Descriptor.ClrType, t =>
                 {
-                    Hit = doc,
-                    Descriptor = desc
+                    // Compile a delegate from an expression
+                    var methodInfo = MakeDelegateMethodInfo.MakeGenericMethod(t);
+                    var tupleParameter = Expression.Parameter(typeof(MultiHitTuple), "tuple");
+                    var serializerParameter = Expression.Parameter(typeof(IJsonFormatterResolver), "formatterResolver");
+                    var multiHitCollection = Expression.Parameter(typeof(ICollection<IMultiGetHit<object>>), "collection");
+                    var parameterExpressions = new[] { tupleParameter, serializerParameter, multiHitCollection };
+                    // ReSharper disable once CoVariantArrayConversion
+                    var call = Expression.Call(null, methodInfo, parameterExpressions);
+                    var lambda =
+                        Expression.Lambda<Action<MultiHitTuple, IJsonFormatterResolver, ICollection<IMultiGetHit<object>>>>(call,
+                            parameterExpressions);
+                    return lambda.Compile();
                 });
 
-            foreach (var m in withMeta)
-            {
-                var cachedDelegate = formatterResolver.GetConnectionSettings()
-                    .Inferrer.CreateMultiHitDelegates.GetOrAdd(m.Descriptor.ClrType, t =>
-                    {
-                        // Compile a delegate from an expression
-                        var methodInfo = MakeDelegateMethodInfo.MakeGenericMethod(t);
-                        var tupleParameter = Expression.Parameter(typeof(MultiHitTuple), "tuple");
-                        var serializerParameter = Expression.Parameter(typeof(IJsonFormatterResolver), "formatterResolver");
-                        var multiHitCollection = Expression.Parameter(typeof(ICollection<IMultiGetHit<object>>), "collection");
-                        var parameterExpressions = new[] { tupleParameter, serializerParameter, multiHitCollection };
-                        // ReSharper disable once CoVariantArrayConversion
-                        var call = Expression.Call(null, methodInfo, parameterExpressions);
-                        var lambda =
-                            Expression.Lambda<Action<MultiHitTuple, IJsonFormatterResolver, ICollection<IMultiGetHit<object>>>>(call,
-                                parameterExpressions);
-                        return lambda.Compile();
-                    });
-
-                cachedDelegate(m, formatterResolver, response.InternalHits);
-            }
-
-            return response;
+            cachedDelegate(m, formatterResolver, response.InternalHits);
         }
 
-        public void Serialize(ref JsonWriter writer, MultiGetResponse value, IJsonFormatterResolver formatterResolver) => DynamicObjectResolver
-            .ExcludeNullCamelCase.GetFormatter<MultiGetResponse>()
-            .Serialize(ref writer, value, formatterResolver);
+        return response;
+    }
 
-        private static void CreateMultiHit<T>(MultiHitTuple tuple, IJsonFormatterResolver formatterResolver,
-            ICollection<IMultiGetHit<object>> collection
-        )
-            where T : class
-        {
-            var formatter = formatterResolver.GetFormatter<MultiGetHit<T>>();
-            var reader = new JsonReader(tuple.Hit.Array, tuple.Hit.Offset);
-            var hit = formatter.Deserialize(ref reader, formatterResolver);
-            collection.Add(hit);
-        }
+    public void Serialize(ref JsonWriter writer, MultiGetResponse value, IJsonFormatterResolver formatterResolver) => DynamicObjectResolver
+        .ExcludeNullCamelCase.GetFormatter<MultiGetResponse>()
+        .Serialize(ref writer, value, formatterResolver);
 
-        internal class MultiHitTuple
-        {
-            public IMultiGetOperation Descriptor { get; set; }
-            public ArraySegment<byte> Hit { get; set; }
-        }
+    private static void CreateMultiHit<T>(MultiHitTuple tuple, IJsonFormatterResolver formatterResolver,
+        ICollection<IMultiGetHit<object>> collection
+    )
+        where T : class
+    {
+        var formatter = formatterResolver.GetFormatter<MultiGetHit<T>>();
+        var reader = new JsonReader(tuple.Hit.Array, tuple.Hit.Offset);
+        var hit = formatter.Deserialize(ref reader, formatterResolver);
+        collection.Add(hit);
+    }
+
+    internal class MultiHitTuple
+    {
+        public IMultiGetOperation Descriptor { get; set; }
+        public ArraySegment<byte> Hit { get; set; }
     }
 }

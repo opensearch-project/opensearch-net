@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("indices.forcemerge.json")]
-    public partial interface IForceMergeRequest { }
+namespace OpenSearch.Client;
 
-    public partial class ForceMergeRequest { }
+[MapsApi("indices.forcemerge.json")]
+public partial interface IForceMergeRequest { }
 
-    public partial class ForceMergeDescriptor { }
-}
+public partial class ForceMergeRequest { }
+
+public partial class ForceMergeDescriptor { }

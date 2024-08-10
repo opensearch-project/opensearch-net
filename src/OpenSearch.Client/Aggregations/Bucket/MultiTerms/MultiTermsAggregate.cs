@@ -26,11 +26,10 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class MultiTermsAggregate<TKey> : MultiBucketAggregate<MultiTermsBucket<TKey>>
 {
-    public class MultiTermsAggregate<TKey> : MultiBucketAggregate<MultiTermsBucket<TKey>>
-    {
-        public long? DocCountErrorUpperBound { get; set; }
-        public long? SumOtherDocCount { get; set; }
-    }
+    public long? DocCountErrorUpperBound { get; set; }
+    public long? SumOtherDocCount { get; set; }
 }

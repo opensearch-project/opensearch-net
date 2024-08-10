@@ -31,35 +31,34 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(MultiGetOperationDescriptor<object>))]
+public interface IMultiGetOperation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(MultiGetOperationDescriptor<object>))]
-    public interface IMultiGetOperation
-    {
-        bool CanBeFlattened { get; }
+    bool CanBeFlattened { get; }
 
-        Type ClrType { get; }
+    Type ClrType { get; }
 
-        [DataMember(Name = "_id")]
-        Id Id { get; set; }
+    [DataMember(Name = "_id")]
+    Id Id { get; set; }
 
-        [DataMember(Name = "_index")]
-        IndexName Index { get; set; }
+    [DataMember(Name = "_index")]
+    IndexName Index { get; set; }
 
-        [DataMember(Name = "routing")]
-        string Routing { get; set; }
+    [DataMember(Name = "routing")]
+    string Routing { get; set; }
 
-        [DataMember(Name = "_source")]
-        Union<bool, ISourceFilter> Source { get; set; }
+    [DataMember(Name = "_source")]
+    Union<bool, ISourceFilter> Source { get; set; }
 
-        [DataMember(Name = "stored_fields")]
-        Fields StoredFields { get; set; }
+    [DataMember(Name = "stored_fields")]
+    Fields StoredFields { get; set; }
 
-        [DataMember(Name = "version")]
-        long? Version { get; set; }
+    [DataMember(Name = "version")]
+    long? Version { get; set; }
 
-        [DataMember(Name = "version_type")]
-        VersionType? VersionType { get; set; }
-    }
+    [DataMember(Name = "version_type")]
+    VersionType? VersionType { get; set; }
 }

@@ -29,40 +29,39 @@
 using System;
 using System.IO;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// A factory for creating memory streams using a recyclable pool of <see cref="MemoryStream" /> instances
+/// </summary>
+public class RecyclableMemoryStreamFactory : IMemoryStreamFactory
 {
-    /// <summary>
-    /// A factory for creating memory streams using a recyclable pool of <see cref="MemoryStream" /> instances
-    /// </summary>
-    public class RecyclableMemoryStreamFactory : IMemoryStreamFactory
+    private const string TagSource = "OpenSearch.Net";
+    private readonly RecyclableMemoryStreamManager _manager;
+
+    public static RecyclableMemoryStreamFactory Default { get; } = new RecyclableMemoryStreamFactory();
+
+    public RecyclableMemoryStreamFactory() => _manager = CreateManager(experimental: false);
+
+    private static RecyclableMemoryStreamManager CreateManager(bool experimental)
     {
-        private const string TagSource = "OpenSearch.Net";
-        private readonly RecyclableMemoryStreamManager _manager;
+        if (!experimental) return new RecyclableMemoryStreamManager() { AggressiveBufferReturn = true };
 
-        public static RecyclableMemoryStreamFactory Default { get; } = new RecyclableMemoryStreamFactory();
-
-        public RecyclableMemoryStreamFactory() => _manager = CreateManager(experimental: false);
-
-        private static RecyclableMemoryStreamManager CreateManager(bool experimental)
+        const int blockSize = 1024;
+        const int largeBufferMultiple = 1024 * 1024;
+        const int maxBufferSize = 16 * largeBufferMultiple;
+        return new RecyclableMemoryStreamManager(blockSize, largeBufferMultiple, maxBufferSize)
         {
-            if (!experimental) return new RecyclableMemoryStreamManager() { AggressiveBufferReturn = true };
+            AggressiveBufferReturn = true,
+            MaximumFreeLargePoolBytes = maxBufferSize * 4,
+            MaximumFreeSmallPoolBytes = 100 * blockSize
+        };
 
-            const int blockSize = 1024;
-            const int largeBufferMultiple = 1024 * 1024;
-            const int maxBufferSize = 16 * largeBufferMultiple;
-            return new RecyclableMemoryStreamManager(blockSize, largeBufferMultiple, maxBufferSize)
-            {
-                AggressiveBufferReturn = true,
-                MaximumFreeLargePoolBytes = maxBufferSize * 4,
-                MaximumFreeSmallPoolBytes = 100 * blockSize
-            };
-
-        }
-
-        public MemoryStream Create() => _manager.GetStream(Guid.Empty, TagSource);
-
-        public MemoryStream Create(byte[] bytes) => _manager.GetStream(bytes);
-
-        public MemoryStream Create(byte[] bytes, int index, int count) => _manager.GetStream(Guid.Empty, TagSource, bytes, index, count);
     }
+
+    public MemoryStream Create() => _manager.GetStream(Guid.Empty, TagSource);
+
+    public MemoryStream Create(byte[] bytes) => _manager.GetStream(bytes);
+
+    public MemoryStream Create(byte[] bytes, int index, int count) => _manager.GetStream(Guid.Empty, TagSource, bytes, index, count);
 }

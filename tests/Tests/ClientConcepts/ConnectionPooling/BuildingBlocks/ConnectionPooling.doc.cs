@@ -38,11 +38,11 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Configuration;
 using Tests.Framework;
 
-namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
+namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks;
+
+public class ConnectionPooling
 {
-    public class ConnectionPooling
-    {
-        /**[[connection-pooling]]
+    /**[[connection-pooling]]
 		 * === Connection pools
 		 * Connection pooling is the internal mechanism that takes care of registering what nodes there are in the cluster and which
 		 * OSC can use to issue client calls on.
@@ -70,7 +70,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		 * - <<sticky-connection-pool,StickyConnectionPool>>
 		 */
 
-        /**
+    /**
 		* [[single-node-connection-pool]]
 		* ==== SingleNodeConnectionPool
 		*
@@ -81,39 +81,39 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		* Single node connection pool is the pool to use if your cluster contains only a single node or you are interacting with
 		* your cluster through a single load balancer instance.
 		*/
-        [U]
-        public void SingleNode()
+    [U]
+    public void SingleNode()
+    {
+        var uri = new Uri("http://localhost:9201");
+        var pool = new SingleNodeConnectionPool(uri);
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
+
+        /** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>) as well as <<pinging-behaviour, pinging>> */
+        // hide
         {
-            var uri = new Uri("http://localhost:9201");
-            var pool = new SingleNodeConnectionPool(uri);
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
-
-            /** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>) as well as <<pinging-behaviour, pinging>> */
-            // hide
-            {
-                pool.Nodes.Should().HaveCount(1);
-                var node = pool.Nodes.First();
-                node.Uri.Port.Should().Be(9201);
-                pool.SupportsReseeding.Should().BeFalse();
-                pool.SupportsPinging.Should().BeFalse();
-                client.ConnectionSettings.ConnectionPool
-                    .Should()
-                    .BeOfType<SingleNodeConnectionPool>();
-            }
-
-            /** When you use the low ceremony `OpenSearchClient` constructor that takes a single `Uri`,
-			* internally a `SingleNodeConnectionPool` is used
-			*/
-            client = new OpenSearchClient(uri);
-
-            /** However we encourage you to pass connection settings explicitly.
-			*/
-            // hide
+            pool.Nodes.Should().HaveCount(1);
+            var node = pool.Nodes.First();
+            node.Uri.Port.Should().Be(9201);
+            pool.SupportsReseeding.Should().BeFalse();
+            pool.SupportsPinging.Should().BeFalse();
             client.ConnectionSettings.ConnectionPool
-                .Should().BeOfType<SingleNodeConnectionPool>();
+                .Should()
+                .BeOfType<SingleNodeConnectionPool>();
         }
 
-        /**
+        /** When you use the low ceremony `OpenSearchClient` constructor that takes a single `Uri`,
+			* internally a `SingleNodeConnectionPool` is used
+			*/
+        client = new OpenSearchClient(uri);
+
+        /** However we encourage you to pass connection settings explicitly.
+			*/
+        // hide
+        client.ConnectionSettings.ConnectionPool
+            .Should().BeOfType<SingleNodeConnectionPool>();
+    }
+
+    /**
 		* [[cloud-connection-pool]]
 		* ==== CloudConnectionPool
 		*
@@ -129,278 +129,277 @@ namespace Tests.ClientConcepts.ConnectionPooling.BuildingBlocks
 		 * Out of these, only `host_name` and `opensearch_uuid` are always available.
 		 *
 		*/
-        [U]
-        public void CloudConnectionPool()
-        {
-            // hide
-            string ToBase64(string s) => Convert.ToBase64String(Encoding.UTF8.GetBytes(s));
-            // hide
-            var hostName = "cloud-endpoint.example";
-            // hide
-            var opensearchUuid = "3dadf823f05388497ea684236d918a1a";
-            // hide
-            var services = $"{hostName}${opensearchUuid}$3f26e1609cf54a0f80137a80de560da4";
-            // hide
-            var cloudId = $"my_cluster:{ToBase64(services)}";
+    [U]
+    public void CloudConnectionPool()
+    {
+        // hide
+        string ToBase64(string s) => Convert.ToBase64String(Encoding.UTF8.GetBytes(s));
+        // hide
+        var hostName = "cloud-endpoint.example";
+        // hide
+        var opensearchUuid = "3dadf823f05388497ea684236d918a1a";
+        // hide
+        var services = $"{hostName}${opensearchUuid}$3f26e1609cf54a0f80137a80de560da4";
+        // hide
+        var cloudId = $"my_cluster:{ToBase64(services)}";
 
-            /**
+        /**
 			 * A cloud connection pool can be created using credentials and a `cloudId`
 			 */
-            var credentials = new BasicAuthenticationCredentials("username", "password"); // <1> a username and password that can access OpenSearch service on OpenSearch Cloud
-            var pool = new CloudConnectionPool(cloudId, credentials); // <2> `cloudId` is a value that can be retrieved from the OpenSearch Cloud web console
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
+        var credentials = new BasicAuthenticationCredentials("username", "password"); // <1> a username and password that can access OpenSearch service on OpenSearch Cloud
+        var pool = new CloudConnectionPool(cloudId, credentials); // <2> `cloudId` is a value that can be retrieved from the OpenSearch Cloud web console
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            // hide
-            {
-                pool.UsingSsl.Should().BeTrue();
-                pool.Nodes.Should().HaveCount(1);
-                var node = pool.Nodes.First();
-                node.Uri.Port.Should().Be(443);
-                node.Uri.Host.Should().Be($"{opensearchUuid}.{hostName}");
-                node.Uri.Scheme.Should().Be("https");
-            }
-
-            /** This type of pool, like its parent the `SingleNodeConnectionPool`, is hardwired to opt out of
-			 * reseeding (<<sniffing-behaviour, sniffing>>) as well as <<pinging-behaviour, pinging>>.
-			 */
-            // hide
-            {
-                pool.SupportsReseeding.Should().BeFalse();
-                pool.SupportsPinging.Should().BeFalse();
-            }
-
-            /**
-			 * You can also directly create a cloud enabled connection using the `OpenSearchClient`'s constructor
-			*/
-            client = new OpenSearchClient(cloudId, credentials);
-
-            // hide
-            {
-                client.ConnectionSettings.ConnectionPool
-                    .Should()
-                    .BeOfType<CloudConnectionPool>();
-            }
-
-            // hide
-            {
-                client = new OpenSearchClient(new ConnectionSettings(pool));
-                client.ConnectionSettings.ConnectionPool.Should().BeOfType<CloudConnectionPool>();
-                client.ConnectionSettings.EnableHttpCompression.Should().BeTrue();
-                client.ConnectionSettings.BasicAuthenticationCredentials.Should().NotBeNull();
-                client.ConnectionSettings.BasicAuthenticationCredentials.Username.Should().Be("username");
-            }
-
-            //hide
-            {
-
-                //make sure we can deal with trailing dollar sign separators.
-                foreach (var dollars in Enumerable.Range(0, 5).Select(i => new string('$', i)))
-                {
-                    Func<IOpenSearchClient> doesNotThrowWhenEndsWithDollar = () =>
-                        new OpenSearchClient($"my_cluster:{ToBase64($"hostname$guid{dollars}")}", credentials);
-
-                    var validClient = doesNotThrowWhenEndsWithDollar.Should().NotThrow().Subject;
-                    validClient.ConnectionSettings.ConnectionPool.Nodes.First().Uri.Should().Be("https://guid.hostname");
-                }
-
-                var badCloudIds = new[]
-                {
-                    "",
-                    "my_cluster",
-                    "my_cluster:",
-                    $"my_cluster:{ToBase64("hostname")}",
-                    $"my_cluster:{ToBase64("hostname$")}"
-                };
-
-                foreach (var id in badCloudIds)
-                {
-                    Action create = () => new OpenSearchClient(id, credentials);
-
-                    create.Should()
-                        .Throw<ArgumentException>()
-                        .And.Message.Should()
-                        .Contain("should be a string in the form of cluster_name:base_64_data");
-                }
-            }
+        // hide
+        {
+            pool.UsingSsl.Should().BeTrue();
+            pool.Nodes.Should().HaveCount(1);
+            var node = pool.Nodes.First();
+            node.Uri.Port.Should().Be(443);
+            node.Uri.Host.Should().Be($"{opensearchUuid}.{hostName}");
+            node.Uri.Scheme.Should().Be("https");
         }
 
-        /**[[static-connection-pool]]
+        /** This type of pool, like its parent the `SingleNodeConnectionPool`, is hardwired to opt out of
+			 * reseeding (<<sniffing-behaviour, sniffing>>) as well as <<pinging-behaviour, pinging>>.
+			 */
+        // hide
+        {
+            pool.SupportsReseeding.Should().BeFalse();
+            pool.SupportsPinging.Should().BeFalse();
+        }
+
+        /**
+			 * You can also directly create a cloud enabled connection using the `OpenSearchClient`'s constructor
+			*/
+        client = new OpenSearchClient(cloudId, credentials);
+
+        // hide
+        {
+            client.ConnectionSettings.ConnectionPool
+                .Should()
+                .BeOfType<CloudConnectionPool>();
+        }
+
+        // hide
+        {
+            client = new OpenSearchClient(new ConnectionSettings(pool));
+            client.ConnectionSettings.ConnectionPool.Should().BeOfType<CloudConnectionPool>();
+            client.ConnectionSettings.EnableHttpCompression.Should().BeTrue();
+            client.ConnectionSettings.BasicAuthenticationCredentials.Should().NotBeNull();
+            client.ConnectionSettings.BasicAuthenticationCredentials.Username.Should().Be("username");
+        }
+
+        //hide
+        {
+
+            //make sure we can deal with trailing dollar sign separators.
+            foreach (var dollars in Enumerable.Range(0, 5).Select(i => new string('$', i)))
+            {
+                Func<IOpenSearchClient> doesNotThrowWhenEndsWithDollar = () =>
+                    new OpenSearchClient($"my_cluster:{ToBase64($"hostname$guid{dollars}")}", credentials);
+
+                var validClient = doesNotThrowWhenEndsWithDollar.Should().NotThrow().Subject;
+                validClient.ConnectionSettings.ConnectionPool.Nodes.First().Uri.Should().Be("https://guid.hostname");
+            }
+
+            var badCloudIds = new[]
+            {
+                "",
+                "my_cluster",
+                "my_cluster:",
+                $"my_cluster:{ToBase64("hostname")}",
+                $"my_cluster:{ToBase64("hostname$")}"
+            };
+
+            foreach (var id in badCloudIds)
+            {
+                Action create = () => new OpenSearchClient(id, credentials);
+
+                create.Should()
+                    .Throw<ArgumentException>()
+                    .And.Message.Should()
+                    .Contain("should be a string in the form of cluster_name:base_64_data");
+            }
+        }
+    }
+
+    /**[[static-connection-pool]]
 		* ==== StaticConnectionPool
 		*
 		* The static connection pool is great if you have a known small sized cluster and do no want to enable
 		* sniffing to find out the cluster topology.
 		*/
-        [U]
-        public void Static()
-        {
-            /** Given a collection of `Uri` */
-            var uris = Enumerable.Range(9200, 5)
-                .Select(port => new Uri($"http://localhost:{port}"));
+    [U]
+    public void Static()
+    {
+        /** Given a collection of `Uri` */
+        var uris = Enumerable.Range(9200, 5)
+            .Select(port => new Uri($"http://localhost:{port}"));
 
-            /** a connection pool can be seeded with this collection */
-            var pool = new StaticConnectionPool(uris);
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
+        /** a connection pool can be seeded with this collection */
+        var pool = new StaticConnectionPool(uris);
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** Or using an enumerable of `Node` */
-            var nodes = uris.Select(u => new Node(u));
-            pool = new StaticConnectionPool(nodes);
-            client = new OpenSearchClient(new ConnectionSettings(pool));
+        /** Or using an enumerable of `Node` */
+        var nodes = uris.Select(u => new Node(u));
+        pool = new StaticConnectionPool(nodes);
+        client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** This type of pool is hardwired to opt out of reseeding
+        /** This type of pool is hardwired to opt out of reseeding
 			 * (<<sniffing-behaviour, sniffing>>) but supports <<pinging-behaviour, pinging>> when enabled.
 			 */
-            //hide
-            {
-                pool.SupportsReseeding.Should().BeFalse();
-                pool.SupportsPinging.Should().BeTrue();
-                client.ConnectionSettings.ConnectionPool
-                    .Should().BeOfType<StaticConnectionPool>();
-            }
-        }
-
         //hide
-        private class SeededRandomConectionPool : StaticConnectionPool
         {
-            public SeededRandomConectionPool(IEnumerable<Node> nodes, int seed)
-                : base(nodes, randomize: true, randomizeSeed: seed, dateTimeProvider: null)
-            { }
+            pool.SupportsReseeding.Should().BeFalse();
+            pool.SupportsPinging.Should().BeTrue();
+            client.ConnectionSettings.ConnectionPool
+                .Should().BeOfType<StaticConnectionPool>();
+        }
+    }
+
+    //hide
+    private class SeededRandomConectionPool : StaticConnectionPool
+    {
+        public SeededRandomConectionPool(IEnumerable<Node> nodes, int seed)
+            : base(nodes, randomize: true, randomizeSeed: seed, dateTimeProvider: null)
+        { }
+    }
+
+    // hide
+    [U]
+    public void RandomizedInitialNodes()
+    {
+        IEnumerable<StaticConnectionPool> CreateSeededPools(int nodeCount, int pools)
+        {
+            var seed = TestConfiguration.Instance.Seed;
+            var nodes = Enumerable.Range(1, nodeCount)
+                .Select(i => new Node(new Uri($"https://10.0.0.{i}:9200/")))
+                .ToList();
+            for (var i = 0; i < nodeCount; i++)
+                yield return new SeededRandomConectionPool(nodes, seed + i);
         }
 
-        // hide
-        [U]
-        public void RandomizedInitialNodes()
-        {
-            IEnumerable<StaticConnectionPool> CreateSeededPools(int nodeCount, int pools)
-            {
-                var seed = TestConfiguration.Instance.Seed;
-                var nodes = Enumerable.Range(1, nodeCount)
-                    .Select(i => new Node(new Uri($"https://10.0.0.{i}:9200/")))
-                    .ToList();
-                for (var i = 0; i < nodeCount; i++)
-                    yield return new SeededRandomConectionPool(nodes, seed + i);
-            }
+        var connectionPools = CreateSeededPools(100, 100).ToList();
+        connectionPools.Should().HaveCount(100);
+        connectionPools
+            .Select(p => p.CreateView().First().Uri.ToString())
+            .All(uri => uri == "https://10.0.0.1:9200/")
+            .Should()
+            .BeFalse();
+    }
 
-            var connectionPools = CreateSeededPools(100, 100).ToList();
-            connectionPools.Should().HaveCount(100);
-            connectionPools
-                .Select(p => p.CreateView().First().Uri.ToString())
-                .All(uri => uri == "https://10.0.0.1:9200/")
-                .Should()
-                .BeFalse();
-        }
-
-        /**[[sniffing-connection-pool]]
+    /**[[sniffing-connection-pool]]
 		* ==== SniffingConnectionPool
 		*
 		* A pool derived from `StaticConnectionPool`, a sniffing connection pool allows itself to be reseeded at run time.
 		* It comes with the very minor overhead of a `ReaderWriterLockSlim` to ensure thread safety.
 		*/
-        [U]
-        public void Sniffing()
-        {
-            /** Given a collection of `Uri` */
-            var uris = Enumerable.Range(9200, 5)
-                .Select(port => new Uri($"http://localhost:{port}"));
+    [U]
+    public void Sniffing()
+    {
+        /** Given a collection of `Uri` */
+        var uris = Enumerable.Range(9200, 5)
+            .Select(port => new Uri($"http://localhost:{port}"));
 
-            /** a connection pool can be seeded using an enumerable of `Uri` */
-            var pool = new SniffingConnectionPool(uris);
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
+        /** a connection pool can be seeded using an enumerable of `Uri` */
+        var pool = new SniffingConnectionPool(uris);
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** Or using an enumerable of `Node`. A major benefit in using nodes is that you can include
+        /** Or using an enumerable of `Node`. A major benefit in using nodes is that you can include
 			* known node roles when seeding, which OSC can then use to favour particular API requests. For example,
 			* sniffing on cluster_manager eligible nodes first, and take cluster_manager only nodes out of rotation for issuing client calls on.
 			*/
-            var nodes = uris.Select(u => new Node(u));
-            pool = new SniffingConnectionPool(nodes);
-            client = new OpenSearchClient(new ConnectionSettings(pool));
+        var nodes = uris.Select(u => new Node(u));
+        pool = new SniffingConnectionPool(nodes);
+        client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** This type of pool is hardwired to opt in to reseeding (<<sniffing-behaviour, sniffing>>), and <<pinging-behaviour, pinging>> */
-            //hide
-            {
-                pool.SupportsReseeding.Should().BeTrue();
-                pool.SupportsPinging.Should().BeTrue();
-                client.ConnectionSettings.ConnectionPool
-                    .Should()
-                    .BeOfType<SniffingConnectionPool>();
-            }
+        /** This type of pool is hardwired to opt in to reseeding (<<sniffing-behaviour, sniffing>>), and <<pinging-behaviour, pinging>> */
+        //hide
+        {
+            pool.SupportsReseeding.Should().BeTrue();
+            pool.SupportsPinging.Should().BeTrue();
+            client.ConnectionSettings.ConnectionPool
+                .Should()
+                .BeOfType<SniffingConnectionPool>();
         }
+    }
 
-        /**[[sticky-connection-pool]]
+    /**[[sticky-connection-pool]]
 		* ==== StickyConnectionPool
 		*
 		* A type of connection pool that returns the first live node to issue a request against, such that the node is _sticky_ between requests.
 		* It uses https://msdn.microsoft.com/en-us/library/system.threading.interlocked(v=vs.110).aspx[`System.Threading.Interlocked`]
 		* to keep an _indexer_ to the last live node in a thread safe manner.
 		*/
-        [U]
-        public void Sticky()
-        {
-            /** Given a collection of `Uri` */
-            var uris = Enumerable.Range(9200, 5)
-                .Select(port => new Uri($"http://localhost:{port}"));
+    [U]
+    public void Sticky()
+    {
+        /** Given a collection of `Uri` */
+        var uris = Enumerable.Range(9200, 5)
+            .Select(port => new Uri($"http://localhost:{port}"));
 
-            /** a connection pool can be seeded using an enumerable of `Uri` */
-            var pool = new StickyConnectionPool(uris);
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
+        /** a connection pool can be seeded using an enumerable of `Uri` */
+        var pool = new StickyConnectionPool(uris);
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** Or using an enumerable of `Node`, similar to `SniffingConnectionPool`
+        /** Or using an enumerable of `Node`, similar to `SniffingConnectionPool`
 			*/
-            var nodes = uris.Select(u => new Node(u));
-            pool = new StickyConnectionPool(nodes);
-            client = new OpenSearchClient(new ConnectionSettings(pool));
+        var nodes = uris.Select(u => new Node(u));
+        pool = new StickyConnectionPool(nodes);
+        client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            /** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>), but does support <<pinging-behaviour, pinging>>. */
-            // hide
-            {
-                pool.SupportsReseeding.Should().BeFalse();
-                pool.SupportsPinging.Should().BeTrue();
-                client.ConnectionSettings.ConnectionPool
-                    .Should()
-                    .BeOfType<StickyConnectionPool>();
-            }
+        /** This type of pool is hardwired to opt out of reseeding (<<sniffing-behaviour, sniffing>>), but does support <<pinging-behaviour, pinging>>. */
+        // hide
+        {
+            pool.SupportsReseeding.Should().BeFalse();
+            pool.SupportsPinging.Should().BeTrue();
+            client.ConnectionSettings.ConnectionPool
+                .Should()
+                .BeOfType<StickyConnectionPool>();
         }
+    }
 
-        /**[[sticky-sniffing-connection-pool]]
+    /**[[sticky-sniffing-connection-pool]]
 		* ==== Sticky Sniffing Connection Pool
 		*
 		* A type of connection pool that returns the first live node to issue a request against, such that the node is _sticky_ between requests.
 		* This implementation supports sniffing and sorting so that each instance of your application can favour a node. For example,
 		* a node in the same rack, based on node attributes.
 		*/
-        [U]
-        public void SniffingSortedSticky()
-        {
-            /** Given a collection of `Uri` */
-            var uris = Enumerable.Range(9200, 5)
-                .Select(port => new Uri($"http://localhost:{port}"));
+    [U]
+    public void SniffingSortedSticky()
+    {
+        /** Given a collection of `Uri` */
+        var uris = Enumerable.Range(9200, 5)
+            .Select(port => new Uri($"http://localhost:{port}"));
 
-            /** a sniffing sorted sticky pool takes a second parameter, a delegate of `Func<Node, float>`, that takes a Node and returns a weight.
+        /** a sniffing sorted sticky pool takes a second parameter, a delegate of `Func<Node, float>`, that takes a Node and returns a weight.
 			* Nodes will be sorted in descending order by weight. In the following example, nodes are scored so that client nodes
 			* in rack_id `rack_one` score the highest
 			*/
-            var pool = new StickySniffingConnectionPool(uris, node =>
-            {
-                var weight = 0f;
+        var pool = new StickySniffingConnectionPool(uris, node =>
+        {
+            var weight = 0f;
 
-                if (node.ClientNode)
-                    weight += 10;
+            if (node.ClientNode)
+                weight += 10;
 
-                if (node.Settings.TryGetValue("node.attr.rack_id", out var rackId) && rackId.ToString() == "rack_one")
-                    weight += 10;
+            if (node.Settings.TryGetValue("node.attr.rack_id", out var rackId) && rackId.ToString() == "rack_one")
+                weight += 10;
 
-                return weight;
-            });
+            return weight;
+        });
 
-            var client = new OpenSearchClient(new ConnectionSettings(pool));
+        var client = new OpenSearchClient(new ConnectionSettings(pool));
 
-            // hide
-            {
-                pool.SupportsReseeding.Should().BeTrue();
-                pool.SupportsPinging.Should().BeTrue();
-                client.ConnectionSettings.ConnectionPool
-                    .Should()
-                    .BeOfType<StickySniffingConnectionPool>();
-            }
+        // hide
+        {
+            pool.SupportsReseeding.Should().BeTrue();
+            pool.SupportsPinging.Should().BeTrue();
+            client.ConnectionSettings.ConnectionPool
+                .Should()
+                .BeOfType<StickySniffingConnectionPool>();
         }
     }
 }

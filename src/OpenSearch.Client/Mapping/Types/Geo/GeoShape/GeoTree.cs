@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum GeoTree
-    {
-        [EnumMember(Value = "geohash")]
-        Geohash,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "quadtree")]
-        Quadtree
-    }
+[StringEnum]
+public enum GeoTree
+{
+    [EnumMember(Value = "geohash")]
+    Geohash,
+
+    [EnumMember(Value = "quadtree")]
+    Quadtree
 }

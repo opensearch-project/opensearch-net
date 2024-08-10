@@ -28,20 +28,19 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(LinearModel))]
+public interface ILinearModel : IMovingAverageModel { }
+
+public class LinearModel : ILinearModel
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(LinearModel))]
-    public interface ILinearModel : IMovingAverageModel { }
+    string IMovingAverageModel.Name { get; } = "linear";
+}
 
-    public class LinearModel : ILinearModel
-    {
-        string IMovingAverageModel.Name { get; } = "linear";
-    }
-
-    public class LinearModelDescriptor
-        : DescriptorBase<LinearModelDescriptor, ILinearModel>, ILinearModel
-    {
-        string IMovingAverageModel.Name { get; } = "linear";
-    }
+public class LinearModelDescriptor
+    : DescriptorBase<LinearModelDescriptor, ILinearModel>, ILinearModel
+{
+    string IMovingAverageModel.Name { get; } = "linear";
 }

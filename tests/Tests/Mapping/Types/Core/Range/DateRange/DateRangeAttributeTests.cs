@@ -29,27 +29,26 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.DateRange
-{
-    public class DateRangeTest
-    {
-        [DateRange(Coerce = false, Format = "yyyy-MM")]
-        public OpenSearch.Client.DateRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.DateRange;
 
-    public class DateRangeAttributeTests : AttributeTestsBase<DateRangeTest>
+public class DateRangeTest
+{
+    [DateRange(Coerce = false, Format = "yyyy-MM")]
+    public OpenSearch.Client.DateRange Range { get; set; }
+}
+
+public class DateRangeAttributeTests : AttributeTestsBase<DateRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    coerce = false,
-                    format = "yyyy-MM",
-                    type = "date_range"
-                }
+                coerce = false,
+                format = "yyyy-MM",
+                type = "date_range"
             }
-        };
-    }
+        }
+    };
 }

@@ -31,47 +31,46 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using OpenSearch.Stack.ArtifactsApi.Products;
 
-namespace OpenSearch.OpenSearch.Ephemeral.Plugins
+namespace OpenSearch.OpenSearch.Ephemeral.Plugins;
+
+public class OpenSearchPlugins : ReadOnlyCollection<OpenSearchPlugin>
 {
-    public class OpenSearchPlugins : ReadOnlyCollection<OpenSearchPlugin>
+    public OpenSearchPlugins(IList<OpenSearchPlugin> list) : base(list)
     {
-        public OpenSearchPlugins(IList<OpenSearchPlugin> list) : base(list)
-        {
-        }
-
-        public OpenSearchPlugins(params OpenSearchPlugin[] list) : base(list)
-        {
-        }
-
-        public static OpenSearchPlugins Supported { get; } =
-            new OpenSearchPlugins(new List<OpenSearchPlugin>
-            {
-                OpenSearchPlugin.AnalysisIcu,
-                OpenSearchPlugin.AnalysisKuromoji,
-                OpenSearchPlugin.AnalysisNori,
-                OpenSearchPlugin.AnalysisPhonetic,
-                OpenSearchPlugin.AnalysisSmartCn,
-                OpenSearchPlugin.AnalysisStempel,
-                OpenSearchPlugin.AnalysisUkrainian,
-                OpenSearchPlugin.DiscoveryAzureClassic,
-                OpenSearchPlugin.DiscoveryEC2,
-                OpenSearchPlugin.DiscoveryFile,
-                OpenSearchPlugin.DiscoveryGCE,
-                OpenSearchPlugin.IngestAttachment,
-                OpenSearchPlugin.IngestGeoIp,
-                OpenSearchPlugin.IngestUserAgent,
-                OpenSearchPlugin.MapperAttachment,
-                OpenSearchPlugin.MapperMurmur3,
-                OpenSearchPlugin.MapperSize,
-                OpenSearchPlugin.RepositoryAzure,
-                OpenSearchPlugin.RepositoryGCS,
-                OpenSearchPlugin.RepositoryHDFS,
-                OpenSearchPlugin.RepositoryS3,
-                OpenSearchPlugin.Security,
-                OpenSearchPlugin.StoreSMB,
-                OpenSearchPlugin.DeleteByQuery,
-            });
-
-        public override string ToString() => string.Join(", ", Items.Select(s => s.SubProductName));
     }
+
+    public OpenSearchPlugins(params OpenSearchPlugin[] list) : base(list)
+    {
+    }
+
+    public static OpenSearchPlugins Supported { get; } =
+        new OpenSearchPlugins(new List<OpenSearchPlugin>
+        {
+            OpenSearchPlugin.AnalysisIcu,
+            OpenSearchPlugin.AnalysisKuromoji,
+            OpenSearchPlugin.AnalysisNori,
+            OpenSearchPlugin.AnalysisPhonetic,
+            OpenSearchPlugin.AnalysisSmartCn,
+            OpenSearchPlugin.AnalysisStempel,
+            OpenSearchPlugin.AnalysisUkrainian,
+            OpenSearchPlugin.DiscoveryAzureClassic,
+            OpenSearchPlugin.DiscoveryEC2,
+            OpenSearchPlugin.DiscoveryFile,
+            OpenSearchPlugin.DiscoveryGCE,
+            OpenSearchPlugin.IngestAttachment,
+            OpenSearchPlugin.IngestGeoIp,
+            OpenSearchPlugin.IngestUserAgent,
+            OpenSearchPlugin.MapperAttachment,
+            OpenSearchPlugin.MapperMurmur3,
+            OpenSearchPlugin.MapperSize,
+            OpenSearchPlugin.RepositoryAzure,
+            OpenSearchPlugin.RepositoryGCS,
+            OpenSearchPlugin.RepositoryHDFS,
+            OpenSearchPlugin.RepositoryS3,
+            OpenSearchPlugin.Security,
+            OpenSearchPlugin.StoreSMB,
+            OpenSearchPlugin.DeleteByQuery,
+        });
+
+    public override string ToString() => string.Join(", ", Items.Select(s => s.SubProductName));
 }

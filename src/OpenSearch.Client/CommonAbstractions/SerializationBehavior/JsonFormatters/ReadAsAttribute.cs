@@ -28,12 +28,11 @@
 
 using System;
 
-namespace OpenSearch.Client
-{
-    internal class ReadAsAttribute : Attribute
-    {
-        public ReadAsAttribute(Type readAs) => Type = readAs;
+namespace OpenSearch.Client;
 
-        public Type Type { get; }
-    }
+internal class ReadAsAttribute : Attribute
+{
+    public ReadAsAttribute(Type readAs) => Type = readAs;
+
+    public Type Type { get; }
 }

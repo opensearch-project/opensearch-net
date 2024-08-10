@@ -34,52 +34,51 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IAppendProcessor : IProcessor
 {
-    [InterfaceDataContract]
-    public interface IAppendProcessor : IProcessor
+    [DataMember(Name = "field")]
+    Field Field { get; set; }
+
+    [DataMember(Name = "value")]
+    IEnumerable<object> Value { get; set; }
+
+    [DataMember(Name = "allow_duplicates")]
+    bool? AllowDuplicates { get; set; }
+}
+
+public class AppendProcessor : ProcessorBase, IAppendProcessor
+{
+    public Field Field { get; set; }
+    public IEnumerable<object> Value { get; set; }
+    public bool? AllowDuplicates { get; set; }
+
+    protected override string Name => "append";
+}
+
+public class AppendProcessorDescriptor<T> : ProcessorDescriptorBase<AppendProcessorDescriptor<T>, IAppendProcessor>, IAppendProcessor
+    where T : class
+{
+    protected override string Name => "append";
+    Field IAppendProcessor.Field { get; set; }
+    IEnumerable<object> IAppendProcessor.Value { get; set; }
+    bool? IAppendProcessor.AllowDuplicates { get; set; }
+
+    public AppendProcessorDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
+
+    public AppendProcessorDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) =>
+        Assign(objectPath, (a, v) => a.Field = v);
+
+    public AppendProcessorDescriptor<T> Value<TValue>(IEnumerable<TValue> values) => Assign(values, (a, v) => a.Value = v?.Cast<object>());
+
+    public AppendProcessorDescriptor<T> Value<TValue>(params TValue[] values) => Assign(values, (a, v) =>
     {
-        [DataMember(Name = "field")]
-        Field Field { get; set; }
+        if (v?.Length == 1 && typeof(IEnumerable).IsAssignableFrom(typeof(TValue)) && typeof(TValue) != typeof(string))
+            a.Value = (v.First() as IEnumerable)?.Cast<object>();
+        else a.Value = v?.Cast<object>();
+    });
 
-        [DataMember(Name = "value")]
-        IEnumerable<object> Value { get; set; }
-
-        [DataMember(Name = "allow_duplicates")]
-        bool? AllowDuplicates { get; set; }
-    }
-
-    public class AppendProcessor : ProcessorBase, IAppendProcessor
-    {
-        public Field Field { get; set; }
-        public IEnumerable<object> Value { get; set; }
-        public bool? AllowDuplicates { get; set; }
-
-        protected override string Name => "append";
-    }
-
-    public class AppendProcessorDescriptor<T> : ProcessorDescriptorBase<AppendProcessorDescriptor<T>, IAppendProcessor>, IAppendProcessor
-        where T : class
-    {
-        protected override string Name => "append";
-        Field IAppendProcessor.Field { get; set; }
-        IEnumerable<object> IAppendProcessor.Value { get; set; }
-        bool? IAppendProcessor.AllowDuplicates { get; set; }
-
-        public AppendProcessorDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
-
-        public AppendProcessorDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) =>
-            Assign(objectPath, (a, v) => a.Field = v);
-
-        public AppendProcessorDescriptor<T> Value<TValue>(IEnumerable<TValue> values) => Assign(values, (a, v) => a.Value = v?.Cast<object>());
-
-        public AppendProcessorDescriptor<T> Value<TValue>(params TValue[] values) => Assign(values, (a, v) =>
-        {
-            if (v?.Length == 1 && typeof(IEnumerable).IsAssignableFrom(typeof(TValue)) && typeof(TValue) != typeof(string))
-                a.Value = (v.First() as IEnumerable)?.Cast<object>();
-            else a.Value = v?.Cast<object>();
-        });
-
-        public AppendProcessorDescriptor<T> AllowDuplicates(bool? allowDuplicates = true) => Assign(allowDuplicates, (a, v) => a.AllowDuplicates = v);
-    }
+    public AppendProcessorDescriptor<T> AllowDuplicates(bool? allowDuplicates = true) => Assign(allowDuplicates, (a, v) => a.AllowDuplicates = v);
 }

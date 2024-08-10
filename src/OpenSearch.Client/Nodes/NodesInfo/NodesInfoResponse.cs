@@ -31,16 +31,15 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    [DataContract]
-    public class NodesInfoResponse : NodesResponseBase
-    {
-        [DataMember(Name = "cluster_name")]
-        public string ClusterName { get; internal set; }
+namespace OpenSearch.Client;
 
-        [DataMember(Name = "nodes")]
-        [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, NodeInfo>))]
-        public IReadOnlyDictionary<string, NodeInfo> Nodes { get; internal set; } = EmptyReadOnly<string, NodeInfo>.Dictionary;
-    }
+[DataContract]
+public class NodesInfoResponse : NodesResponseBase
+{
+    [DataMember(Name = "cluster_name")]
+    public string ClusterName { get; internal set; }
+
+    [DataMember(Name = "nodes")]
+    [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, NodeInfo>))]
+    public IReadOnlyDictionary<string, NodeInfo> Nodes { get; internal set; } = EmptyReadOnly<string, NodeInfo>.Dictionary;
 }

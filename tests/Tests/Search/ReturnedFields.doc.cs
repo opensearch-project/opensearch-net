@@ -40,9 +40,9 @@ using Tests.Framework;
 using Xunit;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.Search
-{
-    /**[[returned-fields]]
+namespace Tests.Search;
+
+/**[[returned-fields]]
 	 * === Selecting fields to return
 	 *
 	 * Sometimes you don't need to return all of the fields of a document from a search query; for example, when showing
@@ -53,11 +53,11 @@ namespace Tests.Search
 	 * document (we use this term _loosely_ here); using stored fields and source filtering. Both are quite different
 	 * in how they work.
 	 */
-    public class ReturnedFields
-    {
-        private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
+public class ReturnedFields
+{
+    private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
 
-        /** [[stored-fields]]
+    /** [[stored-fields]]
 		 * ==== Stored fields
 		 *
 		 * When indexing a document, by default, OpenSearch stores the originally sent JSON document in a special
@@ -82,41 +82,41 @@ namespace Tests.Search
 		 * Seriously consider whether disabling source is what you really want to do for your use case.
 		 * --
 		 */
-        [U]
-        public void StoredFields()
-        {
-            /**
+    [U]
+    public void StoredFields()
+    {
+        /**
 			 * When storing fields in this manner, the individual field values to return can be specified using
 			 * `.StoredFields` on the search request
 			 */
-            var searchResponse = _client.Search<Project>(s => s
-                .StoredFields(sf => sf
-                    .Fields(
-                        f => f.Name,
-                        f => f.StartedOn,
-                        f => f.Branches
-                    )
+        var searchResponse = _client.Search<Project>(s => s
+            .StoredFields(sf => sf
+                .Fields(
+                    f => f.Name,
+                    f => f.StartedOn,
+                    f => f.Branches
                 )
-                .Query(q => q
-                    .MatchAll()
-                )
-            );
-
-            /**
-			 * And retrieving them is possible using `.Fields` on the response
-			 */
-            foreach (var fieldValues in searchResponse.Fields)
-            {
-                var document = new // <1> Construct a partial document as an anonymous type from the stored fields requested
-                {
-                    Name = fieldValues.ValueOf<Project, string>(p => p.Name),
-                    StartedOn = fieldValues.Value<DateTime>(Infer.Field<Project>(p => p.StartedOn)),
-                    Branches = fieldValues.Values<Project, string>(p => p.Branches.First())
-                };
-            }
-        }
+            )
+            .Query(q => q
+                .MatchAll()
+            )
+        );
 
         /**
+			 * And retrieving them is possible using `.Fields` on the response
+			 */
+        foreach (var fieldValues in searchResponse.Fields)
+        {
+            var document = new // <1> Construct a partial document as an anonymous type from the stored fields requested
+            {
+                Name = fieldValues.ValueOf<Project, string>(p => p.Name),
+                StartedOn = fieldValues.Value<DateTime>(Infer.Field<Project>(p => p.StartedOn)),
+                Branches = fieldValues.Values<Project, string>(p => p.Branches.First())
+            };
+        }
+    }
+
+    /**
 		 * This works when storing fields separately. A much more common scenario however is to return
 		 * only a selection of fields from the `_source`; this is where source filtering comes in.
 		 *
@@ -126,42 +126,41 @@ namespace Tests.Search
 		 * Only some of the fields of a document can be returned from a search query
 		 * using source filtering
 		 */
-        [U]
-        public void SourceFiltering()
-        {
-            var searchResponse = _client.Search<Project>(s => s
-                .Source(sf => sf
-                    .Includes(i => i // <1> **Include** the following fields
-                        .Fields(
-                            f => f.Name,
-                            f => f.StartedOn,
-                            f => f.Branches
-                        )
-                    )
-                    .Excludes(e => e // <2> **Exclude** the following fields
-                        .Fields("num*") // <3> Fields can be included or excluded through wildcard patterns
+    [U]
+    public void SourceFiltering()
+    {
+        var searchResponse = _client.Search<Project>(s => s
+            .Source(sf => sf
+                .Includes(i => i // <1> **Include** the following fields
+                    .Fields(
+                        f => f.Name,
+                        f => f.StartedOn,
+                        f => f.Branches
                     )
                 )
-                .Query(q => q
-                    .MatchAll()
+                .Excludes(e => e // <2> **Exclude** the following fields
+                    .Fields("num*") // <3> Fields can be included or excluded through wildcard patterns
                 )
-            );
+            )
+            .Query(q => q
+                .MatchAll()
+            )
+        );
 
-            /**
+        /**
 			 * With source filtering specified on the request, `.Documents` will
 			 * now contain _partial_ documents, materialized from the source fields specified to include
 			 */
-            var partialProjects = searchResponse.Documents;
+        var partialProjects = searchResponse.Documents;
 
-            /**
+        /**
 			 * It's possible to exclude `_source` from being returned altogether from a query with
 			 */
-            searchResponse = _client.Search<Project>(s => s
-                .Source(false)
-                .Query(q => q
-                    .MatchAll()
-                )
-            );
-        }
+        searchResponse = _client.Search<Project>(s => s
+            .Source(false)
+            .Query(q => q
+                .MatchAll()
+            )
+        );
     }
 }

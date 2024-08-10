@@ -34,34 +34,33 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Multiple.ReindexOnServer
+namespace Tests.Document.Multiple.ReindexOnServer;
+
+public class ReindexOnServerInvalidApiTests : ReindexOnServerApiTests
 {
-    public class ReindexOnServerInvalidApiTests : ReindexOnServerApiTests
+    public ReindexOnServerInvalidApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => false;
+    protected override int ExpectStatusCode => 400;
+
+    //bad painless script - missing opening ( in front of ctx.
+    protected override string PainlessScript { get; } = "if ctx._source.flag == 'bar') {ctx._source.remove('flag')}";
+
+    protected override void ExpectResponse(ReindexOnServerResponse response)
     {
-        public ReindexOnServerInvalidApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => false;
-        protected override int ExpectStatusCode => 400;
-
-        //bad painless script - missing opening ( in front of ctx.
-        protected override string PainlessScript { get; } = "if ctx._source.flag == 'bar') {ctx._source.remove('flag')}";
-
-        protected override void ExpectResponse(ReindexOnServerResponse response)
-        {
-            response.ServerError.Should().NotBeNull();
-            response.ServerError.Status.Should().Be(400);
-            response.ServerError.Error.Should().NotBeNull();
-            response.ServerError.Error.RootCause.Should().NotBeNullOrEmpty();
-            response.ServerError.Error.RootCause.First().Reason.Should().Contain("compile");
-            response.ServerError.Error.RootCause.First().Type.Should().Be("script_exception");
-        }
-
-        // https://youtrack.jetbrains.com/issue/RIDER-19912
-        [I] public override async Task ReturnsExpectedStatusCode() => await base.ReturnsExpectedResponse();
-
-        [I] public override async Task ReturnsExpectedIsValid() => await base.ReturnsExpectedIsValid();
-
-        [I] public override async Task ReturnsExpectedResponse() => await base.ReturnsExpectedResponse();
-
+        response.ServerError.Should().NotBeNull();
+        response.ServerError.Status.Should().Be(400);
+        response.ServerError.Error.Should().NotBeNull();
+        response.ServerError.Error.RootCause.Should().NotBeNullOrEmpty();
+        response.ServerError.Error.RootCause.First().Reason.Should().Contain("compile");
+        response.ServerError.Error.RootCause.First().Type.Should().Be("script_exception");
     }
+
+    // https://youtrack.jetbrains.com/issue/RIDER-19912
+    [I] public override async Task ReturnsExpectedStatusCode() => await base.ReturnsExpectedResponse();
+
+    [I] public override async Task ReturnsExpectedIsValid() => await base.ReturnsExpectedIsValid();
+
+    [I] public override async Task ReturnsExpectedResponse() => await base.ReturnsExpectedResponse();
+
 }

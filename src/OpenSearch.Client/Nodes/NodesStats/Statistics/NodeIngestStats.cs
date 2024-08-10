@@ -31,18 +31,17 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    public class NodeIngestStats
-    {
-        /// <summary> Per pipeline ingest statistics </summary>
-        [DataMember(Name = "pipelines")]
-        [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, IngestStats>))]
-        public IReadOnlyDictionary<string, IngestStats> Pipelines { get; internal set; }
-            = EmptyReadOnly<string, IngestStats>.Dictionary;
+namespace OpenSearch.Client;
 
-        /// <summary> Overall global ingest statistics </summary>
-        [DataMember(Name = "total")]
-        public IngestStats Total { get; set; }
-    }
+public class NodeIngestStats
+{
+    /// <summary> Per pipeline ingest statistics </summary>
+    [DataMember(Name = "pipelines")]
+    [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, IngestStats>))]
+    public IReadOnlyDictionary<string, IngestStats> Pipelines { get; internal set; }
+        = EmptyReadOnly<string, IngestStats>.Dictionary;
+
+    /// <summary> Overall global ingest statistics </summary>
+    [DataMember(Name = "total")]
+    public IngestStats Total { get; set; }
 }

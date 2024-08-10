@@ -34,16 +34,16 @@ using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 
-namespace Tests.Reproduce
-{
-    public class GithubIssue2309
-    {
-        [U]
-        public void FailedReIndexResponseMarkedAsInvalidAndContainFailures()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+namespace Tests.Reproduce;
 
-            var json = @"{
+public class GithubIssue2309
+{
+    [U]
+    public void FailedReIndexResponseMarkedAsInvalidAndContainFailures()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+
+        var json = @"{
 				""took"": 4,
 				""timed_out"": false,
 				""total"": 1,
@@ -75,22 +75,21 @@ namespace Tests.Reproduce
 				}]
 			}";
 
-            var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(json), 400);
-            var settings = new ConnectionSettings(pool, connection);
-            var client = new OpenSearchClient(settings);
+        var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(json), 400);
+        var settings = new ConnectionSettings(pool, connection);
+        var client = new OpenSearchClient(settings);
 
-            var reindexResponse = client.ReindexOnServer(r => r
-                .Source(s => s
-                    .Index("employees-v1")
-                )
-                .Destination(d => d
-                    .Index("employees-v2")
-                )
-                .Conflicts(Conflicts.Proceed)
-            );
+        var reindexResponse = client.ReindexOnServer(r => r
+            .Source(s => s
+                .Index("employees-v1")
+            )
+            .Destination(d => d
+                .Index("employees-v2")
+            )
+            .Conflicts(Conflicts.Proceed)
+        );
 
-            reindexResponse.ShouldNotBeValid();
-            reindexResponse.Failures.Should().NotBeNull().And.HaveCount(1);
-        }
+        reindexResponse.ShouldNotBeValid();
+        reindexResponse.Failures.Should().NotBeNull().And.HaveCount(1);
     }
 }

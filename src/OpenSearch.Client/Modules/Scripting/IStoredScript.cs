@@ -30,83 +30,82 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A Stored script
+/// </summary>
+[InterfaceDataContract]
+[ReadAs(typeof(StoredScript))]
+public interface IStoredScript
 {
     /// <summary>
-    /// A Stored script
+    /// The script language
     /// </summary>
-    [InterfaceDataContract]
-    [ReadAs(typeof(StoredScript))]
-    public interface IStoredScript
-    {
-        /// <summary>
-        /// The script language
-        /// </summary>
-        [DataMember(Name = "lang")]
-        string Lang { get; set; }
+    [DataMember(Name = "lang")]
+    string Lang { get; set; }
 
-        /// <summary>
-        /// The script source
-        /// </summary>
-        [DataMember(Name = "source")]
-        string Source { get; set; }
+    /// <summary>
+    /// The script source
+    /// </summary>
+    [DataMember(Name = "source")]
+    string Source { get; set; }
+}
+
+/// <inheritdoc />
+public class StoredScript : IStoredScript
+{
+    //used for deserialization
+    internal StoredScript() { }
+
+    /// <summary>
+    /// Instantiates a new instance of <see cref="StoredScript" />
+    /// </summary>
+    /// <param name="lang">Script language</param>
+    /// <param name="source">Script source</param>
+    protected StoredScript(string lang, string source)
+    {
+        IStoredScript self = this;
+        self.Lang = lang;
+        self.Source = source;
     }
 
-    /// <inheritdoc />
-    public class StoredScript : IStoredScript
-    {
-        //used for deserialization
-        internal StoredScript() { }
+    [DataMember(Name = "lang")]
+    string IStoredScript.Lang { get; set; }
 
-        /// <summary>
-        /// Instantiates a new instance of <see cref="StoredScript" />
-        /// </summary>
-        /// <param name="lang">Script language</param>
-        /// <param name="source">Script source</param>
-        protected StoredScript(string lang, string source)
-        {
-            IStoredScript self = this;
-            self.Lang = lang;
-            self.Source = source;
-        }
+    [DataMember(Name = "source")]
+    string IStoredScript.Source { get; set; }
+}
 
-        [DataMember(Name = "lang")]
-        string IStoredScript.Lang { get; set; }
+public class PainlessScript : StoredScript
+{
+    private static readonly string Lang = ScriptLang.Painless.GetStringValue();
 
-        [DataMember(Name = "source")]
-        string IStoredScript.Source { get; set; }
-    }
+    public PainlessScript(string source) : base(Lang, source) { }
+}
 
-    public class PainlessScript : StoredScript
-    {
-        private static readonly string Lang = ScriptLang.Painless.GetStringValue();
+public class LuceneExpressionScript : StoredScript
+{
+    private static readonly string Lang = ScriptLang.Expression.GetStringValue();
 
-        public PainlessScript(string source) : base(Lang, source) { }
-    }
+    public LuceneExpressionScript(string source) : base(Lang, source) { }
+}
 
-    public class LuceneExpressionScript : StoredScript
-    {
-        private static readonly string Lang = ScriptLang.Expression.GetStringValue();
+public class MustacheScript : StoredScript
+{
+    private static readonly string Lang = ScriptLang.Mustache.GetStringValue();
 
-        public LuceneExpressionScript(string source) : base(Lang, source) { }
-    }
+    public MustacheScript(string source) : base(Lang, source) { }
+}
 
-    public class MustacheScript : StoredScript
-    {
-        private static readonly string Lang = ScriptLang.Mustache.GetStringValue();
+public class StoredScriptDescriptor : DescriptorBase<StoredScriptDescriptor, IStoredScript>, IStoredScript
+{
+    string IStoredScript.Lang { get; set; }
+    string IStoredScript.Source { get; set; }
 
-        public MustacheScript(string source) : base(Lang, source) { }
-    }
+    public StoredScriptDescriptor Source(string source) => Assign(source, (a, v) => a.Source = v);
 
-    public class StoredScriptDescriptor : DescriptorBase<StoredScriptDescriptor, IStoredScript>, IStoredScript
-    {
-        string IStoredScript.Lang { get; set; }
-        string IStoredScript.Source { get; set; }
+    public StoredScriptDescriptor Lang(string lang) => Assign(lang, (a, v) => a.Lang = v);
 
-        public StoredScriptDescriptor Source(string source) => Assign(source, (a, v) => a.Source = v);
-
-        public StoredScriptDescriptor Lang(string lang) => Assign(lang, (a, v) => a.Lang = v);
-
-        public StoredScriptDescriptor Lang(ScriptLang lang) => Assign(lang.GetStringValue(), (a, v) => a.Lang = v);
-    }
+    public StoredScriptDescriptor Lang(ScriptLang lang) => Assign(lang.GetStringValue(), (a, v) => a.Lang = v);
 }

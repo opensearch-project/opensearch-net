@@ -26,13 +26,12 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("indices.get_mapping.json")]
-    public partial interface IGetMappingRequest { }
+namespace OpenSearch.Client;
 
-    public partial class GetMappingRequest { }
+[MapsApi("indices.get_mapping.json")]
+public partial interface IGetMappingRequest { }
 
-    // ReSharper disable once UnusedTypeParameter
-    public partial class GetMappingDescriptor<TDocument> where TDocument : class { }
-}
+public partial class GetMappingRequest { }
+
+// ReSharper disable once UnusedTypeParameter
+public partial class GetMappingDescriptor<TDocument> where TDocument : class { }

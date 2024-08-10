@@ -30,47 +30,46 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class SearchShardsResponse : ResponseBase
 {
-    public class SearchShardsResponse : ResponseBase
-    {
-        [DataMember(Name = "nodes")]
-        public IReadOnlyDictionary<string, SearchNode> Nodes { get; internal set; } = EmptyReadOnly<string, SearchNode>.Dictionary;
+    [DataMember(Name = "nodes")]
+    public IReadOnlyDictionary<string, SearchNode> Nodes { get; internal set; } = EmptyReadOnly<string, SearchNode>.Dictionary;
 
-        [DataMember(Name = "shards")]
-        public IReadOnlyCollection<IReadOnlyCollection<SearchShard>> Shards { get; internal set; } =
-            EmptyReadOnly<IReadOnlyCollection<SearchShard>>.Collection;
-    }
+    [DataMember(Name = "shards")]
+    public IReadOnlyCollection<IReadOnlyCollection<SearchShard>> Shards { get; internal set; } =
+        EmptyReadOnly<IReadOnlyCollection<SearchShard>>.Collection;
+}
 
-    [DataContract]
-    public class SearchNode
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+[DataContract]
+public class SearchNode
+{
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-        [DataMember(Name = "transport_address")]
-        public string TransportAddress { get; internal set; }
-    }
+    [DataMember(Name = "transport_address")]
+    public string TransportAddress { get; internal set; }
+}
 
-    [DataContract]
-    public class SearchShard
-    {
-        [DataMember(Name = "index")]
-        public string Index { get; internal set; }
+[DataContract]
+public class SearchShard
+{
+    [DataMember(Name = "index")]
+    public string Index { get; internal set; }
 
-        [DataMember(Name = "node")]
-        public string Node { get; internal set; }
+    [DataMember(Name = "node")]
+    public string Node { get; internal set; }
 
-        [DataMember(Name = "primary")]
-        public bool Primary { get; internal set; }
+    [DataMember(Name = "primary")]
+    public bool Primary { get; internal set; }
 
-        [DataMember(Name = "relocating_node")]
-        public string RelocatingNode { get; internal set; }
+    [DataMember(Name = "relocating_node")]
+    public string RelocatingNode { get; internal set; }
 
-        [DataMember(Name = "shard")]
-        public int Shard { get; internal set; }
+    [DataMember(Name = "shard")]
+    public int Shard { get; internal set; }
 
-        [DataMember(Name = "state")]
-        public string State { get; internal set; }
-    }
+    [DataMember(Name = "state")]
+    public string State { get; internal set; }
 }

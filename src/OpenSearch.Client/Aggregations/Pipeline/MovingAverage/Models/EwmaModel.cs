@@ -29,27 +29,26 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IEwmaModel : IMovingAverageModel
 {
-    [InterfaceDataContract]
-    public interface IEwmaModel : IMovingAverageModel
-    {
-        [DataMember(Name = "alpha")]
-        float? Alpha { get; set; }
-    }
+    [DataMember(Name = "alpha")]
+    float? Alpha { get; set; }
+}
 
-    public class EwmaModel : IEwmaModel
-    {
-        public float? Alpha { get; set; }
-        string IMovingAverageModel.Name { get; } = "ewma";
-    }
+public class EwmaModel : IEwmaModel
+{
+    public float? Alpha { get; set; }
+    string IMovingAverageModel.Name { get; } = "ewma";
+}
 
-    public class EwmaModelDescriptor
-        : DescriptorBase<EwmaModelDescriptor, IEwmaModel>, IEwmaModel
-    {
-        float? IEwmaModel.Alpha { get; set; }
-        string IMovingAverageModel.Name { get; } = "ewma";
+public class EwmaModelDescriptor
+    : DescriptorBase<EwmaModelDescriptor, IEwmaModel>, IEwmaModel
+{
+    float? IEwmaModel.Alpha { get; set; }
+    string IMovingAverageModel.Name { get; } = "ewma";
 
-        public EwmaModelDescriptor Alpha(float? alpha) => Assign(alpha, (a, v) => a.Alpha = v);
-    }
+    public EwmaModelDescriptor Alpha(float? alpha) => Assign(alpha, (a, v) => a.Alpha = v);
 }

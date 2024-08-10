@@ -37,52 +37,51 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using Tests.Mapping.Types;
 
-namespace Tests.Mapping.Meta
-{
-    public class MetaMappingApiTests
-        : PropertyTestsBase
-    {
-        public MetaMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+namespace Tests.Mapping.Meta;
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => p => p
-            .Number(n => n
-                .Name(nn => nn.Rank)
-                .Type(NumberType.Integer)
-                .Meta(m => m
-                    .Add("unit", "popularity")
-                )
-            );
-        protected override IProperties InitializerProperties => new Properties<Project>
-        {
-            { n => n.Rank, new NumberProperty(NumberType.Integer)
+public class MetaMappingApiTests
+    : PropertyTestsBase
+{
+    public MetaMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => p => p
+        .Number(n => n
+            .Name(nn => nn.Rank)
+            .Type(NumberType.Integer)
+            .Meta(m => m
+                .Add("unit", "popularity")
+            )
+        );
+    protected override IProperties InitializerProperties => new Properties<Project>
+    {
+        { n => n.Rank, new NumberProperty(NumberType.Integer)
+            {
+                Meta = new Dictionary<string, string>
                 {
-                    Meta = new Dictionary<string, string>
-                    {
-                        { "unit", "popularity" }
-                    }
+                    { "unit", "popularity" }
                 }
             }
-        };
-
-        protected override void ExpectResponse(PutMappingResponse response)
-        {
-            base.ExpectResponse(response);
-
-            // check the meta shows up in get mapping API
-            var getMappingResponse = Client.Indices.GetMapping<Project>(m => m.Index(CallIsolatedValue));
-            getMappingResponse.IsValid.Should().BeTrue();
-            var mappingMeta = getMappingResponse.Indices[CallIsolatedValue].Mappings.Properties["rank"].Meta;
-            mappingMeta.Should().NotBeNull().And.ContainKey("unit");
-            mappingMeta["unit"].Should().Be("popularity");
-
-            // check the meta shows up in field capabilities API
-            var fieldCapsResponse = Client.FieldCapabilities(CallIsolatedValue, f => f
-                .Fields<Project>(ff => ff.Rank)
-            );
-            fieldCapsResponse.IsValid.Should().BeTrue();
-            var meta = fieldCapsResponse.Fields["rank"].Integer.Meta;
-            meta.Should().NotBeNull().And.ContainKey("unit");
-            meta["unit"].Should().BeEquivalentTo("popularity");
         }
+    };
+
+    protected override void ExpectResponse(PutMappingResponse response)
+    {
+        base.ExpectResponse(response);
+
+        // check the meta shows up in get mapping API
+        var getMappingResponse = Client.Indices.GetMapping<Project>(m => m.Index(CallIsolatedValue));
+        getMappingResponse.IsValid.Should().BeTrue();
+        var mappingMeta = getMappingResponse.Indices[CallIsolatedValue].Mappings.Properties["rank"].Meta;
+        mappingMeta.Should().NotBeNull().And.ContainKey("unit");
+        mappingMeta["unit"].Should().Be("popularity");
+
+        // check the meta shows up in field capabilities API
+        var fieldCapsResponse = Client.FieldCapabilities(CallIsolatedValue, f => f
+            .Fields<Project>(ff => ff.Rank)
+        );
+        fieldCapsResponse.IsValid.Should().BeTrue();
+        var meta = fieldCapsResponse.Fields["rank"].Integer.Meta;
+        meta.Should().NotBeNull().And.ContainKey("unit");
+        meta["unit"].Should().BeEquivalentTo("popularity");
     }
 }

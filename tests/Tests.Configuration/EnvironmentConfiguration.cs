@@ -28,51 +28,50 @@
 
 using System;
 
-namespace Tests.Configuration
+namespace Tests.Configuration;
+
+public class EnvironmentConfiguration : TestConfigurationBase
 {
-    public class EnvironmentConfiguration : TestConfigurationBase
+    public EnvironmentConfiguration(YamlConfiguration yamlConfiguration)
     {
-        public EnvironmentConfiguration(YamlConfiguration yamlConfiguration)
+        Mode = Environment.GetEnvironmentVariable("OSC_INTEGRATION_TEST") != null ? TestMode.Integration : TestMode.Unit;
+
+        ClusterFilter = Environment.GetEnvironmentVariable("OSC_INTEGRATION_CLUSTER");
+        TestFilter = Environment.GetEnvironmentVariable("OSC_TEST_FILTER");
+
+        var version = Environment.GetEnvironmentVariable("OSC_INTEGRATION_VERSION");
+        OpenSearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.OpenSearchVersion : version;
+
+        if (OpenSearchVersion == null)
+            throw new Exception("OpenSearch Version could not be determined from env var OSC_INTEGRATION_VERSION nor the test yaml configuration");
+
+        var externalSeed = TryGetEnv("OSC_TEST_SEED", out var seed)
+            ? int.Parse(seed)
+            : yamlConfiguration.SeedProvidedExternally
+                ? yamlConfiguration.Seed
+                : (int?)null;
+        SetExternalSeed(externalSeed, out var randomizer);
+
+        TestOnlyOne = RandomBoolConfig("TEST_ONLY_ONE", randomizer, false);
+        Random = new RandomConfiguration
         {
-            Mode = Environment.GetEnvironmentVariable("OSC_INTEGRATION_TEST") != null ? TestMode.Integration : TestMode.Unit;
+            SourceSerializer = RandomBoolConfig("SOURCESERIALIZER", randomizer),
+            TypedKeys = RandomBoolConfig("TYPEDKEYS", randomizer),
+            HttpCompression = RandomBoolConfig("HTTPCOMPRESSION", randomizer),
+        };
+    }
 
-            ClusterFilter = Environment.GetEnvironmentVariable("OSC_INTEGRATION_CLUSTER");
-            TestFilter = Environment.GetEnvironmentVariable("OSC_TEST_FILTER");
+    private static bool RandomBoolConfig(string key, Random randomizer, bool? @default = null)
+    {
+        if (TryGetEnv("OSC_RANDOM_" + key, out var source) && bool.TryParse(source, out var b))
+            return b;
 
-            var version = Environment.GetEnvironmentVariable("OSC_INTEGRATION_VERSION");
-            OpenSearchVersion = string.IsNullOrWhiteSpace(version) ? yamlConfiguration.OpenSearchVersion : version;
+        return @default ?? randomizer.NextDouble() >= 0.5;
+    }
 
-            if (OpenSearchVersion == null)
-                throw new Exception("OpenSearch Version could not be determined from env var OSC_INTEGRATION_VERSION nor the test yaml configuration");
-
-            var externalSeed = TryGetEnv("OSC_TEST_SEED", out var seed)
-                ? int.Parse(seed)
-                : yamlConfiguration.SeedProvidedExternally
-                    ? yamlConfiguration.Seed
-                    : (int?)null;
-            SetExternalSeed(externalSeed, out var randomizer);
-
-            TestOnlyOne = RandomBoolConfig("TEST_ONLY_ONE", randomizer, false);
-            Random = new RandomConfiguration
-            {
-                SourceSerializer = RandomBoolConfig("SOURCESERIALIZER", randomizer),
-                TypedKeys = RandomBoolConfig("TYPEDKEYS", randomizer),
-                HttpCompression = RandomBoolConfig("HTTPCOMPRESSION", randomizer),
-            };
-        }
-
-        private static bool RandomBoolConfig(string key, Random randomizer, bool? @default = null)
-        {
-            if (TryGetEnv("OSC_RANDOM_" + key, out var source) && bool.TryParse(source, out var b))
-                return b;
-
-            return @default ?? randomizer.NextDouble() >= 0.5;
-        }
-
-        private static bool TryGetEnv(string key, out string value)
-        {
-            value = Environment.GetEnvironmentVariable(key);
-            return !string.IsNullOrWhiteSpace(value);
-        }
+    private static bool TryGetEnv(string key, out string value)
+    {
+        value = Environment.GetEnvironmentVariable(key);
+        return !string.IsNullOrWhiteSpace(value);
     }
 }

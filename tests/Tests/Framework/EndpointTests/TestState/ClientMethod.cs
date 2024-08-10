@@ -26,13 +26,12 @@
 *  under the License.
 */
 
-namespace Tests.Framework.EndpointTests.TestState
+namespace Tests.Framework.EndpointTests.TestState;
+
+public enum ClientMethod
 {
-    public enum ClientMethod
-    {
-        Fluent,
-        FluentAsync,
-        Initializer,
-        InitializerAsync,
-    }
+    Fluent,
+    FluentAsync,
+    Initializer,
+    InitializerAsync,
 }

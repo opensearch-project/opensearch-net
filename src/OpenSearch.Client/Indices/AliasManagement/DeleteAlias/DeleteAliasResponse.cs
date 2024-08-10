@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class DeleteAliasResponse : ResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class DeleteAliasResponse : ResponseBase { }

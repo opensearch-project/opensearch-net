@@ -30,27 +30,26 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum FunctionBoostMode
 {
-    [StringEnum]
-    public enum FunctionBoostMode
-    {
-        [EnumMember(Value = "multiply")]
-        Multiply,
+    [EnumMember(Value = "multiply")]
+    Multiply,
 
-        [EnumMember(Value = "replace")]
-        Replace,
+    [EnumMember(Value = "replace")]
+    Replace,
 
-        [EnumMember(Value = "sum")]
-        Sum,
+    [EnumMember(Value = "sum")]
+    Sum,
 
-        [EnumMember(Value = "avg")]
-        Average,
+    [EnumMember(Value = "avg")]
+    Average,
 
-        [EnumMember(Value = "max")]
-        Max,
+    [EnumMember(Value = "max")]
+    Max,
 
-        [EnumMember(Value = "min")]
-        Min
-    }
+    [EnumMember(Value = "min")]
+    Min
 }

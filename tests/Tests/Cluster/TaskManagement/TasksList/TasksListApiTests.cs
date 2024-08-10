@@ -39,144 +39,143 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cluster.TaskManagement.TasksList
+namespace Tests.Cluster.TaskManagement.TasksList;
+
+public class TasksListApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, ListTasksResponse, IListTasksRequest, ListTasksDescriptor, ListTasksRequest>
 {
-    public class TasksListApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, ListTasksResponse, IListTasksRequest, ListTasksDescriptor, ListTasksRequest>
+    public TasksListApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+
+    protected override Func<ListTasksDescriptor, IListTasksRequest> Fluent => s => s
+        .Actions("*lists*");
+
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+
+    protected override ListTasksRequest Initializer => new ListTasksRequest
     {
-        public TasksListApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        Actions = new[] { "*lists*" }
+    };
 
-        protected override bool ExpectIsValid => true;
-        protected override int ExpectStatusCode => 200;
+    protected override string UrlPath => "/_tasks?actions=%2Alists%2A";
 
-        protected override Func<ListTasksDescriptor, IListTasksRequest> Fluent => s => s
-            .Actions("*lists*");
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Tasks.List(f),
+        (client, f) => client.Tasks.ListAsync(f),
+        (client, r) => client.Tasks.List(r),
+        (client, r) => client.Tasks.ListAsync(r)
+    );
 
-        protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override void ExpectResponse(ListTasksResponse response)
+    {
+        response.Nodes.Should().NotBeEmpty();
+        var taskExecutingNode = response.Nodes.First().Value;
+        taskExecutingNode.Host.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Ip.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Tasks.Should().NotBeEmpty();
+        taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(2);
 
-        protected override ListTasksRequest Initializer => new ListTasksRequest
-        {
-            Actions = new[] { "*lists*" }
-        };
+        var task = taskExecutingNode.Tasks.Values.First(p => p.ParentTaskId != null);
+        task.Action.Should().NotBeNullOrWhiteSpace();
+        task.Type.Should().NotBeNullOrWhiteSpace();
+        task.Id.Should().BePositive();
+        task.Node.Should().NotBeNullOrWhiteSpace();
+        task.RunningTimeInNanoSeconds.Should().BeGreaterThan(0);
+        task.StartTimeInMilliseconds.Should().BeGreaterThan(0);
+        task.ParentTaskId.Should().NotBeNull();
 
-        protected override string UrlPath => "/_tasks?actions=%2Alists%2A";
+        var parentTask = taskExecutingNode.Tasks[task.ParentTaskId];
+        parentTask.Should().NotBeNull();
+        parentTask.ParentTaskId.Should().BeNull();
+    }
+}
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Tasks.List(f),
-            (client, f) => client.Tasks.ListAsync(f),
-            (client, r) => client.Tasks.List(r),
-            (client, r) => client.Tasks.ListAsync(r)
+public class TasksListDetailedApiTests
+    : ApiIntegrationTestBase<IntrusiveOperationCluster, ListTasksResponse, IListTasksRequest, ListTasksDescriptor, ListTasksRequest>
+{
+    private static TaskId _taskId = new TaskId("fakeid:1");
+
+    public TasksListDetailedApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+
+    protected override Func<ListTasksDescriptor, IListTasksRequest> Fluent => s => s
+        .Detailed();
+
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+
+    protected override ListTasksRequest Initializer => new ListTasksRequest()
+    {
+        Detailed = true
+    };
+
+    protected override string UrlPath => $"/_tasks?detailed=true";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Tasks.List(f),
+        (client, f) => client.Tasks.ListAsync(f),
+        (client, r) => client.Tasks.List(r),
+        (client, r) => client.Tasks.ListAsync(r)
+    );
+
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        // get a suitable load of projects in order to get a decent task status out
+        var sourceIndex = "project-list-detailed";
+        var targetIndex = "tasks-lists-detailed";
+        var bulkResponse = client.IndexMany(Project.Generator.Generate(10000), sourceIndex);
+        if (!bulkResponse.IsValid)
+            throw new Exception($"failure in setting up integration {bulkResponse.ServerError}");
+
+        client.Indices.Refresh(sourceIndex);
+
+        var createIndex = client.Indices.Create(targetIndex, i => i
+            .Settings(settings => settings.Analysis(DefaultSeeder.ProjectAnalysisSettings))
+            .Map<Project>(DefaultSeeder.ProjectTypeMappings)
+        );
+        createIndex.ShouldBeValid();
+
+        var response = client.ReindexOnServer(r => r
+            .Source(s => s.Index(sourceIndex))
+            .Destination(d => d
+                .Index(targetIndex)
+                .OpType(OpType.Create)
+            )
+            .Conflicts(Conflicts.Proceed)
+            .WaitForCompletion(false)
+            .Refresh()
         );
 
-        protected override void ExpectResponse(ListTasksResponse response)
-        {
-            response.Nodes.Should().NotBeEmpty();
-            var taskExecutingNode = response.Nodes.First().Value;
-            taskExecutingNode.Host.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Ip.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Tasks.Should().NotBeEmpty();
-            taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(2);
-
-            var task = taskExecutingNode.Tasks.Values.First(p => p.ParentTaskId != null);
-            task.Action.Should().NotBeNullOrWhiteSpace();
-            task.Type.Should().NotBeNullOrWhiteSpace();
-            task.Id.Should().BePositive();
-            task.Node.Should().NotBeNullOrWhiteSpace();
-            task.RunningTimeInNanoSeconds.Should().BeGreaterThan(0);
-            task.StartTimeInMilliseconds.Should().BeGreaterThan(0);
-            task.ParentTaskId.Should().NotBeNull();
-
-            var parentTask = taskExecutingNode.Tasks[task.ParentTaskId];
-            parentTask.Should().NotBeNull();
-            parentTask.ParentTaskId.Should().BeNull();
-        }
+        _taskId = response.Task;
     }
 
-    public class TasksListDetailedApiTests
-        : ApiIntegrationTestBase<IntrusiveOperationCluster, ListTasksResponse, IListTasksRequest, ListTasksDescriptor, ListTasksRequest>
+    protected override void ExpectResponse(ListTasksResponse response)
     {
-        private static TaskId _taskId = new TaskId("fakeid:1");
+        response.Nodes.Should().NotBeEmpty();
+        var taskExecutingNode = response.Nodes.First().Value;
+        taskExecutingNode.Host.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Ip.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
+        taskExecutingNode.Tasks.Should().NotBeEmpty();
+        taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(1);
 
-        public TasksListDetailedApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        var task = taskExecutingNode.Tasks[_taskId];
+        task.Action.Should().NotBeNullOrWhiteSpace();
+        task.Type.Should().NotBeNullOrWhiteSpace();
+        task.Id.Should().BePositive();
+        task.Node.Should().NotBeNullOrWhiteSpace();
+        task.RunningTimeInNanoSeconds.Should().BeGreaterThan(0);
+        task.StartTimeInMilliseconds.Should().BeGreaterThan(0);
 
-        protected override bool ExpectIsValid => true;
-        protected override int ExpectStatusCode => 200;
-
-        protected override Func<ListTasksDescriptor, IListTasksRequest> Fluent => s => s
-            .Detailed();
-
-        protected override HttpMethod HttpMethod => HttpMethod.GET;
-
-        protected override ListTasksRequest Initializer => new ListTasksRequest()
-        {
-            Detailed = true
-        };
-
-        protected override string UrlPath => $"/_tasks?detailed=true";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Tasks.List(f),
-            (client, f) => client.Tasks.ListAsync(f),
-            (client, r) => client.Tasks.List(r),
-            (client, r) => client.Tasks.ListAsync(r)
-        );
-
-        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-        {
-            // get a suitable load of projects in order to get a decent task status out
-            var sourceIndex = "project-list-detailed";
-            var targetIndex = "tasks-lists-detailed";
-            var bulkResponse = client.IndexMany(Project.Generator.Generate(10000), sourceIndex);
-            if (!bulkResponse.IsValid)
-                throw new Exception($"failure in setting up integration {bulkResponse.ServerError}");
-
-            client.Indices.Refresh(sourceIndex);
-
-            var createIndex = client.Indices.Create(targetIndex, i => i
-                .Settings(settings => settings.Analysis(DefaultSeeder.ProjectAnalysisSettings))
-                .Map<Project>(DefaultSeeder.ProjectTypeMappings)
-            );
-            createIndex.ShouldBeValid();
-
-            var response = client.ReindexOnServer(r => r
-                .Source(s => s.Index(sourceIndex))
-                .Destination(d => d
-                    .Index(targetIndex)
-                    .OpType(OpType.Create)
-                )
-                .Conflicts(Conflicts.Proceed)
-                .WaitForCompletion(false)
-                .Refresh()
-            );
-
-            _taskId = response.Task;
-        }
-
-        protected override void ExpectResponse(ListTasksResponse response)
-        {
-            response.Nodes.Should().NotBeEmpty();
-            var taskExecutingNode = response.Nodes.First().Value;
-            taskExecutingNode.Host.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Ip.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
-            taskExecutingNode.Tasks.Should().NotBeEmpty();
-            taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(1);
-
-            var task = taskExecutingNode.Tasks[_taskId];
-            task.Action.Should().NotBeNullOrWhiteSpace();
-            task.Type.Should().NotBeNullOrWhiteSpace();
-            task.Id.Should().BePositive();
-            task.Node.Should().NotBeNullOrWhiteSpace();
-            task.RunningTimeInNanoSeconds.Should().BeGreaterThan(0);
-            task.StartTimeInMilliseconds.Should().BeGreaterThan(0);
-
-            var status = task.Status;
-            status.Should().NotBeNull();
-            status.Total.Should().BeGreaterOrEqualTo(0);
-            status.Batches.Should().BeGreaterOrEqualTo(0);
-        }
+        var status = task.Status;
+        status.Should().NotBeNull();
+        status.Total.Should().BeGreaterOrEqualTo(0);
+        status.Batches.Should().BeGreaterOrEqualTo(0);
     }
 }

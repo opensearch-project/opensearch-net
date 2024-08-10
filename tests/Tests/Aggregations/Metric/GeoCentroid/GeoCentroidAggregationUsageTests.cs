@@ -35,41 +35,108 @@ using Tests.Core.Xunit;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Metric.GeoCentroid
-{
-    /**
+namespace Tests.Aggregations.Metric.GeoCentroid;
+
+/**
 	 * A metric aggregation that computes the weighted centroid from all coordinate values
 	 * for a Geo-point datatype field.
 	 *
 	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-geocentroid-aggregation.html[Geo Centroid Aggregation]
 	 */
-    public class GeoCentroidAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public GeoCentroidAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+public class GeoCentroidAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public GeoCentroidAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-        protected override object AggregationJson => new
+    protected override object AggregationJson => new
+    {
+        centroid = new
         {
-            centroid = new
+            geo_centroid = new
             {
-                geo_centroid = new
+                field = "locationPoint"
+            }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .GeoCentroid("centroid", gb => gb
+            .Field(p => p.LocationPoint)
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint));
+
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var centroid = response.Aggregations.GeoCentroid("centroid");
+        centroid.Should().NotBeNull();
+        centroid.Count.Should().BeGreaterThan(0);
+        centroid.Location.Should().NotBeNull();
+
+        centroid.Location.Latitude.Should().NotBe(0);
+        centroid.Location.Longitude.Should().NotBe(0);
+    }
+}
+
+/**
+	 *[float]
+	 *[[geo-centroid-sub-aggregation]]
+	 *=== Geo Centroid Sub Aggregation
+	 *
+	 * The `geo_centroid` aggregation is more interesting when combined as a sub-aggregation to other bucket aggregations
+	 */
+public class NestedGeoCentroidAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public NestedGeoCentroidAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        projects = new
+        {
+            terms = new
+            {
+                field = "name"
+            },
+            aggs = new
+            {
+                centroid = new
                 {
-                    field = "locationPoint"
+                    geo_centroid = new
+                    {
+                        field = "locationPoint"
+                    }
                 }
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .Terms("projects", t => t
+            .Field(p => p.Name)
+            .Aggregations(sa => sa
+                .GeoCentroid("centroid", gb => gb
+                    .Field(p => p.LocationPoint)
+                )
+            )
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new TermsAggregation("projects")
+        {
+            Field = Infer.Field<Project>(p => p.Name),
+            Aggregations = new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint))
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .GeoCentroid("centroid", gb => gb
-                .Field(p => p.LocationPoint)
-            );
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-        protected override AggregationDictionary InitializerAggs =>
-            new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint));
+        var projects = response.Aggregations.Terms("projects");
 
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+        foreach (var bucket in projects.Buckets)
         {
-            response.ShouldBeValid();
-            var centroid = response.Aggregations.GeoCentroid("centroid");
+            var centroid = bucket.GeoCentroid("centroid");
             centroid.Should().NotBeNull();
             centroid.Count.Should().BeGreaterThan(0);
             centroid.Location.Should().NotBeNull();
@@ -78,105 +145,37 @@ namespace Tests.Aggregations.Metric.GeoCentroid
             centroid.Location.Longitude.Should().NotBe(0);
         }
     }
+}
 
-    /**
-	 *[float]
-	 *[[geo-centroid-sub-aggregation]]
-	 *=== Geo Centroid Sub Aggregation
-	 *
-	 * The `geo_centroid` aggregation is more interesting when combined as a sub-aggregation to other bucket aggregations
-	 */
-    public class NestedGeoCentroidAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+[NeedsTypedKeys]
+public class GeoCentroidNoResultsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public GeoCentroidNoResultsAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
     {
-        public NestedGeoCentroidAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        protected override object AggregationJson => new
+        centroid = new
         {
-            projects = new
-            {
-                terms = new
-                {
-                    field = "name"
-                },
-                aggs = new
-                {
-                    centroid = new
-                    {
-                        geo_centroid = new
-                        {
-                            field = "locationPoint"
-                        }
-                    }
-                }
-            }
-        };
-
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .Terms("projects", t => t
-                .Field(p => p.Name)
-                .Aggregations(sa => sa
-                    .GeoCentroid("centroid", gb => gb
-                        .Field(p => p.LocationPoint)
-                    )
-                )
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new TermsAggregation("projects")
-            {
-                Field = Infer.Field<Project>(p => p.Name),
-                Aggregations = new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint))
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-
-            var projects = response.Aggregations.Terms("projects");
-
-            foreach (var bucket in projects.Buckets)
-            {
-                var centroid = bucket.GeoCentroid("centroid");
-                centroid.Should().NotBeNull();
-                centroid.Count.Should().BeGreaterThan(0);
-                centroid.Location.Should().NotBeNull();
-
-                centroid.Location.Latitude.Should().NotBe(0);
-                centroid.Location.Longitude.Should().NotBe(0);
-            }
+            geo_centroid = new { field = "locationPoint" }
         }
-    }
+    };
 
-    [NeedsTypedKeys]
-    public class GeoCentroidNoResultsAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .GeoCentroid("centroid", gb => gb
+            .Field(p => p.LocationPoint)
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint));
+
+    protected override QueryContainer QueryScope => new TermQuery { Field = Infer.Field<Project>(p => p.Name), Value = "noresult" };
+    protected override object QueryScopeJson { get; } = new { term = new { name = new { value = "noresult" } } };
+
+    protected override void ExpectResponse(ISearchResponse<Project> response)
     {
-        public GeoCentroidNoResultsAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        protected override object AggregationJson => new
-        {
-            centroid = new
-            {
-                geo_centroid = new { field = "locationPoint" }
-            }
-        };
-
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .GeoCentroid("centroid", gb => gb
-                .Field(p => p.LocationPoint)
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new GeoCentroidAggregation("centroid", Infer.Field<Project>(p => p.LocationPoint));
-
-        protected override QueryContainer QueryScope => new TermQuery { Field = Infer.Field<Project>(p => p.Name), Value = "noresult" };
-        protected override object QueryScopeJson { get; } = new { term = new { name = new { value = "noresult" } } };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            var centroid = response.Aggregations.GeoCentroid("centroid");
-            centroid.Should().NotBeNull();
-            centroid.Count.Should().Be(0);
-        }
+        response.ShouldBeValid();
+        var centroid = response.Aggregations.GeoCentroid("centroid");
+        centroid.Should().NotBeNull();
+        centroid.Count.Should().Be(0);
     }
 }

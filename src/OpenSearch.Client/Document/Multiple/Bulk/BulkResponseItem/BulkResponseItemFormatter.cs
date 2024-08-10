@@ -31,60 +31,59 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Internal;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class BulkResponseItemFormatter : IJsonFormatter<BulkResponseItemBase>
 {
-    internal class BulkResponseItemFormatter : IJsonFormatter<BulkResponseItemBase>
+    private static readonly AutomataDictionary Operations = new AutomataDictionary
     {
-        private static readonly AutomataDictionary Operations = new AutomataDictionary
+        { "delete", 0 },
+        { "update", 1 },
+        { "index", 2 },
+        { "create", 3 }
+    };
+
+    public BulkResponseItemBase Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        BulkResponseItemBase bulkResponseItem = null;
+
+        if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
         {
-            { "delete", 0 },
-            { "update", 1 },
-            { "index", 2 },
-            { "create", 3 }
-        };
-
-        public BulkResponseItemBase Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            BulkResponseItemBase bulkResponseItem = null;
-
-            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-            {
-                reader.ReadNextBlock();
-                return null;
-            }
-
-            reader.ReadIsBeginObjectWithVerify();
-            var operation = reader.ReadPropertyNameSegmentRaw();
-            if (Operations.TryGetValue(operation, out var value))
-            {
-                switch (value)
-                {
-                    case 0:
-                        bulkResponseItem = formatterResolver.GetFormatter<BulkDeleteResponseItem>()
-                            .Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        bulkResponseItem = formatterResolver.GetFormatter<BulkUpdateResponseItem>()
-                            .Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        bulkResponseItem = formatterResolver.GetFormatter<BulkIndexResponseItem>()
-                            .Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        bulkResponseItem = formatterResolver.GetFormatter<BulkCreateResponseItem>()
-                            .Deserialize(ref reader, formatterResolver);
-                        break;
-                }
-            }
-            else
-                reader.ReadNextBlock();
-
-            reader.ReadIsEndObjectWithVerify();
-            return bulkResponseItem;
+            reader.ReadNextBlock();
+            return null;
         }
 
-        public void Serialize(ref JsonWriter writer, BulkResponseItemBase value, IJsonFormatterResolver formatterResolver) =>
-            throw new NotSupportedException();
+        reader.ReadIsBeginObjectWithVerify();
+        var operation = reader.ReadPropertyNameSegmentRaw();
+        if (Operations.TryGetValue(operation, out var value))
+        {
+            switch (value)
+            {
+                case 0:
+                    bulkResponseItem = formatterResolver.GetFormatter<BulkDeleteResponseItem>()
+                        .Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    bulkResponseItem = formatterResolver.GetFormatter<BulkUpdateResponseItem>()
+                        .Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    bulkResponseItem = formatterResolver.GetFormatter<BulkIndexResponseItem>()
+                        .Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    bulkResponseItem = formatterResolver.GetFormatter<BulkCreateResponseItem>()
+                        .Deserialize(ref reader, formatterResolver);
+                    break;
+            }
+        }
+        else
+            reader.ReadNextBlock();
+
+        reader.ReadIsEndObjectWithVerify();
+        return bulkResponseItem;
     }
+
+    public void Serialize(ref JsonWriter writer, BulkResponseItemBase value, IJsonFormatterResolver formatterResolver) =>
+        throw new NotSupportedException();
 }

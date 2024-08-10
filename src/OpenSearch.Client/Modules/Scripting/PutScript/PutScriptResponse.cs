@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class PutScriptResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class PutScriptResponse : AcknowledgedResponseBase { }

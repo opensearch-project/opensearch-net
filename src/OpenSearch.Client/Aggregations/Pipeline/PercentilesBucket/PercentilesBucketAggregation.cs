@@ -31,39 +31,38 @@ using System.Linq;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(PercentilesBucketAggregation))]
+public interface IPercentilesBucketAggregation : IPipelineAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(PercentilesBucketAggregation))]
-    public interface IPercentilesBucketAggregation : IPipelineAggregation
-    {
-        [DataMember(Name = "percents")]
-        IEnumerable<double> Percents { get; set; }
-    }
+    [DataMember(Name = "percents")]
+    IEnumerable<double> Percents { get; set; }
+}
 
-    public class PercentilesBucketAggregation
-        : PipelineAggregationBase, IPercentilesBucketAggregation
-    {
-        internal PercentilesBucketAggregation() { }
+public class PercentilesBucketAggregation
+    : PipelineAggregationBase, IPercentilesBucketAggregation
+{
+    internal PercentilesBucketAggregation() { }
 
-        public PercentilesBucketAggregation(string name, SingleBucketsPath bucketsPath)
-            : base(name, bucketsPath) { }
+    public PercentilesBucketAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-        public IEnumerable<double> Percents { get; set; }
+    public IEnumerable<double> Percents { get; set; }
 
-        internal override void WrapInContainer(AggregationContainer c) => c.PercentilesBucket = this;
-    }
+    internal override void WrapInContainer(AggregationContainer c) => c.PercentilesBucket = this;
+}
 
-    public class PercentilesBucketAggregationDescriptor
-        : PipelineAggregationDescriptorBase<PercentilesBucketAggregationDescriptor, IPercentilesBucketAggregation, SingleBucketsPath>
-            , IPercentilesBucketAggregation
-    {
-        IEnumerable<double> IPercentilesBucketAggregation.Percents { get; set; }
+public class PercentilesBucketAggregationDescriptor
+    : PipelineAggregationDescriptorBase<PercentilesBucketAggregationDescriptor, IPercentilesBucketAggregation, SingleBucketsPath>
+        , IPercentilesBucketAggregation
+{
+    IEnumerable<double> IPercentilesBucketAggregation.Percents { get; set; }
 
-        public PercentilesBucketAggregationDescriptor Percents(IEnumerable<double> percentages) =>
-            Assign(percentages?.ToList(), (a, v) => a.Percents = v);
+    public PercentilesBucketAggregationDescriptor Percents(IEnumerable<double> percentages) =>
+        Assign(percentages?.ToList(), (a, v) => a.Percents = v);
 
-        public PercentilesBucketAggregationDescriptor Percents(params double[] percentages) =>
-            Assign(percentages?.ToList(), (a, v) => a.Percents = v);
-    }
+    public PercentilesBucketAggregationDescriptor Percents(params double[] percentages) =>
+        Assign(percentages?.ToList(), (a, v) => a.Percents = v);
 }

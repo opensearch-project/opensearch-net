@@ -33,55 +33,54 @@ using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 
-namespace Tests.CodeStandards
-{
-    /**
+namespace Tests.CodeStandards;
+
+/**
 	 * Combining base URI with the API path results in a URI that respects the relative path defined in base URI
 	 */
-    public class Requests
+public class Requests
+{
+    [U]
+    public void BaseUriIsRespected()
     {
-        [U]
-        public void BaseUriIsRespected()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var settings = new ConnectionSettings(pool, new InMemoryConnection());
-            var client = new OpenSearchClient(settings);
-            var searchResponse = client.Search<Project>(s => s.AllIndices());
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var settings = new ConnectionSettings(pool, new InMemoryConnection());
+        var client = new OpenSearchClient(settings);
+        var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-            searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/_all/_search?typed_keys=true");
-        }
+        searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/_all/_search?typed_keys=true");
+    }
 
-        [U]
-        public void BaseUriWithTrailingSlashIsRespected()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/"));
-            var settings = new ConnectionSettings(pool, new InMemoryConnection());
-            var client = new OpenSearchClient(settings);
-            var searchResponse = client.Search<Project>(s => s.AllIndices());
+    [U]
+    public void BaseUriWithTrailingSlashIsRespected()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/"));
+        var settings = new ConnectionSettings(pool, new InMemoryConnection());
+        var client = new OpenSearchClient(settings);
+        var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-            searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/_all/_search?typed_keys=true");
-        }
+        searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/_all/_search?typed_keys=true");
+    }
 
-        [U]
-        public void BaseUriWithRelativePathIsRespected()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch"));
-            var settings = new ConnectionSettings(pool, new InMemoryConnection());
-            var client = new OpenSearchClient(settings);
-            var searchResponse = client.Search<Project>(s => s.AllIndices());
+    [U]
+    public void BaseUriWithRelativePathIsRespected()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch"));
+        var settings = new ConnectionSettings(pool, new InMemoryConnection());
+        var client = new OpenSearchClient(settings);
+        var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-            searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
-        }
+        searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
+    }
 
-        [U]
-        public void BaseUriWithRelativePathAndTrailingSlashIsRespected()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch/"));
-            var settings = new ConnectionSettings(pool, new InMemoryConnection());
-            var client = new OpenSearchClient(settings);
-            var searchResponse = client.Search<Project>(s => s.AllIndices());
+    [U]
+    public void BaseUriWithRelativePathAndTrailingSlashIsRespected()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200/opensearch/"));
+        var settings = new ConnectionSettings(pool, new InMemoryConnection());
+        var client = new OpenSearchClient(settings);
+        var searchResponse = client.Search<Project>(s => s.AllIndices());
 
-            searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
-        }
+        searchResponse.ApiCall.Uri.ToString().Should().Be("http://localhost:9200/opensearch/_all/_search?typed_keys=true");
     }
 }

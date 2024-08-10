@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("snapshot.status.json")]
-    public partial interface ISnapshotStatusRequest { }
+namespace OpenSearch.Client;
 
-    public partial class SnapshotStatusRequest { }
+[MapsApi("snapshot.status.json")]
+public partial interface ISnapshotStatusRequest { }
 
-    public partial class SnapshotStatusDescriptor { }
-}
+public partial class SnapshotStatusRequest { }
+
+public partial class SnapshotStatusDescriptor { }

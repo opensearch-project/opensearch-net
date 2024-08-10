@@ -53,33 +53,59 @@
 using System.Linq;
 using OpenSearch.Net.Utf8Json.Formatters;
 
-namespace OpenSearch.Net.Utf8Json.Resolvers
-{
-    internal static class StandardResolver
-    {
-        /// <summary>AllowPrivate:False, ExcludeNull:False, NameMutate:Original</summary>
-        public static readonly IJsonFormatterResolver Default = DefaultStandardResolver.Instance;
-    }
+namespace OpenSearch.Net.Utf8Json.Resolvers;
 
-    internal static class StandardResolverHelper
+internal static class StandardResolver
+{
+    /// <summary>AllowPrivate:False, ExcludeNull:False, NameMutate:Original</summary>
+    public static readonly IJsonFormatterResolver Default = DefaultStandardResolver.Instance;
+}
+
+internal static class StandardResolverHelper
+{
+    internal static readonly IJsonFormatterResolver[] CompositeResolverBase =
     {
-        internal static readonly IJsonFormatterResolver[] CompositeResolverBase =
-        {
-            BuiltinResolver.Instance, // Builtin
+        BuiltinResolver.Instance, // Builtin
 			EnumResolver.Default,     // Enum(default => string)
 			DynamicGenericResolver.Instance, // T[], List<T>, etc...
 			AttributeFormatterResolver.Instance // [JsonFormatter]
 		};
+}
+
+internal sealed class DefaultStandardResolver : IJsonFormatterResolver
+{
+    // configure
+    public static readonly IJsonFormatterResolver Instance = new DefaultStandardResolver();
+
+    private static readonly IJsonFormatter<object> FallbackFormatter = new DynamicObjectTypeFallbackFormatter(InnerResolver.Instance);
+
+    private DefaultStandardResolver()
+    {
     }
 
-    internal sealed class DefaultStandardResolver : IJsonFormatterResolver
+    public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.formatter;
+
+    private static class FormatterCache<T>
     {
-        // configure
-        public static readonly IJsonFormatterResolver Instance = new DefaultStandardResolver();
+        public static readonly IJsonFormatter<T> formatter;
 
-        private static readonly IJsonFormatter<object> FallbackFormatter = new DynamicObjectTypeFallbackFormatter(InnerResolver.Instance);
+        static FormatterCache()
+        {
+            if (typeof(T) == typeof(object))
+                formatter = (IJsonFormatter<T>)FallbackFormatter;
+            else
+                formatter = InnerResolver.Instance.GetFormatter<T>();
+        }
+    }
 
-        private DefaultStandardResolver()
+    private sealed class InnerResolver : IJsonFormatterResolver
+    {
+        public static readonly IJsonFormatterResolver Instance = new InnerResolver();
+
+        private static readonly IJsonFormatterResolver[] Resolvers =
+            StandardResolverHelper.CompositeResolverBase.Concat(new[] { DynamicObjectResolver.Default }).ToArray();
+
+        private InnerResolver()
         {
         }
 
@@ -91,40 +117,13 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 
             static FormatterCache()
             {
-                if (typeof(T) == typeof(object))
-                    formatter = (IJsonFormatter<T>)FallbackFormatter;
-                else
-                    formatter = InnerResolver.Instance.GetFormatter<T>();
-            }
-        }
-
-        private sealed class InnerResolver : IJsonFormatterResolver
-        {
-            public static readonly IJsonFormatterResolver Instance = new InnerResolver();
-
-            private static readonly IJsonFormatterResolver[] Resolvers =
-                StandardResolverHelper.CompositeResolverBase.Concat(new[] { DynamicObjectResolver.Default }).ToArray();
-
-            private InnerResolver()
-            {
-            }
-
-            public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.formatter;
-
-            private static class FormatterCache<T>
-            {
-                public static readonly IJsonFormatter<T> formatter;
-
-                static FormatterCache()
+                foreach (var item in Resolvers)
                 {
-                    foreach (var item in Resolvers)
+                    var f = item.GetFormatter<T>();
+                    if (f != null)
                     {
-                        var f = item.GetFormatter<T>();
-                        if (f != null)
-                        {
-                            formatter = f;
-                            return;
-                        }
+                        formatter = f;
+                        return;
                     }
                 }
             }

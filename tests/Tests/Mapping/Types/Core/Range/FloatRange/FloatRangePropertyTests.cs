@@ -33,65 +33,64 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.FloatRange
+namespace Tests.Mapping.Types.Core.Range.FloatRange;
+
+public class FloatRangePropertyTests : PropertyTestsBase
 {
-    public class FloatRangePropertyTests : PropertyTestsBase
+    public FloatRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public FloatRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            ranges = new
             {
-                ranges = new
+                type = "object",
+                properties = new
                 {
-                    type = "object",
-                    properties = new
+                    floats = new
                     {
-                        floats = new
-                        {
-                            type = "float_range",
-                            store = true,
-                            index = false,
-                            coerce = true
-                        }
+                        type = "float_range",
+                        store = true,
+                        index = false,
+                        coerce = true
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Object<Ranges>(m => m
-                .Name(p => p.Ranges)
-                .Properties(props => props
-                    .FloatRange(n => n
-                        .Name(p => p.Floats)
-                        .Store()
-                        .Index(false)
-                        .Coerce()
-                    )
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .FloatRange(n => n
+                    .Name(p => p.Floats)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
                 )
-            );
+            )
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "ranges", new ObjectProperty
             {
-                "ranges", new ObjectProperty
+                Properties = new Properties
                 {
-                    Properties = new Properties
                     {
+                        "floats", new FloatRangeProperty
                         {
-                            "floats", new FloatRangeProperty
-                            {
-                                Store = true,
-                                Index = false,
-                                Coerce = true
-                            }
+                            Store = true,
+                            Index = false,
+                            Coerce = true
                         }
                     }
                 }
             }
-        };
-    }
+        }
+    };
 }

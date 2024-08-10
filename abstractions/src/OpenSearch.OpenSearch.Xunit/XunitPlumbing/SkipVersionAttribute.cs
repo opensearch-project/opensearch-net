@@ -31,35 +31,34 @@ using System.Collections.Generic;
 using System.Linq;
 using SemanticVersioning;
 
-namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
+namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+
+/// <summary>
+///     An Xunit test that should be skipped for given OpenSearch versions, and a reason why.
+/// </summary>
+public class SkipVersionAttribute : Attribute
 {
-    /// <summary>
-    ///     An Xunit test that should be skipped for given OpenSearch versions, and a reason why.
-    /// </summary>
-    public class SkipVersionAttribute : Attribute
+    // ReSharper disable once UnusedParameter.Local
+    // reason is used to allow the test its used on to self document why its been put in place
+    public SkipVersionAttribute(string skipVersionRangesSeparatedByComma, string reason)
     {
-        // ReSharper disable once UnusedParameter.Local
-        // reason is used to allow the test its used on to self document why its been put in place
-        public SkipVersionAttribute(string skipVersionRangesSeparatedByComma, string reason)
-        {
-            Reason = reason;
-            Ranges = string.IsNullOrEmpty(skipVersionRangesSeparatedByComma)
-                ? new List<Range>()
-                : skipVersionRangesSeparatedByComma.Split(',')
-                    .Select(r => r.Trim())
-                    .Where(r => !string.IsNullOrWhiteSpace(r))
-                    .Select(r => new Range(r))
-                    .ToList();
-        }
-
-        /// <summary>
-        ///     The reason why the test should be skipped
-        /// </summary>
-        public string Reason { get; }
-
-        /// <summary>
-        ///     The version ranges for which the test should be skipped
-        /// </summary>
-        public IList<Range> Ranges { get; }
+        Reason = reason;
+        Ranges = string.IsNullOrEmpty(skipVersionRangesSeparatedByComma)
+            ? new List<Range>()
+            : skipVersionRangesSeparatedByComma.Split(',')
+                .Select(r => r.Trim())
+                .Where(r => !string.IsNullOrWhiteSpace(r))
+                .Select(r => new Range(r))
+                .ToList();
     }
+
+    /// <summary>
+    ///     The reason why the test should be skipped
+    /// </summary>
+    public string Reason { get; }
+
+    /// <summary>
+    ///     The version ranges for which the test should be skipped
+    /// </summary>
+    public IList<Range> Ranges { get; }
 }

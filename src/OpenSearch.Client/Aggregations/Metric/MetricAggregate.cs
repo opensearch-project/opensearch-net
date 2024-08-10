@@ -30,11 +30,10 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract class MetricAggregateBase : IAggregate
 {
-    public abstract class MetricAggregateBase : IAggregate
-    {
-        [DataMember(Name = "meta")]
-        public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
-    }
+    [DataMember(Name = "meta")]
+    public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
 }

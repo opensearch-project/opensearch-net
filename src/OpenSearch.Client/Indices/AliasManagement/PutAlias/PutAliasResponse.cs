@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class PutAliasResponse : ResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class PutAliasResponse : ResponseBase { }

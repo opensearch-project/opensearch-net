@@ -30,33 +30,32 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(DynamicResponseFormatter<ClusterStateResponse>))]
+public class ClusterStateResponse : DynamicResponseBase
 {
-    [JsonFormatter(typeof(DynamicResponseFormatter<ClusterStateResponse>))]
-    public class ClusterStateResponse : DynamicResponseBase
-    {
-        public DynamicDictionary State => Self.BackingDictionary;
+    public DynamicDictionary State => Self.BackingDictionary;
 
-        [DataMember(Name = "cluster_name")]
-        public string ClusterName => State.Get<string>("cluster_name");
+    [DataMember(Name = "cluster_name")]
+    public string ClusterName => State.Get<string>("cluster_name");
 
-        /// <summary>The Universally Unique Identifier for the cluster.</summary>
-        /// <remarks>While the cluster is still forming, it is possible for the `cluster_uuid` to be `_na_`.</remarks>
-        [DataMember(Name = "cluster_uuid")]
-        public string ClusterUUID => State.Get<string>("cluster_uuid");
+    /// <summary>The Universally Unique Identifier for the cluster.</summary>
+    /// <remarks>While the cluster is still forming, it is possible for the `cluster_uuid` to be `_na_`.</remarks>
+    [DataMember(Name = "cluster_uuid")]
+    public string ClusterUUID => State.Get<string>("cluster_uuid");
 
-        ///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerNode"/> instead</remarks>
-        [DataMember(Name = "master_node")]
-        public string MasterNode => State.Get<string>("master_node");
+    ///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="ClusterManagerNode"/> instead</remarks>
+    [DataMember(Name = "master_node")]
+    public string MasterNode => State.Get<string>("master_node");
 
-        ///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterNode"/></remarks>
-        [DataMember(Name = "cluster_manager_node")]
-        public string ClusterManagerNode => State.Get<string>("cluster_manager_node");
+    ///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="MasterNode"/></remarks>
+    [DataMember(Name = "cluster_manager_node")]
+    public string ClusterManagerNode => State.Get<string>("cluster_manager_node");
 
-        [DataMember(Name = "state_uuid")]
-        public string StateUUID => State.Get<string>("state_uuid");
+    [DataMember(Name = "state_uuid")]
+    public string StateUUID => State.Get<string>("state_uuid");
 
-        [DataMember(Name = "version")]
-        public long? Version => State.Get<long?>("version");
-    }
+    [DataMember(Name = "version")]
+    public long? Version => State.Get<long?>("version");
 }

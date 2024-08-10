@@ -37,71 +37,70 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.Search
+namespace Tests.Search.Search;
+
+public class InvalidSearchApiTests : SearchApiTests
 {
-    public class InvalidSearchApiTests : SearchApiTests
+    public InvalidSearchApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    /// <summary> This is rather noisy on the console out, we only need to test 1 of our overloads randomly really. </summary>
+    protected override bool TestOnlyOne => true;
+
+    protected override bool ExpectIsValid => false;
+
+    protected override object ExpectJson => new
     {
-        public InvalidSearchApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        /// <summary> This is rather noisy on the console out, we only need to test 1 of our overloads randomly really. </summary>
-        protected override bool TestOnlyOne => true;
-
-        protected override bool ExpectIsValid => false;
-
-        protected override object ExpectJson => new
+        from = 10,
+        size = 20,
+        aggs = new
         {
-            from = 10,
-            size = 20,
-            aggs = new
+            startDates = new
             {
-                startDates = new
+                date_range = new
                 {
-                    date_range = new
+                    ranges = new[]
                     {
-                        ranges = new[]
-                        {
-                            new { from = "-1m" }
-                        }
+                        new { from = "-1m" }
                     }
                 }
             }
-        };
-
-        protected override int ExpectStatusCode => 400;
-
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-            .From(10)
-            .Size(20)
-            .Aggregations(a => a
-                .DateRange("startDates", t => t
-                    .Ranges(ranges => ranges.From("-1m"))
-                )
-            );
-
-        protected override SearchRequest<Project> Initializer => new SearchRequest<Project>()
-        {
-            From = 10,
-            Size = 20,
-            Aggregations = new DateRangeAggregation("startDates")
-            {
-                Ranges = new List<DateRangeExpression>
-                {
-                    new DateRangeExpression { From = "-1m" }
-                }
-            }
-        };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldNotBeValid();
-            var serverError = response.ServerError;
-            serverError.Should().NotBeNull();
-
-            serverError.Status.Should().Be(ExpectStatusCode);
-            serverError.Error.Reason.Should().NotBeNullOrWhiteSpace();
-            serverError.Error.RootCause.First().Reason.Should()
-                .NotBeNullOrWhiteSpace();
-
         }
+    };
+
+    protected override int ExpectStatusCode => 400;
+
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+        .From(10)
+        .Size(20)
+        .Aggregations(a => a
+            .DateRange("startDates", t => t
+                .Ranges(ranges => ranges.From("-1m"))
+            )
+        );
+
+    protected override SearchRequest<Project> Initializer => new SearchRequest<Project>()
+    {
+        From = 10,
+        Size = 20,
+        Aggregations = new DateRangeAggregation("startDates")
+        {
+            Ranges = new List<DateRangeExpression>
+            {
+                new DateRangeExpression { From = "-1m" }
+            }
+        }
+    };
+
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldNotBeValid();
+        var serverError = response.ServerError;
+        serverError.Should().NotBeNull();
+
+        serverError.Status.Should().Be(ExpectStatusCode);
+        serverError.Error.Reason.Should().NotBeNullOrWhiteSpace();
+        serverError.Error.RootCause.First().Reason.Should()
+            .NotBeNullOrWhiteSpace();
+
     }
 }

@@ -28,25 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(CumulativeSumAggregation))]
+public interface ICumulativeSumAggregation : IPipelineAggregation { }
+
+public class CumulativeSumAggregation
+    : PipelineAggregationBase, ICumulativeSumAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(CumulativeSumAggregation))]
-    public interface ICumulativeSumAggregation : IPipelineAggregation { }
+    internal CumulativeSumAggregation() { }
 
-    public class CumulativeSumAggregation
-        : PipelineAggregationBase, ICumulativeSumAggregation
-    {
-        internal CumulativeSumAggregation() { }
+    public CumulativeSumAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-        public CumulativeSumAggregation(string name, SingleBucketsPath bucketsPath)
-            : base(name, bucketsPath) { }
-
-        internal override void WrapInContainer(AggregationContainer c) => c.CumulativeSum = this;
-    }
-
-    public class CumulativeSumAggregationDescriptor
-        : PipelineAggregationDescriptorBase<CumulativeSumAggregationDescriptor, ICumulativeSumAggregation, SingleBucketsPath>
-            , ICumulativeSumAggregation
-    { }
+    internal override void WrapInContainer(AggregationContainer c) => c.CumulativeSum = this;
 }
+
+public class CumulativeSumAggregationDescriptor
+    : PipelineAggregationDescriptorBase<CumulativeSumAggregationDescriptor, ICumulativeSumAggregation, SingleBucketsPath>
+        , ICumulativeSumAggregation
+{ }

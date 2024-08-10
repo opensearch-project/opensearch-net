@@ -33,57 +33,56 @@ using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit;
 using Tests.Core.Client.Settings;
 
-namespace Tests.Core.Extensions
+namespace Tests.Core.Extensions;
+
+public static class EphemeralClusterExtensions
 {
-    public static class EphemeralClusterExtensions
+    public static ConnectionSettings CreateConnectionSettings<TConfig>(this IEphemeralCluster<TConfig> cluster)
+        where TConfig : EphemeralClusterConfiguration
     {
-        public static ConnectionSettings CreateConnectionSettings<TConfig>(this IEphemeralCluster<TConfig> cluster)
-            where TConfig : EphemeralClusterConfiguration
+        var clusterNodes = cluster.NodesUris(TestConnectionSettings.LocalOrProxyHost);
+        //we ignore the uri's that TestConnection provides and seed with the nodes the cluster dictates.
+        return new TestConnectionSettings(uris => new StaticConnectionPool(clusterNodes));
+    }
+
+    public static IOpenSearchClient GetOrAddClient<TConfig>(
+        this IEphemeralCluster<TConfig> cluster,
+        Func<ConnectionSettings, ConnectionSettings> modifySettings = null
+    )
+        where TConfig : EphemeralClusterConfiguration
+    {
+        modifySettings = modifySettings ?? (s => s);
+        return cluster.GetOrAddClient(c =>
         {
-            var clusterNodes = cluster.NodesUris(TestConnectionSettings.LocalOrProxyHost);
-            //we ignore the uri's that TestConnection provides and seed with the nodes the cluster dictates.
-            return new TestConnectionSettings(uris => new StaticConnectionPool(clusterNodes));
-        }
+            var settings = modifySettings(cluster.CreateConnectionSettings());
+            settings = (ConnectionSettings)UpdateSettings(cluster, settings);
 
-        public static IOpenSearchClient GetOrAddClient<TConfig>(
-            this IEphemeralCluster<TConfig> cluster,
-            Func<ConnectionSettings, ConnectionSettings> modifySettings = null
-        )
-            where TConfig : EphemeralClusterConfiguration
+            var client = new OpenSearchClient(settings);
+            return client;
+        });
+    }
+
+    public static ConnectionConfiguration<TConnectionSettings> UpdateSettings<TConfig, TConnectionSettings>
+        (this IEphemeralCluster<TConfig> cluster, ConnectionConfiguration<TConnectionSettings> settings)
+        where TConfig : EphemeralClusterConfiguration
+        where TConnectionSettings : ConnectionConfiguration<TConnectionSettings>
+    {
+        var current = (IConnectionConfigurationValues)settings;
+        var notAlreadyAuthenticated = current.BasicAuthenticationCredentials == null
+            && current.ApiKeyAuthenticationCredentials == null
+            && current.ClientCertificates == null;
+
+        if (notAlreadyAuthenticated)
+            settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username,
+                                                    ClusterAuthentication.Admin.Password);
+
+        var noCertValidation = current.ServerCertificateValidationCallback == null;
+
+        if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
         {
-            modifySettings = modifySettings ?? (s => s);
-            return cluster.GetOrAddClient(c =>
-            {
-                var settings = modifySettings(cluster.CreateConnectionSettings());
-                settings = (ConnectionSettings)UpdateSettings(cluster, settings);
-
-                var client = new OpenSearchClient(settings);
-                return client;
-            });
+            //todo use CA callback instead of allowall
+            settings = settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
         }
-
-        public static ConnectionConfiguration<TConnectionSettings> UpdateSettings<TConfig, TConnectionSettings>
-            (this IEphemeralCluster<TConfig> cluster, ConnectionConfiguration<TConnectionSettings> settings)
-            where TConfig : EphemeralClusterConfiguration
-            where TConnectionSettings : ConnectionConfiguration<TConnectionSettings>
-        {
-            var current = (IConnectionConfigurationValues)settings;
-            var notAlreadyAuthenticated = current.BasicAuthenticationCredentials == null
-                && current.ApiKeyAuthenticationCredentials == null
-                && current.ClientCertificates == null;
-
-            if (notAlreadyAuthenticated)
-                settings = settings.BasicAuthentication(ClusterAuthentication.Admin.Username,
-                                                        ClusterAuthentication.Admin.Password);
-
-            var noCertValidation = current.ServerCertificateValidationCallback == null;
-
-            if (cluster.ClusterConfiguration.EnableSsl && noCertValidation)
-            {
-                //todo use CA callback instead of allowall
-                settings = settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
-            }
-            return settings;
-        }
+        return settings;
     }
 }

@@ -26,17 +26,16 @@
 *  under the License.
 */
 
-namespace ApiGenerator.Domain.Specification
-{
-    public class Documentation
-    {
-        public string Description { get; set; }
+namespace ApiGenerator.Domain.Specification;
 
-        private string _url;
-        public string Url
-        {
-            get => _url;
-            set => _url = value?.Replace("http://", "https://");
-        }
+public class Documentation
+{
+    public string Description { get; set; }
+
+    private string _url;
+    public string Url
+    {
+        get => _url;
+        set => _url = value?.Replace("http://", "https://");
     }
 }

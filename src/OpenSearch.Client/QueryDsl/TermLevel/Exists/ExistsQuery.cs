@@ -31,36 +31,35 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(ExistsQuery))]
+public interface IExistsQuery : IQuery
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(ExistsQuery))]
-    public interface IExistsQuery : IQuery
-    {
-        [DataMember(Name = "field")]
-        Field Field { get; set; }
-    }
+    [DataMember(Name = "field")]
+    Field Field { get; set; }
+}
 
-    public class ExistsQuery : QueryBase, IExistsQuery
-    {
-        public Field Field { get; set; }
-        protected override bool Conditionless => IsConditionless(this);
+public class ExistsQuery : QueryBase, IExistsQuery
+{
+    public Field Field { get; set; }
+    protected override bool Conditionless => IsConditionless(this);
 
-        internal override void InternalWrapInContainer(IQueryContainer c) => c.Exists = this;
+    internal override void InternalWrapInContainer(IQueryContainer c) => c.Exists = this;
 
-        internal static bool IsConditionless(IExistsQuery q) => q.Field.IsConditionless();
-    }
+    internal static bool IsConditionless(IExistsQuery q) => q.Field.IsConditionless();
+}
 
-    public class ExistsQueryDescriptor<T>
-        : QueryDescriptorBase<ExistsQueryDescriptor<T>, IExistsQuery>
-            , IExistsQuery where T : class
-    {
-        protected override bool Conditionless => ExistsQuery.IsConditionless(this);
+public class ExistsQueryDescriptor<T>
+    : QueryDescriptorBase<ExistsQueryDescriptor<T>, IExistsQuery>
+        , IExistsQuery where T : class
+{
+    protected override bool Conditionless => ExistsQuery.IsConditionless(this);
 
-        Field IExistsQuery.Field { get; set; }
+    Field IExistsQuery.Field { get; set; }
 
-        public ExistsQueryDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
+    public ExistsQueryDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
 
-        public ExistsQueryDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) => Assign(objectPath, (a, v) => a.Field = v);
-    }
+    public ExistsQueryDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> objectPath) => Assign(objectPath, (a, v) => a.Field = v);
 }

@@ -29,36 +29,35 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Determines how the terms aggregation is executed
+/// </summary>
+[StringEnum]
+public enum TermsAggregationExecutionHint
 {
     /// <summary>
-    /// Determines how the terms aggregation is executed
+    /// Order by using field values directly in order to aggregate data per-bucket
     /// </summary>
-    [StringEnum]
-    public enum TermsAggregationExecutionHint
-    {
-        /// <summary>
-        /// Order by using field values directly in order to aggregate data per-bucket
-        /// </summary>
-        [EnumMember(Value = "map")]
-        Map,
+    [EnumMember(Value = "map")]
+    Map,
 
-        /// <summary>
-        /// Order by using ordinals of the field and preemptively allocating one bucket per ordinal value
-        /// </summary>
-        [EnumMember(Value = "global_ordinals")]
-        GlobalOrdinals,
+    /// <summary>
+    /// Order by using ordinals of the field and preemptively allocating one bucket per ordinal value
+    /// </summary>
+    [EnumMember(Value = "global_ordinals")]
+    GlobalOrdinals,
 
-        /// <summary>
-        /// Order by using ordinals of the field and dynamically allocating one bucket per ordinal value
-        /// </summary>
-        [EnumMember(Value = "global_ordinals_hash")]
-        GlobalOrdinalsHash,
+    /// <summary>
+    /// Order by using ordinals of the field and dynamically allocating one bucket per ordinal value
+    /// </summary>
+    [EnumMember(Value = "global_ordinals_hash")]
+    GlobalOrdinalsHash,
 
-        /// <summary>
-        /// Order by using per-segment ordinals to compute counts and remap these counts to global counts using global ordinals
-        /// </summary>
-        [EnumMember(Value = "global_ordinals_low_cardinality")]
-        GlobalOrdinalsLowCardinality
-    }
+    /// <summary>
+    /// Order by using per-segment ordinals to compute counts and remap these counts to global counts using global ordinals
+    /// </summary>
+    [EnumMember(Value = "global_ordinals_low_cardinality")]
+    GlobalOrdinalsLowCardinality
 }

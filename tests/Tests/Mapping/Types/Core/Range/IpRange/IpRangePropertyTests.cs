@@ -33,65 +33,64 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.IpRange
+namespace Tests.Mapping.Types.Core.Range.IpRange;
+
+public class IpRangePropertyTests : PropertyTestsBase
 {
-    public class IpRangePropertyTests : PropertyTestsBase
+    public IpRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public IpRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            ranges = new
             {
-                ranges = new
+                type = "object",
+                properties = new
                 {
-                    type = "object",
-                    properties = new
+                    ips = new
                     {
-                        ips = new
-                        {
-                            type = "ip_range",
-                            store = true,
-                            index = false,
-                            coerce = true
-                        }
+                        type = "ip_range",
+                        store = true,
+                        index = false,
+                        coerce = true
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .Object<Ranges>(m => m
-                .Name(p => p.Ranges)
-                .Properties(props => props
-                    .IpRange(n => n
-                        .Name(p => p.Ips)
-                        .Store()
-                        .Index(false)
-                        .Coerce()
-                    )
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .IpRange(n => n
+                    .Name(p => p.Ips)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
                 )
-            );
+            )
+        );
 
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "ranges", new ObjectProperty
             {
-                "ranges", new ObjectProperty
+                Properties = new Properties
                 {
-                    Properties = new Properties
                     {
+                        "ips", new IpRangeProperty
                         {
-                            "ips", new IpRangeProperty
-                            {
-                                Store = true,
-                                Index = false,
-                                Coerce = true
-                            }
+                            Store = true,
+                            Index = false,
+                            Coerce = true
                         }
                     }
                 }
             }
-        };
-    }
+        }
+    };
 }

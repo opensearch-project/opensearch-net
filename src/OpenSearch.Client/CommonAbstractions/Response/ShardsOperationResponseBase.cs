@@ -28,11 +28,10 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract class ShardsOperationResponseBase : ResponseBase
 {
-    public abstract class ShardsOperationResponseBase : ResponseBase
-    {
-        [DataMember(Name = "_shards")]
-        public ShardStatistics Shards { get; internal set; }
-    }
+    [DataMember(Name = "_shards")]
+    public ShardStatistics Shards { get; internal set; }
 }

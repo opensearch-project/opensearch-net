@@ -52,10 +52,9 @@
 
 using System.Text;
 
-namespace OpenSearch.Net.Utf8Json.Internal
+namespace OpenSearch.Net.Utf8Json.Internal;
+
+internal static class StringEncoding
 {
-    internal static class StringEncoding
-    {
-        public static readonly Encoding UTF8 = new UTF8Encoding(false);
-    }
+    public static readonly Encoding UTF8 = new UTF8Encoding(false);
 }

@@ -30,13 +30,12 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CatResponse<TCatRecord> : ResponseBase
+    where TCatRecord : ICatRecord
 {
-    [DataContract]
-    public class CatResponse<TCatRecord> : ResponseBase
-        where TCatRecord : ICatRecord
-    {
-        [IgnoreDataMember]
-        public IReadOnlyCollection<TCatRecord> Records { get; internal set; } = EmptyReadOnly<TCatRecord>.Collection;
-    }
+    [IgnoreDataMember]
+    public IReadOnlyCollection<TCatRecord> Records { get; internal set; } = EmptyReadOnly<TCatRecord>.Collection;
 }

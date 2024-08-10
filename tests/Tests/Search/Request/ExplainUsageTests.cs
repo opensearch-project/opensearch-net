@@ -36,36 +36,35 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.Request
+namespace Tests.Search.Request;
+
+public class ExplainUsageTests : SearchUsageTestBase
 {
-    public class ExplainUsageTests : SearchUsageTestBase
-    {
-        /**
+    /**
 		 * Enables explanation for each hit on how its score was computed.
 		 *
 		 * See the OpenSearch documentation on {ref_current}/search-explain.html[Explain] for more detail.
 		 */
-        public ExplainUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+    public ExplainUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-        protected override object ExpectJson =>
-            new { explain = true };
+    protected override object ExpectJson =>
+        new { explain = true };
 
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-            .Explain();
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+        .Explain();
 
-        protected override SearchRequest<Project> Initializer =>
-            new SearchRequest<Project> { Explain = true };
+    protected override SearchRequest<Project> Initializer =>
+        new SearchRequest<Project> { Explain = true };
 
-        [I]
-        protected async Task ExplanationIsSetOnHits() => await AssertOnAllResponses(r =>
+    [I]
+    protected async Task ExplanationIsSetOnHits() => await AssertOnAllResponses(r =>
+    {
+        r.Hits.Should().NotBeEmpty();
+        r.Hits.Should().NotContain(hit => hit.Explanation == null);
+        foreach (var explanation in r.Hits.Select(h => h.Explanation))
         {
-            r.Hits.Should().NotBeEmpty();
-            r.Hits.Should().NotContain(hit => hit.Explanation == null);
-            foreach (var explanation in r.Hits.Select(h => h.Explanation))
-            {
-                explanation.Description.Should().NotBeNullOrEmpty();
-                explanation.Value.Should().BeGreaterThan(0);
-            }
-        });
-    }
+            explanation.Description.Should().NotBeNullOrEmpty();
+            explanation.Value.Should().BeGreaterThan(0);
+        }
+    });
 }

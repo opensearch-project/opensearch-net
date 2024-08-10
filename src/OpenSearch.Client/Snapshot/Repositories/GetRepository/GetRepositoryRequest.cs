@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("snapshot.get_repository.json")]
-    public partial interface IGetRepositoryRequest { }
+namespace OpenSearch.Client;
 
-    public partial class GetRepositoryRequest { }
+[MapsApi("snapshot.get_repository.json")]
+public partial interface IGetRepositoryRequest { }
 
-    public partial class GetRepositoryDescriptor { }
-}
+public partial class GetRepositoryRequest { }
+
+public partial class GetRepositoryDescriptor { }

@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class FloatRangeAttribute : RangePropertyAttributeBase, IFloatRangeProperty
 {
-    public class FloatRangeAttribute : RangePropertyAttributeBase, IFloatRangeProperty
-    {
-        public FloatRangeAttribute() : base(RangeType.FloatRange) { }
-    }
+    public FloatRangeAttribute() : base(RangeType.FloatRange) { }
 }

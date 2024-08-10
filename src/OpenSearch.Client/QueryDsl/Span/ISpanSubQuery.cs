@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public interface ISpanSubQuery : IQuery { }
-}
+namespace OpenSearch.Client;
+
+public interface ISpanSubQuery : IQuery { }

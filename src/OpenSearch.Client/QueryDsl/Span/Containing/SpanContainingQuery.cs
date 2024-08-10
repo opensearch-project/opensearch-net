@@ -30,51 +30,50 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(SpanContainingQuery))]
+public interface ISpanContainingQuery : ISpanSubQuery
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(SpanContainingQuery))]
-    public interface ISpanContainingQuery : ISpanSubQuery
+    [DataMember(Name = "big")]
+    ISpanQuery Big { get; set; }
+
+    [DataMember(Name = "little")]
+    ISpanQuery Little { get; set; }
+}
+
+public class SpanContainingQuery : QueryBase, ISpanContainingQuery
+{
+    public ISpanQuery Big { get; set; }
+    public ISpanQuery Little { get; set; }
+    protected override bool Conditionless => IsConditionless(this);
+
+    internal override void InternalWrapInContainer(IQueryContainer c) => c.SpanContaining = this;
+
+    internal static bool IsConditionless(ISpanContainingQuery q)
     {
-        [DataMember(Name = "big")]
-        ISpanQuery Big { get; set; }
+        var exclude = q.Little as IQuery;
+        var include = q.Big as IQuery;
 
-        [DataMember(Name = "little")]
-        ISpanQuery Little { get; set; }
+        return exclude == null && include == null
+            || include == null && exclude.Conditionless
+            || exclude == null && include.Conditionless
+            || exclude != null && exclude.Conditionless && include != null && include.Conditionless;
     }
+}
 
-    public class SpanContainingQuery : QueryBase, ISpanContainingQuery
-    {
-        public ISpanQuery Big { get; set; }
-        public ISpanQuery Little { get; set; }
-        protected override bool Conditionless => IsConditionless(this);
+public class SpanContainingQueryDescriptor<T>
+    : QueryDescriptorBase<SpanContainingQueryDescriptor<T>, ISpanContainingQuery>
+        , ISpanContainingQuery where T : class
+{
+    protected override bool Conditionless => SpanContainingQuery.IsConditionless(this);
+    ISpanQuery ISpanContainingQuery.Big { get; set; }
+    ISpanQuery ISpanContainingQuery.Little { get; set; }
 
-        internal override void InternalWrapInContainer(IQueryContainer c) => c.SpanContaining = this;
+    public SpanContainingQueryDescriptor<T> Little(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
+        Assign(selector(new SpanQueryDescriptor<T>()), (a, v) => a.Little = v);
 
-        internal static bool IsConditionless(ISpanContainingQuery q)
-        {
-            var exclude = q.Little as IQuery;
-            var include = q.Big as IQuery;
-
-            return exclude == null && include == null
-                || include == null && exclude.Conditionless
-                || exclude == null && include.Conditionless
-                || exclude != null && exclude.Conditionless && include != null && include.Conditionless;
-        }
-    }
-
-    public class SpanContainingQueryDescriptor<T>
-        : QueryDescriptorBase<SpanContainingQueryDescriptor<T>, ISpanContainingQuery>
-            , ISpanContainingQuery where T : class
-    {
-        protected override bool Conditionless => SpanContainingQuery.IsConditionless(this);
-        ISpanQuery ISpanContainingQuery.Big { get; set; }
-        ISpanQuery ISpanContainingQuery.Little { get; set; }
-
-        public SpanContainingQueryDescriptor<T> Little(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
-            Assign(selector(new SpanQueryDescriptor<T>()), (a, v) => a.Little = v);
-
-        public SpanContainingQueryDescriptor<T> Big(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
-            Assign(selector(new SpanQueryDescriptor<T>()), (a, v) => a.Big = v);
-    }
+    public SpanContainingQueryDescriptor<T> Big(Func<SpanQueryDescriptor<T>, ISpanQuery> selector) =>
+        Assign(selector(new SpanQueryDescriptor<T>()), (a, v) => a.Big = v);
 }

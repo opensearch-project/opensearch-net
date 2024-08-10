@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class CreateRepositoryResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class CreateRepositoryResponse : AcknowledgedResponseBase { }

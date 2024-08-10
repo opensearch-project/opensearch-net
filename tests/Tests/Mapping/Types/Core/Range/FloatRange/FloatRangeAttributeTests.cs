@@ -29,25 +29,24 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.FloatRange
-{
-    public class FloatRangeTest
-    {
-        [FloatRange]
-        public OpenSearch.Client.FloatRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.FloatRange;
 
-    public class FloatRangeAttributeTests : AttributeTestsBase<FloatRangeTest>
+public class FloatRangeTest
+{
+    [FloatRange]
+    public OpenSearch.Client.FloatRange Range { get; set; }
+}
+
+public class FloatRangeAttributeTests : AttributeTestsBase<FloatRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    type = "float_range"
-                }
+                type = "float_range"
             }
-        };
-    }
+        }
+    };
 }

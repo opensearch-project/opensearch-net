@@ -28,25 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(StatsBucketAggregation))]
+public interface IStatsBucketAggregation : IPipelineAggregation { }
+
+public class StatsBucketAggregation
+    : PipelineAggregationBase, IStatsBucketAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(StatsBucketAggregation))]
-    public interface IStatsBucketAggregation : IPipelineAggregation { }
+    internal StatsBucketAggregation() { }
 
-    public class StatsBucketAggregation
-        : PipelineAggregationBase, IStatsBucketAggregation
-    {
-        internal StatsBucketAggregation() { }
+    public StatsBucketAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-        public StatsBucketAggregation(string name, SingleBucketsPath bucketsPath)
-            : base(name, bucketsPath) { }
-
-        internal override void WrapInContainer(AggregationContainer c) => c.StatsBucket = this;
-    }
-
-    public class StatsBucketAggregationDescriptor
-        : PipelineAggregationDescriptorBase<StatsBucketAggregationDescriptor, IStatsBucketAggregation, SingleBucketsPath>
-            , IStatsBucketAggregation
-    { }
+    internal override void WrapInContainer(AggregationContainer c) => c.StatsBucket = this;
 }
+
+public class StatsBucketAggregationDescriptor
+    : PipelineAggregationDescriptorBase<StatsBucketAggregationDescriptor, IStatsBucketAggregation, SingleBucketsPath>
+        , IStatsBucketAggregation
+{ }

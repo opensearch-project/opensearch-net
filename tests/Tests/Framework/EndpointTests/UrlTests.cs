@@ -36,95 +36,94 @@ using Tests.Core.Client;
 using Tests.Core.Client.Settings;
 using Tests.Framework.Extensions;
 
-namespace Tests.Framework.EndpointTests
+namespace Tests.Framework.EndpointTests;
+
+public abstract class UrlTestsBase
 {
-    public abstract class UrlTestsBase
+    [U] public abstract Task Urls();
+}
+
+public static class UrlTesterExtensions
+{
+    public static async Task<UrlTester> RequestAsync<TResponse>(this Task<UrlTester> tester, Func<IOpenSearchClient, Task<TResponse>> call)
+        where TResponse : IResponse => await (await tester).WhenCallingAsync(call, "request async");
+
+    public static async Task<UrlTester> FluentAsync<TResponse>(this Task<UrlTester> tester, Func<IOpenSearchClient, Task<TResponse>> call)
+        where TResponse : IResponse => await (await tester).WhenCallingAsync(call, "fluent async");
+}
+
+public class UrlTester
+{
+    internal UrlTester(HttpMethod method, string expectedUrl, Func<ConnectionSettings, ConnectionSettings> settings = null)
     {
-        [U] public abstract Task Urls();
+        ExpectedHttpMethod = method;
+        ExpectedUrl = expectedUrl;
+        Client = settings == null
+            ? TestClient.DefaultInMemoryClient
+            : new OpenSearchClient(settings(new AlwaysInMemoryConnectionSettings()));
     }
 
-    public static class UrlTesterExtensions
-    {
-        public static async Task<UrlTester> RequestAsync<TResponse>(this Task<UrlTester> tester, Func<IOpenSearchClient, Task<TResponse>> call)
-            where TResponse : IResponse => await (await tester).WhenCallingAsync(call, "request async");
+    private HttpMethod ExpectedHttpMethod { get; }
+    private string ExpectedUrl { get; }
+    private IOpenSearchClient Client { get; }
 
-        public static async Task<UrlTester> FluentAsync<TResponse>(this Task<UrlTester> tester, Func<IOpenSearchClient, Task<TResponse>> call)
-            where TResponse : IResponse => await (await tester).WhenCallingAsync(call, "fluent async");
+    public static UrlTester ExpectUrl(HttpMethod method, string url, Func<ConnectionSettings, ConnectionSettings> settings = null) =>
+        new UrlTester(method, url, settings);
+
+    // ReSharper disable InconsistentNaming
+    public static UrlTester POST(string url) => new UrlTester(HttpMethod.POST, url);
+
+    public static UrlTester PUT(string url) => new UrlTester(HttpMethod.PUT, url);
+
+    public static UrlTester GET(string url) => new UrlTester(HttpMethod.GET, url);
+
+    public static UrlTester HEAD(string url) => new UrlTester(HttpMethod.HEAD, url);
+
+    public static UrlTester DELETE(string url) => new UrlTester(HttpMethod.DELETE, url);
+    // ReSharper restore InconsistentNaming
+
+    public static string EscapeUriString(string s) => Uri.EscapeDataString(s);
+
+    public UrlTester Fluent<TResponse>(Func<IOpenSearchClient, TResponse> call) where TResponse : IResponse => WhenCalling(call, "fluent");
+
+    public UrlTester Request<TResponse>(Func<IOpenSearchClient, TResponse> call) where TResponse : IResponse => WhenCalling(call, "request");
+
+    public Task<UrlTester> FluentAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call) where TResponse : IResponse =>
+        WhenCallingAsync(call, "fluent async");
+
+    public Task<UrlTester> RequestAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call) where TResponse : IResponse =>
+        WhenCallingAsync(call, "request async");
+
+    public UrlTester LowLevel(Func<IOpenSearchLowLevelClient, IApiCallDetails> call)
+    {
+        var callDetails = call(Client.LowLevel);
+        return Assert("lowlevel", callDetails);
+    }
+    public async Task<UrlTester> LowLevelAsync(Func<IOpenSearchLowLevelClient, Task<VoidResponse>> call)
+    {
+        var callDetails = await call(Client.LowLevel);
+        return Assert("lowlevel async", callDetails);
     }
 
-    public class UrlTester
+    private UrlTester WhenCalling<TResponse>(Func<IOpenSearchClient, TResponse> call, string typeOfCall)
+        where TResponse : IResponse
     {
-        internal UrlTester(HttpMethod method, string expectedUrl, Func<ConnectionSettings, ConnectionSettings> settings = null)
-        {
-            ExpectedHttpMethod = method;
-            ExpectedUrl = expectedUrl;
-            Client = settings == null
-                ? TestClient.DefaultInMemoryClient
-                : new OpenSearchClient(settings(new AlwaysInMemoryConnectionSettings()));
-        }
+        var callDetails = call(Client);
+        return Assert(typeOfCall, callDetails.ApiCall);
+    }
 
-        private HttpMethod ExpectedHttpMethod { get; }
-        private string ExpectedUrl { get; }
-        private IOpenSearchClient Client { get; }
+    internal async Task<UrlTester> WhenCallingAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call, string typeOfCall)
+        where TResponse : IResponse
+    {
+        var callDetails = (await call(Client)).ApiCall;
+        return Assert(typeOfCall, callDetails);
+    }
 
-        public static UrlTester ExpectUrl(HttpMethod method, string url, Func<ConnectionSettings, ConnectionSettings> settings = null) =>
-            new UrlTester(method, url, settings);
-
-        // ReSharper disable InconsistentNaming
-        public static UrlTester POST(string url) => new UrlTester(HttpMethod.POST, url);
-
-        public static UrlTester PUT(string url) => new UrlTester(HttpMethod.PUT, url);
-
-        public static UrlTester GET(string url) => new UrlTester(HttpMethod.GET, url);
-
-        public static UrlTester HEAD(string url) => new UrlTester(HttpMethod.HEAD, url);
-
-        public static UrlTester DELETE(string url) => new UrlTester(HttpMethod.DELETE, url);
-        // ReSharper restore InconsistentNaming
-
-        public static string EscapeUriString(string s) => Uri.EscapeDataString(s);
-
-        public UrlTester Fluent<TResponse>(Func<IOpenSearchClient, TResponse> call) where TResponse : IResponse => WhenCalling(call, "fluent");
-
-        public UrlTester Request<TResponse>(Func<IOpenSearchClient, TResponse> call) where TResponse : IResponse => WhenCalling(call, "request");
-
-        public Task<UrlTester> FluentAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call) where TResponse : IResponse =>
-            WhenCallingAsync(call, "fluent async");
-
-        public Task<UrlTester> RequestAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call) where TResponse : IResponse =>
-            WhenCallingAsync(call, "request async");
-
-        public UrlTester LowLevel(Func<IOpenSearchLowLevelClient, IApiCallDetails> call)
-        {
-            var callDetails = call(Client.LowLevel);
-            return Assert("lowlevel", callDetails);
-        }
-        public async Task<UrlTester> LowLevelAsync(Func<IOpenSearchLowLevelClient, Task<VoidResponse>> call)
-        {
-            var callDetails = await call(Client.LowLevel);
-            return Assert("lowlevel async", callDetails);
-        }
-
-        private UrlTester WhenCalling<TResponse>(Func<IOpenSearchClient, TResponse> call, string typeOfCall)
-            where TResponse : IResponse
-        {
-            var callDetails = call(Client);
-            return Assert(typeOfCall, callDetails.ApiCall);
-        }
-
-        internal async Task<UrlTester> WhenCallingAsync<TResponse>(Func<IOpenSearchClient, Task<TResponse>> call, string typeOfCall)
-            where TResponse : IResponse
-        {
-            var callDetails = (await call(Client)).ApiCall;
-            return Assert(typeOfCall, callDetails);
-        }
-
-        private UrlTester Assert(string typeOfCall, IApiCallDetails callDetails)
-        {
-            var url = callDetails.Uri.PathAndQuery;
-            callDetails.Uri.PathEquals(ExpectedUrl, typeOfCall);
-            callDetails.HttpMethod.Should().Be(ExpectedHttpMethod, $"{typeOfCall} to {url}");
-            return this;
-        }
+    private UrlTester Assert(string typeOfCall, IApiCallDetails callDetails)
+    {
+        var url = callDetails.Uri.PathAndQuery;
+        callDetails.Uri.PathEquals(ExpectedUrl, typeOfCall);
+        callDetails.HttpMethod.Should().Be(ExpectedHttpMethod, $"{typeOfCall} to {url}");
+        return this;
     }
 }

@@ -33,44 +33,43 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Stack.ArtifactsApi;
 using Xunit;
 
-namespace OpenSearch.OpenSearch.EphemeralTests
+namespace OpenSearch.OpenSearch.EphemeralTests;
+
+public class EphemeralClusterTests
 {
-    public class EphemeralClusterTests
+    [TU]
+    [ClassData(typeof(SampleClusters))]
+    public void TestEphemeralCluster(OpenSearchVersion version, ClusterFeatures features)
     {
-        [TU]
-        [ClassData(typeof(SampleClusters))]
-        public void TestEphemeralCluster(OpenSearchVersion version, ClusterFeatures features)
-        {
-            const int numberOfNodes = 1;
-            var clusterConfiguration =
-                new EphemeralClusterConfiguration(version, features, null, numberOfNodes)
-                {
-                    ShowOpenSearchOutputAfterStarted = true
-                };
-            using var cluster = new EphemeralCluster(clusterConfiguration);
-            var timeout = new System.TimeSpan(0, 5, 30);
-            using (cluster.Start(timeout))
+        const int numberOfNodes = 1;
+        var clusterConfiguration =
+            new EphemeralClusterConfiguration(version, features, null, numberOfNodes)
             {
-                Assert.True(cluster.Started, "OpenSearch cluster started");
-                foreach (var n in cluster.Nodes)
-                {
-                    n.SendControlC();
-                    Assert.True(n.WaitForCompletion(timeout), $"Failed to stop node {n.ProcessId}");
-                }
+                ShowOpenSearchOutputAfterStarted = true
+            };
+        using var cluster = new EphemeralCluster(clusterConfiguration);
+        var timeout = new System.TimeSpan(0, 5, 30);
+        using (cluster.Start(timeout))
+        {
+            Assert.True(cluster.Started, "OpenSearch cluster started");
+            foreach (var n in cluster.Nodes)
+            {
+                n.SendControlC();
+                Assert.True(n.WaitForCompletion(timeout), $"Failed to stop node {n.ProcessId}");
             }
         }
+    }
 
-        private class SampleClusters : IEnumerable<object[]>
+    private class SampleClusters : IEnumerable<object[]>
+    {
+        public IEnumerator<object[]> GetEnumerator()
         {
-            public IEnumerator<object[]> GetEnumerator()
-            {
-                yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.None };
-                yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.None };
-                yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.SSL };
-                yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.SSL };
-            }
-
-            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+            yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.None };
+            yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.None };
+            yield return new object[] { OpenSearchVersion.From("1.2.0"), ClusterFeatures.SSL };
+            yield return new object[] { OpenSearchVersion.From("2.2.0"), ClusterFeatures.SSL };
         }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

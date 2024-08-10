@@ -33,14 +33,14 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4467
 {
-    public class GithubIssue4467
+    [U]
+    public void CanDeserializeRepositories()
     {
-        [U]
-        public void CanDeserializeRepositories()
-        {
-            var json = @"{
+        var json = @"{
 			  ""test_repository"": {
 			    ""type"": ""azure"",
 			    ""settings"": {
@@ -61,20 +61,19 @@ namespace Tests.Reproduce
 			  }
 			}";
 
-            var bytes = Encoding.UTF8.GetBytes(json);
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-            var client = new OpenSearchClient(connectionSettings);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-            var responseAction = () => client.Snapshot.GetRepository();
-            responseAction.Should().NotThrow();
+        var responseAction = () => client.Snapshot.GetRepository();
+        responseAction.Should().NotThrow();
 
-            var response = responseAction();
-            response.Repositories.Should().HaveCount(2);
+        var response = responseAction();
+        response.Repositories.Should().HaveCount(2);
 
-            var azureRepository = response.Azure("repo_aligncare_v7");
-            azureRepository.Should().NotBeNull();
-            azureRepository.Settings.Compress.Should().BeTrue();
-        }
+        var azureRepository = response.Azure("repo_aligncare_v7");
+        azureRepository.Should().NotBeNull();
+        azureRepository.Settings.Compress.Should().BeTrue();
     }
 }

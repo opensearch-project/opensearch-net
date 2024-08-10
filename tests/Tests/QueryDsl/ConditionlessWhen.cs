@@ -31,26 +31,25 @@ using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.Client;
 
-namespace Tests.QueryDsl
+namespace Tests.QueryDsl;
+
+public abstract class ConditionlessWhen : List<Action<QueryContainer>> { }
+
+public class ConditionlessWhen<TQuery> : ConditionlessWhen where TQuery : IQuery
 {
-    public abstract class ConditionlessWhen : List<Action<QueryContainer>> { }
+    private readonly Func<IQueryContainer, TQuery> _dispatch;
 
-    public class ConditionlessWhen<TQuery> : ConditionlessWhen where TQuery : IQuery
+    public ConditionlessWhen(Func<IQueryContainer, TQuery> dispatch) => _dispatch = dispatch;
+
+    public void Add(Action<TQuery> when) => Add(q => Assert(q, when));
+
+    private void Assert(IQueryContainer c, Action<TQuery> when)
     {
-        private readonly Func<IQueryContainer, TQuery> _dispatch;
-
-        public ConditionlessWhen(Func<IQueryContainer, TQuery> dispatch) => _dispatch = dispatch;
-
-        public void Add(Action<TQuery> when) => Add(q => Assert(q, when));
-
-        private void Assert(IQueryContainer c, Action<TQuery> when)
-        {
-            var q = _dispatch(c);
-            q.Conditionless.Should().BeFalse();
-            c.IsConditionless.Should().BeFalse();
-            when(q);
-            q.Conditionless.Should().BeTrue();
-            c.IsConditionless.Should().BeTrue();
-        }
+        var q = _dispatch(c);
+        q.Conditionless.Should().BeFalse();
+        c.IsConditionless.Should().BeFalse();
+        when(q);
+        q.Conditionless.Should().BeTrue();
+        c.IsConditionless.Should().BeTrue();
     }
 }

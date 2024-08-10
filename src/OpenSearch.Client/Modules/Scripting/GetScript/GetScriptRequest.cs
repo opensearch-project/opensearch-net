@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("get_script.json")]
-    public partial interface IGetScriptRequest { }
+namespace OpenSearch.Client;
 
-    public partial class GetScriptRequest { }
+[MapsApi("get_script.json")]
+public partial interface IGetScriptRequest { }
 
-    public partial class GetScriptDescriptor { }
-}
+public partial class GetScriptRequest { }
+
+public partial class GetScriptDescriptor { }

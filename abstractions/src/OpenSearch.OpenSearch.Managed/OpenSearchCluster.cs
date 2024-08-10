@@ -28,12 +28,11 @@
 
 using OpenSearch.OpenSearch.Managed.Configuration;
 
-namespace OpenSearch.OpenSearch.Managed
+namespace OpenSearch.OpenSearch.Managed;
+
+public class OpenSearchCluster : ClusterBase
 {
-    public class OpenSearchCluster : ClusterBase
+    public OpenSearchCluster(ClusterConfiguration clusterConfiguration) : base(clusterConfiguration)
     {
-        public OpenSearchCluster(ClusterConfiguration clusterConfiguration) : base(clusterConfiguration)
-        {
-        }
     }
 }

@@ -29,27 +29,26 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum MinimumInterval
 {
-    [StringEnum]
-    public enum MinimumInterval
-    {
-        [EnumMember(Value = "second")]
-        Second,
+    [EnumMember(Value = "second")]
+    Second,
 
-        [EnumMember(Value = "minute")]
-        Minute,
+    [EnumMember(Value = "minute")]
+    Minute,
 
-        [EnumMember(Value = "hour")]
-        Hour,
+    [EnumMember(Value = "hour")]
+    Hour,
 
-        [EnumMember(Value = "day")]
-        Day,
+    [EnumMember(Value = "day")]
+    Day,
 
-        [EnumMember(Value = "month")]
-        Month,
+    [EnumMember(Value = "month")]
+    Month,
 
-        [EnumMember(Value = "year")]
-        Year
-    }
+    [EnumMember(Value = "year")]
+    Year
 }

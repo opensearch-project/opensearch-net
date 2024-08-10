@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public enum AggregationVisitorScope
 {
-    public enum AggregationVisitorScope
-    {
-        Unknown,
-        Aggregation,
-        Bucket
-    }
+    Unknown,
+    Aggregation,
+    Bucket
 }

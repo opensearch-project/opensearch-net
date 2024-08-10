@@ -30,39 +30,38 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class FiltersBucketItem : BucketBase
 {
-    public class FiltersBucketItem : BucketBase
-    {
-        public FiltersBucketItem(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
+    public FiltersBucketItem(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
 
-        public long DocCount { get; set; }
-    }
+    public long DocCount { get; set; }
+}
 
-    //TODO this is mapped rather oddly we always deserialize as if this is
-    // {
-    //    "agg1" : { ...},
-    //	  "agg2" : { ... }
-    //}
-    // while its actually a buckets response
-    // {
-    //   "buckets" : {} || []
-    //}
-    // where buckets is either an array or object. We fix this in the helper where we
-    // move the aggs from itself into a *new* filters aggregate using the parameterless constructor
-    public class FiltersAggregate : BucketAggregateBase
-    {
-        public FiltersAggregate() : base(EmptyReadOnly<string, IAggregate>.Dictionary) { }
+//TODO this is mapped rather oddly we always deserialize as if this is
+// {
+//    "agg1" : { ...},
+//	  "agg2" : { ... }
+//}
+// while its actually a buckets response
+// {
+//   "buckets" : {} || []
+//}
+// where buckets is either an array or object. We fix this in the helper where we
+// move the aggs from itself into a *new* filters aggregate using the parameterless constructor
+public class FiltersAggregate : BucketAggregateBase
+{
+    public FiltersAggregate() : base(EmptyReadOnly<string, IAggregate>.Dictionary) { }
 
-        public FiltersAggregate(IReadOnlyDictionary<string, IAggregate> aggregations) : base(aggregations) { }
+    public FiltersAggregate(IReadOnlyDictionary<string, IAggregate> aggregations) : base(aggregations) { }
 
-        // Don't sanitize the keys as these are the keys for named buckets
-        protected override string Sanitize(string key) => key;
+    // Don't sanitize the keys as these are the keys for named buckets
+    protected override string Sanitize(string key) => key;
 
-        public IReadOnlyCollection<FiltersBucketItem> Buckets { get; set; } = EmptyReadOnly<FiltersBucketItem>.Collection;
+    public IReadOnlyCollection<FiltersBucketItem> Buckets { get; set; } = EmptyReadOnly<FiltersBucketItem>.Collection;
 
-        public SingleBucketAggregate NamedBucket(string key) => Global(key);
+    public SingleBucketAggregate NamedBucket(string key) => Global(key);
 
-        public IList<FiltersBucketItem> AnonymousBuckets() => Buckets?.ToList();
-    }
+    public IList<FiltersBucketItem> AnonymousBuckets() => Buckets?.ToList();
 }

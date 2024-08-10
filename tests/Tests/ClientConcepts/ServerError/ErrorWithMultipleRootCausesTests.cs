@@ -30,11 +30,11 @@ using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.ClientConcepts.ServerError
+namespace Tests.ClientConcepts.ServerError;
+
+public class ErrorWithMultipleRootCausesTests : ServerErrorTestsBase
 {
-    public class ErrorWithMultipleRootCausesTests : ServerErrorTestsBase
-    {
-        protected override string Json => @"{
+    protected override string Json => @"{
 			""root_cause"": [
 			{
 				""type"": ""parse_exception1"",
@@ -56,26 +56,25 @@ namespace Tests.ClientConcepts.ServerError
 			}
 		}";
 
-        [U] protected override void AssertServerError() => base.AssertServerError();
+    [U] protected override void AssertServerError() => base.AssertServerError();
 
-        protected override void AssertResponseError(string origin, Error error)
+    protected override void AssertResponseError(string origin, Error error)
+    {
+        error.Type.Should().NotBeNullOrWhiteSpace(origin);
+        error.Reason.Should().NotBeNullOrWhiteSpace(origin);
+        error.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
+        error.RootCause.Should().NotBeEmpty(origin).And.HaveCount(2, origin);
+        foreach (var rootCause in error.RootCause)
         {
-            error.Type.Should().NotBeNullOrWhiteSpace(origin);
-            error.Reason.Should().NotBeNullOrWhiteSpace(origin);
-            error.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
-            error.RootCause.Should().NotBeEmpty(origin).And.HaveCount(2, origin);
-            foreach (var rootCause in error.RootCause)
-            {
-                rootCause.Should().NotBeNull(origin);
-                rootCause.Type.Should().NotBeNullOrWhiteSpace(origin);
-                rootCause.Reason.Should().NotBeNullOrWhiteSpace(origin);
-                rootCause.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
-            }
-            var causedBy = error.CausedBy;
-            causedBy.Should().NotBeNull(origin);
-            causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
-            causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
-            causedBy.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
+            rootCause.Should().NotBeNull(origin);
+            rootCause.Type.Should().NotBeNullOrWhiteSpace(origin);
+            rootCause.Reason.Should().NotBeNullOrWhiteSpace(origin);
+            rootCause.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
         }
+        var causedBy = error.CausedBy;
+        causedBy.Should().NotBeNull(origin);
+        causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
+        causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
+        causedBy.StackTrace.Should().NotBeNullOrWhiteSpace(origin);
     }
 }

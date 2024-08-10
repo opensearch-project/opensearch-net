@@ -36,35 +36,34 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.StatusManagement.ForceMerge
+namespace Tests.Indices.StatusManagement.ForceMerge;
+
+public class ForceMergeApiTests
+    : ApiIntegrationAgainstNewIndexTestBase<IntrusiveOperationCluster, ForceMergeResponse, IForceMergeRequest, ForceMergeDescriptor,
+        ForceMergeRequest>
 {
-    public class ForceMergeApiTests
-        : ApiIntegrationAgainstNewIndexTestBase<IntrusiveOperationCluster, ForceMergeResponse, IForceMergeRequest, ForceMergeDescriptor,
-            ForceMergeRequest>
+    public ForceMergeApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+
+    protected override Func<ForceMergeDescriptor, IForceMergeRequest> Fluent => d => d.AllowNoIndices();
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
+
+    protected override ForceMergeRequest Initializer => new ForceMergeRequest(CallIsolatedValue) { AllowNoIndices = true };
+    protected override string UrlPath => $"/{CallIsolatedValue}/_forcemerge?allow_no_indices=true";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.ForceMerge(CallIsolatedValue, f),
+        (client, f) => client.Indices.ForceMergeAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.ForceMerge(r),
+        (client, r) => client.Indices.ForceMergeAsync(r)
+    );
+
+    [I]
+    public Task AssertResponse() => AssertOnAllResponses(r =>
     {
-        public ForceMergeApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => true;
-        protected override int ExpectStatusCode => 200;
-
-        protected override Func<ForceMergeDescriptor, IForceMergeRequest> Fluent => d => d.AllowNoIndices();
-        protected override HttpMethod HttpMethod => HttpMethod.POST;
-
-        protected override ForceMergeRequest Initializer => new ForceMergeRequest(CallIsolatedValue) { AllowNoIndices = true };
-        protected override string UrlPath => $"/{CallIsolatedValue}/_forcemerge?allow_no_indices=true";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Indices.ForceMerge(CallIsolatedValue, f),
-            (client, f) => client.Indices.ForceMergeAsync(CallIsolatedValue, f),
-            (client, r) => client.Indices.ForceMerge(r),
-            (client, r) => client.Indices.ForceMergeAsync(r)
-        );
-
-        [I]
-        public Task AssertResponse() => AssertOnAllResponses(r =>
-        {
-            r.Shards.Should().NotBeNull();
-            r.Shards.Total.Should().BeGreaterThan(0);
-        });
-    }
+        r.Shards.Should().NotBeNull();
+        r.Shards.Total.Should().BeGreaterThan(0);
+    });
 }

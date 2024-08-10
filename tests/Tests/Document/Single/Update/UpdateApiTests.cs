@@ -36,64 +36,63 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Document.Single.Update
+namespace Tests.Document.Single.Update;
+
+public class UpdateApiTests
+    : ApiIntegrationTestBase<WritableCluster, UpdateResponse<Project>, IUpdateRequest<Project, Project>, UpdateDescriptor<Project, Project>,
+        UpdateRequest<Project, Project>>
 {
-    public class UpdateApiTests
-        : ApiIntegrationTestBase<WritableCluster, UpdateResponse<Project>, IUpdateRequest<Project, Project>, UpdateDescriptor<Project, Project>,
-            UpdateRequest<Project, Project>>
+    public UpdateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+
+    protected override object ExpectJson { get; } = new
     {
-        public UpdateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        doc = Project.InstanceAnonymous,
+        doc_as_upsert = true,
+        detect_noop = true
+    };
 
-        protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
 
-        protected override object ExpectJson { get; } = new
-        {
-            doc = Project.InstanceAnonymous,
-            doc_as_upsert = true,
-            detect_noop = true
-        };
+    protected override Func<UpdateDescriptor<Project, Project>, IUpdateRequest<Project, Project>> Fluent => u => u
+        .Routing(CallIsolatedValue)
+        .Doc(Project.Instance)
+        .DocAsUpsert()
+        .DetectNoop();
 
-        protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-        protected override Func<UpdateDescriptor<Project, Project>, IUpdateRequest<Project, Project>> Fluent => u => u
-            .Routing(CallIsolatedValue)
-            .Doc(Project.Instance)
-            .DocAsUpsert()
-            .DetectNoop();
+    protected override UpdateRequest<Project, Project> Initializer => new UpdateRequest<Project, Project>(CallIsolatedValue)
+    {
+        Routing = CallIsolatedValue,
+        Doc = Project.Instance,
+        DocAsUpsert = true,
+        DetectNoop = true
+    };
 
-        protected override HttpMethod HttpMethod => HttpMethod.POST;
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/project/_update/{CallIsolatedValue}?routing={CallIsolatedValue}";
 
-        protected override UpdateRequest<Project, Project> Initializer => new UpdateRequest<Project, Project>(CallIsolatedValue)
-        {
-            Routing = CallIsolatedValue,
-            Doc = Project.Instance,
-            DocAsUpsert = true,
-            DetectNoop = true
-        };
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        foreach (var id in values.Values)
+            Client.Index(Project.Instance, i => i.Id(id).Routing(id));
+    }
 
-        protected override bool SupportsDeserialization => false;
-        protected override string UrlPath => $"/project/_update/{CallIsolatedValue}?routing={CallIsolatedValue}";
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Update<Project>(CallIsolatedValue, f),
+        (client, f) => client.UpdateAsync<Project>(CallIsolatedValue, f),
+        (client, r) => client.Update(r),
+        (client, r) => client.UpdateAsync(r)
+    );
 
-        protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-        {
-            foreach (var id in values.Values)
-                Client.Index(Project.Instance, i => i.Id(id).Routing(id));
-        }
+    protected override UpdateDescriptor<Project, Project> NewDescriptor() =>
+        new UpdateDescriptor<Project, Project>(CallIsolatedValue);
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Update<Project>(CallIsolatedValue, f),
-            (client, f) => client.UpdateAsync<Project>(CallIsolatedValue, f),
-            (client, r) => client.Update(r),
-            (client, r) => client.UpdateAsync(r)
-        );
-
-        protected override UpdateDescriptor<Project, Project> NewDescriptor() =>
-            new UpdateDescriptor<Project, Project>(CallIsolatedValue);
-
-        protected override void ExpectResponse(UpdateResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            response.Result.Should().Be(Result.Noop);
-        }
+    protected override void ExpectResponse(UpdateResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        response.Result.Should().Be(Result.Noop);
     }
 }

@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("cat.nodes.json")]
-    public partial interface ICatNodesRequest { }
+namespace OpenSearch.Client;
 
-    public partial class CatNodesRequest { }
+[MapsApi("cat.nodes.json")]
+public partial interface ICatNodesRequest { }
 
-    public partial class CatNodesDescriptor { }
-}
+public partial class CatNodesRequest { }
+
+public partial class CatNodesDescriptor { }

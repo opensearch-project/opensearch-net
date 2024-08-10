@@ -30,18 +30,17 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum ScriptLang
 {
-    [StringEnum]
-    public enum ScriptLang
-    {
-        [EnumMember(Value = "painless")]
-        Painless,
+    [EnumMember(Value = "painless")]
+    Painless,
 
-        [EnumMember(Value = "expression")]
-        Expression,
+    [EnumMember(Value = "expression")]
+    Expression,
 
-        [EnumMember(Value = "mustache")]
-        Mustache,
-    }
+    [EnumMember(Value = "mustache")]
+    Mustache,
 }

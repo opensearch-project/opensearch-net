@@ -29,43 +29,42 @@
 using System;
 using System.Linq;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal abstract class VersionInfo
 {
-    internal abstract class VersionInfo
+    protected const string EmptyVersion = "0.0.0";
+
+    public Version Version { get; protected set; }
+    public bool IsPrerelease { get; protected set; }
+
+    protected void StoreVersion(string fullVersion)
     {
-        protected const string EmptyVersion = "0.0.0";
+        if (string.IsNullOrEmpty(fullVersion))
+            fullVersion = EmptyVersion;
 
-        public Version Version { get; protected set; }
-        public bool IsPrerelease { get; protected set; }
+        var clientVersion = GetParsableVersionPart(fullVersion);
 
-        protected void StoreVersion(string fullVersion)
-        {
-            if (string.IsNullOrEmpty(fullVersion))
-                fullVersion = EmptyVersion;
+        if (!Version.TryParse(clientVersion, out var parsedVersion))
+            throw new ArgumentException("Invalid version string", nameof(fullVersion));
 
-            var clientVersion = GetParsableVersionPart(fullVersion);
+        var finalVersion = parsedVersion;
 
-            if (!Version.TryParse(clientVersion, out var parsedVersion))
-                throw new ArgumentException("Invalid version string", nameof(fullVersion));
+        if (parsedVersion.Minor == -1 || parsedVersion.Build == -1)
+            finalVersion = new Version(parsedVersion.Major, parsedVersion.Minor > -1
+                ? parsedVersion.Minor
+                : 0, parsedVersion.Build > -1
+                    ? parsedVersion.Build
+                    : 0);
 
-            var finalVersion = parsedVersion;
-
-            if (parsedVersion.Minor == -1 || parsedVersion.Build == -1)
-                finalVersion = new Version(parsedVersion.Major, parsedVersion.Minor > -1
-                    ? parsedVersion.Minor
-                    : 0, parsedVersion.Build > -1
-                        ? parsedVersion.Build
-                        : 0);
-
-            Version = finalVersion;
-            IsPrerelease = ContainsPrerelease(fullVersion);
-        }
-
-        protected virtual bool ContainsPrerelease(string version) => version.Contains("-");
-
-        private static string GetParsableVersionPart(string fullVersionName) =>
-            new string(fullVersionName.TakeWhile(c => char.IsDigit(c) || c == '.').ToArray());
-
-        public override string ToString() => IsPrerelease ? Version.ToString() + "p" : Version.ToString();
+        Version = finalVersion;
+        IsPrerelease = ContainsPrerelease(fullVersion);
     }
+
+    protected virtual bool ContainsPrerelease(string version) => version.Contains("-");
+
+    private static string GetParsableVersionPart(string fullVersionName) =>
+        new string(fullVersionName.TakeWhile(c => char.IsDigit(c) || c == '.').ToArray());
+
+    public override string ToString() => IsPrerelease ? Version.ToString() + "p" : Version.ToString();
 }

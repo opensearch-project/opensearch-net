@@ -30,16 +30,15 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-    [DataContract]
-    public class ClusterRerouteResponse : ResponseBase
-    {
-        [DataMember(Name = "explanations")]
-        public IReadOnlyCollection<ClusterRerouteExplanation> Explanations { get; internal set; } =
-            EmptyReadOnly<ClusterRerouteExplanation>.Collection;
+namespace OpenSearch.Client;
 
-        [DataMember(Name = "state")]
-        public DynamicDictionary State { get; internal set; }
-    }
+[DataContract]
+public class ClusterRerouteResponse : ResponseBase
+{
+    [DataMember(Name = "explanations")]
+    public IReadOnlyCollection<ClusterRerouteExplanation> Explanations { get; internal set; } =
+        EmptyReadOnly<ClusterRerouteExplanation>.Collection;
+
+    [DataMember(Name = "state")]
+    public DynamicDictionary State { get; internal set; }
 }

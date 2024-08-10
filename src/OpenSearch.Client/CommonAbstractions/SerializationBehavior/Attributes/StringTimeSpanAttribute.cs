@@ -28,8 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Client
-{
-    [AttributeUsage(AttributeTargets.Property)]
-    public class StringTimeSpanAttribute : Attribute { }
-}
+namespace OpenSearch.Client;
+
+[AttributeUsage(AttributeTargets.Property)]
+public class StringTimeSpanAttribute : Attribute { }

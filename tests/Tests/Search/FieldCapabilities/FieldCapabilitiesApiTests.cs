@@ -39,118 +39,117 @@ using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Search.FieldCapabilities
+namespace Tests.Search.FieldCapabilities;
+
+public class FieldCapabilitiesApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, FieldCapabilitiesResponse, IFieldCapabilitiesRequest, FieldCapabilitiesDescriptor,
+        FieldCapabilitiesRequest>
 {
-    public class FieldCapabilitiesApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, FieldCapabilitiesResponse, IFieldCapabilitiesRequest, FieldCapabilitiesDescriptor,
-            FieldCapabilitiesRequest>
+    public FieldCapabilitiesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+
+    protected override int ExpectStatusCode => 200;
+
+    protected override Func<FieldCapabilitiesDescriptor, IFieldCapabilitiesRequest> Fluent => d => d
+        .Fields(Fields<Project>(p => p.Name).And("*"));
+
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+
+    protected override FieldCapabilitiesRequest Initializer => new FieldCapabilitiesRequest(Index<Project>().And<Developer>())
     {
-        public FieldCapabilitiesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        Fields = Fields<Project>(p => p.Name).And("*"),
+    };
 
-        protected override bool ExpectIsValid => true;
+    protected override string UrlPath => "/project%2Cdevs/_field_caps?fields=name%2C%2A";
 
-        protected override int ExpectStatusCode => 200;
+    protected override LazyResponses ClientUsage() => Calls(
+        (c, f) => c.FieldCapabilities(Index<Project>().And<Developer>(), f),
+        (c, f) => c.FieldCapabilitiesAsync(Index<Project>().And<Developer>(), f),
+        (c, r) => c.FieldCapabilities(r),
+        (c, r) => c.FieldCapabilitiesAsync(r)
+    );
 
-        protected override Func<FieldCapabilitiesDescriptor, IFieldCapabilitiesRequest> Fluent => d => d
-            .Fields(Fields<Project>(p => p.Name).And("*"));
+    protected override void ExpectResponse(FieldCapabilitiesResponse response)
+    {
 
-        protected override HttpMethod HttpMethod => HttpMethod.GET;
+        var sourceField = response.Fields.First(kv => kv.Value.Source != null).Value.Source;
+        sourceField.Aggregatable.Should().BeFalse();
+        sourceField.Searchable.Should().BeFalse();
 
-        protected override FieldCapabilitiesRequest Initializer => new FieldCapabilitiesRequest(Index<Project>().And<Developer>())
-        {
-            Fields = Fields<Project>(p => p.Name).And("*"),
-        };
+        response.Fields.Should().ContainKey("_index");
+        var indexField = response.Fields["_index"].Index;
+        indexField.Should().NotBeNull();
 
-        protected override string UrlPath => "/project%2Cdevs/_field_caps?fields=name%2C%2A";
+        indexField.Aggregatable.Should().BeTrue();
+        indexField.Searchable.Should().BeTrue();
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (c, f) => c.FieldCapabilities(Index<Project>().And<Developer>(), f),
-            (c, f) => c.FieldCapabilitiesAsync(Index<Project>().And<Developer>(), f),
-            (c, r) => c.FieldCapabilities(r),
-            (c, r) => c.FieldCapabilitiesAsync(r)
-        );
+        response.Fields.Should().ContainKey("jobTitle.keyword");
+        var jobTitleCapabilities = response.Fields["jobTitle.keyword"].Keyword;
+        jobTitleCapabilities.Aggregatable.Should().BeTrue();
+        jobTitleCapabilities.Searchable.Should().BeTrue();
 
-        protected override void ExpectResponse(FieldCapabilitiesResponse response)
-        {
-
-            var sourceField = response.Fields.First(kv => kv.Value.Source != null).Value.Source;
-            sourceField.Aggregatable.Should().BeFalse();
-            sourceField.Searchable.Should().BeFalse();
-
-            response.Fields.Should().ContainKey("_index");
-            var indexField = response.Fields["_index"].Index;
-            indexField.Should().NotBeNull();
-
-            indexField.Aggregatable.Should().BeTrue();
-            indexField.Searchable.Should().BeTrue();
-
-            response.Fields.Should().ContainKey("jobTitle.keyword");
-            var jobTitleCapabilities = response.Fields["jobTitle.keyword"].Keyword;
-            jobTitleCapabilities.Aggregatable.Should().BeTrue();
-            jobTitleCapabilities.Searchable.Should().BeTrue();
-
-            jobTitleCapabilities = response.Fields[Field<Developer>(p => p.JobTitle.Suffix("keyword"))].Keyword;
-            jobTitleCapabilities.Aggregatable.Should().BeTrue();
-            jobTitleCapabilities.Searchable.Should().BeTrue();
-        }
+        jobTitleCapabilities = response.Fields[Field<Developer>(p => p.JobTitle.Suffix("keyword"))].Keyword;
+        jobTitleCapabilities.Aggregatable.Should().BeTrue();
+        jobTitleCapabilities.Searchable.Should().BeTrue();
     }
+}
 
-    public class FieldCapabilitiesIndexFilterApiTests
-        : ApiIntegrationTestBase<ReadOnlyCluster, FieldCapabilitiesResponse, IFieldCapabilitiesRequest, FieldCapabilitiesDescriptor,
-            FieldCapabilitiesRequest>
+public class FieldCapabilitiesIndexFilterApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, FieldCapabilitiesResponse, IFieldCapabilitiesRequest, FieldCapabilitiesDescriptor,
+        FieldCapabilitiesRequest>
+{
+    public FieldCapabilitiesIndexFilterApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public FieldCapabilitiesIndexFilterApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        index_filter = new
         {
-            index_filter = new
+            term = new
             {
-                term = new
+                versionControl = new
                 {
-                    versionControl = new
-                    {
-                        value = "git"
-                    }
+                    value = "git"
                 }
             }
-        };
+        }
+    };
 
-        protected override bool SupportsDeserialization { get; } = false;
+    protected override bool SupportsDeserialization { get; } = false;
 
-        protected override bool ExpectIsValid => true;
+    protected override bool ExpectIsValid => true;
 
-        protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-        protected override Func<FieldCapabilitiesDescriptor, IFieldCapabilitiesRequest> Fluent => d => d
-            .Fields("*")
-            .IndexFilter<Project>(q => q
-                .Term(t => t
-                    .Field(f => f.VersionControl)
-                    .Value(Project.VersionControlConstant)
-                )
-            );
-
-        protected override HttpMethod HttpMethod => HttpMethod.POST;
-
-        protected override FieldCapabilitiesRequest Initializer => new FieldCapabilitiesRequest(Index<Project>().And<Developer>())
-        {
-            Fields = "*",
-            IndexFilter = new TermQuery
-            {
-                Field = Field<Project>(f => f.VersionControl),
-                Value = Project.VersionControlConstant
-            }
-        };
-
-        protected override string UrlPath => "/project%2Cdevs/_field_caps?fields=%2A";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (c, f) => c.FieldCapabilities(Index<Project>().And<Developer>(), f),
-            (c, f) => c.FieldCapabilitiesAsync(Index<Project>().And<Developer>(), f),
-            (c, r) => c.FieldCapabilities(r),
-            (c, r) => c.FieldCapabilitiesAsync(r)
+    protected override Func<FieldCapabilitiesDescriptor, IFieldCapabilitiesRequest> Fluent => d => d
+        .Fields("*")
+        .IndexFilter<Project>(q => q
+            .Term(t => t
+                .Field(f => f.VersionControl)
+                .Value(Project.VersionControlConstant)
+            )
         );
 
-        protected override void ExpectResponse(FieldCapabilitiesResponse response) => response.ShouldBeValid();
-    }
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
+
+    protected override FieldCapabilitiesRequest Initializer => new FieldCapabilitiesRequest(Index<Project>().And<Developer>())
+    {
+        Fields = "*",
+        IndexFilter = new TermQuery
+        {
+            Field = Field<Project>(f => f.VersionControl),
+            Value = Project.VersionControlConstant
+        }
+    };
+
+    protected override string UrlPath => "/project%2Cdevs/_field_caps?fields=%2A";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (c, f) => c.FieldCapabilities(Index<Project>().And<Developer>(), f),
+        (c, f) => c.FieldCapabilitiesAsync(Index<Project>().And<Developer>(), f),
+        (c, r) => c.FieldCapabilities(r),
+        (c, r) => c.FieldCapabilitiesAsync(r)
+    );
+
+    protected override void ExpectResponse(FieldCapabilitiesResponse response) => response.ShouldBeValid();
 }

@@ -33,31 +33,30 @@ using Tests.Framework.EndpointTests;
 using static OpenSearch.Client.Indices;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Indices.StatusManagement.ClearCache
-{
-    public class ClearCacheUrlTests
-    {
-        [U]
-        public async Task Urls()
-        {
-            await POST($"/_all/_cache/clear")
-                    .Fluent(c => c.Indices.ClearCache(All))
-                    .Request(c => c.Indices.ClearCache(new ClearCacheRequest(All)))
-                    .FluentAsync(c => c.Indices.ClearCacheAsync(All))
-                    .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest(All)))
-                ;
-            await POST($"/_cache/clear")
-                    .Request(c => c.Indices.ClearCache(new ClearCacheRequest()))
-                    .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest()))
-                ;
+namespace Tests.Indices.StatusManagement.ClearCache;
 
-            var index = "index1,index2";
-            await POST($"/index1%2Cindex2/_cache/clear")
-                    .Fluent(c => c.Indices.ClearCache(index))
-                    .Request(c => c.Indices.ClearCache(new ClearCacheRequest(index)))
-                    .FluentAsync(c => c.Indices.ClearCacheAsync(index))
-                    .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest(index)))
-                ;
-        }
+public class ClearCacheUrlTests
+{
+    [U]
+    public async Task Urls()
+    {
+        await POST($"/_all/_cache/clear")
+                .Fluent(c => c.Indices.ClearCache(All))
+                .Request(c => c.Indices.ClearCache(new ClearCacheRequest(All)))
+                .FluentAsync(c => c.Indices.ClearCacheAsync(All))
+                .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest(All)))
+            ;
+        await POST($"/_cache/clear")
+                .Request(c => c.Indices.ClearCache(new ClearCacheRequest()))
+                .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest()))
+            ;
+
+        var index = "index1,index2";
+        await POST($"/index1%2Cindex2/_cache/clear")
+                .Fluent(c => c.Indices.ClearCache(index))
+                .Request(c => c.Indices.ClearCache(new ClearCacheRequest(index)))
+                .FluentAsync(c => c.Indices.ClearCacheAsync(index))
+                .RequestAsync(c => c.Indices.ClearCacheAsync(new ClearCacheRequest(index)))
+            ;
     }
 }

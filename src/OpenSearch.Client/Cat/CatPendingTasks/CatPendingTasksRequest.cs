@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("cat.pending_tasks.json")]
-    public partial interface ICatPendingTasksRequest { }
+namespace OpenSearch.Client;
 
-    public partial class CatPendingTasksRequest { }
+[MapsApi("cat.pending_tasks.json")]
+public partial interface ICatPendingTasksRequest { }
 
-    public partial class CatPendingTasksDescriptor { }
-}
+public partial class CatPendingTasksRequest { }
+
+public partial class CatPendingTasksDescriptor { }

@@ -29,65 +29,64 @@
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class IndicesFormatter : IJsonFormatter<Indices>
 {
-    internal class IndicesFormatter : IJsonFormatter<Indices>
+    public Indices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        public Indices Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        switch (reader.GetCurrentJsonToken())
         {
-            switch (reader.GetCurrentJsonToken())
-            {
-                case JsonToken.BeginArray:
+            case JsonToken.BeginArray:
+                {
+                    var indices = new List<IndexName>();
+                    var count = 0;
+                    while (reader.ReadIsInArray(ref count))
                     {
-                        var indices = new List<IndexName>();
-                        var count = 0;
-                        while (reader.ReadIsInArray(ref count))
-                        {
-                            var index = reader.ReadString();
-                            indices.Add(index);
-                        }
-                        return new Indices(indices);
+                        var index = reader.ReadString();
+                        indices.Add(index);
                     }
-                case JsonToken.String:
-                    {
-                        Indices indices = reader.ReadString();
-                        return indices;
-                    }
-                default:
-                    reader.ReadNextBlock();
-                    return null;
-            }
+                    return new Indices(indices);
+                }
+            case JsonToken.String:
+                {
+                    Indices indices = reader.ReadString();
+                    return indices;
+                }
+            default:
+                reader.ReadNextBlock();
+                return null;
+        }
+    }
+
+    public void Serialize(ref JsonWriter writer, Indices value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
         }
 
-        public void Serialize(ref JsonWriter writer, Indices value, IJsonFormatterResolver formatterResolver)
+        switch (value.Tag)
         {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+            case 0:
+                writer.WriteBeginArray();
+                writer.WriteString("_all");
+                writer.WriteEndArray();
+                break;
+            case 1:
+                var settings = formatterResolver.GetConnectionSettings();
+                writer.WriteBeginArray();
+                for (var index = 0; index < value.Item2.Indices.Count; index++)
+                {
+                    if (index > 0)
+                        writer.WriteValueSeparator();
 
-            switch (value.Tag)
-            {
-                case 0:
-                    writer.WriteBeginArray();
-                    writer.WriteString("_all");
-                    writer.WriteEndArray();
-                    break;
-                case 1:
-                    var settings = formatterResolver.GetConnectionSettings();
-                    writer.WriteBeginArray();
-                    for (var index = 0; index < value.Item2.Indices.Count; index++)
-                    {
-                        if (index > 0)
-                            writer.WriteValueSeparator();
-
-                        var indexName = value.Item2.Indices[index];
-                        writer.WriteString(indexName.GetString(settings));
-                    }
-                    writer.WriteEndArray();
-                    break;
-            }
+                    var indexName = value.Item2.Indices[index];
+                    writer.WriteString(indexName.GetString(settings));
+                }
+                writer.WriteEndArray();
+                break;
         }
     }
 }

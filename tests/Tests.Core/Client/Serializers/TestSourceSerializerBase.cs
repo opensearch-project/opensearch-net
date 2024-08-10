@@ -34,27 +34,26 @@ using OpenSearch.Client.JsonNetSerializer;
 using OpenSearch.Net;
 using Tests.Domain;
 
-namespace Tests.Core.Client.Serializers
+namespace Tests.Core.Client.Serializers;
+
+public class TestSourceSerializerBase : ConnectionSettingsAwareSerializerBase
 {
-    public class TestSourceSerializerBase : ConnectionSettingsAwareSerializerBase
-    {
-        public TestSourceSerializerBase(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
-            : base(builtinSerializer, connectionSettings) { }
+    public TestSourceSerializerBase(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
+        : base(builtinSerializer, connectionSettings) { }
 
-        protected override JsonSerializerSettings CreateJsonSerializerSettings() =>
-            new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore,
-                DefaultValueHandling = DefaultValueHandling.Include
-            };
-
-        protected override IEnumerable<JsonConverter> CreateJsonConverters()
+    protected override JsonSerializerSettings CreateJsonSerializerSettings() =>
+        new JsonSerializerSettings
         {
-            yield return new SourceOnlyUsingBuiltInConverter();
-            yield return new Domain.JsonConverters.DateTimeConverter();
-        }
+            NullValueHandling = NullValueHandling.Ignore,
+            DefaultValueHandling = DefaultValueHandling.Include
+        };
 
-        protected override void ModifyContractResolver(ConnectionSettingsAwareContractResolver resolver) =>
-            resolver.NamingStrategy = new CamelCaseNamingStrategy();
+    protected override IEnumerable<JsonConverter> CreateJsonConverters()
+    {
+        yield return new SourceOnlyUsingBuiltInConverter();
+        yield return new Domain.JsonConverters.DateTimeConverter();
     }
+
+    protected override void ModifyContractResolver(ConnectionSettingsAwareContractResolver resolver) =>
+        resolver.NamingStrategy = new CamelCaseNamingStrategy();
 }

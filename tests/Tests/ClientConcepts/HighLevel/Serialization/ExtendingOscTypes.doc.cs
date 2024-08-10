@@ -39,9 +39,9 @@ using Tests.Domain;
 using Tests.Framework;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.ClientConcepts.HighLevel.Serialization
-{
-    /**[[extending-osc-types]]
+namespace Tests.ClientConcepts.HighLevel.Serialization;
+
+/**[[extending-osc-types]]
 	 * === Extending OSC types
 	 *
 	 * Sometimes you might want to provide a custom implementation of a type, perhaps to work around an issue or because
@@ -55,75 +55,74 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	 * for field mapping. We can implement a custom `IProperty` implementation so that we can use the field mapping
 	 * type with OSC.
 	 */
-    public class ExtendingOscTypes
+public class ExtendingOscTypes
+{
+    // keep field name as client, for documentation purposes
+    private readonly IOpenSearchClient client = TestClient.DisabledStreaming;
+
+    public class MyPluginProperty : IProperty
     {
-        // keep field name as client, for documentation purposes
-        private readonly IOpenSearchClient client = TestClient.DisabledStreaming;
+        IDictionary<string, object> IProperty.LocalMetadata { get; set; }
+        IDictionary<string, string> IProperty.Meta { get; set; }
+        public string Type { get; set; } = "my_plugin_property";
+        public PropertyName Name { get; set; }
 
-        public class MyPluginProperty : IProperty
+        public MyPluginProperty(string name, string language)
         {
-            IDictionary<string, object> IProperty.LocalMetadata { get; set; }
-            IDictionary<string, string> IProperty.Meta { get; set; }
-            public string Type { get; set; } = "my_plugin_property";
-            public PropertyName Name { get; set; }
-
-            public MyPluginProperty(string name, string language)
-            {
-                Name = name;
-                Language = language;
-                Numeric = true;
-            }
-
-            [PropertyName("language")]
-            public string Language { get; set; }
-
-            [PropertyName("numeric")]
-            public bool Numeric { get; set; }
+            Name = name;
+            Language = language;
+            Numeric = true;
         }
 
-        [U]
-        public void InjectACustomIPropertyImplementation()
-        {
-            /**
+        [PropertyName("language")]
+        public string Language { get; set; }
+
+        [PropertyName("numeric")]
+        public bool Numeric { get; set; }
+    }
+
+    [U]
+    public void InjectACustomIPropertyImplementation()
+    {
+        /**
 			 * `PropertyNameAttribute` can be used to mark properties that should be serialized. Without this attribute,
 			 * OSC won't pick up the property for serialization.
 			 *
 			 * Now that we have our own `IProperty` implementation we can add it to our properties mapping when creating an index
 			 */
-            var createIndexResponse = client.Indices.Create("myindex", c => c
-                .Map<Project>(m => m
-                    .Properties(props => props
-                        .Custom(new MyPluginProperty("fieldName", "dutch"))
-                    )
+        var createIndexResponse = client.Indices.Create("myindex", c => c
+            .Map<Project>(m => m
+                .Properties(props => props
+                    .Custom(new MyPluginProperty("fieldName", "dutch"))
                 )
-            );
+            )
+        );
 
-            /**
+        /**
 			 * which will serialize to the following JSON request
 			 */
-            // json
-            var expected = new
+        // json
+        var expected = new
+        {
+            mappings = new
             {
-                mappings = new
+                properties = new
                 {
-                    properties = new
+                    fieldName = new
                     {
-                        fieldName = new
-                        {
-                            type = "my_plugin_property",
-                            language = "dutch",
-                            numeric = true
-                        }
+                        type = "my_plugin_property",
+                        language = "dutch",
+                        numeric = true
                     }
                 }
-            };
+            }
+        };
 
-            /**
+        /**
 			 * Whilst OSC can _serialize_ our `my_plugin_property`, it does not know how to _deserialize_ it;
 			 * We plan to make this more pluggable in the future.
 			 */
-            // hide
-            Expect(expected).FromRequest(createIndexResponse);
-        }
+        // hide
+        Expect(expected).FromRequest(createIndexResponse);
     }
 }

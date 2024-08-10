@@ -28,9 +28,8 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
-{
-    public interface IIsAReadOnlyDictionary { }
+namespace OpenSearch.Client;
 
-    public interface IIsAReadOnlyDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>, IIsAReadOnlyDictionary { }
-}
+public interface IIsAReadOnlyDictionary { }
+
+public interface IIsAReadOnlyDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>, IIsAReadOnlyDictionary { }

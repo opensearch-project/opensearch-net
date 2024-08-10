@@ -28,21 +28,20 @@
 
 using System;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal static class RequestParametersExtensions
 {
-    internal static class RequestParametersExtensions
+    internal static void SetRequestMetaData(this IRequestParameters parameters, RequestMetaData requestMetaData)
     {
-        internal static void SetRequestMetaData(this IRequestParameters parameters, RequestMetaData requestMetaData)
-        {
-            if (parameters is null)
-                throw new ArgumentNullException(nameof(parameters));
+        if (parameters is null)
+            throw new ArgumentNullException(nameof(parameters));
 
-            if (requestMetaData is null)
-                throw new ArgumentNullException(nameof(requestMetaData));
+        if (requestMetaData is null)
+            throw new ArgumentNullException(nameof(requestMetaData));
 
-            parameters.RequestConfiguration ??= new RequestConfiguration();
+        parameters.RequestConfiguration ??= new RequestConfiguration();
 
-            parameters.RequestConfiguration.RequestMetaData = requestMetaData;
-        }
+        parameters.RequestConfiguration.RequestMetaData = requestMetaData;
     }
 }

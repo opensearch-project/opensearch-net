@@ -29,31 +29,30 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IIndexedScript : IScript
 {
-    [InterfaceDataContract]
-    public interface IIndexedScript : IScript
-    {
-        [DataMember(Name = "id")]
-        string Id { get; set; }
-    }
+    [DataMember(Name = "id")]
+    string Id { get; set; }
+}
 
-    public class IndexedScript : ScriptBase, IIndexedScript
-    {
-        public IndexedScript(string id) => Id = id;
+public class IndexedScript : ScriptBase, IIndexedScript
+{
+    public IndexedScript(string id) => Id = id;
 
-        public string Id { get; set; }
-    }
+    public string Id { get; set; }
+}
 
-    public class IndexedScriptDescriptor
-        : ScriptDescriptorBase<IndexedScriptDescriptor, IIndexedScript>, IIndexedScript
-    {
-        public IndexedScriptDescriptor() { }
+public class IndexedScriptDescriptor
+    : ScriptDescriptorBase<IndexedScriptDescriptor, IIndexedScript>, IIndexedScript
+{
+    public IndexedScriptDescriptor() { }
 
-        public IndexedScriptDescriptor(string id) => Self.Id = id;
+    public IndexedScriptDescriptor(string id) => Self.Id = id;
 
-        string IIndexedScript.Id { get; set; }
+    string IIndexedScript.Id { get; set; }
 
-        public IndexedScriptDescriptor Id(string id) => Assign(id, (a, v) => a.Id = v);
-    }
+    public IndexedScriptDescriptor Id(string id) => Assign(id, (a, v) => a.Id = v);
 }

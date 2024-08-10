@@ -28,18 +28,17 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class VariableWidthHistogramBucket : BucketBase
 {
-    public class VariableWidthHistogramBucket : BucketBase
-    {
-        public VariableWidthHistogramBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
+    public VariableWidthHistogramBucket(IReadOnlyDictionary<string, IAggregate> dict) : base(dict) { }
 
-        public double Key { get; set; }
+    public double Key { get; set; }
 
-        public double Minimum { get; set; }
+    public double Minimum { get; set; }
 
-        public double Maximum { get; set; }
+    public double Maximum { get; set; }
 
-        public long DocCount { get; set; }
-    }
+    public long DocCount { get; set; }
 }

@@ -32,36 +32,35 @@ using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue1906
 {
-    public class GithubIssue1906
+    [U]
+    public void SearchDoesNotTakeDefaultIndexIntoAccount()
     {
-        [U]
-        public void SearchDoesNotTakeDefaultIndexIntoAccount()
-        {
-            var node = new Uri("http://localhost:9200");
-            var connectionPool = new SingleNodeConnectionPool(node);
-            var connectionSettings = new ConnectionSettings(connectionPool, new InMemoryConnection())
-                .DefaultIndex("GithubIssue1906-*")
-                .DefaultFieldNameInferrer(p => p)
-                .OnRequestCompleted(info =>
-                {
-                    // info.Uri is /_search/ without the default index
-                    // my OpenSearch instance throws an error on the .opensearchDashboards index (@timestamp field not mapped because I sort on @timestamp)
-                });
+        var node = new Uri("http://localhost:9200");
+        var connectionPool = new SingleNodeConnectionPool(node);
+        var connectionSettings = new ConnectionSettings(connectionPool, new InMemoryConnection())
+            .DefaultIndex("GithubIssue1906-*")
+            .DefaultFieldNameInferrer(p => p)
+            .OnRequestCompleted(info =>
+            {
+                // info.Uri is /_search/ without the default index
+                // my OpenSearch instance throws an error on the .opensearchDashboards index (@timestamp field not mapped because I sort on @timestamp)
+            });
 
-            var client = new OpenSearchClient(connectionSettings);
-            var response = client.Search<OpenSearchLogEvent>(s => s);
+        var client = new OpenSearchClient(connectionSettings);
+        var response = client.Search<OpenSearchLogEvent>(s => s);
 
-            response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
+        response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
 
-            response = client.Search<OpenSearchLogEvent>(new SearchRequest<OpenSearchLogEvent>());
-            response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
+        response = client.Search<OpenSearchLogEvent>(new SearchRequest<OpenSearchLogEvent>());
+        response.ApiCall.Uri.AbsolutePath.Should().Be("/GithubIssue1906-%2A/_search");
 
-            response = client.Search<OpenSearchLogEvent>(new SearchRequest());
-            response.ApiCall.Uri.AbsolutePath.Should().Be("/_search");
-        }
-
-        private class OpenSearchLogEvent { }
+        response = client.Search<OpenSearchLogEvent>(new SearchRequest());
+        response.ApiCall.Uri.AbsolutePath.Should().Be("/_search");
     }
+
+    private class OpenSearchLogEvent { }
 }

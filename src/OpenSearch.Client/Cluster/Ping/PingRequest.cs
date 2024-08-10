@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("ping.json")]
-    public partial interface IPingRequest { }
+namespace OpenSearch.Client;
 
-    public partial class PingRequest { }
+[MapsApi("ping.json")]
+public partial interface IPingRequest { }
 
-    public partial class PingDescriptor { }
-}
+public partial class PingRequest { }
+
+public partial class PingDescriptor { }

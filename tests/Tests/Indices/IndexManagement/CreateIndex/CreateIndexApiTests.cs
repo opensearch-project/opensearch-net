@@ -37,400 +37,399 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.IndexManagement.CreateIndex
+namespace Tests.Indices.IndexManagement.CreateIndex;
+
+using OpenSearch.Client;
+
+public class CreateIndexApiTests
+    : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
 {
-    using OpenSearch.Client;
+    public CreateIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-    public class CreateIndexApiTests
-        : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
+    protected override bool ExpectIsValid => true;
+
+    protected override object ExpectJson { get; } = new
     {
-        public CreateIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => true;
-
-        protected override object ExpectJson { get; } = new
+        settings = new Dictionary<string, object>
         {
-            settings = new Dictionary<string, object>
+            { "index.number_of_replicas", 1 },
+            { "index.number_of_shards", 1 },
+            { "index.queries.cache.enabled", true },
             {
-                { "index.number_of_replicas", 1 },
-                { "index.number_of_shards", 1 },
-                { "index.queries.cache.enabled", true },
+                "similarity", new
                 {
-                    "similarity", new
+                    bm25 = new
                     {
-                        bm25 = new
+                        k1 = 1.1,
+                        b = 1.0,
+                        discount_overlaps = true,
+                        type = "BM25"
+                    },
+                    dfi = new
+                    {
+                        independence_measure = "chisquared",
+                        type = "DFI"
+                    },
+                    dfr = new Dictionary<string, object>
+                    {
+                        { "basic_model", "if" },
+                        { "after_effect", "b" },
+                        { "normalization", "h1" },
+                        { "normalization.h1.c", 1.1 },
+                        { "type", "DFR" }
+                    },
+                    ib = new Dictionary<string, object>
+                    {
+                        { "distribution", "ll" },
+                        { "lambda", "df" },
+                        { "normalization", "h1" },
+                        { "normalization.h1.c", 1.2 },
+                        { "type", "IB" }
+                    },
+                    lmd = new
+                    {
+                        mu = 2,
+                        type = "LMDirichlet"
+                    },
+                    lmj = new
+                    {
+                        lambda = 0.9,
+                        type = "LMJelinekMercer"
+                    },
+                    scripted_tfidf = new
+                    {
+                        type = "scripted",
+                        script = new
                         {
-                            k1 = 1.1,
-                            b = 1.0,
-                            discount_overlaps = true,
-                            type = "BM25"
-                        },
-                        dfi = new
-                        {
-                            independence_measure = "chisquared",
-                            type = "DFI"
-                        },
-                        dfr = new Dictionary<string, object>
-                        {
-                            { "basic_model", "if" },
-                            { "after_effect", "b" },
-                            { "normalization", "h1" },
-                            { "normalization.h1.c", 1.1 },
-                            { "type", "DFR" }
-                        },
-                        ib = new Dictionary<string, object>
-                        {
-                            { "distribution", "ll" },
-                            { "lambda", "df" },
-                            { "normalization", "h1" },
-                            { "normalization.h1.c", 1.2 },
-                            { "type", "IB" }
-                        },
-                        lmd = new
-                        {
-                            mu = 2,
-                            type = "LMDirichlet"
-                        },
-                        lmj = new
-                        {
-                            lambda = 0.9,
-                            type = "LMJelinekMercer"
-                        },
-                        scripted_tfidf = new
-                        {
-                            type = "scripted",
-                            script = new
-                            {
-                                source =
-                                    "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;"
-                            }
+                            source =
+                                "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;"
                         }
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-        protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
-            .Settings(s => s
-                .NumberOfReplicas(1)
-                .NumberOfShards(1)
-                .Queries(q => q
-                    .Cache(c => c
-                        .Enabled()
+    protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
+        .Settings(s => s
+            .NumberOfReplicas(1)
+            .NumberOfShards(1)
+            .Queries(q => q
+                .Cache(c => c
+                    .Enabled()
+                )
+            )
+            .Similarity(si => si
+                .BM25("bm25", b => b
+                    .B(1.0)
+                    .K1(1.1)
+                    .DiscountOverlaps()
+                )
+                .DFI("dfi", df => df
+                    .IndependenceMeasure(DFIIndependenceMeasure.ChiSquared)
+                )
+                .DFR("dfr", df => df
+                    .AfterEffect(DFRAfterEffect.B)
+                    .BasicModel(DFRBasicModel.IF)
+                    .NormalizationH1(1.1)
+                )
+                .IB("ib", ib => ib
+                    .Lambda(IBLambda.DocumentFrequency)
+                    .NormalizationH1(1.2)
+                    .Distribution(IBDistribution.LogLogistic)
+                )
+                .LMDirichlet("lmd", lm => lm
+                    .Mu(2)
+                )
+                .LMJelinek("lmj", lm => lm
+                    .Lamdba(0.9)
+                )
+                .Scripted("scripted_tfidf", sc => sc
+                    .Script(ssc => ssc
+                        .Source(
+                            "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;")
                     )
                 )
-                .Similarity(si => si
-                    .BM25("bm25", b => b
-                        .B(1.0)
-                        .K1(1.1)
-                        .DiscountOverlaps()
-                    )
-                    .DFI("dfi", df => df
-                        .IndependenceMeasure(DFIIndependenceMeasure.ChiSquared)
-                    )
-                    .DFR("dfr", df => df
-                        .AfterEffect(DFRAfterEffect.B)
-                        .BasicModel(DFRBasicModel.IF)
-                        .NormalizationH1(1.1)
-                    )
-                    .IB("ib", ib => ib
-                        .Lambda(IBLambda.DocumentFrequency)
-                        .NormalizationH1(1.2)
-                        .Distribution(IBDistribution.LogLogistic)
-                    )
-                    .LMDirichlet("lmd", lm => lm
-                        .Mu(2)
-                    )
-                    .LMJelinek("lmj", lm => lm
-                        .Lamdba(0.9)
-                    )
-                    .Scripted("scripted_tfidf", sc => sc
-                        .Script(ssc => ssc
-                            .Source(
-                                "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;")
-                        )
-                    )
-                )
-            );
+            )
+        );
 
-        protected override HttpMethod HttpMethod => HttpMethod.PUT;
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-        protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
+    protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
+    {
+        Settings = new IndexSettings
         {
-            Settings = new IndexSettings
+            NumberOfReplicas = 1,
+            NumberOfShards = 1,
+            Queries = new QueriesSettings
             {
-                NumberOfReplicas = 1,
-                NumberOfShards = 1,
-                Queries = new QueriesSettings
+                Cache = new QueriesCacheSettings
                 {
-                    Cache = new QueriesCacheSettings
+                    Enabled = true
+                }
+            },
+            Similarity = new Similarities
+            {
+                {
+                    "bm25", new BM25Similarity
                     {
-                        Enabled = true
+                        B = 1.0,
+                        K1 = 1.1,
+                        DiscountOverlaps = true
                     }
                 },
-                Similarity = new Similarities
                 {
+                    "dfi", new DFISimilarity
                     {
-                        "bm25", new BM25Similarity
-                        {
-                            B = 1.0,
-                            K1 = 1.1,
-                            DiscountOverlaps = true
-                        }
-                    },
+                        IndependenceMeasure = DFIIndependenceMeasure.ChiSquared
+                    }
+                },
+                {
+                    "dfr", new DFRSimilarity
                     {
-                        "dfi", new DFISimilarity
-                        {
-                            IndependenceMeasure = DFIIndependenceMeasure.ChiSquared
-                        }
-                    },
+                        AfterEffect = DFRAfterEffect.B,
+                        BasicModel = DFRBasicModel.IF,
+                        Normalization = Normalization.H1,
+                        NormalizationH1C = 1.1
+                    }
+                },
+                {
+                    "ib", new IBSimilarity
                     {
-                        "dfr", new DFRSimilarity
-                        {
-                            AfterEffect = DFRAfterEffect.B,
-                            BasicModel = DFRBasicModel.IF,
-                            Normalization = Normalization.H1,
-                            NormalizationH1C = 1.1
-                        }
-                    },
+                        Distribution = IBDistribution.LogLogistic,
+                        Lambda = IBLambda.DocumentFrequency,
+                        Normalization = Normalization.H1,
+                        NormalizationH1C = 1.2
+                    }
+                },
+                {
+                    "lmd", new LMDirichletSimilarity
                     {
-                        "ib", new IBSimilarity
-                        {
-                            Distribution = IBDistribution.LogLogistic,
-                            Lambda = IBLambda.DocumentFrequency,
-                            Normalization = Normalization.H1,
-                            NormalizationH1C = 1.2
-                        }
-                    },
+                        Mu = 2
+                    }
+                },
+                {
+                    "lmj", new LMJelinekMercerSimilarity
                     {
-                        "lmd", new LMDirichletSimilarity
-                        {
-                            Mu = 2
-                        }
-                    },
+                        Lambda = 0.9
+                    }
+                },
+                {
+                    "scripted_tfidf", new ScriptedSimilarity
                     {
-                        "lmj", new LMJelinekMercerSimilarity
-                        {
-                            Lambda = 0.9
-                        }
-                    },
-                    {
-                        "scripted_tfidf", new ScriptedSimilarity
-                        {
-                            Script = new InlineScript(
-                                "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;")
-                        }
+                        Script = new InlineScript(
+                            "double tf = Math.sqrt(doc.freq); double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; double norm = 1/Math.sqrt(doc.length); return query.boost * tf * idf * norm;")
                     }
                 }
             }
-        };
-
-        protected override string UrlPath => $"/{CallIsolatedValue}";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Indices.Create(CallIsolatedValue, f),
-            (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
-            (client, r) => client.Indices.Create(r),
-            (client, r) => client.Indices.CreateAsync(r)
-        );
-
-        protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
-
-        protected override void ExpectResponse(CreateIndexResponse response)
-        {
-            response.ShouldBeValid();
-            response.Acknowledged.Should().BeTrue();
-            response.ShardsAcknowledged.Should().BeTrue();
-            response.Index.Should().Be(CallIsolatedValue);
-
-            var indexSettings = Client.Indices.GetSettings(CallIsolatedValue);
-
-            indexSettings.ShouldBeValid();
-            indexSettings.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
-
-            var settings = indexSettings.Indices[CallIsolatedValue];
-
-            settings.Settings.NumberOfShards.Should().Be(1);
-            settings.Settings.NumberOfReplicas.Should().Be(1);
-            settings.Settings.Queries.Cache.Enabled.Should().Be(true);
-
-            var similarities = settings.Settings.Similarity;
-
-            similarities.Should().NotBeNull();
-            similarities.Should().ContainKey("bm25").WhoseValue.Should().BeOfType<BM25Similarity>();
-            similarities.Should().ContainKey("dfi").WhoseValue.Should().BeOfType<DFISimilarity>();
-            similarities.Should().ContainKey("dfr").WhoseValue.Should().BeOfType<DFRSimilarity>();
-            similarities.Should().ContainKey("ib").WhoseValue.Should().BeOfType<IBSimilarity>();
-            similarities.Should().ContainKey("lmd").WhoseValue.Should().BeOfType<LMDirichletSimilarity>();
-            similarities.Should().ContainKey("lmj").WhoseValue.Should().BeOfType<LMJelinekMercerSimilarity>();
-            similarities.Should().ContainKey("scripted_tfidf").WhoseValue.Should().BeOfType<ScriptedSimilarity>();
-
-            var scriptedSimilarity = (ScriptedSimilarity)similarities["scripted_tfidf"];
-            scriptedSimilarity.Script.Should().NotBeNull();
-            ((InlineScript)scriptedSimilarity.Script).Source.Should().NotBeNullOrEmpty();
         }
-    }
+    };
 
-    public class CreateIndexWithAliasApiTests
-        : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
+    protected override string UrlPath => $"/{CallIsolatedValue}";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.Create(CallIsolatedValue, f),
+        (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.Create(r),
+        (client, r) => client.Indices.CreateAsync(r)
+    );
+
+    protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
+
+    protected override void ExpectResponse(CreateIndexResponse response)
     {
-        public CreateIndexWithAliasApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+        response.ShardsAcknowledged.Should().BeTrue();
+        response.Index.Should().Be(CallIsolatedValue);
 
-        protected override bool ExpectIsValid => true;
+        var indexSettings = Client.Indices.GetSettings(CallIsolatedValue);
 
-        protected override object ExpectJson => new
-        {
-            settings = new Dictionary<string, object>
-            {
-                { "index.number_of_replicas", 0 },
-                { "index.number_of_shards", 1 },
-            },
-            aliases = new Dictionary<string, object>
-            {
-                { CallIsolatedValue + "-alias", new { is_write_index = true } }
-            }
-        };
+        indexSettings.ShouldBeValid();
+        indexSettings.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
 
-        protected override int ExpectStatusCode => 200;
+        var settings = indexSettings.Indices[CallIsolatedValue];
 
-        protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
-            .Settings(s => s
-                .NumberOfReplicas(0)
-                .NumberOfShards(1)
-            )
-            .Aliases(a => a
-                .Alias(CallIsolatedValue + "-alias", aa => aa
-                    .IsWriteIndex()
-                )
-            );
+        settings.Settings.NumberOfShards.Should().Be(1);
+        settings.Settings.NumberOfReplicas.Should().Be(1);
+        settings.Settings.Queries.Cache.Enabled.Should().Be(true);
 
-        protected override HttpMethod HttpMethod => HttpMethod.PUT;
+        var similarities = settings.Settings.Similarity;
 
-        protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
-        {
-            Settings = new IndexSettings
-            {
-                NumberOfReplicas = 0,
-                NumberOfShards = 1,
-            },
-            Aliases = new Aliases
-            {
-                { CallIsolatedValue + "-alias", new Alias { IsWriteIndex = true } }
-            }
-        };
+        similarities.Should().NotBeNull();
+        similarities.Should().ContainKey("bm25").WhoseValue.Should().BeOfType<BM25Similarity>();
+        similarities.Should().ContainKey("dfi").WhoseValue.Should().BeOfType<DFISimilarity>();
+        similarities.Should().ContainKey("dfr").WhoseValue.Should().BeOfType<DFRSimilarity>();
+        similarities.Should().ContainKey("ib").WhoseValue.Should().BeOfType<IBSimilarity>();
+        similarities.Should().ContainKey("lmd").WhoseValue.Should().BeOfType<LMDirichletSimilarity>();
+        similarities.Should().ContainKey("lmj").WhoseValue.Should().BeOfType<LMJelinekMercerSimilarity>();
+        similarities.Should().ContainKey("scripted_tfidf").WhoseValue.Should().BeOfType<ScriptedSimilarity>();
 
-        protected override string UrlPath => $"/{CallIsolatedValue}";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Indices.Create(CallIsolatedValue, f),
-            (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
-            (client, r) => client.Indices.Create(r),
-            (client, r) => client.Indices.CreateAsync(r)
-        );
-
-        protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
-
-        protected override void ExpectResponse(CreateIndexResponse response)
-        {
-            response.ShouldBeValid();
-            response.Acknowledged.Should().BeTrue();
-            response.ShardsAcknowledged.Should().BeTrue();
-
-            var indexResponse = Client.Indices.Get(CallIsolatedValue);
-
-            indexResponse.ShouldBeValid();
-            indexResponse.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
-
-            var aliases = indexResponse.Indices[CallIsolatedValue].Aliases;
-            aliases.Count.Should().Be(1);
-            aliases[CallIsolatedValue + "-alias"].IsWriteIndex.Should().BeTrue();
-        }
+        var scriptedSimilarity = (ScriptedSimilarity)similarities["scripted_tfidf"];
+        scriptedSimilarity.Script.Should().NotBeNull();
+        ((InlineScript)scriptedSimilarity.Script).Source.Should().NotBeNullOrEmpty();
     }
+}
 
+public class CreateIndexWithAliasApiTests
+    : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
+{
+    public CreateIndexWithAliasApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-    public class CreateHiddenIndexApiTests
-        : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
+    protected override bool ExpectIsValid => true;
+
+    protected override object ExpectJson => new
     {
-        public CreateHiddenIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => true;
-
-        protected override object ExpectJson => new
+        settings = new Dictionary<string, object>
         {
-            settings = new Dictionary<string, object>
-            {
-                { "index.number_of_replicas", 0 },
-                { "index.number_of_shards", 1 },
-                { "index.hidden", true }
-            },
-            aliases = new Dictionary<string, object>
-            {
-                { CallIsolatedValue + "-alias", new { is_write_index = true, is_hidden = true } }
-            }
-        };
+            { "index.number_of_replicas", 0 },
+            { "index.number_of_shards", 1 },
+        },
+        aliases = new Dictionary<string, object>
+        {
+            { CallIsolatedValue + "-alias", new { is_write_index = true } }
+        }
+    };
 
-        protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-        protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
-            .Settings(s => s
-                .NumberOfReplicas(0)
-                .NumberOfShards(1)
-                .Hidden()
+    protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
+        .Settings(s => s
+            .NumberOfReplicas(0)
+            .NumberOfShards(1)
+        )
+        .Aliases(a => a
+            .Alias(CallIsolatedValue + "-alias", aa => aa
+                .IsWriteIndex()
             )
-            .Aliases(a => a
-                .Alias(CallIsolatedValue + "-alias", aa => aa
-                    .IsWriteIndex()
-                    .IsHidden()
-                )
-            );
-
-        protected override HttpMethod HttpMethod => HttpMethod.PUT;
-
-        protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
-        {
-            Settings = new IndexSettings
-            {
-                NumberOfReplicas = 0,
-                NumberOfShards = 1,
-                Hidden = true
-            },
-            Aliases = new Aliases
-            {
-                { CallIsolatedValue + "-alias", new Alias { IsWriteIndex = true, IsHidden = true} }
-            }
-        };
-
-        protected override string UrlPath => $"/{CallIsolatedValue}";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Indices.Create(CallIsolatedValue, f),
-            (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
-            (client, r) => client.Indices.Create(r),
-            (client, r) => client.Indices.CreateAsync(r)
         );
 
-        protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-        protected override void ExpectResponse(CreateIndexResponse response)
+    protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
+    {
+        Settings = new IndexSettings
         {
-            response.ShouldBeValid();
-            response.Acknowledged.Should().BeTrue();
-            response.ShardsAcknowledged.Should().BeTrue();
-
-            var indexResponse = Client.Indices.Get(CallIsolatedValue);
-
-            indexResponse.ShouldBeValid();
-            indexResponse.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
-            var index = indexResponse.Indices[CallIsolatedValue];
-
-            index.Settings.Hidden.Should().BeTrue();
-
-            var aliases = indexResponse.Indices[CallIsolatedValue].Aliases;
-            aliases.Count.Should().Be(1);
-            aliases[CallIsolatedValue + "-alias"].IsWriteIndex.Should().BeTrue();
-            aliases[CallIsolatedValue + "-alias"].IsHidden.Should().BeTrue();
+            NumberOfReplicas = 0,
+            NumberOfShards = 1,
+        },
+        Aliases = new Aliases
+        {
+            { CallIsolatedValue + "-alias", new Alias { IsWriteIndex = true } }
         }
+    };
+
+    protected override string UrlPath => $"/{CallIsolatedValue}";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.Create(CallIsolatedValue, f),
+        (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.Create(r),
+        (client, r) => client.Indices.CreateAsync(r)
+    );
+
+    protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
+
+    protected override void ExpectResponse(CreateIndexResponse response)
+    {
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+        response.ShardsAcknowledged.Should().BeTrue();
+
+        var indexResponse = Client.Indices.Get(CallIsolatedValue);
+
+        indexResponse.ShouldBeValid();
+        indexResponse.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
+
+        var aliases = indexResponse.Indices[CallIsolatedValue].Aliases;
+        aliases.Count.Should().Be(1);
+        aliases[CallIsolatedValue + "-alias"].IsWriteIndex.Should().BeTrue();
+    }
+}
+
+
+public class CreateHiddenIndexApiTests
+    : ApiIntegrationTestBase<WritableCluster, CreateIndexResponse, ICreateIndexRequest, CreateIndexDescriptor, CreateIndexRequest>
+{
+    public CreateHiddenIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override bool ExpectIsValid => true;
+
+    protected override object ExpectJson => new
+    {
+        settings = new Dictionary<string, object>
+        {
+            { "index.number_of_replicas", 0 },
+            { "index.number_of_shards", 1 },
+            { "index.hidden", true }
+        },
+        aliases = new Dictionary<string, object>
+        {
+            { CallIsolatedValue + "-alias", new { is_write_index = true, is_hidden = true } }
+        }
+    };
+
+    protected override int ExpectStatusCode => 200;
+
+    protected override Func<CreateIndexDescriptor, ICreateIndexRequest> Fluent => d => d
+        .Settings(s => s
+            .NumberOfReplicas(0)
+            .NumberOfShards(1)
+            .Hidden()
+        )
+        .Aliases(a => a
+            .Alias(CallIsolatedValue + "-alias", aa => aa
+                .IsWriteIndex()
+                .IsHidden()
+            )
+        );
+
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
+
+    protected override CreateIndexRequest Initializer => new(CallIsolatedValue)
+    {
+        Settings = new IndexSettings
+        {
+            NumberOfReplicas = 0,
+            NumberOfShards = 1,
+            Hidden = true
+        },
+        Aliases = new Aliases
+        {
+            { CallIsolatedValue + "-alias", new Alias { IsWriteIndex = true, IsHidden = true} }
+        }
+    };
+
+    protected override string UrlPath => $"/{CallIsolatedValue}";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.Create(CallIsolatedValue, f),
+        (client, f) => client.Indices.CreateAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.Create(r),
+        (client, r) => client.Indices.CreateAsync(r)
+    );
+
+    protected override CreateIndexDescriptor NewDescriptor() => new(CallIsolatedValue);
+
+    protected override void ExpectResponse(CreateIndexResponse response)
+    {
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+        response.ShardsAcknowledged.Should().BeTrue();
+
+        var indexResponse = Client.Indices.Get(CallIsolatedValue);
+
+        indexResponse.ShouldBeValid();
+        indexResponse.Indices.Should().NotBeEmpty().And.ContainKey(CallIsolatedValue);
+        var index = indexResponse.Indices[CallIsolatedValue];
+
+        index.Settings.Hidden.Should().BeTrue();
+
+        var aliases = indexResponse.Indices[CallIsolatedValue].Aliases;
+        aliases.Count.Should().Be(1);
+        aliases[CallIsolatedValue + "-alias"].IsWriteIndex.Should().BeTrue();
+        aliases[CallIsolatedValue + "-alias"].IsHidden.Should().BeTrue();
     }
 }

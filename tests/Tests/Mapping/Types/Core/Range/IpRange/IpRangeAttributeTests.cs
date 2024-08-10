@@ -29,25 +29,24 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.IpRange
-{
-    public class IpRangeTest
-    {
-        [IpRange]
-        public IpAddressRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.IpRange;
 
-    public class IpRangeAttributeTests : AttributeTestsBase<IpRangeTest>
+public class IpRangeTest
+{
+    [IpRange]
+    public IpAddressRange Range { get; set; }
+}
+
+public class IpRangeAttributeTests : AttributeTestsBase<IpRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    type = "ip_range"
-                }
+                type = "ip_range"
             }
-        };
-    }
+        }
+    };
 }

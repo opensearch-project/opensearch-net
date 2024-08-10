@@ -29,33 +29,32 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IInlineScript : IScript
 {
-    [InterfaceDataContract]
-    public interface IInlineScript : IScript
-    {
-        [DataMember(Name = "source")]
-        string Source { get; set; }
-    }
+    [DataMember(Name = "source")]
+    string Source { get; set; }
+}
 
-    public class InlineScript : ScriptBase, IInlineScript
-    {
-        public InlineScript(string script) => Source = script;
+public class InlineScript : ScriptBase, IInlineScript
+{
+    public InlineScript(string script) => Source = script;
 
-        public string Source { get; set; }
+    public string Source { get; set; }
 
-        public static implicit operator InlineScript(string script) => new InlineScript(script);
-    }
+    public static implicit operator InlineScript(string script) => new InlineScript(script);
+}
 
-    public class InlineScriptDescriptor
-        : ScriptDescriptorBase<InlineScriptDescriptor, IInlineScript>, IInlineScript
-    {
-        public InlineScriptDescriptor() { }
+public class InlineScriptDescriptor
+    : ScriptDescriptorBase<InlineScriptDescriptor, IInlineScript>, IInlineScript
+{
+    public InlineScriptDescriptor() { }
 
-        public InlineScriptDescriptor(string script) => Self.Source = script;
+    public InlineScriptDescriptor(string script) => Self.Source = script;
 
-        string IInlineScript.Source { get; set; }
+    string IInlineScript.Source { get; set; }
 
-        public InlineScriptDescriptor Source(string script) => Assign(script, (a, v) => a.Source = v);
-    }
+    public InlineScriptDescriptor Source(string script) => Assign(script, (a, v) => a.Source = v);
 }

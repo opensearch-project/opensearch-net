@@ -26,16 +26,15 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public static class IndicesExtensions
-    {
-        public static string Resolve(this Indices marker, IConnectionSettingsValues connectionSettings)
-        {
-            if (marker == null) return null;
+namespace OpenSearch.Client;
 
-            connectionSettings.ThrowIfNull(nameof(connectionSettings));
-            return connectionSettings.Inferrer.Resolve(marker);
-        }
+public static class IndicesExtensions
+{
+    public static string Resolve(this Indices marker, IConnectionSettingsValues connectionSettings)
+    {
+        if (marker == null) return null;
+
+        connectionSettings.ThrowIfNull(nameof(connectionSettings));
+        return connectionSettings.Inferrer.Resolve(marker);
     }
 }

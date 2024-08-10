@@ -26,19 +26,18 @@
 *  under the License.
 */
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// The minimum interface your custom responses should implement when providing a response type
+/// to the low level client
+/// </summary>
+public interface IOpenSearchResponse
 {
     /// <summary>
-    /// The minimum interface your custom responses should implement when providing a response type
-    /// to the low level client
+    /// Sets and returns the <see cref="IApiCallDetails" /> diagnostic information
     /// </summary>
-    public interface IOpenSearchResponse
-    {
-        /// <summary>
-        /// Sets and returns the <see cref="IApiCallDetails" /> diagnostic information
-        /// </summary>
-        IApiCallDetails ApiCall { get; set; }
+    IApiCallDetails ApiCall { get; set; }
 
-        bool TryGetServerErrorReason(out string reason);
-    }
+    bool TryGetServerErrorReason(out string reason);
 }

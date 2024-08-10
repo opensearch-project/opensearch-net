@@ -28,9 +28,8 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
-{
-    public interface IIsADictionary { }
+namespace OpenSearch.Client;
 
-    public interface IIsADictionary<TKey, TValue> : IDictionary<TKey, TValue>, IIsADictionary { }
-}
+public interface IIsADictionary { }
+
+public interface IIsADictionary<TKey, TValue> : IDictionary<TKey, TValue>, IIsADictionary { }

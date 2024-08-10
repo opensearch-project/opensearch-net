@@ -32,15 +32,14 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.RootNodeInfo
+namespace Tests.Cluster.RootNodeInfo;
+
+public class RootNodeInfoUrlTests : UrlTestsBase
 {
-    public class RootNodeInfoUrlTests : UrlTestsBase
-    {
-        [U]
-        public override async Task Urls() => await GET("/")
-            .Fluent(c => c.RootNodeInfo())
-            .Request(c => c.RootNodeInfo(new RootNodeInfoRequest()))
-            .FluentAsync(c => c.RootNodeInfoAsync())
-            .RequestAsync(c => c.RootNodeInfoAsync(new RootNodeInfoRequest()));
-    }
+    [U]
+    public override async Task Urls() => await GET("/")
+        .Fluent(c => c.RootNodeInfo())
+        .Request(c => c.RootNodeInfo(new RootNodeInfoRequest()))
+        .FluentAsync(c => c.RootNodeInfoAsync())
+        .RequestAsync(c => c.RootNodeInfoAsync(new RootNodeInfoRequest()));
 }

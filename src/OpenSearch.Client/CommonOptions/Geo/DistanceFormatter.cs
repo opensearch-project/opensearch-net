@@ -28,33 +28,32 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class DistanceFormatter : IJsonFormatter<Distance>
 {
-    internal class DistanceFormatter : IJsonFormatter<Distance>
+    public Distance Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        public Distance Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        if (reader.GetCurrentJsonToken() != JsonToken.String)
         {
-            if (reader.GetCurrentJsonToken() != JsonToken.String)
-            {
-                reader.ReadNextBlock();
-                return null;
-            }
-
-            var value = reader.ReadString();
-            return value == null
-                ? null
-                : new Distance(value);
+            reader.ReadNextBlock();
+            return null;
         }
 
-        public void Serialize(ref JsonWriter writer, Distance value, IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+        var value = reader.ReadString();
+        return value == null
+            ? null
+            : new Distance(value);
+    }
 
-            writer.WriteString(value.ToString());
+    public void Serialize(ref JsonWriter writer, Distance value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
         }
+
+        writer.WriteString(value.ToString());
     }
 }

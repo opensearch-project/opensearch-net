@@ -33,32 +33,31 @@ using Tests.Framework.EndpointTests;
 using static OpenSearch.Client.Indices;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Indices.StatusManagement.Flush
+namespace Tests.Indices.StatusManagement.Flush;
+
+public class FlushUrlTests
 {
-    public class FlushUrlTests
+    [U]
+    public async Task Urls()
     {
-        [U]
-        public async Task Urls()
-        {
-            await POST($"/_all/_flush")
-                    .Fluent(c => c.Indices.Flush(All))
-                    .Request(c => c.Indices.Flush(new FlushRequest(All)))
-                    .FluentAsync(c => c.Indices.FlushAsync(All))
-                    .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest(All)))
-                ;
+        await POST($"/_all/_flush")
+                .Fluent(c => c.Indices.Flush(All))
+                .Request(c => c.Indices.Flush(new FlushRequest(All)))
+                .FluentAsync(c => c.Indices.FlushAsync(All))
+                .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest(All)))
+            ;
 
-            await POST($"/_flush")
-                    .Request(c => c.Indices.Flush(new FlushRequest()))
-                    .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest()))
-                ;
+        await POST($"/_flush")
+                .Request(c => c.Indices.Flush(new FlushRequest()))
+                .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest()))
+            ;
 
-            var index = "index1,index2";
-            await POST($"/index1%2Cindex2/_flush")
-                    .Fluent(c => c.Indices.Flush(index))
-                    .Request(c => c.Indices.Flush(new FlushRequest(index)))
-                    .FluentAsync(c => c.Indices.FlushAsync(index))
-                    .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest(index)))
-                ;
-        }
+        var index = "index1,index2";
+        await POST($"/index1%2Cindex2/_flush")
+                .Fluent(c => c.Indices.Flush(index))
+                .Request(c => c.Indices.Flush(new FlushRequest(index)))
+                .FluentAsync(c => c.Indices.FlushAsync(index))
+                .RequestAsync(c => c.Indices.FlushAsync(new FlushRequest(index)))
+            ;
     }
 }

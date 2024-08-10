@@ -28,25 +28,24 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Mapping.Types.Core.Percolator
-{
-    public class PercolatorTest
-    {
-        [Percolator]
-        public QueryContainer Query { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Percolator;
 
-    public class PercolatorAttributeTests : AttributeTestsBase<PercolatorTest>
+public class PercolatorTest
+{
+    [Percolator]
+    public QueryContainer Query { get; set; }
+}
+
+public class PercolatorAttributeTests : AttributeTestsBase<PercolatorTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            query = new
             {
-                query = new
-                {
-                    type = "percolator"
-                }
+                type = "percolator"
             }
-        };
-    }
+        }
+    };
 }

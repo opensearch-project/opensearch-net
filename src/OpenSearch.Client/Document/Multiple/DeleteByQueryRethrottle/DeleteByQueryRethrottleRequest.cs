@@ -26,17 +26,16 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    /// <summary>
-    /// Rethrottles a running delete by query
-    /// </summary>
-    [MapsApi("delete_by_query_rethrottle")]
-    public partial interface IDeleteByQueryRethrottleRequest { }
+namespace OpenSearch.Client;
 
-    /// <inheritdoc cref="IDeleteByQueryRethrottleRequest" />
-    public partial class DeleteByQueryRethrottleRequest : IDeleteByQueryRethrottleRequest { }
+/// <summary>
+/// Rethrottles a running delete by query
+/// </summary>
+[MapsApi("delete_by_query_rethrottle")]
+public partial interface IDeleteByQueryRethrottleRequest { }
 
-    /// <inheritdoc cref="IDeleteByQueryRethrottleRequest" />
-    public partial class DeleteByQueryRethrottleDescriptor : IDeleteByQueryRethrottleRequest { }
-}
+/// <inheritdoc cref="IDeleteByQueryRethrottleRequest" />
+public partial class DeleteByQueryRethrottleRequest : IDeleteByQueryRethrottleRequest { }
+
+/// <inheritdoc cref="IDeleteByQueryRethrottleRequest" />
+public partial class DeleteByQueryRethrottleDescriptor : IDeleteByQueryRethrottleRequest { }

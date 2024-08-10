@@ -36,105 +36,104 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Aggregations.Bucket.GeoHashGrid
-{
-    public class GeoHashGridAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public GeoHashGridAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+namespace Tests.Aggregations.Bucket.GeoHashGrid;
 
-        protected override object AggregationJson => new
+public class GeoHashGridAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public GeoHashGridAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        my_geohash_grid = new
         {
-            my_geohash_grid = new
+            geohash_grid = new
             {
-                geohash_grid = new
-                {
-                    field = "locationPoint",
-                    precision = 3,
-                    size = 1000,
-                    shard_size = 100
-                }
+                field = "locationPoint",
+                precision = 3,
+                size = 1000,
+                shard_size = 100
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .GeoHash("my_geohash_grid", g => g
+            .Field(p => p.LocationPoint)
+            .GeoHashPrecision(GeoHashPrecision.Precision3)
+            .Size(1000)
+            .ShardSize(100)
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new GeoHashGridAggregation("my_geohash_grid")
+        {
+            Field = Field<Project>(p => p.LocationPoint),
+            Precision = GeoHashPrecision.Precision3,
+            Size = 1000,
+            ShardSize = 100
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .GeoHash("my_geohash_grid", g => g
-                .Field(p => p.LocationPoint)
-                .GeoHashPrecision(GeoHashPrecision.Precision3)
-                .Size(1000)
-                .ShardSize(100)
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new GeoHashGridAggregation("my_geohash_grid")
-            {
-                Field = Field<Project>(p => p.LocationPoint),
-                Precision = GeoHashPrecision.Precision3,
-                Size = 1000,
-                ShardSize = 100
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            var myGeoHashGrid = response.Aggregations.GeoHash("my_geohash_grid");
-            myGeoHashGrid.Should().NotBeNull();
-        }
-    }
-
-    // hide
-    public class GeoHashGridAggregationWithBoundsUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+    protected override void ExpectResponse(ISearchResponse<Project> response)
     {
-        public GeoHashGridAggregationWithBoundsUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+        response.ShouldBeValid();
+        var myGeoHashGrid = response.Aggregations.GeoHash("my_geohash_grid");
+        myGeoHashGrid.Should().NotBeNull();
+    }
+}
 
-        protected override object AggregationJson => new
+// hide
+public class GeoHashGridAggregationWithBoundsUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public GeoHashGridAggregationWithBoundsUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        my_geohash_grid = new
         {
-            my_geohash_grid = new
+            geohash_grid = new
             {
-                geohash_grid = new
+                field = "locationPoint",
+                bounds = new
                 {
-                    field = "locationPoint",
-                    bounds = new
+                    top_left = new
                     {
-                        top_left = new
-                        {
-                            lat = 90.0,
-                            lon = -180.0
-                        },
-                        bottom_right = new
-                        {
-                            lat = -90.0,
-                            lon = 180.0
-                        }
+                        lat = 90.0,
+                        lon = -180.0
+                    },
+                    bottom_right = new
+                    {
+                        lat = -90.0,
+                        lon = 180.0
                     }
                 }
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .GeoHash("my_geohash_grid", g => g
+            .Field(p => p.LocationPoint)
+            .Bounds(b => b
+                .TopLeft(90, -180)
+                .BottomRight(-90, 180)
+            )
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new GeoHashGridAggregation("my_geohash_grid")
+        {
+            Field = Field<Project>(p => p.LocationPoint),
+            Bounds = new BoundingBox
+            {
+                TopLeft = new GeoLocation(90, -180),
+                BottomRight = new GeoLocation(-90, 180)
+            }
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .GeoHash("my_geohash_grid", g => g
-                .Field(p => p.LocationPoint)
-                .Bounds(b => b
-                    .TopLeft(90, -180)
-                    .BottomRight(-90, 180)
-                )
-            );
-
-        protected override AggregationDictionary InitializerAggs =>
-            new GeoHashGridAggregation("my_geohash_grid")
-            {
-                Field = Field<Project>(p => p.LocationPoint),
-                Bounds = new BoundingBox
-                {
-                    TopLeft = new GeoLocation(90, -180),
-                    BottomRight = new GeoLocation(-90, 180)
-                }
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            var myGeoHashGrid = response.Aggregations.GeoHash("my_geohash_grid");
-            myGeoHashGrid.Should().NotBeNull();
-        }
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var myGeoHashGrid = response.Aggregations.GeoHash("my_geohash_grid");
+        myGeoHashGrid.Should().NotBeNull();
     }
 }

@@ -30,17 +30,16 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.OpenSearch.Managed;
 
-namespace OpenSearch.OpenSearch.Ephemeral
-{
-    public interface IEphemeralCluster
-    {
-        ICollection<Uri> NodesUris(string hostName = null);
-        string GetCacheFolderName();
-        bool CachingAndCachedHomeExists();
-    }
+namespace OpenSearch.OpenSearch.Ephemeral;
 
-    public interface IEphemeralCluster<out TConfiguration> : IEphemeralCluster, ICluster<TConfiguration>
-        where TConfiguration : EphemeralClusterConfiguration
-    {
-    }
+public interface IEphemeralCluster
+{
+    ICollection<Uri> NodesUris(string hostName = null);
+    string GetCacheFolderName();
+    bool CachingAndCachedHomeExists();
+}
+
+public interface IEphemeralCluster<out TConfiguration> : IEphemeralCluster, ICluster<TConfiguration>
+    where TConfiguration : EphemeralClusterConfiguration
+{
 }

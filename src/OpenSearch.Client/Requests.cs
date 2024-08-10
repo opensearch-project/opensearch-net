@@ -60,48 +60,47 @@ using OpenSearch.Net.Specification.TasksApi;
 using OpenSearch.Net.Utf8Json;
 
 // ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract partial class PlainRequestBase<TParameters>
 {
-    public abstract partial class PlainRequestBase<TParameters>
+    ///<summary>Include the stack trace of returned errors.</summary>
+    public bool? ErrorTrace
     {
-        ///<summary>Include the stack trace of returned errors.</summary>
-        public bool? ErrorTrace
-        {
-            get => Q<bool?>("error_trace");
-            set => Q("error_trace", value);
-        }
+        get => Q<bool?>("error_trace");
+        set => Q("error_trace", value);
+    }
 
-        ///<summary>
-        /// A comma-separated list of filters used to reduce the response.
-        /// <para>Use of response filtering can result in a response from OpenSearch
-        /// that cannot be correctly deserialized to the respective response type for the request.
-        /// In such situations, use the low level client to issue the request and handle response deserialization</para>
-        ///</summary>
-        public string[] FilterPath
-        {
-            get => Q<string[]>("filter_path");
-            set => Q("filter_path", value);
-        }
+    ///<summary>
+    /// A comma-separated list of filters used to reduce the response.
+    /// <para>Use of response filtering can result in a response from OpenSearch
+    /// that cannot be correctly deserialized to the respective response type for the request.
+    /// In such situations, use the low level client to issue the request and handle response deserialization</para>
+    ///</summary>
+    public string[] FilterPath
+    {
+        get => Q<string[]>("filter_path");
+        set => Q("filter_path", value);
+    }
 
-        ///<summary>Return human readable values for statistics.</summary>
-        public bool? Human
-        {
-            get => Q<bool?>("human");
-            set => Q("human", value);
-        }
+    ///<summary>Return human readable values for statistics.</summary>
+    public bool? Human
+    {
+        get => Q<bool?>("human");
+        set => Q("human", value);
+    }
 
-        ///<summary>Pretty format the returned JSON response.</summary>
-        public bool? Pretty
-        {
-            get => Q<bool?>("pretty");
-            set => Q("pretty", value);
-        }
+    ///<summary>Pretty format the returned JSON response.</summary>
+    public bool? Pretty
+    {
+        get => Q<bool?>("pretty");
+        set => Q("pretty", value);
+    }
 
-        ///<summary>The URL-encoded request definition. Useful for libraries that do not accept a request body for non-POST requests.</summary>
-        public string SourceQueryString
-        {
-            get => Q<string>("source");
-            set => Q("source", value);
-        }
+    ///<summary>The URL-encoded request definition. Useful for libraries that do not accept a request body for non-POST requests.</summary>
+    public string SourceQueryString
+    {
+        get => Q<string>("source");
+        set => Q("source", value);
     }
 }

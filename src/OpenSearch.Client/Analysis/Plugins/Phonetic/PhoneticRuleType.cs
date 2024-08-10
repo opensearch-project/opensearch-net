@@ -29,15 +29,14 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum PhoneticRuleType
-    {
-        [EnumMember(Value = "approx")]
-        Approximate,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "exact")]
-        Exact
-    }
+[StringEnum]
+public enum PhoneticRuleType
+{
+    [EnumMember(Value = "approx")]
+    Approximate,
+
+    [EnumMember(Value = "exact")]
+    Exact
 }

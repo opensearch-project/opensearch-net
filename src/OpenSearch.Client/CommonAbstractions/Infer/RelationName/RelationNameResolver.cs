@@ -29,45 +29,44 @@
 using System;
 using System.Collections.Concurrent;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class RelationNameResolver
 {
-    public class RelationNameResolver
+    private readonly IConnectionSettingsValues _connectionSettings;
+    private readonly ConcurrentDictionary<Type, string> _relationNames = new ConcurrentDictionary<Type, string>();
+
+    public RelationNameResolver(IConnectionSettingsValues connectionSettings)
     {
-        private readonly IConnectionSettingsValues _connectionSettings;
-        private readonly ConcurrentDictionary<Type, string> _relationNames = new ConcurrentDictionary<Type, string>();
+        connectionSettings.ThrowIfNull(nameof(connectionSettings));
+        _connectionSettings = connectionSettings;
+    }
 
-        public RelationNameResolver(IConnectionSettingsValues connectionSettings)
+    public string Resolve<T>() where T : class => Resolve(typeof(T));
+
+    public string Resolve(RelationName t) => t?.Name ?? ResolveType(t?.Type);
+
+    private string ResolveType(Type type)
+    {
+        if (type == null) return null;
+
+
+        if (_relationNames.TryGetValue(type, out var typeName))
+            return typeName;
+
+        if (_connectionSettings.DefaultRelationNames.TryGetValue(type, out typeName))
         {
-            connectionSettings.ThrowIfNull(nameof(connectionSettings));
-            _connectionSettings = connectionSettings;
-        }
-
-        public string Resolve<T>() where T : class => Resolve(typeof(T));
-
-        public string Resolve(RelationName t) => t?.Name ?? ResolveType(t?.Type);
-
-        private string ResolveType(Type type)
-        {
-            if (type == null) return null;
-
-
-            if (_relationNames.TryGetValue(type, out var typeName))
-                return typeName;
-
-            if (_connectionSettings.DefaultRelationNames.TryGetValue(type, out typeName))
-            {
-                _relationNames.TryAdd(type, typeName);
-                return typeName;
-            }
-
-            var att = OpenSearchTypeAttribute.From(type);
-            if (att != null && !att.RelationName.IsNullOrEmpty())
-                typeName = att.RelationName;
-            else
-                typeName = type.Name.ToLowerInvariant();
-
             _relationNames.TryAdd(type, typeName);
             return typeName;
         }
+
+        var att = OpenSearchTypeAttribute.From(type);
+        if (att != null && !att.RelationName.IsNullOrEmpty())
+            typeName = att.RelationName;
+        else
+            typeName = type.Name.ToLowerInvariant();
+
+        _relationNames.TryAdd(type, typeName);
+        return typeName;
     }
 }

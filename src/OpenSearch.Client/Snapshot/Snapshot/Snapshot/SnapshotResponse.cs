@@ -28,21 +28,20 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class SnapshotResponse : ResponseBase
 {
-    [DataContract]
-    public class SnapshotResponse : ResponseBase
+    private bool _accepted;
+
+    [DataMember(Name = "accepted")]
+    public bool Accepted
     {
-        private bool _accepted;
-
-        [DataMember(Name = "accepted")]
-        public bool Accepted
-        {
-            get => _accepted ? _accepted : Snapshot != null;
-            internal set => _accepted = value;
-        }
-
-        [DataMember(Name = "snapshot")]
-        public Snapshot Snapshot { get; set; }
+        get => _accepted ? _accepted : Snapshot != null;
+        internal set => _accepted = value;
     }
+
+    [DataMember(Name = "snapshot")]
+    public Snapshot Snapshot { get; set; }
 }

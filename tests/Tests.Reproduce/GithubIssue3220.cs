@@ -32,22 +32,21 @@ using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3220
 {
-    public class GithubIssue3220
+    [U]
+    public void CanExplicitCastTimeFromString()
     {
-        [U]
-        public void CanExplicitCastTimeFromString()
+        var searchRequest = new SearchRequest<Project> { Scroll = "1s" };
+
+        Action getScroll = () =>
         {
-            var searchRequest = new SearchRequest<Project> { Scroll = "1s" };
+            // ReSharper disable once UnusedVariable
+            var scroll = searchRequest.Scroll;
+        };
 
-            Action getScroll = () =>
-            {
-                // ReSharper disable once UnusedVariable
-                var scroll = searchRequest.Scroll;
-            };
-
-            getScroll.Should().NotThrow();
-        }
+        getScroll.Should().NotThrow();
     }
 }

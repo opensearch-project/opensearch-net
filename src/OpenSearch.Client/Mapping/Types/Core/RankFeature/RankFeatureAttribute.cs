@@ -26,22 +26,21 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <inheritdoc cref="IRankFeatureProperty"/>
+public class RankFeatureAttribute : OpenSearchPropertyAttributeBase, IRankFeatureProperty
 {
-    /// <inheritdoc cref="IRankFeatureProperty"/>
-    public class RankFeatureAttribute : OpenSearchPropertyAttributeBase, IRankFeatureProperty
+    public RankFeatureAttribute() : base(FieldType.RankFeature) { }
+
+    private IRankFeatureProperty Self => this;
+
+    /// <inheritdoc cref="IRankFeatureProperty.PositiveScoreImpact"/>
+    public bool PositiveScoreImpact
     {
-        public RankFeatureAttribute() : base(FieldType.RankFeature) { }
-
-        private IRankFeatureProperty Self => this;
-
-        /// <inheritdoc cref="IRankFeatureProperty.PositiveScoreImpact"/>
-        public bool PositiveScoreImpact
-        {
-            get => Self.PositiveScoreImpact.GetValueOrDefault(true);
-            set => Self.PositiveScoreImpact = value;
-        }
-
-        bool? IRankFeatureProperty.PositiveScoreImpact { get; set; }
+        get => Self.PositiveScoreImpact.GetValueOrDefault(true);
+        set => Self.PositiveScoreImpact = value;
     }
+
+    bool? IRankFeatureProperty.PositiveScoreImpact { get; set; }
 }

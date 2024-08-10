@@ -35,44 +35,44 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 
-namespace Tests.ClientConcepts.Troubleshooting
-{
-    /**
+namespace Tests.ClientConcepts.Troubleshooting;
+
+/**
 	 * === Audit trail
 	 *
 	 * OpenSearch.Net and OSC provide an audit trail for the events within the request pipeline that
 	 * occur when a request is made. This audit trail is available on the response as demonstrated in the
 	 * following example.
 	 */
-    public class AuditTrail : IClusterFixture<ReadOnlyCluster>
+public class AuditTrail : IClusterFixture<ReadOnlyCluster>
+{
+    private readonly ReadOnlyCluster _cluster;
+
+    public AuditTrail(ReadOnlyCluster cluster) => _cluster = cluster;
+
+    [I]
+    public void AvailableOnResponse()
     {
-        private readonly ReadOnlyCluster _cluster;
-
-        public AuditTrail(ReadOnlyCluster cluster) => _cluster = cluster;
-
-        [I]
-        public void AvailableOnResponse()
-        {
-            /**
+        /**
 			 * We'll use a Sniffing connection pool here since it sniffs on startup and pings before
 			 * first usage, so we can get an audit trail with a few events out
 			 */
-            var pool = new SniffingConnectionPool(_cluster.NodesUris());
-            var connectionSettings = new ConnectionSettings(pool)
-                .DefaultMappingFor<Project>(i => i
-                    .IndexName("project")
-                );
+        var pool = new SniffingConnectionPool(_cluster.NodesUris());
+        var connectionSettings = new ConnectionSettings(pool)
+            .DefaultMappingFor<Project>(i => i
+                .IndexName("project")
+            );
 
-            connectionSettings = (ConnectionSettings)_cluster.UpdateSettings(connectionSettings);
-            var client = new OpenSearchClient(connectionSettings);
+        connectionSettings = (ConnectionSettings)_cluster.UpdateSettings(connectionSettings);
+        var client = new OpenSearchClient(connectionSettings);
 
-            /**
+        /**
 			 * After issuing the following request
 			 */
-            var response = client.Search<Project>(s => s
-                .MatchAll()
-            );
-            /**
+        var response = client.Search<Project>(s => s
+            .MatchAll()
+        );
+        /**
 			 * The audit trail is provided in the <<debug-information, Debug information>> in a human
 			 * readable fashion, similar to
 			 *
@@ -91,24 +91,23 @@ namespace Tests.ClientConcepts.Troubleshooting
 			 *
 			 * to help with troubleshootin
 			 */
-            var debug = response.DebugInformation;
+        var debug = response.DebugInformation;
 
-            /**
+        /**
 			 * But can also be accessed manually:
 			 */
-            response.ApiCall.AuditTrail.Count.Should().Be(4, "{0}", debug);
-            response.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.SniffOnStartup, "{0}", debug);
-            response.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.SniffSuccess, "{0}", debug);
-            response.ApiCall.AuditTrail[2].Event.Should().Be(AuditEvent.PingSuccess, "{0}", debug);
-            response.ApiCall.AuditTrail[3].Event.Should().Be(AuditEvent.HealthyResponse, "{0}", debug);
+        response.ApiCall.AuditTrail.Count.Should().Be(4, "{0}", debug);
+        response.ApiCall.AuditTrail[0].Event.Should().Be(AuditEvent.SniffOnStartup, "{0}", debug);
+        response.ApiCall.AuditTrail[1].Event.Should().Be(AuditEvent.SniffSuccess, "{0}", debug);
+        response.ApiCall.AuditTrail[2].Event.Should().Be(AuditEvent.PingSuccess, "{0}", debug);
+        response.ApiCall.AuditTrail[3].Event.Should().Be(AuditEvent.HealthyResponse, "{0}", debug);
 
-            /**
+        /**
 			 * Each audit has a started and ended `DateTime` on it that will provide
 			 * some understanding of how long it took
 			 */
-            response.ApiCall.AuditTrail
-                .Should().OnlyContain(a => a.Ended - a.Started >= TimeSpan.Zero);
+        response.ApiCall.AuditTrail
+            .Should().OnlyContain(a => a.Ended - a.Started >= TimeSpan.Zero);
 
-        }
     }
 }

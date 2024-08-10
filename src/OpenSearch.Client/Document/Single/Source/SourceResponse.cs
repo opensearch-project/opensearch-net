@@ -26,15 +26,14 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public interface ISourceResponse<out TDocument> : IResponse
-    {
-        TDocument Body { get; }
-    }
+namespace OpenSearch.Client;
 
-    public class SourceResponse<TDocument> : ResponseBase, ISourceResponse<TDocument>
-    {
-        public TDocument Body { get; internal set; }
-    }
+public interface ISourceResponse<out TDocument> : IResponse
+{
+    TDocument Body { get; }
+}
+
+public class SourceResponse<TDocument> : ResponseBase, ISourceResponse<TDocument>
+{
+    public TDocument Body { get; internal set; }
 }

@@ -36,75 +36,74 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.IndexManagement.ShrinkIndex
+namespace Tests.Indices.IndexManagement.ShrinkIndex;
+
+using OpenSearch.Client;
+
+public class ShrinkIndexApiTests
+    : ApiIntegrationTestBase<WritableCluster, ShrinkIndexResponse, IShrinkIndexRequest, ShrinkIndexDescriptor, ShrinkIndexRequest>
 {
-    using OpenSearch.Client;
+    public ShrinkIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-    public class ShrinkIndexApiTests
-        : ApiIntegrationTestBase<WritableCluster, ShrinkIndexResponse, IShrinkIndexRequest, ShrinkIndexDescriptor, ShrinkIndexRequest>
+    protected override bool ExpectIsValid => true;
+
+    protected override object ExpectJson { get; } = new
     {
-        public ShrinkIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override bool ExpectIsValid => true;
-
-        protected override object ExpectJson { get; } = new
+        settings = new Dictionary<string, object>
         {
-            settings = new Dictionary<string, object>
-            {
-                { "index.number_of_shards", 4 }
-            }
-        };
+            { "index.number_of_shards", 4 }
+        }
+    };
 
-        protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-        protected override Func<ShrinkIndexDescriptor, IShrinkIndexRequest> Fluent => d => d
-            .Settings(s => s
-                .NumberOfShards(4)
-            );
-
-        protected override HttpMethod HttpMethod => HttpMethod.PUT;
-
-        protected override ShrinkIndexRequest Initializer => new(CallIsolatedValue, CallIsolatedValue + "-target")
-        {
-            Settings = new IndexSettings
-            {
-                NumberOfShards = 4
-            }
-        };
-
-        protected override string UrlPath => $"/{CallIsolatedValue}/_shrink/{CallIsolatedValue}-target";
-
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.Indices.Shrink(CallIsolatedValue, CallIsolatedValue + "-target", f),
-            (client, f) => client.Indices.ShrinkAsync(CallIsolatedValue, CallIsolatedValue + "-target", f),
-            (client, r) => client.Indices.Shrink(r),
-            (client, r) => client.Indices.ShrinkAsync(r)
+    protected override Func<ShrinkIndexDescriptor, IShrinkIndexRequest> Fluent => d => d
+        .Settings(s => s
+            .NumberOfShards(4)
         );
 
-        protected override void OnBeforeCall(IOpenSearchClient client)
-        {
-            var create = client.Indices.Create(CallIsolatedValue, c => c
-                .Settings(s => s
-                    .NumberOfShards(8)
-                    .NumberOfReplicas(0)
-                )
-            );
-            create.ShouldBeValid();
-            var update = client.Indices.UpdateSettings(CallIsolatedValue, u => u
-                .IndexSettings(s => s
-                    .BlocksWrite()
-                )
-            );
-            update.ShouldBeValid();
-        }
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-        protected override ShrinkIndexDescriptor NewDescriptor() => new(CallIsolatedValue, CallIsolatedValue + "-target");
-
-        protected override void ExpectResponse(ShrinkIndexResponse response)
+    protected override ShrinkIndexRequest Initializer => new(CallIsolatedValue, CallIsolatedValue + "-target")
+    {
+        Settings = new IndexSettings
         {
-            response.ShouldBeValid();
-            response.Acknowledged.Should().BeTrue();
-            response.ShardsAcknowledged.Should().BeTrue();
+            NumberOfShards = 4
         }
+    };
+
+    protected override string UrlPath => $"/{CallIsolatedValue}/_shrink/{CallIsolatedValue}-target";
+
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.Shrink(CallIsolatedValue, CallIsolatedValue + "-target", f),
+        (client, f) => client.Indices.ShrinkAsync(CallIsolatedValue, CallIsolatedValue + "-target", f),
+        (client, r) => client.Indices.Shrink(r),
+        (client, r) => client.Indices.ShrinkAsync(r)
+    );
+
+    protected override void OnBeforeCall(IOpenSearchClient client)
+    {
+        var create = client.Indices.Create(CallIsolatedValue, c => c
+            .Settings(s => s
+                .NumberOfShards(8)
+                .NumberOfReplicas(0)
+            )
+        );
+        create.ShouldBeValid();
+        var update = client.Indices.UpdateSettings(CallIsolatedValue, u => u
+            .IndexSettings(s => s
+                .BlocksWrite()
+            )
+        );
+        update.ShouldBeValid();
+    }
+
+    protected override ShrinkIndexDescriptor NewDescriptor() => new(CallIsolatedValue, CallIsolatedValue + "-target");
+
+    protected override void ExpectResponse(ShrinkIndexResponse response)
+    {
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+        response.ShardsAcknowledged.Should().BeTrue();
     }
 }

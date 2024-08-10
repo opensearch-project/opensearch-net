@@ -30,35 +30,34 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class ResolveIndexResponse : ResponseBase
 {
-    public class ResolveIndexResponse : ResponseBase
-    {
-        [DataMember(Name = "indices")]
-        public IReadOnlyCollection<ResolvedIndex> Indices { get; internal set; } = EmptyReadOnly<ResolvedIndex>.Collection;
+    [DataMember(Name = "indices")]
+    public IReadOnlyCollection<ResolvedIndex> Indices { get; internal set; } = EmptyReadOnly<ResolvedIndex>.Collection;
 
-        [DataMember(Name = "aliases")]
-        public IReadOnlyCollection<ResolvedAlias> Aliases { get; internal set; } = EmptyReadOnly<ResolvedAlias>.Collection;
-    }
+    [DataMember(Name = "aliases")]
+    public IReadOnlyCollection<ResolvedAlias> Aliases { get; internal set; } = EmptyReadOnly<ResolvedAlias>.Collection;
+}
 
-    public class ResolvedIndex
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+public class ResolvedIndex
+{
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-        [DataMember(Name = "aliases")]
-        public IReadOnlyCollection<string> Aliases { get; internal set; }
+    [DataMember(Name = "aliases")]
+    public IReadOnlyCollection<string> Aliases { get; internal set; }
 
-        [DataMember(Name = "attributes")]
-        public IReadOnlyCollection<string> Attributes { get; internal set; }
-    }
+    [DataMember(Name = "attributes")]
+    public IReadOnlyCollection<string> Attributes { get; internal set; }
+}
 
-    public class ResolvedAlias
-    {
-        [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+public class ResolvedAlias
+{
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-        [DataMember(Name = "indices")]
-        public IReadOnlyCollection<string> Indices { get; internal set; }
-    }
+    [DataMember(Name = "indices")]
+    public IReadOnlyCollection<string> Indices { get; internal set; }
 }

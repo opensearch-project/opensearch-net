@@ -28,43 +28,42 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A custom similarity
+/// </summary>
+[ReadAs(typeof(CustomSimilarity))]
+public interface ICustomSimilarity : ISimilarity, IIsADictionary<string, object> { }
+
+/// <inheritdoc />
+public class CustomSimilarity : IsADictionaryBase<string, object>, ICustomSimilarity
 {
-    /// <summary>
-    /// A custom similarity
-    /// </summary>
-    [ReadAs(typeof(CustomSimilarity))]
-    public interface ICustomSimilarity : ISimilarity, IIsADictionary<string, object> { }
-
-    /// <inheritdoc />
-    public class CustomSimilarity : IsADictionaryBase<string, object>, ICustomSimilarity
+    public CustomSimilarity(string type)
     {
-        public CustomSimilarity(string type)
-        {
-            if (!string.IsNullOrEmpty(type)) Type = type;
-        }
-
-        internal CustomSimilarity(IDictionary<string, object> container) : base(container) { }
-
-        internal CustomSimilarity(Dictionary<string, object> container) : base(container) { }
-
-        public string Type
-        {
-            get => this["type"] as string;
-            set => Add("type", value);
-        }
-
-        public void Add(string key, object value) => BackingDictionary.Add(key, value);
+        if (!string.IsNullOrEmpty(type)) Type = type;
     }
 
-    /// <inheritdoc />
-    public class CustomSimilarityDescriptor
-        : IsADictionaryDescriptorBase<CustomSimilarityDescriptor, ICustomSimilarity, string, object>
+    internal CustomSimilarity(IDictionary<string, object> container) : base(container) { }
+
+    internal CustomSimilarity(Dictionary<string, object> container) : base(container) { }
+
+    public string Type
     {
-        public CustomSimilarityDescriptor() : base(new CustomSimilarity(string.Empty)) { }
-
-        internal CustomSimilarityDescriptor Type(string type) => Assign("type", type);
-
-        public CustomSimilarityDescriptor Add(string key, object value) => Assign(key, value);
+        get => this["type"] as string;
+        set => Add("type", value);
     }
+
+    public void Add(string key, object value) => BackingDictionary.Add(key, value);
+}
+
+/// <inheritdoc />
+public class CustomSimilarityDescriptor
+    : IsADictionaryDescriptorBase<CustomSimilarityDescriptor, ICustomSimilarity, string, object>
+{
+    public CustomSimilarityDescriptor() : base(new CustomSimilarity(string.Empty)) { }
+
+    internal CustomSimilarityDescriptor Type(string type) => Assign("type", type);
+
+    public CustomSimilarityDescriptor Add(string key, object value) => Assign(key, value);
 }

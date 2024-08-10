@@ -29,12 +29,11 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(ClusterRerouteCommandFormatter))]
+public interface IClusterRerouteCommand
 {
-    [JsonFormatter(typeof(ClusterRerouteCommandFormatter))]
-    public interface IClusterRerouteCommand
-    {
-        [IgnoreDataMember]
-        string Name { get; }
-    }
+    [IgnoreDataMember]
+    string Name { get; }
 }

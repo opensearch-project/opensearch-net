@@ -33,41 +33,40 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Specialized.FieldAlias
+namespace Tests.Mapping.Types.Specialized.FieldAlias;
+
+public class FieldAliasPropertyTests : PropertyTestsBase
 {
-    public class FieldAliasPropertyTests : PropertyTestsBase
+    public FieldAliasPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public FieldAliasPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            leadDevFirstName = new
             {
-                leadDevFirstName = new
-                {
-                    type = "alias",
-                    path = "leadDeveloper.firstName",
-                }
+                type = "alias",
+                path = "leadDeveloper.firstName",
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .FieldAlias(s => s
-                .Name("leadDevFirstName")
-                .Path(p => p.LeadDeveloper.FirstName)
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .FieldAlias(s => s
+            .Name("leadDevFirstName")
+            .Path(p => p.LeadDeveloper.FirstName)
+        );
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "leadDevFirstName", new FieldAliasProperty
             {
-                "leadDevFirstName", new FieldAliasProperty
-                {
-                    Path = Infer.Field<Project>(p => p.LeadDeveloper.FirstName)
-                }
+                Path = Infer.Field<Project>(p => p.LeadDeveloper.FirstName)
             }
-        };
+        }
+    };
 
-        protected override ICreateIndexRequest CreateIndexSettings(CreateIndexDescriptor create) => create
-            .Map<Project>(mm => mm.AutoMap());
-    }
+    protected override ICreateIndexRequest CreateIndexSettings(CreateIndexDescriptor create) => create
+        .Map<Project>(mm => mm.AutoMap());
 }

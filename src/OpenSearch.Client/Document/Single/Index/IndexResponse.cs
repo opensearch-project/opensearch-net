@@ -28,15 +28,14 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class IndexResponse : WriteResponseBase
 {
-    [DataContract]
-    public class IndexResponse : WriteResponseBase
-    {
-        public override bool IsValid => base.IsValid &&
-            (Result == Result.Created
-            || Result == Result.Updated
-            || Result == Result.Noop)
-        ;
-    }
+    public override bool IsValid => base.IsValid &&
+        (Result == Result.Created
+        || Result == Result.Updated
+        || Result == Result.Noop)
+    ;
 }

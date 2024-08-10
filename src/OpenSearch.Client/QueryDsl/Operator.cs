@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum Operator
-    {
-        [EnumMember(Value = "and")]
-        And,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "or")]
-        Or
-    }
+[StringEnum]
+public enum Operator
+{
+    [EnumMember(Value = "and")]
+    And,
+
+    [EnumMember(Value = "or")]
+    Or
 }

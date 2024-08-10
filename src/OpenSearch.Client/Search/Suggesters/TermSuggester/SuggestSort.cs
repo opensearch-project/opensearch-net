@@ -29,24 +29,23 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// How suggestions should be sorted per suggest text term.
+/// </summary>
+[StringEnum]
+public enum SuggestSort
 {
     /// <summary>
-    /// How suggestions should be sorted per suggest text term.
+    /// Sort by score first, then document frequency and then the term itself
     /// </summary>
-    [StringEnum]
-    public enum SuggestSort
-    {
-        /// <summary>
-        /// Sort by score first, then document frequency and then the term itself
-        /// </summary>
-        [EnumMember(Value = "score")]
-        Score,
+    [EnumMember(Value = "score")]
+    Score,
 
-        /// <summary>
-        /// Sort by document frequency first, then similarity score and then the term itself
-        /// </summary>
-        [EnumMember(Value = "frequency")]
-        Frequency
-    }
+    /// <summary>
+    /// Sort by document frequency first, then similarity score and then the term itself
+    /// </summary>
+    [EnumMember(Value = "frequency")]
+    Frequency
 }

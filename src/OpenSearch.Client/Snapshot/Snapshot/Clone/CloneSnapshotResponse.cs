@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class CloneSnapshotResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class CloneSnapshotResponse : AcknowledgedResponseBase { }

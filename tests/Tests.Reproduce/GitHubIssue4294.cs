@@ -33,25 +33,24 @@ using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4294
 {
-    public class GitHubIssue4294
+    [U]
+    public void CanSerializeNullReferenceException()
     {
-        [U]
-        public void CanSerializeNullReferenceException()
+        var settings = new ConnectionConfiguration();
+
+        var dic = new Dictionary<string, object>()
         {
-            var settings = new ConnectionConfiguration();
+            ["Exception"] = new NullReferenceException(),
+        };
 
-            var dic = new Dictionary<string, object>()
-            {
-                ["Exception"] = new NullReferenceException(),
-            };
+        var data = PostData.Serializable(dic);
+        using var ms = new MemoryStream();
+        Action write = () => data.Write(ms, settings);
 
-            var data = PostData.Serializable(dic);
-            using var ms = new MemoryStream();
-            Action write = () => data.Write(ms, settings);
-
-            write.Should().NotThrow();
-        }
+        write.Should().NotThrow();
     }
 }

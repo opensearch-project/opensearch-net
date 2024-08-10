@@ -28,36 +28,35 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A filter that stems words using a Snowball-generated stemmer.
+/// </summary>
+public interface ISnowballTokenFilter : ITokenFilter
 {
-    /// <summary>
-    /// A filter that stems words using a Snowball-generated stemmer.
-    /// </summary>
-    public interface ISnowballTokenFilter : ITokenFilter
-    {
-        [DataMember(Name = "language")]
-        SnowballLanguage? Language { get; set; }
-    }
+    [DataMember(Name = "language")]
+    SnowballLanguage? Language { get; set; }
+}
+
+/// <inheritdoc />
+public class SnowballTokenFilter : TokenFilterBase, ISnowballTokenFilter
+{
+    public SnowballTokenFilter() : base("snowball") { }
 
     /// <inheritdoc />
-    public class SnowballTokenFilter : TokenFilterBase, ISnowballTokenFilter
-    {
-        public SnowballTokenFilter() : base("snowball") { }
+    [DataMember(Name = "language")]
+    public SnowballLanguage? Language { get; set; }
+}
 
-        /// <inheritdoc />
-        [DataMember(Name = "language")]
-        public SnowballLanguage? Language { get; set; }
-    }
+/// <inheritdoc />
+public class SnowballTokenFilterDescriptor
+    : TokenFilterDescriptorBase<SnowballTokenFilterDescriptor, ISnowballTokenFilter>, ISnowballTokenFilter
+{
+    protected override string Type => "snowball";
+
+    SnowballLanguage? ISnowballTokenFilter.Language { get; set; }
 
     /// <inheritdoc />
-    public class SnowballTokenFilterDescriptor
-        : TokenFilterDescriptorBase<SnowballTokenFilterDescriptor, ISnowballTokenFilter>, ISnowballTokenFilter
-    {
-        protected override string Type => "snowball";
-
-        SnowballLanguage? ISnowballTokenFilter.Language { get; set; }
-
-        /// <inheritdoc />
-        public SnowballTokenFilterDescriptor Language(SnowballLanguage? language) => Assign(language, (a, v) => a.Language = v);
-    }
+    public SnowballTokenFilterDescriptor Language(SnowballLanguage? language) => Assign(language, (a, v) => a.Language = v);
 }

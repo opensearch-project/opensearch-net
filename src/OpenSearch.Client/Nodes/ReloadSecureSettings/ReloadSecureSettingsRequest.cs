@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("nodes.reload_secure_settings.json")]
-    public partial interface IReloadSecureSettingsRequest { }
+namespace OpenSearch.Client;
 
-    public partial class ReloadSecureSettingsRequest { }
+[MapsApi("nodes.reload_secure_settings.json")]
+public partial interface IReloadSecureSettingsRequest { }
 
-    public partial class ReloadSecureSettingsDescriptor { }
-}
+public partial class ReloadSecureSettingsRequest { }
+
+public partial class ReloadSecureSettingsDescriptor { }

@@ -33,46 +33,45 @@ using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4197 : IClusterFixture<WritableCluster>
 {
-    public class GithubIssue4197 : IClusterFixture<WritableCluster>
+    private readonly IOpenSearchClient _client;
+
+    public GithubIssue4197(WritableCluster cluster) => _client = cluster.Client;
+
+    [I]
+    public void CanDeserializeAnonymousFiltersAggregation()
     {
-        private readonly IOpenSearchClient _client;
+        const string index = "github-issue-4197";
 
-        public GithubIssue4197(WritableCluster cluster) => _client = cluster.Client;
+        _client.Indices.Create(index);
 
-        [I]
-        public void CanDeserializeAnonymousFiltersAggregation()
-        {
-            const string index = "github-issue-4197";
+        _client.Index(new Doc { ModificationDate = DateTime.Now },
+            i => i.Index(index).Refresh(Refresh.WaitFor));
 
-            _client.Indices.Create(index);
-
-            _client.Index(new Doc { ModificationDate = DateTime.Now },
-                i => i.Index(index).Refresh(Refresh.WaitFor));
-
-            var searchResponse = _client.Search<Doc>(s => s
-                .Index(index)
-                .Aggregations(a => a
-                    .Filters("Modification date", f => f
-                        .AnonymousFilters(q => q
-                            .DateRange(dr => dr
-                                .Field(d => d.ModificationDate)
-                                .GreaterThan(DateMath.Now.Subtract(TimeSpan.FromDays(120)))
-                            )
+        var searchResponse = _client.Search<Doc>(s => s
+            .Index(index)
+            .Aggregations(a => a
+                .Filters("Modification date", f => f
+                    .AnonymousFilters(q => q
+                        .DateRange(dr => dr
+                            .Field(d => d.ModificationDate)
+                            .GreaterThan(DateMath.Now.Subtract(TimeSpan.FromDays(120)))
                         )
                     )
                 )
-            );
+            )
+        );
 
-            var filtersAggregate = searchResponse.Aggregations.Filters("Modification date");
-            filtersAggregate.AnonymousBuckets().Count.Should().Be(1, "there should be exactly one anonymous bucket");
-            filtersAggregate.AnonymousBuckets()[0].DocCount.Should().Be(1, "there should be exactly one document");
-        }
+        var filtersAggregate = searchResponse.Aggregations.Filters("Modification date");
+        filtersAggregate.AnonymousBuckets().Count.Should().Be(1, "there should be exactly one anonymous bucket");
+        filtersAggregate.AnonymousBuckets()[0].DocCount.Should().Be(1, "there should be exactly one document");
+    }
 
-        private class Doc
-        {
-            public DateTime ModificationDate { get; set; }
-        }
+    private class Doc
+    {
+        public DateTime ModificationDate { get; set; }
     }
 }

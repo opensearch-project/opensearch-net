@@ -30,12 +30,11 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class Profile
 {
-    public class Profile
-    {
-        [DataMember(Name = "shards")]
-        public IReadOnlyCollection<ShardProfile> Shards { get; internal set; } =
-            EmptyReadOnly<ShardProfile>.Collection;
-    }
+    [DataMember(Name = "shards")]
+    public IReadOnlyCollection<ShardProfile> Shards { get; internal set; } =
+        EmptyReadOnly<ShardProfile>.Collection;
 }

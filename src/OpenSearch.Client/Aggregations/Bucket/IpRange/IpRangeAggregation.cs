@@ -33,45 +33,44 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(IpRangeAggregation))]
+public interface IIpRangeAggregation : IBucketAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(IpRangeAggregation))]
-    public interface IIpRangeAggregation : IBucketAggregation
-    {
-        [DataMember(Name = "field")]
-        Field Field { get; set; }
+    [DataMember(Name = "field")]
+    Field Field { get; set; }
 
-        [DataMember(Name = "ranges")]
-        IEnumerable<IIpRangeAggregationRange> Ranges { get; set; }
-    }
+    [DataMember(Name = "ranges")]
+    IEnumerable<IIpRangeAggregationRange> Ranges { get; set; }
+}
 
-    public class IpRangeAggregation : BucketAggregationBase, IIpRangeAggregation
-    {
-        internal IpRangeAggregation() { }
+public class IpRangeAggregation : BucketAggregationBase, IIpRangeAggregation
+{
+    internal IpRangeAggregation() { }
 
-        public IpRangeAggregation(string name) : base(name) { }
+    public IpRangeAggregation(string name) : base(name) { }
 
-        public Field Field { get; set; }
-        public IEnumerable<IIpRangeAggregationRange> Ranges { get; set; }
+    public Field Field { get; set; }
+    public IEnumerable<IIpRangeAggregationRange> Ranges { get; set; }
 
-        internal override void WrapInContainer(AggregationContainer c) => c.IpRange = this;
-    }
+    internal override void WrapInContainer(AggregationContainer c) => c.IpRange = this;
+}
 
-    public class IpRangeAggregationDescriptor<T>
-        : BucketAggregationDescriptorBase<IpRangeAggregationDescriptor<T>, IIpRangeAggregation, T>
-            , IIpRangeAggregation
-        where T : class
-    {
-        Field IIpRangeAggregation.Field { get; set; }
+public class IpRangeAggregationDescriptor<T>
+    : BucketAggregationDescriptorBase<IpRangeAggregationDescriptor<T>, IIpRangeAggregation, T>
+        , IIpRangeAggregation
+    where T : class
+{
+    Field IIpRangeAggregation.Field { get; set; }
 
-        IEnumerable<IIpRangeAggregationRange> IIpRangeAggregation.Ranges { get; set; }
+    IEnumerable<IIpRangeAggregationRange> IIpRangeAggregation.Ranges { get; set; }
 
-        public IpRangeAggregationDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
+    public IpRangeAggregationDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
 
-        public IpRangeAggregationDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> field) => Assign(field, (a, v) => a.Field = v);
+    public IpRangeAggregationDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> field) => Assign(field, (a, v) => a.Field = v);
 
-        public IpRangeAggregationDescriptor<T> Ranges(params Func<IpRangeAggregationRangeDescriptor, IIpRangeAggregationRange>[] ranges) =>
-            Assign(ranges?.Select(r => r(new IpRangeAggregationRangeDescriptor())), (a, v) => a.Ranges = v);
-    }
+    public IpRangeAggregationDescriptor<T> Ranges(params Func<IpRangeAggregationRangeDescriptor, IIpRangeAggregationRange>[] ranges) =>
+        Assign(ranges?.Select(r => r(new IpRangeAggregationRangeDescriptor())), (a, v) => a.Ranges = v);
 }

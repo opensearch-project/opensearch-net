@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum TranslogDurability
-    {
-        [EnumMember(Value = "request")]
-        Request,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "async")]
-        Async
-    }
+[StringEnum]
+public enum TranslogDurability
+{
+    [EnumMember(Value = "request")]
+    Request,
+
+    [EnumMember(Value = "async")]
+    Async
 }

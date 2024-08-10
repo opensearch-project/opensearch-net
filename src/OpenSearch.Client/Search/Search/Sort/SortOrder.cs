@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum SortOrder
-    {
-        [EnumMember(Value = "asc")]
-        Ascending,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "desc")]
-        Descending
-    }
+[StringEnum]
+public enum SortOrder
+{
+    [EnumMember(Value = "asc")]
+    Ascending,
+
+    [EnumMember(Value = "desc")]
+    Descending
 }

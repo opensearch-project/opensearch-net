@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum FielddataLoading
-    {
-        [EnumMember(Value = "eager")]
-        Eager,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "eager_global_ordinals")]
-        EagerGlobalOrdinals
-    }
+[StringEnum]
+public enum FielddataLoading
+{
+    [EnumMember(Value = "eager")]
+    Eager,
+
+    [EnumMember(Value = "eager_global_ordinals")]
+    EagerGlobalOrdinals
 }

@@ -29,24 +29,23 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Determines how the terms aggregation is executed
+/// </summary>
+[StringEnum]
+public enum TermsAggregationCollectMode
 {
     /// <summary>
-    /// Determines how the terms aggregation is executed
+    /// Order by using field values directly in order to aggregate data per-bucket
     /// </summary>
-    [StringEnum]
-    public enum TermsAggregationCollectMode
-    {
-        /// <summary>
-        /// Order by using field values directly in order to aggregate data per-bucket
-        /// </summary>
-        [EnumMember(Value = "depth_first")]
-        DepthFirst,
+    [EnumMember(Value = "depth_first")]
+    DepthFirst,
 
-        /// <summary>
-        /// Order by using ordinals of the field values instead of the values themselves
-        /// </summary>
-        [EnumMember(Value = "breadth_first")]
-        BreadthFirst
-    }
+    /// <summary>
+    /// Order by using ordinals of the field values instead of the values themselves
+    /// </summary>
+    [EnumMember(Value = "breadth_first")]
+    BreadthFirst
 }

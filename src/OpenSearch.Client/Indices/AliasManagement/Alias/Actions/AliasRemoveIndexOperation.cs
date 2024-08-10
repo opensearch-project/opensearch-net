@@ -28,11 +28,10 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class AliasRemoveIndexOperation
 {
-    public class AliasRemoveIndexOperation
-    {
-        [DataMember(Name = "index")]
-        public IndexName Index { get; set; }
-    }
+    [DataMember(Name = "index")]
+    public IndexName Index { get; set; }
 }

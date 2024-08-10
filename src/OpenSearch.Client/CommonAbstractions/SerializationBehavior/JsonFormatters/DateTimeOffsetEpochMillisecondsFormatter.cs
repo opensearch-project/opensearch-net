@@ -29,58 +29,57 @@
 using System;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class DateTimeOffsetEpochMillisecondsFormatter : EpochDateTimeOffsetFormatter
 {
-    internal class DateTimeOffsetEpochMillisecondsFormatter : EpochDateTimeOffsetFormatter
+    public override void Serialize(ref JsonWriter writer, DateTimeOffset value, IJsonFormatterResolver formatterResolver)
     {
-        public override void Serialize(ref JsonWriter writer, DateTimeOffset value, IJsonFormatterResolver formatterResolver)
+        writer.WriteQuotation();
+        writer.WriteInt64(value.ToUnixTimeMilliseconds());
+        writer.WriteQuotation();
+    }
+}
+
+internal class NullableDateTimeOffsetEpochMillisecondsFormatter : IJsonFormatter<DateTimeOffset?>
+{
+    public DateTimeOffset? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var token = reader.GetCurrentJsonToken();
+
+        switch (token)
         {
-            writer.WriteQuotation();
-            writer.WriteInt64(value.ToUnixTimeMilliseconds());
-            writer.WriteQuotation();
+            case JsonToken.String:
+                {
+                    var formatter = formatterResolver.GetFormatter<DateTimeOffset>();
+                    return formatter.Deserialize(ref reader, formatterResolver);
+                }
+            case JsonToken.Null:
+                {
+                    reader.ReadNext();
+                    return null;
+                }
+            case JsonToken.Number:
+                {
+                    var millisecondsSinceEpoch = reader.ReadDouble();
+                    var dateTimeOffset = DateTimeUtil.UnixEpoch.AddMilliseconds(millisecondsSinceEpoch);
+                    return dateTimeOffset;
+                }
+            default:
+                throw new Exception($"Cannot deserialize {nameof(DateTimeOffset)} from token {token}");
         }
     }
 
-    internal class NullableDateTimeOffsetEpochMillisecondsFormatter : IJsonFormatter<DateTimeOffset?>
+    public void Serialize(ref JsonWriter writer, DateTimeOffset? value, IJsonFormatterResolver formatterResolver)
     {
-        public DateTimeOffset? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        if (value == null)
         {
-            var token = reader.GetCurrentJsonToken();
-
-            switch (token)
-            {
-                case JsonToken.String:
-                    {
-                        var formatter = formatterResolver.GetFormatter<DateTimeOffset>();
-                        return formatter.Deserialize(ref reader, formatterResolver);
-                    }
-                case JsonToken.Null:
-                    {
-                        reader.ReadNext();
-                        return null;
-                    }
-                case JsonToken.Number:
-                    {
-                        var millisecondsSinceEpoch = reader.ReadDouble();
-                        var dateTimeOffset = DateTimeUtil.UnixEpoch.AddMilliseconds(millisecondsSinceEpoch);
-                        return dateTimeOffset;
-                    }
-                default:
-                    throw new Exception($"Cannot deserialize {nameof(DateTimeOffset)} from token {token}");
-            }
+            writer.WriteNull();
+            return;
         }
 
-        public void Serialize(ref JsonWriter writer, DateTimeOffset? value, IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-
-            writer.WriteQuotation();
-            writer.WriteInt64(value.Value.ToUnixTimeMilliseconds());
-            writer.WriteQuotation();
-        }
+        writer.WriteQuotation();
+        writer.WriteInt64(value.Value.ToUnixTimeMilliseconds());
+        writer.WriteQuotation();
     }
 }

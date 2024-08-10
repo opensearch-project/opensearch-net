@@ -33,28 +33,27 @@ using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4243 : IClusterFixture<ReadOnlyCluster>
 {
-    public class GithubIssue4243 : IClusterFixture<ReadOnlyCluster>
+    private readonly ReadOnlyCluster _cluster;
+
+    public GithubIssue4243(ReadOnlyCluster cluster) => _cluster = cluster;
+
+    [I]
+    public async Task UsingFormatJsonIsSuccessfulResponse()
     {
-        private readonly ReadOnlyCluster _cluster;
+        var lowLevelClient = _cluster.Client.LowLevel;
 
-        public GithubIssue4243(ReadOnlyCluster cluster) => _cluster = cluster;
-
-        [I]
-        public async Task UsingFormatJsonIsSuccessfulResponse()
-        {
-            var lowLevelClient = _cluster.Client.LowLevel;
-
-            var response = _cluster.ClusterConfiguration.Version < "2.0.0"
+        var response = _cluster.ClusterConfiguration.Version < "2.0.0"
 #pragma warning disable CS0618 // Type or member is obsolete
-                ? await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" })
+            ? await lowLevelClient.Cat.MasterAsync<StringResponse>(new CatMasterRequestParameters { Format = "JSON" })
 #pragma warning restore CS0618 // Type or member is obsolete
-                : await lowLevelClient.Cat.ClusterManagerAsync<StringResponse>(new CatClusterManagerRequestParameters { Format = "JSON" });
+            : await lowLevelClient.Cat.ClusterManagerAsync<StringResponse>(new CatClusterManagerRequestParameters { Format = "JSON" });
 
-            response.Success.Should().BeTrue();
-            response.ApiCall.HttpStatusCode.Should().Be(200);
-            response.OriginalException.Should().BeNull();
-        }
+        response.Success.Should().BeTrue();
+        response.ApiCall.HttpStatusCode.Should().Be(200);
+        response.OriginalException.Should().BeNull();
     }
 }

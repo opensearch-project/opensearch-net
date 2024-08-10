@@ -33,29 +33,28 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Modules.Scripting.DeleteScript
+namespace Tests.Modules.Scripting.DeleteScript;
+
+public class DeleteScriptApiTests
+    : ApiTestBase<ReadOnlyCluster, DeleteScriptResponse, IDeleteScriptRequest, DeleteScriptDescriptor, DeleteScriptRequest>
 {
-    public class DeleteScriptApiTests
-        : ApiTestBase<ReadOnlyCluster, DeleteScriptResponse, IDeleteScriptRequest, DeleteScriptDescriptor, DeleteScriptRequest>
-    {
-        private static readonly string _name = "scrpt1";
+    private static readonly string _name = "scrpt1";
 
-        public DeleteScriptApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DeleteScriptApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override Func<DeleteScriptDescriptor, IDeleteScriptRequest> Fluent => d => d;
+    protected override Func<DeleteScriptDescriptor, IDeleteScriptRequest> Fluent => d => d;
 
-        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-        protected override DeleteScriptRequest Initializer => new DeleteScriptRequest(_name);
-        protected override string UrlPath => $"/_scripts/{_name}";
+    protected override DeleteScriptRequest Initializer => new DeleteScriptRequest(_name);
+    protected override string UrlPath => $"/_scripts/{_name}";
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.DeleteScript(_name, f),
-            (client, f) => client.DeleteScriptAsync(_name, f),
-            (client, r) => client.DeleteScript(r),
-            (client, r) => client.DeleteScriptAsync(r)
-        );
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.DeleteScript(_name, f),
+        (client, f) => client.DeleteScriptAsync(_name, f),
+        (client, r) => client.DeleteScript(r),
+        (client, r) => client.DeleteScriptAsync(r)
+    );
 
-        protected override DeleteScriptDescriptor NewDescriptor() => new DeleteScriptDescriptor(_name);
-    }
+    protected override DeleteScriptDescriptor NewDescriptor() => new DeleteScriptDescriptor(_name);
 }

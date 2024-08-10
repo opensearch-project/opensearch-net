@@ -29,22 +29,21 @@
 using System.Collections.Generic;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class NodesHotThreadsResponse : ResponseBase
 {
-    public class NodesHotThreadsResponse : ResponseBase
-    {
-        public NodesHotThreadsResponse() { }
+    public NodesHotThreadsResponse() { }
 
-        internal NodesHotThreadsResponse(IReadOnlyCollection<HotThreadInformation> threadInfo) => HotThreads = threadInfo;
+    internal NodesHotThreadsResponse(IReadOnlyCollection<HotThreadInformation> threadInfo) => HotThreads = threadInfo;
 
-        public IReadOnlyCollection<HotThreadInformation> HotThreads { get; internal set; } = EmptyReadOnly<HotThreadInformation>.Collection;
-    }
+    public IReadOnlyCollection<HotThreadInformation> HotThreads { get; internal set; } = EmptyReadOnly<HotThreadInformation>.Collection;
+}
 
-    public class HotThreadInformation
-    {
-        public IReadOnlyCollection<string> Hosts { get; internal set; } = EmptyReadOnly<string>.Collection;
-        public string NodeId { get; internal set; }
-        public string NodeName { get; internal set; }
-        public IReadOnlyCollection<string> Threads { get; internal set; } = EmptyReadOnly<string>.Collection;
-    }
+public class HotThreadInformation
+{
+    public IReadOnlyCollection<string> Hosts { get; internal set; } = EmptyReadOnly<string>.Collection;
+    public string NodeId { get; internal set; }
+    public string NodeName { get; internal set; }
+    public IReadOnlyCollection<string> Threads { get; internal set; } = EmptyReadOnly<string>.Collection;
 }

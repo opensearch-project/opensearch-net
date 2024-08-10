@@ -50,93 +50,92 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net.Specification.DanglingIndicesApi
+namespace OpenSearch.Net.Specification.DanglingIndicesApi;
+
+/// <summary>Request options for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+public partial class DeleteDanglingIndexRequestParameters
+    : RequestParameters<DeleteDanglingIndexRequestParameters>
 {
-    /// <summary>Request options for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class DeleteDanglingIndexRequestParameters
-        : RequestParameters<DeleteDanglingIndexRequestParameters>
+    public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+    public override bool SupportsBody => false;
+
+    /// <summary>Must be set to true in order to delete the dangling index.</summary>
+    public bool? AcceptDataLoss
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => false;
-
-        /// <summary>Must be set to true in order to delete the dangling index.</summary>
-        public bool? AcceptDataLoss
-        {
-            get => Q<bool?>("accept_data_loss");
-            set => Q("accept_data_loss", value);
-        }
-
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TimeSpan ClusterManagerTimeout
-        {
-            get => Q<TimeSpan>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>Specify timeout for connection to master.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public TimeSpan MasterTimeout
-        {
-            get => Q<TimeSpan>("master_timeout");
-            set => Q("master_timeout", value);
-        }
-
-        /// <summary>Explicit operation timeout.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+        get => Q<bool?>("accept_data_loss");
+        set => Q("accept_data_loss", value);
     }
 
-    /// <summary>Request options for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class ImportDanglingIndexRequestParameters
-        : RequestParameters<ImportDanglingIndexRequestParameters>
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public TimeSpan ClusterManagerTimeout
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
-
-        /// <summary>Must be set to true in order to import the dangling index.</summary>
-        public bool? AcceptDataLoss
-        {
-            get => Q<bool?>("accept_data_loss");
-            set => Q("accept_data_loss", value);
-        }
-
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TimeSpan ClusterManagerTimeout
-        {
-            get => Q<TimeSpan>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>Specify timeout for connection to master.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
-        public TimeSpan MasterTimeout
-        {
-            get => Q<TimeSpan>("master_timeout");
-            set => Q("master_timeout", value);
-        }
-
-        /// <summary>Explicit operation timeout.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+        get => Q<TimeSpan>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
     }
 
-    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
-    public partial class ListDanglingIndicesRequestParameters
-        : RequestParameters<ListDanglingIndicesRequestParameters>
+    /// <summary>Specify timeout for connection to master.</summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public TimeSpan MasterTimeout
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
+        get => Q<TimeSpan>("master_timeout");
+        set => Q("master_timeout", value);
     }
+
+    /// <summary>Explicit operation timeout.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+}
+
+/// <summary>Request options for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+public partial class ImportDanglingIndexRequestParameters
+    : RequestParameters<ImportDanglingIndexRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+    public override bool SupportsBody => false;
+
+    /// <summary>Must be set to true in order to import the dangling index.</summary>
+    public bool? AcceptDataLoss
+    {
+        get => Q<bool?>("accept_data_loss");
+        set => Q("accept_data_loss", value);
+    }
+
+    /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+    public TimeSpan ClusterManagerTimeout
+    {
+        get => Q<TimeSpan>("cluster_manager_timeout");
+        set => Q("cluster_manager_timeout", value);
+    }
+
+    /// <summary>Specify timeout for connection to master.</summary>
+    [Obsolete(
+        "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+    )]
+    public TimeSpan MasterTimeout
+    {
+        get => Q<TimeSpan>("master_timeout");
+        set => Q("master_timeout", value);
+    }
+
+    /// <summary>Explicit operation timeout.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+}
+
+/// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+public partial class ListDanglingIndicesRequestParameters
+    : RequestParameters<ListDanglingIndicesRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
 }

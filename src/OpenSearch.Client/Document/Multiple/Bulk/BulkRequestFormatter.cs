@@ -30,54 +30,53 @@ using System;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class BulkRequestFormatter : IJsonFormatter<IBulkRequest>
 {
-    internal class BulkRequestFormatter : IJsonFormatter<IBulkRequest>
+    private const byte Newline = (byte)'\n';
+
+    private static SourceWriteFormatter<object> SourceWriter { get; } = new SourceWriteFormatter<object>();
+
+    public IBulkRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
+        throw new NotSupportedException();
+
+    public void Serialize(ref JsonWriter writer, IBulkRequest value, IJsonFormatterResolver formatterResolver)
     {
-        private const byte Newline = (byte)'\n';
+        if (value?.Operations == null)
+            return;
 
-        private static SourceWriteFormatter<object> SourceWriter { get; } = new SourceWriteFormatter<object>();
+        var settings = formatterResolver.GetConnectionSettings();
+        var inferrer = settings.Inferrer;
+        var formatter = formatterResolver.GetFormatter<object>();
 
-        public IBulkRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
-            throw new NotSupportedException();
-
-        public void Serialize(ref JsonWriter writer, IBulkRequest value, IJsonFormatterResolver formatterResolver)
+        for (var index = 0; index < value.Operations.Count; index++)
         {
-            if (value?.Operations == null)
-                return;
+            var op = value.Operations[index];
+            op.Index ??= value.Index ?? op.ClrType;
+            if (op.Index.Equals(value.Index)) op.Index = null;
+            op.Id = op.GetIdForOperation(inferrer);
+            op.Routing = op.GetRoutingForOperation(inferrer);
 
-            var settings = formatterResolver.GetConnectionSettings();
-            var inferrer = settings.Inferrer;
-            var formatter = formatterResolver.GetFormatter<object>();
+            writer.WriteBeginObject();
+            writer.WritePropertyName(op.Operation);
 
-            for (var index = 0; index < value.Operations.Count; index++)
+            formatter.Serialize(ref writer, op, formatterResolver);
+            writer.WriteEndObject();
+            writer.WriteRaw(Newline);
+
+            var body = op.GetBody();
+            if (body == null)
+                continue;
+
+            if (op.Operation == "update" || body is ILazyDocument)
             {
-                var op = value.Operations[index];
-                op.Index ??= value.Index ?? op.ClrType;
-                if (op.Index.Equals(value.Index)) op.Index = null;
-                op.Id = op.GetIdForOperation(inferrer);
-                op.Routing = op.GetRoutingForOperation(inferrer);
-
-                writer.WriteBeginObject();
-                writer.WritePropertyName(op.Operation);
-
-                formatter.Serialize(ref writer, op, formatterResolver);
-                writer.WriteEndObject();
-                writer.WriteRaw(Newline);
-
-                var body = op.GetBody();
-                if (body == null)
-                    continue;
-
-                if (op.Operation == "update" || body is ILazyDocument)
-                {
-                    var requestResponseSerializer = settings.RequestResponseSerializer;
-                    requestResponseSerializer.SerializeUsingWriter(ref writer, body, settings, SerializationFormatting.None);
-                }
-                else
-                    SourceWriter.Serialize(ref writer, body, formatterResolver);
-                writer.WriteRaw(Newline);
+                var requestResponseSerializer = settings.RequestResponseSerializer;
+                requestResponseSerializer.SerializeUsingWriter(ref writer, body, settings, SerializationFormatting.None);
             }
+            else
+                SourceWriter.Serialize(ref writer, body, formatterResolver);
+            writer.WriteRaw(Newline);
         }
     }
 }

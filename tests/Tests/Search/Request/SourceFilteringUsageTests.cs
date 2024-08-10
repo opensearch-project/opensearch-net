@@ -39,163 +39,162 @@ using Xunit;
 using static OpenSearch.Client.Infer;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.Search.Request
-{
-    /** Allows to control how the `_source` field is returned with every hit.
+namespace Tests.Search.Request;
+
+/** Allows to control how the `_source` field is returned with every hit.
 	 * By default operations return the contents of the `_source` field unless
 	 * you have used the fields parameter or if the `_source` field is disabled.
 	 *
 	 * See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-source-filtering[Source Filtering] for more detail.
 	 */
-    public class SourceFilteringUsageTests : SearchUsageTestBase
-    {
-        public SourceFilteringUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class SourceFilteringUsageTests : SearchUsageTestBase
+{
+    public SourceFilteringUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override object ExpectJson => new
+    protected override object ExpectJson => new
+    {
+        query = ProjectFilterExpectedJson,
+        _source = new
         {
-            query = ProjectFilterExpectedJson,
-            _source = new
+            includes = new[] { "*" },
+            excludes = new[] { "description" }
+        }
+    };
+
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
+        .Query(q => ProjectFilter)
+        .Source(src => src
+            .IncludeAll()
+            .Excludes(e => e
+                .Fields(
+                    p => p.Description
+                )
+            )
+        );
+
+    protected override SearchRequest<Project> Initializer =>
+        new SearchRequest<Project>
+        {
+            Query = ProjectFilter,
+            Source = new SourceFilter
             {
-                includes = new[] { "*" },
-                excludes = new[] { "description" }
+                Includes = "*",
+                Excludes = Fields<Project>(p => p.Description)
             }
         };
 
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s
-            .Query(q => ProjectFilter)
-            .Source(src => src
-                .IncludeAll()
-                .Excludes(e => e
-                    .Fields(
-                        p => p.Description
-                    )
-                )
-            );
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-        protected override SearchRequest<Project> Initializer =>
-            new SearchRequest<Project>
-            {
-                Query = ProjectFilter,
-                Source = new SourceFilter
-                {
-                    Includes = "*",
-                    Excludes = Fields<Project>(p => p.Description)
-                }
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+        foreach (var document in response.Documents)
         {
-            response.ShouldBeValid();
+            document.Name.Should().NotBeNull();
+            document.StartedOn.Should().NotBe(default(DateTime));
+            document.Description.Should().BeNull();
+        }
+    }
+}
 
-            foreach (var document in response.Documents)
+public class SourceFilteringDisabledUsageTests : SearchUsageTestBase
+{
+    public SourceFilteringDisabledUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson =>
+        new
+        {
+            _source = false
+        };
+
+    protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s.Source(false);
+
+    protected override SearchRequest<Project> Initializer =>
+        new SearchRequest<Project>
+        {
+            Source = false
+        };
+
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        foreach (var hit in response.Hits)
+            hit.Source.Should().BeNull();
+    }
+}
+
+//hide
+public class SourceFilteringSerializationTests
+{
+    [U]
+    public void CanDeserializeBoolean()
+    {
+        var falseCase = Expect("{ \"_source\": false }").DeserializesTo<WithSourceFilterProperty>();
+        falseCase.Should().NotBeNull();
+        falseCase.SourceFilter.Should().NotBeNull();
+        falseCase.SourceFilter.Match
+        (b => b.Should().BeFalse(),
+            f => Assert.Fail("Expected bool but found ISourceFilter")
+        );
+
+        var trueCase = Expect("{ \"_source\": true }").DeserializesTo<WithSourceFilterProperty>();
+        trueCase.Should().NotBeNull();
+        trueCase.SourceFilter.Should().NotBeNull();
+        trueCase.SourceFilter.Match
+        (b => b.Should().BeTrue(),
+            f => Assert.Fail("Expected bool but found ISourceFilter")
+        );
+    }
+
+    [U]
+    public void CanDeserializeArray()
+    {
+        var o = Expect("{ \"_source\": [\"obj.*\"] }").DeserializesTo<WithSourceFilterProperty>();
+        o.Should().NotBeNull();
+        o.SourceFilter.Match(
+            b => Assert.Fail("Expected ISourceFilter but found bool"),
+            f =>
             {
-                document.Name.Should().NotBeNull();
-                document.StartedOn.Should().NotBe(default(DateTime));
-                document.Description.Should().BeNull();
+                f.Should().NotBeNull();
+                f.Includes.Should().Contain("obj.*");
             }
-        }
+        );
     }
 
-    public class SourceFilteringDisabledUsageTests : SearchUsageTestBase
+    [U]
+    public void CanDeserializeString()
     {
-        public SourceFilteringDisabledUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson =>
-            new
+        var o = Expect("{ \"_source\": \"obj.*\" }").DeserializesTo<WithSourceFilterProperty>();
+        o.Should().NotBeNull();
+        o.SourceFilter.Match(
+            b => Assert.Fail("Expected ISourceFilter but found bool"),
+            f =>
             {
-                _source = false
-            };
-
-        protected override Func<SearchDescriptor<Project>, ISearchRequest> Fluent => s => s.Source(false);
-
-        protected override SearchRequest<Project> Initializer =>
-            new SearchRequest<Project>
-            {
-                Source = false
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
-            foreach (var hit in response.Hits)
-                hit.Source.Should().BeNull();
-        }
+                f.Should().NotBeNull();
+                f.Includes.Should().Contain("obj.*");
+            }
+        );
     }
 
-    //hide
-    public class SourceFilteringSerializationTests
+    [U]
+    public void CanDeserializeObject()
     {
-        [U]
-        public void CanDeserializeBoolean()
-        {
-            var falseCase = Expect("{ \"_source\": false }").DeserializesTo<WithSourceFilterProperty>();
-            falseCase.Should().NotBeNull();
-            falseCase.SourceFilter.Should().NotBeNull();
-            falseCase.SourceFilter.Match
-            (b => b.Should().BeFalse(),
-                f => Assert.Fail("Expected bool but found ISourceFilter")
-            );
+        var o = Expect("{ \"_source\": { \"includes\": [\"obj.*\"], \"excludes\": [\"foo.*\"] } }").DeserializesTo<WithSourceFilterProperty>();
+        o.Should().NotBeNull();
+        o.SourceFilter.Match(
+            b => Assert.Fail("Expected ISourceFilter but found bool"),
+            f =>
+            {
+                f.Should().NotBeNull();
+                f.Includes.Should().Contain("obj.*");
+                f.Excludes.Should().Contain("foo.*");
+            }
+        );
+    }
 
-            var trueCase = Expect("{ \"_source\": true }").DeserializesTo<WithSourceFilterProperty>();
-            trueCase.Should().NotBeNull();
-            trueCase.SourceFilter.Should().NotBeNull();
-            trueCase.SourceFilter.Match
-            (b => b.Should().BeTrue(),
-                f => Assert.Fail("Expected bool but found ISourceFilter")
-            );
-        }
-
-        [U]
-        public void CanDeserializeArray()
-        {
-            var o = Expect("{ \"_source\": [\"obj.*\"] }").DeserializesTo<WithSourceFilterProperty>();
-            o.Should().NotBeNull();
-            o.SourceFilter.Match(
-                b => Assert.Fail("Expected ISourceFilter but found bool"),
-                f =>
-                {
-                    f.Should().NotBeNull();
-                    f.Includes.Should().Contain("obj.*");
-                }
-            );
-        }
-
-        [U]
-        public void CanDeserializeString()
-        {
-            var o = Expect("{ \"_source\": \"obj.*\" }").DeserializesTo<WithSourceFilterProperty>();
-            o.Should().NotBeNull();
-            o.SourceFilter.Match(
-                b => Assert.Fail("Expected ISourceFilter but found bool"),
-                f =>
-                {
-                    f.Should().NotBeNull();
-                    f.Includes.Should().Contain("obj.*");
-                }
-            );
-        }
-
-        [U]
-        public void CanDeserializeObject()
-        {
-            var o = Expect("{ \"_source\": { \"includes\": [\"obj.*\"], \"excludes\": [\"foo.*\"] } }").DeserializesTo<WithSourceFilterProperty>();
-            o.Should().NotBeNull();
-            o.SourceFilter.Match(
-                b => Assert.Fail("Expected ISourceFilter but found bool"),
-                f =>
-                {
-                    f.Should().NotBeNull();
-                    f.Includes.Should().Contain("obj.*");
-                    f.Excludes.Should().Contain("foo.*");
-                }
-            );
-        }
-
-        internal class WithSourceFilterProperty
-        {
-            [PropertyName("_source")]
-            [DataMember(Name = "_source")]
-            public Union<bool, ISourceFilter> SourceFilter { get; set; }
-        }
+    internal class WithSourceFilterProperty
+    {
+        [PropertyName("_source")]
+        [DataMember(Name = "_source")]
+        public Union<bool, ISourceFilter> SourceFilter { get; set; }
     }
 }

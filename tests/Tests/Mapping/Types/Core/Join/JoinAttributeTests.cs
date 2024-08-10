@@ -29,29 +29,28 @@
 using OpenSearch.Client;
 using Tests.Domain;
 
-namespace Tests.Mapping.Types.Core.Join
-{
-    public class JoinTest
-    {
-        [Join(typeof(Project), typeof(CommitActivity))]
-        public JoinField JoinField { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Join;
 
-    public class JoinAttributeTests : AttributeTestsBase<JoinTest>
+public class JoinTest
+{
+    [Join(typeof(Project), typeof(CommitActivity))]
+    public JoinField JoinField { get; set; }
+}
+
+public class JoinAttributeTests : AttributeTestsBase<JoinTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            joinField = new
             {
-                joinField = new
+                type = "join",
+                relations = new
                 {
-                    type = "join",
-                    relations = new
-                    {
-                        project = "commits"
-                    }
+                    project = "commits"
                 }
             }
-        };
-    }
+        }
+    };
 }

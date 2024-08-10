@@ -40,296 +40,295 @@ using Tests.Core.ManagedOpenSearch;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using HttpMethod = OpenSearch.Net.HttpMethod;
 
-namespace Tests.ClientConcepts.Connection
+namespace Tests.ClientConcepts.Connection;
+
+public class HttpConnectionTests : ClusterTestClassBase<ReadOnlyCluster>
 {
-    public class HttpConnectionTests : ClusterTestClassBase<ReadOnlyCluster>
+    public HttpConnectionTests(ReadOnlyCluster cluster) : base(cluster) { }
+
+    [I]
+    public async Task SingleInstanceOfHttpClient()
     {
-        public HttpConnectionTests(ReadOnlyCluster cluster) : base(cluster) { }
+        var connection = new TestableHttpConnection();
+        var requestData = CreateRequestData();
+        connection.Request<StringResponse>(requestData);
 
-        [I]
-        public async Task SingleInstanceOfHttpClient()
+        connection.CallCount.Should().Be(1);
+        connection.InUseHandlers.Should().Be(1);
+        connection.RemovedHandlers.Should().Be(0);
+
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+
+        connection.CallCount.Should().Be(2);
+        connection.InUseHandlers.Should().Be(1);
+    }
+
+    [I]
+    public async Task RespectsDnsRefreshTimeout()
+    {
+        var connection = new TestableHttpConnection();
+        connection.RemovedHandlers.Should().Be(0);
+        var requestData = CreateRequestData(dnsRefreshTimeout: TimeSpan.FromSeconds(1));
+        connection.Request<StringResponse>(requestData);
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        connection.Request<StringResponse>(requestData);
+
+        connection.CallCount.Should().Be(2);
+        connection.InUseHandlers.Should().Be(1);
+        connection.RemovedHandlers.Should().Be(1);
+
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+
+        connection.CallCount.Should().Be(3);
+        connection.InUseHandlers.Should().Be(1);
+        connection.RemovedHandlers.Should().Be(1);
+    }
+
+    [I]
+    public async Task MultipleInstancesOfHttpClientWhenRequestTimeoutChanges() =>
+        await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(TimeSpan.FromSeconds(30)));
+
+    [I]
+    public async Task MultipleInstancesOfHttpClientWhenProxyChanges() =>
+        await MultipleInstancesOfHttpClientWhen(() =>
+            CreateRequestData(proxyAddress: Client.ConnectionSettings.ConnectionPool.Nodes.First().Uri));
+
+    [I]
+    public async Task MultipleInstancesOfHttpClientWhenAutomaticProxyDetectionChanges() =>
+        await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(disableAutomaticProxyDetection: true));
+
+    [I]
+    public async Task MultipleInstancesOfHttpClientWhenHttpCompressionChanges() =>
+        await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(httpCompression: true));
+
+    private async Task MultipleInstancesOfHttpClientWhen(Func<RequestData> differentRequestData)
+    {
+        var connection = new TestableHttpConnection();
+        var requestData = CreateRequestData();
+        connection.Request<StringResponse>(requestData);
+
+        connection.CallCount.Should().Be(1);
+        connection.InUseHandlers.Should().Be(1);
+        connection.RemovedHandlers.Should().Be(0);
+
+        requestData = differentRequestData();
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+
+        connection.CallCount.Should().Be(2);
+        connection.InUseHandlers.Should().Be(2);
+        connection.RemovedHandlers.Should().Be(0);
+    }
+
+    private RequestData CreateRequestData(
+        TimeSpan requestTimeout = default,
+        TimeSpan? dnsRefreshTimeout = default,
+        Uri proxyAddress = null,
+        bool disableAutomaticProxyDetection = false,
+        bool httpCompression = false,
+        bool transferEncodingChunked = false,
+        bool disableMetaHeader = false,
+        Action<RequestMetaData> requestMetaData = null
+    )
+    {
+        if (requestTimeout == default) requestTimeout = TimeSpan.FromSeconds(10);
+
+        var node = Client.ConnectionSettings.ConnectionPool.Nodes.First();
+        var connectionSettings = new ConnectionSettings(node.Uri)
+            .RequestTimeout(requestTimeout)
+            .DnsRefreshTimeout(dnsRefreshTimeout ?? ConnectionConfiguration.DefaultDnsRefreshTimeout)
+            .DisableAutomaticProxyDetection(disableAutomaticProxyDetection)
+            .TransferEncodingChunked(transferEncodingChunked)
+            .EnableHttpCompression(httpCompression)
+            .DisableMetaHeader(disableMetaHeader);
+
+        if (proxyAddress != null)
+            connectionSettings.Proxy(proxyAddress, null, (string)null);
+
+        var requestParameters = new SearchRequestParameters();
+
+        if (requestMetaData is object)
         {
-            var connection = new TestableHttpConnection();
-            var requestData = CreateRequestData();
-            connection.Request<StringResponse>(requestData);
-
-            connection.CallCount.Should().Be(1);
-            connection.InUseHandlers.Should().Be(1);
-            connection.RemovedHandlers.Should().Be(0);
-
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-
-            connection.CallCount.Should().Be(2);
-            connection.InUseHandlers.Should().Be(1);
+            requestParameters.RequestConfiguration ??= new RequestConfiguration();
+            requestParameters.RequestConfiguration.RequestMetaData ??= new RequestMetaData();
+            requestMetaData(requestParameters.RequestConfiguration.RequestMetaData);
         }
 
-        [I]
-        public async Task RespectsDnsRefreshTimeout()
+        var requestData = new RequestData(HttpMethod.POST, "/_search", "{ \"query\": { \"match_all\" : { } } }", connectionSettings,
+            requestParameters,
+            new RecyclableMemoryStreamFactory())
+        { Node = node };
+
+        return requestData;
+    }
+
+    /// <summary>
+    /// Setting HttpClientHandler.Proxy = null don't disable HttpClient automatic proxy detection.
+    /// It is disabled by setting Proxy to non-null value or by setting UseProxy = false.
+    /// </summary>
+    [I]
+    public async Task HttpClientUseProxyShouldBeFalseWhenDisabledAutoProxyDetection()
+    {
+        var connection = new TestableHttpConnection();
+        var requestData = CreateRequestData(disableAutomaticProxyDetection: true);
+
+        connection.Request<StringResponse>(requestData);
+        connection.LastHttpClientHandler.UseProxy.Should().BeFalse();
+
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+        connection.LastHttpClientHandler.UseProxy.Should().BeFalse();
+    }
+
+    [I]
+    public async Task HttpClientUseProxyShouldBeTrueWhenEnabledAutoProxyDetection()
+    {
+        var connection = new TestableHttpConnection();
+        var requestData = CreateRequestData();
+
+        connection.Request<StringResponse>(requestData);
+        connection.LastHttpClientHandler.UseProxy.Should().BeTrue();
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+        connection.LastHttpClientHandler.UseProxy.Should().BeTrue();
+    }
+
+    [I]
+    public async Task HttpClientUseTransferEncodingChunkedWhenTransferEncodingChunkedTrue()
+    {
+        var requestData = CreateRequestData(transferEncodingChunked: true);
+        var connection = new TestableHttpConnection(responseMessage =>
         {
-            var connection = new TestableHttpConnection();
-            connection.RemovedHandlers.Should().Be(0);
-            var requestData = CreateRequestData(dnsRefreshTimeout: TimeSpan.FromSeconds(1));
-            connection.Request<StringResponse>(requestData);
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            connection.Request<StringResponse>(requestData);
+            responseMessage.RequestMessage.Content.Headers.ContentLength.Should().BeNull();
+        });
 
-            connection.CallCount.Should().Be(2);
-            connection.InUseHandlers.Should().Be(1);
-            connection.RemovedHandlers.Should().Be(1);
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
 
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    [I]
+    public async Task HttpClientSetsContentLengthWhenTransferEncodingChunkedFalse()
+    {
+        var requestData = CreateRequestData(transferEncodingChunked: false);
+        var connection = new TestableHttpConnection(responseMessage =>
+        {
+            responseMessage.RequestMessage.Content.Headers.ContentLength.Should().HaveValue();
+        });
 
-            connection.CallCount.Should().Be(3);
-            connection.InUseHandlers.Should().Be(1);
-            connection.RemovedHandlers.Should().Be(1);
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
+
+    [I]
+    public async Task HttpClientSetsContentLengthWhenTransferEncodingChunkedHttpCompression()
+    {
+        var requestData = CreateRequestData(transferEncodingChunked: false, httpCompression: true);
+        var connection = new TestableHttpConnection(responseMessage =>
+        {
+            responseMessage.RequestMessage.Content.Headers.ContentLength.Should().HaveValue();
+        });
+
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
+
+    [I]
+    public async Task HttpClientSetsMetaHeaderWhenNotDisabled()
+    {
+        var regex = new Regex(@"^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$");
+
+        var requestData = CreateRequestData();
+        var connection = new TestableHttpConnection(responseMessage =>
+        {
+            responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
+            headerValue.Should().HaveCount(1);
+            headerValue.Single().Should().NotBeNullOrEmpty();
+            regex.Match(headerValue.Single()).Success.Should().BeTrue();
+        });
+
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
+
+    [I]
+    public async Task HttpClientSetsMetaHeaderWithHelperWhenNotDisabled()
+    {
+        var regex = new Regex(@"^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$");
+
+        var requestData = CreateRequestData(requestMetaData: m => m.TryAddMetaData("helper", "r"));
+        var connection = new TestableHttpConnection(responseMessage =>
+        {
+            responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
+            headerValue.Should().HaveCount(1);
+            headerValue.Single().Should().NotBeNullOrEmpty();
+            headerValue.Single().Should().EndWith(",h=r");
+            regex.Match(headerValue.Single()).Success.Should().BeTrue();
+        });
+
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
+
+    [I]
+    public async Task HttpClientShouldNotSetMetaHeaderWhenDisabled()
+    {
+        var requestData = CreateRequestData(disableMetaHeader: true);
+        var connection = new TestableHttpConnection(responseMessage =>
+        {
+            responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeFalse();
+        });
+
+        connection.Request<StringResponse>(requestData);
+        await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
+    }
+
+    public class TestableHttpConnection : HttpConnection
+    {
+        private readonly Action<HttpResponseMessage> _response;
+        private TestableClientHandler _handler;
+        public int CallCount { get; private set; }
+        public HttpClientHandler LastHttpClientHandler => (HttpClientHandler)_handler.InnerHandler;
+
+        public TestableHttpConnection(Action<HttpResponseMessage> response) => _response = response;
+
+        public TestableHttpConnection()
+        {
         }
 
-        [I]
-        public async Task MultipleInstancesOfHttpClientWhenRequestTimeoutChanges() =>
-            await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(TimeSpan.FromSeconds(30)));
-
-        [I]
-        public async Task MultipleInstancesOfHttpClientWhenProxyChanges() =>
-            await MultipleInstancesOfHttpClientWhen(() =>
-                CreateRequestData(proxyAddress: Client.ConnectionSettings.ConnectionPool.Nodes.First().Uri));
-
-        [I]
-        public async Task MultipleInstancesOfHttpClientWhenAutomaticProxyDetectionChanges() =>
-            await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(disableAutomaticProxyDetection: true));
-
-        [I]
-        public async Task MultipleInstancesOfHttpClientWhenHttpCompressionChanges() =>
-            await MultipleInstancesOfHttpClientWhen(() => CreateRequestData(httpCompression: true));
-
-        private async Task MultipleInstancesOfHttpClientWhen(Func<RequestData> differentRequestData)
+        public override TResponse Request<TResponse>(RequestData requestData)
         {
-            var connection = new TestableHttpConnection();
-            var requestData = CreateRequestData();
-            connection.Request<StringResponse>(requestData);
-
-            connection.CallCount.Should().Be(1);
-            connection.InUseHandlers.Should().Be(1);
-            connection.RemovedHandlers.Should().Be(0);
-
-            requestData = differentRequestData();
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-
-            connection.CallCount.Should().Be(2);
-            connection.InUseHandlers.Should().Be(2);
-            connection.RemovedHandlers.Should().Be(0);
+            CallCount++;
+            return base.Request<TResponse>(requestData);
         }
 
-        private RequestData CreateRequestData(
-            TimeSpan requestTimeout = default,
-            TimeSpan? dnsRefreshTimeout = default,
-            Uri proxyAddress = null,
-            bool disableAutomaticProxyDetection = false,
-            bool httpCompression = false,
-            bool transferEncodingChunked = false,
-            bool disableMetaHeader = false,
-            Action<RequestMetaData> requestMetaData = null
-        )
+        public override Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
         {
-            if (requestTimeout == default) requestTimeout = TimeSpan.FromSeconds(10);
-
-            var node = Client.ConnectionSettings.ConnectionPool.Nodes.First();
-            var connectionSettings = new ConnectionSettings(node.Uri)
-                .RequestTimeout(requestTimeout)
-                .DnsRefreshTimeout(dnsRefreshTimeout ?? ConnectionConfiguration.DefaultDnsRefreshTimeout)
-                .DisableAutomaticProxyDetection(disableAutomaticProxyDetection)
-                .TransferEncodingChunked(transferEncodingChunked)
-                .EnableHttpCompression(httpCompression)
-                .DisableMetaHeader(disableMetaHeader);
-
-            if (proxyAddress != null)
-                connectionSettings.Proxy(proxyAddress, null, (string)null);
-
-            var requestParameters = new SearchRequestParameters();
-
-            if (requestMetaData is object)
-            {
-                requestParameters.RequestConfiguration ??= new RequestConfiguration();
-                requestParameters.RequestConfiguration.RequestMetaData ??= new RequestMetaData();
-                requestMetaData(requestParameters.RequestConfiguration.RequestMetaData);
-            }
-
-            var requestData = new RequestData(HttpMethod.POST, "/_search", "{ \"query\": { \"match_all\" : { } } }", connectionSettings,
-                requestParameters,
-                new RecyclableMemoryStreamFactory())
-            { Node = node };
-
-            return requestData;
+            CallCount++;
+            return base.RequestAsync<TResponse>(requestData, cancellationToken);
         }
 
-        /// <summary>
-        /// Setting HttpClientHandler.Proxy = null don't disable HttpClient automatic proxy detection.
-        /// It is disabled by setting Proxy to non-null value or by setting UseProxy = false.
-        /// </summary>
-        [I]
-        public async Task HttpClientUseProxyShouldBeFalseWhenDisabledAutoProxyDetection()
+        protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData)
         {
-            var connection = new TestableHttpConnection();
-            var requestData = CreateRequestData(disableAutomaticProxyDetection: true);
-
-            connection.Request<StringResponse>(requestData);
-            connection.LastHttpClientHandler.UseProxy.Should().BeFalse();
-
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-            connection.LastHttpClientHandler.UseProxy.Should().BeFalse();
+            _handler = new TestableClientHandler(base.CreateHttpClientHandler(requestData), _response);
+            return _handler;
         }
 
-        [I]
-        public async Task HttpClientUseProxyShouldBeTrueWhenEnabledAutoProxyDetection()
+        protected override void DisposeManagedResources()
         {
-            var connection = new TestableHttpConnection();
-            var requestData = CreateRequestData();
-
-            connection.Request<StringResponse>(requestData);
-            connection.LastHttpClientHandler.UseProxy.Should().BeTrue();
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-            connection.LastHttpClientHandler.UseProxy.Should().BeTrue();
+            _handler?.Dispose();
+            base.DisposeManagedResources();
         }
+    }
 
-        [I]
-        public async Task HttpClientUseTransferEncodingChunkedWhenTransferEncodingChunkedTrue()
+    public class TestableClientHandler : DelegatingHandler
+    {
+        private readonly Action<HttpResponseMessage> _responseAction;
+
+        public TestableClientHandler(HttpMessageHandler handler, Action<HttpResponseMessage> responseAction) : base(handler) =>
+            _responseAction = responseAction;
+
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var requestData = CreateRequestData(transferEncodingChunked: true);
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Content.Headers.ContentLength.Should().BeNull();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        [I]
-        public async Task HttpClientSetsContentLengthWhenTransferEncodingChunkedFalse()
-        {
-            var requestData = CreateRequestData(transferEncodingChunked: false);
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Content.Headers.ContentLength.Should().HaveValue();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        [I]
-        public async Task HttpClientSetsContentLengthWhenTransferEncodingChunkedHttpCompression()
-        {
-            var requestData = CreateRequestData(transferEncodingChunked: false, httpCompression: true);
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Content.Headers.ContentLength.Should().HaveValue();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        [I]
-        public async Task HttpClientSetsMetaHeaderWhenNotDisabled()
-        {
-            var regex = new Regex(@"^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$");
-
-            var requestData = CreateRequestData();
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
-                headerValue.Should().HaveCount(1);
-                headerValue.Single().Should().NotBeNullOrEmpty();
-                regex.Match(headerValue.Single()).Success.Should().BeTrue();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        [I]
-        public async Task HttpClientSetsMetaHeaderWithHelperWhenNotDisabled()
-        {
-            var regex = new Regex(@"^[a-z]{1,}=[a-z0-9\.\-]{1,}(?:,[a-z]{1,}=[a-z0-9\.\-]+)*$");
-
-            var requestData = CreateRequestData(requestMetaData: m => m.TryAddMetaData("helper", "r"));
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeTrue();
-                headerValue.Should().HaveCount(1);
-                headerValue.Single().Should().NotBeNullOrEmpty();
-                headerValue.Single().Should().EndWith(",h=r");
-                regex.Match(headerValue.Single()).Success.Should().BeTrue();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        [I]
-        public async Task HttpClientShouldNotSetMetaHeaderWhenDisabled()
-        {
-            var requestData = CreateRequestData(disableMetaHeader: true);
-            var connection = new TestableHttpConnection(responseMessage =>
-            {
-                responseMessage.RequestMessage.Headers.TryGetValues("opensearch-client-meta", out var headerValue).Should().BeFalse();
-            });
-
-            connection.Request<StringResponse>(requestData);
-            await connection.RequestAsync<StringResponse>(requestData, CancellationToken.None).ConfigureAwait(false);
-        }
-
-        public class TestableHttpConnection : HttpConnection
-        {
-            private readonly Action<HttpResponseMessage> _response;
-            private TestableClientHandler _handler;
-            public int CallCount { get; private set; }
-            public HttpClientHandler LastHttpClientHandler => (HttpClientHandler)_handler.InnerHandler;
-
-            public TestableHttpConnection(Action<HttpResponseMessage> response) => _response = response;
-
-            public TestableHttpConnection()
-            {
-            }
-
-            public override TResponse Request<TResponse>(RequestData requestData)
-            {
-                CallCount++;
-                return base.Request<TResponse>(requestData);
-            }
-
-            public override Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
-            {
-                CallCount++;
-                return base.RequestAsync<TResponse>(requestData, cancellationToken);
-            }
-
-            protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData)
-            {
-                _handler = new TestableClientHandler(base.CreateHttpClientHandler(requestData), _response);
-                return _handler;
-            }
-
-            protected override void DisposeManagedResources()
-            {
-                _handler?.Dispose();
-                base.DisposeManagedResources();
-            }
-        }
-
-        public class TestableClientHandler : DelegatingHandler
-        {
-            private readonly Action<HttpResponseMessage> _responseAction;
-
-            public TestableClientHandler(HttpMessageHandler handler, Action<HttpResponseMessage> responseAction) : base(handler) =>
-                _responseAction = responseAction;
-
-            protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-            {
-                var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
-                _responseAction?.Invoke(response);
-                return response;
-            }
+            var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            _responseAction?.Invoke(response);
+            return response;
         }
     }
 }

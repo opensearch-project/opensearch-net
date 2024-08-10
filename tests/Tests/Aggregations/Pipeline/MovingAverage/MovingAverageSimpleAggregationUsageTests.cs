@@ -36,101 +36,100 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Pipeline.MovingAverage
-{
-    public class MovingAverageSimpleAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public MovingAverageSimpleAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+namespace Tests.Aggregations.Pipeline.MovingAverage;
 
-        protected override object AggregationJson => new
+public class MovingAverageSimpleAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public MovingAverageSimpleAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        projects_started_per_month = new
         {
-            projects_started_per_month = new
+            date_histogram = new
             {
-                date_histogram = new
+                field = "startedOn",
+                calendar_interval = "month",
+                min_doc_count = 0
+            },
+            aggs = new
+            {
+                commits = new
                 {
-                    field = "startedOn",
-                    calendar_interval = "month",
-                    min_doc_count = 0
+                    sum = new
+                    {
+                        field = "numberOfCommits"
+                    }
                 },
-                aggs = new
+                commits_moving_avg = new
                 {
-                    commits = new
+                    moving_avg = new
                     {
-                        sum = new
-                        {
-                            field = "numberOfCommits"
-                        }
-                    },
-                    commits_moving_avg = new
-                    {
-                        moving_avg = new
-                        {
-                            buckets_path = "commits",
-                            model = "simple",
-                            window = 30,
-                            predict = 10,
-                            gap_policy = "insert_zeros",
-                            settings = new { }
-                        }
+                        buckets_path = "commits",
+                        model = "simple",
+                        window = 30,
+                        predict = 10,
+                        gap_policy = "insert_zeros",
+                        settings = new { }
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DateHistogram("projects_started_per_month", dh => dh
-                .Field(p => p.StartedOn)
-                .CalendarInterval(DateInterval.Month)
-                .MinimumDocumentCount(0)
-                .Aggregations(aa => aa
-                    .Sum("commits", sm => sm
-                        .Field(p => p.NumberOfCommits)
-                    )
-                    .MovingAverage("commits_moving_avg", mv => mv
-                        .BucketsPath("commits")
-                        .Window(30)
-                        .Predict(10)
-                        .GapPolicy(GapPolicy.InsertZeros)
-                        .Model(m => m
-                            .Simple()
-                        )
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .DateHistogram("projects_started_per_month", dh => dh
+            .Field(p => p.StartedOn)
+            .CalendarInterval(DateInterval.Month)
+            .MinimumDocumentCount(0)
+            .Aggregations(aa => aa
+                .Sum("commits", sm => sm
+                    .Field(p => p.NumberOfCommits)
+                )
+                .MovingAverage("commits_moving_avg", mv => mv
+                    .BucketsPath("commits")
+                    .Window(30)
+                    .Predict(10)
+                    .GapPolicy(GapPolicy.InsertZeros)
+                    .Model(m => m
+                        .Simple()
                     )
                 )
-            );
+            )
+        );
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DateHistogramAggregation("projects_started_per_month")
-            {
-                Field = "startedOn",
-                CalendarInterval = DateInterval.Month,
-                MinimumDocumentCount = 0,
-                Aggregations =
-                    new SumAggregation("commits", "numberOfCommits")
-                    && new MovingAverageAggregation("commits_moving_avg", "commits")
-                    {
-                        Window = 30,
-                        Predict = 10,
-                        GapPolicy = GapPolicy.InsertZeros,
-                        Model = new SimpleModel()
-                    }
-            };
-
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+    protected override AggregationDictionary InitializerAggs =>
+        new DateHistogramAggregation("projects_started_per_month")
         {
-            response.ShouldBeValid();
+            Field = "startedOn",
+            CalendarInterval = DateInterval.Month,
+            MinimumDocumentCount = 0,
+            Aggregations =
+                new SumAggregation("commits", "numberOfCommits")
+                && new MovingAverageAggregation("commits_moving_avg", "commits")
+                {
+                    Window = 30,
+                    Predict = 10,
+                    GapPolicy = GapPolicy.InsertZeros,
+                    Model = new SimpleModel()
+                }
+        };
 
-            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-            projectsPerMonth.Should().NotBeNull();
-            projectsPerMonth.Buckets.Should().NotBeNull();
-            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-            // average not calculated for the first bucket so movingAvg.Value is expected to be null there
-            foreach (var item in projectsPerMonth.Buckets.Skip(1))
-            {
-                var movingAvg = item.Sum("commits_moving_avg");
-                movingAvg.Should().NotBeNull();
-                movingAvg.Value.Should().BeGreaterThan(0);
-            }
+        var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+        projectsPerMonth.Should().NotBeNull();
+        projectsPerMonth.Buckets.Should().NotBeNull();
+        projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+
+        // average not calculated for the first bucket so movingAvg.Value is expected to be null there
+        foreach (var item in projectsPerMonth.Buckets.Skip(1))
+        {
+            var movingAvg = item.Sum("commits_moving_avg");
+            movingAvg.Should().NotBeNull();
+            movingAvg.Value.Should().BeGreaterThan(0);
         }
     }
 }

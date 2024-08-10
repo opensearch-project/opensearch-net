@@ -26,24 +26,23 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A request to the resolve index API
+/// </summary>
+[MapsApi("indices.resolve_index.json")]
+[ReadAs(typeof(ResolveIndexRequest))]
+public partial interface IResolveIndexRequest
 {
-    /// <summary>
-    /// A request to the resolve index API
-    /// </summary>
-    [MapsApi("indices.resolve_index.json")]
-    [ReadAs(typeof(ResolveIndexRequest))]
-    public partial interface IResolveIndexRequest
-    {
-    }
+}
 
-    /// <inheritdoc cref="IResolveIndexRequest" />
-    public partial class ResolveIndexRequest
-    {
-    }
+/// <inheritdoc cref="IResolveIndexRequest" />
+public partial class ResolveIndexRequest
+{
+}
 
-    /// <inheritdoc cref="IResolveIndexRequest" />
-    public partial class ResolveIndexDescriptor
-    {
-    }
+/// <inheritdoc cref="IResolveIndexRequest" />
+public partial class ResolveIndexDescriptor
+{
 }

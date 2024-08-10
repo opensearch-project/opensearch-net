@@ -36,108 +36,107 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Pipeline.BucketSort
-{
-    public class BucketSortAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public BucketSortAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+namespace Tests.Aggregations.Pipeline.BucketSort;
 
-        protected override object AggregationJson => new
+public class BucketSortAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public BucketSortAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        projects_started_per_month = new
         {
-            projects_started_per_month = new
+            date_histogram = new
             {
-                date_histogram = new
+                field = "startedOn",
+                calendar_interval = "month",
+            },
+            aggs = new
+            {
+                commits = new
                 {
-                    field = "startedOn",
-                    calendar_interval = "month",
+                    sum = new
+                    {
+                        field = "numberOfCommits"
+                    }
                 },
-                aggs = new
+                commits_bucket_sort = new
                 {
-                    commits = new
+                    bucket_sort = new
                     {
-                        sum = new
+                        sort = new[]
                         {
-                            field = "numberOfCommits"
-                        }
-                    },
-                    commits_bucket_sort = new
-                    {
-                        bucket_sort = new
-                        {
-                            sort = new[]
-                            {
-                                new { commits = new { order = "desc" } }
-                            },
-                            from = 0,
-                            size = 3,
-                            gap_policy = "insert_zeros"
-                        }
+                            new { commits = new { order = "desc" } }
+                        },
+                        from = 0,
+                        size = 3,
+                        gap_policy = "insert_zeros"
                     }
                 }
             }
+        }
+    };
+
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .DateHistogram("projects_started_per_month", dh => dh
+            .Field(p => p.StartedOn)
+            .CalendarInterval(DateInterval.Month)
+            .Aggregations(aa => aa
+                .Sum("commits", sm => sm
+                    .Field(p => p.NumberOfCommits)
+                )
+                .BucketSort("commits_bucket_sort", bs => bs
+                    .Sort(s => s
+                        .Descending("commits")
+                    )
+                    .From(0)
+                    .Size(3)
+                    .GapPolicy(GapPolicy.InsertZeros)
+                )
+            )
+        );
+
+    protected override AggregationDictionary InitializerAggs =>
+        new DateHistogramAggregation("projects_started_per_month")
+        {
+            Field = "startedOn",
+            CalendarInterval = DateInterval.Month,
+            Aggregations =
+                new SumAggregation("commits", "numberOfCommits") &&
+                new BucketSortAggregation("commits_bucket_sort")
+                {
+                    Sort = new List<ISort>
+                    {
+                        new FieldSort { Field = "commits", Order = SortOrder.Descending }
+                    },
+                    From = 0,
+                    Size = 3,
+                    GapPolicy = GapPolicy.InsertZeros
+                }
         };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DateHistogram("projects_started_per_month", dh => dh
-                .Field(p => p.StartedOn)
-                .CalendarInterval(DateInterval.Month)
-                .Aggregations(aa => aa
-                    .Sum("commits", sm => sm
-                        .Field(p => p.NumberOfCommits)
-                    )
-                    .BucketSort("commits_bucket_sort", bs => bs
-                        .Sort(s => s
-                            .Descending("commits")
-                        )
-                        .From(0)
-                        .Size(3)
-                        .GapPolicy(GapPolicy.InsertZeros)
-                    )
-                )
-            );
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DateHistogramAggregation("projects_started_per_month")
-            {
-                Field = "startedOn",
-                CalendarInterval = DateInterval.Month,
-                Aggregations =
-                    new SumAggregation("commits", "numberOfCommits") &&
-                    new BucketSortAggregation("commits_bucket_sort")
-                    {
-                        Sort = new List<ISort>
-                        {
-                            new FieldSort { Field = "commits", Order = SortOrder.Descending }
-                        },
-                        From = 0,
-                        Size = 3,
-                        GapPolicy = GapPolicy.InsertZeros
-                    }
-            };
+        var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+        projectsPerMonth.Should().NotBeNull();
+        projectsPerMonth.Buckets.Should().NotBeNull();
+        projectsPerMonth.Buckets.Count.Should().Be(3);
 
-        protected override void ExpectResponse(ISearchResponse<Project> response)
+        double previousCommits = -1;
+
+        // sum of commits should descend over buckets
+        foreach (var item in projectsPerMonth.Buckets)
         {
-            response.ShouldBeValid();
+            var value = item.Sum("commits").Value;
+            if (value == null) continue;
 
-            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-            projectsPerMonth.Should().NotBeNull();
-            projectsPerMonth.Buckets.Should().NotBeNull();
-            projectsPerMonth.Buckets.Count.Should().Be(3);
+            var numberOfCommits = value.Value;
+            if (Math.Abs(previousCommits - (-1)) > double.Epsilon)
+                numberOfCommits.Should().BeLessOrEqualTo(previousCommits);
 
-            double previousCommits = -1;
-
-            // sum of commits should descend over buckets
-            foreach (var item in projectsPerMonth.Buckets)
-            {
-                var value = item.Sum("commits").Value;
-                if (value == null) continue;
-
-                var numberOfCommits = value.Value;
-                if (Math.Abs(previousCommits - (-1)) > double.Epsilon)
-                    numberOfCommits.Should().BeLessOrEqualTo(previousCommits);
-
-                previousCommits = numberOfCommits;
-            }
+            previousCommits = numberOfCommits;
         }
     }
 }

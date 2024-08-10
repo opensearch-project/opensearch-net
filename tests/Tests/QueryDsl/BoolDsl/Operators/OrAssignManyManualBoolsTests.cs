@@ -33,12 +33,12 @@ using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 
-namespace Tests.QueryDsl.BoolDsl.Operators
+namespace Tests.QueryDsl.BoolDsl.Operators;
+
+public class OrAssignManyManualBoolsTests : OperatorUsageBase
 {
-    public class OrAssignManyManualBoolsTests : OperatorUsageBase
-    {
-        private static readonly int Iterations = 10000;
-        /** Or assigning many bool queries that are not locked should result in a single bool query with many
+    private static readonly int Iterations = 10000;
+    /** Or assigning many bool queries that are not locked should result in a single bool query with many
 		 * should clauses. Consider our combining logic where we try to merge should clauses or wrap in a new container:
 		 *
 		 * n | left			| right	| result
@@ -58,95 +58,94 @@ namespace Tests.QueryDsl.BoolDsl.Operators
 		 *
 		 */
 
-        private static QueryContainer ATermQuery(QueryContainerDescriptor<Project> must) => must.Term(p => p.Name, "foo");
+    private static QueryContainer ATermQuery(QueryContainerDescriptor<Project> must) => must.Term(p => p.Name, "foo");
 
-        [U]
-        public void OrAssigningManyBoolMustQueries()
-        {
-            var q = Query<Project>.Bool(b => b.Must(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Bool != null && s.Bool.Must != null);
-        }
+    [U]
+    public void OrAssigningManyBoolMustQueries()
+    {
+        var q = Query<Project>.Bool(b => b.Must(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Bool != null && s.Bool.Must != null);
+    }
 
-        [U]
-        public void OrAssigningManyBoolMustNotQueries()
-        {
-            var q = Query<Project>.Bool(b => b.MustNot(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Bool != null && s.Bool.MustNot != null);
-        }
+    [U]
+    public void OrAssigningManyBoolMustNotQueries()
+    {
+        var q = Query<Project>.Bool(b => b.MustNot(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Bool != null && s.Bool.MustNot != null);
+    }
 
-        /**
+    /**
 		 * |= assigning many bool queries with only should clauses flattens even further to a single bool with only term
 		 * queries in the should
 		 */
-        [U]
-        public void OrAssigningBoolShouldQueries()
-        {
-            var q = Query<Project>.Bool(b => b.Should(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Term != null);
-        }
+    [U]
+    public void OrAssigningBoolShouldQueries()
+    {
+        var q = Query<Project>.Bool(b => b.Should(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>().Should().OnlyContain(s => s.Term != null);
+    }
 
-        [U]
-        public void OrAssigningBoolShouldQueriesWithMustClauses()
-        {
-            var q = Query<Project>.Bool(b => b.Should(ATermQuery).Must(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>()
-                .Should()
-                .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.Must != null);
-        }
+    [U]
+    public void OrAssigningBoolShouldQueriesWithMustClauses()
+    {
+        var q = Query<Project>.Bool(b => b.Should(ATermQuery).Must(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>()
+            .Should()
+            .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.Must != null);
+    }
 
-        /** But not if that query has other clauses */
-        [U]
-        public void OrAssigningBoolShouldQueriesWithMustNotClauses()
-        {
-            var q = Query<Project>.Bool(b => b.Should(ATermQuery).MustNot(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>()
-                .Should()
-                .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.MustNot != null);
-        }
+    /** But not if that query has other clauses */
+    [U]
+    public void OrAssigningBoolShouldQueriesWithMustNotClauses()
+    {
+        var q = Query<Project>.Bool(b => b.Should(ATermQuery).MustNot(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>()
+            .Should()
+            .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.MustNot != null);
+    }
 
-        [U]
-        public void OrAssigningBoolMustQueriesWithMustNotClauses()
-        {
-            var q = Query<Project>.Bool(b => b.Must(ATermQuery).MustNot(ATermQuery));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>()
-                .Should()
-                .OnlyContain(s => s.Bool != null && s.Bool.Must != null && s.Bool.MustNot != null);
-        }
+    [U]
+    public void OrAssigningBoolMustQueriesWithMustNotClauses()
+    {
+        var q = Query<Project>.Bool(b => b.Must(ATermQuery).MustNot(ATermQuery));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>()
+            .Should()
+            .OnlyContain(s => s.Bool != null && s.Bool.Must != null && s.Bool.MustNot != null);
+    }
 
-        /** Or is locked */
-        [U]
-        public void OrAssigningNamedBoolShouldQueries()
-        {
-            var q = Query<Project>.Bool(b => b.Should(ATermQuery).Name("name"));
-            var container = OrAssignManyBoolQueries(q);
-            container.Bool.Should.Cast<IQueryContainer>()
-                .Should()
-                .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.Name == "name");
-        }
+    /** Or is locked */
+    [U]
+    public void OrAssigningNamedBoolShouldQueries()
+    {
+        var q = Query<Project>.Bool(b => b.Should(ATermQuery).Name("name"));
+        var container = OrAssignManyBoolQueries(q);
+        container.Bool.Should.Cast<IQueryContainer>()
+            .Should()
+            .OnlyContain(s => s.Bool != null && s.Bool.Should != null && s.Bool.Name == "name");
+    }
 
-        private IQueryContainer OrAssignManyBoolQueries(QueryContainer q)
+    private IQueryContainer OrAssignManyBoolQueries(QueryContainer q)
+    {
+        var container = new QueryContainer();
+        Action act = () =>
         {
-            var container = new QueryContainer();
-            Action act = () =>
-            {
-                for (var i = 0; i < Iterations; i++) container |= q;
-            };
-            act.Should().NotThrow();
-            LotsOfOrs(container);
-            return container;
-        }
+            for (var i = 0; i < Iterations; i++) container |= q;
+        };
+        act.Should().NotThrow();
+        LotsOfOrs(container);
+        return container;
+    }
 
-        private void LotsOfOrs(IQueryContainer lotsOfOrs)
-        {
-            lotsOfOrs.Should().NotBeNull();
-            lotsOfOrs.Bool.Should().NotBeNull();
-            lotsOfOrs.Bool.Should.Should().NotBeEmpty().And.HaveCount(Iterations);
-        }
+    private void LotsOfOrs(IQueryContainer lotsOfOrs)
+    {
+        lotsOfOrs.Should().NotBeNull();
+        lotsOfOrs.Bool.Should().NotBeNull();
+        lotsOfOrs.Bool.Should.Should().NotBeEmpty().And.HaveCount(Iterations);
     }
 }

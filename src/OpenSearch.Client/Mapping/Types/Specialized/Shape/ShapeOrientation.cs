@@ -28,94 +28,93 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public enum ShapeOrientation
 {
-    public enum ShapeOrientation
+    ClockWise,
+    CounterClockWise
+}
+
+internal class ShapeOrientationFormatter : IJsonFormatter<ShapeOrientation>
+{
+    public void Serialize(ref JsonWriter writer, ShapeOrientation value, IJsonFormatterResolver formatterResolver)
     {
-        ClockWise,
-        CounterClockWise
+        switch (value)
+        {
+            case ShapeOrientation.CounterClockWise:
+                writer.WriteString("counterclockwise");
+                break;
+            case ShapeOrientation.ClockWise:
+                writer.WriteString("clockwise");
+                break;
+        }
     }
 
-    internal class ShapeOrientationFormatter : IJsonFormatter<ShapeOrientation>
+    public ShapeOrientation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        public void Serialize(ref JsonWriter writer, ShapeOrientation value, IJsonFormatterResolver formatterResolver)
+        if (reader.ReadIsNull())
         {
-            switch (value)
-            {
-                case ShapeOrientation.CounterClockWise:
-                    writer.WriteString("counterclockwise");
-                    break;
-                case ShapeOrientation.ClockWise:
-                    writer.WriteString("clockwise");
-                    break;
-            }
-        }
-
-        public ShapeOrientation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull())
-            {
-                // Default
-                return ShapeOrientation.CounterClockWise;
-            }
-
-            var enumString = reader.ReadString();
-            switch (enumString.ToUpperInvariant())
-            {
-                case "CLOCKWISE":
-                case "LEFT":
-                case "CW":
-                    return ShapeOrientation.ClockWise;
-            }
-
             // Default
             return ShapeOrientation.CounterClockWise;
         }
-    }
 
-    internal class NullableShapeOrientationFormatter : IJsonFormatter<ShapeOrientation?>
-    {
-        public void Serialize(ref JsonWriter writer, ShapeOrientation? value, IJsonFormatterResolver formatterResolver)
+        var enumString = reader.ReadString();
+        switch (enumString.ToUpperInvariant())
         {
-            if (!value.HasValue)
-            {
-                writer.WriteNull();
-                return;
-            }
-
-            switch (value)
-            {
-                case ShapeOrientation.CounterClockWise:
-                    writer.WriteString("counterclockwise");
-                    break;
-                case ShapeOrientation.ClockWise:
-                    writer.WriteString("clockwise");
-                    break;
-            }
+            case "CLOCKWISE":
+            case "LEFT":
+            case "CW":
+                return ShapeOrientation.ClockWise;
         }
 
-        public ShapeOrientation? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        // Default
+        return ShapeOrientation.CounterClockWise;
+    }
+}
+
+internal class NullableShapeOrientationFormatter : IJsonFormatter<ShapeOrientation?>
+{
+    public void Serialize(ref JsonWriter writer, ShapeOrientation? value, IJsonFormatterResolver formatterResolver)
+    {
+        if (!value.HasValue)
         {
-            if (reader.ReadIsNull())
-            {
+            writer.WriteNull();
+            return;
+        }
+
+        switch (value)
+        {
+            case ShapeOrientation.CounterClockWise:
+                writer.WriteString("counterclockwise");
+                break;
+            case ShapeOrientation.ClockWise:
+                writer.WriteString("clockwise");
+                break;
+        }
+    }
+
+    public ShapeOrientation? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull())
+        {
+            return null;
+        }
+
+        var enumString = reader.ReadString();
+
+        switch (enumString.ToUpperInvariant())
+        {
+            case "COUNTERCLOCKWISE":
+            case "RIGHT":
+            case "CCW":
+                return ShapeOrientation.CounterClockWise;
+            case "CLOCKWISE":
+            case "LEFT":
+            case "CW":
+                return ShapeOrientation.ClockWise;
+            default:
                 return null;
-            }
-
-            var enumString = reader.ReadString();
-
-            switch (enumString.ToUpperInvariant())
-            {
-                case "COUNTERCLOCKWISE":
-                case "RIGHT":
-                case "CCW":
-                    return ShapeOrientation.CounterClockWise;
-                case "CLOCKWISE":
-                case "LEFT":
-                case "CW":
-                    return ShapeOrientation.ClockWise;
-                default:
-                    return null;
-            }
         }
     }
 }

@@ -30,20 +30,19 @@ using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
-{
-    public class GithubIssue3411
-    {
-        [U]
-        public void IndexNameParsesClusterAndIndexWithMultipleColons()
-        {
-            var name = "write::some-name";
-            IndexName indexName = name;
-            indexName.Cluster.Should().Be("write");
-            indexName.Name.Should().Be(":some-name");
+namespace Tests.Reproduce;
 
-            var inferrer = new Inferrer(new ConnectionSettings());
-            inferrer.IndexName(indexName).Should().Be(name);
-        }
+public class GithubIssue3411
+{
+    [U]
+    public void IndexNameParsesClusterAndIndexWithMultipleColons()
+    {
+        var name = "write::some-name";
+        IndexName indexName = name;
+        indexName.Cluster.Should().Be("write");
+        indexName.Name.Should().Be(":some-name");
+
+        var inferrer = new Inferrer(new ConnectionSettings());
+        inferrer.IndexName(indexName).Should().Be(name);
     }
 }

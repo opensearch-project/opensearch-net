@@ -54,512 +54,510 @@
 using System;
 using OpenSearch.Net.Utf8Json.Internal;
 
-namespace OpenSearch.Net.Utf8Json.Formatters
+namespace OpenSearch.Net.Utf8Json.Formatters;
+
+internal sealed class ValueTupleFormatter<T1> : IJsonFormatter<ValueTuple<T1>>
 {
-    internal sealed class ValueTupleFormatter<T1> : IJsonFormatter<ValueTuple<T1>>
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache1;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary1;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1> value, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache1;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary1;
-
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1> value, IJsonFormatterResolver formatterResolver)
-        {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteEndObject();
-        }
-
-        public ValueTuple<T1> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
-            {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
-            }
-
-            return new ValueTuple<T1>(item1);
-        }
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2> : IJsonFormatter<ValueTuple<T1, T2>>
+    public ValueTuple<T1> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache2;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary2;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2>(item1, item2);
         }
+
+        return new ValueTuple<T1>(item1);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2> : IJsonFormatter<ValueTuple<T1, T2>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache2;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary2;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3> : IJsonFormatter<ValueTuple<T1, T2, T3>>
+    public ValueTuple<T1, T2> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache3;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary3;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3>(item1, item2, item3);
         }
+
+        return new ValueTuple<T1, T2>(item1, item2);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3> : IJsonFormatter<ValueTuple<T1, T2, T3>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache3;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary3;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3, T4> : IJsonFormatter<ValueTuple<T1, T2, T3, T4>>
+    public ValueTuple<T1, T2, T3> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache4;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary4;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteRaw(Cache[3]);
-            formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3, T4> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-            T4 item4 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3, T4>(item1, item2, item3, item4);
         }
+
+        return new ValueTuple<T1, T2, T3>(item1, item2, item3);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3, T4> : IJsonFormatter<ValueTuple<T1, T2, T3, T4>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache4;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary4;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteRaw(Cache[3]);
+        formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5>>
+    public ValueTuple<T1, T2, T3, T4> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache5;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary5;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+        T4 item4 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteRaw(Cache[3]);
-            formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
-            writer.WriteRaw(Cache[4]);
-            formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3, T4, T5> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-            T4 item4 = default;
-            T5 item5 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 4:
-                        item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3, T4, T5>(item1, item2, item3, item4, item5);
         }
+
+        return new ValueTuple<T1, T2, T3, T4>(item1, item2, item3, item4);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache5;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary5;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteRaw(Cache[3]);
+        formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
+        writer.WriteRaw(Cache[4]);
+        formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6>>
+    public ValueTuple<T1, T2, T3, T4, T5> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache6;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary6;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+        T4 item4 = default;
+        T5 item5 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteRaw(Cache[3]);
-            formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
-            writer.WriteRaw(Cache[4]);
-            formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
-            writer.WriteRaw(Cache[5]);
-            formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3, T4, T5, T6> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-            T4 item4 = default;
-            T5 item5 = default;
-            T6 item6 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 4:
-                        item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 5:
-                        item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 4:
+                    item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3, T4, T5, T6>(item1, item2, item3, item4, item5, item6);
         }
+
+        return new ValueTuple<T1, T2, T3, T4, T5>(item1, item2, item3, item4, item5);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache6;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary6;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteRaw(Cache[3]);
+        formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
+        writer.WriteRaw(Cache[4]);
+        formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
+        writer.WriteRaw(Cache[5]);
+        formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7>>
+    public ValueTuple<T1, T2, T3, T4, T5, T6> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache7;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary7;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+        T4 item4 = default;
+        T5 item5 = default;
+        T6 item6 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteRaw(Cache[3]);
-            formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
-            writer.WriteRaw(Cache[4]);
-            formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
-            writer.WriteRaw(Cache[5]);
-            formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
-            writer.WriteRaw(Cache[6]);
-            formatterResolver.GetFormatterWithVerify<T7>().Serialize(ref writer, value.Item7, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3, T4, T5, T6, T7> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-            T4 item4 = default;
-            T5 item5 = default;
-            T6 item6 = default;
-            T7 item7 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 4:
-                        item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 5:
-                        item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 6:
-                        item7 = formatterResolver.GetFormatterWithVerify<T7>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 4:
+                    item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 5:
+                    item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3, T4, T5, T6, T7>(item1, item2, item3, item4, item5, item6, item7);
         }
+
+        return new ValueTuple<T1, T2, T3, T4, T5, T6>(item1, item2, item3, item4, item5, item6);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7>>
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache7;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary7;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteRaw(Cache[3]);
+        formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
+        writer.WriteRaw(Cache[4]);
+        formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
+        writer.WriteRaw(Cache[5]);
+        formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
+        writer.WriteRaw(Cache[6]);
+        formatterResolver.GetFormatterWithVerify<T7>().Serialize(ref writer, value.Item7, formatterResolver);
+        writer.WriteEndObject();
     }
 
-    internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7, TRest> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>> where TRest : struct
+    public ValueTuple<T1, T2, T3, T4, T5, T6, T7> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly byte[][] Cache = TupleFormatterHelper.nameCache8;
-        // ReSharper disable once StaticMemberInGenericType
-        private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary8;
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
 
-        public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> value, IJsonFormatterResolver formatterResolver)
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+        T4 item4 = default;
+        T5 item5 = default;
+        T6 item6 = default;
+        T7 item7 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
         {
-            writer.WriteRaw(Cache[0]);
-            formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
-            writer.WriteRaw(Cache[1]);
-            formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
-            writer.WriteRaw(Cache[2]);
-            formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
-            writer.WriteRaw(Cache[3]);
-            formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
-            writer.WriteRaw(Cache[4]);
-            formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
-            writer.WriteRaw(Cache[5]);
-            formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
-            writer.WriteRaw(Cache[6]);
-            formatterResolver.GetFormatterWithVerify<T7>().Serialize(ref writer, value.Item7, formatterResolver);
-            writer.WriteRaw(Cache[7]);
-            formatterResolver.GetFormatterWithVerify<TRest>().Serialize(ref writer, value.Rest, formatterResolver);
-            writer.WriteEndObject();
-        }
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
 
-        public ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-        {
-            if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
-
-            T1 item1 = default;
-            T2 item2 = default;
-            T3 item3 = default;
-            T4 item4 = default;
-            T5 item5 = default;
-            T6 item6 = default;
-            T7 item7 = default;
-            TRest item8 = default;
-
-            var count = 0;
-            reader.ReadIsBeginObjectWithVerify();
-            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+            switch (key)
             {
-                var keyString = reader.ReadPropertyNameSegmentRaw();
-                Dictionary.TryGetValue(keyString, out var key);
-
-                switch (key)
-                {
-                    case 0:
-                        item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 1:
-                        item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 2:
-                        item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 3:
-                        item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 4:
-                        item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 5:
-                        item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 6:
-                        item7 = formatterResolver.GetFormatterWithVerify<T7>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    case 7:
-                        item8 = formatterResolver.GetFormatterWithVerify<TRest>().Deserialize(ref reader, formatterResolver);
-                        break;
-                    default:
-                        reader.ReadNextBlock();
-                        break;
-                }
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 4:
+                    item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 5:
+                    item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 6:
+                    item7 = formatterResolver.GetFormatterWithVerify<T7>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
             }
-
-            return new ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>(item1, item2, item3, item4, item5, item6, item7, item8);
         }
+
+        return new ValueTuple<T1, T2, T3, T4, T5, T6, T7>(item1, item2, item3, item4, item5, item6, item7);
+    }
+}
+
+internal sealed class ValueTupleFormatter<T1, T2, T3, T4, T5, T6, T7, TRest> : IJsonFormatter<ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>> where TRest : struct
+{
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly byte[][] Cache = TupleFormatterHelper.nameCache8;
+    // ReSharper disable once StaticMemberInGenericType
+    private static readonly AutomataDictionary Dictionary = TupleFormatterHelper.dictionary8;
+
+    public void Serialize(ref JsonWriter writer, ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> value, IJsonFormatterResolver formatterResolver)
+    {
+        writer.WriteRaw(Cache[0]);
+        formatterResolver.GetFormatterWithVerify<T1>().Serialize(ref writer, value.Item1, formatterResolver);
+        writer.WriteRaw(Cache[1]);
+        formatterResolver.GetFormatterWithVerify<T2>().Serialize(ref writer, value.Item2, formatterResolver);
+        writer.WriteRaw(Cache[2]);
+        formatterResolver.GetFormatterWithVerify<T3>().Serialize(ref writer, value.Item3, formatterResolver);
+        writer.WriteRaw(Cache[3]);
+        formatterResolver.GetFormatterWithVerify<T4>().Serialize(ref writer, value.Item4, formatterResolver);
+        writer.WriteRaw(Cache[4]);
+        formatterResolver.GetFormatterWithVerify<T5>().Serialize(ref writer, value.Item5, formatterResolver);
+        writer.WriteRaw(Cache[5]);
+        formatterResolver.GetFormatterWithVerify<T6>().Serialize(ref writer, value.Item6, formatterResolver);
+        writer.WriteRaw(Cache[6]);
+        formatterResolver.GetFormatterWithVerify<T7>().Serialize(ref writer, value.Item7, formatterResolver);
+        writer.WriteRaw(Cache[7]);
+        formatterResolver.GetFormatterWithVerify<TRest>().Serialize(ref writer, value.Rest, formatterResolver);
+        writer.WriteEndObject();
     }
 
+    public ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull()) throw new InvalidOperationException("Data is Nil, ValueTuple can not be null.");
+
+        T1 item1 = default;
+        T2 item2 = default;
+        T3 item3 = default;
+        T4 item4 = default;
+        T5 item5 = default;
+        T6 item6 = default;
+        T7 item7 = default;
+        TRest item8 = default;
+
+        var count = 0;
+        reader.ReadIsBeginObjectWithVerify();
+        while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
+        {
+            var keyString = reader.ReadPropertyNameSegmentRaw();
+            Dictionary.TryGetValue(keyString, out var key);
+
+            switch (key)
+            {
+                case 0:
+                    item1 = formatterResolver.GetFormatterWithVerify<T1>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 1:
+                    item2 = formatterResolver.GetFormatterWithVerify<T2>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 2:
+                    item3 = formatterResolver.GetFormatterWithVerify<T3>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 3:
+                    item4 = formatterResolver.GetFormatterWithVerify<T4>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 4:
+                    item5 = formatterResolver.GetFormatterWithVerify<T5>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 5:
+                    item6 = formatterResolver.GetFormatterWithVerify<T6>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 6:
+                    item7 = formatterResolver.GetFormatterWithVerify<T7>().Deserialize(ref reader, formatterResolver);
+                    break;
+                case 7:
+                    item8 = formatterResolver.GetFormatterWithVerify<TRest>().Deserialize(ref reader, formatterResolver);
+                    break;
+                default:
+                    reader.ReadNextBlock();
+                    break;
+            }
+        }
+
+        return new ValueTuple<T1, T2, T3, T4, T5, T6, T7, TRest>(item1, item2, item3, item4, item5, item6, item7, item8);
+    }
 }
 #endif
 

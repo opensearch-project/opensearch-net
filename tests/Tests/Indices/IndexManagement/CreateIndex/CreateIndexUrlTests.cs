@@ -32,20 +32,19 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Indices.IndexManagement.CreateIndex
+namespace Tests.Indices.IndexManagement.CreateIndex;
+
+public class CreateIndexUrlTests
 {
-    public class CreateIndexUrlTests
+    [U]
+    public async Task Urls()
     {
-        [U]
-        public async Task Urls()
-        {
-            var index = "index1";
-            await PUT($"/{index}")
-                    .Fluent(c => c.Indices.Create(index, s => s))
-                    .Request(c => c.Indices.Create(new CreateIndexRequest(index)))
-                    .FluentAsync(c => c.Indices.CreateAsync(index))
-                    .RequestAsync(c => c.Indices.CreateAsync(new CreateIndexRequest(index)))
-                ;
-        }
+        var index = "index1";
+        await PUT($"/{index}")
+                .Fluent(c => c.Indices.Create(index, s => s))
+                .Request(c => c.Indices.Create(new CreateIndexRequest(index)))
+                .FluentAsync(c => c.Indices.CreateAsync(index))
+                .RequestAsync(c => c.Indices.CreateAsync(new CreateIndexRequest(index)))
+            ;
     }
 }

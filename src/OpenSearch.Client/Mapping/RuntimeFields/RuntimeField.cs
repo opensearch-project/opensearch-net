@@ -29,55 +29,54 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(RuntimeField))]
+public interface IRuntimeField
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(RuntimeField))]
-    public interface IRuntimeField
-    {
-        /// <summary>
-        /// Runtime fields with a type of date can accept the format parameter exactly as the date field type.
-        /// <see cref="DateFormat" />
-        /// </summary>
-        [DataMember(Name = "format")]
-        string Format { get; set; }
+    /// <summary>
+    /// Runtime fields with a type of date can accept the format parameter exactly as the date field type.
+    /// <see cref="DateFormat" />
+    /// </summary>
+    [DataMember(Name = "format")]
+    string Format { get; set; }
 
-        /// <summary>
-        /// The script to be evaluated for field calculation at search time.
-        /// </summary>
-        [DataMember(Name = "script")]
-        IStoredScript Script { get; set; }
+    /// <summary>
+    /// The script to be evaluated for field calculation at search time.
+    /// </summary>
+    [DataMember(Name = "script")]
+    IStoredScript Script { get; set; }
 
-        /// <summary>
-        /// The datatype of the runtime field.
-        /// </summary>
-        [DataMember(Name = "type")]
-        FieldType Type { get; set; }
-    }
+    /// <summary>
+    /// The datatype of the runtime field.
+    /// </summary>
+    [DataMember(Name = "type")]
+    FieldType Type { get; set; }
+}
 
-    public class RuntimeField : IRuntimeField
-    {
-        /// <inheritdoc />
-        public string Format { get; set; }
-        /// <inheritdoc />
-        public IStoredScript Script { get; set; }
-        /// <inheritdoc />
-        public FieldType Type { get; set; }
-    }
+public class RuntimeField : IRuntimeField
+{
+    /// <inheritdoc />
+    public string Format { get; set; }
+    /// <inheritdoc />
+    public IStoredScript Script { get; set; }
+    /// <inheritdoc />
+    public FieldType Type { get; set; }
+}
 
-    public class RuntimeFieldDescriptor
-        : DescriptorBase<RuntimeFieldDescriptor, IRuntimeField>, IRuntimeField
-    {
-        public RuntimeFieldDescriptor(FieldType fieldType) => Self.Type = fieldType;
+public class RuntimeFieldDescriptor
+    : DescriptorBase<RuntimeFieldDescriptor, IRuntimeField>, IRuntimeField
+{
+    public RuntimeFieldDescriptor(FieldType fieldType) => Self.Type = fieldType;
 
-        string IRuntimeField.Format { get; set; }
-        IStoredScript IRuntimeField.Script { get; set; }
-        FieldType IRuntimeField.Type { get; set; }
+    string IRuntimeField.Format { get; set; }
+    IStoredScript IRuntimeField.Script { get; set; }
+    FieldType IRuntimeField.Type { get; set; }
 
-        public RuntimeFieldDescriptor Format(string format) => Assign(format, (a, v) => a.Format = v);
+    public RuntimeFieldDescriptor Format(string format) => Assign(format, (a, v) => a.Format = v);
 
-        public RuntimeFieldDescriptor Script(IStoredScript script) => Assign(script, (a, v) => a.Script = v);
+    public RuntimeFieldDescriptor Script(IStoredScript script) => Assign(script, (a, v) => a.Script = v);
 
-        public RuntimeFieldDescriptor Script(string source) => Assign(source, (a, v) => a.Script = new PainlessScript(source));
-    }
+    public RuntimeFieldDescriptor Script(string source) => Assign(source, (a, v) => a.Script = new PainlessScript(source));
 }

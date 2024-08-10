@@ -29,30 +29,29 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum TokenChar
 {
-    [StringEnum]
-    public enum TokenChar
-    {
-        [EnumMember(Value = "letter")]
-        Letter,
+    [EnumMember(Value = "letter")]
+    Letter,
 
-        [EnumMember(Value = "digit")]
-        Digit,
+    [EnumMember(Value = "digit")]
+    Digit,
 
-        [EnumMember(Value = "whitespace")]
-        Whitespace,
+    [EnumMember(Value = "whitespace")]
+    Whitespace,
 
-        [EnumMember(Value = "punctuation")]
-        Punctuation,
+    [EnumMember(Value = "punctuation")]
+    Punctuation,
 
-        [EnumMember(Value = "symbol")]
-        Symbol,
+    [EnumMember(Value = "symbol")]
+    Symbol,
 
-        /// <summary>
-        /// Custom token characters.
-        /// </summary>
-        [EnumMember(Value = "custom")]
-        Custom,
-    }
+    /// <summary>
+    /// Custom token characters.
+    /// </summary>
+    [EnumMember(Value = "custom")]
+    Custom,
 }

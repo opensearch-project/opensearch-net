@@ -30,50 +30,49 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IRangeProperty : IDocValuesProperty
 {
-    [InterfaceDataContract]
-    public interface IRangeProperty : IDocValuesProperty
-    {
-        /// <summary>
-        /// Try to convert strings to numbers and truncate fractions for integers. Accepts true (default) and false.
-        /// </summary>
-        [DataMember(Name = "coerce")]
-        bool? Coerce { get; set; }
+    /// <summary>
+    /// Try to convert strings to numbers and truncate fractions for integers. Accepts true (default) and false.
+    /// </summary>
+    [DataMember(Name = "coerce")]
+    bool? Coerce { get; set; }
 
-        /// <summary>
-        /// Should the field be searchable? Accepts true (default) and false.
-        /// </summary>
-        [DataMember(Name = "index")]
-        bool? Index { get; set; }
-    }
+    /// <summary>
+    /// Should the field be searchable? Accepts true (default) and false.
+    /// </summary>
+    [DataMember(Name = "index")]
+    bool? Index { get; set; }
+}
 
-    public abstract class RangePropertyBase : DocValuesPropertyBase, IRangeProperty
-    {
-        protected RangePropertyBase(RangeType rangeType) : base(rangeType.ToFieldType()) { }
+public abstract class RangePropertyBase : DocValuesPropertyBase, IRangeProperty
+{
+    protected RangePropertyBase(RangeType rangeType) : base(rangeType.ToFieldType()) { }
 
-        /// <inheritdoc />
-        public bool? Coerce { get; set; }
+    /// <inheritdoc />
+    public bool? Coerce { get; set; }
 
-        /// <inheritdoc />
-        public bool? Index { get; set; }
-    }
+    /// <inheritdoc />
+    public bool? Index { get; set; }
+}
 
-    public abstract class RangePropertyDescriptorBase<TDescriptor, TInterface, T>
-        : DocValuesPropertyDescriptorBase<TDescriptor, TInterface, T>, IRangeProperty
-        where TDescriptor : RangePropertyDescriptorBase<TDescriptor, TInterface, T>, TInterface
-        where TInterface : class, IRangeProperty
-        where T : class
-    {
-        protected RangePropertyDescriptorBase(RangeType type) : base(type.ToFieldType()) { }
+public abstract class RangePropertyDescriptorBase<TDescriptor, TInterface, T>
+    : DocValuesPropertyDescriptorBase<TDescriptor, TInterface, T>, IRangeProperty
+    where TDescriptor : RangePropertyDescriptorBase<TDescriptor, TInterface, T>, TInterface
+    where TInterface : class, IRangeProperty
+    where T : class
+{
+    protected RangePropertyDescriptorBase(RangeType type) : base(type.ToFieldType()) { }
 
-        bool? IRangeProperty.Coerce { get; set; }
-        bool? IRangeProperty.Index { get; set; }
+    bool? IRangeProperty.Coerce { get; set; }
+    bool? IRangeProperty.Index { get; set; }
 
-        /// <inheritdoc cref="IRangeProperty.Coerce" />
-        public TDescriptor Coerce(bool? coerce = true) => Assign(coerce, (a, v) => a.Coerce = v);
+    /// <inheritdoc cref="IRangeProperty.Coerce" />
+    public TDescriptor Coerce(bool? coerce = true) => Assign(coerce, (a, v) => a.Coerce = v);
 
-        /// <inheritdoc cref="IRangeProperty.Index" />
-        public TDescriptor Index(bool? index = true) => Assign(index, (a, v) => a.Index = v);
-    }
+    /// <inheritdoc cref="IRangeProperty.Index" />
+    public TDescriptor Index(bool? index = true) => Assign(index, (a, v) => a.Index = v);
 }

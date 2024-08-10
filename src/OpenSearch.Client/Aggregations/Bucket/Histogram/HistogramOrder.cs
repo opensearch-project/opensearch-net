@@ -28,24 +28,23 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public interface ISortOrder
 {
-    public interface ISortOrder
-    {
-        string Key { get; set; }
+    string Key { get; set; }
 
-        SortOrder Order { get; set; }
-    }
+    SortOrder Order { get; set; }
+}
 
-    [JsonFormatter(typeof(SortOrderFormatter<HistogramOrder>))]
-    public class HistogramOrder : ISortOrder
-    {
-        public static HistogramOrder CountAscending => new HistogramOrder { Key = "_count", Order = SortOrder.Ascending };
-        public static HistogramOrder CountDescending => new HistogramOrder { Key = "_count", Order = SortOrder.Descending };
-        public string Key { get; set; }
+[JsonFormatter(typeof(SortOrderFormatter<HistogramOrder>))]
+public class HistogramOrder : ISortOrder
+{
+    public static HistogramOrder CountAscending => new HistogramOrder { Key = "_count", Order = SortOrder.Ascending };
+    public static HistogramOrder CountDescending => new HistogramOrder { Key = "_count", Order = SortOrder.Descending };
+    public string Key { get; set; }
 
-        public static HistogramOrder KeyAscending => new HistogramOrder { Key = "_key", Order = SortOrder.Ascending };
-        public static HistogramOrder KeyDescending => new HistogramOrder { Key = "_key", Order = SortOrder.Descending };
-        public SortOrder Order { get; set; }
-    }
+    public static HistogramOrder KeyAscending => new HistogramOrder { Key = "_key", Order = SortOrder.Ascending };
+    public static HistogramOrder KeyDescending => new HistogramOrder { Key = "_key", Order = SortOrder.Descending };
+    public SortOrder Order { get; set; }
 }

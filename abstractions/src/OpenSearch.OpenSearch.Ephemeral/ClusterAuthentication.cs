@@ -26,36 +26,35 @@
 *  under the License.
 */
 
-namespace OpenSearch.OpenSearch.Ephemeral
+namespace OpenSearch.OpenSearch.Ephemeral;
+
+/// <summary>
+///     Authentication credentials for the cluster
+/// </summary>
+public class ClusterAuthentication
 {
     /// <summary>
-    ///     Authentication credentials for the cluster
+    ///     Administrator credentials
     /// </summary>
-    public class ClusterAuthentication
+    public static Credentials Admin => new Credentials { Username = "admin", Role = "admin" };
+
+    /// <summary>
+    ///     User credentials
+    /// </summary>
+    public static Credentials User => new Credentials { Username = "admin", Role = "admin" };
+
+    /// <summary>
+    ///     Credentials for all users
+    /// </summary>
+    public static Credentials[] AllUsers { get; } = { Admin, User };
+
+    /// <summary>
+    ///     Authentication credentials
+    /// </summary>
+    public class Credentials
     {
-        /// <summary>
-        ///     Administrator credentials
-        /// </summary>
-        public static Credentials Admin => new Credentials { Username = "admin", Role = "admin" };
-
-        /// <summary>
-        ///     User credentials
-        /// </summary>
-        public static Credentials User => new Credentials { Username = "admin", Role = "admin" };
-
-        /// <summary>
-        ///     Credentials for all users
-        /// </summary>
-        public static Credentials[] AllUsers { get; } = { Admin, User };
-
-        /// <summary>
-        ///     Authentication credentials
-        /// </summary>
-        public class Credentials
-        {
-            public string Username { get; set; }
-            public string Role { get; set; }
-            public string Password => Username;
-        }
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public string Password => Username;
     }
 }

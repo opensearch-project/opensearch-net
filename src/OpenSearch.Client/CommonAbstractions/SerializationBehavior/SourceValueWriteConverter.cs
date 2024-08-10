@@ -28,22 +28,21 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
-{
-    internal class SourceWriteFormatter<T> : SourceFormatter<T>
-    {
-        public override void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+namespace OpenSearch.Client;
 
-            if (value.GetType().IsOpenSearchClientType())
-                formatterResolver.GetFormatter<T>().Serialize(ref writer, value, formatterResolver);
-            else
-                base.Serialize(ref writer, value, formatterResolver);
+internal class SourceWriteFormatter<T> : SourceFormatter<T>
+{
+    public override void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
         }
+
+        if (value.GetType().IsOpenSearchClientType())
+            formatterResolver.GetFormatter<T>().Serialize(ref writer, value, formatterResolver);
+        else
+            base.Serialize(ref writer, value, formatterResolver);
     }
 }

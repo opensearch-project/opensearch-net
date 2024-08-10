@@ -29,25 +29,24 @@
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.DoubleRange
-{
-    public class DoubleRangeTest
-    {
-        [DoubleRange]
-        public OpenSearch.Client.DoubleRange Range { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.Range.DoubleRange;
 
-    public class DoubleRangeAttributeTests : AttributeTestsBase<DoubleRangeTest>
+public class DoubleRangeTest
+{
+    [DoubleRange]
+    public OpenSearch.Client.DoubleRange Range { get; set; }
+}
+
+public class DoubleRangeAttributeTests : AttributeTestsBase<DoubleRangeTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            range = new
             {
-                range = new
-                {
-                    type = "double_range"
-                }
+                type = "double_range"
             }
-        };
-    }
+        }
+    };
 }

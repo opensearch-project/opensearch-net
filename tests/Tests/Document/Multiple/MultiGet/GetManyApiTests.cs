@@ -39,200 +39,199 @@ using Tests.Core.Client.Settings;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 
-namespace Tests.Document.Multiple.MultiGet
+namespace Tests.Document.Multiple.MultiGet;
+
+public class GetManyApiTests : IClusterFixture<WritableCluster>
 {
-    public class GetManyApiTests : IClusterFixture<WritableCluster>
+    private readonly IOpenSearchClient _client;
+    private readonly WritableCluster _cluster;
+    private readonly IEnumerable<long> _ids = Developer.Developers.Select(d => d.Id).Take(10);
+
+    public GetManyApiTests(WritableCluster cluster)
     {
-        private readonly IOpenSearchClient _client;
-        private readonly WritableCluster _cluster;
-        private readonly IEnumerable<long> _ids = Developer.Developers.Select(d => d.Id).Take(10);
+        _client = cluster.Client;
+        _cluster = cluster;
+    }
 
-        public GetManyApiTests(WritableCluster cluster)
+    [I]
+    public void UsesDefaultIndexAndInferredType()
+    {
+        var response = _client.GetMany<Developer>(_ids);
+        response.Count().Should().Be(10);
+        foreach (var hit in response)
         {
-            _client = cluster.Client;
-            _cluster = cluster;
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            if (_cluster.ClusterConfiguration.Version < "2.0.0")
+                hit.Type.Should().NotBeNullOrWhiteSpace();
+            hit.Id.Should().NotBeNullOrWhiteSpace();
+            hit.Found.Should().BeTrue();
         }
+    }
 
-        [I]
-        public void UsesDefaultIndexAndInferredType()
+    [I]
+    public async Task UsesDefaultIndexAndInferredTypeAsync()
+    {
+        var response = await _client.GetManyAsync<Developer>(_ids);
+        response.Count().Should().Be(10);
+        foreach (var hit in response)
         {
-            var response = _client.GetMany<Developer>(_ids);
-            response.Count().Should().Be(10);
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                if (_cluster.ClusterConfiguration.Version < "2.0.0")
-                    hit.Type.Should().NotBeNullOrWhiteSpace();
-                hit.Id.Should().NotBeNullOrWhiteSpace();
-                hit.Found.Should().BeTrue();
-            }
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            if (_cluster.ClusterConfiguration.Version < "2.0.0")
+                hit.Type.Should().NotBeNullOrWhiteSpace();
+            hit.Id.Should().NotBeNullOrWhiteSpace();
+            hit.Found.Should().BeTrue();
         }
+    }
 
-        [I]
-        public async Task UsesDefaultIndexAndInferredTypeAsync()
+    [I]
+    public async Task ReturnsDocMatchingDistinctIds()
+    {
+        var id = _ids.First();
+
+        var response = await _client.GetManyAsync<Developer>(new[] { id, id, id });
+        response.Count().Should().Be(1);
+        foreach (var hit in response)
         {
-            var response = await _client.GetManyAsync<Developer>(_ids);
-            response.Count().Should().Be(10);
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                if (_cluster.ClusterConfiguration.Version < "2.0.0")
-                    hit.Type.Should().NotBeNullOrWhiteSpace();
-                hit.Id.Should().NotBeNullOrWhiteSpace();
-                hit.Found.Should().BeTrue();
-            }
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            hit.Id.Should().Be(id.ToString(CultureInfo.InvariantCulture));
+            hit.Found.Should().BeTrue();
         }
+    }
 
-        [I]
-        public async Task ReturnsDocMatchingDistinctIds()
-        {
-            var id = _ids.First();
+    [I]
+    public void ReturnsDocsMatchingDistinctIdsFromDifferentIndices()
+    {
+        var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
+        var indexName = developerIndex.GetString(_client.ConnectionSettings);
+        var reindexName = $"{indexName}-getmany-distinctids";
 
-            var response = await _client.GetManyAsync<Developer>(new[] { id, id, id });
-            response.Count().Should().Be(1);
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                hit.Id.Should().Be(id.ToString(CultureInfo.InvariantCulture));
-                hit.Found.Should().BeTrue();
-            }
-        }
-
-        [I]
-        public void ReturnsDocsMatchingDistinctIdsFromDifferentIndices()
-        {
-            var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
-            var indexName = developerIndex.GetString(_client.ConnectionSettings);
-            var reindexName = $"{indexName}-getmany-distinctids";
-
-            var reindexResponse = _client.ReindexOnServer(r => r
-                .Source(s => s
-                    .Index(developerIndex)
-                    .Query<Developer>(q => q
-                        .Ids(ids => ids.Values(_ids))
-                    )
+        var reindexResponse = _client.ReindexOnServer(r => r
+            .Source(s => s
+                .Index(developerIndex)
+                .Query<Developer>(q => q
+                    .Ids(ids => ids.Values(_ids))
                 )
-                .Destination(d => d
-                    .Index(reindexName))
-                .Refresh()
-            );
+            )
+            .Destination(d => d
+                .Index(reindexName))
+            .Refresh()
+        );
 
-            if (!reindexResponse.IsValid)
-                throw new Exception($"problem reindexing documents for integration test: {reindexResponse.DebugInformation}");
+        if (!reindexResponse.IsValid)
+            throw new Exception($"problem reindexing documents for integration test: {reindexResponse.DebugInformation}");
 
-            var id = _ids.First();
+        var id = _ids.First();
 
-            var multiGetResponse = _client.MultiGet(s => s
-                .RequestConfiguration(r => r.ThrowExceptions())
-                .Get<Developer>(m => m
-                    .Id(id)
-                    .Index(indexName)
-                )
-                .Get<Developer>(m => m
-                    .Id(id)
-                    .Index(reindexName)
-                )
-            );
-
-            var response = multiGetResponse.GetMany<Developer>(new[] { id, id });
-
-            response.Count().Should().Be(2);
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                hit.Id.Should().NotBeNullOrWhiteSpace();
-                hit.Found.Should().BeTrue();
-            }
-        }
-
-        [I]
-        public void ReturnsDocsMatchingDistinctIdsFromDifferentIndicesWithRequestLevelIndex()
-        {
-            var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
-            var indexName = developerIndex.GetString(_client.ConnectionSettings);
-            var reindexName = $"{indexName}-getmany-distinctidsindex";
-
-            var reindexResponse = _client.ReindexOnServer(r => r
-                .Source(s => s
-                    .Index(developerIndex)
-                    .Query<Developer>(q => q
-                        .Ids(ids => ids.Values(_ids))
-                    )
-                )
-                .Destination(d => d
-                    .Index(reindexName))
-                .Refresh()
-            );
-
-            if (!reindexResponse.IsValid)
-                throw new Exception($"problem reindexing documents for integration test: {reindexResponse.DebugInformation}");
-
-            var id = _ids.First();
-
-            var multiGetResponse = _client.MultiGet(s => s
+        var multiGetResponse = _client.MultiGet(s => s
+            .RequestConfiguration(r => r.ThrowExceptions())
+            .Get<Developer>(m => m
+                .Id(id)
                 .Index(indexName)
-                .RequestConfiguration(r => r.ThrowExceptions())
-                .Get<Developer>(m => m
-                    .Id(id)
+            )
+            .Get<Developer>(m => m
+                .Id(id)
+                .Index(reindexName)
+            )
+        );
+
+        var response = multiGetResponse.GetMany<Developer>(new[] { id, id });
+
+        response.Count().Should().Be(2);
+        foreach (var hit in response)
+        {
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            hit.Id.Should().NotBeNullOrWhiteSpace();
+            hit.Found.Should().BeTrue();
+        }
+    }
+
+    [I]
+    public void ReturnsDocsMatchingDistinctIdsFromDifferentIndicesWithRequestLevelIndex()
+    {
+        var developerIndex = OpenSearch.Client.Indices.Index<Developer>();
+        var indexName = developerIndex.GetString(_client.ConnectionSettings);
+        var reindexName = $"{indexName}-getmany-distinctidsindex";
+
+        var reindexResponse = _client.ReindexOnServer(r => r
+            .Source(s => s
+                .Index(developerIndex)
+                .Query<Developer>(q => q
+                    .Ids(ids => ids.Values(_ids))
                 )
-                .Get<Developer>(m => m
-                    .Id(id)
-                    .Index(reindexName)
-                )
-            );
+            )
+            .Destination(d => d
+                .Index(reindexName))
+            .Refresh()
+        );
 
-            var response = multiGetResponse.GetMany<Developer>(new[] { id, id });
+        if (!reindexResponse.IsValid)
+            throw new Exception($"problem reindexing documents for integration test: {reindexResponse.DebugInformation}");
 
-            response.Count().Should().Be(2);
-            var seenIndices = new HashSet<string>(2);
+        var id = _ids.First();
 
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                seenIndices.Add(hit.Index);
-                hit.Id.Should().NotBeNullOrWhiteSpace();
-                hit.Found.Should().BeTrue();
-            }
+        var multiGetResponse = _client.MultiGet(s => s
+            .Index(indexName)
+            .RequestConfiguration(r => r.ThrowExceptions())
+            .Get<Developer>(m => m
+                .Id(id)
+            )
+            .Get<Developer>(m => m
+                .Id(id)
+                .Index(reindexName)
+            )
+        );
 
-            seenIndices.Should().HaveCount(2).And.Contain(new[] { indexName, reindexName });
-        }
+        var response = multiGetResponse.GetMany<Developer>(new[] { id, id });
 
-        [I]
-        public async Task ReturnsSourceMatchingDistinctIds()
+        response.Count().Should().Be(2);
+        var seenIndices = new HashSet<string>(2);
+
+        foreach (var hit in response)
         {
-            var id = _ids.First();
-
-            var sources = await _client.SourceManyAsync<Developer>(new[] { id, id, id });
-            sources.Count().Should().Be(1);
-            foreach (var hit in sources)
-            {
-                hit.Id.Should().Be(id);
-            }
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            seenIndices.Add(hit.Index);
+            hit.Id.Should().NotBeNullOrWhiteSpace();
+            hit.Found.Should().BeTrue();
         }
 
-        [I]
-        public async Task CanHandleNotFoundResponses()
+        seenIndices.Should().HaveCount(2).And.Contain(new[] { indexName, reindexName });
+    }
+
+    [I]
+    public async Task ReturnsSourceMatchingDistinctIds()
+    {
+        var id = _ids.First();
+
+        var sources = await _client.SourceManyAsync<Developer>(new[] { id, id, id });
+        sources.Count().Should().Be(1);
+        foreach (var hit in sources)
         {
-            var response = await _client.GetManyAsync<Developer>(_ids.Select(i => i * 100));
-            response.Count().Should().Be(10);
-            foreach (var hit in response)
-            {
-                hit.Index.Should().NotBeNullOrWhiteSpace();
-                if (_cluster.ClusterConfiguration.Version < "2.0.0")
-                    hit.Type.Should().NotBeNullOrWhiteSpace();
-                hit.Id.Should().NotBeNullOrWhiteSpace();
-                hit.Found.Should().BeFalse();
-            }
+            hit.Id.Should().Be(id);
         }
+    }
 
-        [I]
-        public void ThrowsExceptionOnConnectionError()
+    [I]
+    public async Task CanHandleNotFoundResponses()
+    {
+        var response = await _client.GetManyAsync<Developer>(_ids.Select(i => i * 100));
+        response.Count().Should().Be(10);
+        foreach (var hit in response)
         {
-            if (TestConnectionSettings.RunningFiddler) return; //fiddler meddles here
-
-            var client = new OpenSearchClient(new TestConnectionSettings(port: 9500));
-            Action response = () => client.GetMany<Developer>(_ids.Select(i => i * 100));
-            response.Should().Throw<OpenSearchClientException>();
+            hit.Index.Should().NotBeNullOrWhiteSpace();
+            if (_cluster.ClusterConfiguration.Version < "2.0.0")
+                hit.Type.Should().NotBeNullOrWhiteSpace();
+            hit.Id.Should().NotBeNullOrWhiteSpace();
+            hit.Found.Should().BeFalse();
         }
+    }
+
+    [I]
+    public void ThrowsExceptionOnConnectionError()
+    {
+        if (TestConnectionSettings.RunningFiddler) return; //fiddler meddles here
+
+        var client = new OpenSearchClient(new TestConnectionSettings(port: 9500));
+        Action response = () => client.GetMany<Developer>(_ids.Select(i => i * 100));
+        response.Should().Throw<OpenSearchClientException>();
     }
 }

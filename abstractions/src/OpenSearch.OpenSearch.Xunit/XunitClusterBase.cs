@@ -28,26 +28,25 @@
 
 using OpenSearch.OpenSearch.Ephemeral;
 
-namespace OpenSearch.OpenSearch.Xunit
-{
-    /// <summary>
-    ///     Base class for a cluster that integrates with Xunit tests
-    /// </summary>
-    public abstract class XunitClusterBase : XunitClusterBase<XunitClusterConfiguration>
-    {
-        protected XunitClusterBase(XunitClusterConfiguration configuration) : base(configuration)
-        {
-        }
-    }
+namespace OpenSearch.OpenSearch.Xunit;
 
-    /// <summary>
-    ///     Base class for a cluster that integrates with Xunit tests
-    /// </summary>
-    public abstract class XunitClusterBase<TConfiguration> : EphemeralCluster<TConfiguration>
-        where TConfiguration : XunitClusterConfiguration
+/// <summary>
+///     Base class for a cluster that integrates with Xunit tests
+/// </summary>
+public abstract class XunitClusterBase : XunitClusterBase<XunitClusterConfiguration>
+{
+    protected XunitClusterBase(XunitClusterConfiguration configuration) : base(configuration)
     {
-        protected XunitClusterBase(TConfiguration configuration) : base(configuration)
-        {
-        }
+    }
+}
+
+/// <summary>
+///     Base class for a cluster that integrates with Xunit tests
+/// </summary>
+public abstract class XunitClusterBase<TConfiguration> : EphemeralCluster<TConfiguration>
+    where TConfiguration : XunitClusterConfiguration
+{
+    protected XunitClusterBase(TConfiguration configuration) : base(configuration)
+    {
     }
 }

@@ -30,21 +30,20 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// <see cref="IDFISimilarity" /> independence measure
+/// </summary>
+[StringEnum]
+public enum DFIIndependenceMeasure
 {
-    /// <summary>
-    /// <see cref="IDFISimilarity" /> independence measure
-    /// </summary>
-    [StringEnum]
-    public enum DFIIndependenceMeasure
-    {
-        [EnumMember(Value = "standardized")]
-        Standardized,
+    [EnumMember(Value = "standardized")]
+    Standardized,
 
-        [EnumMember(Value = "saturated")]
-        Saturated,
+    [EnumMember(Value = "saturated")]
+    Saturated,
 
-        [EnumMember(Value = "chisquared")]
-        ChiSquared
-    }
+    [EnumMember(Value = "chisquared")]
+    ChiSquared
 }

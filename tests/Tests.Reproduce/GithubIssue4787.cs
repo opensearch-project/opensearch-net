@@ -34,29 +34,28 @@ using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4787
 {
-    public class GithubIssue4787
+    [U]
+    public void DoNotSerializeNullSourceFilter()
     {
-        [U]
-        public void DoNotSerializeNullSourceFilter()
-        {
-            var connectionSettings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
-            var client = new OpenSearchClient(connectionSettings);
+        var connectionSettings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        var client = new OpenSearchClient(connectionSettings);
 
-            Func<ISearchResponse<object>> action = () =>
-                client.Search<object>(s => s
-                    .Query(q => q
-                        .MatchAll()
-                    )
-                    .Index("index")
-                    .Source(sfd => null)
-                );
+        Func<ISearchResponse<object>> action = () =>
+            client.Search<object>(s => s
+                .Query(q => q
+                    .MatchAll()
+                )
+                .Index("index")
+                .Source(sfd => null)
+            );
 
-            var response = action.Should().NotThrow().Subject;
+        var response = action.Should().NotThrow().Subject;
 
-            var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
-            json.Should().Be(@"{""query"":{""match_all"":{}}}");
-        }
+        var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+        json.Should().Be(@"{""query"":{""match_all"":{}}}");
     }
 }

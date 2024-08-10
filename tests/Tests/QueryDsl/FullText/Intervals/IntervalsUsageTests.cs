@@ -33,9 +33,9 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.QueryDsl.FullText.Intervals
-{
-    /**
+namespace Tests.QueryDsl.FullText.Intervals;
+
+/**
 	 * An intervals query allows fine-grained control over the order and proximity of matching terms.
 	 * Matching rules are constructed from a small set of definitions, and the rules are then applied to terms from a particular field.
 	 *
@@ -43,303 +43,302 @@ namespace Tests.QueryDsl.FullText.Intervals
 	 *
 	 * Be sure to read the OpenSearch documentation on {ref_current}/query-dsl-intervals-query.html[Intervals query]
 	 */
-    public class IntervalsUsageTests : QueryDslUsageTestsBase
+public class IntervalsUsageTests : QueryDslUsageTestsBase
+{
+    public IntervalsUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IIntervalsQuery>(a => a.Intervals)
     {
-        public IntervalsUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+        q => q.Field = null,
+        q => q.AnyOf = null
+    };
 
-        protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IIntervalsQuery>(a => a.Intervals)
+    protected override QueryContainer QueryInitializer => new IntervalsQuery
+    {
+        Field = Field<Project>(p => p.Description),
+        Name = "named_query",
+        Boost = 1.1,
+        AnyOf = new IntervalsAnyOf
         {
-            q => q.Field = null,
-            q => q.AnyOf = null
-        };
-
-        protected override QueryContainer QueryInitializer => new IntervalsQuery
-        {
-            Field = Field<Project>(p => p.Description),
-            Name = "named_query",
-            Boost = 1.1,
-            AnyOf = new IntervalsAnyOf
+            Intervals = new IntervalsContainer[]
             {
-                Intervals = new IntervalsContainer[]
+                new IntervalsMatch
                 {
-                    new IntervalsMatch
+                    Query = "my favourite food",
+                    MaxGaps = 5,
+                    Ordered = true,
+                    Filter = new IntervalsFilter
                     {
-                        Query = "my favourite food",
-                        MaxGaps = 5,
-                        Ordered = true,
-                        Filter = new IntervalsFilter
+                        Containing = new IntervalsMatch
                         {
-                            Containing = new IntervalsMatch
-                            {
-                                Query = "kimchy"
-                            }
+                            Query = "kimchy"
                         }
-                    },
-                    new IntervalsAllOf
+                    }
+                },
+                new IntervalsAllOf
+                {
+                    Intervals = new IntervalsContainer[]
                     {
-                        Intervals = new IntervalsContainer[]
+                        new IntervalsMatch
                         {
-                            new IntervalsMatch
-                            {
-                                Query = "hot water",
-                            },
-                            new IntervalsMatch
-                            {
-                                Query = "cold porridge",
-                            },
+                            Query = "hot water",
                         },
-                        Filter = new IntervalsFilter
+                        new IntervalsMatch
                         {
-                            Script = new InlineScript("interval.start > 0 && interval.end < 200")
-                        }
+                            Query = "cold porridge",
+                        },
+                    },
+                    Filter = new IntervalsFilter
+                    {
+                        Script = new InlineScript("interval.start > 0 && interval.end < 200")
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override object QueryJson => new
+    protected override object QueryJson => new
+    {
+        intervals = new
         {
-            intervals = new
+            description = new
             {
-                description = new
+                _name = "named_query",
+                boost = 1.1,
+                any_of = new
                 {
-                    _name = "named_query",
-                    boost = 1.1,
-                    any_of = new
+                    intervals = new object[]
                     {
-                        intervals = new object[]
+                        new
                         {
-                            new
+                            match = new
                             {
-                                match = new
+                                query = "my favourite food",
+                                max_gaps = 5,
+                                ordered = true,
+                                filter = new
                                 {
-                                    query = "my favourite food",
-                                    max_gaps = 5,
-                                    ordered = true,
-                                    filter = new
+                                    containing = new
                                     {
-                                        containing = new
+                                        match = new
                                         {
-                                            match = new
-                                            {
-                                                query = "kimchy"
-                                            }
+                                            query = "kimchy"
                                         }
                                     }
                                 }
-                            },
-                            new
+                            }
+                        },
+                        new
+                        {
+                            all_of = new
                             {
-                                all_of = new
+                                intervals = new object[]
                                 {
-                                    intervals = new object[]
+                                    new
                                     {
-                                        new
+                                        match = new
                                         {
-                                            match = new
-                                            {
-                                                query = "hot water"
-                                            }
-                                        },
-                                        new
-                                        {
-                                            match = new
-                                            {
-                                                query = "cold porridge"
-                                            }
-                                        },
-                                    },
-                                    filter = new
-                                    {
-                                        script = new
-                                        {
-                                            source = "interval.start > 0 && interval.end < 200"
+                                            query = "hot water"
                                         }
+                                    },
+                                    new
+                                    {
+                                        match = new
+                                        {
+                                            query = "cold porridge"
+                                        }
+                                    },
+                                },
+                                filter = new
+                                {
+                                    script = new
+                                    {
+                                        source = "interval.start > 0 && interval.end < 200"
                                     }
                                 }
                             }
                         }
                     }
-
                 }
-            }
-        };
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .Intervals(c => c
-                .Field(p => p.Description)
-                .Name("named_query")
-                .Boost(1.1)
-                .AnyOf(any => any
-                    .Intervals(i => i
-                        .Match(m => m
-                            .Query("my favourite food")
-                            .MaxGaps(5)
-                            .Ordered()
-                            .Filter(f => f
-                                .Containing(co => co
-                                    .Match(mm => mm
-                                        .Query("kimchy")
-                                    )
-                                )
-                            )
-                        )
-                        .AllOf(all => all
-                            .Intervals(ii => ii
-                                .Match(m => m
-                                    .Query("hot water")
-                                )
-                                .Match(m => m
-                                    .Query("cold porridge")
-                                )
-                            )
-                            .Filter(f => f
-                                .Script(s => s
-                                    .Source("interval.start > 0 && interval.end < 200")
+            }
+        }
+    };
+
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Intervals(c => c
+            .Field(p => p.Description)
+            .Name("named_query")
+            .Boost(1.1)
+            .AnyOf(any => any
+                .Intervals(i => i
+                    .Match(m => m
+                        .Query("my favourite food")
+                        .MaxGaps(5)
+                        .Ordered()
+                        .Filter(f => f
+                            .Containing(co => co
+                                .Match(mm => mm
+                                    .Query("kimchy")
                                 )
                             )
                         )
                     )
+                    .AllOf(all => all
+                        .Intervals(ii => ii
+                            .Match(m => m
+                                .Query("hot water")
+                            )
+                            .Match(m => m
+                                .Query("cold porridge")
+                            )
+                        )
+                        .Filter(f => f
+                            .Script(s => s
+                                .Source("interval.start > 0 && interval.end < 200")
+                            )
+                        )
+                    )
                 )
-            );
-    }
+            )
+        );
+}
 
-    /**[float]
+/**[float]
 	 * === Prefix and Wildcard rules
 	 *
 	 * Prefix and Wildcard rules can be used to search for intervals that contain
 	 * terms starting with a prefix, or match a pattern, respectively.
 	 */
-    public class IntervalsPrefixAndWildcardUsageTests : QueryDslUsageTestsBase
+public class IntervalsPrefixAndWildcardUsageTests : QueryDslUsageTestsBase
+{
+    public IntervalsPrefixAndWildcardUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    private static readonly string IntervalsPrefix = Project.First.Description.Split(' ')[0];
+
+    protected override QueryContainer QueryInitializer => new IntervalsQuery
     {
-        public IntervalsPrefixAndWildcardUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        private static readonly string IntervalsPrefix = Project.First.Description.Split(' ')[0];
-
-        protected override QueryContainer QueryInitializer => new IntervalsQuery
+        Field = Field<Project>(p => p.Description),
+        Name = "named_query",
+        Boost = 1.1,
+        AnyOf = new IntervalsAnyOf
         {
-            Field = Field<Project>(p => p.Description),
-            Name = "named_query",
-            Boost = 1.1,
-            AnyOf = new IntervalsAnyOf
+            Intervals = new IntervalsContainer[]
             {
-                Intervals = new IntervalsContainer[]
+                new IntervalsWildcard
                 {
-                    new IntervalsWildcard
-                    {
-                        Pattern = IntervalsPrefix + "*"
-                    },
-                    new IntervalsPrefix
-                    {
-                        Prefix = IntervalsPrefix
-                    }
+                    Pattern = IntervalsPrefix + "*"
+                },
+                new IntervalsPrefix
+                {
+                    Prefix = IntervalsPrefix
                 }
             }
-        };
+        }
+    };
 
-        protected override object QueryJson => new
+    protected override object QueryJson => new
+    {
+        intervals = new
         {
-            intervals = new
+            description = new
             {
-                description = new
+                _name = "named_query",
+                boost = 1.1,
+                any_of = new
                 {
-                    _name = "named_query",
-                    boost = 1.1,
-                    any_of = new
+                    intervals = new object[]
                     {
-                        intervals = new object[]
+                        new
                         {
-                            new
+                            wildcard = new
                             {
-                                wildcard = new
-                                {
-                                    pattern = IntervalsPrefix + "*"
-                                }
-                            },
-                            new
+                                pattern = IntervalsPrefix + "*"
+                            }
+                        },
+                        new
+                        {
+                            prefix = new
                             {
-                                prefix = new
-                                {
-                                    prefix = IntervalsPrefix
-                                }
+                                prefix = IntervalsPrefix
                             }
                         }
                     }
-
                 }
-            }
-        };
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .Intervals(c => c
-                .Field(p => p.Description)
-                .Name("named_query")
-                .Boost(1.1)
-                .AnyOf(any => any
-                    .Intervals(i => i
-                        .Wildcard(m => m
-                            .Pattern(IntervalsPrefix + "*")
-                        )
-                        .Prefix(m => m
-                            .Prefix(IntervalsPrefix)
-                        )
+            }
+        }
+    };
+
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Intervals(c => c
+            .Field(p => p.Description)
+            .Name("named_query")
+            .Boost(1.1)
+            .AnyOf(any => any
+                .Intervals(i => i
+                    .Wildcard(m => m
+                        .Pattern(IntervalsPrefix + "*")
+                    )
+                    .Prefix(m => m
+                        .Prefix(IntervalsPrefix)
                     )
                 )
-            );
-    }
+            )
+        );
+}
 
-    /**[float]
+/**[float]
 	 * === Fuzzy rules
 	 *
 	 * Fuzzy rules can be used to match terms that are similar to the provided term, within an edit distance defined by Fuzziness.
 	 * If the fuzzy expansion matches more than 128 terms, OpenSearch returns an error.
 	 */
-    public class IntervalsFuzzyUsageTests : QueryDslUsageTestsBase
+public class IntervalsFuzzyUsageTests : QueryDslUsageTestsBase
+{
+    public IntervalsFuzzyUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    private static readonly string IntervalsPrefix = Project.First.Description.Split(' ')[0];
+
+    private static readonly string IntervalsFuzzy = IntervalsPrefix.Substring(0, IntervalsPrefix.Length) + "z";
+
+    protected override QueryContainer QueryInitializer => new IntervalsQuery
     {
-        public IntervalsFuzzyUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
-
-        private static readonly string IntervalsPrefix = Project.First.Description.Split(' ')[0];
-
-        private static readonly string IntervalsFuzzy = IntervalsPrefix.Substring(0, IntervalsPrefix.Length) + "z";
-
-        protected override QueryContainer QueryInitializer => new IntervalsQuery
+        Field = Field<Project>(p => p.Description),
+        Name = "named_query",
+        Boost = 1.1,
+        Fuzzy = new IntervalsFuzzy
         {
-            Field = Field<Project>(p => p.Description),
-            Name = "named_query",
-            Boost = 1.1,
-            Fuzzy = new IntervalsFuzzy
-            {
-                Term = IntervalsFuzzy,
-                Fuzziness = Fuzziness.Auto
-            }
-        };
+            Term = IntervalsFuzzy,
+            Fuzziness = Fuzziness.Auto
+        }
+    };
 
-        protected override object QueryJson => new
+    protected override object QueryJson => new
+    {
+        intervals = new
         {
-            intervals = new
+            description = new
             {
-                description = new
+                _name = "named_query",
+                boost = 1.1,
+                fuzzy = new
                 {
-                    _name = "named_query",
-                    boost = 1.1,
-                    fuzzy = new
-                    {
-                        term = IntervalsFuzzy,
-                        fuzziness = "AUTO"
-                    }
+                    term = IntervalsFuzzy,
+                    fuzziness = "AUTO"
                 }
             }
-        };
+        }
+    };
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .Intervals(c => c
-                .Field(p => p.Description)
-                .Name("named_query")
-                .Boost(1.1)
-                .Fuzzy(m => m
-                    .Term(IntervalsFuzzy)
-                    .Fuzziness(Fuzziness.Auto)
-                )
-            );
-    }
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Intervals(c => c
+            .Field(p => p.Description)
+            .Name("named_query")
+            .Boost(1.1)
+            .Fuzzy(m => m
+                .Term(IntervalsFuzzy)
+                .Fuzziness(Fuzziness.Auto)
+            )
+        );
 }

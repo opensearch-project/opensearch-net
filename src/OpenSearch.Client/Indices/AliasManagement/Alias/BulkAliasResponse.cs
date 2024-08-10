@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    public class BulkAliasResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class BulkAliasResponse : AcknowledgedResponseBase { }

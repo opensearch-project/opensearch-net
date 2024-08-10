@@ -33,26 +33,25 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.DanglingIndices.List
+namespace Tests.DanglingIndices.List;
+
+public class ListDanglingIndicesApiTests
+    : ApiTestBase<ReadOnlyCluster, ListDanglingIndicesResponse, IListDanglingIndicesRequest, ListDanglingIndicesDescriptor, ListDanglingIndicesRequest>
 {
-    public class ListDanglingIndicesApiTests
-        : ApiTestBase<ReadOnlyCluster, ListDanglingIndicesResponse, IListDanglingIndicesRequest, ListDanglingIndicesDescriptor, ListDanglingIndicesRequest>
-    {
-        public ListDanglingIndicesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public ListDanglingIndicesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> Fluent => d => d;
+    protected override Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> Fluent => d => d;
 
-        protected override ListDanglingIndicesRequest Initializer => new ListDanglingIndicesRequest();
+    protected override ListDanglingIndicesRequest Initializer => new ListDanglingIndicesRequest();
 
-        protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
 
-        protected override string UrlPath => $"/_dangling";
+    protected override string UrlPath => $"/_dangling";
 
-        protected override LazyResponses ClientUsage() => Calls(
-            (client, f) => client.DanglingIndices.List(f),
-            (client, f) => client.DanglingIndices.ListAsync(f),
-            (client, r) => client.DanglingIndices.List(r),
-            (client, r) => client.DanglingIndices.ListAsync(r)
-        );
-    }
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.DanglingIndices.List(f),
+        (client, f) => client.DanglingIndices.ListAsync(f),
+        (client, r) => client.DanglingIndices.List(r),
+        (client, r) => client.DanglingIndices.ListAsync(r)
+    );
 }

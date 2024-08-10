@@ -28,20 +28,19 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Configuration.Overrides.Endpoints
+namespace ApiGenerator.Configuration.Overrides.Endpoints;
+
+public class GetInfluencersOverrides : EndpointOverridesBase
 {
-    public class GetInfluencersOverrides : EndpointOverridesBase
+    public override IEnumerable<string> SkipQueryStringParams => new[]
     {
-        public override IEnumerable<string> SkipQueryStringParams => new[]
-        {
-            "exclude_interim",
-            "from",
-            "size",
-            "start",
-            "end",
-            "influencer_score",
-            "sort",
-            "desc"
-        };
-    }
+        "exclude_interim",
+        "from",
+        "size",
+        "start",
+        "end",
+        "influencer_score",
+        "sort",
+        "desc"
+    };
 }

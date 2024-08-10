@@ -28,26 +28,25 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Mapping.Types.Core.RankFeature
-{
-    public class RankFeatureTest
-    {
-        [RankFeature(PositiveScoreImpact = true)]
-        public int RankFeature { get; set; }
-    }
+namespace Tests.Mapping.Types.Core.RankFeature;
 
-    public class RankFeatureAttributeTests : AttributeTestsBase<RankFeatureTest>
+public class RankFeatureTest
+{
+    [RankFeature(PositiveScoreImpact = true)]
+    public int RankFeature { get; set; }
+}
+
+public class RankFeatureAttributeTests : AttributeTestsBase<RankFeatureTest>
+{
+    protected override object ExpectJson => new
     {
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            rankFeature = new
             {
-                rankFeature = new
-                {
-                    type = "rank_feature",
-                    positive_score_impact = true
-                }
+                type = "rank_feature",
+                positive_score_impact = true
             }
-        };
-    }
+        }
+    };
 }

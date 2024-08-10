@@ -32,63 +32,62 @@ using OpenSearch.Stack.ArtifactsApi.Products;
 using OpenSearch.Stack.ArtifactsApi.Resolvers;
 using Version = SemanticVersioning.Version;
 
-namespace OpenSearch.Stack.ArtifactsApi
+namespace OpenSearch.Stack.ArtifactsApi;
+
+public class Artifact
 {
-    public class Artifact
+    private static readonly Uri BaseUri = new Uri("http://localhost");
+
+    internal Artifact(Product product, Version version, string downloadUrl, string buildHash)
     {
-        private static readonly Uri BaseUri = new Uri("http://localhost");
-
-        internal Artifact(Product product, Version version, string downloadUrl, string buildHash)
-        {
-            ProductName = product?.ProductName ?? "opensearch";
-            Version = version;
-            DownloadUrl = downloadUrl;
-            BuildHash = buildHash;
-        }
-
-        internal Artifact(Product product, Version version, SearchPackage package, string buildHash = null)
-        {
-            ProductName = product.ProductName;
-            Version = version;
-            DownloadUrl = package.DownloadUrl;
-            ShaUrl = package.ShaUrl;
-            AscUrl = package.AscUrl;
-            BuildHash = buildHash;
-        }
-
-        public string LocalFolderName
-        {
-            get
-            {
-                var hashed = !Version.IsPreRelease || string.IsNullOrWhiteSpace(BuildHash)
-                    ? string.Empty
-                    : $"-build-{BuildHash}";
-                return $"{ProductName}-{Version}{hashed}";
-            }
-        }
-
-        public string FolderInZip => $"{ProductName}-{Version}";
-
-        public string Archive
-        {
-            get
-            {
-                if (!Uri.TryCreate(DownloadUrl, UriKind.Absolute, out var uri))
-                    uri = new Uri(BaseUri, DownloadUrl);
-
-                return Path.GetFileName(uri.LocalPath);
-            }
-        }
-
-        // ReSharper disable UnusedAutoPropertyAccessor.Global
-        public string ProductName { get; }
-        public Version Version { get; }
-        public string DownloadUrl { get; }
-
-        public string BuildHash { get; }
-        public string ShaUrl { get; }
-
-        public string AscUrl { get; }
-        // ReSharper restore UnusedAutoPropertyAccessor.Global
+        ProductName = product?.ProductName ?? "opensearch";
+        Version = version;
+        DownloadUrl = downloadUrl;
+        BuildHash = buildHash;
     }
+
+    internal Artifact(Product product, Version version, SearchPackage package, string buildHash = null)
+    {
+        ProductName = product.ProductName;
+        Version = version;
+        DownloadUrl = package.DownloadUrl;
+        ShaUrl = package.ShaUrl;
+        AscUrl = package.AscUrl;
+        BuildHash = buildHash;
+    }
+
+    public string LocalFolderName
+    {
+        get
+        {
+            var hashed = !Version.IsPreRelease || string.IsNullOrWhiteSpace(BuildHash)
+                ? string.Empty
+                : $"-build-{BuildHash}";
+            return $"{ProductName}-{Version}{hashed}";
+        }
+    }
+
+    public string FolderInZip => $"{ProductName}-{Version}";
+
+    public string Archive
+    {
+        get
+        {
+            if (!Uri.TryCreate(DownloadUrl, UriKind.Absolute, out var uri))
+                uri = new Uri(BaseUri, DownloadUrl);
+
+            return Path.GetFileName(uri.LocalPath);
+        }
+    }
+
+    // ReSharper disable UnusedAutoPropertyAccessor.Global
+    public string ProductName { get; }
+    public Version Version { get; }
+    public string DownloadUrl { get; }
+
+    public string BuildHash { get; }
+    public string ShaUrl { get; }
+
+    public string AscUrl { get; }
+    // ReSharper restore UnusedAutoPropertyAccessor.Global
 }

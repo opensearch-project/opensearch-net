@@ -33,36 +33,35 @@ using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Search.Request
+namespace Tests.Search.Request;
+
+public class IndicesBoostSerializationTests
 {
-    public class IndicesBoostSerializationTests
+    [U]
+    public void CanDeserializeArrayFormat()
     {
-        [U]
-        public void CanDeserializeArrayFormat()
+        var json = "{\"indices_boost\": [{\"project\":1.4},{\"devs\":1.3}]}";
+
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
         {
-            var json = "{\"indices_boost\": [{\"project\":1.4},{\"devs\":1.3}]}";
+            var searchRequest = TestClient.Default.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
 
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
-                var searchRequest = TestClient.Default.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
-
-                searchRequest.Should().NotBeNull();
-                searchRequest.IndicesBoost.Should().NotBeNull().And.ContainKeys((IndexName)"project", (IndexName)"devs");
-            }
+            searchRequest.Should().NotBeNull();
+            searchRequest.IndicesBoost.Should().NotBeNull().And.ContainKeys((IndexName)"project", (IndexName)"devs");
         }
+    }
 
-        [U]
-        public void CanDeserializeObjectFormat()
+    [U]
+    public void CanDeserializeObjectFormat()
+    {
+        var json = "{\"indices_boost\": {\"project\":1.4,\"devs\":1.3}}";
+
+        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
         {
-            var json = "{\"indices_boost\": {\"project\":1.4,\"devs\":1.3}}";
+            var searchRequest = TestClient.Default.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
 
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
-                var searchRequest = TestClient.Default.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
-
-                searchRequest.Should().NotBeNull();
-                searchRequest.IndicesBoost.Should().NotBeNull().And.ContainKeys((IndexName)"project", (IndexName)"devs");
-            }
+            searchRequest.Should().NotBeNull();
+            searchRequest.IndicesBoost.Should().NotBeNull().And.ContainKeys((IndexName)"project", (IndexName)"devs");
         }
     }
 }

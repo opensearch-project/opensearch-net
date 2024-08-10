@@ -35,104 +35,103 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class FieldExpressionVisitor : ExpressionVisitor
 {
-    internal class FieldExpressionVisitor : ExpressionVisitor
+    private readonly IConnectionSettingsValues _settings;
+    private readonly Stack<string> _stack = new Stack<string>();
+
+    public FieldExpressionVisitor(IConnectionSettingsValues settings) => _settings = settings;
+
+    public string Resolve(Expression expression, bool toLastToken = false)
     {
-        private readonly IConnectionSettingsValues _settings;
-        private readonly Stack<string> _stack = new Stack<string>();
+        Visit(expression);
+        if (toLastToken) return _stack.Last();
 
-        public FieldExpressionVisitor(IConnectionSettingsValues settings) => _settings = settings;
+        var builder = new StringBuilder(_stack.Sum(s => s.Length) + (_stack.Count - 1));
 
-        public string Resolve(Expression expression, bool toLastToken = false)
+        return _stack
+            .Aggregate(
+                builder,
+                (sb, name) =>
+                    (sb.Length > 0 ? sb.Append(".") : sb).Append(name))
+            .ToString();
+    }
+
+    public string Resolve(MemberInfo info)
+    {
+        if (info == null) return null;
+
+        var name = info.Name;
+
+        if (_settings.PropertyMappings.TryGetValue(info, out var propertyMapping))
+            return propertyMapping.Name;
+
+        var att = OpenSearchPropertyAttributeBase.From(info);
+        if (att != null && !att.Name.IsNullOrEmpty())
+            return att.Name;
+
+        return _settings.PropertyMappingProvider?.CreatePropertyMapping(info)?.Name ?? _settings.DefaultFieldNameInferrer(name);
+    }
+
+    protected override Expression VisitMember(MemberExpression expression)
+    {
+        if (_stack == null) return base.VisitMember(expression);
+
+        var name = Resolve(expression.Member);
+        _stack.Push(name);
+        return base.VisitMember(expression);
+    }
+
+    protected override Expression VisitMethodCall(MethodCallExpression methodCall)
+    {
+        if (methodCall.Method.Name == nameof(SuffixExtensions.Suffix) && methodCall.Arguments.Any())
         {
-            Visit(expression);
-            if (toLastToken) return _stack.Last();
-
-            var builder = new StringBuilder(_stack.Sum(s => s.Length) + (_stack.Count - 1));
-
-            return _stack
-                .Aggregate(
-                    builder,
-                    (sb, name) =>
-                        (sb.Length > 0 ? sb.Append(".") : sb).Append(name))
-                .ToString();
+            VisitConstantOrVariable(methodCall, _stack);
+            var callingMember = new ReadOnlyCollection<Expression>(
+                new List<Expression> { { methodCall.Arguments.First() } }
+            );
+            Visit(callingMember);
+            return methodCall;
         }
-
-        public string Resolve(MemberInfo info)
+        else if (methodCall.Method.Name == "get_Item" && methodCall.Arguments.Any())
         {
-            if (info == null) return null;
+            var t = methodCall.Object.Type;
+            var isDict =
+                typeof(IDictionary).IsAssignableFrom(t)
+                || typeof(IDictionary<,>).IsAssignableFrom(t)
+                || t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>);
 
-            var name = info.Name;
+            if (!isDict) return base.VisitMethodCall(methodCall);
 
-            if (_settings.PropertyMappings.TryGetValue(info, out var propertyMapping))
-                return propertyMapping.Name;
-
-            var att = OpenSearchPropertyAttributeBase.From(info);
-            if (att != null && !att.Name.IsNullOrEmpty())
-                return att.Name;
-
-            return _settings.PropertyMappingProvider?.CreatePropertyMapping(info)?.Name ?? _settings.DefaultFieldNameInferrer(name);
+            VisitConstantOrVariable(methodCall, _stack);
+            Visit(methodCall.Object);
+            return methodCall;
         }
-
-        protected override Expression VisitMember(MemberExpression expression)
+        else if (IsLinqOperator(methodCall.Method))
         {
-            if (_stack == null) return base.VisitMember(expression);
-
-            var name = Resolve(expression.Member);
-            _stack.Push(name);
-            return base.VisitMember(expression);
+            for (var i = 1; i < methodCall.Arguments.Count; i++) Visit(methodCall.Arguments[i]);
+            Visit(methodCall.Arguments[0]);
+            return methodCall;
         }
+        return base.VisitMethodCall(methodCall);
+    }
 
-        protected override Expression VisitMethodCall(MethodCallExpression methodCall)
-        {
-            if (methodCall.Method.Name == nameof(SuffixExtensions.Suffix) && methodCall.Arguments.Any())
-            {
-                VisitConstantOrVariable(methodCall, _stack);
-                var callingMember = new ReadOnlyCollection<Expression>(
-                    new List<Expression> { { methodCall.Arguments.First() } }
-                );
-                Visit(callingMember);
-                return methodCall;
-            }
-            else if (methodCall.Method.Name == "get_Item" && methodCall.Arguments.Any())
-            {
-                var t = methodCall.Object.Type;
-                var isDict =
-                    typeof(IDictionary).IsAssignableFrom(t)
-                    || typeof(IDictionary<,>).IsAssignableFrom(t)
-                    || t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>);
+    private static void VisitConstantOrVariable(MethodCallExpression methodCall, Stack<string> stack)
+    {
+        var lastArg = methodCall.Arguments.Last();
+        var value = lastArg is ConstantExpression constantExpression
+            ? constantExpression.Value.ToString()
+            : Expression.Lambda(lastArg).Compile().DynamicInvoke().ToString();
+        stack.Push(value);
+    }
 
-                if (!isDict) return base.VisitMethodCall(methodCall);
+    private static bool IsLinqOperator(MethodInfo methodInfo)
+    {
+        if (methodInfo.DeclaringType != typeof(Queryable) && methodInfo.DeclaringType != typeof(Enumerable))
+            return false;
 
-                VisitConstantOrVariable(methodCall, _stack);
-                Visit(methodCall.Object);
-                return methodCall;
-            }
-            else if (IsLinqOperator(methodCall.Method))
-            {
-                for (var i = 1; i < methodCall.Arguments.Count; i++) Visit(methodCall.Arguments[i]);
-                Visit(methodCall.Arguments[0]);
-                return methodCall;
-            }
-            return base.VisitMethodCall(methodCall);
-        }
-
-        private static void VisitConstantOrVariable(MethodCallExpression methodCall, Stack<string> stack)
-        {
-            var lastArg = methodCall.Arguments.Last();
-            var value = lastArg is ConstantExpression constantExpression
-                ? constantExpression.Value.ToString()
-                : Expression.Lambda(lastArg).Compile().DynamicInvoke().ToString();
-            stack.Push(value);
-        }
-
-        private static bool IsLinqOperator(MethodInfo methodInfo)
-        {
-            if (methodInfo.DeclaringType != typeof(Queryable) && methodInfo.DeclaringType != typeof(Enumerable))
-                return false;
-
-            return methodInfo.GetCustomAttribute<ExtensionAttribute>() != null;
-        }
+        return methodInfo.GetCustomAttribute<ExtensionAttribute>() != null;
     }
 }

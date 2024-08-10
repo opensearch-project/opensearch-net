@@ -32,56 +32,55 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Date
+namespace Tests.Mapping.Types.Core.Date;
+
+public class DateNanosPropertyTests : PropertyTestsBase
 {
-    public class DateNanosPropertyTests : PropertyTestsBase
+    public DateNanosPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+    protected override object ExpectJson => new
     {
-        public DateNanosPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
-
-        protected override object ExpectJson => new
+        properties = new
         {
-            properties = new
+            lastActivity = new
             {
-                lastActivity = new
-                {
-                    type = "date_nanos",
-                    doc_values = false,
-                    store = true,
-                    index = false,
-                    boost = 1.2,
-                    ignore_malformed = true,
-                    format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
-                    null_value = DateTimeOffset.UnixEpoch.DateTime
-                }
+                type = "date_nanos",
+                doc_values = false,
+                store = true,
+                index = false,
+                boost = 1.2,
+                ignore_malformed = true,
+                format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
+                null_value = DateTimeOffset.UnixEpoch.DateTime
             }
-        };
+        }
+    };
 
-        protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-            .DateNanos(b => b
-                .Name(p => p.LastActivity)
-                .DocValues(false)
-                .Store()
-                .Index(false)
-                .Boost(1.2)
-                .IgnoreMalformed()
-                .Format("yyyy-MM-dd'T'HH:mm[:ss][.S]")
-                .NullValue(DateTimeOffset.UnixEpoch.DateTime)
-            );
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .DateNanos(b => b
+            .Name(p => p.LastActivity)
+            .DocValues(false)
+            .Store()
+            .Index(false)
+            .Boost(1.2)
+            .IgnoreMalformed()
+            .Format("yyyy-MM-dd'T'HH:mm[:ss][.S]")
+            .NullValue(DateTimeOffset.UnixEpoch.DateTime)
+        );
 
-        protected override IProperties InitializerProperties => new Properties
+    protected override IProperties InitializerProperties => new Properties
+    {
         {
+            "lastActivity", new DateNanosProperty
             {
-                "lastActivity", new DateNanosProperty
-                {
-                    DocValues = false,
-                    Store = true,
-                    Index = false,
-                    Boost = 1.2,
-                    IgnoreMalformed = true,
-                    Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
-                    NullValue = DateTimeOffset.UnixEpoch.DateTime
-                }
+                DocValues = false,
+                Store = true,
+                Index = false,
+                Boost = 1.2,
+                IgnoreMalformed = true,
+                Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]",
+                NullValue = DateTimeOffset.UnixEpoch.DateTime
             }
-        };
-    }
+        }
+    };
 }

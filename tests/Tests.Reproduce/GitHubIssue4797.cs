@@ -32,14 +32,14 @@ using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4797
 {
-    public class GitHubIssue4797
+    [U]
+    public void DeserializeSortWithOnlyFieldAndOrder()
     {
-        [U]
-        public void DeserializeSortWithOnlyFieldAndOrder()
-        {
-            var json = @"
+        var json = @"
 			{
 			    ""sort"" : [
 			        { ""post_date"" : {""order"" : ""asc""}},
@@ -54,17 +54,16 @@ namespace Tests.Reproduce
 			}
 			";
 
-            var bytes = Encoding.UTF8.GetBytes(json);
-            var client = TestClient.FixedInMemoryClient(bytes);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var client = TestClient.FixedInMemoryClient(bytes);
 
-            using var stream = client.ConnectionSettings.MemoryStreamFactory.Create(bytes);
-            var request = client.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
+        using var stream = client.ConnectionSettings.MemoryStreamFactory.Create(bytes);
+        var request = client.RequestResponseSerializer.Deserialize<SearchRequest>(stream);
 
-            request.Should().NotBeNull();
-            request.Sort.Should().NotBeNull().And.HaveCount(5);
-            request.Sort[1].SortKey.Should().Be("user");
-            request.Sort[2].SortKey.Should().Be("name");
-            request.Sort[2].Order.Should().Be(SortOrder.Descending);
-        }
+        request.Should().NotBeNull();
+        request.Sort.Should().NotBeNull().And.HaveCount(5);
+        request.Sort[1].SortKey.Should().Be("user");
+        request.Sort[2].SortKey.Should().Be("name");
+        request.Sort[2].Order.Should().Be(SortOrder.Descending);
     }
 }

@@ -30,18 +30,17 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class SnapshotRestore
 {
-    public class SnapshotRestore
-    {
-        [DataMember(Name = "indices")]
-        public IReadOnlyCollection<IndexName> Indices { get; internal set; } =
-            EmptyReadOnly<IndexName>.Collection;
+    [DataMember(Name = "indices")]
+    public IReadOnlyCollection<IndexName> Indices { get; internal set; } =
+        EmptyReadOnly<IndexName>.Collection;
 
-        [DataMember(Name = "snapshot")]
-        public string Name { get; internal set; }
+    [DataMember(Name = "snapshot")]
+    public string Name { get; internal set; }
 
-        [DataMember(Name = "shards")]
-        public ShardStatistics Shards { get; internal set; }
-    }
+    [DataMember(Name = "shards")]
+    public ShardStatistics Shards { get; internal set; }
 }

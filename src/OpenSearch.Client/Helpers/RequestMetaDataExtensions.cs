@@ -29,62 +29,61 @@
 using System;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class RequestMetaDataExtensions
 {
-    internal static class RequestMetaDataExtensions
+    internal static void AddHelper(this RequestMetaData metaData, string helperValue)
     {
-        internal static void AddHelper(this RequestMetaData metaData, string helperValue)
-        {
-            if (!metaData.TryAddMetaData(RequestMetaData.HelperKey, helperValue))
-                throw new InvalidOperationException("A helper value has already been added.");
-        }
-
-        internal static void AddSnapshotHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.SnapshotHelper);
-
-        internal static void AddScrollHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.ScrollHelper);
-
-        internal static void AddReindexHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.ReindexHelper);
-
-        internal static void AddBulkHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.BulkHelper);
-
-        internal static void AddRestoreHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.RestoreHelper);
+        if (!metaData.TryAddMetaData(RequestMetaData.HelperKey, helperValue))
+            throw new InvalidOperationException("A helper value has already been added.");
     }
 
-    internal static class RequestMetaDataFactory
+    internal static void AddSnapshotHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.SnapshotHelper);
+
+    internal static void AddScrollHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.ScrollHelper);
+
+    internal static void AddReindexHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.ReindexHelper);
+
+    internal static void AddBulkHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.BulkHelper);
+
+    internal static void AddRestoreHelper(this RequestMetaData metaData) => metaData.AddHelper(HelperIdentifiers.RestoreHelper);
+}
+
+internal static class RequestMetaDataFactory
+{
+    internal static RequestMetaData ReindexHelperRequestMetaData()
     {
-        internal static RequestMetaData ReindexHelperRequestMetaData()
-        {
-            var metaData = new RequestMetaData();
-            metaData.AddReindexHelper();
-            return metaData;
-        }
+        var metaData = new RequestMetaData();
+        metaData.AddReindexHelper();
+        return metaData;
+    }
 
-        internal static RequestMetaData ScrollHelperRequestMetaData()
-        {
-            var metaData = new RequestMetaData();
-            metaData.AddScrollHelper();
-            return metaData;
-        }
+    internal static RequestMetaData ScrollHelperRequestMetaData()
+    {
+        var metaData = new RequestMetaData();
+        metaData.AddScrollHelper();
+        return metaData;
+    }
 
-        internal static RequestMetaData BulkHelperRequestMetaData()
-        {
-            var metaData = new RequestMetaData();
-            metaData.AddBulkHelper();
-            return metaData;
-        }
+    internal static RequestMetaData BulkHelperRequestMetaData()
+    {
+        var metaData = new RequestMetaData();
+        metaData.AddBulkHelper();
+        return metaData;
+    }
 
-        internal static RequestMetaData SnapshotHelperRequestMetaData()
-        {
-            var metaData = new RequestMetaData();
-            metaData.AddSnapshotHelper();
-            return metaData;
-        }
+    internal static RequestMetaData SnapshotHelperRequestMetaData()
+    {
+        var metaData = new RequestMetaData();
+        metaData.AddSnapshotHelper();
+        return metaData;
+    }
 
-        internal static RequestMetaData RestoreHelperRequestMetaData()
-        {
-            var metaData = new RequestMetaData();
-            metaData.AddRestoreHelper();
-            return metaData;
-        }
+    internal static RequestMetaData RestoreHelperRequestMetaData()
+    {
+        var metaData = new RequestMetaData();
+        metaData.AddRestoreHelper();
+        return metaData;
     }
 }

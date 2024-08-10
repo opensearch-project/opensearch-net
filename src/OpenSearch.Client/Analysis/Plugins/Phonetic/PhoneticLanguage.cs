@@ -29,45 +29,44 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum PhoneticLanguage
 {
-    [StringEnum]
-    public enum PhoneticLanguage
-    {
-        [EnumMember(Value = "any")]
-        Any,
+    [EnumMember(Value = "any")]
+    Any,
 
-        [EnumMember(Value = "comomon")]
-        Comomon,
+    [EnumMember(Value = "comomon")]
+    Comomon,
 
-        [EnumMember(Value = "cyrillic")]
-        Cyrillic,
+    [EnumMember(Value = "cyrillic")]
+    Cyrillic,
 
-        [EnumMember(Value = "english")]
-        English,
+    [EnumMember(Value = "english")]
+    English,
 
-        [EnumMember(Value = "french")]
-        French,
+    [EnumMember(Value = "french")]
+    French,
 
-        [EnumMember(Value = "german")]
-        German,
+    [EnumMember(Value = "german")]
+    German,
 
-        [EnumMember(Value = "hebrew")]
-        Hebrew,
+    [EnumMember(Value = "hebrew")]
+    Hebrew,
 
-        [EnumMember(Value = "hungarian")]
-        Hungarian,
+    [EnumMember(Value = "hungarian")]
+    Hungarian,
 
-        [EnumMember(Value = "polish")]
-        Polish,
+    [EnumMember(Value = "polish")]
+    Polish,
 
-        [EnumMember(Value = "romanian")]
-        Romanian,
+    [EnumMember(Value = "romanian")]
+    Romanian,
 
-        [EnumMember(Value = "russian")]
-        Russian,
+    [EnumMember(Value = "russian")]
+    Russian,
 
-        [EnumMember(Value = "spanish")]
-        Spanish,
-    }
+    [EnumMember(Value = "spanish")]
+    Spanish,
 }

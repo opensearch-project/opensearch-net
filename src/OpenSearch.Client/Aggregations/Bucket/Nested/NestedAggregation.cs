@@ -31,36 +31,35 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(NestedAggregation))]
+public interface INestedAggregation : IBucketAggregation
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(NestedAggregation))]
-    public interface INestedAggregation : IBucketAggregation
-    {
-        [DataMember(Name = "path")]
-        Field Path { get; set; }
-    }
+    [DataMember(Name = "path")]
+    Field Path { get; set; }
+}
 
-    public class NestedAggregation : BucketAggregationBase, INestedAggregation
-    {
-        internal NestedAggregation() { }
+public class NestedAggregation : BucketAggregationBase, INestedAggregation
+{
+    internal NestedAggregation() { }
 
-        public NestedAggregation(string name) : base(name) { }
+    public NestedAggregation(string name) : base(name) { }
 
-        public Field Path { get; set; }
+    public Field Path { get; set; }
 
-        internal override void WrapInContainer(AggregationContainer c) => c.Nested = this;
-    }
+    internal override void WrapInContainer(AggregationContainer c) => c.Nested = this;
+}
 
-    public class NestedAggregationDescriptor<T>
-        : BucketAggregationDescriptorBase<NestedAggregationDescriptor<T>, INestedAggregation, T>
-            , INestedAggregation
-        where T : class
-    {
-        Field INestedAggregation.Path { get; set; }
+public class NestedAggregationDescriptor<T>
+    : BucketAggregationDescriptorBase<NestedAggregationDescriptor<T>, INestedAggregation, T>
+        , INestedAggregation
+    where T : class
+{
+    Field INestedAggregation.Path { get; set; }
 
-        public NestedAggregationDescriptor<T> Path(Field path) => Assign(path, (a, v) => a.Path = v);
+    public NestedAggregationDescriptor<T> Path(Field path) => Assign(path, (a, v) => a.Path = v);
 
-        public NestedAggregationDescriptor<T> Path<TValue>(Expression<Func<T, TValue>> path) => Assign(path, (a, v) => a.Path = v);
-    }
+    public NestedAggregationDescriptor<T> Path<TValue>(Expression<Func<T, TValue>> path) => Assign(path, (a, v) => a.Path = v);
 }

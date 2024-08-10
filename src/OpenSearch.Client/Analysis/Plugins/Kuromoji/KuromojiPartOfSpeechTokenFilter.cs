@@ -29,43 +29,42 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// The kuromoji_part_of_speech token filter removes tokens that match a set of part-of-speech tags.
+/// Part of the `analysis-kuromoji` plugin:
+/// </summary>
+public interface IKuromojiPartOfSpeechTokenFilter : ITokenFilter
 {
     /// <summary>
-    /// The kuromoji_part_of_speech token filter removes tokens that match a set of part-of-speech tags.
-    /// Part of the `analysis-kuromoji` plugin:
+    /// An array of part-of-speech tags that should be removed. It defaults to the stoptags.txt file embedded
+    /// in the lucene-analyzer-kuromoji.jar.
     /// </summary>
-    public interface IKuromojiPartOfSpeechTokenFilter : ITokenFilter
-    {
-        /// <summary>
-        /// An array of part-of-speech tags that should be removed. It defaults to the stoptags.txt file embedded
-        /// in the lucene-analyzer-kuromoji.jar.
-        /// </summary>
-        [DataMember(Name = "stoptags")]
-        IEnumerable<string> StopTags { get; set; }
-    }
+    [DataMember(Name = "stoptags")]
+    IEnumerable<string> StopTags { get; set; }
+}
+
+/// <inheritdoc />
+public class KuromojiPartOfSpeechTokenFilter : TokenFilterBase, IKuromojiPartOfSpeechTokenFilter
+{
+    public KuromojiPartOfSpeechTokenFilter() : base("kuromoji_part_of_speech") { }
 
     /// <inheritdoc />
-    public class KuromojiPartOfSpeechTokenFilter : TokenFilterBase, IKuromojiPartOfSpeechTokenFilter
-    {
-        public KuromojiPartOfSpeechTokenFilter() : base("kuromoji_part_of_speech") { }
+    public IEnumerable<string> StopTags { get; set; }
+}
 
-        /// <inheritdoc />
-        public IEnumerable<string> StopTags { get; set; }
-    }
+/// <inheritdoc />
+public class KuromojiPartOfSpeechTokenFilterDescriptor
+    : TokenFilterDescriptorBase<KuromojiPartOfSpeechTokenFilterDescriptor, IKuromojiPartOfSpeechTokenFilter>, IKuromojiPartOfSpeechTokenFilter
+{
+    protected override string Type => "kuromoji_part_of_speech";
+
+    IEnumerable<string> IKuromojiPartOfSpeechTokenFilter.StopTags { get; set; }
 
     /// <inheritdoc />
-    public class KuromojiPartOfSpeechTokenFilterDescriptor
-        : TokenFilterDescriptorBase<KuromojiPartOfSpeechTokenFilterDescriptor, IKuromojiPartOfSpeechTokenFilter>, IKuromojiPartOfSpeechTokenFilter
-    {
-        protected override string Type => "kuromoji_part_of_speech";
+    public KuromojiPartOfSpeechTokenFilterDescriptor StopTags(IEnumerable<string> stopTags) => Assign(stopTags, (a, v) => a.StopTags = v);
 
-        IEnumerable<string> IKuromojiPartOfSpeechTokenFilter.StopTags { get; set; }
-
-        /// <inheritdoc />
-        public KuromojiPartOfSpeechTokenFilterDescriptor StopTags(IEnumerable<string> stopTags) => Assign(stopTags, (a, v) => a.StopTags = v);
-
-        /// <inheritdoc />
-        public KuromojiPartOfSpeechTokenFilterDescriptor StopTags(params string[] stopTags) => Assign(stopTags, (a, v) => a.StopTags = v);
-    }
+    /// <inheritdoc />
+    public KuromojiPartOfSpeechTokenFilterDescriptor StopTags(params string[] stopTags) => Assign(stopTags, (a, v) => a.StopTags = v);
 }

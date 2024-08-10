@@ -32,16 +32,15 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.VotingConfigExclusions.DeleteVotingConfigExclusions
+namespace Tests.Cluster.VotingConfigExclusions.DeleteVotingConfigExclusions;
+
+public class DeleteingVotingConfigExclusionsTests : UrlTestsBase
 {
-    public class DeleteingVotingConfigExclusionsTests : UrlTestsBase
-    {
-        [U]
-        public override async Task Urls() =>
-            await DELETE("/_cluster/voting_config_exclusions")
-                .Fluent(c => c.Cluster.DeleteVotingConfigExclusions())
-                .Request(c => c.Cluster.DeleteVotingConfigExclusions(new DeleteVotingConfigExclusionsRequest()))
-                .FluentAsync(c => c.Cluster.DeleteVotingConfigExclusionsAsync())
-                .RequestAsync(c => c.Cluster.DeleteVotingConfigExclusionsAsync(new DeleteVotingConfigExclusionsRequest()));
-    }
+    [U]
+    public override async Task Urls() =>
+        await DELETE("/_cluster/voting_config_exclusions")
+            .Fluent(c => c.Cluster.DeleteVotingConfigExclusions())
+            .Request(c => c.Cluster.DeleteVotingConfigExclusions(new DeleteVotingConfigExclusionsRequest()))
+            .FluentAsync(c => c.Cluster.DeleteVotingConfigExclusionsAsync())
+            .RequestAsync(c => c.Cluster.DeleteVotingConfigExclusionsAsync(new DeleteVotingConfigExclusionsRequest()));
 }

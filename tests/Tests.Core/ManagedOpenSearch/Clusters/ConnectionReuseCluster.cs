@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
-{
-    public class ConnectionReuseCluster : ClientTestClusterBase { }
-}
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+public class ConnectionReuseCluster : ClientTestClusterBase { }

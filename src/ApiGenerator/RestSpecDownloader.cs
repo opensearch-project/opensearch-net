@@ -33,19 +33,18 @@ using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
 
-namespace ApiGenerator
-{
-    public static class RestSpecDownloader
-    {
-        private static readonly HttpClient Http = new();
+namespace ApiGenerator;
 
-        public static async Task DownloadAsync(string branch, CancellationToken token)
-        {
-            var githubUrl = $"https://github.com/opensearch-project/opensearch-api-specification/releases/download/{branch}-latest/opensearch-openapi.yaml";
-            Console.WriteLine($"Downloading OpenAPI spec for branch {branch}");
-            var spec = await Http.GetStringAsync(githubUrl, token);
-            await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);
-            Console.WriteLine($"Downloaded OpenAPI spec for branch {branch}");
-        }
+public static class RestSpecDownloader
+{
+    private static readonly HttpClient Http = new();
+
+    public static async Task DownloadAsync(string branch, CancellationToken token)
+    {
+        var githubUrl = $"https://github.com/opensearch-project/opensearch-api-specification/releases/download/{branch}-latest/opensearch-openapi.yaml";
+        Console.WriteLine($"Downloading OpenAPI spec for branch {branch}");
+        var spec = await Http.GetStringAsync(githubUrl, token);
+        await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);
+        Console.WriteLine($"Downloaded OpenAPI spec for branch {branch}");
     }
 }

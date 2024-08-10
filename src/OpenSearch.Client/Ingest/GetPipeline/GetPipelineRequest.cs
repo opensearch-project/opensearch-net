@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-    [MapsApi("ingest.get_pipeline.json")]
-    public partial interface IGetPipelineRequest { }
+namespace OpenSearch.Client;
 
-    public partial class GetPipelineRequest { }
+[MapsApi("ingest.get_pipeline.json")]
+public partial interface IGetPipelineRequest { }
 
-    public partial class GetPipelineDescriptor { }
-}
+public partial class GetPipelineRequest { }
+
+public partial class GetPipelineDescriptor { }

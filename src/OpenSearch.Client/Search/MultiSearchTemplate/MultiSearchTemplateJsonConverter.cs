@@ -29,54 +29,53 @@
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class MultiSearchTemplateFormatter : IJsonFormatter<IMultiSearchTemplateRequest>
 {
-    internal class MultiSearchTemplateFormatter : IJsonFormatter<IMultiSearchTemplateRequest>
+    private const byte Newline = (byte)'\n';
+
+    public IMultiSearchTemplateRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
+        formatterResolver.GetFormatter<MultiSearchTemplateRequest>().Deserialize(ref reader, formatterResolver);
+
+    public void Serialize(ref JsonWriter writer, IMultiSearchTemplateRequest value, IJsonFormatterResolver formatterResolver)
     {
-        private const byte Newline = (byte)'\n';
+        if (value?.Operations == null) return;
 
-        public IMultiSearchTemplateRequest Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
-            formatterResolver.GetFormatter<MultiSearchTemplateRequest>().Deserialize(ref reader, formatterResolver);
+        var settings = formatterResolver.GetConnectionSettings();
+        var memoryStreamFactory = settings.MemoryStreamFactory;
+        var serializer = settings.RequestResponseSerializer;
 
-        public void Serialize(ref JsonWriter writer, IMultiSearchTemplateRequest value, IJsonFormatterResolver formatterResolver)
+        foreach (var operation in value.Operations.Values)
         {
-            if (value?.Operations == null) return;
+            var p = operation.RequestParameters;
 
-            var settings = formatterResolver.GetConnectionSettings();
-            var memoryStreamFactory = settings.MemoryStreamFactory;
-            var serializer = settings.RequestResponseSerializer;
-
-            foreach (var operation in value.Operations.Values)
+            string GetString(string key)
             {
-                var p = operation.RequestParameters;
-
-                string GetString(string key)
-                {
-                    return p.GetResolvedQueryStringValue(key, settings);
-                }
-
-                IUrlParameter indices = value.Index == null || !value.Index.Equals(operation.Index)
-                    ? operation.Index
-                    : null;
-
-                var searchType = GetString("search_type");
-                if (searchType == "query_then_fetch")
-                    searchType = null;
-
-                var header = new
-                {
-                    index = indices?.GetString(settings),
-                    search_type = searchType,
-                    preference = GetString("preference"),
-                    routing = GetString("routing"),
-                    ignore_unavailable = GetString("ignore_unavailable")
-                };
-
-                writer.WriteSerialized(header, serializer, settings, SerializationFormatting.None);
-                writer.WriteRaw(Newline);
-                writer.WriteSerialized(operation, serializer, settings, SerializationFormatting.None);
-                writer.WriteRaw(Newline);
+                return p.GetResolvedQueryStringValue(key, settings);
             }
+
+            IUrlParameter indices = value.Index == null || !value.Index.Equals(operation.Index)
+                ? operation.Index
+                : null;
+
+            var searchType = GetString("search_type");
+            if (searchType == "query_then_fetch")
+                searchType = null;
+
+            var header = new
+            {
+                index = indices?.GetString(settings),
+                search_type = searchType,
+                preference = GetString("preference"),
+                routing = GetString("routing"),
+                ignore_unavailable = GetString("ignore_unavailable")
+            };
+
+            writer.WriteSerialized(header, serializer, settings, SerializationFormatting.None);
+            writer.WriteRaw(Newline);
+            writer.WriteSerialized(operation, serializer, settings, SerializationFormatting.None);
+            writer.WriteRaw(Newline);
         }
     }
 }

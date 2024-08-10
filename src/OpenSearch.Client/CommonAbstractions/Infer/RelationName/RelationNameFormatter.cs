@@ -28,38 +28,37 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class RelationNameFormatter : IJsonFormatter<RelationName>, IObjectPropertyNameFormatter<RelationName>
 {
-    internal class RelationNameFormatter : IJsonFormatter<RelationName>, IObjectPropertyNameFormatter<RelationName>
+    public RelationName Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
     {
-        public RelationName Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        if (reader.GetCurrentJsonToken() == JsonToken.String)
         {
-            if (reader.GetCurrentJsonToken() == JsonToken.String)
-            {
-                RelationName relationName = reader.ReadString();
-                return relationName;
-            }
-
-            reader.ReadNextBlock();
-            return null;
+            RelationName relationName = reader.ReadString();
+            return relationName;
         }
 
-        public void Serialize(ref JsonWriter writer, RelationName value, IJsonFormatterResolver formatterResolver)
-        {
-            if (value == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-
-            var settings = formatterResolver.GetConnectionSettings();
-            writer.WriteString(settings.Inferrer.RelationName(value));
-        }
-
-        public void SerializeToPropertyName(ref JsonWriter writer, RelationName value, IJsonFormatterResolver formatterResolver) =>
-            Serialize(ref writer, value, formatterResolver);
-
-        public RelationName DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
-            Deserialize(ref reader, formatterResolver);
+        reader.ReadNextBlock();
+        return null;
     }
+
+    public void Serialize(ref JsonWriter writer, RelationName value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
+
+        var settings = formatterResolver.GetConnectionSettings();
+        writer.WriteString(settings.Inferrer.RelationName(value));
+    }
+
+    public void SerializeToPropertyName(ref JsonWriter writer, RelationName value, IJsonFormatterResolver formatterResolver) =>
+        Serialize(ref writer, value, formatterResolver);
+
+    public RelationName DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver) =>
+        Deserialize(ref reader, formatterResolver);
 }

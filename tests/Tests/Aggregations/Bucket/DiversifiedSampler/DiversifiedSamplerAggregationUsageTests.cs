@@ -33,60 +33,59 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Aggregations.Bucket.DiversifiedSampler
-{
-    public class DiversifiedSamplerAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public DiversifiedSamplerAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+namespace Tests.Aggregations.Bucket.DiversifiedSampler;
 
-        protected override object AggregationJson => new
+public class DiversifiedSamplerAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public DiversifiedSamplerAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+
+    protected override object AggregationJson => new
+    {
+        diversified_sample = new
         {
-            diversified_sample = new
+            diversified_sampler = new
             {
-                diversified_sampler = new
+                execution_hint = "global_ordinals",
+                field = "type",
+                max_docs_per_value = 10,
+                shard_size = 200
+            },
+            aggs = new
+            {
+                significant_names = new
                 {
-                    execution_hint = "global_ordinals",
-                    field = "type",
-                    max_docs_per_value = 10,
-                    shard_size = 200
-                },
-                aggs = new
-                {
-                    significant_names = new
+                    significant_terms = new
                     {
-                        significant_terms = new
-                        {
-                            field = "name"
-                        }
+                        field = "name"
                     }
                 }
             }
-        };
+        }
+    };
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DiversifiedSampler("diversified_sample", sm => sm
-                .ExecutionHint(DiversifiedSamplerAggregationExecutionHint.GlobalOrdinals)
-                .Field(doc => doc.Type)
-                .MaxDocsPerValue(10)
-                .ShardSize(200)
-                .Aggregations(aa => aa
-                    .SignificantTerms("significant_names", st => st
-                        .Field(p => p.Name)
-                    )
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .DiversifiedSampler("diversified_sample", sm => sm
+            .ExecutionHint(DiversifiedSamplerAggregationExecutionHint.GlobalOrdinals)
+            .Field(doc => doc.Type)
+            .MaxDocsPerValue(10)
+            .ShardSize(200)
+            .Aggregations(aa => aa
+                .SignificantTerms("significant_names", st => st
+                    .Field(p => p.Name)
                 )
-            );
+            )
+        );
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DiversifiedSamplerAggregation("diversified_sample")
+    protected override AggregationDictionary InitializerAggs =>
+        new DiversifiedSamplerAggregation("diversified_sample")
+        {
+            ExecutionHint = DiversifiedSamplerAggregationExecutionHint.GlobalOrdinals,
+            Field = new Field("type"),
+            MaxDocsPerValue = 10,
+            ShardSize = 200,
+            Aggregations = new SignificantTermsAggregation("significant_names")
             {
-                ExecutionHint = DiversifiedSamplerAggregationExecutionHint.GlobalOrdinals,
-                Field = new Field("type"),
-                MaxDocsPerValue = 10,
-                ShardSize = 200,
-                Aggregations = new SignificantTermsAggregation("significant_names")
-                {
-                    Field = "name"
-                }
-            };
-    }
+                Field = "name"
+            }
+        };
 }

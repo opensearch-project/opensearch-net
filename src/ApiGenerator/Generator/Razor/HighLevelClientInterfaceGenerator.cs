@@ -32,18 +32,17 @@ using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class HighLevelClientInterfaceGenerator : RazorGeneratorBase
 {
-    public class HighLevelClientInterfaceGenerator : RazorGeneratorBase
+    public override string Title => "OpenSearch.Client client interface";
+
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
     {
-        public override string Title => "OpenSearch.Client client interface";
+        var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient.cshtml");
+        var target = GeneratorLocations.HighLevel("IOpenSearchClient.cs");
 
-        public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-        {
-            var view = ViewLocations.HighLevel("Client", "Interface", "IOpenSearchClient.cshtml");
-            var target = GeneratorLocations.HighLevel("IOpenSearchClient.cs");
-
-            await DoRazor(spec, view, target, token);
-        }
+        await DoRazor(spec, view, target, token);
     }
 }

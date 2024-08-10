@@ -28,18 +28,17 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(SortOrderFormatter<TermsOrder>))]
+public class TermsOrder : ISortOrder
 {
-    [JsonFormatter(typeof(SortOrderFormatter<TermsOrder>))]
-    public class TermsOrder : ISortOrder
-    {
-        public static TermsOrder CountAscending => new TermsOrder { Key = "_count", Order = SortOrder.Ascending };
-        public static TermsOrder CountDescending => new TermsOrder { Key = "_count", Order = SortOrder.Descending };
+    public static TermsOrder CountAscending => new TermsOrder { Key = "_count", Order = SortOrder.Ascending };
+    public static TermsOrder CountDescending => new TermsOrder { Key = "_count", Order = SortOrder.Descending };
 
-        public string Key { get; set; }
+    public string Key { get; set; }
 
-        public static TermsOrder KeyAscending => new TermsOrder { Key = "_key", Order = SortOrder.Ascending };
-        public static TermsOrder KeyDescending => new TermsOrder { Key = "_key", Order = SortOrder.Descending };
-        public SortOrder Order { get; set; }
-    }
+    public static TermsOrder KeyAscending => new TermsOrder { Key = "_key", Order = SortOrder.Ascending };
+    public static TermsOrder KeyDescending => new TermsOrder { Key = "_key", Order = SortOrder.Descending };
+    public SortOrder Order { get; set; }
 }

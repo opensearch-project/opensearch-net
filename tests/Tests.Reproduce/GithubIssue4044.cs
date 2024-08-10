@@ -31,15 +31,15 @@ using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4044
 {
-    public class GithubIssue4044
+    [U]
+    [UseCulture("sv-SE")]
+    public void PercentilesAggregateSerializesWithInvariantCulture()
     {
-        [U]
-        [UseCulture("sv-SE")]
-        public void PercentilesAggregateSerializesWithInvariantCulture()
-        {
-            const string percentilesString = @"{
+        const string percentilesString = @"{
 				""test_percentiles#pp"": {
 					""values"": {
 						""42.42"": 42.42
@@ -47,10 +47,9 @@ namespace Tests.Reproduce
 				}
 			}";
 
-            Expect(percentilesString).NoRoundTrip().DeserializesTo<AggregateDictionary>((s, val) =>
-            {
-                val.Count.Should().Be(1);
-            });
-        }
+        Expect(percentilesString).NoRoundTrip().DeserializesTo<AggregateDictionary>((s, val) =>
+        {
+            val.Count.Should().Be(1);
+        });
     }
 }

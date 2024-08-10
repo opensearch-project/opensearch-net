@@ -30,19 +30,18 @@ using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
-{
-    public class GitHubIssue3819
-    {
-        [U]
-        [UseCulture("fr-FR")]
-        public void WriteWKTCoordinatesWithInvariantCulture()
-        {
-            var wkt = "POINT (45.1 42.25)";
+namespace Tests.Reproduce;
 
-            var shape = GeoWKTReader.Read(wkt);
-            var actual = GeoWKTWriter.Write(shape);
-            actual.Should().Be(wkt);
-        }
+public class GitHubIssue3819
+{
+    [U]
+    [UseCulture("fr-FR")]
+    public void WriteWKTCoordinatesWithInvariantCulture()
+    {
+        var wkt = "POINT (45.1 42.25)";
+
+        var shape = GeoWKTReader.Read(wkt);
+        var actual = GeoWKTWriter.Write(shape);
+        actual.Should().Be(wkt);
     }
 }

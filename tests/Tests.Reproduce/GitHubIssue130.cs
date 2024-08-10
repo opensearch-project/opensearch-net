@@ -14,32 +14,31 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+/// <summary>
+/// Parsing histogram interval failed: <a href="https://github.com/opensearch-project/opensearch-net/issues/130">Issue #130</a>
+/// </summary>
+///
+public class GitHubIssue130 : IClusterFixture<WritableCluster>
 {
-    /// <summary>
-    /// Parsing histogram interval failed: <a href="https://github.com/opensearch-project/opensearch-net/issues/130">Issue #130</a>
-    /// </summary>
-    ///
-    public class GitHubIssue130 : IClusterFixture<WritableCluster>
+    private readonly WritableCluster _cluster;
+
+    public GitHubIssue130(WritableCluster cluster) => _cluster = cluster;
+
+    [I]
+    public void CanDeserializeDateHistogramBucket()
     {
-        private readonly WritableCluster _cluster;
-
-        public GitHubIssue130(WritableCluster cluster) => _cluster = cluster;
-
-        [I]
-        public void CanDeserializeDateHistogramBucket()
-        {
-            var response = _cluster.Client.Search<Project>(c => c
-                .Size(0)
-                .Query(q => q.MatchAll())
-                .Aggregations(a => a.Histogram("aggregation_ranges", r => r
-                        .Field(f => f.LastActivity)
-                        .Interval(5000)
-                    )
+        var response = _cluster.Client.Search<Project>(c => c
+            .Size(0)
+            .Query(q => q.MatchAll())
+            .Aggregations(a => a.Histogram("aggregation_ranges", r => r
+                    .Field(f => f.LastActivity)
+                    .Interval(5000)
                 )
-            );
+            )
+        );
 
-            response.ShouldBeValid();
-        }
+        response.ShouldBeValid();
     }
 }

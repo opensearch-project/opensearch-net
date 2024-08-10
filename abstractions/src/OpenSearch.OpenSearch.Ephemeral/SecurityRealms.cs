@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.OpenSearch.Ephemeral
-{
-    public static class SecurityRealms
-    {
-        public const string FileRealm = "file1";
+namespace OpenSearch.OpenSearch.Ephemeral;
 
-        public const string PkiRealm = "pki1";
-    }
+public static class SecurityRealms
+{
+    public const string FileRealm = "file1";
+
+    public const string PkiRealm = "pki1";
 }

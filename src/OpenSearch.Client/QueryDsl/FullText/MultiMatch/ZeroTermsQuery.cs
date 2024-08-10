@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-    [StringEnum]
-    public enum ZeroTermsQuery
-    {
-        [EnumMember(Value = "all")]
-        All,
+namespace OpenSearch.Client;
 
-        [EnumMember(Value = "none")]
-        None
-    }
+[StringEnum]
+public enum ZeroTermsQuery
+{
+    [EnumMember(Value = "all")]
+    All,
+
+    [EnumMember(Value = "none")]
+    None
 }
