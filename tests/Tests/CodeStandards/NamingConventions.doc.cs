@@ -324,7 +324,7 @@ namespace Tests.CodeStandards
             }
             nextMustBeStartChar = true;
             return true;
-            label_6:
+        label_6:
             return false;
         }
     }

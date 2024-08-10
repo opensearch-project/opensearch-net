@@ -374,7 +374,7 @@ namespace OpenSearch.Net.Utf8Json
 
             return false;
 
-            ERROR:
+        ERROR:
             throw CreateParsingException("null");
         }
 
@@ -642,7 +642,7 @@ namespace OpenSearch.Net.Utf8Json
                         continue;
                 }
 
-                COPY:
+            COPY:
                 {
                     if (builder == null) builder = StringBuilderCache.GetBuffer();
                     if (codePointStringOffet != 0)
@@ -668,7 +668,7 @@ namespace OpenSearch.Net.Utf8Json
             resultOffset = 0;
             throw CreateParsingException("String End Token");
 
-            END:
+        END:
             if (builderOffset == 0 && codePointStringOffet == 0) // no escape
             {
                 resultBytes = _bytes;
@@ -766,7 +766,7 @@ namespace OpenSearch.Net.Utf8Json
                 }
                 throw CreateParsingExceptionMessage("not found end string.");
 
-                OK:
+            OK:
                 key = new ArraySegment<byte>(_bytes, from, _offset - from - 1); // remove \"
             }
 
@@ -805,9 +805,9 @@ namespace OpenSearch.Net.Utf8Json
 
             throw CreateParsingException("true | false");
 
-            ERROR_TRUE:
+        ERROR_TRUE:
             throw CreateParsingException("true");
-            ERROR_FALSE:
+        ERROR_FALSE:
             throw CreateParsingException("false");
         }
 
@@ -1018,7 +1018,7 @@ namespace OpenSearch.Net.Utf8Json
         {
             var stack = 0;
 
-            AGAIN:
+        AGAIN:
             var token = GetCurrentJsonToken();
             switch (token)
             {
@@ -1143,7 +1143,7 @@ namespace OpenSearch.Net.Utf8Json
             }
             _offset = _bytes.Length;
 
-            END:
+        END:
             return new ArraySegment<byte>(_bytes, initialOffset, _offset - initialOffset);
         }
 

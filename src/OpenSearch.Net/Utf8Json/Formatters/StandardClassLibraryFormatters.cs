@@ -377,8 +377,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
             while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref count))
             {
                 var keyString = reader.ReadPropertyNameSegmentRaw();
-                int key;
-                StandardClassLibraryFormatterHelper.keyValuePairAutomata.TryGetValue(keyString, out key);
+                StandardClassLibraryFormatterHelper.keyValuePairAutomata.TryGetValue(keyString, out var key);
 
                 switch (key)
                 {

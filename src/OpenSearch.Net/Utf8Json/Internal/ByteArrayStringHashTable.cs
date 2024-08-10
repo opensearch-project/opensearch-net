@@ -147,7 +147,7 @@ namespace OpenSearch.Net.Utf8Json.Internal
                 }
             }
 
-            NOT_FOUND:
+        NOT_FOUND:
             value = default;
             return false;
         }

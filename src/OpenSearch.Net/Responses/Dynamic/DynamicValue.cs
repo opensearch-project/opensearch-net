@@ -65,8 +65,7 @@ namespace OpenSearch.Net
         {
             get
             {
-                object r;
-                Dispatch(out r, name);
+                Dispatch(out var r, name);
                 return (DynamicValue)r;
             }
         }
@@ -658,7 +657,6 @@ namespace OpenSearch.Net
         /// <param name="result">The result of the binary operation.</param>
         public override bool TryBinaryOperation(BinaryOperationBinder binder, object arg, out object result)
         {
-            object resultOfCast;
             result = null;
 
             if (binder.Operation != ExpressionType.Equal)
@@ -669,7 +667,7 @@ namespace OpenSearch.Net
             var convert =
                 Binder.Convert(CSharpBinderFlags.None, arg.GetType(), typeof(DynamicValue));
 
-            if (!TryConvert((ConvertBinder)convert, out resultOfCast))
+            if (!TryConvert((ConvertBinder)convert, out var resultOfCast))
             {
                 return false;
             }
@@ -713,8 +711,7 @@ namespace OpenSearch.Net
 
             if (binderType == typeof(Guid) || binderType == typeof(Guid?))
             {
-                Guid guid;
-                if (Guid.TryParse(Convert.ToString(_value), out guid))
+                if (Guid.TryParse(Convert.ToString(_value), out var guid))
                 {
                     result = guid;
                     return true;
@@ -722,8 +719,7 @@ namespace OpenSearch.Net
             }
             else if (binderType == typeof(TimeSpan) || binderType == typeof(TimeSpan?))
             {
-                TimeSpan timespan;
-                if (TimeSpan.TryParse(Convert.ToString(_value), out timespan))
+                if (TimeSpan.TryParse(Convert.ToString(_value), out var timespan))
                 {
                     result = timespan;
                     return true;

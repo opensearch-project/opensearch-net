@@ -549,8 +549,8 @@ namespace OpenSearch.Net.Utf8Json.Internal.DoubleConversion
             else
                 throw new Exception("Invalid Mode.");
 
-            DiyFp ten_mk;  // Cached power of ten: 10^-k
-            int mk;        // -k
+            // Cached power of ten: 10^-k
+            // -k
             var ten_mk_minimal_binary_exponent =
                KMinimalTargetExponent - (w.E + DiyFp.KSignificandSize);
             var ten_mk_maximal_binary_exponent =
@@ -558,7 +558,7 @@ namespace OpenSearch.Net.Utf8Json.Internal.DoubleConversion
             PowersOfTenCache.GetCachedPowerForBinaryExponentRange(
                 ten_mk_minimal_binary_exponent,
                 ten_mk_maximal_binary_exponent,
-                out ten_mk, out mk);
+                out var ten_mk, out var mk);
 
             // Note that ten_mk is only an approximation of 10^-k. A DiyFp only contains a
             // 64 bit significand and ten_mk is thus only precise up to 64 bits.
@@ -652,14 +652,11 @@ namespace OpenSearch.Net.Utf8Json.Internal.DoubleConversion
             if (new Double(value).IsSpecial())
                 return HandleSpecialValues(value, ref result_builder);
 
-            int decimal_point;
-            bool sign;
             const int kDecimalRepCapacity = KBase10MaximalLength + 1;
             var decimal_rep = GetDecimalRepBuffer(kDecimalRepCapacity); // byte[] decimal_rep = new byte[kDecimalRepCapacity];
-            int decimal_rep_length;
 
             var fastworked = DoubleToAscii(value, mode, 0, decimal_rep,
-                          out sign, out decimal_rep_length, out decimal_point);
+                          out var sign, out var decimal_rep_length, out var decimal_point);
 
             if (!fastworked)
             {

@@ -538,7 +538,7 @@ namespace OpenSearch.Net.Utf8Json.Internal.DoubleConversion
                 AdvanceToNonspace(ref current, end);
             }
 
-            parsing_done:
+        parsing_done:
             exponent += insignificant_digits;
 
             //if (octal)

@@ -150,7 +150,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                     e.Dispose();
                 }
 
-                END:
+            END:
                 writer.WriteEndObject();
             }
         }
@@ -316,7 +316,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                         disp.Dispose();
                 }
 
-                END:
+            END:
                 writer.WriteEndObject();
             }
         }
@@ -383,7 +383,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                         disp.Dispose();
                 }
 
-                END:
+            END:
                 writer.WriteEndObject();
             }
         }

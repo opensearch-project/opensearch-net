@@ -204,7 +204,7 @@ namespace OpenSearch.Client
                 e.Dispose();
             }
 
-            END:
+        END:
             writer.WriteEndObject();
         }
 

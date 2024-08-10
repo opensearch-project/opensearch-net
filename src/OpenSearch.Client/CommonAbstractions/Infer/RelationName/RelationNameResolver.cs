@@ -50,9 +50,8 @@ namespace OpenSearch.Client
         {
             if (type == null) return null;
 
-            string typeName;
 
-            if (_relationNames.TryGetValue(type, out typeName))
+            if (_relationNames.TryGetValue(type, out var typeName))
                 return typeName;
 
             if (_connectionSettings.DefaultRelationNames.TryGetValue(type, out typeName))

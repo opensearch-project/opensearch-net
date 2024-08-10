@@ -558,10 +558,9 @@ namespace OpenSearch.Client
                 Max = statsMetric.Max,
                 Min = statsMetric.Min,
                 Sum = statsMetric.Sum,
-                Meta = statsMetric.Meta
+                Meta = statsMetric.Meta,
+                SumOfSquares = reader.ReadNullableDouble()
             };
-
-            extendedStatsMetric.SumOfSquares = reader.ReadNullableDouble();
             reader.ReadNext(); // ,
 
             var formatter = new NullableStringDoubleFormatter();

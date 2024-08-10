@@ -111,8 +111,7 @@ namespace Tests.CodeStandards
                     ? first.GetGenericTypeDefinition()
                     : first;
 
-                Type value;
-                if (!exclusions.TryGetValue(key, out value))
+                if (!exclusions.TryGetValue(key, out var value))
                     return false;
 
                 return second.IsGenericType

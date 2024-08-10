@@ -353,7 +353,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                     i++;
             }
 
-            END_TICKS:
+        END_TICKS:
             var kind = DateTimeKind.Unspecified;
             if (i < to && array[i] == 'Z')
                 kind = DateTimeKind.Utc;
@@ -382,7 +382,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
             return new DateTime(year, month, day, hour, minute, second, kind).AddTicks(ticks);
 
-            ERROR:
+        ERROR:
             throw new InvalidOperationException("invalid datetime format. value:" + StringEncoding.UTF8.GetString(str.Array, str.Offset, str.Count));
         }
     }
@@ -673,7 +673,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                     i++;
             }
 
-            END_TICKS:
+        END_TICKS:
 
             if (i < to && array[i] == '-' || array[i] == '+')
             {
@@ -701,7 +701,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
             return new DateTimeOffset(year, month, day, hour, minute, second, TimeSpan.Zero).AddTicks(ticks);
 
-            ERROR:
+        ERROR:
             throw new InvalidOperationException("invalid datetime format. value:" + StringEncoding.UTF8.GetString(str.Array, str.Offset, str.Count));
         }
     }
@@ -935,7 +935,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                     i++;
             }
 
-            END_TICKS:
+        END_TICKS:
 
             // be careful to overflow
             var ts = new TimeSpan(day, hour, minute, second);
@@ -944,7 +944,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
                 ? ts.Negate().Subtract(tk)
                 : ts.Add(tk);
 
-            ERROR:
+        ERROR:
             throw new InvalidOperationException("invalid TimeSpan format. value:" + StringEncoding.UTF8.GetString(str.Array, str.Offset, str.Count));
         }
     }

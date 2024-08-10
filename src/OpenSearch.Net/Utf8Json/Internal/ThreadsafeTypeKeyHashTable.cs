@@ -191,15 +191,14 @@ namespace OpenSearch.Net.Utf8Json.Internal
                 next = next.Next;
             }
 
-            NOT_FOUND:
+        NOT_FOUND:
             value = default;
             return false;
         }
 
         public TValue GetOrAdd(Type key, Func<Type, TValue> valueFactory)
         {
-            TValue v;
-            if (TryGetValue(key, out v))
+            if (TryGetValue(key, out var v))
             {
                 return v;
             }

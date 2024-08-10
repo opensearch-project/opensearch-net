@@ -49,8 +49,10 @@ namespace OpenSearch.Stack.ArtifactsApiTests
         [U]
         public void Does_Resolver_Construct_Valid_DownloadUrl_Test()
         {
-            var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(3);
+            var httpClient = new HttpClient
+            {
+                Timeout = TimeSpan.FromSeconds(3)
+            };
 
             var testCases = new[]
             {

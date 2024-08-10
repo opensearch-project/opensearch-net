@@ -103,8 +103,10 @@ namespace OpenSearch.Net
 
             var key = HttpConnection.GetClientKey(requestData);
             var handler = CreateHandler(key, requestData);
-            var client = new HttpClient(handler, disposeHandler: false);
-            client.Timeout = requestData.RequestTimeout;
+            var client = new HttpClient(handler, disposeHandler: false)
+            {
+                Timeout = requestData.RequestTimeout
+            };
             return client;
         }
 

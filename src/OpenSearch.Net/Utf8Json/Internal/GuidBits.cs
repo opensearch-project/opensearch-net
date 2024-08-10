@@ -209,7 +209,7 @@ namespace OpenSearch.Net.Utf8Json.Internal
                 return;
             }
 
-            ERROR:
+        ERROR:
             throw new ArgumentException("Invalid Guid Pattern.");
         }
 

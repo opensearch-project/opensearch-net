@@ -37,7 +37,6 @@ namespace OpenSearch.Client
     {
         internal static QueryContainer CombineAsMust(this QueryContainer leftContainer, QueryContainer rightContainer)
         {
-            QueryContainer c;
             var leftBool = leftContainer.Self()?.Bool;
             var rightBool = rightContainer.Self()?.Bool;
 
@@ -45,7 +44,7 @@ namespace OpenSearch.Client
             if (leftBool == null && rightBool == null)
                 return CreateMustContainer(new Containers { leftContainer, rightContainer });
 
-            else if (TryHandleBoolsWithOnlyShouldClauses(leftContainer, rightContainer, leftBool, rightBool, out c)) return c;
+            else if (TryHandleBoolsWithOnlyShouldClauses(leftContainer, rightContainer, leftBool, rightBool, out var c)) return c;
             else if (TryHandleUnmergableBools(leftContainer, rightContainer, leftBool, rightBool, out c)) return c;
 
             //neither side is unmergable so neither is a bool with should clauses

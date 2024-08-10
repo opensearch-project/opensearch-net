@@ -36,10 +36,9 @@ namespace OpenSearch.Client
     {
         internal static QueryContainer CombineAsShould(this QueryContainer leftContainer, QueryContainer rightContainer)
         {
-            QueryContainer c = null;
             var leftBool = leftContainer.Self()?.Bool;
             var rightBool = rightContainer.Self()?.Bool;
-            if (TryFlattenShould(leftContainer, rightContainer, leftBool, rightBool, out c))
+            if (TryFlattenShould(leftContainer, rightContainer, leftBool, rightBool, out var c))
                 return c;
 
             var lBoolQuery = leftContainer.Self().Bool;

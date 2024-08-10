@@ -315,8 +315,7 @@ namespace OpenSearch.Net
         /// <returns>A byte[] array</returns>
         internal byte[] GetBlock()
         {
-            byte[] block;
-            if (!_smallPool.TryPop(out block))
+            if (!_smallPool.TryPop(out var block))
             {
                 // We'll add this back to the pool when the stream is disposed
                 // (unless our free pool is too large)

@@ -33,12 +33,14 @@ public class AwsSigV4HttpConnectionTests
     [InlineData("arbitrary", "156e65c504ea2b2722a481b7515062e7692d27217b477828854e715f507e6a36")]
     public async Task SignsRequestCorrectly(string service, string expectedSignature)
     {
-        var response = new HttpResponseMessage(HttpStatusCode.OK);
-        response.Content = new StringContent(@"{
+        var response = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new StringContent(@"{
 	""acknowledged"": true,
 	""shards_acknowledged"": true,
     ""index"": ""sample-index1""
-}", Encoding.UTF8, "application/json");
+}", Encoding.UTF8, "application/json")
+        };
 
         HttpRequestMessage sentRequest = null;
 
