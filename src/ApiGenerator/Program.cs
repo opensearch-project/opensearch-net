@@ -200,29 +200,5 @@ namespace ApiGenerator
             }
             return defaultAnswer;
         }
-
-        /// <summary>
-        /// Since we are most likely not running in the root of the project, we need to find the root path that contains the sln
-        /// </summary>
-        /// <param name="basePath"></param>
-        /// <returns></returns>
-        private static DirectoryInfo GetRootPath(string basePath) => RecursiveFindRoot(new FileInfo(basePath).Directory);
-
-        private static DirectoryInfo RecursiveFindRoot(DirectoryInfo directory)
-        {
-            if (directory is null)
-            {
-                return null;
-            }
-
-            var file = directory.GetFiles("*.sln").FirstOrDefault(item => item.Name.Equals("OpenSearch.sln", StringComparison.OrdinalIgnoreCase));
-
-            if (file is not null)
-            {
-                return directory;
-            }
-
-            return RecursiveFindRoot(directory.Parent);
-        }
     }
 }
