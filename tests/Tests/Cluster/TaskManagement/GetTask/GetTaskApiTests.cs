@@ -89,7 +89,7 @@ namespace Tests.Cluster.TaskManagement.GetTask
 				throw new Exception("failure in setting up integration");
 
 			var createIndex = client.Indices.Create(targetIndex, i => i
-				.Settings(settings => settings.Analysis(DefaultSeeder.ProjectAnalysisSettings))
+				.Settings(DefaultSeeder.ProjectIndexSettings)
 				.Map<Project>(DefaultSeeder.ProjectTypeMappings)
 			);
 			createIndex.ShouldBeValid();
@@ -169,7 +169,7 @@ namespace Tests.Cluster.TaskManagement.GetTask
 				throw new Exception($"failure in setting up integration for {nameof(GetTaskApiCompletedTaskTests)}. {bulkResponse.DebugInformation}");
 
 			var createIndex = client.Indices.Create(targetIndex, i => i
-				.Settings(settings => settings.Analysis(DefaultSeeder.ProjectAnalysisSettings))
+				.Settings(DefaultSeeder.ProjectIndexSettings)
 				.Map<Project>(DefaultSeeder.ProjectTypeMappings)
 			);
 			createIndex.ShouldBeValid();
